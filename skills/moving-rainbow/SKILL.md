@@ -1,6 +1,6 @@
 ---
 name: moving-rainbow
-description: Generate MicroPython programs for the Moving Rainbow LED strip educational project using Raspberry Pi Pico with NeoPixel strips and button controls
+description: Generate MicroPython programs for the Moving Rainbow LED strip educational project using Raspberry Pi Pico with NeoPixel strips and button controls.
 ---
 
 # Moving Rainbow MicroPython Program Generator
