@@ -1,5 +1,5 @@
-site_name: Mkdocs Template Site
-site_description: 'DESCRIPTION All content licensed Creative Commons ShareAlike Attribution Noncommercial'
+site_name: Claude Skills for Intelligent Textbooks'
+site_description: 'A collection of skills and techniques for building intelligent textbooks using Claude AI.'
 site_author: 'Dan McCreary'
 repo_name: 'GitHub Repo'
 site_url: 'https://dmccreary.github.io/claude-skills/'
@@ -24,7 +24,8 @@ theme:
   logo: img/logo.png
   favicon: img/favicon.ico
   palette:
-    primary: 'blue'
+    # Primary color overridden in css/extra.css with Anthropic brown (RGB: 218, 120, 87)
+    primary: 'custom'
     accent: 'orange'
   include_sidebar: true
   features:
