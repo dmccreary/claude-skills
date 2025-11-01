@@ -14,14 +14,14 @@ nav:
   - References: references.md
   - Contact: contact.md
  
-# CoderDojo Microsite Standards from here down
+# Dan's Microsite Standards from here down
 
 theme:
   name: material
   extra_css:
     - styles/custom.css
   logo: img/logo.png
-  # favicon: img/my-icon.png
+  favicon: img/favicon.ico
   palette:
     primary: 'blue'
     accent: 'orange'
