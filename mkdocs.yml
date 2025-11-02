@@ -9,6 +9,7 @@ edit_uri: 'blob/master/docs'
 nav:
   - Home: index.md
   - About: about.md
+  - Course Description: course-description.md
   - Getting Started: getting-started.md
   - List of Skills: 
     - Overview: list-of-skills.md

@@ -300,6 +300,39 @@ announcement, evaluate the quality of preview images for social media posts
   - Content creation (textbooks, documentation, interactive content)
   - Quality assurance (testing, evaluation, analysis)
 
+    Should I add course description to the navigation?
+
+    Yes
+
+    I'll add the course description to the navigation in mkdocs.yml after the
+    About section.
+
+    ⏺ Read(mkdocs.yml)
+    ⎿  Read 66 lines
+
+    ⏺ Update(mkdocs.yml)
+    ⎿  Updated mkdocs.yml with 1 addition                   
+            9    nav:
+        10      - Home: index.md
+        11      - About: about.md
+        12 +    - Course Description: course-description.md
+        13      - Getting Started: getting-started.md
+        14      - List of Skills: 
+        15        - Overview: list-of-skills.md
+
+    ⏺ Done! I've added the "Course Description" navigation item after "About" in
+    mkdocs.yml. The navigation now shows:
+
+    - Home
+    - About
+    - Course Description (new)
+    - Getting Started
+    - List of Skills
+    - ...
+
+    The course-description.md file will now appear in the site navigation
+    between About and Getting Started.
+
   Next Steps
 
   ✓ Ready to proceed with learning graph generation!
