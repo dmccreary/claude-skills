@@ -9,9 +9,12 @@ TODO - create a new skill that will generate high-quality textbook structure inc
 
 ## Generating a high-quality course descriptions
 
-TODO - Create a high-quality course description tha follows the 2001 Bloom Taxonomy guidelines.
+Create a high-quality course description tha follows the 2001 Bloom Taxonomy guidelines.
 This skill can create a new course-description.md file, suggest changes to an existing course
 description file and create a quality score (1-100) on how well the course description conforms to the intelligent book guidelines.
+
+**Location:** 
+Status: Done
 
 ## Generating a learning graph
 
