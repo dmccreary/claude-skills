@@ -1,5 +1,7 @@
 # Glossary of Terms
 
+#### Intelligent Textbook
+
 #### ISO Definition
 
 A term definition is considered to be consistent with ISO metadata registry guideline 11179 if it meets the following criteria:
@@ -10,6 +12,9 @@ A term definition is considered to be consistent with ISO metadata registry guid
 4. Non-circular
 5. Unencumbered with business rules
 
-#### Term
+#### Learning Graph
 
-This is the definition of the term.
+#### Skill
+
+A package of detailed instructions for a LLM that help them achieve specific tasks.
+
