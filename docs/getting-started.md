@@ -135,14 +135,31 @@ The secret is that both the ~/.claude and your project .claude have an optional
 directory called /commands.  When you type "/skill" it will check those
 locations for a command that matches what you type.
 
+There are two steps:
+
+1. You must create a file called skills.md in the `~/.claude/commands` area.
+2. You must put a UNIX shell script (or Power shell script on Winodw) in your $PATH that will list the skills in the ~/.claude/skills area.
+
+You will find a sample UNIX shell script in the [/scripts](https://github.com/dmccreary/claude-skills/blob/main/scripts/list-skills.sh) area of my [dmccreary](https://github.com/dmccreary[) ]claude-skills](https://github.com/dmccreary/claude-skills) GitHub repo.
+
+You can use this command to install these two files.
+
 Next, you can install a custom shell script that is called when you type the /skills command.
 
 You can find a UNIX script in the `scripts/list-skills.sh`.  To bind this to the skills slash
 command you must copy the file 'commands/skills.md' into your .claude/skills area.
 
+## Installation Script for the Skills Command
+
+You will find a UNIX shell command that will install the Skills Command here:
+
+[]()
+
 ## Sample Skill Slash Command Execution
 
-I just type '/skills` into Claude Code:
+I just type '/sk` into Claude Code and you should see the code listed
+
+![](../docs/img/claude-code-skill-command.png)
 
 **Result:**
 

@@ -13,14 +13,14 @@ Create a high-quality course description tha follows the 2001 Bloom Taxonomy gui
 This skill can create a new course-description.md file, suggest changes to an existing course
 description file and create a quality score (1-100) on how well the course description conforms to the intelligent book guidelines.
 
-**Location:** 
-Status: Done
+**Location:** [https://github.com/dmccreary/claude-skills/tree/main/skills/course-description-analyzer](https://github.com/dmccreary/claude-skills/tree/main/skills/course-description-analyzer)
+**Status:** Done
 
 ## Generating a learning graph
 
 See [Learning Graph Generator](./learning-graph-generator.md)
 
-## Generating chapter content
+## Generating Chapter Content
 
 ## Generating tables, charts, maps and timelines
 
