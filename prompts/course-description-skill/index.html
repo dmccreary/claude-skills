@@ -272,6 +272,28 @@
   
   
     <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course Description
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../getting-started/" class="md-nav__link">
         
   
@@ -745,6 +767,70 @@ announcement, evaluate the quality of preview images for social media posts </p>
   descriptions)
   - Content creation (textbooks, documentation, interactive content)
   - Quality assurance (testing, evaluation, analysis)</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code>Should I add course description to the navigation?
+
+Yes
+
+I&#39;ll add the course description to the navigation in mkdocs.yml after the
+About section.
+
+⏺ Read(mkdocs.yml)
+⎿  Read 66 lines
+
+⏺ Update(mkdocs.yml)
+⎿  Updated mkdocs.yml with 1 addition                   
+        9    nav:
+    10      - Home: index.md
+    11      - About: about.md
+    12 +    - Course Description: course-description.md
+    13      - Getting Started: getting-started.md
+    14      - List of Skills: 
+    15        - Overview: list-of-skills.md
+
+⏺ Done! I&#39;ve added the &quot;Course Description&quot; navigation item after &quot;About&quot; in
+mkdocs.yml. The navigation now shows:
+
+- Home
+- About
+- Course Description (new)
+- Getting Started
+- List of Skills
+- ...
+
+The course-description.md file will now appear in the site navigation
+between About and Getting Started.
+</code></pre></div></td></tr></table></div>
 <p>Next Steps</p>
 <p>✓ Ready to proceed with learning graph generation!</p>
 <p>Your course description scored 95/100 and contains excellent coverage
