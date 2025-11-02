@@ -369,6 +369,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#installation-script-for-the-skills-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation Script for the Skills Command
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sample-skill-slash-command-execution" class="md-nav__link">
     <span class="md-ellipsis">
       Sample Skill Slash Command Execution
@@ -566,6 +575,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#installation-script-for-the-skills-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation Script for the Skills Command
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sample-skill-slash-command-execution" class="md-nav__link">
     <span class="md-ellipsis">
       Sample Skill Slash Command Execution
@@ -741,11 +759,22 @@ them for you.</p>
 <p>The secret is that both the ~/.claude and your project .claude have an optional
 directory called /commands.  When you type "/skill" it will check those
 locations for a command that matches what you type.</p>
+<p>There are two steps:</p>
+<ol>
+<li>You must create a file called skills.md in the <code>~/.claude/commands</code> area.</li>
+<li>You must put a UNIX shell script (or Power shell script on Winodw) in your $PATH that will list the skills in the ~/.claude/skills area.</li>
+</ol>
+<p>You will find a sample UNIX shell script in the <a href="https://github.com/dmccreary/claude-skills/blob/main/scripts/list-skills.sh">/scripts</a> area of my <a href="https://github.com/dmccreary[">dmccreary</a> ]claude-skills](https://github.com/dmccreary/claude-skills) GitHub repo.</p>
+<p>You can use this command to install these two files.</p>
 <p>Next, you can install a custom shell script that is called when you type the /skills command.</p>
 <p>You can find a UNIX script in the <code>scripts/list-skills.sh</code>.  To bind this to the skills slash
 command you must copy the file 'commands/skills.md' into your .claude/skills area.</p>
+<h2 id="installation-script-for-the-skills-command">Installation Script for the Skills Command</h2>
+<p>You will find a UNIX shell command that will install the Skills Command here:</p>
+<p><a href=""></a></p>
 <h2 id="sample-skill-slash-command-execution">Sample Skill Slash Command Execution</h2>
-<p>I just type '/skills` into Claude Code:</p>
+<p>I just type '/sk` into Claude Code and you should see the code listed</p>
+<p><img alt="" src="../docs/img/claude-code-skill-command.png" /></p>
 <p><strong>Result:</strong></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
