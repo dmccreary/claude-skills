@@ -2,62 +2,66 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://dmccreary.github.io/claude-skills/</loc>
-         <lastmod>2025-11-02</lastmod>
+         <lastmod>2025-11-03</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/about/</loc>
-         <lastmod>2025-11-02</lastmod>
+         <lastmod>2025-11-03</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/contact/</loc>
-         <lastmod>2025-11-02</lastmod>
+         <lastmod>2025-11-03</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/course-description/</loc>
-         <lastmod>2025-11-02</lastmod>
+         <lastmod>2025-11-03</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/getting-started/</loc>
-         <lastmod>2025-11-02</lastmod>
+         <lastmod>2025-11-03</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/glossary/</loc>
-         <lastmod>2025-11-02</lastmod>
+         <lastmod>2025-11-03</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/license/</loc>
-         <lastmod>2025-11-02</lastmod>
+         <lastmod>2025-11-03</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/list-of-skills/</loc>
-         <lastmod>2025-11-02</lastmod>
+         <lastmod>2025-11-03</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/references/</loc>
-         <lastmod>2025-11-02</lastmod>
+         <lastmod>2025-11-03</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/prompts/course-description-skill/</loc>
-         <lastmod>2025-11-02</lastmod>
+         <lastmod>2025-11-03</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/couse-description-analizer/</loc>
+         <lastmod>2025-11-03</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/faq-generator/</loc>
-         <lastmod>2025-11-02</lastmod>
+         <lastmod>2025-11-03</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/glossary-generator/</loc>
-         <lastmod>2025-11-02</lastmod>
+         <lastmod>2025-11-03</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/learning-graph-generator/</loc>
-         <lastmod>2025-11-02</lastmod>
+         <lastmod>2025-11-03</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/microsim-p5/</loc>
-         <lastmod>2025-11-02</lastmod>
+         <lastmod>2025-11-03</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/quiz-generator/</loc>
-         <lastmod>2025-11-02</lastmod>
+         <lastmod>2025-11-03</lastmod>
     </url>
 </urlset>
