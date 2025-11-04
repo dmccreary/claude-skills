@@ -604,6 +604,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#example-of-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of Usage
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -632,7 +641,6 @@
 <p class="admonition-title">Prompt</p>
 <p>Use the skill-creator skill to create a new skill called <code>book-chapter-generator</code>.
 This skill will look at the following resources:</p>
-</div>
 <h2 id="input-resources">Input Resources</h2>
 <ol>
 <li>Course Description at /docs/course-description.md</li>
@@ -674,6 +682,434 @@ chapters/03-URL-PATH-NAME/index.md
 <li>A numbered markdown list of concepts in a level 2 ## Concepts Covered section</li>
 <li>A 'TODO: Generate Chapter Content" which will be used by a future skill</li>
 </ol>
+</div>
+<h2 id="example-of-usage">Example of Usage</h2>
+<div class="admonition prompt">
+<p class="admonition-title">Prompt</p>
+<p>/skills</p>
+</div>
+<blockquote>
+<p>/skills is running… 
+  ⎿  Allowed 1 tools for this command</p>
+</blockquote>
+<p>⏺ I'll list all available Claude skills for you.</p>
+<p>⏺ Bash(~/bin/list-skills.sh --names-only)
+  ⎿  book-chapter-generator      <br />
+     course-description-analyzer
+     faq-generator
+     … +10 lines (ctrl+o to expand)</p>
+<p>⏺ Available Claude Skills (13 total)</p>
+<ol>
+<li>book-chapter-generator</li>
+<li>course-description-analyzer</li>
+<li>faq-generator</li>
+<li>glossary-generator</li>
+<li>install-learning-graph-viewer</li>
+<li>intelligent-textbook</li>
+<li>intelligent-textbook-creator</li>
+<li>learning-graph-generator</li>
+<li>microsim-p5</li>
+<li>moving-rainbow</li>
+<li>quiz-generator</li>
+<li>reference-generator</li>
+<li>skill-creator</li>
+</ol>
+<p>If you'd like more details about any specific skill, let me know and I can read its SKILL.md file
+  for you.</p>
+<div class="admonition prompt">
+<p class="admonition-title">Prompt</p>
+<p>run the book-chapter-generator skill </p>
+</div>
+<p>⏺ I'll run the book-chapter-generator skill for you.</p>
+<blockquote>
+<p>The "book-chapter-generator" skill is running </p>
+<p>The "book-chapter-generator" skill is running </p>
+</blockquote>
+<p>⏺ I'll help you generate a book chapter structure for your IT Management Graph textbook. Let me
+  start by analyzing the input resources.</p>
+<p>⏺ Read(docs/course-description.md)
+  ⎿  Read 122 lines</p>
+<p>⏺ Read(docs/learning-graph/learning-graph.json)
+  ⎿  Read 2094 lines</p>
+<p>⏺ Read(docs/learning-graph/concept-taxonomy.md)
+  ⎿  Read 189 lines</p>
+<p>⏺ I've successfully read all the input resources. Now let me analyze the learning graph to identify
+  design constraints and create an optimal chapter structure.</p>
+<p>Analysis Summary</p>
+<p>Course: IT Management Graphs - From Legacy CMDB to Modern Graph-Based Solutions (ISMG 620)
+  Total Concepts: 200
+  Taxonomy Categories: 14 categories (ITIL, RDBMS, GRAPH, GOPS, QPERF, DATA, OBSRV, COMP, BIZS,
+  ASSET, TRANS, AI, VALID, OPS)</p>
+<p>Let me analyze the dependency structure to design the chapters:</p>
+<p>⏺ Based on my analysis of the 200 concepts and their 189 dependency relationships, I've designed a
+  12-chapter structure that respects all dependencies and creates a logical learning progression
+  from legacy ITIL/CMDB concepts through relational databases to modern graph-based solutions.</p>
+<p>⏺ Proposed Chapter Structure</p>
+<p>I've designed a 12-chapter structure for your textbook covering 200 concepts.</p>
+<p>Chapters:</p>
+<ol>
+<li>Introduction to ITIL and Configuration Management (20 concepts)
+  This foundational chapter introduces ITIL framework, configuration items, CMDB concepts, and
+  traditional IT service management processes that set the stage for understanding why legacy
+  approaches have limitations.</li>
+<li>IT Asset Management Fundamentals (7 concepts)
+  This chapter covers asset management principles including IT assets, hardware assets, software
+  assets, and their relationship to configuration management.</li>
+<li>Relational Database Fundamentals (20 concepts)
+  This chapter introduces RDBMS concepts, SQL, database schemas, tables, keys, joins, and query
+  operations that form the foundation for understanding CMDB technical limitations.</li>
+<li>Graph Theory and Graph Database Foundations (18 concepts)
+  This chapter transitions from relational to graph concepts, introducing graph theory, nodes,
+  edges, property graphs, directed/undirected graphs, and DAGs.</li>
+<li>Graph Database Technologies and Query Languages (8 concepts)
+  This chapter covers practical graph database implementations including native graph storage, graph
+   layers, Neo4j, and Cypher query language.</li>
+<li>Graph Traversal and Dependency Analysis (23 concepts)
+  This chapter explores graph operations including traversal algorithms, dependency tracing, blast
+  radius analysis, impact analysis, and various dependency types for IT management.</li>
+<li>Business Services and IT Portfolio Management (12 concepts)
+  This chapter connects IT assets to business value through service mapping, business service
+  mapping, application portfolios, and digital estate management.</li>
+<li>Data Quality and Data Management Excellence (26 concepts)
+  This chapter covers data management principles, DMBOK framework, data quality dimensions,
+  governance, metadata, data lineage, and master data management essential for effective IT
+  management graphs.</li>
+<li>Query Performance and Real-Time Operations (18 concepts)
+  This chapter addresses performance considerations including real-time queries, latency,
+  scalability, graph complexity, and metrics critical for operational IT management systems.</li>
+<li>Observability, Monitoring, and Automated Discovery (13 concepts)
+  This chapter covers modern observability practices, telemetry, OpenTelemetry, eBPF, automated
+  discovery, topology mapping, and drift detection that enable self-updating IT management graphs.</li>
+<li>Compliance, Risk Management, and Security (15 concepts)
+  This chapter addresses regulatory compliance (HIPAA, GDPR, DORA), risk management, audit trails,
+  access control, and security models in the context of IT management graphs.</li>
+<li>Digital Transformation and Advanced Topics (20 concepts)
+  This final chapter covers transformation strategies, vendor management, AI-assisted curation,
+  graph RAG, knowledge graphs, validation, operational excellence, and the future of IT management
+  systems.</li>
+</ol>
+<p>Design Challenges &amp; Solutions:</p>
+<p>Challenge: The course has three major concept domains (ITIL/CMDB legacy, RDBMS fundamentals, Graph
+   databases) that must be taught in sequence
+  Solution: Structured the first 5 chapters as a clear progression from legacy (Ch 1-2) through
+  relational databases (Ch 3) to graph fundamentals (Ch 4-5)</p>
+<p>Challenge: Graph operations (GOPS category) has 23 concepts with complex inter-dependencies
+  Solution: Dedicated Chapter 6 entirely to graph traversal and dependency analysis after
+  establishing graph fundamentals in Chapters 4-5</p>
+<p>Challenge: Data management (DATA category) contains 26 concepts spanning quality, governance, and
+  operational concerns
+  Solution: Concentrated these in Chapter 8 after covering business services (Ch 7) so students
+  understand the context for why data quality matters</p>
+<p>Challenge: Several advanced topics (AI, transformation, operations) needed to come late but are
+  spread across different taxonomy categories
+  Solution: Combined AI &amp; Analytics, Transformation, Data Validation, and Operations concepts into
+  Chapter 12 as "Advanced Topics" since they all build on earlier concepts</p>
+<p>Challenge: Balancing chapter sizes while respecting dependencies
+  Solution: Most chapters have 12-23 concepts (optimal range), with only Chapter 2 (7 concepts) and
+  Chapter 5 (8 concepts) slightly below target, but these serve as important transitional chapters</p>
+<p>Challenge: Ensuring observability concepts come after monitoring fundamentals
+  Solution: Placed observability in Chapter 10 after establishing operational contexts in earlier
+  chapters</p>
+<p>Statistics:</p>
+<ul>
+<li>Total chapters: 12</li>
+<li>Average concepts per chapter: 16.7</li>
+<li>Range: 7-26 concepts per chapter</li>
+<li>All 200 concepts covered: ✓</li>
+<li>All dependencies respected: ✓</li>
+</ul>
+<p>Do you approve this chapter structure? (y/n)</p>
+<p>If no, please specify what changes you'd like:
+  - Different number of chapters?
+  - Specific concepts moved to different chapters?
+  - Chapter titles revised?
+  - Different grouping strategy?</p>
+<blockquote>
+<p>y </p>
+</blockquote>
+<p>⏺ Great! I'll now generate the chapter structure. Let me start by creating the directory structure:</p>
+<p>⏺ Bash(mkdir -p chapters/01-intro-to-itil-and-config-mgmt chapters/02-it-asset-management
+      chapters/03-relational-database-fundamentals chapters/04-graph-theory-and-dat…)
+  ⎿  (No content)</p>
+<p>⏺ Now let me create the main chapters index file:</p>
+<p>⏺ Write(chapters/index.md)
+  ⎿  Wrote 38 lines to chapters/index.md                                                         <br />
+     # Chapters
+     This textbook is organized into 12 chapters covering 200 concepts.
+     ## Chapter Overview
+     1. <a href="01-intro-to-itil-and-config-mgmt/index.md">Introduction to ITIL and Configuration 
+     Management</a> - This foundational chapter introduces
+     ITIL framework, configuration items, CMDB concepts, and traditional IT service management
+     processes that set the stage for understanding why legacy approaches have limitations.
+     2. <a href="02-it-asset-management/index.md">IT Asset Management Fundamentals</a> - This chapter covers
+     asset management principles including IT assets, hardware assets, software assets, and their
+     relationship to configuration management.
+     … +28 lines (ctrl+o to expand)</p>
+<p>⏺ Now I'll create the individual chapter index files. Let me start with Chapter 1:</p>
+<p>⏺ Write(chapters/01-intro-to-itil-and-config-mgmt/index.md)
+  ⎿  Wrote 42 lines to chapters/01-intro-to-itil-and-config-mgmt/index.md                        <br />
+     # Introduction to ITIL and Configuration Management
+     ## Summary
+     This foundational chapter introduces the Information Technology Infrastructure Library (ITIL)
+     framework and its approach to configuration management. You'll learn about configuration items,
+      the Configuration Management Database (CMDB), and traditional IT service management processes
+     including service support, service delivery, change management, incident management, and
+     problem management. This chapter establishes the historical context and legacy approaches that
+     led to the need for modern graph-based solutions, setting the stage for understanding why
+     traditional CMDB implementations have consistently failed despite decades of investment.
+     ## Concepts Covered
+     This chapter covers the following 20 concepts from the learning graph:
+     … +32 lines (ctrl+o to expand)</p>
+<p>⏺ Write(chapters/02-it-asset-management/index.md)
+  ⎿  Wrote 28 lines to chapters/02-it-asset-management/index.md                                  <br />
+     # IT Asset Management Fundamentals
+     ## Summary
+     This chapter focuses on IT asset management principles and practices, building on the
+     configuration management concepts from Chapter 1. You'll learn the distinctions between asset
+     management and configuration management, and understand how assets are categorized and tracked
+     within IT organizations. This chapter provides essential context for understanding how IT
+     resources are inventoried and managed, which becomes critical when we later explore how graph
+     databases can represent these assets and their relationships more effectively than traditional
+     approaches.
+     ## Concepts Covered
+     This chapter covers the following 7 concepts from the learning graph:
+     … +18 lines (ctrl+o to expand)</p>
+<p>⏺ Write(chapters/03-relational-database-fundamentals/index.md)
+  ⎿  Wrote 41 lines to chapters/03-relational-database-fundamentals/index.md                     <br />
+     # Relational Database Fundamentals
+     ## Summary
+     This chapter provides a comprehensive introduction to relational database management systems
+     (RDBMS), SQL, and the structural elements that define relational databases including schemas,
+     tables, keys, and joins. You'll learn how RDBMS systems store and query data, understand the
+     role of indexes and query optimization, and explore concepts like schema rigidity and
+     evolution. This technical foundation is essential for understanding why traditional CMDBs built
+      on RDBMS technology struggle with the complex relationship management required for modern IT
+     estates, particularly when handling transitive dependencies and multi-hop queries.
+     ## Concepts Covered
+     This chapter covers the following 20 concepts from the learning graph:
+     … +31 lines (ctrl+o to expand)</p>
+<p>⏺ Write(chapters/04-graph-theory-and-database-foundations/index.md)
+  ⎿  Wrote 39 lines to chapters/04-graph-theory-and-database-foundations/index.md                <br />
+     # Graph Theory and Graph Database Foundations
+     ## Summary
+     This chapter marks the transition from relational to graph-based thinking by introducing
+     fundamental graph theory concepts and their application to database systems. You'll learn about
+      nodes, edges, vertices, relationships, and property graphs, understanding how these structures
+      naturally represent connected data. The chapter covers different types of graphs including
+     directed and undirected graphs, and introduces Directed Acyclic Graphs (DAGs) which are
+     particularly important for dependency management. You'll also explore graph traversal
+     fundamentals and basic graph algorithms that form the foundation for the advanced dependency
+     analysis covered in later chapters.
+     ## Concepts Covered
+     This chapter covers the following 18 concepts from the learning graph:
+     … +29 lines (ctrl+o to expand)</p>
+<p>⏺ Write(chapters/05-graph-database-technologies/index.md)
+  ⎿  Wrote 29 lines to chapters/05-graph-database-technologies/index.md                          <br />
+     # Graph Database Technologies and Query Languages
+     ## Summary
+     This chapter moves from graph theory to practical graph database implementation by examining
+     different approaches to storing and querying graph data. You'll learn the critical distinction
+     between native graph storage and graph layers built on top of relational databases,
+     understanding the performance implications of each approach. The chapter introduces Neo4j as a
+     leading native graph database platform and teaches Cypher query language, providing hands-on
+     skills for working with graph databases. You'll also explore how graph queries enable pattern
+     matching and relationship-based querying that would be cumbersome or impossible in SQL.
+     ## Concepts Covered
+     This chapter covers the following 8 concepts from the learning graph:
+     … +19 lines (ctrl+o to expand)</p>
+<p>⏺ Write(chapters/06-graph-traversal-and-dependency-analysis/index.md)
+  ⎿  Wrote 45 lines to chapters/06-graph-traversal-and-dependency-analysis/index.md              <br />
+     # Graph Traversal and Dependency Analysis
+     ## Summary
+     This comprehensive chapter explores how graph traversal techniques enable sophisticated
+     dependency analysis for IT management. You'll learn how to trace dependencies upstream and
+     downstream, calculate blast radius for change impact, perform root cause analysis, and map
+     complex dependency chains. The chapter covers various types of dependencies including service
+     dependencies, application dependencies, and infrastructure dependencies, while teaching
+     practical techniques for detecting circular dependencies and managing dependency maps. This
+     represents the core capability that makes graph databases superior to relational systems for IT
+      management, enabling real-time transitive dependency analysis that would require complex
+     recursive joins in SQL.
+     ## Concepts Covered
+     This chapter covers the following 23 concepts from the learning graph:
+     … +35 lines (ctrl+o to expand)</p>
+<p>⏺ Write(chapters/07-business-services-and-portfolio/index.md)
+  ⎿  Wrote 34 lines to chapters/07-business-services-and-portfolio/index.md                      <br />
+     # Business Services and IT Portfolio Management
+     ## Summary
+     This chapter connects technical IT infrastructure to business value by exploring how business
+     and technical services are defined, mapped, and managed. You'll learn how service mapping
+     techniques link technical resources to business capabilities, enabling organizations to
+     understand the business impact of technical changes. The chapter covers application portfolio
+     management, digital estate concepts, IT portfolio management, and service level agreements
+     (SLAs), showing how graph-based approaches provide the real-time visibility needed to manage
+     complex service dependencies and ensure business continuity.
+     ## Concepts Covered
+     This chapter covers the following 12 concepts from the learning graph:
+     … +24 lines (ctrl+o to expand)</p>
+<p>⏺ Write(chapters/08-data-quality-and-management/index.md)
+  ⎿  Wrote 47 lines to chapters/08-data-quality-and-management/index.md                          <br />
+     # Data Quality and Data Management Excellence
+     ## Summary
+     This chapter addresses the critical importance of data quality and governance for effective IT
+     management graphs. You'll learn about the DMBOK (Data Management Body of Knowledge) framework
+     and its application to IT management data, exploring data quality dimensions including
+     accuracy, completeness, consistency, timeliness, and validity. The chapter covers essential
+     data management concepts including metadata, data lineage, data catalogs, master data
+     management, and reference data. You'll understand the roles of data stewards, data owners, and
+     data custodians, and learn how policy enforcement and access control protect sensitive IT
+     management information. This foundation is essential because even the most sophisticated graph
+     database is only as valuable as the quality of data it contains.
+     ## Concepts Covered
+     This chapter covers the following 26 concepts from the learning graph:
+     … +37 lines (ctrl+o to expand)</p>
+<p>⏺ Write(chapters/09-query-performance-and-real-time-ops/index.md)
+  ⎿  Wrote 40 lines to chapters/09-query-performance-and-real-time-ops/index.md                  <br />
+     # Query Performance and Real-Time Operations
+     ## Summary
+     This chapter examines the performance characteristics that make graph databases suitable for
+     real-time operational IT management. You'll learn about real-time query capabilities, query
+     latency, response time metrics, and the performance implications of different query approaches.
+      The chapter explores scalability patterns including horizontal and vertical scaling, and
+     introduces graph-specific metrics such as graph complexity, graph density, node degree,
+     in-degree, and out-degree. You'll understand how these metrics affect query performance and
+     system design, and learn why native graph databases can execute complex multi-hop queries in
+     sub-second timeframes while equivalent SQL queries with recursive joins may take minutes or
+     fail entirely. This performance advantage is fundamental to enabling real-time impact analysis
+     during incidents.
+     ## Concepts Covered
+     This chapter covers the following 18 concepts from the learning graph:
+     … +30 lines (ctrl+o to expand)</p>
+<p>⏺ Write(chapters/10-observability-and-automated-discovery/index.md)
+  ⎿  Wrote 35 lines to chapters/10-observability-and-automated-discovery/index.md                <br />
+     # Observability, Monitoring, and Automated Discovery
+     ## Summary
+     This chapter explores how modern observability practices and automated discovery tools can
+     continuously update IT management graphs without manual intervention. You'll learn about
+     observability fundamentals, monitoring systems, telemetry collection, and cutting-edge
+     technologies like OpenTelemetry and eBPF (Extended Berkeley Packet Filter) that enable
+     automated dependency discovery. The chapter covers network topology, service topology, dynamic
+     topology mapping, and techniques for configuration drift detection. You'll understand how these
+      automated approaches address one of the key failures of traditional CMDBs, which relied on
+     manual data entry and quickly became outdated, by enabling self-updating IT management graphs
+     that reflect the true current state of the IT environment.
+     ## Concepts Covered
+     This chapter covers the following 13 concepts from the learning graph:
+     … +25 lines (ctrl+o to expand)</p>
+<p>⏺ Write(chapters/11-compliance-risk-and-security/index.md)
+  ⎿  Wrote 37 lines to chapters/11-compliance-risk-and-security/index.md                         <br />
+     # Compliance, Risk Management, and Security
+     ## Summary
+     This chapter addresses how IT management graphs support regulatory compliance, risk management,
+      and security governance in modern organizations. You'll learn about major regulatory
+     frameworks including HIPAA (Health Insurance Portability and Accountability Act), GDPR (General
+      Data Protection Regulation), and DORA (Digital Operational Resilience Act), understanding how
+     graph-based dependency analysis enables continuous compliance checking. The chapter covers
+     audit trails, compliance reporting, risk assessment methodologies, and security models
+     including role-based access control (RBAC). You'll understand how graph traversal queries can
+     instantly identify all systems processing regulated data, trace data flows across system
+     boundaries, and verify that security controls are properly configured throughout the IT estate,
+      capabilities that are critical for demonstrating compliance to auditors and regulators.
+     ## Concepts Covered
+     This chapter covers the following 15 concepts from the learning graph:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code> … +27 lines (ctrl+o to expand)
+</code></pre></div></td></tr></table></div>
+<p>⏺ Write(chapters/12-digital-transformation-and-advanced-topics/index.md)
+  ⎿  Wrote 43 lines to chapters/12-digital-transformation-and-advanced-topics/index.md           <br />
+     # Digital Transformation and Advanced Topics
+     ## Summary
+     This final chapter synthesizes earlier concepts and explores advanced topics for implementing
+     IT management graphs at enterprise scale. You'll learn about digital transformation strategies,
+      IT modernization initiatives, and practical migration approaches for moving from legacy CMDB
+     systems to graph-based solutions. The chapter covers vendor management and evaluation of major
+     platforms including ServiceNow, Dynatrace, and Atlassian, helping you make build-versus-buy
+     decisions and calculate total cost of ownership (TCO) and return on investment (ROI). Advanced
+     topics include AI-assisted curation, graph RAG (Retrieval Augmented Generation), knowledge
+     graphs, and semantic models that enhance IT management graphs with machine learning
+     capabilities. You'll also explore business rules, exception reporting, anomaly detection, and
+     operational metrics that enable continuous improvement and operational excellence in managing
+     modern digital estates.
+     ## Concepts Covered
+     This chapter covers the following 20 concepts from the learning graph:
+     … +33 lines (ctrl+o to expand)</p>
+<p>⏺ Now let me update the mkdocs.yml navigation. First, let me read the current file:</p>
+<p>⏺ Read(mkdocs.yml)
+  ⎿  Read 81 lines</p>
+<p>⏺ Now I'll update the mkdocs.yml file to add the Chapters section:</p>
+<p>⏺ Update(mkdocs.yml)
+  ⎿  Updated mkdocs.yml with 14 additions                                                      <br />
+       10      - Home: index.md
+       11      - About: about.md
+       12      - Course Description: course-description.md
+       13 +    - Chapters:
+       14 +      - Overview: chapters/index.md
+       15 +      - Chapter 1 - Introduction to ITIL and Configuration Management: 
+          + chapters/01-intro-to-itil-and-config-mgmt/index.md
+       16 +      - Chapter 2 - IT Asset Management Fundamentals: 
+          + chapters/02-it-asset-management/index.md
+       17 +      - Chapter 3 - Relational Database Fundamentals: 
+          + chapters/03-relational-database-fundamentals/index.md
+       18 +      - Chapter 4 - Graph Theory and Graph Database Foundations: 
+          + chapters/04-graph-theory-and-database-foundations/index.md
+       19 +      - Chapter 5 - Graph Database Technologies and Query Languages: 
+          + chapters/05-graph-database-technologies/index.md
+       20 +      - Chapter 6 - Graph Traversal and Dependency Analysis: 
+          + chapters/06-graph-traversal-and-dependency-analysis/index.md
+       21 +      - Chapter 7 - Business Services and IT Portfolio Management: 
+          + chapters/07-business-services-and-portfolio/index.md
+       22 +      - Chapter 8 - Data Quality and Data Management Excellence: 
+          + chapters/08-data-quality-and-management/index.md
+       23 +      - Chapter 9 - Query Performance and Real-Time Operations: 
+          + chapters/09-query-performance-and-real-time-ops/index.md
+       24 +      - Chapter 10 - Observability, Monitoring, and Automated Discovery: 
+          + chapters/10-observability-and-automated-discovery/index.md
+       25 +      - Chapter 11 - Compliance, Risk Management, and Security: 
+          + chapters/11-compliance-risk-and-security/index.md
+       26 +      - Chapter 12 - Digital Transformation and Advanced Topics: 
+          + chapters/12-digital-transformation-and-advanced-topics/index.md
+       27      - Learning Graph:
+       28        - Introduction: learning-graph/index.md
+       29        - Course Description Assessment: learning-graph/course-description-assessment.md</p>
+<p>⏺ Perfect! Chapter structure generated successfully!</p>
+<p>Summary</p>
+<p>I've successfully created the complete chapter structure for your IT Management Graph textbook:</p>
+<p>Created Files:</p>
+<ul>
+<li>chapters/index.md (main chapter overview)</li>
+<li>12 chapter directories with index files:<ul>
+<li>01-intro-to-itil-and-config-mgmt/index.md (20 concepts)</li>
+<li>02-it-asset-management/index.md (7 concepts)</li>
+<li>03-relational-database-fundamentals/index.md (20 concepts)</li>
+<li>04-graph-theory-and-database-foundations/index.md (18 concepts)</li>
+<li>05-graph-database-technologies/index.md (8 concepts)</li>
+<li>06-graph-traversal-and-dependency-analysis/index.md (23 concepts)</li>
+<li>07-business-services-and-portfolio/index.md (12 concepts)</li>
+<li>08-data-quality-and-management/index.md (26 concepts)</li>
+<li>09-query-performance-and-real-time-ops/index.md (18 concepts)</li>
+<li>10-observability-and-automated-discovery/index.md (13 concepts)</li>
+<li>11-compliance-risk-and-security/index.md (15 concepts)</li>
+<li>12-digital-transformation-and-advanced-topics/index.md (20 concepts)</li>
+</ul>
+</li>
+<li>Updated mkdocs.yml with complete chapter navigation</li>
+</ul>
+<p>Next Steps:</p>
+<ol>
+<li>Review the chapter structure: Run mkdocs serve and navigate to the Chapters section</li>
+<li>Each chapter index.md has "TODO: Generate Chapter Content" as a placeholder</li>
+<li>Use a chapter content generation skill (when ready) to populate each chapter with detailed
+  content</li>
+<li>All 200 concepts are assigned and all dependencies are respected</li>
+</ol>
+<p>Statistics:</p>
+<ul>
+<li>Total chapters: 12</li>
+<li>Total concepts assigned: 200</li>
+<li>All dependencies respected: ✓</li>
+<li>Average concepts per chapter: 16.7</li>
+<li>Range: 7-26 concepts per chapter</li>
+</ul>
+<p>The chapter structure is now ready for content generation!</p>
 
 
 
