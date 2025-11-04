@@ -219,7 +219,7 @@ For each chapter, create a URL-friendly path name:
 Create the following directory structure:
 
 ```
-chapters/
+/docs/chapters/
 ├── index.md
 ├── 01-[url-path-name]/
 │   └── index.md
@@ -232,15 +232,15 @@ chapters/
 
 **Implementation:**
 ```bash
-mkdir -p chapters
-mkdir -p chapters/01-[url-path-name]
-mkdir -p chapters/02-[url-path-name]
+mkdir -p /docs/chapters
+mkdir -p /docs/chapters/01-[url-path-name]
+mkdir -p /docs/chapters/02-[url-path-name]
 # ... continue for all chapters
 ```
 
 #### 4.3 Create Main Chapters Index
 
-Create `chapters/index.md` with:
+Create `/docs/chapters/index.md` with:
 
 ```markdown
 # Chapters
@@ -264,7 +264,7 @@ This textbook is organized into [X] chapters covering [Y] concepts.
 
 #### 4.4 Create Individual Chapter Index Files
 
-For each chapter, create `chapters/[XX]-[url-path-name]/index.md` with this structure:
+For each chapter, create `/docs/chapters/[XX]-[url-path-name]/index.md` with this structure:
 
 ```markdown
 # [Chapter Title]
