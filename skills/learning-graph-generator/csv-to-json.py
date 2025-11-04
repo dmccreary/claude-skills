@@ -29,17 +29,18 @@ def csv_to_json(csv_path: str, json_path: str, color_config: dict = None, metada
         # Text codes
         'FOUND': 'red',
         'DEF': 'orange',
-        'CORE': 'yellow',
+        'CORE': 'gold',
         'INTER': 'green',
         'ADV': 'blue',
         'APPL': 'cyan',
         'SPEC': 'indigo',
-        'CAP': 'violet',
-        'MISC': 'gray',
+        'PROJ': 'violet',
+        'CAP': 'gray',
+        'MISC': 'indigo',
         # Numeric IDs (same mapping)
         '1': 'red',
         '2': 'orange',
-        '3': 'yellow',
+        '3': 'gold',
         '4': 'green',
         '5': 'blue',
         '6': 'cyan',
@@ -51,30 +52,32 @@ def csv_to_json(csv_path: str, json_path: str, color_config: dict = None, metada
 
     taxonomy_colors = color_config if color_config is not None else default_colors
 
-    # Taxonomy ID to group name mapping
+    # Taxonomy ID to classifier name mapping
     # Supports both text codes (FOUND, DEF, etc.) and numeric IDs (1, 2, etc.)
+    # These are the display names (classifierName in schema) for each taxonomy
     taxonomy_names = {
         # Text codes
-        'FOUND': 'Foundation',
+        'FOUND': 'Foundation Concepts',
         'DEF': 'Definitions',
-        'CORE': 'Core',
+        'CORE': 'Core Concepts',
         'INTER': 'Intermediate',
         'ADV': 'Advanced',
         'APPL': 'Applied',
         'SPEC': 'Specialized',
-        'CAP': 'Capstone',
-        'MISC': 'Miscellaneous',
+        'CAP': 'Capstone Projects',
+        'PROJ': 'Project Ideas',
+        'MISC': 'Miscellaneous Concepts',
         # Numeric IDs (common mapping)
-        '1': 'Foundation',
+        '1': 'Foundation Concepts',
         '2': 'Definitions',
-        '3': 'Core',
+        '3': 'Core Concepts',
         '4': 'Intermediate',
         '5': 'Advanced',
         '6': 'Applied',
         '7': 'Specialized',
-        '8': 'Capstone',
-        '9': 'Miscellaneous',
-        '10': 'Extended',
+        '8': 'Capstone Projects',
+        '9': 'Miscellaneous Concepts',
+        '10': 'Extended Topics',
     }
 
     # Read CSV
@@ -96,14 +99,11 @@ def csv_to_json(csv_path: str, json_path: str, color_config: dict = None, metada
             if is_foundational:
                 foundational_ids.append(concept_id)
 
-            # Convert taxonomy ID to group name
-            group_name = taxonomy_names.get(taxonomy, taxonomy)
-
-            # Create node
+            # Create node - use taxonomy ID directly as group reference
             node = {
                 'id': concept_id,
                 'label': label,
-                'group': group_name
+                'group': taxonomy
             }
 
             # Special styling for foundational concepts
@@ -141,19 +141,22 @@ def csv_to_json(csv_path: str, json_path: str, color_config: dict = None, metada
     # Create groups section from taxonomy colors
     groups = {}
 
-    # Determine which group names are actually used
-    used_groups = set(node['group'] for node in nodes)
+    # Determine which taxonomy IDs are actually used
+    used_taxonomies = set(node['group'] for node in nodes)
 
     for tax_id, color in taxonomy_colors.items():
-        group_name = taxonomy_names.get(tax_id, tax_id)
         # Only include groups that are actually used
-        if group_name in used_groups:
+        if tax_id in used_taxonomies:
+            # Get the classifier name for this taxonomy
+            classifier_name = taxonomy_names.get(tax_id, tax_id)
+
             # Determine font color based on background color
             # Dark colors need white text
             dark_colors = ['red', 'blue', 'indigo', 'violet', 'cyan']
             font_color = 'white' if color in dark_colors else 'black'
 
-            groups[group_name] = {
+            groups[tax_id] = {
+                'classifierName': classifier_name,
                 'color': color,
                 'font': {
                     'color': font_color
@@ -190,31 +193,32 @@ def create_taxonomy_legend(color_config: dict = None, taxonomy_names: dict = Non
 
     Args:
         color_config: Dictionary mapping taxonomy IDs to colors
-        taxonomy_names: Dictionary mapping taxonomy IDs to full names
+        taxonomy_names: Dictionary mapping taxonomy IDs to classifier names
     """
     default_colors = {
         'FOUND': 'red',
         'DEF': 'orange',
-        'CORE': 'yellow',
-        'INTER': 'treen',
+        'CORE': 'gold',
+        'INTER': 'green',
         'ADV': 'blue',
         'APPL': 'cyan',
         'SPEC': 'indigo',
-        'CAP': 'violet',
-        'MISC': 'gray',
+        'PROJ': 'violet',
+        'CAP': 'gray',
+        'MISC': 'indigo',
     }
 
     default_names = {
         'FOUND': 'Foundation Concepts',
-        'DEF': 'Definitional Concepts',
+        'DEF': 'Definitions',
         'CORE': 'Core Concepts',
-        'INTER': 'Intermediate Topics',
-        'ADV': 'Advanced Topics',
-        'APPL': 'Applied Concepts',
-        'SPEC': 'Specialized Topics',
-        'CAP': 'Capstone Projects Ideas',
-        'MISC': 'Miscellaneous',
-
+        'INTER': 'Intermediate',
+        'ADV': 'Advanced',
+        'APPL': 'Applied',
+        'SPEC': 'Specialized',
+        'PROJ': 'Project Ideas',
+        'CAP': 'Capstone Projects',
+        'MISC': 'Miscellaneous Concepts',
     }
 
     colors = color_config if color_config is not None else default_colors

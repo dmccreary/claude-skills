@@ -69,7 +69,7 @@ Use this workflow when `/docs/course-description.md` exists.
 
 Read `/docs/course-description.md` and analyze its contents against the quality criteria.
 
-### 2.2 Quality Scoring System
+### 2.2 Course Description Quality Scoring System
 
 Evaluate the course description using this 100-point scoring system:
 

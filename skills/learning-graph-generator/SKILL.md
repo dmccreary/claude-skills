@@ -18,7 +18,7 @@ Follow these steps carefully:
 
 ## Mkdocs Navigation Rules
 
-After you add a markdown file (any file with an extenion `.md`) make sure to add that file
+After you add a markdown file (any file with an extension `.md`) make sure to add that file
 to the navigation structure in the mkdocs.yml file.  Here is an example of the nav section
 for the learning graph section:
 
@@ -67,6 +67,36 @@ First, analyze the provided course description at [course-description.md](../cou
    - Objective overall quality assessment on a scale of (1-poor to 100-perfect)
    - Suggest that the user does not proceed unless a quality score is 70 or above
 
+Use the following rubric for creating a quality score:
+
+### 2.2 Course Description Quality Scoring System
+
+Evaluate the course description using this 100-point scoring system:
+
+| Element | Points | Criteria |
+|---------|--------|----------|
+| **Title** | 5 | Clear, descriptive course title present |
+| **Target Audience** | 5 | Specific audience identified (e.g., "college undergraduate") |
+| **Prerequisites** | 5 | Prerequisites listed or explicitly stated as "None" |
+| **Main Topics Covered** | 10 | Comprehensive list of topics (ideally 5-10 topics) |
+| **Topics Excluded** | 5 | Clear boundaries set for what's NOT covered |
+| **Learning Outcomes Header** | 5 | Clear statement: "After this course, students will be able to..." |
+| **Remember Level** | 10 | Multiple specific outcomes for remembering/recalling |
+| **Understand Level** | 10 | Multiple specific outcomes for understanding/explaining |
+| **Apply Level** | 10 | Multiple specific outcomes for applying/using |
+| **Analyze Level** | 10 | Multiple specific outcomes for analyzing/breaking down |
+| **Evaluate Level** | 10 | Multiple specific outcomes for evaluating/judging |
+| **Create Level** | 10 | Multiple specific outcomes for creating/synthesizing; includes capstone ideas |
+| **Descriptive Context** | 5 | Additional context about course importance, relevance, or value |
+
+**Scoring Guidelines:**
+- Award full points if element is complete and high-quality
+- Award partial points if element is present but incomplete or vague
+- Award 0 points if element is missing
+- For Bloom's Taxonomy levels, require at least 3 specific, actionable outcomes for full points
+
+Tell user what their score was and suggest they improve the course description until the score goes above 70.
+
 Save this report to [course-description-assessment.md](./course-description-assessment.md)
 
 5. **Ask the user if you should proceed** with generating the learning graph
@@ -107,11 +137,8 @@ Create a CSV file mapping dependencies between concepts:
 - The graph must be a Directed Acyclic Graph (DAG) - no cycles
 - Create meaningful learning pathways, not just linear chains
 - Consider prerequisite relationships carefully
-- Next, run the csv-to-json.py program.  
-- `python csv-to-json.py learning-graph.csv learning-graph.json`
-It will read the [learning-graph.csv](./learning-graph.csv) and return a [learning-graph.json](./learning-graph.json) file in vis-network.js format
 
-Verify that the file [learning-graph.json](./learning-graph.json) is present and is a valid JSON file.
+**Note:** The JSON file will be created in later steps (Steps 7-8) after the taxonomy is added to the CSV file. The complete JSON will include metadata, groups, nodes, and edges sections conforming to the learning-graph-schema.json.
 
 ## Step 4: Learning Graph Quality Validation
 
@@ -131,7 +158,7 @@ Shell command `python analyze-graph.py learning-graph.csv quality-metrics.md`
 
 Verify the report has been written to [quality-metrics.md](./quality-metrics.md)
 
-**Generate quality metrics report:**
+**Generate the learning graph quality metrics report:**
 - Total concepts with zero dependencies - outbound arrows (foundational prerequisites)
 - Total concepts with 1+ dependencies
 - Average number of dependencies per concept
@@ -151,14 +178,15 @@ Develop a categorical taxonomy for organizing concepts:
 - Target: ~12 categories (can vary by 2-3 if natural groupings emerge)
 - Categories should evenly distribute concepts
 - Avoid having any single category exceed 30% of total concepts
-- Use clear, descriptive category names
+- Use clear, descriptive category names with title case and spaces
 - Create 3-5 letter abbreviations for each category (TaxonomyID)
+- Note that a JSON representation of the taxonomy will be created to form the groups section of the learning graph
 
 **Output:**
 - Save taxonomy to [concept-taxonomy.md](./concept-taxonomy.md)
 - Format as markdown with:
   - Category name
-  - TaxonomyID abbreviation
+  - TaxonomyID abbreviation (3-5 letters uppercase)
   - Brief description of what concepts belong in this category
 
 ## Step 6: Add Taxonomy to CSV
@@ -175,7 +203,146 @@ that will do the substitution.
 
 **Final CSV columns:** `ConceptID,ConceptLabel,Dependencies,TaxonomyID`
 
-## Step 7: Taxonomy Distribution Report
+## Step 7: Create the `metadata` section of the learning-graph.json file
+
+The metadata section contains Dublin Core-inspired fields for the textbook extracted from the course-description.md file. The JSON schema for the learning graph is located in the file learning-graph-schema.json within this skill.
+
+**Required fields:**
+- `title`: Extract from the course description title
+- `description`: Extract or summarize from the course description
+
+**Optional but recommended fields:**
+- `creator`: Author or organization name
+- `date`: Current date in YYYY-MM-DD format
+- `version`: Version number (e.g., "1.0")
+- `format`: "Learning Graph JSON v1.0"
+- `schema`: URL to the JSON schema
+- `license`: License information (e.g., "CC BY-NC-SA 4.0 DEED")
+
+Here is an example of the metadata section:
+
+```json
+"metadata": {
+    "title": "Title Text From Course Description",
+    "description": "A description of the course in a few sentences.",
+    "creator": "Your Name",
+    "date": "2025-11-01",
+    "version": "1.0",
+    "format": "Learning Graph JSON v1.0",
+    "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+    "license": "CC BY-NC-SA 4.0 DEED"
+  }
+```
+
+You can create a metadata.json file with these fields to pass to the csv-to-json.py program in Step 9.
+
+## Step 8: Create the groups section of the JSON file
+
+Convert the taxonomy categories into JSON format for the groups section of the learning-graph.json file. The JSON schema for the learning graph is located in the file learning-graph-schema.json within this skill.
+
+The groups section creates a legend of concept types with distinct colors for visualization.
+
+**Important:**
+- The groups section uses taxonomy IDs (e.g., "FOUND", "DEF") as keys
+- Each group must have a `classifierName` field containing the human-readable name (e.g., "Foundation Concepts")
+- Each group must have a `color` field (CSS color value)
+- Each group should have a `font` object with a `color` field for text readability
+
+**Key structure:**
+- **Group key**: Use the TaxonomyID from the CSV (uppercase, no spaces, e.g., "FOUND")
+- **classifierName**: Display name with Title Case and spaces (e.g., "Foundation Concepts")
+- **color**: Choose distinct colors for each taxonomy
+- **font.color**: "white" for dark backgrounds, "black" for light backgrounds
+
+Below is an example of the groups section:
+
+```json
+"groups": {
+    "FOUND": {
+      "classifierName": "Foundation Concepts",
+      "color": "red",
+      "font": {
+        "color": "white"
+      }
+    },
+    "DEF": {
+      "classifierName": "Definitions",
+      "color": "orange",
+      "font": {
+        "color": "black"
+      }
+    },
+    "CORE": {
+      "classifierName": "Core Concepts",
+      "color": "gold",
+      "font": {
+        "color": "black"
+      }
+    },
+    "INTER": {
+      "classifierName": "Intermediate",
+      "color": "green",
+      "font": {
+        "color": "white"
+      }
+    },
+    "ADV": {
+      "classifierName": "Advanced",
+      "color": "blue",
+      "font": {
+        "color": "white"
+      }
+    },
+    "MISC": {
+      "classifierName": "Miscellaneous Concepts",
+      "color": "indigo",
+      "font": {
+        "color": "white"
+      }
+    },
+    "PROJ": {
+      "classifierName": "Project Ideas",
+      "color": "violet",
+      "font": {
+        "color": "white"
+      }
+    },
+    "CAP": {
+      "classifierName": "Capstone Projects",
+      "color": "gray",
+      "font": {
+        "color": "white"
+      }
+    }
+  }
+```
+
+**Note:** The csv-to-json.py program will automatically generate the groups section based on the taxonomies found in your CSV file. You can customize colors by creating an optional color-config.json file.
+
+## Step 9: Generate the Complete Learning Graph JSON
+
+Now that you have created the metadata.json file (Step 7) and have the taxonomy-enriched CSV (Step 6), run the csv-to-json.py program to generate the complete learning-graph.json file:
+
+```bash
+python csv-to-json.py learning-graph.csv learning-graph.json metadata.json
+```
+
+This command will:
+1. Read the learning-graph.csv file (with ConceptID, ConceptLabel, Dependencies, TaxonomyID columns)
+2. Use the metadata from metadata.json
+3. Auto-generate the groups section based on the taxonomies in the CSV
+4. Create nodes with proper group references (using TaxonomyIDs)
+5. Create edges based on the dependencies
+6. Output a complete learning-graph.json file conforming to the schema
+
+Verify that the file [learning-graph.json](./learning-graph.json) is present and valid.
+
+Optional: You can validate the JSON against the schema using:
+```bash
+./validate-learning-graph.sh learning-graph.json
+```
+
+## Step 10: Taxonomy Distribution Report
 
 Generate a distribution analysis:
 
@@ -194,13 +361,13 @@ Use the python report in this skill called taxonomy-distribution.py
   - Count
   - Percentage
 
-## Step 8: Create new index.md from index-template.md
+## Step 11: Create new index.md from index-template.md
 
 Create a new `index.md` file in the learning-graph directory from the file index-template.md in this skill.
 Customize the new index.md file to reflect the name of this intelligent book.  Look for values in all uppercase (TEXTBOOK_NAME)
 and replace them with the appropriate values.
 
-## Step 9: Completion
+## Step 12: Completion
 
 Inform the user that the learning graph generation is complete! Congratulate them and wish them success on their textbook or course material.
 
@@ -208,10 +375,12 @@ Inform the user that the learning graph generation is complete! Congratulate the
 - [course-description-assessment.md](./course-description-assessment.md) - quality assessment of the course description
 - [concept-list.md](./concept-list.md) - Numbered list of 200 concepts
 - [learning-graph.csv](./learning-graph.csv) - Full dependency graph with taxonomy
-- [learning-graph.json](./learning-graph.json) - Full dependency graph in vis-network.js JSON format
+- [metadata.json](./metadata.json) - Metadata for the learning graph (title, description, creator, etc.)
+- [learning-graph.json](./learning-graph.json) - Complete learning graph with metadata, groups, nodes, and edges in vis-network.js JSON format
 - [concept-taxonomy.md](./concept-taxonomy.md) - Category definitions
 - [quality-metrics.md](./quality-metrics.md) - Quality validation report
 - [taxonomy-distribution.md](./taxonomy-distribution.md) - Category distribution analysis
+- [index.md](./index.md) - Introduction page for the learning graph section
 
 ---
 
