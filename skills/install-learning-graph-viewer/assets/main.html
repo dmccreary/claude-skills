@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learning Graph Viewer for TITLE</title>
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <link rel="stylesheet" href="local.css">
+</head>
+
+<body>
+  <div id="sidebar-container">
+    <button id="toggle-button" onclick="toggleSidebar()">&#9776;</button>
+
+    <div id="sidebar">
+      <h3>Legend & Controls</h3>
+
+      <div class="control-buttons">
+        <button onclick="checkAllGroups()">Check All</button>
+        <button onclick="uncheckAllGroups()">Uncheck All</button>
+      </div>
+
+      <table class="legend-table" id="legend-table">
+        <!-- Legend will be dynamically generated from learning-graph.json -->
+      </table>
+
+      <h3>Graph Statistics</h3>
+      <ul class="stats-list">
+        <li><b>Nodes:</b> <span id="nodeCount">0</span></li>
+        <li><b>Edges:</b> <span id="edgeCount">0</span></li>
+        <li><b>Orphans:</b> <span id="orphanCount">0</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="main">
+    <h4 id="graph-title">Learning Graph Viewer for TITLE</h4>
+
+    <div id="search-container">
+      <input type="text" id="search-input" placeholder="Search nodes by name...">
+      <div id="search-results"></div>
+    </div>
+
+    <div id="mynetwork"></div>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
