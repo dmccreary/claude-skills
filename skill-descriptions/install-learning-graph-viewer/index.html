@@ -357,6 +357,51 @@
   
   
   
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/index.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../glossary/" class="md-nav__link">
         
@@ -475,6 +520,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#step-2-replace-the-title-in-the-mainhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Replace the TITLE in the main.html
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-update-the-mkdocsyml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Update the mkdocs.yml file
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -515,6 +578,16 @@ This skill installs an interactive learning graph viewer application into an
 <li>script.js</li>
 </ol>
 <p>This is a vis-network application with a legend and search.</p>
+<h2 id="step-2-replace-the-title-in-the-mainhtml">Step 2: Replace the TITLE in the main.html</h2>
+<p>This step pulls the title from the learning-graph.json metadata title and places
+it in the main.html file.</p>
+<h2 id="step-3-update-the-mkdocsyml-file">Step 3: Update the mkdocs.yml file</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code> - MicroSims:
+    - List of MicroSims: sims/index.md
+    - Graph Viewer: sims/graph-viewer/in
+</code></pre></div></td></tr></table></div>
 
 
 
