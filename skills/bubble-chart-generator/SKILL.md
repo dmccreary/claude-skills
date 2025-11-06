@@ -148,6 +148,7 @@ If the chart is part of a MkDocs site, create comprehensive documentation:
 
 1. **Title and overview**: Brief description of the visualization
 2. **Embedded iframe**: Display the chart inline
+3  **Link to Fullscreen:** Markdown link to main.html with 
 3. **Interpretation guide**: Explain how to read the chart
 4. **Features section**: List interactive elements
 5. **Customization guide**: Detailed instructions for modifying:
