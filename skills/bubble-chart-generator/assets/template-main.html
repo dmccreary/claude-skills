@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Chart Title] - Priority Matrix</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="chart-container">
+        <canvas id="priorityMatrix"></canvas>
+    </div>
+    <div class="legend-container">
+        <h3>Quadrant Analysis</h3>
+        <div class="quadrant">
+            <div class="quadrant-label high-impact-low-effort">High Impact, Low Effort (Priority 1)</div>
+            <ul id="q1-items"></ul>
+        </div>
+        <div class="quadrant">
+            <div class="quadrant-label high-impact-high-effort">High Impact, High Effort (Priority 2)</div>
+            <ul id="q2-items"></ul>
+        </div>
+        <div class="quadrant">
+            <div class="quadrant-label low-impact-low-effort">Low Impact, Low Effort (Priority 3)</div>
+            <ul id="q3-items"></ul>
+        </div>
+        <div class="quadrant">
+            <div class="quadrant-label low-impact-high-effort">Low Impact, High Effort (Priority 4)</div>
+            <ul id="q4-items"></ul>
+        </div>
+    </div>
+
+    <script>
+        // TODO: Replace with actual data
+        const data = [
+            { type: 'item-1', count: 10, xValue: 6.7, yValue: 1, status: 'Category A' },
+            { type: 'item-2', count: 5, xValue: 3.3, yValue: 0, status: 'Category B' },
+            // Add more items...
+        ];
+
+        // TODO: Customize colors for your categories
+        const colors = {
+            'Category A': 'rgba(220, 53, 69, 0.8)',
+            'Category B': 'rgba(40, 167, 69, 0.8)'
+        };
+
+        const borderColors = {
+            'Category A': 'rgb(220, 53, 69)',
+            'Category B': 'rgb(40, 167, 69)'
+        };
+
+        // Calculate bubble sizes
+        const minCount = Math.min(...data.map(d => d.count));
+        const maxCount = Math.max(...data.map(d => d.count));
+
+        function getBubbleSize(count) {
+            const minSize = 8;
+            const maxSize = 30;
+            return minSize + ((count - minCount) / (maxCount - minCount)) * (maxSize - minSize);
+        }
+
+        // Prepare scatter plot data
+        const scatterData = data.map(item => ({
+            x: item.xValue,
+            y: item.yValue,
+            r: getBubbleSize(item.count),
+            label: item.type,
+            count: item.count,
+            status: item.status
+        }));
+
+        // Group by status/category
+        const uniqueStatuses = [...new Set(data.map(d => d.status))];
+        const datasets = uniqueStatuses.map(status => ({
+            label: status,
+            data: scatterData.filter(d => d.status === status),
+            backgroundColor: colors[status],
+            borderColor: borderColors[status],
+            borderWidth: 2
+        }));
+
+        // Create chart
+        const ctx = document.getElementById('priorityMatrix').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'bubble',
+            data: {
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                aspectRatio: 1.5,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '[Chart Title]', // TODO: Customize title
+                        font: {
+                            size: 18,
+                            weight: 'bold'
+                        },
+                        padding: 20
+                    },
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            font: {
+                                size: 12
+                            },
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const item = context.raw;
+                                return [
+                                    `Type: ${item.label}`,
+                                    `Count: ${item.count}`,
+                                    `Y-Value: ${item.y}`,
+                                    `X-Value: ${item.x}`,
+                                    `Status: ${item.status}`
+                                ];
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'X-Axis Label →', // TODO: Customize label
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        min: 0,
+                        max: 10,
+                        ticks: {
+                            stepSize: 1
+                        },
+                        grid: {
+                            color: 'rgba(200, 200, 200, 0.2)'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Y-Axis Label →', // TODO: Customize label
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        min: 0,
+                        max: 10,
+                        ticks: {
+                            stepSize: 1
+                        },
+                        grid: {
+                            color: 'rgba(200, 200, 200, 0.2)'
+                        }
+                    }
+                }
+            },
+            plugins: [{
+                afterDraw: function(chart) {
+                    const ctx = chart.ctx;
+                    const chartArea = chart.chartArea;
+                    const xMid = (chartArea.left + chartArea.right) / 2;
+                    const yMid = (chartArea.top + chartArea.bottom) / 2;
+
+                    // Draw quadrant backgrounds
+                    ctx.save();
+                    ctx.globalAlpha = 0.05;
+
+                    // TODO: Customize quadrant colors
+                    ctx.fillStyle = 'green';  // High Y, Low X
+                    ctx.fillRect(chartArea.left, chartArea.top, xMid - chartArea.left, yMid - chartArea.top);
+
+                    ctx.fillStyle = 'yellow';  // High Y, High X
+                    ctx.fillRect(xMid, chartArea.top, chartArea.right - xMid, yMid - chartArea.top);
+
+                    ctx.fillStyle = 'lightblue';  // Low Y, Low X
+                    ctx.fillRect(chartArea.left, yMid, xMid - chartArea.left, chartArea.bottom - yMid);
+
+                    ctx.fillStyle = 'red';  // Low Y, High X
+                    ctx.fillRect(xMid, yMid, chartArea.right - xMid, chartArea.bottom - yMid);
+                    ctx.restore();
+
+                    // Add labels to each point
+                    chart.data.datasets.forEach((dataset, datasetIndex) => {
+                        const meta = chart.getDatasetMeta(datasetIndex);
+                        meta.data.forEach((element, index) => {
+                            const dataPoint = dataset.data[index];
+                            ctx.fillStyle = '#333';
+                            ctx.font = 'bold 10px Arial';
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            ctx.fillText(
+                                `${dataPoint.label} (n=${dataPoint.count})`,
+                                element.x,
+                                element.y - element.options.radius - 8
+                            );
+                        });
+                    });
+                }
+            }]
+        });
+
+        // Populate quadrant analysis lists
+        function populateQuadrants() {
+            const q1 = document.getElementById('q1-items'); // High Y, Low X
+            const q2 = document.getElementById('q2-items'); // High Y, High X
+            const q3 = document.getElementById('q3-items'); // Low Y, Low X
+            const q4 = document.getElementById('q4-items'); // Low Y, High X
+
+            data.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${item.type}</strong> (Y: ${item.yValue}, X: ${item.xValue}, Count: ${item.count})`;
+
+                // Determine quadrant (using 5 as midpoint)
+                if (item.yValue > 5 && item.xValue <= 5) {
+                    q1.appendChild(li);
+                } else if (item.yValue > 5 && item.xValue > 5) {
+                    q2.appendChild(li);
+                } else if (item.yValue <= 5 && item.xValue <= 5) {
+                    q3.appendChild(li);
+                } else {
+                    q4.appendChild(li);
+                }
+            });
+
+            // Add "None" message if quadrant is empty
+            [q1, q2, q3, q4].forEach(ul => {
+                if (ul.children.length === 0) {
+                    const li = document.createElement('li');
+                    li.textContent = 'None';
+                    li.style.color = '#888';
+                    ul.appendChild(li);
+                }
+            });
+        }
+
+        populateQuadrants();
+    </script>
+</body>
+</html>
