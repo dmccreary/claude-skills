@@ -48,6 +48,24 @@ Examples:
 2. **Sets**: 2-4 distinct categories/sets to compare
 3. **Relationships**: Understanding of which sets overlap and how
 4. **Context**: Educational purpose or subject area
+5. **Definitions**: Educational definitions for each set and intersection (for tooltips)
+
+**Check for Existing Definitions (IMPORTANT):**
+
+Before asking the user for definitions, check if `/docs/glossary.md` exists and contains definitions for the set terms:
+
+1. **Read the glossary file** if it exists: `Read /docs/glossary.md`
+2. **Extract relevant definitions** for each set/term in the diagram
+3. **Use glossary definitions** if available - they are ISO 11179-compliant and ensure consistency
+4. **Only ask the user** if definitions are missing or unclear
+
+**Example glossary lookup:**
+```
+If creating diagram for "AI, Machine Learning, Deep Learning":
+- Search glossary.md for "Artificial Intelligence", "Machine Learning", "Deep Learning"
+- Extract the definitions
+- Use them directly in the definitions object
+```
 
 **If the description is incomplete or unclear**, prompt the user for additional information:
 
@@ -58,7 +76,16 @@ To create an accurate Venn diagram, I need more information:
 2. What items or characteristics are shared between sets?
 3. Are there any items unique to each set?
 4. What's the educational purpose of this diagram?
+5. (Only if not in glossary) How would you define each set and their overlaps?
 ```
+
+**Priority for Definitions:**
+
+1. **First**: Check `/docs/glossary.md` for existing definitions
+2. **Second**: Use definitions provided by the user
+3. **Third**: Create concise, educational definitions based on context
+
+**Note on Definitions:** Using glossary definitions ensures consistency across the textbook and leverages existing ISO 11179-compliant content. Every hover interaction becomes a teaching moment that reinforces concepts from the glossary.
 
 ### Step 2: Design the Venn Diagram Data
 
@@ -128,6 +155,7 @@ Copy `assets/template/script.js` and replace placeholders:
 
 - `{{VENN_DATA}}`: Replace with the actual sets array (from Step 2)
 - `{{COLOR_SCHEME}}`: Replace with color configuration array
+- **`{{DEFINITIONS}}`**: Create educational definitions object (see Educational Tooltips below)
 
 **Example color scheme format:**
 ```javascript
@@ -137,6 +165,58 @@ var colorScheme = [
   {set: 'Java', color: '#4facfe'}
 ];
 ```
+
+**Educational Tooltips (CRITICAL):**
+
+Always create a definitions object that maps sets to educational content. Replace meaningless size values with definitions that explain what each region represents.
+
+```javascript
+// Example definitions object
+var definitions = {
+    'Python': 'High-level language known for readability and data science',
+    'JavaScript': 'Language that runs in browsers for web interactivity',
+    'Java': 'Platform-independent language used in enterprise applications',
+    'JavaScript,Python': 'Both are dynamically typed and interpreted languages',
+    'Java,Python': 'Both support object-oriented programming with classes',
+    'Java,JavaScript': 'Both use C-like syntax and are widely adopted',
+    'Java,JavaScript,Python': 'All three support variables, loops, and functions'
+};
+
+// Helper function to retrieve definitions
+function getDefinition(sets) {
+    var key = sets.sort().join(',');
+    return definitions[key] || sets.join(" ∩ ");
+}
+
+// Use in tooltip (NOT d.size)
+.on("mouseover", function(event, d) {
+    tooltip.html(getDefinition(d.sets));  // Educational content
+})
+```
+
+**Definition Guidelines:**
+
+1. **Concise**: Keep under 100 characters (1 sentence ideal)
+2. **Meaningful**: Focus on concepts, not numbers or technical details
+3. **Educational**: Explain relationships for intersections
+4. **Accessible**: Use language appropriate for target audience
+5. **Consistent**: Maintain similar tone and structure across all definitions
+
+**Good vs Bad Examples:**
+
+✅ **Good**: "Systems that simulate human intelligence and decision-making"
+✅ **Good**: "Overlap: Methods combining statistical analysis with AI"
+
+❌ **Bad**: "Size: 150" (not educational)
+❌ **Bad**: "This is the intersection of sets A and B containing 40 elements" (too technical)
+❌ **Bad**: "Machine learning algorithms are techniques that..." (too long)
+
+**Why This Matters:**
+
+- Makes diagrams self-documenting for students
+- Provides immediate context without reading external docs
+- Reinforces learning objectives through interaction
+- Transforms every hover into a teaching moment
 
 **Important:** Ensure proper JavaScript syntax - the data will be embedded directly into the script.
 
@@ -322,6 +402,43 @@ Next steps:
 
 ## Best Practices
 
+### Educational Tooltips - Primary Best Practice
+
+**ALWAYS use educational definitions in tooltips instead of size values.** This is the most important improvement for educational Venn diagrams.
+
+**The Problem:**
+Default venn.js examples display size values like "150 users" which provide no educational value. Students see numbers instead of learning content.
+
+**The Solution:**
+Create a definitions object that maps each set and intersection to a clear, concise educational definition:
+
+```javascript
+var definitions = {
+    'AI': 'Systems that simulate human intelligence, reasoning, and decision-making',
+    'ML': 'Algorithms that learn patterns from data without explicit programming',
+    'Deep Learning': 'Neural networks with multiple layers that learn complex representations',
+    'AI,ML': 'Machine Learning is a subset of AI that focuses on learning from data',
+    'ML,Deep Learning': 'Deep Learning is a specialized form of ML using neural networks',
+    'AI,ML,Deep Learning': 'Deep Learning represents the intersection of AI and ML approaches'
+};
+
+function getDefinition(sets) {
+    var key = sets.sort().join(',');
+    return definitions[key] || sets.join(" ∩ ");
+}
+```
+
+**Implementation Pattern:**
+
+1. Create definitions object with all possible set combinations
+2. Keep each definition under 100 characters (1 sentence)
+3. Focus on meaning and relationships, not technical details
+4. Use accessible language for your target audience
+5. Use `getDefinition(d.sets)` in tooltip, NOT `d.size`
+
+**Impact:**
+Every hover interaction becomes a teaching moment that reinforces learning objectives and provides immediate context.
+
 ### Design Principles
 
 1. **Clarity over Complexity**:
@@ -483,6 +600,7 @@ var sets = [
 ### Bundled References
 
 - **`references/venn-js-reference.md`**: Comprehensive venn.js guide with examples, data formats, styling options, color palettes, and troubleshooting
+- **`ai-ml-dl-examplejs.js`**: Complete working example demonstrating educational tooltips with definitions for AI, ML, and Deep Learning relationships. Shows proper implementation of the definitions pattern.
 
 ### Bundled Templates
 
@@ -546,6 +664,22 @@ var colorScheme = [
   {set: 'Machine Learning', color: '#764ba2'},
   {set: 'Data Science', color: '#f093fb'}
 ];
+
+// Educational tooltips
+var definitions = {
+    'AI': 'Systems that simulate human intelligence and decision-making',
+    'Machine Learning': 'Algorithms that learn patterns from data without explicit programming',
+    'Data Science': 'Field combining statistics, analysis, and domain expertise to extract insights',
+    'AI,Machine Learning': 'ML is a core approach within AI for building intelligent systems',
+    'AI,Data Science': 'AI techniques applied to data analysis and predictive modeling',
+    'Data Science,Machine Learning': 'ML provides the algorithms that data scientists use for analysis',
+    'AI,Data Science,Machine Learning': 'The intersection where intelligent systems learn from data'
+};
+
+function getDefinition(sets) {
+    var key = sets.sort().join(',');
+    return definitions[key] || sets.join(" ∩ ");
+}
 ```
 
 **Set Relationships:**
@@ -593,11 +727,13 @@ var colorScheme = [
 
 This skill works well with other intelligent textbook skills:
 
-- **glossary-generator**: Define terms used in set labels
-- **learning-graph-generator**: Visualize concept dependencies as Venn diagrams
-- **chapter-content-generator**: Embed diagrams in chapter content
-- **quiz-generator**: Create questions about set relationships
-- **microsim-p5**: Use Venn diagrams for static visualizations, p5.js for dynamic simulations
+- **glossary-generator**: **PRIMARY INTEGRATION** - Always check `/docs/glossary.md` first for ISO 11179-compliant definitions to use in tooltips. This ensures consistency across the textbook and reinforces glossary terms through interactive hover experiences.
+- **learning-graph-generator**: Visualize concept dependencies as Venn diagrams showing prerequisite relationships
+- **chapter-content-generator**: Embed diagrams in chapter content with iframe integration
+- **quiz-generator**: Create questions about set relationships shown in the diagram
+- **microsim-p5**: Use Venn diagrams for static set visualizations, p5.js for dynamic simulations
+
+**Best Practice:** When creating Venn diagrams for an existing textbook project, always check the glossary first. This creates a cohesive learning experience where glossary terms are reinforced through multiple touchpoints (definitions, diagrams, quizzes).
 
 ## Version History
 

@@ -382,6 +382,78 @@ d3.selectAll("#venn .venn-circle path")
     .style("fill", "red");
 ```
 
+### Critical Rules for venn.js Hover Interactions
+
+  1. Never Modify Fill Colors During Interactions
+
+  - Set fill colors once during initialization
+  - Never change fill property in mouseover/mouseout handlers
+  - The venn.sortAreas() function can interfere with dynamic color changes
+
+  2. Only Modify Opacity Values
+
+  Use fill-opacity and stroke-opacity for hover effects:
+  // CORRECT - Change opacity only
+  .on("mouseover", function(event, d) {
+      selection.select("path")
+          .style("fill-opacity", d.sets.length == 1 ? 0.4 : 0.1)
+          .style("stroke-opacity", 1);
+  })
+
+  // WRONG - Don't change fill color
+  .on("mouseover", function(event, d) {
+      selection.select("path")
+          .style("fill", "#FF0000")  // ❌ Don't do this!
+  })
+
+  3. Use Low Opacity Values for Text Readability
+
+  Follow the official venn.js example pattern:
+  - Resting state: Single sets = 0.25, Intersections = 0.0
+  - Hover state: Single sets = 0.4, Intersections = 0.1
+
+  High opacity (0.75-0.85) makes text labels unreadable, especially on dark colors.
+
+  4. Use Named Transitions
+
+  Use .transition("tooltip") instead of .transition() to avoid conflicts:
+  var selection = d3.select(this).transition("tooltip").duration(400);
+
+  5. Don't Reapply Styles After sortAreas()
+
+  - Calling venn.sortAreas(div, d) reorders DOM elements
+  - Do not reapply fill colors or text styling after this call
+  - The library handles this internally
+
+  6. Reference Official Examples
+
+  When in doubt, always check the official examples at:
+  https://github.com/benfred/venn.js/tree/master/examples
+
+  Especially intersection_tooltip.html for the canonical hover pattern.
+
+  ### Complete Working Pattern:
+
+  // Set colors once during initialization
+  div.selectAll("g").select("path")
+      .style("fill", function(d) { return getColor(d); });
+
+  // Hover: change opacity only
+  div.selectAll("g")
+      .on("mouseover", function(event, d) {
+          venn.sortAreas(div, d);
+          var selection = d3.select(this).transition("tooltip").duration(400);
+          selection.select("path")
+              .style("fill-opacity", d.sets.length == 1 ? 0.4 : 0.1)
+              .style("stroke-opacity", 1);
+      })
+      .on("mouseout", function(event, d) {
+          var selection = d3.select(this).transition("tooltip").duration(400);
+          selection.select("path")
+              .style("fill-opacity", d.sets.length == 1 ? 0.25 : 0.0)
+              .style("stroke-opacity", 0);
+      });
+
 ## Resources
 
 - **GitHub Repository**: https://github.com/benfred/venn.js
