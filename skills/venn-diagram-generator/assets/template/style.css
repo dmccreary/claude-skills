@@ -1,0 +1,190 @@
+/* Venn Diagram MicroSim Stylesheet */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+header .subtitle {
+    font-size: 18px;
+    opacity: 0.95;
+}
+
+main {
+    padding: 20px;
+}
+
+.diagram-container {
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 30px;
+    margin-bottom: 30px;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#venn {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Venn diagram circle styling */
+#venn .venn-circle path {
+    fill-opacity: 0.75;
+    stroke: #333;
+    stroke-width: 2px;
+}
+
+#venn .venn-circle text {
+    fill: #333;
+    font-size: 16px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+#venn .venn-intersection path {
+    fill-opacity: 0.85;
+}
+
+#venn .venn-intersection text {
+    fill: #333;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+/* Tooltip styling */
+.venntooltip {
+    position: absolute;
+    text-align: center;
+    width: auto;
+    min-width: 80px;
+    padding: 10px;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.description {
+    margin-top: 30px;
+}
+
+.description h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #667eea;
+}
+
+.description p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    border-top: 1px solid #e0e0e0;
+}
+
+footer a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    header .subtitle {
+        font-size: 16px;
+    }
+
+    .diagram-container {
+        padding: 20px;
+        min-height: 300px;
+    }
+
+    #venn {
+        max-width: 100%;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: white;
+        padding: 0;
+    }
+
+    .container {
+        box-shadow: none;
+    }
+
+    header {
+        background: #667eea;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    footer {
+        page-break-before: avoid;
+    }
+}

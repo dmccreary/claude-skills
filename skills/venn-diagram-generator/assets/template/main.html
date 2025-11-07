@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}}</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- D3.js v7 - Required dependency for venn.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+    <!-- venn.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/venn.js/0.2.20/venn.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{TITLE}}</h1>
+            <p class="subtitle">{{SUBTITLE}}</p>
+        </header>
+
+        <main>
+            <div class="diagram-container">
+                <div id="venn"></div>
+            </div>
+
+            <div class="description">
+                <h2>About This Diagram</h2>
+                <p>{{DESCRIPTION}}</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Generated with <a href="https://github.com/benfred/venn.js" target="_blank">venn.js</a> and <a href="https://d3js.org/" target="_blank">D3.js</a></p>
+            <p><a href=".">Back to Lesson Plan</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

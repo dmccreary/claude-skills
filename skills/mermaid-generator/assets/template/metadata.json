@@ -1,0 +1,22 @@
+{
+  "title": "{{TITLE}}",
+  "description": "{{DESCRIPTION}}",
+  "subject": "{{SUBJECT}}",
+  "creator": "Claude AI with Mermaid Generator Skill",
+  "date": "{{DATE}}",
+  "type": "Interactive Workflow Diagram",
+  "format": "text/html",
+  "language": "en-US",
+  "coverage": "{{COVERAGE}}",
+  "rights": "Educational Use",
+  "audience": "{{AUDIENCE}}",
+  "diagram_type": "flowchart",
+  "direction": "TD",
+  "node_count": "{{NODE_COUNT}}",
+  "edge_count": "{{EDGE_COUNT}}",
+  "concepts": [
+    {{CONCEPTS_LIST}}
+  ],
+  "bloom_taxonomy": "{{BLOOM_LEVEL}}",
+  "version": "1.0"
+}

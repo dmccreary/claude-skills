@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}}</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{TITLE}}</h1>
+            <p class="subtitle">{{SUBTITLE}}</p>
+        </header>
+
+        <main>
+            <div class="diagram-container">
+                <div class="mermaid">
+{{MERMAID_CODE}}
+                </div>
+            </div>
+
+            <div class="description">
+                <h2>About This Diagram</h2>
+                <p>{{DESCRIPTION}}</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Generated with <a href="https://mermaid.js.org/" target="_blank">Mermaid.js</a></p>
+        </footer>
+    </div>
+</body>
+</html>
