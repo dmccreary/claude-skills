@@ -24,6 +24,7 @@ This repository contains a comprehensive set of skills for building Level 2 inte
 - **FAQ Generation** - Build comprehensive FAQ sections from course content
 - **MicroSim Creation** - Develop interactive p5.js educational simulations
 - **Intelligent Textbook Workflows** - Complete end-to-end textbook creation pipelines
+- **MCP Servers** - Zero-token tools for efficient operations (NEW!)
 
 ## Available Skills
 
@@ -42,6 +43,10 @@ This repository contains a comprehensive set of skills for building Level 2 inte
 
 ### Hardware Projects
 - **moving-rainbow** - Generates MicroPython programs for Raspberry Pi Pico with NeoPixel LED strips
+
+### MCP Servers (Zero-Token Tools)
+- **skills-lister** - Lists all available Claude skills with zero token usage via MCP
+  - See [mcp-servers/README.md](mcp-servers/README.md) for setup instructions
 
 ## Getting Started
 
@@ -87,6 +92,8 @@ claude-skills/
 │   ├── glossary-generator/
 │   ├── intelligent-textbook/
 │   └── ...
+├── mcp-servers/            # MCP servers for zero-token operations
+│   └── skills-lister/     # Lists skills with 0 tokens
 ├── scripts/                 # Utility scripts
 ├── docs/                    # MkDocs documentation
 └── README.md

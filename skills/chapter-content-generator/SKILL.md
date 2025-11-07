@@ -137,7 +137,7 @@ Elements requiring `<details>` specification blocks:
 For each `<details>` block element, use this structure:
 
 ```xml
-<details>
+<details markdown="1">
     <summary>Brief descriptive title</summary>
     Type: [element-type]
 
