@@ -1,0 +1,2018 @@
+{
+  "metadata": {
+    "title": "Using Claude Skills to Create Intelligent Textbooks",
+    "description": "A comprehensive course on leveraging Claude Skills to create intelligent, interactive textbooks that enhance learning through AI-assisted content generation, from course conception through deployment.",
+    "creator": "Claude AI Learning Graph Generator",
+    "date": "2025-11-08",
+    "version": "1.0",
+    "format": "Learning Graph JSON v1.0",
+    "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+    "license": "CC BY-NC-SA 4.0 DEED"
+  },
+  "groups": {
+    "AIFND": {
+      "classifierName": "AI Foundations",
+      "color": "red",
+      "font": {
+        "color": "white"
+      }
+    },
+    "SKILL": {
+      "classifierName": "Claude Skills System",
+      "color": "orange",
+      "font": {
+        "color": "black"
+      }
+    },
+    "IBOOK": {
+      "classifierName": "Intelligent Textbooks",
+      "color": "gold",
+      "font": {
+        "color": "black"
+      }
+    },
+    "MKDOC": {
+      "classifierName": "MkDocs Platform",
+      "color": "yellow",
+      "font": {
+        "color": "black"
+      }
+    },
+    "GRAPH": {
+      "classifierName": "Learning Graphs",
+      "color": "green",
+      "font": {
+        "color": "white"
+      }
+    },
+    "EDTHY": {
+      "classifierName": "Educational Theory",
+      "color": "cyan",
+      "font": {
+        "color": "black"
+      }
+    },
+    "CONTE": {
+      "classifierName": "Content Creation",
+      "color": "blue",
+      "font": {
+        "color": "white"
+      }
+    },
+    "RSRCE": {
+      "classifierName": "Educational Resources",
+      "color": "purple",
+      "font": {
+        "color": "white"
+      }
+    },
+    "INTER": {
+      "classifierName": "Interactive Elements",
+      "color": "magenta",
+      "font": {
+        "color": "white"
+      }
+    },
+    "VERCT": {
+      "classifierName": "Version Control",
+      "color": "brown",
+      "font": {
+        "color": "white"
+      }
+    },
+    "TOOLS": {
+      "classifierName": "Development Tools",
+      "color": "gray",
+      "font": {
+        "color": "white"
+      }
+    },
+    "DATAS": {
+      "classifierName": "Data & Scripting",
+      "color": "indigo",
+      "font": {
+        "color": "white"
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "label": "What is Artificial Intelligence",
+      "group": "AIFND",
+      "shape": "box"
+    },
+    {
+      "id": 2,
+      "label": "What is Claude AI",
+      "group": "AIFND"
+    },
+    {
+      "id": 3,
+      "label": "Large Language Models Overview",
+      "group": "AIFND"
+    },
+    {
+      "id": 4,
+      "label": "Anthropic Claude Pro Account",
+      "group": "AIFND"
+    },
+    {
+      "id": 5,
+      "label": "Claude Code Interface",
+      "group": "AIFND"
+    },
+    {
+      "id": 6,
+      "label": "What is a Claude Skill",
+      "group": "SKILL"
+    },
+    {
+      "id": 7,
+      "label": "Skill Definition File Structure",
+      "group": "SKILL"
+    },
+    {
+      "id": 8,
+      "label": "YAML Frontmatter in Skills",
+      "group": "SKILL"
+    },
+    {
+      "id": 9,
+      "label": "Skill Name and Description",
+      "group": "SKILL"
+    },
+    {
+      "id": 10,
+      "label": "Skill License Information",
+      "group": "SKILL"
+    },
+    {
+      "id": 11,
+      "label": "Allowed Tools in Skills",
+      "group": "SKILL"
+    },
+    {
+      "id": 12,
+      "label": "Skill Workflow Instructions",
+      "group": "SKILL"
+    },
+    {
+      "id": 13,
+      "label": "Installing a Claude Skill",
+      "group": "SKILL"
+    },
+    {
+      "id": 14,
+      "label": "Listing Available Skills",
+      "group": "SKILL"
+    },
+    {
+      "id": 15,
+      "label": "Invoking Skills with Slash Commands",
+      "group": "SKILL"
+    },
+    {
+      "id": 16,
+      "label": "Skill Execution Context",
+      "group": "SKILL"
+    },
+    {
+      "id": 17,
+      "label": "What is a Claude Command",
+      "group": "SKILL"
+    },
+    {
+      "id": 18,
+      "label": "Command Definition Files",
+      "group": "SKILL"
+    },
+    {
+      "id": 19,
+      "label": "Installing Claude Commands",
+      "group": "SKILL"
+    },
+    {
+      "id": 20,
+      "label": "Difference Between Skills & Commands",
+      "group": "SKILL"
+    },
+    {
+      "id": 21,
+      "label": "Skill Directory Structure",
+      "group": "SKILL"
+    },
+    {
+      "id": 22,
+      "label": "Supporting Assets in Skills",
+      "group": "SKILL"
+    },
+    {
+      "id": 23,
+      "label": "Python Scripts in Skills",
+      "group": "SKILL"
+    },
+    {
+      "id": 24,
+      "label": "Template Files in Skills",
+      "group": "SKILL"
+    },
+    {
+      "id": 25,
+      "label": "Reference Documentation in Skills",
+      "group": "SKILL"
+    },
+    {
+      "id": 26,
+      "label": "What is an Intelligent Textbook",
+      "group": "IBOOK",
+      "shape": "box"
+    },
+    {
+      "id": 27,
+      "label": "Five Levels of Textbook Intelligence",
+      "group": "IBOOK"
+    },
+    {
+      "id": 28,
+      "label": "Level 1: Static Content",
+      "group": "IBOOK"
+    },
+    {
+      "id": 29,
+      "label": "Level 2: Hyperlinked Navigation",
+      "group": "IBOOK"
+    },
+    {
+      "id": 30,
+      "label": "Level 3: Interactive Elements",
+      "group": "IBOOK"
+    },
+    {
+      "id": 31,
+      "label": "Level 4: Adaptive Content",
+      "group": "IBOOK"
+    },
+    {
+      "id": 32,
+      "label": "Level 5: AI Personalization",
+      "group": "IBOOK"
+    },
+    {
+      "id": 33,
+      "label": "What is MkDocs",
+      "group": "MKDOC"
+    },
+    {
+      "id": 34,
+      "label": "MkDocs Material Theme",
+      "group": "MKDOC"
+    },
+    {
+      "id": 35,
+      "label": "MkDocs Configuration File",
+      "group": "MKDOC"
+    },
+    {
+      "id": 36,
+      "label": "Navigation Structure in MkDocs",
+      "group": "MKDOC"
+    },
+    {
+      "id": 37,
+      "label": "Markdown Formatting Basics",
+      "group": "MKDOC",
+      "shape": "box"
+    },
+    {
+      "id": 38,
+      "label": "Admonitions in MkDocs",
+      "group": "MKDOC"
+    },
+    {
+      "id": 39,
+      "label": "What is a Learning Graph",
+      "group": "GRAPH"
+    },
+    {
+      "id": 40,
+      "label": "Concept Nodes in Learning Graphs",
+      "group": "GRAPH"
+    },
+    {
+      "id": 41,
+      "label": "Dependency Edges in Learning Graphs",
+      "group": "GRAPH"
+    },
+    {
+      "id": 42,
+      "label": "Directed Acyclic Graph (DAG)",
+      "group": "GRAPH"
+    },
+    {
+      "id": 43,
+      "label": "Prerequisite Relationships",
+      "group": "GRAPH"
+    },
+    {
+      "id": 44,
+      "label": "Concept Dependencies",
+      "group": "GRAPH"
+    },
+    {
+      "id": 45,
+      "label": "Learning Pathways",
+      "group": "GRAPH"
+    },
+    {
+      "id": 46,
+      "label": "What is a Course Description",
+      "group": "EDTHY"
+    },
+    {
+      "id": 47,
+      "label": "Target Audience Definition",
+      "group": "EDTHY"
+    },
+    {
+      "id": 48,
+      "label": "Course Prerequisites",
+      "group": "EDTHY"
+    },
+    {
+      "id": 49,
+      "label": "Main Topics Covered",
+      "group": "EDTHY"
+    },
+    {
+      "id": 50,
+      "label": "Topics Excluded from Course",
+      "group": "EDTHY"
+    },
+    {
+      "id": 51,
+      "label": "Learning Outcomes",
+      "group": "EDTHY"
+    },
+    {
+      "id": 52,
+      "label": "What is Bloom's Taxonomy",
+      "group": "EDTHY"
+    },
+    {
+      "id": 53,
+      "label": "Bloom's 2001 Revision",
+      "group": "EDTHY"
+    },
+    {
+      "id": 54,
+      "label": "Remember (Cognitive Level 1)",
+      "group": "EDTHY"
+    },
+    {
+      "id": 55,
+      "label": "Understand (Cognitive Level 2)",
+      "group": "EDTHY"
+    },
+    {
+      "id": 56,
+      "label": "Apply (Cognitive Level 3)",
+      "group": "EDTHY"
+    },
+    {
+      "id": 57,
+      "label": "Analyze (Cognitive Level 4)",
+      "group": "EDTHY"
+    },
+    {
+      "id": 58,
+      "label": "Evaluate (Cognitive Level 5)",
+      "group": "EDTHY"
+    },
+    {
+      "id": 59,
+      "label": "Create (Cognitive Level 6)",
+      "group": "EDTHY"
+    },
+    {
+      "id": 60,
+      "label": "Action Verbs for Learning Outcomes",
+      "group": "EDTHY"
+    },
+    {
+      "id": 61,
+      "label": "Course Description Quality Score",
+      "group": "EDTHY"
+    },
+    {
+      "id": 62,
+      "label": "Assessing Course Descriptions",
+      "group": "EDTHY"
+    },
+    {
+      "id": 63,
+      "label": "Concept Enumeration Process",
+      "group": "GRAPH"
+    },
+    {
+      "id": 64,
+      "label": "Generating 200 Concepts",
+      "group": "GRAPH"
+    },
+    {
+      "id": 65,
+      "label": "Concept Label Requirements",
+      "group": "GRAPH"
+    },
+    {
+      "id": 66,
+      "label": "Title Case Convention",
+      "group": "GRAPH"
+    },
+    {
+      "id": 67,
+      "label": "Maximum Character Length",
+      "group": "GRAPH"
+    },
+    {
+      "id": 68,
+      "label": "Concept Granularity",
+      "group": "GRAPH"
+    },
+    {
+      "id": 69,
+      "label": "Atomic Concepts",
+      "group": "GRAPH"
+    },
+    {
+      "id": 70,
+      "label": "Dependency Mapping Process",
+      "group": "GRAPH"
+    },
+    {
+      "id": 71,
+      "label": "CSV File Format for Graphs",
+      "group": "DATAS"
+    },
+    {
+      "id": 72,
+      "label": "Pipe-Delimited Dependencies",
+      "group": "DATAS"
+    },
+    {
+      "id": 73,
+      "label": "ConceptID Field",
+      "group": "DATAS"
+    },
+    {
+      "id": 74,
+      "label": "ConceptLabel Field",
+      "group": "DATAS"
+    },
+    {
+      "id": 75,
+      "label": "Dependencies Field",
+      "group": "DATAS"
+    },
+    {
+      "id": 76,
+      "label": "Foundational Concepts",
+      "group": "GRAPH"
+    },
+    {
+      "id": 77,
+      "label": "Prerequisite Concepts",
+      "group": "GRAPH"
+    },
+    {
+      "id": 78,
+      "label": "Advanced Concepts",
+      "group": "GRAPH"
+    },
+    {
+      "id": 79,
+      "label": "Circular Dependency Detection",
+      "group": "GRAPH"
+    },
+    {
+      "id": 80,
+      "label": "DAG Validation",
+      "group": "GRAPH"
+    },
+    {
+      "id": 81,
+      "label": "Self-Dependency Checking",
+      "group": "GRAPH"
+    },
+    {
+      "id": 82,
+      "label": "Quality Metrics for Graphs",
+      "group": "GRAPH"
+    },
+    {
+      "id": 83,
+      "label": "Orphaned Nodes",
+      "group": "GRAPH"
+    },
+    {
+      "id": 84,
+      "label": "Disconnected Subgraphs",
+      "group": "GRAPH"
+    },
+    {
+      "id": 85,
+      "label": "Linear Chain Detection",
+      "group": "GRAPH"
+    },
+    {
+      "id": 86,
+      "label": "Indegree Analysis",
+      "group": "GRAPH"
+    },
+    {
+      "id": 87,
+      "label": "Outdegree Analysis",
+      "group": "GRAPH"
+    },
+    {
+      "id": 88,
+      "label": "Average Dependencies Per Concept",
+      "group": "GRAPH"
+    },
+    {
+      "id": 89,
+      "label": "Maximum Dependency Chain Length",
+      "group": "GRAPH"
+    },
+    {
+      "id": 90,
+      "label": "Learning Graph Quality Score",
+      "group": "GRAPH"
+    },
+    {
+      "id": 91,
+      "label": "What is a Taxonomy",
+      "group": "DATAS",
+      "shape": "box"
+    },
+    {
+      "id": 92,
+      "label": "Concept Categorization",
+      "group": "DATAS"
+    },
+    {
+      "id": 93,
+      "label": "Taxonomy Categories",
+      "group": "DATAS"
+    },
+    {
+      "id": 94,
+      "label": "TaxonomyID Abbreviations",
+      "group": "DATAS"
+    },
+    {
+      "id": 95,
+      "label": "Category Distribution",
+      "group": "DATAS"
+    },
+    {
+      "id": 96,
+      "label": "Avoiding Over-Representation",
+      "group": "DATAS"
+    },
+    {
+      "id": 97,
+      "label": "TaxonomyID Field in CSV",
+      "group": "DATAS"
+    },
+    {
+      "id": 98,
+      "label": "Adding Taxonomy to Graph",
+      "group": "DATAS"
+    },
+    {
+      "id": 99,
+      "label": "vis-network JSON Format",
+      "group": "DATAS"
+    },
+    {
+      "id": 100,
+      "label": "JSON Schema for Learning Graphs",
+      "group": "DATAS"
+    },
+    {
+      "id": 101,
+      "label": "Metadata Section in JSON",
+      "group": "DATAS"
+    },
+    {
+      "id": 102,
+      "label": "Groups Section in JSON",
+      "group": "DATAS"
+    },
+    {
+      "id": 103,
+      "label": "Nodes Section in JSON",
+      "group": "DATAS"
+    },
+    {
+      "id": 104,
+      "label": "Edges Section in JSON",
+      "group": "DATAS"
+    },
+    {
+      "id": 105,
+      "label": "Dublin Core Metadata",
+      "group": "DATAS"
+    },
+    {
+      "id": 106,
+      "label": "Title Metadata Field",
+      "group": "DATAS"
+    },
+    {
+      "id": 107,
+      "label": "Description Metadata Field",
+      "group": "DATAS"
+    },
+    {
+      "id": 108,
+      "label": "Creator Metadata Field",
+      "group": "DATAS"
+    },
+    {
+      "id": 109,
+      "label": "Date Metadata Field",
+      "group": "DATAS"
+    },
+    {
+      "id": 110,
+      "label": "Version Metadata Field",
+      "group": "DATAS"
+    },
+    {
+      "id": 111,
+      "label": "Format Metadata Field",
+      "group": "DATAS"
+    },
+    {
+      "id": 112,
+      "label": "License Metadata Field",
+      "group": "DATAS"
+    },
+    {
+      "id": 113,
+      "label": "Color Coding in Visualizations",
+      "group": "DATAS"
+    },
+    {
+      "id": 114,
+      "label": "Font Colors for Readability",
+      "group": "DATAS"
+    },
+    {
+      "id": 115,
+      "label": "What is a Glossary",
+      "group": "RSRCE"
+    },
+    {
+      "id": 116,
+      "label": "ISO 11179 Standards",
+      "group": "RSRCE"
+    },
+    {
+      "id": 117,
+      "label": "Precise Definitions",
+      "group": "RSRCE"
+    },
+    {
+      "id": 118,
+      "label": "Concise Definitions",
+      "group": "RSRCE"
+    },
+    {
+      "id": 119,
+      "label": "Distinct Definitions",
+      "group": "RSRCE"
+    },
+    {
+      "id": 120,
+      "label": "Non-Circular Definitions",
+      "group": "RSRCE"
+    },
+    {
+      "id": 121,
+      "label": "Definitions Without Business Rules",
+      "group": "RSRCE"
+    },
+    {
+      "id": 122,
+      "label": "Glossary Generation Process",
+      "group": "RSRCE"
+    },
+    {
+      "id": 123,
+      "label": "What is a FAQ",
+      "group": "RSRCE"
+    },
+    {
+      "id": 124,
+      "label": "FAQ Generation Process",
+      "group": "RSRCE"
+    },
+    {
+      "id": 125,
+      "label": "Common Student Questions",
+      "group": "RSRCE"
+    },
+    {
+      "id": 126,
+      "label": "FAQ from Course Content",
+      "group": "RSRCE"
+    },
+    {
+      "id": 127,
+      "label": "What is a MicroSim",
+      "group": "INTER"
+    },
+    {
+      "id": 128,
+      "label": "p5.js JavaScript Library",
+      "group": "INTER"
+    },
+    {
+      "id": 129,
+      "label": "Interactive Simulations",
+      "group": "INTER"
+    },
+    {
+      "id": 130,
+      "label": "MicroSim Directory Structure",
+      "group": "INTER"
+    },
+    {
+      "id": 131,
+      "label": "main.html in MicroSims",
+      "group": "INTER"
+    },
+    {
+      "id": 132,
+      "label": "index.md for MicroSim Docs",
+      "group": "INTER"
+    },
+    {
+      "id": 133,
+      "label": "Iframe Embedding",
+      "group": "INTER"
+    },
+    {
+      "id": 134,
+      "label": "Seeded Randomness",
+      "group": "INTER"
+    },
+    {
+      "id": 135,
+      "label": "Interactive Controls (Sliders)",
+      "group": "INTER"
+    },
+    {
+      "id": 136,
+      "label": "Interactive Controls (Buttons)",
+      "group": "INTER"
+    },
+    {
+      "id": 137,
+      "label": "MicroSim Metadata",
+      "group": "INTER"
+    },
+    {
+      "id": 138,
+      "label": "Educational Simulation Design",
+      "group": "INTER"
+    },
+    {
+      "id": 139,
+      "label": "What is a Quiz",
+      "group": "RSRCE"
+    },
+    {
+      "id": 140,
+      "label": "Multiple-Choice Questions",
+      "group": "RSRCE"
+    },
+    {
+      "id": 141,
+      "label": "Quiz Alignment with Concepts",
+      "group": "RSRCE"
+    },
+    {
+      "id": 142,
+      "label": "Bloom's Taxonomy in Quizzes",
+      "group": "RSRCE"
+    },
+    {
+      "id": 143,
+      "label": "Quiz Distribution Across Levels",
+      "group": "RSRCE"
+    },
+    {
+      "id": 144,
+      "label": "Assessing Student Understanding",
+      "group": "RSRCE"
+    },
+    {
+      "id": 145,
+      "label": "Chapter Structure",
+      "group": "CONTE"
+    },
+    {
+      "id": 146,
+      "label": "Section Organization",
+      "group": "CONTE"
+    },
+    {
+      "id": 147,
+      "label": "Content Generation Process",
+      "group": "CONTE"
+    },
+    {
+      "id": 148,
+      "label": "Chapter Index Files",
+      "group": "CONTE"
+    },
+    {
+      "id": 149,
+      "label": "Chapter Concept Lists",
+      "group": "CONTE"
+    },
+    {
+      "id": 150,
+      "label": "Reading Level Appropriateness",
+      "group": "CONTE"
+    },
+    {
+      "id": 151,
+      "label": "Worked Examples in Content",
+      "group": "CONTE"
+    },
+    {
+      "id": 152,
+      "label": "Practice Exercises",
+      "group": "CONTE"
+    },
+    {
+      "id": 153,
+      "label": "What is Git",
+      "group": "VERCT",
+      "shape": "box"
+    },
+    {
+      "id": 154,
+      "label": "Version Control Basics",
+      "group": "VERCT"
+    },
+    {
+      "id": 155,
+      "label": "Git Repository Structure",
+      "group": "VERCT"
+    },
+    {
+      "id": 156,
+      "label": "Git Status Command",
+      "group": "VERCT"
+    },
+    {
+      "id": 157,
+      "label": "Git Add Command",
+      "group": "VERCT"
+    },
+    {
+      "id": 158,
+      "label": "Git Commit Command",
+      "group": "VERCT"
+    },
+    {
+      "id": 159,
+      "label": "Git Push Command",
+      "group": "VERCT"
+    },
+    {
+      "id": 160,
+      "label": "GitHub Integration",
+      "group": "VERCT"
+    },
+    {
+      "id": 161,
+      "label": "GitHub Pages Deployment",
+      "group": "VERCT"
+    },
+    {
+      "id": 162,
+      "label": "What is Visual Studio Code",
+      "group": "TOOLS",
+      "shape": "box"
+    },
+    {
+      "id": 163,
+      "label": "VS Code for Content Development",
+      "group": "TOOLS"
+    },
+    {
+      "id": 164,
+      "label": "Terminal in VS Code",
+      "group": "TOOLS"
+    },
+    {
+      "id": 165,
+      "label": "What is Bash",
+      "group": "TOOLS"
+    },
+    {
+      "id": 166,
+      "label": "Shell Scripts",
+      "group": "TOOLS"
+    },
+    {
+      "id": 167,
+      "label": "Script Execution Permissions",
+      "group": "TOOLS"
+    },
+    {
+      "id": 168,
+      "label": "What is Python",
+      "group": "DATAS",
+      "shape": "box"
+    },
+    {
+      "id": 169,
+      "label": "Python Scripts for Processing",
+      "group": "DATAS"
+    },
+    {
+      "id": 170,
+      "label": "pip Package Management",
+      "group": "DATAS"
+    },
+    {
+      "id": 171,
+      "label": "Installing Python Packages",
+      "group": "DATAS"
+    },
+    {
+      "id": 172,
+      "label": "analyze-graph.py Script",
+      "group": "DATAS"
+    },
+    {
+      "id": 173,
+      "label": "csv-to-json.py Script",
+      "group": "DATAS"
+    },
+    {
+      "id": 174,
+      "label": "add-taxonomy.py Script",
+      "group": "DATAS"
+    },
+    {
+      "id": 175,
+      "label": "taxonomy-distribution.py Script",
+      "group": "DATAS"
+    },
+    {
+      "id": 176,
+      "label": "What is Prompt Engineering",
+      "group": "AIFND"
+    },
+    {
+      "id": 177,
+      "label": "Prompt Design Principles",
+      "group": "AIFND"
+    },
+    {
+      "id": 178,
+      "label": "Educational Content Prompts",
+      "group": "AIFND"
+    },
+    {
+      "id": 179,
+      "label": "Iterative Prompt Refinement",
+      "group": "AIFND"
+    },
+    {
+      "id": 180,
+      "label": "Claude Token Limits",
+      "group": "AIFND"
+    },
+    {
+      "id": 181,
+      "label": "Token Management Strategies",
+      "group": "AIFND"
+    },
+    {
+      "id": 182,
+      "label": "4-Hour Usage Windows",
+      "group": "AIFND"
+    },
+    {
+      "id": 183,
+      "label": "Claude Pro Limitations",
+      "group": "AIFND"
+    },
+    {
+      "id": 184,
+      "label": "Optimizing Claude Usage",
+      "group": "AIFND"
+    },
+    {
+      "id": 185,
+      "label": "Skill Testing and Debugging",
+      "group": "SKILL"
+    },
+    {
+      "id": 186,
+      "label": "Error Analysis in Skills",
+      "group": "SKILL"
+    },
+    {
+      "id": 187,
+      "label": "Improving Skill Quality",
+      "group": "SKILL"
+    },
+    {
+      "id": 188,
+      "label": "Security in Skill Execution",
+      "group": "SKILL"
+    },
+    {
+      "id": 189,
+      "label": "Permission Management",
+      "group": "SKILL"
+    },
+    {
+      "id": 190,
+      "label": "File Access Permissions",
+      "group": "SKILL"
+    },
+    {
+      "id": 191,
+      "label": "Command-Line Interface Basics",
+      "group": "TOOLS",
+      "shape": "box"
+    },
+    {
+      "id": 192,
+      "label": "Terminal Commands",
+      "group": "TOOLS"
+    },
+    {
+      "id": 193,
+      "label": "Directory Navigation",
+      "group": "TOOLS"
+    },
+    {
+      "id": 194,
+      "label": "File Creation and Editing",
+      "group": "TOOLS"
+    },
+    {
+      "id": 195,
+      "label": "Symlink Creation",
+      "group": "TOOLS"
+    },
+    {
+      "id": 196,
+      "label": "Installing Skills Globally",
+      "group": "SKILL"
+    },
+    {
+      "id": 197,
+      "label": "Project-Specific Skills",
+      "group": "SKILL"
+    },
+    {
+      "id": 198,
+      "label": "Skill Distribution Methods",
+      "group": "SKILL"
+    },
+    {
+      "id": 199,
+      "label": "Skill Packaging Best Practices",
+      "group": "SKILL"
+    },
+    {
+      "id": 200,
+      "label": "Capstone: Complete Textbook Project",
+      "group": "IBOOK"
+    }
+  ],
+  "edges": [
+    {
+      "from": 2,
+      "to": 1
+    },
+    {
+      "from": 3,
+      "to": 1
+    },
+    {
+      "from": 4,
+      "to": 2
+    },
+    {
+      "from": 5,
+      "to": 4
+    },
+    {
+      "from": 6,
+      "to": 5
+    },
+    {
+      "from": 7,
+      "to": 6
+    },
+    {
+      "from": 8,
+      "to": 7
+    },
+    {
+      "from": 9,
+      "to": 8
+    },
+    {
+      "from": 10,
+      "to": 8
+    },
+    {
+      "from": 11,
+      "to": 8
+    },
+    {
+      "from": 12,
+      "to": 7
+    },
+    {
+      "from": 13,
+      "to": 6
+    },
+    {
+      "from": 14,
+      "to": 13
+    },
+    {
+      "from": 15,
+      "to": 13
+    },
+    {
+      "from": 16,
+      "to": 15
+    },
+    {
+      "from": 17,
+      "to": 6
+    },
+    {
+      "from": 18,
+      "to": 17
+    },
+    {
+      "from": 19,
+      "to": 17
+    },
+    {
+      "from": 20,
+      "to": 6
+    },
+    {
+      "from": 20,
+      "to": 17
+    },
+    {
+      "from": 21,
+      "to": 7
+    },
+    {
+      "from": 22,
+      "to": 21
+    },
+    {
+      "from": 23,
+      "to": 22
+    },
+    {
+      "from": 24,
+      "to": 22
+    },
+    {
+      "from": 25,
+      "to": 22
+    },
+    {
+      "from": 27,
+      "to": 26
+    },
+    {
+      "from": 28,
+      "to": 27
+    },
+    {
+      "from": 29,
+      "to": 28
+    },
+    {
+      "from": 30,
+      "to": 29
+    },
+    {
+      "from": 31,
+      "to": 30
+    },
+    {
+      "from": 32,
+      "to": 31
+    },
+    {
+      "from": 33,
+      "to": 26
+    },
+    {
+      "from": 34,
+      "to": 33
+    },
+    {
+      "from": 35,
+      "to": 33
+    },
+    {
+      "from": 36,
+      "to": 35
+    },
+    {
+      "from": 38,
+      "to": 34
+    },
+    {
+      "from": 38,
+      "to": 37
+    },
+    {
+      "from": 39,
+      "to": 26
+    },
+    {
+      "from": 40,
+      "to": 39
+    },
+    {
+      "from": 41,
+      "to": 39
+    },
+    {
+      "from": 42,
+      "to": 39
+    },
+    {
+      "from": 43,
+      "to": 39
+    },
+    {
+      "from": 44,
+      "to": 40
+    },
+    {
+      "from": 44,
+      "to": 41
+    },
+    {
+      "from": 45,
+      "to": 42
+    },
+    {
+      "from": 45,
+      "to": 44
+    },
+    {
+      "from": 46,
+      "to": 26
+    },
+    {
+      "from": 47,
+      "to": 46
+    },
+    {
+      "from": 48,
+      "to": 46
+    },
+    {
+      "from": 49,
+      "to": 46
+    },
+    {
+      "from": 50,
+      "to": 46
+    },
+    {
+      "from": 51,
+      "to": 46
+    },
+    {
+      "from": 52,
+      "to": 51
+    },
+    {
+      "from": 53,
+      "to": 52
+    },
+    {
+      "from": 54,
+      "to": 53
+    },
+    {
+      "from": 55,
+      "to": 53
+    },
+    {
+      "from": 56,
+      "to": 53
+    },
+    {
+      "from": 57,
+      "to": 53
+    },
+    {
+      "from": 58,
+      "to": 53
+    },
+    {
+      "from": 59,
+      "to": 53
+    },
+    {
+      "from": 60,
+      "to": 53
+    },
+    {
+      "from": 61,
+      "to": 46
+    },
+    {
+      "from": 62,
+      "to": 61
+    },
+    {
+      "from": 63,
+      "to": 39
+    },
+    {
+      "from": 64,
+      "to": 63
+    },
+    {
+      "from": 65,
+      "to": 64
+    },
+    {
+      "from": 66,
+      "to": 65
+    },
+    {
+      "from": 67,
+      "to": 65
+    },
+    {
+      "from": 68,
+      "to": 64
+    },
+    {
+      "from": 69,
+      "to": 68
+    },
+    {
+      "from": 70,
+      "to": 44
+    },
+    {
+      "from": 71,
+      "to": 70
+    },
+    {
+      "from": 72,
+      "to": 71
+    },
+    {
+      "from": 73,
+      "to": 71
+    },
+    {
+      "from": 74,
+      "to": 71
+    },
+    {
+      "from": 75,
+      "to": 71
+    },
+    {
+      "from": 76,
+      "to": 70
+    },
+    {
+      "from": 77,
+      "to": 76
+    },
+    {
+      "from": 78,
+      "to": 77
+    },
+    {
+      "from": 79,
+      "to": 42
+    },
+    {
+      "from": 80,
+      "to": 42
+    },
+    {
+      "from": 80,
+      "to": 79
+    },
+    {
+      "from": 81,
+      "to": 80
+    },
+    {
+      "from": 82,
+      "to": 80
+    },
+    {
+      "from": 83,
+      "to": 82
+    },
+    {
+      "from": 84,
+      "to": 82
+    },
+    {
+      "from": 85,
+      "to": 82
+    },
+    {
+      "from": 86,
+      "to": 82
+    },
+    {
+      "from": 87,
+      "to": 82
+    },
+    {
+      "from": 88,
+      "to": 82
+    },
+    {
+      "from": 89,
+      "to": 82
+    },
+    {
+      "from": 90,
+      "to": 82
+    },
+    {
+      "from": 92,
+      "to": 91
+    },
+    {
+      "from": 93,
+      "to": 92
+    },
+    {
+      "from": 94,
+      "to": 93
+    },
+    {
+      "from": 95,
+      "to": 92
+    },
+    {
+      "from": 96,
+      "to": 95
+    },
+    {
+      "from": 97,
+      "to": 71
+    },
+    {
+      "from": 97,
+      "to": 94
+    },
+    {
+      "from": 98,
+      "to": 97
+    },
+    {
+      "from": 99,
+      "to": 71
+    },
+    {
+      "from": 100,
+      "to": 99
+    },
+    {
+      "from": 101,
+      "to": 100
+    },
+    {
+      "from": 102,
+      "to": 100
+    },
+    {
+      "from": 103,
+      "to": 100
+    },
+    {
+      "from": 104,
+      "to": 100
+    },
+    {
+      "from": 105,
+      "to": 101
+    },
+    {
+      "from": 106,
+      "to": 105
+    },
+    {
+      "from": 107,
+      "to": 105
+    },
+    {
+      "from": 108,
+      "to": 105
+    },
+    {
+      "from": 109,
+      "to": 105
+    },
+    {
+      "from": 110,
+      "to": 105
+    },
+    {
+      "from": 111,
+      "to": 105
+    },
+    {
+      "from": 112,
+      "to": 105
+    },
+    {
+      "from": 113,
+      "to": 102
+    },
+    {
+      "from": 114,
+      "to": 113
+    },
+    {
+      "from": 115,
+      "to": 26
+    },
+    {
+      "from": 116,
+      "to": 115
+    },
+    {
+      "from": 117,
+      "to": 116
+    },
+    {
+      "from": 118,
+      "to": 116
+    },
+    {
+      "from": 119,
+      "to": 116
+    },
+    {
+      "from": 120,
+      "to": 116
+    },
+    {
+      "from": 121,
+      "to": 116
+    },
+    {
+      "from": 122,
+      "to": 115
+    },
+    {
+      "from": 122,
+      "to": 116
+    },
+    {
+      "from": 123,
+      "to": 26
+    },
+    {
+      "from": 124,
+      "to": 123
+    },
+    {
+      "from": 125,
+      "to": 124
+    },
+    {
+      "from": 126,
+      "to": 124
+    },
+    {
+      "from": 127,
+      "to": 26
+    },
+    {
+      "from": 127,
+      "to": 30
+    },
+    {
+      "from": 128,
+      "to": 127
+    },
+    {
+      "from": 129,
+      "to": 127
+    },
+    {
+      "from": 130,
+      "to": 128
+    },
+    {
+      "from": 131,
+      "to": 130
+    },
+    {
+      "from": 132,
+      "to": 130
+    },
+    {
+      "from": 132,
+      "to": 37
+    },
+    {
+      "from": 133,
+      "to": 131
+    },
+    {
+      "from": 133,
+      "to": 132
+    },
+    {
+      "from": 134,
+      "to": 128
+    },
+    {
+      "from": 135,
+      "to": 128
+    },
+    {
+      "from": 136,
+      "to": 128
+    },
+    {
+      "from": 137,
+      "to": 130
+    },
+    {
+      "from": 138,
+      "to": 129
+    },
+    {
+      "from": 139,
+      "to": 26
+    },
+    {
+      "from": 140,
+      "to": 139
+    },
+    {
+      "from": 141,
+      "to": 139
+    },
+    {
+      "from": 141,
+      "to": 40
+    },
+    {
+      "from": 142,
+      "to": 139
+    },
+    {
+      "from": 142,
+      "to": 52
+    },
+    {
+      "from": 143,
+      "to": 142
+    },
+    {
+      "from": 144,
+      "to": 139
+    },
+    {
+      "from": 145,
+      "to": 26
+    },
+    {
+      "from": 146,
+      "to": 145
+    },
+    {
+      "from": 147,
+      "to": 26
+    },
+    {
+      "from": 147,
+      "to": 6
+    },
+    {
+      "from": 148,
+      "to": 145
+    },
+    {
+      "from": 149,
+      "to": 148
+    },
+    {
+      "from": 149,
+      "to": 40
+    },
+    {
+      "from": 150,
+      "to": 147
+    },
+    {
+      "from": 151,
+      "to": 147
+    },
+    {
+      "from": 152,
+      "to": 147
+    },
+    {
+      "from": 154,
+      "to": 153
+    },
+    {
+      "from": 155,
+      "to": 154
+    },
+    {
+      "from": 156,
+      "to": 155
+    },
+    {
+      "from": 157,
+      "to": 155
+    },
+    {
+      "from": 158,
+      "to": 157
+    },
+    {
+      "from": 159,
+      "to": 158
+    },
+    {
+      "from": 160,
+      "to": 153
+    },
+    {
+      "from": 161,
+      "to": 160
+    },
+    {
+      "from": 161,
+      "to": 34
+    },
+    {
+      "from": 163,
+      "to": 162
+    },
+    {
+      "from": 163,
+      "to": 26
+    },
+    {
+      "from": 164,
+      "to": 163
+    },
+    {
+      "from": 164,
+      "to": 191
+    },
+    {
+      "from": 165,
+      "to": 191
+    },
+    {
+      "from": 166,
+      "to": 165
+    },
+    {
+      "from": 167,
+      "to": 166
+    },
+    {
+      "from": 169,
+      "to": 168
+    },
+    {
+      "from": 170,
+      "to": 168
+    },
+    {
+      "from": 171,
+      "to": 170
+    },
+    {
+      "from": 172,
+      "to": 169
+    },
+    {
+      "from": 172,
+      "to": 71
+    },
+    {
+      "from": 173,
+      "to": 169
+    },
+    {
+      "from": 173,
+      "to": 71
+    },
+    {
+      "from": 173,
+      "to": 99
+    },
+    {
+      "from": 174,
+      "to": 169
+    },
+    {
+      "from": 174,
+      "to": 71
+    },
+    {
+      "from": 174,
+      "to": 97
+    },
+    {
+      "from": 175,
+      "to": 169
+    },
+    {
+      "from": 175,
+      "to": 71
+    },
+    {
+      "from": 175,
+      "to": 95
+    },
+    {
+      "from": 176,
+      "to": 1
+    },
+    {
+      "from": 177,
+      "to": 176
+    },
+    {
+      "from": 178,
+      "to": 177
+    },
+    {
+      "from": 178,
+      "to": 26
+    },
+    {
+      "from": 179,
+      "to": 177
+    },
+    {
+      "from": 180,
+      "to": 2
+    },
+    {
+      "from": 181,
+      "to": 180
+    },
+    {
+      "from": 182,
+      "to": 4
+    },
+    {
+      "from": 183,
+      "to": 4
+    },
+    {
+      "from": 184,
+      "to": 181
+    },
+    {
+      "from": 185,
+      "to": 13
+    },
+    {
+      "from": 186,
+      "to": 185
+    },
+    {
+      "from": 187,
+      "to": 185
+    },
+    {
+      "from": 187,
+      "to": 186
+    },
+    {
+      "from": 188,
+      "to": 11
+    },
+    {
+      "from": 189,
+      "to": 188
+    },
+    {
+      "from": 190,
+      "to": 189
+    },
+    {
+      "from": 192,
+      "to": 191
+    },
+    {
+      "from": 193,
+      "to": 192
+    },
+    {
+      "from": 194,
+      "to": 192
+    },
+    {
+      "from": 195,
+      "to": 192
+    },
+    {
+      "from": 196,
+      "to": 13
+    },
+    {
+      "from": 196,
+      "to": 195
+    },
+    {
+      "from": 197,
+      "to": 13
+    },
+    {
+      "from": 198,
+      "to": 13
+    },
+    {
+      "from": 199,
+      "to": 21
+    },
+    {
+      "from": 199,
+      "to": 198
+    },
+    {
+      "from": 200,
+      "to": 26
+    },
+    {
+      "from": 200,
+      "to": 6
+    },
+    {
+      "from": 200,
+      "to": 39
+    },
+    {
+      "from": 200,
+      "to": 115
+    },
+    {
+      "from": 200,
+      "to": 123
+    },
+    {
+      "from": 200,
+      "to": 127
+    },
+    {
+      "from": 200,
+      "to": 139
+    },
+    {
+      "from": 200,
+      "to": 145
+    }
+  ]
+}

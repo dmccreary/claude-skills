@@ -1,0 +1,201 @@
+ConceptID,ConceptLabel,Dependencies,TaxonomyID
+1,What is Artificial Intelligence,,AIFND
+2,What is Claude AI,1,AIFND
+3,Large Language Models Overview,1,AIFND
+4,Anthropic Claude Pro Account,2,AIFND
+5,Claude Code Interface,4,AIFND
+6,What is a Claude Skill,5,SKILL
+7,Skill Definition File Structure,6,SKILL
+8,YAML Frontmatter in Skills,7,SKILL
+9,Skill Name and Description,8,SKILL
+10,Skill License Information,8,SKILL
+11,Allowed Tools in Skills,8,SKILL
+12,Skill Workflow Instructions,7,SKILL
+13,Installing a Claude Skill,6,SKILL
+14,Listing Available Skills,13,SKILL
+15,Invoking Skills with Slash Commands,13,SKILL
+16,Skill Execution Context,15,SKILL
+17,What is a Claude Command,6,SKILL
+18,Command Definition Files,17,SKILL
+19,Installing Claude Commands,17,SKILL
+20,Difference Between Skills & Commands,6|17,SKILL
+21,Skill Directory Structure,7,SKILL
+22,Supporting Assets in Skills,21,SKILL
+23,Python Scripts in Skills,22,SKILL
+24,Template Files in Skills,22,SKILL
+25,Reference Documentation in Skills,22,SKILL
+26,What is an Intelligent Textbook,,IBOOK
+27,Five Levels of Textbook Intelligence,26,IBOOK
+28,Level 1: Static Content,27,IBOOK
+29,Level 2: Hyperlinked Navigation,28,IBOOK
+30,Level 3: Interactive Elements,29,IBOOK
+31,Level 4: Adaptive Content,30,IBOOK
+32,Level 5: AI Personalization,31,IBOOK
+33,What is MkDocs,26,MKDOC
+34,MkDocs Material Theme,33,MKDOC
+35,MkDocs Configuration File,33,MKDOC
+36,Navigation Structure in MkDocs,35,MKDOC
+37,Markdown Formatting Basics,,MKDOC
+38,Admonitions in MkDocs,34|37,MKDOC
+39,What is a Learning Graph,26,GRAPH
+40,Concept Nodes in Learning Graphs,39,GRAPH
+41,Dependency Edges in Learning Graphs,39,GRAPH
+42,Directed Acyclic Graph (DAG),39,GRAPH
+43,Prerequisite Relationships,39,GRAPH
+44,Concept Dependencies,40|41,GRAPH
+45,Learning Pathways,42|44,GRAPH
+46,What is a Course Description,26,EDTHY
+47,Target Audience Definition,46,EDTHY
+48,Course Prerequisites,46,EDTHY
+49,Main Topics Covered,46,EDTHY
+50,Topics Excluded from Course,46,EDTHY
+51,Learning Outcomes,46,EDTHY
+52,What is Bloom's Taxonomy,51,EDTHY
+53,Bloom's 2001 Revision,52,EDTHY
+54,Remember (Cognitive Level 1),53,EDTHY
+55,Understand (Cognitive Level 2),53,EDTHY
+56,Apply (Cognitive Level 3),53,EDTHY
+57,Analyze (Cognitive Level 4),53,EDTHY
+58,Evaluate (Cognitive Level 5),53,EDTHY
+59,Create (Cognitive Level 6),53,EDTHY
+60,Action Verbs for Learning Outcomes,53,EDTHY
+61,Course Description Quality Score,46,EDTHY
+62,Assessing Course Descriptions,61,EDTHY
+63,Concept Enumeration Process,39,GRAPH
+64,Generating 200 Concepts,63,GRAPH
+65,Concept Label Requirements,64,GRAPH
+66,Title Case Convention,65,GRAPH
+67,Maximum Character Length,65,GRAPH
+68,Concept Granularity,64,GRAPH
+69,Atomic Concepts,68,GRAPH
+70,Dependency Mapping Process,44,GRAPH
+71,CSV File Format for Graphs,70,DATAS
+72,Pipe-Delimited Dependencies,71,DATAS
+73,ConceptID Field,71,DATAS
+74,ConceptLabel Field,71,DATAS
+75,Dependencies Field,71,DATAS
+76,Foundational Concepts,70,GRAPH
+77,Prerequisite Concepts,76,GRAPH
+78,Advanced Concepts,77,GRAPH
+79,Circular Dependency Detection,42,GRAPH
+80,DAG Validation,42|79,GRAPH
+81,Self-Dependency Checking,80,GRAPH
+82,Quality Metrics for Graphs,80,GRAPH
+83,Orphaned Nodes,82,GRAPH
+84,Disconnected Subgraphs,82,GRAPH
+85,Linear Chain Detection,82,GRAPH
+86,Indegree Analysis,82,GRAPH
+87,Outdegree Analysis,82,GRAPH
+88,Average Dependencies Per Concept,82,GRAPH
+89,Maximum Dependency Chain Length,82,GRAPH
+90,Learning Graph Quality Score,82,GRAPH
+91,What is a Taxonomy,,DATAS
+92,Concept Categorization,91,DATAS
+93,Taxonomy Categories,92,DATAS
+94,TaxonomyID Abbreviations,93,DATAS
+95,Category Distribution,92,DATAS
+96,Avoiding Over-Representation,95,DATAS
+97,TaxonomyID Field in CSV,71|94,DATAS
+98,Adding Taxonomy to Graph,97,DATAS
+99,vis-network JSON Format,71,DATAS
+100,JSON Schema for Learning Graphs,99,DATAS
+101,Metadata Section in JSON,100,DATAS
+102,Groups Section in JSON,100,DATAS
+103,Nodes Section in JSON,100,DATAS
+104,Edges Section in JSON,100,DATAS
+105,Dublin Core Metadata,101,DATAS
+106,Title Metadata Field,105,DATAS
+107,Description Metadata Field,105,DATAS
+108,Creator Metadata Field,105,DATAS
+109,Date Metadata Field,105,DATAS
+110,Version Metadata Field,105,DATAS
+111,Format Metadata Field,105,DATAS
+112,License Metadata Field,105,DATAS
+113,Color Coding in Visualizations,102,DATAS
+114,Font Colors for Readability,113,DATAS
+115,What is a Glossary,26,RSRCE
+116,ISO 11179 Standards,115,RSRCE
+117,Precise Definitions,116,RSRCE
+118,Concise Definitions,116,RSRCE
+119,Distinct Definitions,116,RSRCE
+120,Non-Circular Definitions,116,RSRCE
+121,Definitions Without Business Rules,116,RSRCE
+122,Glossary Generation Process,115|116,RSRCE
+123,What is a FAQ,26,RSRCE
+124,FAQ Generation Process,123,RSRCE
+125,Common Student Questions,124,RSRCE
+126,FAQ from Course Content,124,RSRCE
+127,What is a MicroSim,26|30,INTER
+128,p5.js JavaScript Library,127,INTER
+129,Interactive Simulations,127,INTER
+130,MicroSim Directory Structure,128,INTER
+131,main.html in MicroSims,130,INTER
+132,index.md for MicroSim Docs,130|37,INTER
+133,Iframe Embedding,131|132,INTER
+134,Seeded Randomness,128,INTER
+135,Interactive Controls (Sliders),128,INTER
+136,Interactive Controls (Buttons),128,INTER
+137,MicroSim Metadata,130,INTER
+138,Educational Simulation Design,129,INTER
+139,What is a Quiz,26,RSRCE
+140,Multiple-Choice Questions,139,RSRCE
+141,Quiz Alignment with Concepts,139|40,RSRCE
+142,Bloom's Taxonomy in Quizzes,139|52,RSRCE
+143,Quiz Distribution Across Levels,142,RSRCE
+144,Assessing Student Understanding,139,RSRCE
+145,Chapter Structure,26,CONTE
+146,Section Organization,145,CONTE
+147,Content Generation Process,26|6,CONTE
+148,Chapter Index Files,145,CONTE
+149,Chapter Concept Lists,148|40,CONTE
+150,Reading Level Appropriateness,147,CONTE
+151,Worked Examples in Content,147,CONTE
+152,Practice Exercises,147,CONTE
+153,What is Git,,VERCT
+154,Version Control Basics,153,VERCT
+155,Git Repository Structure,154,VERCT
+156,Git Status Command,155,VERCT
+157,Git Add Command,155,VERCT
+158,Git Commit Command,157,VERCT
+159,Git Push Command,158,VERCT
+160,GitHub Integration,153,VERCT
+161,GitHub Pages Deployment,160|34,VERCT
+162,What is Visual Studio Code,,TOOLS
+163,VS Code for Content Development,162|26,TOOLS
+164,Terminal in VS Code,163|191,TOOLS
+165,What is Bash,191,TOOLS
+166,Shell Scripts,165,TOOLS
+167,Script Execution Permissions,166,TOOLS
+168,What is Python,,DATAS
+169,Python Scripts for Processing,168,DATAS
+170,pip Package Management,168,DATAS
+171,Installing Python Packages,170,DATAS
+172,analyze-graph.py Script,169|71,DATAS
+173,csv-to-json.py Script,169|71|99,DATAS
+174,add-taxonomy.py Script,169|71|97,DATAS
+175,taxonomy-distribution.py Script,169|71|95,DATAS
+176,What is Prompt Engineering,1,AIFND
+177,Prompt Design Principles,176,AIFND
+178,Educational Content Prompts,177|26,AIFND
+179,Iterative Prompt Refinement,177,AIFND
+180,Claude Token Limits,2,AIFND
+181,Token Management Strategies,180,AIFND
+182,4-Hour Usage Windows,4,AIFND
+183,Claude Pro Limitations,4,AIFND
+184,Optimizing Claude Usage,181,AIFND
+185,Skill Testing and Debugging,13,SKILL
+186,Error Analysis in Skills,185,SKILL
+187,Improving Skill Quality,185|186,SKILL
+188,Security in Skill Execution,11,SKILL
+189,Permission Management,188,SKILL
+190,File Access Permissions,189,SKILL
+191,Command-Line Interface Basics,,TOOLS
+192,Terminal Commands,191,TOOLS
+193,Directory Navigation,192,TOOLS
+194,File Creation and Editing,192,TOOLS
+195,Symlink Creation,192,TOOLS
+196,Installing Skills Globally,13|195,SKILL
+197,Project-Specific Skills,13,SKILL
+198,Skill Distribution Methods,13,SKILL
+199,Skill Packaging Best Practices,21|198,SKILL
+200,Capstone: Complete Textbook Project,26|6|39|115|123|127|139|145,IBOOK

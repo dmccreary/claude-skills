@@ -1,0 +1,15 @@
+{
+  "title": "Using Claude Skills to Create Intelligent Textbooks",
+  "description": "A comprehensive course on leveraging Claude Skills to create intelligent, interactive textbooks that enhance learning through AI-assisted content generation, from course conception through deployment.",
+  "creator": "Claude AI Learning Graph Generator",
+  "date": "2025-11-08",
+  "version": "1.0",
+  "format": "Learning Graph JSON v1.0",
+  "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+  "license": "CC BY-NC-SA 4.0 DEED",
+  "audience": "Professional development for educators, instructional designers, and content creators",
+  "prerequisites": "Basic programming, prompt engineering basics, Anthropic Claude access",
+  "concepts": 200,
+  "categories": 12,
+  "bloomLevels": "All six levels (Remember, Understand, Apply, Analyze, Evaluate, Create)"
+}
