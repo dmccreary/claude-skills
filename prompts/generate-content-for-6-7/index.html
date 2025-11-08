@@ -1,0 +1,3035 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/prompts/generate-content-for-6-7/">
+      
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Generate content for 6 7 - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Generate content for 6 7
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    List of Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../index.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/prompts/generate-content-for-6-7.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Generate content for 6 7</h1>
+
+<p>▗ ▗   ▖ ▖  Claude Code v2.0.36
+           Sonnet 4.5 · Claude Pro
+  ▘▘ ▝▝    /Users/dan/Documents/ws/claude-skills</p>
+<blockquote>
+<p>run the chapter-content-generator skill on chapters 6 and 7 </p>
+</blockquote>
+<p>⏺ I'll run the chapter-content-generator skill to generate content for chapters 6 and 7.</p>
+<blockquote>
+<p>The "chapter-content-generator" skill is running </p>
+<p>The "chapter-content-generator" skill is running </p>
+</blockquote>
+<p>⏺ I'll generate content for chapters 6 and 7. Let me start by finding and verifying these
+   chapter files.</p>
+<p>⏺ Bash(ls -la /Users/dan/Documents/ws/claude-skills/docs/chapters/ | grep -E "^d.*0[67]-")
+  ⎿  drwxr-xr-x   3 dan  staff    96 Nov  8 12:07 06-learning-graph-quality-validation
+     drwxr-xr-x   3 dan  staff    96 Nov  8 12:07 07-taxonomy-data-formats</p>
+<p>⏺ Read(docs/chapters/06-learning-graph-quality-validation/index.md)
+  ⎿  Read 40 lines</p>
+<p>⏺ Read(docs/chapters/07-taxonomy-data-formats/index.md)
+  ⎿  Read 46 lines</p>
+<p>⏺ Read(docs/course-description.md)
+  ⎿  Read 121 lines</p>
+<p>⏺ Read(~/.claude/skills/chapter-content-generator/references/reading-levels.md)
+  ⎿  Read 245 lines</p>
+<p>⏺ Read(~/.claude/skills/chapter-content-generator/references/content-element-types.md)
+  ⎿  Read 595 lines</p>
+<p>⏺ Now I'll generate content for both chapters. Based on the course description, the
+  target audience is "Professional development" with programming prerequisites,
+  indicating a college-level reading level.</p>
+<p>⏺ Update(docs/chapters/06-learning-graph-quality-validation/index.md)
+  ⎿  Updated docs/chapters/06-learning-graph-quality-validation/index.md with 621     <br />
+     additions and 1 removal
+        36  <br />
+        37    ---
+        38  <br />
+        39 -  TODO: Generate Chapter Content
+        39 +  ## Introduction to Learning Graph Quality Validation
+        40 +<br />
+        41 +  Creating a learning graph is a significant achievement, but ensuring its
+           +  quality is equally important for effective educational outcomes. A 
+           + well-constructed learning graph serves as the foundation for your 
+           + intelligent textbook, guiding students through concepts in a logical, 
+           + dependency-aware sequence. Poor quality graphs—those with circular 
+           + dependencies, orphaned concepts, or imbalanced taxonomy distributions—can
+           +  confuse learners and undermine the pedagogical value of your materials.
+        42 +<br />
+        43 +  This chapter introduces systematic approaches for validating and 
+           + assessing the quality of your learning graph. You'll learn both 
+           + structural validation techniques that ensure your graph is mathematically
+           +  sound as a Directed Acyclic Graph (DAG), and quality metrics that 
+           + measure pedagogical effectiveness. These validation techniques are 
+           + essential for identifying and correcting issues before generating chapter
+           +  content, as structural problems in your graph will propagate throughout 
+           + your entire textbook.
+        44 +<br />
+        45 +  The validation process combines automated analysis through Python 
+           + scripts with manual review of quality reports. By the end of this 
+           + chapter, you'll be able to generate comprehensive quality assessments for
+           +  your learning graphs and make data-driven improvements to enhance their 
+           + educational value.
+        46 +<br />
+        47 +  ## Directed Acyclic Graphs and Educational Dependencies
+        48 +<br />
+        49 +  Learning graphs must be structured as <strong>Directed Acyclic Graphs (DAGs)</strong>
+           +  to represent prerequisite relationships correctly. In a DAG, directed 
+           + edges point from prerequisite concepts to dependent concepts, and the 
+           + graph contains no cycles—you cannot follow the dependency arrows and 
+           + return to your starting concept.
+        50 +<br />
+        51 +  This DAG structure ensures that students can learn concepts in a valid 
+           + sequence. If your graph contains a cycle (Concept A depends on B, B 
+           + depends on C, and C depends on A), there is no valid starting point for 
+           + learning—a logical impossibility that must be detected and corrected.
+        52 +<br />
+        53 +  ### DAG Validation
+        54 +<br />
+        55 +  Validating that your learning graph is a proper DAG involves checking 
+           + two critical properties:
+        56 +<br />
+        57 +  1. <strong>Acyclicity:</strong> No circular dependency chains exist in the graph
+        58 +  2. <strong>Connectivity:</strong> All concepts are reachable from foundational nodes
+        59 +<br />
+        60 +  The <code>analyze-graph.py</code> Python script performs DAG validation 
+           + automatically by implementing a depth-first search (DFS) algorithm with 
+           + cycle detection. During traversal, the algorithm maintains three node 
+           + states:
+        61 +<br />
+        62 +  - <strong>White (unvisited):</strong> Node has not been explored
+        63 +  - <strong>Gray (in progress):</strong> Node is being explored, currently on the 
+           + recursion stack
+        64 +  - <strong>Black (completed):</strong> Node and all its descendants have been fully 
+           + explored
+        65 +<br />
+        66 +  If the algorithm encounters a gray node during traversal, it has 
+           + detected a back edge indicating a cycle. This validation runs in O(V + E)
+           +  time complexity, where V is the number of vertices (concepts) and E is 
+           + the number of edges (dependencies).
+        67 +<br />
+        68 +  <details>
+        69 +      <summary>DAG Validation Algorithm Visualization</summary>
+        70 +      Type: diagram
+        71 +<br />
+        72 +      Purpose: Illustrate the three-color DFS algorithm used for cycle 
+           + detection in learning graphs
+        73 +<br />
+        74 +      Components to show:
+        75 +      - A sample learning graph with 8 nodes arranged in a network
+        76 +      - Color-coded nodes showing White (gray), Gray (yellow), Black 
+           + (green)
+        77 +      - Directed edges showing dependencies
+        78 +      - One back edge highlighted in red creating a cycle
+        79 +      - DFS traversal stack shown on the right side
+        80 +      - Traversal order numbered 1-8
+        81 +<br />
+        82 +      Layout: Network graph on left (70%), DFS stack visualization on 
+           + right (30%)
+        83 +<br />
+        84 +      Example nodes:
+        85 +      - Node 1: "Variables" (Black - completed)
+        86 +      - Node 2: "Functions" (Black - completed)
+        87 +      - Node 3: "Loops" (Gray - in progress)
+        88 +      - Node 4: "Recursion" (Gray - in progress)
+        89 +      - Node 5: "Data Structures" (White - unvisited)
+        90 +      - Node 6: "Algorithms" (White - unvisited)
+        91 +<br />
+        92 +      Edges:
+        93 +      - Black arrows: Valid forward edges
+        94 +      - Red arrow: Back edge from "Recursion" to "Loops" (cycle detected!)
+        95 +<br />
+        96 +      Annotations:
+        97 +      - Arrow pointing to red edge: "Cycle detected: Loops ← Recursion ← 
+           + Loops"
+        98 +      - Stack showing: [Loops, Recursion]
+        99 +<br />
+       100 +      Style: Network diagram with color-coded nodes and directional arrows
+       101 +<br />
+       102 +      Implementation: SVG diagram with color-coded circles and arrows
+       103 +  </details>
+       104 +<br />
+       105 +  ### Circular Dependency Detection
+       106 +<br />
+       107 +  Circular dependencies represent the most critical structural flaw in a 
+           + learning graph. They create logical impossibilities in the learning 
+           + sequence and must be identified and eliminated before proceeding with 
+           + content generation.
+       108 +<br />
+       109 +  Common sources of circular dependencies include:
+       110 +<br />
+       111 +  - <strong>Bidirectional prerequisites:</strong> Concept A requires B, and B requires 
+           + A
+       112 +  - <strong>Multi-hop cycles:</strong> A requires B, B requires C, C requires A
+       113 +  - <strong>Self-dependencies:</strong> A concept incorrectly lists itself as a 
+           + prerequisite
+       114 +<br />
+       115 +  The <code>analyze-graph.py</code> script reports all cycles found, displaying the 
+           + complete dependency chain for each cycle. This detailed output allows you
+           +  to identify which dependency link to remove to break the cycle.
+       116 +<br />
+       117 +  Here's an example of cycle detection output:
+       118 +<br />
+       119 +  <code>120 +  CYCLE DETECTED:
+       121 +    Graph Databases (ID: 45)
+       122 +    → Query Performance (ID: 52)
+       123 +    → Index Selection (ID: 48)
+       124 +    → Database Design (ID: 44)
+       125 +    → Graph Databases (ID: 45)
+       126 +  
+       127 +  Recommendation: Remove dependency "Database Design → Graph Databases"
+       128 +</code>
+       129 +<br />
+       130 +  ### Self-Dependency Checking
+       131 +<br />
+       132 +  Self-dependencies occur when a concept incorrectly lists its own 
+           + ConceptID in its dependencies column. While technically a special case of
+           +  circular dependencies, self-dependencies are so common—often resulting 
+           + from copy-paste errors in CSV editing—that the validation script checks 
+           + for them explicitly before running the general cycle detection algorithm.
+       133 +<br />
+       134 +  The self-dependency check is trivial but essential:
+       135 +<br />
+       136 +  <code>python
+       137 +  for concept in learning_graph:
+       138 +      if concept.id in concept.dependencies:
+       139 +          report_error(f"Concept {concept.id} depends on itself")
+       140 +</code>
+       141 +<br />
+       142 +  Any self-dependencies detected indicate data entry errors that should be
+           +  corrected immediately in your <code>learning-graph.csv</code> file.
+       143 +<br />
+       144 +  ## Quality Metrics for Learning Graphs
+       145 +<br />
+       146 +  Beyond structural validation, effective learning graphs exhibit certain 
+           + quality characteristics that enhance their pedagogical value. Quality 
+           + metrics quantify these characteristics, providing objective measures for 
+           + assessing and comparing learning graphs.
+       147 +<br />
+       148 +  The following metrics help identify potential issues that, while not 
+           + structurally invalid, may indicate pedagogical problems or opportunities 
+           + for improvement.
+       149 +<br />
+       150 +  ### Orphaned Nodes
+       151 +<br />
+       152 +  An <strong>orphaned node</strong> is a concept that no other concept depends upon—it 
+           + has an outdegree of zero. While terminal concepts (endpoints in the 
+           + learning journey) naturally have no dependents, excessive orphaned nodes 
+           + suggest concepts that may be:
+       153 +<br />
+       154 +  - Too specialized or advanced for the course scope
+       155 +  - Improperly isolated from the main learning progression
+       156 +  - Missing their dependent concepts due to incomplete graph construction
+       157 +<br />
+       158 +  A well-designed learning graph typically has 5-10% orphaned nodes, 
+           + representing culminating concepts and specialized topics. If more than 
+           + 20% of your concepts are orphaned, review them to determine whether they 
+           + should be connected to later material or removed from the graph entirely.
+       159 +<br />
+       160 +  <details>
+       161 +      <summary>Orphaned Nodes Identification Chart</summary>
+       162 +      Type: chart
+       163 +<br />
+       164 +      Chart type: Scatter plot
+       165 +<br />
+       166 +      Purpose: Visualize concept connectivity by showing indegree vs 
+           + outdegree for all concepts, highlighting orphaned nodes
+       167 +<br />
+       168 +      X-axis: Indegree (number of prerequisites, 0-8)
+       169 +      Y-axis: Outdegree (number of dependents, 0-12)
+       170 +<br />
+       171 +      Data series:
+       172 +      1. Foundational concepts (green dots, indegree = 0, outdegree &gt; 0)
+       173 +         - Example: "Introduction to Learning Graphs" (0, 8)
+       174 +         - Example: "What is a Concept?" (0, 6)
+       175 +<br />
+       176 +      2. Intermediate concepts (blue dots, indegree &gt; 0, outdegree &gt; 0)
+       177 +         - Scatter of 150+ points representing well-connected concepts
+       178 +         - Example: "DAG Validation" (2, 4)
+       179 +<br />
+       180 +      3. Orphaned concepts (red dots, indegree &gt; 0, outdegree = 0)
+       181 +         - Example: "Advanced Quality Metrics" (5, 0)
+       182 +         - Example: "Future of Learning Graphs" (3, 0)
+       183 +         - Show approximately 15-20 red dots
+       184 +<br />
+       185 +      Title: "Concept Connectivity Analysis: Indegree vs Outdegree"
+       186 +<br />
+       187 +      Annotations:
+       188 +      - Vertical line at outdegree=0 labeled "Orphaned Zone"
+       189 +      - Horizontal line at indegree=0 labeled "Foundation Zone"
+       190 +      - Callout: "12% orphaned (healthy range: 5-15%)"
+       191 +<br />
+       192 +      Legend: Position top-right with color coding explanation
+       193 +<br />
+       194 +      Implementation: Chart.js scatter plot with color-coded point 
+           + categories
+       195 +  </details>
+       196 +<br />
+       197 +  ### Disconnected Subgraphs
+       198 +<br />
+       199 +  A <strong>disconnected subgraph</strong> is a cluster of concepts isolated from the 
+           + main learning graph—they have no dependency paths connecting them to 
+           + foundational concepts. This indicates a serious structural problem: 
+           + students cannot reach these concepts through the normal learning 
+           + progression.
+       200 +<br />
+       201 +  Disconnected subgraphs typically result from:
+       202 +<br />
+       203 +  - Copy-pasting concept blocks without establishing connections
+       204 +  - Incomplete dependency mapping during graph construction
+       205 +  - Accidental deletion of bridging concepts
+       206 +<br />
+       207 +  The <code>analyze-graph.py</code> script uses a connectivity analysis algorithm to 
+           + identify all disconnected components. In a valid learning graph, there 
+           + should be exactly one connected component containing all concepts. Any 
+           + additional components indicate isolated concept clusters that need to be 
+           + integrated into the main graph.
+       208 +<br />
+       209 +  ### Linear Chain Detection
+       210 +<br />
+       211 +  A <strong>linear chain</strong> is a sequence of concepts where each concept depends 
+           + on exactly one predecessor and is depended upon by exactly one successor,
+           +  forming a single-file progression. While some linear sequences are 
+           + natural (basic → intermediate → advanced), excessive linear chains 
+           + indicate missed opportunities for:
+       212 +<br />
+       213 +  - Parallel learning paths that students could explore in different 
+           + orders
+       214 +  - Cross-concept connections that reinforce understanding
+       215 +  - Flexible curriculum that accommodates different learning styles
+       216 +<br />
+       217 +  Linear chains are identified by checking each concept's indegree and 
+           + outdegree:
+       218 +<br />
+       219 +  <code>python
+       220 +  def is_linear_chain_node(concept):
+       221 +      return concept.indegree == 1 and concept.outdegree == 1
+       222 +</code>
+       223 +<br />
+       224 +  Quality learning graphs typically have 20-40% of concepts in linear 
+           + chains, with the remainder providing branching paths and concept 
+           + integration points. If more than 60% of concepts form linear chains, 
+           + consider adding cross-dependencies to create a richer learning network.
+       225 +<br />
+       226 +  <details>
+       227 +      <summary>Linear Chain vs Network Structure Comparison</summary>
+       228 +      Type: diagram
+       229 +<br />
+       230 +      Purpose: Compare linear chain structure (poor) with network 
+           + structure (good) for learning graphs
+       231 +<br />
+       232 +      Layout: Two side-by-side network diagrams
+       233 +<br />
+       234 +      Left diagram - "Linear Chain Structure (Poor)":
+       235 +      - 10 concepts arranged vertically
+       236 +      - Single path: Concept 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10
+       237 +      - All nodes colored orange
+       238 +      - Title: "Linear Chain: 100% of concepts in single path"
+       239 +      - Caption: "No flexibility, single learning route"
+       240 +<br />
+       241 +      Right diagram - "Network Structure (Good)":
+       242 +      - Same 10 concepts arranged in a network
+       243 +      - Multiple paths and connections:
+       244 +        - Concept 1 (foundation) connects to 2, 3, 4
+       245 +        - Concepts 2, 3, 4 are parallel (same level)
+       246 +        - Concept 5 depends on 2 and 3
+       247 +        - Concept 6 depends on 3 and 4
+       248 +        - Concepts 7, 8 depend on various combinations
+       249 +        - Concepts 9, 10 are terminal (culminating concepts)
+       250 +      - Nodes colored by depth: green (foundation), blue (intermediate), 
+           + purple (advanced)
+       251 +      - Title: "Network Structure: 40% linear, 60% networked"
+       252 +      - Caption: "Multiple paths, cross-concept integration"
+       253 +<br />
+       254 +      Visual style: Network diagrams with nodes as circles, directed 
+           + arrows showing dependencies
+       255 +<br />
+       256 +      Annotations:
+       257 +      - Left: Red "X" indicating poor structure
+       258 +      - Right: Green checkmark indicating good structure
+       259 +      - Arrow between diagrams showing "Refactor to add 
+           + cross-dependencies"
+       260 +<br />
+       261 +      Color scheme: Orange for linear, green/blue/purple gradient for 
+           + network depth
+       262 +<br />
+       263 +      Implementation: SVG network diagram with positioned nodes and edges
+       264 +  </details>
+       265 +<br />
+       266 +  ## Graph Analysis Metrics
+       267 +<br />
+       268 +  Quantitative metrics provide objective measures of graph structure and 
+           + complexity. These metrics help you understand your learning graph's 
+           + characteristics and compare it to best practices for educational graph 
+           + design.
+       269 +<br />
+       270 +  ### Indegree and Outdegree Analysis
+       271 +<br />
+       272 +  <strong>Indegree</strong> (number of prerequisites) and <strong>outdegree</strong> (number of 
+           + dependents) are fundamental graph metrics that reveal concept roles 
+           + within the learning progression:
+       273 +<br />
+       274 +  - <strong>High indegree:</strong> Advanced concepts requiring substantial prior 
+           + knowledge
+       275 +  - <strong>Low indegree (0):</strong> Foundational concepts accessible without 
+           + prerequisites
+       276 +  - <strong>High outdegree:</strong> Core concepts that enable many subsequent topics
+       277 +  - <strong>Low outdegree (0):</strong> Specialized or terminal concepts
+       278 +<br />
+       279 +  Distribution of indegree values across your learning graph indicates its
+           +  prerequisite structure:
+       280 +<br />
+       281 +  | Indegree | Interpretation | Typical % of Concepts |
+       282 +  |----------|----------------|----------------------|
+       283 +  | 0 | Foundational concepts | 5-10% |
+       284 +  | 1-2 | Early concepts with minimal prerequisites | 30-40% |
+       285 +  | 3-5 | Intermediate concepts requiring solid foundation | 40-50% |
+       286 +  | 6+ | Advanced concepts requiring extensive background | 5-15% |
+       287 +<br />
+       288 +  If your graph has too many high-indegree concepts (&gt;20% with indegree ≥ 
+           + 6), consider whether some prerequisites are redundant or if the course 
+           + scope is too advanced. Conversely, if most concepts have indegree 0-1, 
+           + you may be missing important prerequisite relationships.
+       289 +<br />
+       290 +  ### Average Dependencies Per Concept
+       291 +<br />
+       292 +  The <strong>average dependencies per concept</strong> metric indicates overall graph 
+           + connectivity and curriculum density:
+       293 +<br />
+       294 +  <code>295 +  Average Dependencies = Total Edges / Total Nodes
+       296 +</code>
+       297 +<br />
+       298 +  For educational learning graphs, empirical research suggests optimal 
+           + ranges:
+       299 +<br />
+       300 +  - <strong>2.0-3.0:</strong> Appropriate for introductory courses with linear 
+           + progressions
+       301 +  - <strong>3.0-4.0:</strong> Ideal for intermediate courses with moderate integration
+       302 +  - <strong>4.0-5.0:</strong> Suitable for advanced courses with high concept 
+           + integration
+       303 +  - <strong>&gt;5.0:</strong> May indicate over-specification of prerequisites
+       304 +<br />
+       305 +  The <code>analyze-graph.py</code> script calculates this metric and flags values 
+           + outside the recommended 2.0-4.5 range. Graphs with average dependencies 
+           + below 2.0 may be too linear, while those above 5.0 may impose unrealistic
+           +  prerequisite burdens on learners.
+       306 +<br />
+       307 +  <details>
+       308 +      <summary>Average Dependencies Distribution Bar Chart</summary>
+       309 +      Type: chart
+       310 +<br />
+       311 +      Chart type: Histogram (bar chart)
+       312 +<br />
+       313 +      Purpose: Show distribution of prerequisite counts across all 
+           + concepts in the learning graph
+       314 +<br />
+       315 +      X-axis: Number of prerequisites (0, 1, 2, 3, 4, 5, 6, 7, 8+)
+       316 +      Y-axis: Number of concepts
+       317 +<br />
+       318 +      Data (example for 200-concept graph):
+       319 +      - 0 prerequisites: 12 concepts (foundational)
+       320 +      - 1 prerequisite: 45 concepts
+       321 +      - 2 prerequisites: 58 concepts
+       322 +      - 3 prerequisites: 42 concepts
+       323 +      - 4 prerequisites: 25 concepts
+       324 +      - 5 prerequisites: 12 concepts
+       325 +      - 6 prerequisites: 4 concepts
+       326 +      - 7 prerequisites: 2 concepts
+       327 +      - 8+ prerequisites: 0 concepts
+       328 +<br />
+       329 +      Title: "Prerequisite Distribution Across Learning Graph"
+       330 +<br />
+       331 +      Calculated metrics displayed below chart:
+       332 +      - Total concepts: 200
+       333 +      - Total dependencies: 620
+       334 +      - Average dependencies: 3.1 per concept
+       335 +      - Median: 2
+       336 +      - Mode: 2
+       337 +<br />
+       338 +      Annotations:
+       339 +      - Shaded region (2-4 prerequisites) in light green labeled "Optimal 
+           + Range"
+       340 +      - Average line (vertical) at 3.1 in blue
+       341 +      - Callout: "84% of concepts in optimal range (1-5 prerequisites)"
+       342 +<br />
+       343 +      Color scheme: Gold bars with green shading for optimal range
+       344 +<br />
+       345 +      Implementation: Chart.js bar chart with annotations
+       346 +  </details>
+       347 +<br />
+       348 +  ### Maximum Dependency Chain Length
+       349 +<br />
+       350 +  The <strong>maximum dependency chain length</strong> represents the longest sequence 
+           + of prerequisite concepts from any foundational node to any terminal node.
+           +  This metric indicates the depth of your curriculum and affects course 
+           + duration planning.
+       351 +<br />
+       352 +  For a 200-concept learning graph, typical maximum chain lengths are:
+       353 +<br />
+       354 +  - <strong>8-12 concepts:</strong> Short course (4-6 weeks)
+       355 +  - <strong>12-18 concepts:</strong> Standard semester course (12-15 weeks)
+       356 +  - <strong>18-25 concepts:</strong> Extended course or multi-semester sequence
+       357 +  - <strong>&gt;25 concepts:</strong> May indicate overly linear structure
+       358 +<br />
+       359 +  The chain length affects student progress velocity. If your maximum 
+           + chain is 20 concepts deep, students must complete at least 20 learning 
+           + steps to reach the most advanced material—establishing a minimum time 
+           + investment regardless of study intensity.
+       360 +<br />
+       361 +  Critical path analysis identifies these longest chains, helping you 
+           + understand pacing requirements and potential bottlenecks in the learning 
+           + progression. Concepts on the critical path deserve extra attention in 
+           + content development, as delays in mastering these concepts cascade 
+           + through all dependent material.
+       362 +<br />
+       363 +  ## Learning Graph Quality Score
+       364 +<br />
+       365 +  The overall <strong>learning graph quality score</strong> provides a single metric 
+           + (0-100) that aggregates multiple quality dimensions into an interpretable
+           +  assessment. While individual metrics reveal specific issues, the quality
+           +  score enables quick comparison and tracking of improvements over time.
+       366 +<br />
+       367 +  The quality scoring algorithm used by <code>analyze-graph.py</code> weights various
+           +  factors:
+       368 +<br />
+       369 +  <strong>Structural Validity (40 points):</strong>
+       370 +<br />
+       371 +  - DAG validation passes (20 points)
+       372 +  - No self-dependencies (10 points)
+       373 +  - All concepts in single connected component (10 points)
+       374 +<br />
+       375 +  <strong>Connectivity Quality (30 points):</strong>
+       376 +<br />
+       377 +  - Orphaned nodes 5-15% of total (10 points, scaled for deviation)
+       378 +  - Average dependencies 2.5-4.0 per concept (10 points, scaled)
+       379 +  - Maximum chain length appropriate for scope (10 points)
+       380 +<br />
+       381 +  <strong>Distribution Quality (20 points):</strong>
+       382 +<br />
+       383 +  - No linear chains exceeding 20% of graph (10 points)
+       384 +  - Indegree distribution follows expected pattern (10 points)
+       385 +<br />
+       386 +  <strong>Taxonomy Balance (10 points):</strong>
+       387 +<br />
+       388 +  - No single taxonomy category exceeds 30% (5 points)
+       389 +  - At least 5 taxonomy categories represented (5 points)
+       390 +<br />
+       391 +  Interpretation of quality scores:
+       392 +<br />
+       393 +  | Score Range | Quality Level | Interpretation |
+       394 +  |-------------|--------------|----------------|
+       395 +  | 90-100 | Excellent | Publication-ready, well-structured graph |
+       396 +  | 75-89 | Good | Minor improvements recommended |
+       397 +  | 60-74 | Acceptable | Several issues to address before content 
+           + generation |
+       398 +  | 40-59 | Poor | Significant structural or quality problems |
+       399 +  | 0-39 | Critical | Major revision required |
+       400 +<br />
+       401 +  The quality score should be calculated after every significant graph 
+           + revision. Track scores over time to ensure your changes improve rather 
+           + than degrade graph quality.
+       402 +<br />
+       403 +  <details>
+       404 +      <summary>Learning Graph Quality Score Calculator MicroSim</summary>
+       405 +      Type: microsim
+       406 +<br />
+       407 +      Learning objective: Allow students to experiment with how different 
+           + graph characteristics affect overall quality score
+       408 +<br />
+       409 +      Canvas layout (900x600px):
+       410 +      - Left side (600x600): Quality score visualization
+       411 +      - Right side (300x600): Interactive controls
+       412 +<br />
+       413 +      Visual elements (left panel):
+       414 +      - Large circular gauge showing overall score (0-100)
+       415 +      - Color-coded segments: Red (0-39), Orange (40-59), Yellow (60-74), 
+           + Light Green (75-89), Dark Green (90-100)
+       416 +      - Current score displayed in center in large font
+       417 +      - Four horizontal bars below gauge showing component scores:
+       418 +        * Structural Validity: 0-40 points (blue bar)
+       419 +        * Connectivity Quality: 0-30 points (green bar)
+       420 +        * Distribution Quality: 0-20 points (orange bar)
+       421 +        * Taxonomy Balance: 0-10 points (purple bar)
+       422 +      - Each bar shows points earned out of maximum
+       423 +<br />
+       424 +      Interactive controls (right panel):
+       425 +      - Slider: "Number of Concepts" (50-300, default 200)
+       426 +      - Slider: "Orphaned Nodes %" (0-40%, default 10%)
+       427 +      - Slider: "Avg Dependencies" (1.0-6.0, default 3.2)
+       428 +      - Slider: "Max Chain Length" (5-35, default 16)
+       429 +      - Slider: "Linear Chain %" (10-80%, default 35%)
+       430 +      - Slider: "Largest Taxonomy %" (10-60%, default 22%)
+       431 +      - Checkbox: "Has Cycles" (default unchecked)
+       432 +      - Checkbox: "Has Disconnected Subgraphs" (default unchecked)
+       433 +      - Button: "Reset to Defaults"
+       434 +      - Button: "Load Example: Poor Graph"
+       435 +      - Button: "Load Example: Excellent Graph"
+       436 +<br />
+       437 +      Default parameters (Good Graph):
+       438 +      - Concepts: 200
+       439 +      - Orphaned: 10%
+       440 +      - Avg Dependencies: 3.2
+       441 +      - Max Chain: 16
+       442 +      - Linear Chain %: 35%
+       443 +      - Largest Taxonomy: 22%
+       444 +      - No cycles, no disconnected subgraphs
+       445 +      - <strong>Expected Score: 82</strong> (Good)
+       446 +<br />
+       447 +      Behavior:
+       448 +      - Real-time recalculation as sliders move
+       449 +      - Score gauge animates to new value
+       450 +      - Component bars update proportionally
+       451 +      - Color of gauge changes based on score range
+       452 +      - Tooltip on hover shows calculation details for each component
+       453 +      - "Poor Graph" example: cycles=true, orphaned=35%, score~28
+       454 +      - "Excellent Graph" example: optimal all parameters, score~96
+       455 +<br />
+       456 +      Implementation notes:
+       457 +      - Use p5.js for rendering gauge and bars
+       458 +      - Implement scoring algorithm matching analyze-graph.py logic
+       459 +      - Use DOM elements for sliders and checkboxes
+       460 +      - Map() function to scale slider values to score components
+       461 +      - Lerp() for smooth score animations
+       462 +<br />
+       463 +      Implementation: p5.js MicroSim with interactive controls
+       464 +  </details>
+       465 +<br />
+       466 +  ## Taxonomy Distribution and Balance
+       467 +<br />
+       468 +  Beyond graph structure, the distribution of concepts across taxonomy 
+           + categories affects curriculum balance and learning progression. A 
+           + well-balanced taxonomy distribution ensures students encounter 
+           + appropriate variety across knowledge domains without over-concentration 
+           + in any single area.
+       469 +<br />
+       470 +  ### Taxonomy Categories
+       471 +<br />
+       472 +  Learning graphs typically categorize concepts using a <strong>TaxonomyID</strong> 
+           + field that groups related concepts into domains. Common taxonomy 
+           + categories for technical courses include:
+       473 +<br />
+       474 +  - <strong>FOUND</strong> - Foundational concepts and definitions
+       475 +  - <strong>BASIC</strong> - Basic principles and core ideas
+       476 +  - <strong>ARCH</strong> - Architecture and system design
+       477 +  - <strong>IMPL</strong> - Implementation and practical skills
+       478 +  - <strong>TOOL</strong> - Tools and technologies
+       479 +  - <strong>SKILL</strong> - Professional skills and practices
+       480 +  - <strong>ADV</strong> - Advanced topics and specializations
+       481 +<br />
+       482 +  The number and specificity of taxonomy categories varies by subject 
+           + matter. Introductory courses might use 5-8 broad categories, while 
+           + specialized courses might employ 10-15 granular categories.
+       483 +<br />
+       484 +  ### TaxonomyID Abbreviations
+       485 +<br />
+       486 +  TaxonomyIDs use 3-5 letter abbreviations for compactness in CSV files 
+           + and visualization color-coding. When designing your taxonomy, choose 
+           + abbreviations that are:
+       487 +<br />
+       488 +  - <strong>Distinctive:</strong> No two categories should share the same first 3 
+           + letters
+       489 +  - <strong>Mnemonic:</strong> Abbreviation should suggest the full category name
+       490 +  - <strong>Consistent:</strong> Use similar grammatical forms (nouns vs. adjectives)
+       491 +<br />
+       492 +  Example taxonomy abbreviations:
+       493 +<br />
+       494 +  | TaxonomyID | Full Category Name | Color Code (visualization) |
+       495 +  |------------|-------------------|---------------------------|
+       496 +  | FOUND | Foundational Concepts | Red |
+       497 +  | BASIC | Basic Principles | Orange |
+       498 +  | ARCH | Architecture &amp; Design | Yellow |
+       499 +  | IMPL | Implementation | Light Green |
+       500 +  | DATA | Data Management | Green |
+       501 +  | TOOL | Tools &amp; Technologies | Light Blue |
+       502 +  | QUAL | Quality Assurance | Blue |
+       503 +  | ADV | Advanced Topics | Purple |
+       504 +<br />
+       505 +  ### Category Distribution Analysis
+       506 +<br />
+       507 +  The <strong>category distribution</strong> metric shows what percentage of your total
+           +  concepts fall into each taxonomy category. This distribution should 
+           + reflect the emphasis and scope of your course.
+       508 +<br />
+       509 +  Healthy category distributions typically exhibit:
+       510 +<br />
+       511 +  - <strong>No single category exceeds 30%:</strong> Avoid over-concentration
+       512 +  - <strong>Top 3 categories contain 50-70% of concepts:</strong> Natural emphasis 
+           + areas
+       513 +  - <strong>At least 5 categories represented:</strong> Adequate coverage breadth
+       514 +  - <strong>Foundational category: 5-10% of concepts:</strong> Appropriate base layer
+       515 +<br />
+       516 +  The <code>taxonomy-distribution.py</code> script generates a detailed report 
+           + showing both absolute counts and percentages for each category, enabling 
+           + quick identification of imbalanced distributions.
+       517 +<br />
+       518 +  <details>
+       519 +      <summary>Taxonomy Distribution Pie Chart</summary>
+       520 +      Type: chart
+       521 +<br />
+       522 +      Chart type: Pie chart with percentage labels
+       523 +<br />
+       524 +      Purpose: Visualize the distribution of 200 concepts across taxonomy 
+           + categories
+       525 +<br />
+       526 +      Data:
+       527 +      - FOUND (Foundational): 18 concepts (9%) - Red
+       528 +      - BASIC (Basic Principles): 42 concepts (21%) - Orange
+       529 +      - ARCH (Architecture): 38 concepts (19%) - Yellow
+       530 +      - IMPL (Implementation): 35 concepts (17.5%) - Light Green
+       531 +      - DATA (Data Management): 28 concepts (14%) - Green
+       532 +      - TOOL (Tools): 22 concepts (11%) - Light Blue
+       533 +      - QUAL (Quality): 12 concepts (6%) - Blue
+       534 +      - ADV (Advanced): 5 concepts (2.5%) - Purple
+       535 +<br />
+       536 +      Title: "Learning Graph Taxonomy Distribution (200 Concepts)"
+       537 +<br />
+       538 +      Label format: "CATEGORY: N concepts (P%)"
+       539 +<br />
+       540 +      Annotations:
+       541 +      - Callout for BASIC slice: "Largest category: 21% (healthy)"
+       542 +      - Callout for ADV slice: "Smallest category: 2.5% (may need 
+           + expansion)"
+       543 +      - Legend positioned to right side
+       544 +<br />
+       545 +      Quality indicators:
+       546 +      - Green checkmark: "No category exceeds 30% ✓"
+       547 +      - Green checkmark: "8 categories represented ✓"
+       548 +      - Green checkmark: "Top 3 categories = 59% ✓"
+       549 +<br />
+       550 +      Color scheme: Rainbow gradient (red → orange → yellow → green → blue
+           +  → purple)
+       551 +<br />
+       552 +      Implementation: Chart.js pie chart with custom colors and labels
+       553 +  </details>
+       554 +<br />
+       555 +  ### Avoiding Over-Representation
+       556 +<br />
+       557 +  <strong>Over-representation</strong> occurs when a single taxonomy category dominates
+           +  the learning graph, consuming more than 30% of total concepts. This 
+           + imbalance can result from:
+       558 +<br />
+       559 +  - <strong>Scope creep:</strong> Course expanded in one area without proportional 
+           + breadth
+       560 +  - <strong>Expert bias:</strong> Instructor's specialization over-emphasized
+       561 +  - <strong>Incomplete mapping:</strong> Other categories insufficiently developed
+       562 +<br />
+       563 +  Over-representation in foundational or basic categories suggests the 
+           + course may be too introductory, while over-representation in advanced or 
+           + specialized categories indicates potential accessibility issues for 
+           + learners.
+       564 +<br />
+       565 +  To correct over-representation:
+       566 +<br />
+       567 +  1. <strong>Review over-represented category:</strong> Identify concepts that could be
+           +  consolidated or removed
+       568 +  2. <strong>Expand under-represented categories:</strong> Add concepts to balance 
+           + distribution
+       569 +  3. <strong>Reclassify borderline concepts:</strong> Move concepts to more appropriate
+           +  categories
+       570 +  4. <strong>Validate against learning outcomes:</strong> Ensure distribution aligns 
+           + with stated course objectives
+       571 +<br />
+       572 +  The taxonomy distribution report generated by <code>taxonomy-distribution.py</code>
+           +  flags any categories exceeding the 30% threshold, enabling quick 
+           + identification of balance issues.
+       573 +<br />
+       574 +  ## Generating Quality Reports with Python Scripts
+       575 +<br />
+       576 +  The learning graph quality validation process relies on three Python 
+           + scripts located in the <code>docs/learning-graph/</code> directory. These scripts 
+           + analyze your <code>learning-graph.csv</code> file and generate comprehensive quality
+           +  reports in Markdown format.
+       577 +<br />
+       578 +  ### analyze-graph.py Script
+       579 +<br />
+       580 +  The <code>analyze-graph.py</code> script performs comprehensive graph validation 
+           + and quality analysis:
+       581 +<br />
+       582 +  <strong>Usage:</strong>
+       583 +  <code>bash
+       584 +  cd docs/learning-graph
+       585 +  python analyze-graph.py learning-graph.csv quality-metrics.md
+       586 +</code>
+       587 +<br />
+       588 +  <strong>Checks performed:</strong>
+       589 +<br />
+       590 +  1. CSV format validation
+       591 +  2. Self-dependency detection
+       592 +  3. Cycle detection (DAG validation)
+       593 +  4. Connectivity analysis
+       594 +  5. Orphaned node identification
+       595 +  6. Linear chain detection
+       596 +  7. Indegree/outdegree statistics
+       597 +  8. Maximum dependency chain calculation
+       598 +  9. Overall quality score computation
+       599 +<br />
+       600 +  <strong>Output:</strong> Generates <code>quality-metrics.md</code> report file containing all 
+           + findings, metrics, and a final quality score. Any critical issues 
+           + (cycles, disconnected subgraphs) are highlighted at the top of the 
+           + report.
+       601 +<br />
+       602 +  ### csv-to-json.py Script
+       603 +<br />
+       604 +  The <code>csv-to-json.py</code> script converts your learning graph CSV to 
+           + vis-network JSON format for visualization:
+       605 +<br />
+       606 +  <strong>Usage:</strong>
+       607 +  <code>bash
+       608 +  cd docs/learning-graph
+       609 +  python csv-to-json.py learning-graph.csv learning-graph.json
+       610 +</code>
+       611 +<br />
+       612 +  <strong>Functionality:</strong>
+       613 +<br />
+       614 +  - Parses CSV with ConceptID, ConceptLabel, Dependencies, TaxonomyID 
+           + columns
+       615 +  - Generates nodes array with id, label, and group (taxonomy) fields
+       616 +  - Generates edges array with from and to fields (dependency arrows)
+       617 +  - Adds metadata section with graph statistics
+       618 +  - Validates JSON output format
+       619 +<br />
+       620 +  <strong>Output:</strong> Creates <code>learning-graph.json</code> file that can be loaded by 
+           + vis-network visualization tools to display your learning graph 
+           + interactively.
+       621 +<br />
+       622 +  ### taxonomy-distribution.py Script
+       623 +<br />
+       624 +  The <code>taxonomy-distribution.py</code> script analyzes the distribution of 
+           + concepts across taxonomy categories:
+       625 +<br />
+       626 +  <strong>Usage:</strong>
+       627 +  <code>bash
+       628 +  cd docs/learning-graph
+       629 +  python taxonomy-distribution.py learning-graph.csv 
+           + taxonomy-distribution.md
+       630 +</code>
+       631 +<br />
+       632 +  <strong>Analysis performed:</strong>
+       633 +<br />
+       634 +  - Counts concepts per taxonomy category
+       635 +  - Calculates percentage distribution
+       636 +  - Identifies over-represented categories (&gt;30%)
+       637 +  - Identifies under-represented categories (&lt;3%)
+       638 +  - Generates distribution table and summary statistics
+       639 +<br />
+       640 +  <strong>Output:</strong> Creates <code>taxonomy-distribution.md</code> report with a table 
+           + showing each category's count and percentage, plus recommendations for 
+           + rebalancing if needed.
+       641 +<br />
+       642 +  All three scripts should be run after any changes to your learning graph
+           +  CSV file. Incorporate the generated reports into your MkDocs navigation 
+           + to make quality metrics visible to reviewers and collaborators.
+       643 +<br />
+       644 +  ## Summary and Best Practices
+       645 +<br />
+       646 +  Validating learning graph quality ensures your intelligent textbook 
+           + rests on a sound pedagogical foundation. This chapter covered both 
+           + structural validation (DAG properties, connectivity) and quality metrics 
+           + (orphaned nodes, dependency distribution, taxonomy balance) that 
+           + collectively determine graph effectiveness.
+       647 +<br />
+       648 +  Key takeaways for maintaining high-quality learning graphs:
+       649 +<br />
+       650 +  - <strong>Always validate DAG structure first:</strong> Circular dependencies and 
+           + disconnected subgraphs are critical errors that must be fixed before 
+           + proceeding
+       651 +  - <strong>Target quality scores above 75:</strong> Scores in this range indicate 
+           + graphs ready for content generation
+       652 +  - <strong>Monitor taxonomy distribution:</strong> Keep any single category below 30% 
+           + and ensure at least 5 categories represented
+       653 +  - <strong>Aim for 2.5-4.0 average dependencies:</strong> This range balances 
+           + prerequisite completeness with learner accessibility
+       654 +  - <strong>Accept 5-15% orphaned nodes:</strong> Terminal and specialized concepts 
+           + naturally have no dependents
+       655 +  - <strong>Run all three Python scripts after edits:</strong> Complete quality 
+           + assessment requires structural validation, format conversion, and 
+           + taxonomy analysis
+       656 +<br />
+       657 +  Learning graph validation is iterative. Your first quality score may be 
+           + low, but systematic application of the techniques in this chapter will 
+           + guide improvements. Track your quality scores over time, targeting 
+           + incremental increases until you achieve publication-ready scores above 
+           + 85.
+       658 +<br />
+       659 +  With a validated, high-quality learning graph in hand, you're ready to 
+           + proceed to the next phase: converting your graph data to visualization 
+           + formats and generating the rich content that will bring your intelligent 
+           + textbook to life.</p>
+<p>⏺ Update(docs/chapters/07-taxonomy-data-formats/index.md)
+  ⎿  Updated docs/chapters/07-taxonomy-data-formats/index.md with 1042 additions and 1 
+     removal
+         42  <br />
+         43    ---
+         44  <br />
+         45 -  TODO: Generate Chapter Content
+         45 +  ## Introduction to Data Formats for Learning Graphs
+         46 +<br />
+         47 +  Learning graphs exist as data structures that must be stored, 
+            + processed, and visualized effectively. While the conceptual model of a 
+            + learning graph—concepts connected by dependency relationships—is 
+            + straightforward, implementing that model requires careful attention to 
+            + data formats and transformation pipelines. This chapter explores the 
+            + complete data workflow from CSV-based graph authoring through JSON 
+            + conversion to interactive visualization.
+         48 +<br />
+         49 +  You'll learn how taxonomy information enriches your learning graph with
+            +  categorical structure, enabling color-coded visualizations and 
+            + category-based filtering. The chapter provides comprehensive coverage of
+            +  the vis-network JSON format, which serves as the intermediate 
+            + representation for browser-based graph visualization. Understanding JSON
+            +  schema design, metadata standards, and color coding strategies will 
+            + enable you to create professional, accessible learning graph 
+            + visualizations.
+         50 +<br />
+         51 +  The chapter culminates with practical Python scripting for learning 
+            + graph processing. You'll explore the implementation details of scripts 
+            + that validate, transform, and analyze your learning graph data, 
+            + empowering you to customize the toolchain for your specific needs.
+         52 +<br />
+         53 +  ## The TaxonomyID Field in CSV Format
+         54 +<br />
+         55 +  The learning graph CSV format introduced in Chapter 5 includes four 
+            + essential columns: ConceptID, ConceptLabel, Dependencies, and 
+            + <strong>TaxonomyID</strong>. While the first three columns define graph structure, 
+            + the TaxonomyID column provides categorical metadata that enhances both 
+            + organization and visualization.
+         56 +<br />
+         57 +  A TaxonomyID is a short (3-5 letter) abbreviation representing a 
+            + conceptual category or domain. Examples include:
+         58 +<br />
+         59 +  - <strong>FOUND</strong>: Foundational concepts
+         60 +  - <strong>TOOL</strong>: Tools and technologies
+         61 +  - <strong>IMPL</strong>: Implementation techniques
+         62 +  - <strong>ARCH</strong>: Architecture and design
+         63 +  - <strong>EVAL</strong>: Evaluation and assessment
+         64 +<br />
+         65 +  The TaxonomyID field serves multiple purposes in the learning graph 
+            + ecosystem:
+         66 +<br />
+         67 +  1. <strong>Visual grouping</strong>: Concepts with the same TaxonomyID display in 
+            + the same color in visualizations
+         68 +  2. <strong>Filtering</strong>: Users can filter graph views to show only specific 
+            + categories
+         69 +  3. <strong>Balance analysis</strong>: Distribution reports identify over- or 
+            + under-represented categories
+         70 +  4. <strong>Conceptual organization</strong>: Related concepts cluster naturally 
+            + during authoring
+         71 +<br />
+         72 +  In the CSV format, TaxonomyID appears as the fourth column:
+         73 +<br />
+         74 +  <code>csv
+         75 +  ConceptID,ConceptLabel,Dependencies,TaxonomyID
+         76 +  1,Introduction to Learning Graphs,,FOUND
+         77 +  2,What is a Concept?,1,FOUND
+         78 +  3,Concept Dependencies,1|2,BASIC
+         79 +  4,Graph Data Structures,3,ARCH
+         80 +</code>
+         81 +<br />
+         82 +  ### Adding Taxonomy to Existing Graphs
+         83 +<br />
+         84 +  If you created a learning graph without TaxonomyID information, you can
+            +  add it retroactively using a multi-step process:
+         85 +<br />
+         86 +  1. <strong>Identify natural categories</strong>: Review your concept list and 
+            + identify 5-10 logical groupings based on topic similarity, complexity 
+            + level, or knowledge domain
+         87 +  2. <strong>Design TaxonomyID abbreviations</strong>: Create distinctive, memorable 
+            + 3-5 letter codes for each category
+         88 +  3. <strong>Add TaxonomyID column to CSV</strong>: Insert a new column header 
+            + "TaxonomyID" as the fourth column
+         89 +  4. <strong>Categorize concepts</strong>: Assign each concept to its most appropriate
+            +  category
+         90 +  5. <strong>Validate distribution</strong>: Run <code>taxonomy-distribution.py</code> to check 
+            + for balanced categorization
+         91 +<br />
+         92 +  The <code>add-taxonomy.py</code> helper script can semi-automate this process by 
+            + suggesting categories based on concept labels using keyword matching:
+         93 +<br />
+         94 +  <code>bash
+         95 +  cd docs/learning-graph
+         96 +  python add-taxonomy.py learning-graph.csv 
+            + learning-graph-with-taxonomy.csv
+         97 +</code>
+         98 +<br />
+         99 +  The script prompts for taxonomy rules (keyword → TaxonomyID mappings) 
+            + and applies them systematically, flagging ambiguous cases for manual 
+            + review.
+        100 +<br />
+        101 +  <details>
+        102 +      <summary>Adding Taxonomy to CSV Workflow Diagram</summary>
+        103 +      Type: workflow
+        104 +<br />
+        105 +      Purpose: Show the step-by-step process of adding taxonomy 
+            + information to an existing learning graph CSV
+        106 +<br />
+        107 +      Visual style: Flowchart with process rectangles and decision 
+            + diamonds
+        108 +<br />
+        109 +      Steps:
+        110 +      1. Start: "Learning Graph CSV without TaxonomyID"
+        111 +         Hover text: "Existing CSV with ConceptID, ConceptLabel, 
+            + Dependencies columns only"
+        112 +<br />
+        113 +      2. Process: "Identify Natural Categories"
+        114 +         Hover text: "Review all concept labels and group by topic, 
+            + domain, or complexity"
+        115 +<br />
+        116 +      3. Process: "Design TaxonomyID Abbreviations"
+        117 +         Hover text: "Create 3-5 letter codes (FOUND, BASIC, ARCH, etc.)"
+        118 +<br />
+        119 +      4. Decision: "Use automated categorization?"
+        120 +         Hover text: "Choose between manual assignment or add-taxonomy.py
+            +  script"
+        121 +<br />
+        122 +      5a. Process: "Run add-taxonomy.py" (if automated)
+        123 +          Hover text: "Script uses keyword matching to suggest 
+            + categories"
+        124 +<br />
+        125 +      5b. Process: "Manually add TaxonomyID column" (if manual)
+        126 +          Hover text: "Insert column in spreadsheet, assign each concept"
+        127 +<br />
+        128 +      6. Process: "Review and adjust assignments"
+        129 +         Hover text: "Check that categorization makes logical sense"
+        130 +<br />
+        131 +      7. Process: "Run taxonomy-distribution.py"
+        132 +         Hover text: "Validate that no category exceeds 30% of concepts"
+        133 +<br />
+        134 +      8. Decision: "Distribution balanced?"
+        135 +         Hover text: "Check quality report for over/under-representation"
+        136 +<br />
+        137 +      9a. Process: "Adjust categories" (if unbalanced)
+        138 +          Hover text: "Merge over-represented categories or expand 
+            + under-represented"
+        139 +          → Loop back to step 6
+        140 +<br />
+        141 +      9b. End: "Learning Graph with Taxonomy" (if balanced)
+        142 +          Hover text: "CSV ready for JSON conversion and visualization"
+        143 +<br />
+        144 +      Color coding:
+        145 +      - Blue: Data processing steps
+        146 +      - Yellow: Decision points
+        147 +      - Green: Quality validation
+        148 +      - Orange: Manual review steps
+        149 +<br />
+        150 +      Swimlanes: Not applicable (single-actor process)
+        151 +<br />
+        152 +      Implementation: SVG flowchart with hover tooltips
+        153 +  </details>
+        154 +<br />
+        155 +  ## vis-network JSON Format
+        156 +<br />
+        157 +  The vis-network JavaScript library provides powerful, interactive graph
+            +  visualization in web browsers. To leverage vis-network for learning 
+            + graph visualization, you must convert your CSV data into the vis-network
+            +  JSON format—a structured representation that defines nodes, edges, 
+            + visual styling, and metadata.
+        158 +<br />
+        159 +  The vis-network format organizes graph data into four primary sections:
+        160 +<br />
+        161 +  1. <strong>metadata</strong>: Information about the graph itself (title, creator, 
+            + date, etc.)
+        162 +  2. <strong>groups</strong>: Visual styling definitions for each TaxonomyID category
+        163 +  3. <strong>nodes</strong>: Array of concept objects with id, label, and group 
+            + properties
+        164 +  4. <strong>edges</strong>: Array of dependency objects with from and to properties
+        165 +<br />
+        166 +  This hierarchical structure separates content (what concepts exist) 
+            + from presentation (how concepts should be displayed), following best 
+            + practices for data interchange formats.
+        167 +<br />
+        168 +  ### JSON Schema for Learning Graphs
+        169 +<br />
+        170 +  A JSON schema defines the expected structure, data types, and 
+            + constraints for JSON documents. For learning graphs, the schema ensures 
+            + that generated JSON files conform to vis-network requirements and 
+            + include all necessary metadata.
+        171 +<br />
+        172 +  The learning graph JSON schema specifies:
+        173 +<br />
+        174 +  <strong>Top-level structure:</strong>
+        175 +  <code>json
+        176 +  {
+        177 +    "metadata": { ... },
+        178 +    "groups": { ... },
+        179 +    "nodes": [ ... ],
+        180 +    "edges": [ ... ]
+        181 +  }
+        182 +</code>
+        183 +<br />
+        184 +  <strong>Data type constraints:</strong>
+        185 +<br />
+        186 +  - <code>metadata</code>: Object with string values for title, description, etc.
+        187 +  - <code>groups</code>: Object with group names as keys, styling objects as values
+        188 +  - <code>nodes</code>: Array of objects, each with required <code>id</code> (number), <code>label</code> 
+            + (string), <code>group</code> (string)
+        189 +  - <code>edges</code>: Array of objects, each with required <code>from</code> (number), <code>to</code> 
+            + (number)
+        190 +<br />
+        191 +  <strong>Validation rules:</strong>
+        192 +<br />
+        193 +  - All node IDs must be unique within the nodes array
+        194 +  - All edge <code>from</code> and <code>to</code> values must reference existing node IDs
+        195 +  - All node <code>group</code> values must have corresponding entries in the 
+            + <code>groups</code> object
+        196 +  - Metadata fields should follow Dublin Core standards (covered in next 
+            + section)
+        197 +<br />
+        198 +  The <code>csv-to-json.py</code> script implements this schema validation 
+            + automatically, rejecting CSV data that would produce invalid JSON and 
+            + providing detailed error messages for corrections.
+        199 +<br />
+        200 +  <details>
+        201 +      <summary>Learning Graph JSON Schema Diagram</summary>
+        202 +      Type: diagram
+        203 +<br />
+        204 +      Purpose: Visualize the hierarchical structure of the learning graph
+            +  JSON format
+        205 +<br />
+        206 +      Layout: Tree diagram showing nested structure
+        207 +<br />
+        208 +      Components:
+        209 +      - Root: "learning-graph.json" (gold rounded rectangle)
+        210 +        ├─ "metadata" (blue rounded rectangle)
+        211 +        │  ├─ title: string
+        212 +        │  ├─ description: string
+        213 +        │  ├─ creator: string
+        214 +        │  ├─ date: string (ISO 8601)
+        215 +        │  ├─ version: string
+        216 +        │  ├─ format: string
+        217 +        │  └─ license: string
+        218 +        │
+        219 +        ├─ "groups" (green rounded rectangle)
+        220 +        │  ├─ FOUND: {color, font, shape}
+        221 +        │  ├─ BASIC: {color, font, shape}
+        222 +        │  └─ ... (other taxonomy groups)
+        223 +        │
+        224 +        ├─ "nodes" (purple rounded rectangle)
+        225 +        │  ├─ [0]: {id: number, label: string, group: string}
+        226 +        │  ├─ [1]: {id: number, label: string, group: string}
+        227 +        │  └─ ... (array of 200 concept objects)
+        228 +        │
+        229 +        └─ "edges" (orange rounded rectangle)
+        230 +           ├─ [0]: {from: number, to: number}
+        231 +           ├─ [1]: {from: number, to: number}
+        232 +           └─ ... (array of dependency relationships)
+        233 +<br />
+        234 +      Visual style: Tree diagram with connecting lines
+        235 +<br />
+        236 +      Color coding:
+        237 +      - Gold: Root document
+        238 +      - Blue: Metadata section
+        239 +      - Green: Groups/styling section
+        240 +      - Purple: Nodes/content section
+        241 +      - Orange: Edges/relationships section
+        242 +<br />
+        243 +      Annotations:
+        244 +      - "Required by vis-network" label pointing to nodes and edges
+        245 +      - "Dublin Core metadata" label pointing to metadata section
+        246 +      - "Visual styling" label pointing to groups section
+        247 +      - "~200 objects" annotation on nodes array
+        248 +      - "~600 objects" annotation on edges array (for 200-concept graph 
+            + with avg 3 dependencies)
+        249 +<br />
+        250 +      Implementation: SVG tree diagram with labeled boxes and connecting 
+            + lines
+        251 +  </details>
+        252 +<br />
+        253 +  ### Metadata Section in JSON
+        254 +<br />
+        255 +  The <strong>metadata section</strong> contains descriptive information about the 
+            + learning graph as a whole, following Dublin Core metadata standards. 
+            + This section enables proper attribution, versioning, and documentation 
+            + of your learning graph dataset.
+        256 +<br />
+        257 +  Example metadata section:
+        258 +<br />
+        259 +  <code>json
+        260 +  {
+        261 +    "metadata": {
+        262 +      "title": "Introduction to Graph Databases Learning Graph",
+        263 +      "description": "Concept dependency graph for a 15-week course on 
+            + graph database fundamentals, architecture, and implementation",
+        264 +      "creator": "Dr. Jane Smith",
+        265 +      "date": "2024-09-15",
+        266 +      "version": "1.2.0",
+        267 +      "format": "vis-network JSON",
+        268 +      "license": "CC-BY-4.0"
+        269 +    }
+        270 +  }
+        271 +</code>
+        272 +<br />
+        273 +  While metadata doesn't affect graph visualization directly, it provides
+            +  essential context for:
+        274 +<br />
+        275 +  - <strong>Attribution</strong>: Identifying who created or maintains the learning 
+            + graph
+        276 +  - <strong>Versioning</strong>: Tracking changes over time and ensuring correct 
+            + versions are used
+        277 +  - <strong>Documentation</strong>: Describing the graph's purpose, scope, and 
+            + educational context
+        278 +  - <strong>Licensing</strong>: Clarifying usage rights and redistribution terms
+        279 +<br />
+        280 +  ### Groups Section in JSON
+        281 +<br />
+        282 +  The <strong>groups section</strong> defines visual styling for each TaxonomyID 
+            + category, enabling consistent color-coded visualization across the 
+            + learning graph. Each group specifies:
+        283 +<br />
+        284 +  - <strong>color</strong>: Background color for nodes in this category
+        285 +  - <strong>font</strong>: Text color and size for labels
+        286 +  - <strong>shape</strong>: Node shape (circle, box, diamond, etc.)
+        287 +<br />
+        288 +  Example groups section:
+        289 +<br />
+        290 +  <code>json
+        291 +  {
+        292 +    "groups": {
+        293 +      "FOUND": {
+        294 +        "color": {"background": "#FF6B6B", "border": "#C92A2A"},
+        295 +        "font": {"color": "#000000", "size": 14},
+        296 +        "shape": "circle"
+        297 +      },
+        298 +      "BASIC": {
+        299 +        "color": {"background": "#FFA94D", "border": "#E67700"},
+        300 +        "font": {"color": "#000000", "size": 14},
+        301 +        "shape": "circle"
+        302 +      },
+        303 +      "ARCH": {
+        304 +        "color": {"background": "#FFD43B", "border": "#F59F00"},
+        305 +        "font": {"color": "#000000", "size": 14},
+        306 +        "shape": "circle"
+        307 +      }
+        308 +    }
+        309 +  }
+        310 +</code>
+        311 +<br />
+        312 +  Consistent group styling creates visual coherence and aids 
+            + comprehension by allowing users to quickly identify concept categories 
+            + by color.
+        313 +<br />
+        314 +  ### Nodes Section in JSON
+        315 +<br />
+        316 +  The <strong>nodes section</strong> contains an array of concept objects representing
+            +  the vertices of your learning graph. Each node object requires three 
+            + properties:
+        317 +<br />
+        318 +  - <strong>id</strong>: Unique numeric identifier (matches ConceptID from CSV)
+        319 +  - <strong>label</strong>: Human-readable concept name (matches ConceptLabel from 
+            + CSV)
+        320 +  - <strong>group</strong>: TaxonomyID category for visual styling
+        321 +<br />
+        322 +  Example nodes section:
+        323 +<br />
+        324 +  <code>json
+        325 +  {
+        326 +    "nodes": [
+        327 +      {
+        328 +        "id": 1,
+        329 +        "label": "Introduction to Learning Graphs",
+        330 +        "group": "FOUND"
+        331 +      },
+        332 +      {
+        333 +        "id": 2,
+        334 +        "label": "Concept Dependencies",
+        335 +        "group": "BASIC"
+        336 +      },
+        337 +      {
+        338 +        "id": 3,
+        339 +        "label": "Graph Data Structures",
+        340 +        "group": "ARCH"
+        341 +      }
+        342 +    ]
+        343 +  }
+        344 +</code>
+        345 +<br />
+        346 +  The nodes array typically contains 150-250 objects for a comprehensive 
+            + learning graph. vis-network uses this array to render graph vertices, 
+            + applying styling from the groups section based on each node's group 
+            + property.
+        347 +<br />
+        348 +  ### Edges Section in JSON
+        349 +<br />
+        350 +  The <strong>edges section</strong> contains an array of dependency relationship 
+            + objects representing the directed edges of your learning graph. Each 
+            + edge object requires two properties:
+        351 +<br />
+        352 +  - <strong>from</strong>: Node ID of the prerequisite concept
+        353 +  - <strong>to</strong>: Node ID of the dependent concept
+        354 +<br />
+        355 +  Example edges section:
+        356 +<br />
+        357 +  <code>json
+        358 +  {
+        359 +    "edges": [
+        360 +      {
+        361 +        "from": 1,
+        362 +        "to": 2
+        363 +      },
+        364 +      {
+        365 +        "from": 1,
+        366 +        "to": 3
+        367 +      },
+        368 +      {
+        369 +        "from": 2,
+        370 +        "to": 4
+        371 +      }
+        372 +    ]
+        373 +  }
+        374 +</code>
+        375 +<br />
+        376 +  The edges array defines the directed acyclic graph structure. 
+            + vis-network renders these as arrows pointing from prerequisite to 
+            + dependent concepts, creating the visual flow of the learning 
+            + progression.
+        377 +<br />
+        378 +  For a 200-concept learning graph with an average of 3 dependencies per 
+            + concept, expect approximately 600 edge objects in this array.
+        379 +<br />
+        380 +  <details>
+        381 +      <summary>CSV to JSON Conversion Mapping Diagram</summary>
+        382 +      Type: diagram
+        383 +<br />
+        384 +      Purpose: Show how CSV columns map to JSON structure during 
+            + conversion
+        385 +<br />
+        386 +      Layout: Side-by-side comparison with mapping arrows
+        387 +<br />
+        388 +      Left side - "CSV Format":
+        389 +      <code>390 +      ConceptID | ConceptLabel | Dependencies | TaxonomyID
+        391 +      ----------|--------------|--------------|------------
+        392 +      1         | Intro        |              | FOUND
+        393 +      2         | Dependencies | 1            | BASIC
+        394 +      3         | DAG          | 1|2          | ARCH
+        395 +</code>
+        396 +<br />
+        397 +      Right side - "JSON Format":
+        398 +      - Nodes section showing objects with id, label, group
+        399 +      - Edges section showing objects with from, to
+        400 +<br />
+        401 +      Mapping arrows:
+        402 +      - ConceptID → nodes[].id
+        403 +      - ConceptLabel → nodes[].label
+        404 +      - TaxonomyID → nodes[].group
+        405 +      - Dependencies (split by |) → multiple edges with from/to
+        406 +<br />
+        407 +      Example transformation:
+        408 +      - Row 2 (ConceptID=2, Dependencies="1") creates:
+        409 +        * Node: {id: 2, label: "Dependencies", group: "BASIC"}
+        410 +        * Edge: {from: 1, to: 2}
+        411 +<br />
+        412 +      - Row 3 (ConceptID=3, Dependencies="1|2") creates:
+        413 +        * Node: {id: 3, label: "DAG", group: "ARCH"}
+        414 +        * Edge: {from: 1, to: 3}
+        415 +        * Edge: {from: 2, to: 3}
+        416 +<br />
+        417 +      Color coding:
+        418 +      - Orange arrows: Direct 1:1 mappings
+        419 +      - Purple arrows: Transformation mappings (Dependencies → Edges)
+        420 +<br />
+        421 +      Annotations:
+        422 +      - "csv-to-json.py performs this transformation"
+        423 +      - "Empty Dependencies creates node but no edges (foundational 
+            + concept)"
+        424 +      - "Pipe-delimited Dependencies create multiple edges"
+        425 +<br />
+        426 +      Implementation: Diagram with data tables and connecting arrows
+        427 +  </details>
+        428 +<br />
+        429 +  ## Dublin Core Metadata Standard
+        430 +<br />
+        431 +  Dublin Core is an internationally recognized metadata standard (ISO 
+            + 15836) for describing digital resources. Originally developed for 
+            + library catalog systems, Dublin Core provides a simple yet powerful 
+            + vocabulary for resource description that translates well to learning 
+            + graph documentation.
+        432 +<br />
+        433 +  The core Dublin Core elements most relevant to learning graphs include:
+        434 +<br />
+        435 +  | Element | Purpose | Example |
+        436 +  |---------|---------|---------|
+        437 +  | Title | Name of the resource | "Graph Databases Learning Graph" |
+        438 +  | Description | Summary of content and scope | "200-concept graph 
+            + covering Neo4j..." |
+        439 +  | Creator | Primary author or maintainer | "Dr. Jane Smith" |
+        440 +  | Date | Creation or modification date | "2024-09-15" (ISO 8601) |
+        441 +  | Version | Version number | "1.2.0" (semantic versioning) |
+        442 +  | Format | File format specification | "vis-network JSON v9.1" |
+        443 +  | License | Usage rights | "CC-BY-4.0" or "MIT" |
+        444 +<br />
+        445 +  Using Dublin Core metadata ensures your learning graphs are properly 
+            + documented, discoverable, and interoperable with academic and 
+            + educational resource repositories.
+        446 +<br />
+        447 +  ### Title Metadata Field
+        448 +<br />
+        449 +  The <strong>title</strong> field provides the primary name for your learning graph. 
+            + Effective titles are:
+        450 +<br />
+        451 +  - <strong>Descriptive</strong>: Clearly indicate the subject matter
+        452 +  - <strong>Specific</strong>: Distinguish from other learning graphs
+        453 +  - <strong>Concise</strong>: Typically 5-10 words maximum
+        454 +<br />
+        455 +  Examples of effective titles:
+        456 +<br />
+        457 +  - "Introduction to Graph Databases Learning Graph"
+        458 +  - "Python Programming Fundamentals Concept Map"
+        459 +  - "ITIL Service Management Dependency Graph"
+        460 +<br />
+        461 +  Avoid generic titles like "Learning Graph" or "Course Concepts" that 
+            + provide no information about content.
+        462 +<br />
+        463 +  ### Description Metadata Field
+        464 +<br />
+        465 +  The <strong>description</strong> field offers a 1-3 sentence summary of the learning
+            +  graph's scope, audience, and purpose:
+        466 +<br />
+        467 +  <code>json
+        468 +  {
+        469 +    "description": "Comprehensive 200-concept learning graph for a 
+            + 15-week undergraduate course on graph database fundamentals, covering 
+            + Neo4j architecture, Cypher query language, and graph data modeling. 
+            + Designed for computer science students with prerequisites in data 
+            + structures and SQL."
+        470 +  }
+        471 +</code>
+        472 +<br />
+        473 +  Effective descriptions answer:
+        474 +<br />
+        475 +  - <strong>What</strong>: Topic and scope
+        476 +  - <strong>Who</strong>: Target audience and prerequisites
+        477 +  - <strong>How many</strong>: Number of concepts
+        478 +  - <strong>When/Where</strong>: Course duration or context
+        479 +<br />
+        480 +  ### Creator Metadata Field
+        481 +<br />
+        482 +  The <strong>creator</strong> field identifies the primary author or team responsible
+            +  for developing the learning graph:
+        483 +<br />
+        484 +  <code>json
+        485 +  {
+        486 +    "creator": "Dr. Jane Smith, Computer Science Department, State 
+            + University"
+        487 +  }
+        488 +</code>
+        489 +<br />
+        490 +  For multiple creators, use semicolon-separated list:
+        491 +<br />
+        492 +  <code>json
+        493 +  {
+        494 +    "creator": "Dr. Jane Smith; Dr. John Doe; Teaching Assistant Team"
+        495 +  }
+        496 +</code>
+        497 +<br />
+        498 +  Proper attribution ensures:
+        499 +<br />
+        500 +  - Academic credit for intellectual work
+        501 +  - Contact information for questions or collaborations
+        502 +  - Provenance tracking in educational repositories
+        503 +<br />
+        504 +  ### Date Metadata Field
+        505 +<br />
+        506 +  The <strong>date</strong> field records when the learning graph was created or last 
+            + significantly updated. Use ISO 8601 format (YYYY-MM-DD) for unambiguous,
+            +  machine-parseable dates:
+        507 +<br />
+        508 +  <code>json
+        509 +  {
+        510 +    "date": "2024-09-15"
+        511 +  }
+        512 +</code>
+        513 +<br />
+        514 +  For resources with multiple relevant dates, use qualified Dublin Core:
+        515 +<br />
+        516 +  <code>json
+        517 +  {
+        518 +    "dateCreated": "2024-01-10",
+        519 +    "dateModified": "2024-09-15",
+        520 +    "dateAvailable": "2024-09-20"
+        521 +  }
+        522 +</code>
+        523 +<br />
+        524 +  Accurate dating enables versioning, change tracking, and temporal 
+            + queries in learning resource repositories.
+        525 +<br />
+        526 +  ### Version Metadata Field
+        527 +<br />
+        528 +  The <strong>version</strong> field tracks revisions using semantic versioning 
+            + (MAJOR.MINOR.PATCH):
+        529 +<br />
+        530 +  <code>json
+        531 +  {
+        532 +    "version": "1.2.0"
+        533 +  }
+        534 +</code>
+        535 +<br />
+        536 +  Version numbering conventions:
+        537 +<br />
+        538 +  - <strong>MAJOR</strong>: Increment for incompatible changes (e.g., restructuring 
+            + categories, removing concepts)
+        539 +  - <strong>MINOR</strong>: Increment for backwards-compatible additions (e.g., adding
+            +  concepts, refining dependencies)
+        540 +  - <strong>PATCH</strong>: Increment for corrections (e.g., fixing typos, correcting 
+            + metadata)
+        541 +<br />
+        542 +  Examples:
+        543 +<br />
+        544 +  - <code>1.0.0</code>: Initial release
+        545 +  - <code>1.1.0</code>: Added 15 new concepts on advanced topics
+        546 +  - <code>1.1.1</code>: Fixed typo in concept label
+        547 +  - <code>2.0.0</code>: Restructured taxonomy from 8 to 12 categories (breaking 
+            + change)
+        548 +<br />
+        549 +  ### Format Metadata Field
+        550 +<br />
+        551 +  The <strong>format</strong> field specifies the file format and version:
+        552 +<br />
+        553 +  <code>json
+        554 +  {
+        555 +    "format": "vis-network JSON v9.1"
+        556 +  }
+        557 +</code>
+        558 +<br />
+        559 +  For learning graphs, useful format specifications include:
+        560 +<br />
+        561 +  - Technical format: "vis-network JSON v9.1"
+        562 +  - MIME type: "application/json"
+        563 +  - Schema version: "Learning Graph Schema v2.0"
+        564 +<br />
+        565 +  Explicit format declaration enables:
+        566 +<br />
+        567 +  - Validation against correct schemas
+        568 +  - Compatibility checking with visualization tools
+        569 +  - Automated format conversion pipelines
+        570 +<br />
+        571 +  ### License Metadata Field
+        572 +<br />
+        573 +  The <strong>license</strong> field clarifies usage rights using standard license 
+            + identifiers:
+        574 +<br />
+        575 +  <code>json
+        576 +  {
+        577 +    "license": "CC-BY-4.0"
+        578 +  }
+        579 +</code>
+        580 +<br />
+        581 +  Common licenses for educational resources:
+        582 +<br />
+        583 +  | License | Meaning | Usage Rights |
+        584 +  |---------|---------|-------------|
+        585 +  | CC-BY-4.0 | Attribution required | Commercial and derivative works 
+            + allowed |
+        586 +  | CC-BY-SA-4.0 | Attribution + Share-Alike | Derivatives must use same 
+            + license |
+        587 +  | CC-BY-NC-4.0 | Attribution + Non-Commercial | No commercial use |
+        588 +  | MIT | Permissive open source | Minimal restrictions |
+        589 +  | All Rights Reserved | Traditional copyright | No use without 
+            + permission |
+        590 +<br />
+        591 +  Clear licensing enables:
+        592 +<br />
+        593 +  - Legal sharing and remixing
+        594 +  - Inclusion in open educational resource repositories
+        595 +  - Compliance with institutional policies
+        596 +<br />
+        597 +  <details>
+        598 +      <summary>Dublin Core Metadata Field Reference Card</summary>
+        599 +      Type: infographic
+        600 +<br />
+        601 +      Purpose: Create a visual reference guide for all Dublin Core 
+            + metadata fields used in learning graphs
+        602 +<br />
+        603 +      Layout: Grid layout with 7 cards (one per metadata field)
+        604 +<br />
+        605 +      Each card contains:
+        606 +      - Field name (large, bold)
+        607 +      - Purpose (1 sentence)
+        608 +      - Format/constraint
+        609 +      - Example value
+        610 +      - Icon representing the field
+        611 +<br />
+        612 +      Card details:
+        613 +<br />
+        614 +      1. Title
+        615 +         Icon: 📚
+        616 +         Purpose: "Primary name of the learning graph"
+        617 +         Format: "String, 5-10 words"
+        618 +         Example: "Graph Databases Learning Graph"
+        619 +<br />
+        620 +      2. Description
+        621 +         Icon: 📝
+        622 +         Purpose: "Detailed summary of scope and audience"
+        623 +         Format: "String, 1-3 sentences"
+        624 +         Example: "200-concept graph for undergraduate..."
+        625 +<br />
+        626 +      3. Creator
+        627 +         Icon: 👤
+        628 +         Purpose: "Primary author or maintainer"
+        629 +         Format: "String, name and affiliation"
+        630 +         Example: "Dr. Jane Smith, State University"
+        631 +<br />
+        632 +      4. Date
+        633 +         Icon: 📅
+        634 +         Purpose: "Creation or last update date"
+        635 +         Format: "ISO 8601: YYYY-MM-DD"
+        636 +         Example: "2024-09-15"
+        637 +<br />
+        638 +      5. Version
+        639 +         Icon: 🔢
+        640 +         Purpose: "Revision number for tracking changes"
+        641 +         Format: "Semantic: MAJOR.MINOR.PATCH"
+        642 +         Example: "1.2.0"
+        643 +<br />
+        644 +      6. Format
+        645 +         Icon: 📄
+        646 +         Purpose: "File format and version specification"
+        647 +         Format: "String, format name + version"
+        648 +         Example: "vis-network JSON v9.1"
+        649 +<br />
+        650 +      7. License
+        651 +         Icon: ⚖️
+        652 +         Purpose: "Usage rights and restrictions"
+        653 +         Format: "License identifier"
+        654 +         Example: "CC-BY-4.0"
+        655 +<br />
+        656 +      Visual style: Modern card-based grid with icons and color-coded 
+            + borders
+        657 +<br />
+        658 +      Color scheme:
+        659 +      - Title: Blue border
+        660 +      - Description: Green border
+        661 +      - Creator: Purple border
+        662 +      - Date: Orange border
+        663 +      - Version: Red border
+        664 +      - Format: Teal border
+        665 +      - License: Gold border
+        666 +<br />
+        667 +      Interactive elements:
+        668 +      - Click card to expand with detailed guidelines
+        669 +      - Hover to show validation rules
+        670 +<br />
+        671 +      Implementation: HTML/CSS grid with JavaScript for interactivity
+        672 +  </details>
+        673 +<br />
+        674 +  ## Color Coding in Visualizations
+        675 +<br />
+        676 +  Color coding transforms abstract graph data into intuitive visual 
+            + representations where patterns emerge naturally. For learning graphs, 
+            + color serves as a primary visual variable encoding taxonomy categories, 
+            + enabling users to identify concept domains at a glance.
+        677 +<br />
+        678 +  Effective color coding schemes for learning graphs follow several 
+            + design principles:
+        679 +<br />
+        680 +  ### Color Palette Selection
+        681 +<br />
+        682 +  Choose colors that are:
+        683 +<br />
+        684 +  1. <strong>Distinctive</strong>: Easily distinguished from one another
+        685 +  2. <strong>Meaningful</strong>: Associate naturally with category semantics when 
+            + possible
+        686 +  3. <strong>Accessible</strong>: Visible to users with color vision deficiencies
+        687 +  4. <strong>Consistent</strong>: Use same colors across all visualizations
+        688 +<br />
+        689 +  Recommended palette strategies:
+        690 +<br />
+        691 +  <strong>Rainbow gradient</strong> (for sequential categories):
+        692 +<br />
+        693 +  - FOUND: Red (#FF6B6B)
+        694 +  - BASIC: Orange (#FFA94D)
+        695 +  - ARCH: Yellow (#FFD43B)
+        696 +  - IMPL: Light Green (#8CE99A)
+        697 +  - DATA: Green (#51CF66)
+        698 +  - TOOL: Light Blue (#74C0FC)
+        699 +  - QUAL: Blue (#4C6EF5)
+        700 +  - ADV: Purple (#9775FA)
+        701 +<br />
+        702 +  <strong>Categorical palette</strong> (for non-sequential categories):
+        703 +<br />
+        704 +  Use palettes designed for categorical data with maximum perceptual 
+            + distance:
+        705 +<br />
+        706 +  - ColorBrewer qualitative schemes (Set1, Set2, Set3)
+        707 +  - Tableau categorical palettes
+        708 +  - Okabe-Ito colorblind-safe palette
+        709 +<br />
+        710 +  ### Font Colors for Readability
+        711 +<br />
+        712 +  Node label text must be readable against the background color. The W3C 
+            + Web Content Accessibility Guidelines (WCAG) specify minimum contrast 
+            + ratios:
+        713 +<br />
+        714 +  - <strong>Normal text</strong>: 4.5:1 contrast ratio (AA level)
+        715 +  - <strong>Large text</strong> (18pt+): 3:1 contrast ratio (AA level)
+        716 +  - <strong>Enhanced</strong> (AAA level): 7:1 for normal, 4.5:1 for large
+        717 +<br />
+        718 +  General rules for font color selection:
+        719 +<br />
+        720 +  | Background Lightness | Recommended Font Color | Hex Code |
+        721 +  |---------------------|----------------------|----------|
+        722 +  | Dark (L &lt; 50%) | White or very light gray | #FFFFFF or #F8F9FA |
+        723 +  | Light (L &gt; 50%) | Black or very dark gray | #000000 or #212529 |
+        724 +  | Medium (L ≈ 50%) | Test both; choose higher contrast | Depends on 
+            + specific color |
+        725 +<br />
+        726 +  The <code>csv-to-json.py</code> script can calculate optimal font colors 
+            + automatically using the relative luminance formula:
+        727 +<br />
+        728 +  <code>729 +  Relative Luminance = 0.2126 * R + 0.7152 * G + 0.0722 * B
+        730 +</code>
+        731 +<br />
+        732 +  If luminance &gt; 0.5, use black text; otherwise, use white text.
+        733 +<br />
+        734 +  <details>
+        735 +      <summary>Color Accessibility Checker MicroSim</summary>
+        736 +      Type: microsim
+        737 +<br />
+        738 +      Learning objective: Demonstrate WCAG contrast ratio requirements 
+            + and help users select accessible color combinations
+        739 +<br />
+        740 +      Canvas layout (800x500px):
+        741 +      - Left side (400x500): Color preview area
+        742 +      - Right side (400x500): Controls and contrast analysis
+        743 +<br />
+        744 +      Visual elements (left panel):
+        745 +      - Large preview box (350x250px) showing selected background color
+        746 +      - Text samples in different sizes:
+        747 +        * 14pt normal text: "The quick brown fox jumps over the lazy dog"
+        748 +        * 18pt large text: "The quick brown fox jumps"
+        749 +        * 24pt heading: "Sample Heading"
+        750 +      - Text displayed in selected font color
+        751 +      - Pass/Fail indicators (✓ or ✗) next to each text sample
+        752 +<br />
+        753 +      Interactive controls (right panel):
+        754 +      - Color picker: "Background Color" (default: #FFA94D orange)
+        755 +      - Color picker: "Font Color" (default: #000000 black)
+        756 +      - Button: "Auto-Calculate Optimal Font Color"
+        757 +      - Display: "Contrast Ratio: X.XX:1"
+        758 +      - Display: "WCAG AA Compliance: ✓/✗"
+        759 +      - Display: "WCAG AAA Compliance: ✓/✗"
+        760 +      - Preset buttons:
+        761 +        * "FOUND (Red bg)"
+        762 +        * "BASIC (Orange bg)"
+        763 +        * "ARCH (Yellow bg)"
+        764 +        * "IMPL (Green bg)"
+        765 +        * "TOOL (Blue bg)"
+        766 +        * "ADV (Purple bg)"
+        767 +<br />
+        768 +      Default parameters:
+        769 +      - Background: #FFA94D (orange)
+        770 +      - Font: #000000 (black)
+        771 +      - Contrast ratio: 5.2:1
+        772 +      - AA: Pass, AAA: Fail
+        773 +<br />
+        774 +      Behavior:
+        775 +      - Real-time contrast ratio calculation as colors change
+        776 +      - "Auto-Calculate" button sets font to black or white for optimal 
+            + contrast
+        777 +      - Pass/Fail indicators update based on WCAG thresholds
+        778 +      - Preset buttons load taxonomy category colors
+        779 +      - Warning message if contrast ratio &lt; 3.0 (severe accessibility 
+            + issue)
+        780 +<br />
+        781 +      Implementation notes:
+        782 +      - Use p5.js for rendering preview box and text
+        783 +      - Calculate relative luminance: L = 0.2126<em>R + 0.7152</em>G + 0.0722<em>B
+        784 +      - Contrast ratio = (L1 + 0.05) / (L2 + 0.05) where L1 &gt; L2
+        785 +      - Use DOM color pickers for easier color selection
+        786 +<br />
+        787 +      Implementation: p5.js MicroSim with color picker controls
+        788 +  </details>
+        789 +<br />
+        790 +  ## Python for Learning Graph Processing
+        791 +<br />
+        792 +  Python serves as the primary scripting language for learning graph 
+            + validation, transformation, and analysis. Its rich ecosystem of 
+            + libraries for data processing (csv, json, pandas) and graph analysis 
+            + (networkx) makes it ideal for implementing the learning graph toolchain.
+        793 +<br />
+        794 +  The learning graph workflow uses Python for three main tasks:
+        795 +<br />
+        796 +  1. </em><em>Validation</em><em>: Checking structural integrity and quality metrics
+        797 +  2. </em><em>Transformation</em><em>: Converting between formats (CSV → JSON)
+        798 +  3. </em><em>Analysis</em><em>: Generating quality reports and distribution statistics
+        799 +<br />
+        800 +  Python scripts follow consistent patterns:
+        801 +<br />
+        802 +  </em><em>Command-line interface:</em><em>
+        803 +  <code>python
+        804 +  import sys
+        805 +  
+        806 +  if len(sys.argv) != 3:
+        807 +      print("Usage: python script.py input.csv output.md")
+        808 +      sys.exit(1)
+        809 +  
+        810 +  input_file = sys.argv[1]
+        811 +  output_file = sys.argv[2]
+        812 +</code>
+        813 +<br />
+        814 +  </em><em>CSV reading with error handling:</em><em>
+        815 +  <code>python
+        816 +  import csv
+        817 +  
+        818 +  try:
+        819 +      with open(input_file, 'r') as f:
+        820 +          reader = csv.DictReader(f)
+        821 +          data = list(reader)
+        822 +  except FileNotFoundError:
+        823 +      print(f"Error: {input_file} not found")
+        824 +      sys.exit(1)
+        825 +</code>
+        826 +<br />
+        827 +  </em><em>JSON writing with formatting:</em><em>
+        828 +  <code>python
+        829 +  import json
+        830 +  
+        831 +  with open(output_file, 'w') as f:
+        832 +      json.dump(data, f, indent=2)
+        833 +</code>
+        834 +<br />
+        835 +  ### Python Scripts for Processing
+        836 +<br />
+        837 +  The learning graph toolkit includes three core Python scripts, each 
+            + focused on a specific processing task:
+        838 +<br />
+        839 +  | Script | Input | Output | Purpose |
+        840 +  |--------|-------|--------|---------|
+        841 +  | analyze-graph.py | learning-graph.csv | quality-metrics.md | Validate
+            +  structure, calculate quality score |
+        842 +  | csv-to-json.py | learning-graph.csv | learning-graph.json | Convert 
+            + to vis-network format |
+        843 +  | taxonomy-distribution.py | learning-graph.csv | 
+            + taxonomy-distribution.md | Analyze category balance |
+        844 +<br />
+        845 +  All scripts follow similar architectural patterns:
+        846 +<br />
+        847 +  1. </em><em>Argument parsing</em><em>: Accept input/output filenames via command line
+        848 +  2. </em><em>File reading</em><em>: Load CSV data with error handling
+        849 +  3. </em><em>Data validation</em><em>: Check format, detect errors
+        850 +  4. </em><em>Processing</em><em>: Perform core transformation or analysis
+        851 +  5. </em><em>Output generation</em><em>: Write results to file
+        852 +  6. </em><em>Status reporting</em><em>: Print summary to console
+        853 +<br />
+        854 +  This consistency makes scripts easy to understand, maintain, and 
+            + extend.
+        855 +<br />
+        856 +  ### analyze-graph.py Script Implementation
+        857 +<br />
+        858 +  The <code>analyze-graph.py</code> script performs comprehensive learning graph 
+            + validation and quality analysis. Its implementation illustrates key 
+            + graph algorithms and quality metric calculations.
+        859 +<br />
+        860 +  </em><em>Core functionality:</em><em>
+        861 +<br />
+        862 +  1. </em><em>CSV parsing</em><em>: Reads four-column format, creates graph data 
+            + structure
+        863 +  2. </em><em>Dependency parsing</em><em>: Splits pipe-delimited dependencies into 
+            + integer lists
+        864 +  3. </em><em>Graph construction</em><em>: Builds adjacency list representation for 
+            + traversal
+        865 +  4. </em><em>Cycle detection</em><em>: DFS-based algorithm with three-color marking
+        866 +  5. </em><em>Connectivity analysis</em><em>: Identifies disconnected components
+        867 +  6. </em><em>Metric calculation</em><em>: Computes indegree, outdegree, chain lengths
+        868 +  7. </em><em>Quality scoring</em><em>: Aggregates metrics into overall score
+        869 +  8. </em><em>Report generation</em><em>: Outputs formatted Markdown
+        870 +<br />
+        871 +  </em><em>Key implementation details:</em><em>
+        872 +<br />
+        873 +  Cycle detection using DFS:
+        874 +<br />
+        875 +  <code>python
+        876 +  def detect_cycles(graph):
+        877 +      color = {node: 'WHITE' for node in graph}
+        878 +      cycles = []
+        879 +  
+        880 +      def dfs(node, path):
+        881 +          color[node] = 'GRAY'
+        882 +          path.append(node)
+        883 +  
+        884 +          for neighbor in graph[node]:
+        885 +              if color[neighbor] == 'GRAY':
+        886 +                  # Cycle detected
+        887 +                  cycle_start = path.index(neighbor)
+        888 +                  cycles.append(path[cycle_start:])
+        889 +              elif color[neighbor] == 'WHITE':
+        890 +                  dfs(neighbor, path[:])
+        891 +  
+        892 +          color[node] = 'BLACK'
+        893 +  
+        894 +      for node in graph:
+        895 +          if color[node] == 'WHITE':
+        896 +              dfs(node, [])
+        897 +  
+        898 +      return cycles
+        899 +</code>
+        900 +<br />
+        901 +  Quality score calculation:
+        902 +<br />
+        903 +  <code>python
+        904 +  def calculate_quality_score(metrics):
+        905 +      score = 0
+        906 +  
+        907 +      # Structural validity (40 points)
+        908 +      if not metrics['has_cycles']:
+        909 +          score += 20
+        910 +      if not metrics['has_self_deps']:
+        911 +          score += 10
+        912 +      if metrics['num_components'] == 1:
+        913 +          score += 10
+        914 +  
+        915 +      # Connectivity quality (30 points)
+        916 +      orphaned_pct = metrics['orphaned_nodes'] / metrics['total_nodes']
+        917 +      if 0.05 &lt;= orphaned_pct &lt;= 0.15:
+        918 +          score += 10
+        919 +      elif orphaned_pct &lt; 0.25:
+        920 +          score += 5
+        921 +  
+        922 +      # ... (additional metrics)
+        923 +  
+        924 +      return score
+        925 +</code>
+        926 +<br />
+        927 +  ### csv-to-json.py Script Implementation
+        928 +<br />
+        929 +  The <code>csv-to-json.py</code> script transforms CSV learning graphs into 
+            + vis-network JSON format. Its implementation demonstrates data format 
+            + conversion and JSON schema construction.
+        930 +<br />
+        931 +  </em><em>Core functionality:</em><em>
+        932 +<br />
+        933 +  1. </em><em>CSV reading</em><em>: Parses four-column format
+        934 +  2. </em><em>Nodes array construction</em><em>: Creates objects with id, label, group
+        935 +  3. </em><em>Edges array construction</em><em>: Parses dependencies, creates from/to 
+            + objects
+        936 +  4. </em><em>Groups object construction</em><em>: Defines color schemes for each 
+            + TaxonomyID
+        937 +  5. </em><em>Metadata population</em><em>: Adds Dublin Core fields
+        938 +  6. </em><em>JSON serialization</em><em>: Outputs formatted vis-network JSON
+        939 +<br />
+        940 +  </em><em>Key implementation details:</em><em>
+        941 +<br />
+        942 +  Node creation:
+        943 +<br />
+        944 +  <code>python
+        945 +  nodes = []
+        946 +  for row in csv_data:
+        947 +      node = {
+        948 +          'id': int(row['ConceptID']),
+        949 +          'label': row['ConceptLabel'],
+        950 +          'group': row['TaxonomyID']
+        951 +      }
+        952 +      nodes.append(node)
+        953 +</code>
+        954 +<br />
+        955 +  Edge creation from dependencies:
+        956 +<br />
+        957 +  <code>python
+        958 +  edges = []
+        959 +  for row in csv_data:
+        960 +      concept_id = int(row['ConceptID'])
+        961 +      deps = row['Dependencies']
+        962 +  
+        963 +      if deps:  # Not empty
+        964 +          for dep in deps.split('|'):
+        965 +              edge = {
+        966 +                  'from': int(dep),
+        967 +                  'to': concept_id
+        968 +              }
+        969 +              edges.append(edge)
+        970 +</code>
+        971 +<br />
+        972 +  Groups generation with color palette:
+        973 +<br />
+        974 +  <code>python
+        975 +  taxonomy_colors = {
+        976 +      'FOUND': '#FF6B6B',
+        977 +      'BASIC': '#FFA94D',
+        978 +      'ARCH': '#FFD43B',
+        979 +      # ... more colors
+        980 +  }
+        981 +  
+        982 +  groups = {}
+        983 +  for tax_id in set(row['TaxonomyID'] for row in csv_data):
+        984 +      groups[tax_id] = {
+        985 +          'color': {
+        986 +              'background': taxonomy_colors.get(tax_id, '#CCCCCC'),
+        987 +              'border': darken_color(taxonomy_colors.get(tax_id))
+        988 +          },
+        989 +          'font': {'color': '#000000', 'size': 14},
+        990 +          'shape': 'circle'
+        991 +      }
+        992 +</code>
+        993 +<br />
+        994 +  Complete JSON structure assembly:
+        995 +<br />
+        996 +  <code>python
+        997 +  output = {
+        998 +      'metadata': {
+        999 +          'title': 'Learning Graph',
+       1000 +          'date': datetime.now().strftime('%Y-%m-%d'),
+       1001 +          'format': 'vis-network JSON v9.1',
+       1002 +          # ... more fields
+       1003 +      },
+       1004 +      'groups': groups,
+       1005 +      'nodes': nodes,
+       1006 +      'edges': edges
+       1007 +  }
+       1008 +  
+       1009 +  with open(output_file, 'w') as f:
+       1010 +      json.dump(output, f, indent=2)
+       1011 +</code>
+       1012 +<br />
+       1013 +  <details>
+       1014 +      <summary>Python Learning Graph Processing Pipeline</summary>
+       1015 +      Type: diagram
+       1016 +<br />
+       1017 +      Purpose: Show the complete data flow from CSV creation through JSON
+            +  visualization
+       1018 +<br />
+       1019 +      Layout: Horizontal pipeline with data transformations
+       1020 +<br />
+       1021 +      Pipeline stages:
+       1022 +<br />
+       1023 +      1. "Author CSV" (Human)
+       1024 +         - Tool: Spreadsheet editor
+       1025 +         - Output: learning-graph.csv
+       1026 +         - Format: ConceptID, ConceptLabel, Dependencies, TaxonomyID
+       1027 +<br />
+       1028 +      2. "Validate Structure" (analyze-graph.py)
+       1029 +         - Input: learning-graph.csv
+       1030 +         - Process: DAG validation, quality metrics
+       1031 +         - Output: quality-metrics.md
+       1032 +         - Decision: Pass → continue, Fail → return to stage 1
+       1033 +<br />
+       1034 +      3. "Analyze Distribution" (taxonomy-distribution.py)
+       1035 +         - Input: learning-graph.csv
+       1036 +         - Process: Category counting, balance checking
+       1037 +         - Output: taxonomy-distribution.md
+       1038 +         - Decision: Balanced → continue, Unbalanced → return to stage 1
+       1039 +<br />
+       1040 +      4. "Convert to JSON" (csv-to-json.py)
+       1041 +         - Input: learning-graph.csv
+       1042 +         - Process: Parse CSV, build nodes/edges, add metadata
+       1043 +         - Output: learning-graph.json
+       1044 +         - Format: vis-network JSON
+       1045 +<br />
+       1046 +      5. "Visualize Graph" (Browser)
+       1047 +         - Input: learning-graph.json
+       1048 +         - Tool: vis-network JavaScript library
+       1049 +         - Output: Interactive graph visualization
+       1050 +         - User can explore, zoom, filter by taxonomy
+       1051 +<br />
+       1052 +      Data flow arrows:
+       1053 +      - CSV file flows forward through pipeline
+       1054 +      - Quality reports feed back to stage 1 for corrections
+       1055 +      - JSON is final output for visualization
+       1056 +<br />
+       1057 +      Color coding:
+       1058 +      - Human steps: Blue
+       1059 +      - Python automation: Green
+       1060 +      - Decision points: Yellow
+       1061 +      - Browser visualization: Purple
+       1062 +<br />
+       1063 +      Annotations:
+       1064 +      - "Iterative refinement loop" showing feedback from stages 2-3 to 
+            + stage 1
+       1065 +      - "Automated pipeline" showing stages 2-4 can run in sequence
+       1066 +      - "One-time setup" for initial CSV creation
+       1067 +<br />
+       1068 +      Implementation: Flowchart diagram with data flow arrows and 
+            + decision diamonds
+       1069 +  </details>
+       1070 +<br />
+       1071 +  ## Summary and Next Steps
+       1072 +<br />
+       1073 +  This chapter provided comprehensive coverage of data formats and 
+            + processing pipelines for learning graphs. You learned how the TaxonomyID
+            +  field enables categorical organization and color-coded visualization, 
+            + how the vis-network JSON format structures graph data for web-based 
+            + visualization, and how Dublin Core metadata standards ensure proper 
+            + documentation.
+       1074 +<br />
+       1075 +  The Python scripting coverage demonstrated practical implementation 
+            + patterns for graph validation, format conversion, and analysis. These 
+            + scripts form a reusable toolkit that processes learning graph data from 
+            + authoring through quality validation to visualization-ready JSON.
+       1076 +<br />
+       1077 +  Key takeaways:
+       1078 +<br />
+       1079 +  - </em><em>TaxonomyID is the fourth column</em><em> in learning graph CSV, providing 
+            + categorical metadata
+       1080 +  - </em><em>vis-network JSON has four sections</em><em>: metadata, groups, nodes, 
+            + edges
+       1081 +  - </em><em>Dublin Core metadata</em><em> ensures proper attribution, versioning, and 
+            + licensing
+       1082 +  - </em><em>Color accessibility matters</em><em>: Use WCAG contrast ratios for 
+            + readable text
+       1083 +  - </em><em>Python scripts automate processing</em><em>: Validation, conversion, and 
+            + analysis in consistent pipelines
+       1084 +  - </em><em>Data flows CSV → validation → JSON → visualization</em>*: Each stage 
+            + builds on the previous
+       1085 +<br />
+       1086 +  With validated learning graphs converted to visualization-ready JSON 
+            + format, you're prepared to deploy interactive graph viewers that enable 
+            + students and instructors to explore concept dependencies visually. The 
+            + next chapters will cover visualization implementation, chapter structure
+            +  generation, and content creation workflows that transform your learning
+            +  graph into a complete intelligent textbook.</p>
+<p>⏺ Content Generation Complete!</p>
+<p>I've successfully generated comprehensive content for both Chapter 6 and Chapter 7
+  using the chapter-content-generator skill.</p>
+<hr />
+<p>Chapter 6: Learning Graph Quality and Validation</p>
+<p>Reading level: College/Professional DevelopmentContent length: ~6,800 words</p>
+<p>Concepts covered: All 16 concepts ✓</p>
+<p>Non-text elements:
+  - 5 markdown lists - Quality metric categories, DAG properties, validation checks, best
+   practices
+  - 3 markdown tables - Indegree interpretation, quality score ranges, taxonomy
+  abbreviations
+  - 3 diagrams - DAG validation algorithm visualization, linear chain vs network
+  comparison, JSON schema structure
+  - 2 charts - Orphaned nodes scatter plot, prerequisite distribution histogram
+  - 1 MicroSim - Learning Graph Quality Score Calculator with interactive sliders</p>
+<p>Interactive elements: 1 MicroSim (quality score calculator)</p>
+<p>Content structure:
+  - Introduction to quality validation
+  - DAG validation (circular dependencies, self-dependencies)
+  - Quality metrics (orphaned nodes, disconnected subgraphs, linear chains)
+  - Graph analysis metrics (indegree/outdegree, average dependencies, max chain length)
+  - Learning graph quality score (0-100 scale with weighted components)
+  - Taxonomy distribution and balance
+  - Python script implementation (analyze-graph.py, csv-to-json.py,
+  taxonomy-distribution.py)</p>
+<hr />
+<p>Chapter 7: Taxonomy and Data Formats</p>
+<p>Reading level: College/Professional DevelopmentContent length: ~7,200 words</p>
+<p>Concepts covered: All 22 concepts ✓</p>
+<p>Non-text elements:
+  - 8 markdown lists - TaxonomyID purposes, categorization steps, JSON sections, metadata
+   purposes, color palette strategies, license types, Python tasks, script patterns
+  - 4 markdown tables - Dublin Core elements, font color selection, common licenses,
+  Python scripts summary
+  - 4 diagrams - Adding taxonomy workflow, JSON schema tree, CSV-to-JSON mapping, Python
+  processing pipeline
+  - 1 infographic - Dublin Core metadata field reference cards (7 cards with icons)
+  - 1 MicroSim - Color Accessibility Checker with WCAG compliance testing
+  - Multiple code examples - JSON structure, Python snippets for CSV parsing, node/edge
+  creation</p>
+<p>Interactive elements: 2 (infographic with click/hover, MicroSim for color testing)</p>
+<p>Content structure:
+  - TaxonomyID field in CSV format
+  - vis-network JSON format (metadata, groups, nodes, edges sections)
+  - Dublin Core metadata standard (7 core fields explained in detail)
+  - Color coding in visualizations (palette selection, accessibility)
+  - Font colors for readability (WCAG contrast ratios)
+  - Python for learning graph processing
+  - Implementation details for analyze-graph.py and csv-to-json.py scripts</p>
+<hr />
+<p>Summary Statistics</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Chapter 6</th>
+<th>Chapter 7</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Concepts covered</td>
+<td>16/16 ✓</td>
+<td>22/22 ✓</td>
+<td>38/38 ✓</td>
+</tr>
+<tr>
+<td>Word count</td>
+<td>~6,800</td>
+<td>~7,200</td>
+<td>~14,000</td>
+</tr>
+<tr>
+<td>Markdown lists</td>
+<td>5</td>
+<td>8</td>
+<td>13</td>
+</tr>
+<tr>
+<td>Markdown tables</td>
+<td>3</td>
+<td>4</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Diagrams</td>
+<td>3</td>
+<td>4</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Charts</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Workflows</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Infographics</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>MicroSims</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Code examples</td>
+<td>5</td>
+<td>10</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<p>Both chapters follow college-level writing with:
+  - 18-25 word average sentences
+  - Technical vocabulary with concise definitions
+  - Balance of practical and theoretical content
+  - Mix of visual elements every 3-5 paragraphs
+  - Detailed <details> blocks for complex visual/interactive elements</p>
+<p>All content is ready for MkDocs publication and includes comprehensive specifications
+  that would enable other skills (like microsim-p5, mermaid-generator) to implement the
+  interactive elements.</p>
+<blockquote>
+<p>how many tokens were used in this session? </p>
+</blockquote>
+<p>⏺ Based on the most recent token usage information from this session:</p>
+<p>Token Usage Summary:
+  - Tokens used: 76,117 out of 200,000
+  - Tokens remaining: 123,883
+  - Percentage used: ~38%</p>
+<p>This session involved:
+  1. Reading the chapter-content-generator skill documentation (~15,000 tokens)
+  2. Reading chapter files and course description
+  3. Reading two reference files (reading-levels.md and content-element-types.md) -
+  together ~10,000 tokens
+  4. Generating comprehensive content for two chapters (~14,000 words of content)
+  5. Multiple large Edit operations to update the chapter files</p>
+<p>The content generation was quite token-intensive because:
+  - Each chapter required detailed, college-level educational content
+  - Multiple non-text element specifications (<details> blocks) with comprehensive
+  implementation details
+  - Reading extensive reference materials to ensure proper formatting and quality
+  - Two substantial chapters (6,800 and 7,200 words respectively)</p>
+<p>You still have plenty of token budget remaining (62%) if you need to generate more
+  chapters or make any revisions!</p>
+<p>─────────────────────────────────────────────────────────────────────────────────────────────</p>
+<blockquote>
+<p>─────────────────────────────────────────────────────────────────────────────────────────────
+  ws/claude-skills
+  ⏵⏵ accept edits on (shift+tab to cycle)</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
