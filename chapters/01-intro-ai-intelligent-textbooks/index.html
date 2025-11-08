@@ -1,0 +1,1987 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/chapters/01-intro-ai-intelligent-textbooks/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02-getting-started-claude-skills/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Chapter 1 - Introduction to AI and Intelligent Textbooks - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-to-ai-and-intelligent-textbooks" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 1 - Introduction to AI and Intelligent Textbooks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 1 - Introduction to AI and Intelligent Textbooks
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 - Introduction to AI and Intelligent Textbooks
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-artificial-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Artificial Intelligence?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#large-language-models-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Large Language Models Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude-ai-and-anthropic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude AI and Anthropic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-claude-the-claude-code-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing Claude: The Claude Code Interface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-concept-of-intelligent-textbooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Concept of Intelligent Textbooks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#five-levels-of-textbook-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Five Levels of Textbook Intelligence
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Five Levels of Textbook Intelligence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-1-static-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 1: Static Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-2-hyperlinked-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 2: Hyperlinked Navigation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-3-interactive-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 3: Interactive Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-4-adaptive-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 4: Adaptive Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-5-ai-personalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 5: AI Personalization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-engineering-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt Engineering Fundamentals
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prompt Engineering Fundamentals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt-design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt Design Principles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#educational-content-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Content Prompts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-getting-started-claude-skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 - Getting Started with Claude and Skills
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-course-design-educational-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 - Course Design and Educational Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-intro-learning-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 - Introduction to Learning Graphs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-concept-enumeration-dependencies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 - Concept Enumeration and Dependencies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-learning-graph-quality-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 - Learning Graph Quality and Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-taxonomy-data-formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 - Taxonomy and Data Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-mkdocs-platform-documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 - MkDocs Platform and Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-claude-skills-architecture-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 - Claude Skills Architecture and Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-content-creation-workflows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 - Content Creation Workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-educational-resources-assessment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 11 - Educational Resources and Assessment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-interactive-elements-microsims/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 12 - Interactive Elements and MicroSims
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-dev-tools-version-control-deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 13 - Development Tools, Version Control, and Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    List of Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/index.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-artificial-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Artificial Intelligence?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#large-language-models-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Large Language Models Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude-ai-and-anthropic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude AI and Anthropic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-claude-the-claude-code-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing Claude: The Claude Code Interface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-concept-of-intelligent-textbooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Concept of Intelligent Textbooks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#five-levels-of-textbook-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Five Levels of Textbook Intelligence
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Five Levels of Textbook Intelligence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-1-static-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 1: Static Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-2-hyperlinked-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 2: Hyperlinked Navigation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-3-interactive-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 3: Interactive Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-4-adaptive-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 4: Adaptive Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-5-ai-personalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Level 5: AI Personalization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-engineering-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt Engineering Fundamentals
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prompt Engineering Fundamentals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt-design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt Design Principles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#educational-content-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Content Prompts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/chapters/01-intro-ai-intelligent-textbooks/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="introduction-to-ai-and-intelligent-textbooks">Introduction to AI and Intelligent Textbooks</h1>
+<h2 id="summary">Summary</h2>
+<p>This chapter provides the foundational knowledge needed to understand artificial intelligence, large language models, and Claude AI. You'll learn about the Claude Code interface and how to access it through an Anthropic Claude Pro account. The chapter introduces the concept of intelligent textbooks and explores the five levels of textbook intelligence, from static content through AI-powered personalization. You'll also begin learning about prompt engineering principles that will be essential throughout the course.</p>
+<p>By completing this chapter, you will understand the landscape of AI-assisted educational content creation and be ready to start working with Claude Skills in the next chapter.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 15 concepts from the learning graph:</p>
+<ol>
+<li>Artificial Intelligence</li>
+<li>Claude AI</li>
+<li>Large Language Models Overview</li>
+<li>Anthropic Claude Pro Account</li>
+<li>Claude Code Interface</li>
+<li>Intelligent Textbook</li>
+<li>Five Levels of Textbook Intelligence</li>
+<li>Level 1: Static Content</li>
+<li>Level 2: Hyperlinked Navigation</li>
+<li>Level 3: Interactive Elements</li>
+<li>Level 4: Adaptive Content</li>
+<li>Level 5: AI Personalization</li>
+<li>Prompt Engineering</li>
+<li>Prompt Design Principles</li>
+<li>Educational Content Prompts</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter assumes only the prerequisites listed in the <a href="../../course-description/">course description</a>:</p>
+<ul>
+<li>Basic understanding of programming</li>
+<li>Basics of prompt engineering</li>
+<li>Anthropic Claude access</li>
+<li>Curiosity about using AI to build textbooks</li>
+</ul>
+<hr />
+<h2 id="what-is-artificial-intelligence">What is Artificial Intelligence?</h2>
+<p>Artificial Intelligence (AI) represents a paradigm shift in computational capabilities, moving beyond deterministic rule-based systems to probabilistic reasoning, pattern recognition, and emergent behaviors. At its core, AI encompasses computational systems that exhibit characteristics traditionally associated with human intelligence: learning from experience, adapting to new inputs, and performing tasks that require cognitive processing.</p>
+<p>The field has evolved through multiple waves of innovation, from early expert systems and symbolic AI through machine learning approaches, culminating in the current deep learning revolution. Contemporary AI systems leverage neural network architectures trained on massive datasets to identify patterns, generate content, and solve complex problems across domains ranging from computer vision to natural language understanding.</p>
+<p>For educational content creation, AI represents an unprecedented opportunity to augment human expertise with computational scale and consistency. The ability of AI systems to process vast amounts of information, identify pedagogical patterns, and generate contextually appropriate content makes them powerful tools for instructional design and curriculum development.</p>
+<details>
+    <summary>Evolution of AI Approaches Timeline</summary>
+    Type: timeline
+
+    Time period: 1950-2025
+
+    Orientation: Horizontal
+
+    Events:
+    - 1950: Turing Test proposed - philosophical foundation for machine intelligence
+    - 1956: Dartmouth Conference - birth of AI as academic discipline
+    - 1960s-1970s: Symbolic AI and expert systems era
+    - 1980s: First AI winter - limitations of rule-based approaches become apparent
+    - 1990s: Statistical machine learning gains traction
+    - 1997: Deep Blue defeats world chess champion - milestone in narrow AI
+    - 2000s: Support Vector Machines and ensemble methods dominate
+    - 2012: AlexNet breakthrough - deep learning revolution begins
+    - 2017: Transformer architecture introduced (Attention is All You Need)
+    - 2018-2020: BERT, GPT-2, GPT-3 - large language models emerge
+    - 2022: ChatGPT launched - conversational AI reaches mainstream adoption
+    - 2023: GPT-4, Claude, and multimodal models - human-level performance on many tasks
+    - 2024-2025: Agentic AI and specialized professional tools
+
+    Visual style: Horizontal timeline with alternating above/below placement
+
+    Color coding:
+    - Red: Early symbolic AI (1950-1990)
+    - Orange: Machine learning emergence (1990-2012)
+    - Gold: Deep learning era (2012-2020)
+    - Green: Large language model revolution (2020+)
+
+    Interactive features:
+    - Hover to see detailed description and key innovations
+    - Click to expand with example applications from that era
+    - Highlight educational applications as they emerge
+
+    Implementation: HTML/CSS/JavaScript with SVG timeline
+</details>
+
+<h2 id="large-language-models-overview">Large Language Models Overview</h2>
+<p>Large Language Models (LLMs) represent a specific class of AI systems trained on vast corpora of text data to understand and generate human language. These models utilize transformer architectures with billions of parameters, enabling them to capture complex linguistic patterns, semantic relationships, and contextual dependencies across extended sequences.</p>
+<p>The fundamental innovation underlying LLMs is the self-attention mechanism, which allows the model to weigh the relevance of different parts of the input when processing each token. This architecture enables parallel processing of long sequences and captures both local and global dependencies, overcoming the limitations of earlier recurrent neural network approaches.</p>
+<p>Key characteristics of modern LLMs include:</p>
+<ul>
+<li><strong>Scale:</strong> Models trained on hundreds of billions to trillions of tokens from diverse internet sources</li>
+<li><strong>Few-shot learning:</strong> Ability to adapt to new tasks with minimal examples</li>
+<li><strong>Contextual understanding:</strong> Processing contexts spanning thousands of tokens</li>
+<li><strong>Emergent capabilities:</strong> Behaviors not explicitly programmed, arising from scale and training</li>
+</ul>
+<details>
+    <summary>Transformer Architecture Diagram</summary>
+    Type: diagram
+
+    Purpose: Illustrate the key components of the transformer architecture underlying LLMs
+
+    Components to show:
+    - Input Embedding Layer (bottom)
+    - Positional Encoding (merging with embeddings)
+    - Multi-Head Self-Attention blocks (middle, stacked)
+    - Feed-Forward Neural Network layers
+    - Layer Normalization and Residual Connections
+    - Output Layer with probability distribution (top)
+    - Attention heads visualization showing different focus patterns
+
+    Connections:
+    - Vertical data flow from input to output
+    - Residual connections (skip connections) shown as curved arrows
+    - Attention mechanism showing queries, keys, values
+
+    Style: Layered architecture diagram with detailed component boxes
+
+    Labels:
+    - "Token Embeddings" with example: ["Using", "Claude", "Skills"]
+    - "Self-Attention: Each token attends to all other tokens"
+    - "Feed-Forward: Position-wise transformation"
+    - "Output: Next token probability distribution"
+
+    Annotations:
+    - Highlight the self-attention mechanism as the key innovation
+    - Show how multiple attention heads capture different relationships
+    - Indicate where parameters are learned vs fixed
+
+    Color scheme: Blue for embedding layers, purple for attention mechanisms, green for feed-forward layers, orange for outputs
+
+    Implementation: SVG diagram with clear visual hierarchy
+</details>
+
+<p>For educational content creation, LLMs offer several critical capabilities. They can generate pedagogically structured content aligned with learning objectives, adapt explanations to different reading levels, and maintain consistency across large document sets. Their ability to understand educational frameworks like Bloom's Taxonomy and apply them consistently makes them valuable partners in curriculum development.</p>
+<h2 id="claude-ai-and-anthropic">Claude AI and Anthropic</h2>
+<p>Claude AI is Anthropic's family of large language models designed with a focus on helpfulness, harmlessness, and honesty. Built on constitutional AI principles, Claude incorporates explicit value alignment during training to promote behaviors consistent with human values and reduce potential harms associated with AI systems.</p>
+<p>Anthropic's approach to AI development emphasizes several key principles:</p>
+<ul>
+<li><strong>Constitutional AI:</strong> Training models to follow explicit principles and values</li>
+<li><strong>Harmlessness:</strong> Reducing potential for generating harmful, deceptive, or biased content</li>
+<li><strong>Transparency:</strong> Providing users with understanding of model capabilities and limitations</li>
+<li><strong>Scalable oversight:</strong> Developing techniques for aligning increasingly powerful AI systems</li>
+</ul>
+<p>The Claude model family includes multiple variants optimized for different use cases. Claude Sonnet balances performance and cost efficiency for general-purpose tasks, while Claude Opus provides maximum capability for complex reasoning and extended contexts. For educational content creation, Claude's ability to maintain consistency across long documents and adhere to stylistic guidelines makes it particularly well-suited for textbook generation workflows.</p>
+<p>Claude's context window—the amount of text it can process in a single interaction—extends to hundreds of thousands of tokens, enabling it to work with entire book chapters, comprehensive learning graphs, and extensive reference materials simultaneously. This capability is essential for maintaining coherence across multi-chapter textbook projects.</p>
+<h2 id="accessing-claude-the-claude-code-interface">Accessing Claude: The Claude Code Interface</h2>
+<p>Claude Code represents Anthropic's specialized interface for software development and technical content creation workflows. Unlike the general-purpose Claude.ai web interface, Claude Code integrates directly with development environments, providing access to file systems, terminal commands, and project-specific context.</p>
+<p>The Claude Code interface provides several capabilities critical for intelligent textbook creation:</p>
+<ul>
+<li><strong>File system access:</strong> Read, write, and edit files across project directories</li>
+<li><strong>Command execution:</strong> Run scripts, install dependencies, execute build processes</li>
+<li><strong>Context awareness:</strong> Understand project structure and maintain state across sessions</li>
+<li><strong>Tool integration:</strong> Leverage specialized tools for searching, file manipulation, and web research</li>
+<li><strong>Multi-step workflows:</strong> Execute complex sequences of operations autonomously</li>
+</ul>
+<p>To access Claude Code, users require an <strong>Anthropic Claude Pro account</strong>, which provides enhanced usage limits, priority access during high-demand periods, and access to the latest model versions. The Pro subscription operates on a usage-based model with 4-hour windows, a concept we'll explore in depth in Chapter 4.</p>
+<details>
+    <summary>Claude Code Workflow Diagram</summary>
+    Type: workflow
+
+    Purpose: Show how Claude Code integrates with development environment for textbook creation
+
+    Visual style: Flowchart with system swimlanes
+
+    Swimlanes:
+    - User/Developer
+    - Claude Code Interface
+    - Local File System
+    - External Resources
+
+    Steps:
+    1. Start: "User initiates task via prompt"
+       Hover text: "Example: 'Generate content for Chapter 3 on learning graphs'"
+
+    2. Process (Claude Code): "Analyze project structure"
+       Hover text: "Read course description, learning graph, existing chapters to understand context"
+
+    3. Process (Claude Code): "Execute skill workflow"
+       Hover text: "Follow step-by-step instructions in SKILL.md file"
+
+    4. Process (Claude Code): "Read necessary files"
+       Hover text: "Access templates, reference materials, and existing content"
+
+    5. Decision: "Need external information?"
+       Hover text: "Determine if web research or API calls required"
+
+    6a. Process (Claude Code): "Fetch web resources"
+        Hover text: "Use WebFetch tool to gather current documentation or examples"
+
+    6b. Process (Claude Code): "Proceed with local files"
+        Hover text: "Use only project-local resources"
+
+    7. Process (Claude Code): "Generate content"
+       Hover text: "Create markdown, code, or configuration files following standards"
+
+    8. Process (File System): "Write files to project"
+       Hover text: "Update index.md, create new chapters, generate MicroSims"
+
+    9. Process (Claude Code): "Verify completeness"
+       Hover text: "Check that all requirements met, concepts covered, quality standards achieved"
+
+    10. End: "Report results to user"
+        Hover text: "Provide summary with file locations, next steps, and any issues encountered"
+
+    Color coding:
+    - Blue: User interactions
+    - Purple: Claude Code processing
+    - Green: File system operations
+    - Orange: External resource access
+
+    Implementation: SVG flowchart with interactive hover text
+</details>
+
+<h2 id="the-concept-of-intelligent-textbooks">The Concept of Intelligent Textbooks</h2>
+<p>Intelligent textbooks represent an evolution beyond static educational materials, incorporating interactivity, adaptivity, and AI-enhanced features to improve learning outcomes. These digital learning resources leverage technology to provide personalized learning experiences, track student progress, and dynamically adjust content presentation based on learner needs.</p>
+<p>Traditional textbooks, whether physical or digital PDFs, present the same content to all learners regardless of background, learning style, or pace. Intelligent textbooks, by contrast, can assess learner knowledge, identify gaps, recommend prerequisite material, and adjust explanation complexity in real time.</p>
+<p>The integration of AI into textbook creation and delivery enables several pedagogical advances:</p>
+<ul>
+<li><strong>Personalized learning pathways:</strong> Content sequencing adapted to individual learner needs</li>
+<li><strong>Just-in-time scaffolding:</strong> Additional support provided when learners struggle</li>
+<li><strong>Formative assessment integration:</strong> Continuous evaluation informing content adaptation</li>
+<li><strong>Multi-modal presentation:</strong> Text, visualizations, simulations, and interactive elements</li>
+<li><strong>Concept dependency tracking:</strong> Ensuring prerequisites are mastered before advancing</li>
+</ul>
+<p>For professional development contexts—such as this course on creating intelligent textbooks—the intelligent textbook framework enables self-paced learning with embedded tools, working examples, and opportunities for immediate application of concepts through hands-on skill execution.</p>
+<h2 id="five-levels-of-textbook-intelligence">Five Levels of Textbook Intelligence</h2>
+<p>The evolution of textbooks from static content to AI-powered personalization can be conceptualized as a progression through five distinct levels of intelligence, each building on the capabilities of the previous tier.</p>
+<h3 id="level-1-static-content">Level 1: Static Content</h3>
+<p>Level 1 textbooks consist of fixed content identical for all learners. This includes traditional printed books and basic PDFs with no interactive elements. Content is linear, non-adaptive, and requires supplementary resources for assessment and practice.</p>
+<p>Characteristics of Level 1 textbooks:</p>
+<ul>
+<li>Fixed text and images</li>
+<li>Linear reading sequence</li>
+<li>No user interaction beyond page turning</li>
+<li>Assessment separate from content</li>
+<li>One-size-fits-all presentation</li>
+</ul>
+<p>While limited in capability, Level 1 textbooks excel in certain contexts: they're reliably accessible without technology, can be annotated physically, and provide a definitive reference unaffected by software changes or platform dependencies.</p>
+<h3 id="level-2-hyperlinked-navigation">Level 2: Hyperlinked Navigation</h3>
+<p>Level 2 textbooks introduce hyperlinks, table of contents navigation, search functionality, and internal cross-references. This is the baseline for modern digital textbooks built with platforms like MkDocs, Sphinx, or Docusaurus.</p>
+<p>Key features include:</p>
+<ul>
+<li>Internal hyperlinks between chapters and sections</li>
+<li>Glossary terms linked to definitions</li>
+<li>Searchable full-text content</li>
+<li>Multi-level table of contents</li>
+<li>External links to supplementary resources</li>
+</ul>
+<p>The MkDocs Material theme—used throughout this course—provides an excellent Level 2 foundation with navigation, search, and responsive design. All textbooks created using the skills in this course achieve at minimum Level 2 intelligence.</p>
+<h3 id="level-3-interactive-elements">Level 3: Interactive Elements</h3>
+<p>Level 3 textbooks incorporate interactive visualizations, simulations, and self-assessment tools directly embedded in the content. Learners can manipulate parameters, explore scenarios, and receive immediate feedback.</p>
+<p>Interactive elements at Level 3 include:</p>
+<ul>
+<li><strong>MicroSims:</strong> p5.js-based simulations demonstrating dynamic concepts</li>
+<li><strong>Interactive infographics:</strong> Clickable concept maps with progressive disclosure</li>
+<li><strong>Self-grading quizzes:</strong> Multiple-choice and short-answer assessments with instant feedback</li>
+<li><strong>Code playgrounds:</strong> Executable code snippets learners can modify and run</li>
+<li><strong>Interactive diagrams:</strong> Filterable network graphs, zoomable architectures</li>
+</ul>
+<p>This course emphasizes creating Level 3 textbooks through skills like <code>microsim-p5</code>, <code>quiz-generator</code>, and specifications for interactive infographics in chapter content.</p>
+<details>
+    <summary>Interactive Learning Element Types Comparison</summary>
+    Type: chart
+
+    Chart type: Horizontal bar chart
+
+    Purpose: Show the relative engagement impact of different interactive element types
+
+    Y-axis: Element type
+    X-axis: Engagement score (0-100, composite metric of time on element, interaction frequency, and learning gain)
+
+    Data (sorted by engagement score):
+    1. MicroSims with parameter controls: 92
+    2. Self-grading quizzes with explanations: 87
+    3. Interactive graph visualizations: 84
+    4. Code playgrounds with instant execution: 81
+    5. Clickable infographics with progressive disclosure: 76
+    6. Embedded videos with checkpoints: 68
+    7. Accordion sections (expand/collapse): 52
+    8. Static diagrams with zoom: 45
+
+    Title: "Student Engagement by Interactive Element Type"
+
+    Color scheme: Gold bars with darker gold for top 3 performers
+
+    Annotations:
+    - Bracket grouping top 3: "Highest engagement - prioritize in textbook design"
+    - Arrow pointing to MicroSims: "Enables experimentation and discovery learning"
+    - Note below chart: "Data synthesized from educational research on digital learning"
+
+    Implementation: Chart.js horizontal bar chart with annotations
+</details>
+
+<h3 id="level-4-adaptive-content">Level 4: Adaptive Content</h3>
+<p>Level 4 textbooks dynamically adjust content presentation based on learner behavior, assessment results, and progress tracking. The system identifies knowledge gaps and modifies the learning pathway accordingly.</p>
+<p>Adaptive mechanisms include:</p>
+<ul>
+<li><strong>Prerequisite checking:</strong> Assessing whether learner has mastered required concepts before presenting advanced material</li>
+<li><strong>Difficulty adjustment:</strong> Modifying example complexity based on learner performance</li>
+<li><strong>Remedial content insertion:</strong> Providing additional explanations when assessments indicate confusion</li>
+<li><strong>Learning pathway optimization:</strong> Reordering content based on demonstrated strengths and weaknesses</li>
+<li><strong>Pace adaptation:</strong> Allowing learners to skip mastered content or spend additional time on challenging topics</li>
+</ul>
+<p>Implementing Level 4 intelligence typically requires learning management system (LMS) integration, learner profiles, and assessment databases—beyond the scope of this course but representing the next evolution in intelligent textbook development.</p>
+<h3 id="level-5-ai-personalization">Level 5: AI Personalization</h3>
+<p>Level 5 textbooks leverage AI to generate personalized content, provide conversational tutoring, and offer real-time assistance adapted to individual learner context. This represents the frontier of intelligent textbook development.</p>
+<p>AI personalization capabilities include:</p>
+<ul>
+<li><strong>Generative explanations:</strong> AI creates custom explanations tailored to learner's background and question</li>
+<li><strong>Conversational tutoring:</strong> Chatbot interface answering questions and guiding discovery</li>
+<li><strong>Example generation:</strong> Creating practice problems matched to learner's current skill level</li>
+<li><strong>Learning style adaptation:</strong> Adjusting modality (visual, verbal, kinesthetic) based on effectiveness</li>
+<li><strong>Predictive intervention:</strong> Identifying learners at risk of falling behind and proactively offering support</li>
+</ul>
+<p>While Level 5 systems remain largely experimental in 2025, the skills framework in this course positions learners to integrate AI capabilities as they mature. The FAQ generator skill, for instance, creates question-answer pairs that can seed AI tutoring agents, bridging toward Level 5 functionality.</p>
+<details>
+    <summary>Five Levels of Textbook Intelligence Visual Model</summary>
+    Type: diagram
+
+    Purpose: Illustrate the progression from static to AI-powered textbooks with cumulative capabilities
+
+    Components to show:
+    - Five stacked layers (pyramid or staircase visualization)
+    - Each level labeled and color-coded
+    - Key capabilities listed for each level
+    - Arrows showing that higher levels include all capabilities of lower levels
+    - Current course focus highlighted
+
+    Levels (bottom to top):
+    1. Level 1: Static Content (Red)
+       - Fixed text and images
+       - Linear reading
+
+    2. Level 2: Hyperlinked Navigation (Orange)
+       - Internal links, TOC
+       - Search functionality
+       - Includes all Level 1 capabilities
+
+    3. Level 3: Interactive Elements (Yellow)
+       - MicroSims, quizzes
+       - Interactive visualizations
+       - Includes all Level 1-2 capabilities
+
+    4. Level 4: Adaptive Content (Green)
+       - Prerequisite checking
+       - Personalized pathways
+       - Includes all Level 1-3 capabilities
+
+    5. Level 5: AI Personalization (Purple)
+       - Generative explanations
+       - Conversational tutoring
+       - Includes all Level 1-4 capabilities
+
+    Annotations:
+    - Highlight Level 2-3 with border: "This course focuses here"
+    - Arrow pointing up: "Increasing intelligence and personalization"
+    - Side note: "Higher levels include all capabilities of lower levels"
+
+    Visual style: Stacked pyramid or staircase diagram
+
+    Color scheme: Rainbow gradient from red (Level 1) to purple (Level 5)
+
+    Implementation: SVG diagram with clean geometric shapes
+</details>
+
+<h2 id="prompt-engineering-fundamentals">Prompt Engineering Fundamentals</h2>
+<p>Prompt engineering represents the discipline of crafting effective instructions for AI systems to achieve desired outputs. For textbook creation workflows, skillful prompt design determines the quality, consistency, and pedagogical appropriateness of generated content.</p>
+<p>Effective prompts for educational content share several characteristics:</p>
+<ul>
+<li><strong>Explicit learning objectives:</strong> Clearly stated goals for what learners should understand or be able to do</li>
+<li><strong>Contextual information:</strong> Background about target audience, prerequisites, and course framework</li>
+<li><strong>Structural specifications:</strong> Detailed requirements for format, organization, and style</li>
+<li><strong>Quality criteria:</strong> Specific metrics or standards against which output will be evaluated</li>
+<li><strong>Examples:</strong> Representative samples demonstrating desired output characteristics</li>
+</ul>
+<p>The difference between novice and expert prompt engineering often lies in specificity and constraint. A novice prompt might request "Write a chapter about graph databases," while an expert prompt would specify reading level, concept coverage, Bloom's Taxonomy distribution, example complexity, and integration of interactive elements.</p>
+<h3 id="prompt-design-principles">Prompt Design Principles</h3>
+<p>Several principles guide the creation of effective prompts for AI-assisted textbook development:</p>
+<p><strong>Principle 1: Provide comprehensive context</strong></p>
+<p>AI models perform best when given full context about the project, including course description, learning graph, existing chapters, and target audience characteristics. The Claude Code interface's extended context window enables loading entire project contexts, ensuring consistency across generated content.</p>
+<p><strong>Principle 2: Specify constraints explicitly</strong></p>
+<p>Rather than relying on AI to infer requirements, expert prompts enumerate constraints: word count ranges, reading level parameters, required section structure, and prohibited content. For educational content, constraints might include "Use exclusively concrete examples suitable for learners with no database experience" or "Integrate exactly three Bloom's Taxonomy levels: Remember, Understand, and Apply."</p>
+<p><strong>Principle 3: Request structured outputs</strong></p>
+<p>Well-designed prompts specify output format using templates, schemas, or examples. For chapter content generation, this might include required markdown sections, heading hierarchy, and details block format for interactive elements.</p>
+<p><strong>Principle 4: Iterate and refine</strong></p>
+<p>Initial prompts rarely achieve optimal results. Expert prompt engineers treat prompt development as an iterative process: generate output, evaluate quality, identify deficiencies, refine prompt, regenerate. Over multiple iterations, prompts evolve to address edge cases and incorporate quality improvements.</p>
+<p><strong>Principle 5: Separate generation from evaluation</strong></p>
+<p>Rather than attempting to generate perfect content in a single step, sophisticated workflows separate content generation from quality assessment. Generate draft content, run quality checks (completeness, concept coverage, reading level), and refine based on evaluation results.</p>
+<details>
+    <summary>Prompt Engineering Iterative Refinement Workflow</summary>
+    Type: workflow
+
+    Purpose: Show the iterative process of developing effective prompts for educational content generation
+
+    Visual style: Circular workflow with feedback loops
+
+    Steps:
+    1. Start: "Identify content generation goal"
+       Hover text: "Example: Generate Chapter 3 content covering 18 specific concepts at graduate reading level"
+
+    2. Process: "Draft initial prompt with context"
+       Hover text: "Include course description, learning objectives, concept list, and structural requirements"
+
+    3. Process: "Generate content with AI"
+       Hover text: "Submit prompt to Claude Code and receive generated chapter content"
+
+    4. Process: "Evaluate output quality"
+       Hover text: "Check: concept coverage, reading level, structure, interactive elements, pedagogical soundness"
+
+    5. Decision: "Meets quality standards?"
+       Hover text: "Assess against rubric: >90% = excellent, 70-90% = acceptable with minor revisions, <70% = requires prompt refinement"
+
+    6a. End: "Accept and finalize content"
+        Hover text: "Quality threshold met - proceed to next chapter or skill execution"
+
+    6b. Process: "Analyze deficiencies"
+        Hover text: "Identify specific issues: missing concepts, wrong reading level, insufficient examples, poor structure"
+
+    7. Process: "Refine prompt based on issues"
+       Hover text: "Add constraints addressing identified problems, provide corrective examples, clarify requirements"
+
+    8. Loop back to Step 3: "Regenerate with improved prompt"
+       Hover text: "Iteration typically requires 2-4 cycles to achieve optimal results"
+
+    Color coding:
+    - Blue: Planning and prompt development
+    - Purple: AI generation
+    - Green: Evaluation
+    - Orange: Refinement and iteration
+    - Gold: Completion
+
+    Visual elements:
+    - Circular arrow indicating iterative loop
+    - Quality threshold gate between evaluation and acceptance
+    - Annotation showing typical 2-4 iteration cycles
+
+    Implementation: SVG circular workflow diagram with decision gates
+</details>
+
+<h3 id="educational-content-prompts">Educational Content Prompts</h3>
+<p>Prompts for educational content generation require specialized considerations beyond general-purpose AI interactions. Educational prompts must address pedagogical frameworks, learning science principles, and instructional design standards.</p>
+<p>Key components of educational content prompts:</p>
+<p><strong>Learning framework specification:</strong> Reference established frameworks like Bloom's Taxonomy (2001 revision), ensuring AI generates content aligned with cognitive levels appropriate for learning objectives.</p>
+<p>Example: "Generate 5 quiz questions for this section: 2 at Remember level (recall definitions), 2 at Understand level (explain relationships), and 1 at Apply level (solve a novel problem using concepts taught)."</p>
+<p><strong>Reading level parameters:</strong> Explicitly state target reading level using grade ranges, audience characteristics, or reference examples. The reading level reference file in this course provides detailed guidance on sentence complexity, vocabulary choices, and explanation depth for each level.</p>
+<p><strong>Concept coverage verification:</strong> Include the complete list of concepts that must be addressed, enabling post-generation verification that all required topics received adequate coverage.</p>
+<p><strong>Pedagogical requirements:</strong> Specify instructional strategies such as worked examples, scaffolding techniques, formative assessment integration, and progressive complexity.</p>
+<p><strong>Style and tone guidelines:</strong> Define voice (formal vs conversational), perspective (first-person, second-person, third-person), and emotional tone (encouraging, neutral, authoritative).</p>
+<p>Throughout this course, you'll develop expertise in crafting educational prompts by examining the SKILL.md files for each skill in the intelligent textbook workflow. These skills represent best-practice prompt engineering for specific educational content generation tasks, from learning graph creation through quiz generation.</p>
+<p>The next chapter explores the practical mechanics of working with Claude Skills—the autonomous agents that execute these sophisticated educational content generation workflows.</p>
+<h2 id="summary_1">Summary</h2>
+<p>This chapter established the foundational knowledge necessary for understanding AI-assisted intelligent textbook creation. We explored the evolution of artificial intelligence from symbolic systems through machine learning to modern large language models, examining how the transformer architecture enables Claude AI to understand and generate pedagogically sound educational content.</p>
+<p>You learned about Anthropic's approach to AI development through constitutional AI principles and the Claude Code interface that provides file system access, command execution, and multi-step workflow capabilities essential for textbook development. We introduced the concept of intelligent textbooks as an evolution beyond static materials, progressing through five levels of intelligence from basic hyperlinked navigation (Level 2) through AI-powered personalization (Level 5).</p>
+<p>Finally, we examined prompt engineering fundamentals, exploring how explicit learning objectives, comprehensive context, structural specifications, and iterative refinement enable effective educational content generation. The principles and frameworks introduced here form the foundation for all subsequent chapters as you learn to leverage Claude Skills for creating comprehensive, interactive intelligent textbooks.</p>
+<p><strong>Concepts covered:</strong> Artificial Intelligence ✓, Claude AI ✓, Large Language Models Overview ✓, Anthropic Claude Pro Account ✓, Claude Code Interface ✓, Intelligent Textbook ✓, Five Levels of Textbook Intelligence ✓, Level 1: Static Content ✓, Level 2: Hyperlinked Navigation ✓, Level 3: Interactive Elements ✓, Level 4: Adaptive Content ✓, Level 5: AI Personalization ✓, Prompt Engineering ✓, Prompt Design Principles ✓, Educational Content Prompts ✓</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02-getting-started-claude-skills/" class="md-footer__link md-footer__link--next" aria-label="Next: Chapter 2 - Getting Started with Claude and Skills">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Chapter 2 - Getting Started with Claude and Skills
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

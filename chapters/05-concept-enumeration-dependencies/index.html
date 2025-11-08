@@ -1,0 +1,2305 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/chapters/05-concept-enumeration-dependencies/">
+      
+      
+        <link rel="prev" href="../04-intro-learning-graphs/">
+      
+      
+        <link rel="next" href="../06-learning-graph-quality-validation/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Chapter 5 - Concept Enumeration and Dependencies - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#concept-enumeration-and-dependencies" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 5 - Concept Enumeration and Dependencies
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-ai-intelligent-textbooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 - Introduction to AI and Intelligent Textbooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-getting-started-claude-skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 - Getting Started with Claude and Skills
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-course-design-educational-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 - Course Design and Educational Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-intro-learning-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 - Introduction to Learning Graphs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 5 - Concept Enumeration and Dependencies
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 - Concept Enumeration and Dependencies
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-concept-enumeration-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Concept Enumeration Process
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-200-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating 200 Concepts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-label-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept Label Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concept Label Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#title-case-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      Title Case Convention
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximum-character-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maximum Character Length
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-granularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept Granularity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atomic-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atomic Concepts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-mapping-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependency Mapping Process
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#csv-file-format-for-learning-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSV File Format for Learning Graphs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CSV File Format for Learning Graphs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipe-delimited-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipe-Delimited Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-conceptid-conceptlabel-and-dependencies-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding ConceptID, ConceptLabel, and Dependencies Fields
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding ConceptID, ConceptLabel, and Dependencies Fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conceptid-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConceptID Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conceptlabel-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConceptLabel Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependencies-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependencies Field
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taxonomy-and-concept-categorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxonomy and Concept Categorization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#foundational-prerequisite-and-advanced-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foundational, Prerequisite, and Advanced Concepts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-learning-graph-quality-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 - Learning Graph Quality and Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-taxonomy-data-formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 - Taxonomy and Data Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-mkdocs-platform-documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 - MkDocs Platform and Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-claude-skills-architecture-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 - Claude Skills Architecture and Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-content-creation-workflows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 - Content Creation Workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-educational-resources-assessment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 11 - Educational Resources and Assessment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-interactive-elements-microsims/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 12 - Interactive Elements and MicroSims
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-dev-tools-version-control-deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 13 - Development Tools, Version Control, and Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    List of Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/index.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-concept-enumeration-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Concept Enumeration Process
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-200-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating 200 Concepts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-label-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept Label Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concept Label Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#title-case-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      Title Case Convention
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximum-character-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maximum Character Length
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-granularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept Granularity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atomic-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atomic Concepts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-mapping-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependency Mapping Process
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#csv-file-format-for-learning-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSV File Format for Learning Graphs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CSV File Format for Learning Graphs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipe-delimited-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipe-Delimited Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-conceptid-conceptlabel-and-dependencies-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding ConceptID, ConceptLabel, and Dependencies Fields
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding ConceptID, ConceptLabel, and Dependencies Fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conceptid-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConceptID Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conceptlabel-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConceptLabel Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependencies-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependencies Field
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taxonomy-and-concept-categorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxonomy and Concept Categorization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#foundational-prerequisite-and-advanced-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foundational, Prerequisite, and Advanced Concepts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/chapters/05-concept-enumeration-dependencies/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="concept-enumeration-and-dependencies">Concept Enumeration and Dependencies</h1>
+<h2 id="summary">Summary</h2>
+<p>This chapter teaches you how to enumerate concepts for your learning graph and map their dependencies. You'll learn the process of generating approximately 200 concepts from a course description, following specific requirements for concept labels including Title Case convention and maximum character length. The chapter emphasizes the importance of concept granularity and creating atomic concepts that represent single, clear ideas.</p>
+<p>You'll also learn about the CSV file format used for learning graphs, including pipe-delimited dependencies and the structure of ConceptID, ConceptLabel, and Dependencies fields. The chapter introduces taxonomy categorization and distinguishes between foundational, prerequisite, and advanced concepts in your knowledge graph.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 18 concepts from the learning graph:</p>
+<ol>
+<li>Concept Enumeration Process</li>
+<li>Generating 200 Concepts</li>
+<li>Concept Label Requirements</li>
+<li>Title Case Convention</li>
+<li>Maximum Character Length</li>
+<li>Concept Granularity</li>
+<li>Atomic Concepts</li>
+<li>Dependency Mapping Process</li>
+<li>CSV File Format for Graphs</li>
+<li>Pipe-Delimited Dependencies</li>
+<li>ConceptID Field</li>
+<li>ConceptLabel Field</li>
+<li>Dependencies Field</li>
+<li>Foundational Concepts</li>
+<li>Prerequisite Concepts</li>
+<li>Advanced Concepts</li>
+<li>Taxonomy</li>
+<li>Concept Categorization</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../03-course-design-educational-theory/">Chapter 3: Course Design and Educational Theory</a></li>
+<li><a href="../04-intro-learning-graphs/">Chapter 4: Introduction to Learning Graphs</a></li>
+</ul>
+<hr />
+<h2 id="the-concept-enumeration-process">The Concept Enumeration Process</h2>
+<p>Concept enumeration transforms a course description into a comprehensive inventory of atomic knowledge units, typically yielding 150-250 concepts that collectively define the course's knowledge domain. This process requires balancing breadth (covering all relevant topics) with appropriate granularity (ensuring concepts are atomic and assessable).</p>
+<p>The enumeration process follows a systematic workflow:</p>
+<p><strong>Extract topics from course description:</strong> The main topics section provides the high-level structure. Each topic typically expands into 10-20 concepts depending on scope and complexity.</p>
+<p><strong>Identify foundational concepts:</strong> Examine prerequisites to determine what concepts can be assumed versus what must be included. Course prerequisites define the boundary—concepts below that threshold are excluded; concepts at or above it are enumerated.</p>
+<p><strong>Expand topics into concept hierarchies:</strong> For each main topic, generate a hierarchical breakdown: what are the key components? What procedures must learners master? What terminology is domain-specific?</p>
+<p><strong>Apply atomicity criteria:</strong> Ensure each proposed concept is atomic—representing a single, cohesive idea assessable in isolation. Split overly broad concepts; merge overly narrow fragments.</p>
+<p><strong>Verify domain coverage:</strong> Cross-reference generated concept list against learning outcomes. Are all cognitive levels addressed? Do concepts enable assessment of all stated outcomes?</p>
+<p><strong>Eliminate duplicates and resolve overlaps:</strong> Identify concepts with significant overlap, merging or refining to maintain distinctness.</p>
+<p>For AI-assisted enumeration via the learning-graph-generator skill, the course description provides essential context. Rich topic lists with 20-30 entries enable more accurate concept generation than sparse lists with 5-10 entries. Learning outcomes aligned with Bloom's Taxonomy signal which cognitive levels to emphasize, influencing the mix of definitional concepts (Remember), procedural concepts (Apply), and analytical concepts (Analyze, Evaluate).</p>
+<details>
+    <summary>Topic-to-Concept Expansion Process</summary>
+    Type: workflow
+
+    Purpose: Show how a single course topic expands into multiple atomic concepts
+
+    Visual style: Hierarchical breakdown with expansion stages
+
+    Example topic: "Learning Graphs"
+
+    Steps:
+    1. Start: Main topic "Learning Graphs"
+       Hover text: "From course description main topics section"
+
+    2. Process: "Identify core components"
+       Hover text: "What are the essential parts? Nodes, edges, structure"
+       Output: Component concepts (3-5)
+       - Learning Graph
+       - Concept Nodes in Learning Graphs
+       - Dependency Edges in Learning Graphs
+       - Directed Acyclic Graph (DAG)
+
+    3. Process: "Identify key relationships and properties"
+       Hover text: "How do components relate? What constraints exist?"
+       Output: Relationship concepts (2-4)
+       - Prerequisite Relationships
+       - Concept Dependencies
+       - Learning Pathways
+
+    4. Process: "Identify procedures and operations"
+       Hover text: "What do learners do with learning graphs?"
+       Output: Procedural concepts (2-3)
+       - Concept Enumeration Process
+       - Dependency Mapping Process
+       - Graph Quality Validation
+
+    5. Process: "Identify standards and conventions"
+       Hover text: "What rules or formats must be followed?"
+       Output: Standard concepts (2-3)
+       - Concept Label Requirements
+       - CSV File Format for Graphs
+       - Title Case Convention
+
+    6. Result: "12-15 atomic concepts from one topic"
+       Hover text: "Typical expansion ratio: 1 topic → 10-20 concepts"
+
+    Visual elements:
+    - Tree structure showing topic at root
+    - Branches for components, relationships, procedures, standards
+    - Leaf nodes showing specific concepts
+    - Annotation: "Repeat for each of 20-30 main topics → 200+ total concepts"
+
+    Color coding:
+    - Purple: Main topic
+    - Blue: Component concepts
+    - Green: Relationship concepts
+    - Orange: Procedural concepts
+    - Gold: Standard/convention concepts
+
+    Implementation: SVG hierarchical tree diagram
+</details>
+
+<h2 id="generating-200-concepts">Generating 200 Concepts</h2>
+<p>The target of approximately 200 concepts for a semester-length course derives from pedagogical research on cognitive load, assessment scope, and knowledge retention. Courses with fewer than 100 concepts risk insufficient depth; courses with more than 300 concepts overwhelm learners and instructors alike.</p>
+<p><strong>Rationale for 200-concept target:</strong></p>
+<p><strong>Cognitive chunk size:</strong> Human working memory effectively processes 5-9 chunks of information simultaneously. A 13-chapter textbook with ~15 concepts per chapter yields 195 concepts—manageable chunks aligned with chapter-based learning.</p>
+<p><strong>Assessment coverage:</strong> Quality courses assess concept mastery comprehensively. With 200 concepts and ~10 quiz questions per chapter (130 total questions), each concept receives 0.5-1 assessment items—adequate for formative assessment without excessive testing burden.</p>
+<p><strong>Semester pacing:</strong> 15-week semesters with 3 contact hours per week provide 45 hours instruction time. Covering 200 concepts yields ~13 minutes per concept—sufficient for introduction, examples, and practice for atomic concepts.</p>
+<p><strong>Content generation tractability:</strong> AI-assisted content generation produces higher quality when working with well-scoped concepts. Extremely broad concepts ("All of Database Theory") yield generic content; extremely narrow concepts ("The third parameter of function X") yield trivial content. 200 atomic concepts hits the sweet spot.</p>
+<p><strong>Flexibility across course lengths:</strong></p>
+<ul>
+<li><strong>Short courses (4-6 weeks):</strong> Target 80-120 concepts</li>
+<li><strong>Semester courses (12-15 weeks):</strong> Target 180-220 concepts</li>
+<li><strong>Year-long courses:</strong> Target 350-450 concepts (split into 2 semester graphs)</li>
+</ul>
+<p>The learning-graph-generator skill defaults to 200 concepts but accepts guidance in the course description. A statement like "This is an intensive 6-week boot camp" signals to generate ~100 concepts; "This is a comprehensive two-semester sequence" signals ~400 concepts split into multiple graphs.</p>
+<details>
+    <summary>Concept Count by Course Duration</summary>
+    Type: chart
+
+    Chart type: Bar chart with recommended ranges
+
+    Purpose: Show appropriate concept counts for different course lengths
+
+    X-axis: Course duration (weeks)
+    Y-axis: Recommended concept count
+
+    Data points (with ranges shown as error bars):
+    - 4 weeks: 80 concepts (range: 60-100)
+    - 6 weeks: 100 concepts (range: 80-120)
+    - 8 weeks: 130 concepts (range: 110-150)
+    - 12 weeks: 180 concepts (range: 160-200)
+    - 15 weeks: 200 concepts (range: 180-220)
+    - 30 weeks: 400 concepts (range: 350-450, note: split into 2 graphs)
+
+    Title: "Recommended Concept Count by Course Duration"
+
+    Annotations:
+    - Arrow at 200: "Standard semester course"
+    - Note at 400: "Split into fall/spring learning graphs"
+    - Shaded region 180-220: "Optimal range for semester courses"
+
+    Color scheme: Blue bars, green shaded optimal region
+
+    Implementation: Chart.js bar chart with range indicators
+</details>
+
+<h2 id="concept-label-requirements">Concept Label Requirements</h2>
+<p>Concept labels serve as human-readable identifiers appearing in learning graphs, chapter headings, quiz questions, and glossary entries. Standardized labeling conventions ensure consistency across automated content generation and enable effective search and reference.</p>
+<p><strong>Required conventions:</strong></p>
+<p><strong>Title Case capitalization:</strong> Every concept label follows Title Case convention—capitalizing the first letter of major words while keeping articles, conjunctions, and short prepositions lowercase. Examples:
+- "Large Language Models Overview" (correct)
+- "Large language models overview" (incorrect—sentence case)
+- "LARGE LANGUAGE MODELS OVERVIEW" (incorrect—all caps)</p>
+<p><strong>Maximum character length:</strong> Concept labels must not exceed 32 characters including spaces. This constraint ensures labels fit in UI elements (navigation menus, graph node displays, table columns) without truncation.</p>
+<p><strong>Technical precision:</strong> Use domain-standard terminology rather than colloquialisms or abbreviations. "Directed Acyclic Graph (DAG)" rather than "Graph Without Cycles"; "Bloom's Taxonomy" rather than "Learning Objectives Framework."</p>
+<p><strong>Singular form preference:</strong> Use singular rather than plural unless the plural form is the standard term. "Concept Node" not "Concept Nodes"; "Learning Graph" not "Learning Graphs." Exception: when the plural is the established term (e.g., "Claude Skills" is acceptable).</p>
+<p><strong>Acronym handling:</strong> For well-known acronyms, include both expansion and acronym on first use, acronym only thereafter. "Directed Acyclic Graph (DAG)" for first mention, "DAG Properties" for subsequent concepts.</p>
+<p><strong>Avoid gerunds in favor of noun forms:</strong> "Concept Enumeration" rather than "Enumerating Concepts"; "Dependency Mapping" rather than "Mapping Dependencies." This aligns with knowledge domain nomenclature conventions.</p>
+<details>
+    <summary>Concept Label Quality Checklist</summary>
+    Type: infographic
+
+    Purpose: Provide visual checklist for validating concept labels
+
+    Layout: Checklist with yes/no indicators
+
+    Quality criteria:
+    ✓ Title Case capitalization?
+      Example: "Learning Graph Quality Metrics" ✓
+      Counter-example: "learning graph quality metrics" ✗
+
+    ✓ ≤ 32 characters including spaces?
+      Example: "Graph Database Architecture" (28 chars) ✓
+      Counter-example: "Comprehensive Overview of Graph Database Architectures and Patterns" (72 chars) ✗
+
+    ✓ Domain-standard terminology?
+      Example: "Bloom's Taxonomy" ✓
+      Counter-example: "Educational Goal Levels" ✗
+
+    ✓ Singular form (unless plural is standard)?
+      Example: "Concept Node" ✓
+      Counter-example: "Concept Nodes" ✗ (unless referring to the collection)
+
+    ✓ Noun form rather than gerund?
+      Example: "Dependency Mapping" ✓
+      Counter-example: "Mapping Dependencies" ✗
+
+    ✓ No redundant words?
+      Example: "Claude Skills" ✓
+      Counter-example: "Claude Skills System Framework" ✗
+
+    Visual elements:
+    - Green checkmarks for compliant examples
+    - Red X marks for non-compliant examples
+    - Annotation: "All 6 criteria must pass for valid label"
+
+    Interactive features:
+    - Click criterion to see additional examples
+    - Hover for explanation of why criterion matters
+
+    Implementation: HTML/CSS with interactive JavaScript
+</details>
+
+<h3 id="title-case-convention">Title Case Convention</h3>
+<p>Title Case capitalization follows specific rules differentiating words that should be capitalized from those that remain lowercase:</p>
+<p><strong>Always capitalize:</strong>
+- First word of the label
+- Last word of the label
+- All nouns, pronouns, verbs, adjectives, and adverbs
+- Acronyms and initialisms</p>
+<p><strong>Keep lowercase:</strong>
+- Articles: a, an, the
+- Coordinating conjunctions: and, but, or, nor, for, yet, so
+- Prepositions of four or fewer letters: in, on, at, to, for, from, with
+- The word "as" when used as a conjunction
+- Infinitive "to"</p>
+<p><strong>Examples demonstrating Title Case:</strong>
+- "Learning Graph Generation from Course Descriptions" (prepositions "from" lowercase)
+- "Difference Between Skills and Commands" (article "and" lowercase)
+- "Directed Acyclic Graph for Dependency Modeling" (preposition "for" lowercase)
+- "Create New Skills from Scratch" (infinitive "to" implied, capitalized properly)</p>
+<p>For AI-generated content, the learning-graph-generator skill applies Title Case automatically, but manual concept refinement may require correcting capitalization to maintain consistency.</p>
+<h3 id="maximum-character-length">Maximum Character Length</h3>
+<p>The 32-character constraint balances information density with usability across contexts where concept labels appear:</p>
+<p><strong>UI contexts requiring brevity:</strong>
+- Graph visualization node labels (space-constrained visual display)
+- Navigation menu entries (narrow sidebar menus)
+- Table of contents listings (mobile device displays)
+- Quiz question stems (avoiding label line breaks)
+- Glossary section headers (visual scanability)</p>
+<p><strong>Strategies for meeting length constraint:</strong></p>
+<p><strong>Use standard abbreviations:</strong> "DAG" instead of "Directed Acyclic Graph" in concept labels after the first definitional concept establishes the expansion.</p>
+<p><strong>Eliminate redundant modifiers:</strong> "Chapter Structure" rather than "Textbook Chapter Structure" (context establishes we're discussing textbooks).</p>
+<p><strong>Favor precision over completeness:</strong> "Learning Graph Quality" (29 chars) rather than "Learning Graph Quality Validation Metrics" (46 chars).</p>
+<p><strong>Split overly broad concepts:</strong> If a label exceeds 32 characters, the concept may not be sufficiently atomic. Consider splitting: "Learning Graph Generation Process and Quality Validation" (56 chars) becomes two concepts: "Learning Graph Generation" + "Learning Graph Quality Validation."</p>
+<p>The character count includes all letters, spaces, punctuation, and symbols. "Bloom's Taxonomy (2001)" counts as 23 characters including spaces and parentheses.</p>
+<details>
+    <summary>Concept Label Length Optimization</summary>
+    Type: markdown-table
+
+    Purpose: Show before/after examples of optimizing overlength labels
+
+    | Too Long (>32 chars) | Character Count | Optimized (<32 chars) | Character Count |
+    |----------------------|-----------------|------------------------|-----------------|
+    | Comprehensive Course Description Development | 45 | Course Description | 20 |
+    | Learning Graph Dependency Edge Validation | 45 | Dependency Edge Validation | 30 |
+    | MicroSim Specification and Implementation | 46 | MicroSim Implementation | 25 |
+    | Chapter Content Generation Process Workflow | 48 | Chapter Content Generation | 28 |
+    | Interactive Element Types and Specifications | 49 | Interactive Element Types | 29 |
+
+    Note: Optimization preserves meaning while meeting length constraint
+</details>
+
+<h2 id="concept-granularity">Concept Granularity</h2>
+<p>Concept granularity—the level of detail and scope at which concepts are defined—critically impacts learning graph quality, content generation effectiveness, and assessment design. Optimal granularity balances atomic precision with pedagogical coherence.</p>
+<p><strong>Granularity spectrum:</strong></p>
+<p><strong>Too coarse (overly broad):</strong>
+- Example: "All of Machine Learning"
+- Problem: Cannot assess specifically, dependencies unclear, content too general
+- Resolution: Split into atomic concepts (Supervised Learning, Unsupervised Learning, Feature Engineering, Model Evaluation, etc.)</p>
+<p><strong>Optimal (atomic):</strong>
+- Example: "Directed Acyclic Graph (DAG)"
+- Characteristics: Single cohesive idea, assessable independently, clear prerequisites, domain-standard term
+- This is the target granularity for learning graph concepts</p>
+<p><strong>Too fine (overly narrow):</strong>
+- Example: "The Third Parameter of the csv_to_json Function"
+- Problem: Trivial to assess, creates dependency explosion, generates trivial content
+- Resolution: Merge into broader procedural concept (CSV File Processing)</p>
+<p><strong>Granularity assessment criteria:</strong></p>
+<p><strong>Assessability test:</strong> Can you write a meaningful quiz question testing this concept specifically? If yes, granularity is likely appropriate.</p>
+<p><strong>Dependency test:</strong> Does this concept have clear prerequisites at similar abstraction level? If dependencies are either "everything" or "nothing," granularity may be wrong.</p>
+<p><strong>Content generation test:</strong> Would this concept yield a substantial section (2-3 paragraphs with examples) in chapter content? If it yields only a single sentence or requires a full chapter, granularity is misaligned.</p>
+<p><strong>Terminology test:</strong> Is this concept referenced in domain literature using this specific term? Domain-standard concepts have appropriate granularity; ad-hoc invented concepts may be too fine.</p>
+<p>Achieving consistent granularity across 200 concepts requires iterative refinement. The learning-graph-generator produces initial concepts at mixed granularity; manual review identifies and resolves granularity mismatches before finalizing the graph.</p>
+<details>
+    <summary>Concept Granularity Spectrum Visualization</summary>
+    Type: diagram
+
+    Purpose: Illustrate the spectrum from too coarse to too fine with examples
+
+    Components to show (left to right spectrum):
+
+    Left (Too Coarse):
+    - "All of Programming"
+    - "Complete Database Theory"
+    - "Everything About AI"
+    Color: Red
+    Label: "Too Broad - Must Split"
+    Problems noted: Cannot assess, vague dependencies, generic content
+
+    Center (Optimal - Atomic):
+    - "Directed Acyclic Graph (DAG)"
+    - "Bloom's Taxonomy"
+    - "Claude Skill"
+    Color: Green
+    Label: "Atomic - Target Granularity"
+    Characteristics noted: Assessable, clear dependencies, substantial content
+
+    Right (Too Fine):
+    - "Third Parameter of Function X"
+    - "Step 2b of Procedure Y"
+    - "Specific Code Line 147"
+    Color: Red
+    Label: "Too Narrow - Must Merge"
+    Problems noted: Trivial to assess, dependency explosion, minimal content
+
+    Visual style: Spectrum bar with example concepts positioned along it
+
+    Annotations:
+    - Arrow pointing to center: "Target 200 concepts at this level"
+    - Note: "Granularity consistency more important than perfection"
+
+    Implementation: SVG diagram with spectrum bar
+</details>
+
+<h2 id="atomic-concepts">Atomic Concepts</h2>
+<p>An atomic concept represents the smallest meaningful knowledge unit suitable for independent instruction and assessment. Atomicity ensures concepts are neither so broad they encompass multiple distinct ideas nor so narrow they lack pedagogical substance.</p>
+<p><strong>Atomic concept characteristics:</strong></p>
+<p><strong>Single cohesive idea:</strong> The concept addresses one identifiable topic, procedure, or principle. "Topological Sorting" is atomic (one algorithmic concept); "Graph Algorithms" is not (umbrella for many algorithms).</p>
+<p><strong>Independently learnable:</strong> While the concept may have prerequisites, it can be understood and assessed without simultaneous introduction of other concepts. "Dependency Edges" is atomic and teachable given prerequisite "Graph Structure"; "Dependency Edges and Topological Sorting" conflates two concepts.</p>
+<p><strong>Distinct from related concepts:</strong> The concept maintains clear boundaries from sibling concepts. "Concept Nodes" and "Dependency Edges" are distinct; "Concept Nodes and Other Graph Elements" lacks distinctness.</p>
+<p><strong>Assessable in isolation:</strong> Quiz questions can target this specific concept. "What is a Directed Acyclic Graph?" is assessable; "What is graph theory?" is too broad for specific assessment.</p>
+<p><strong>Domain-standard terminology:</strong> The concept label matches how domain experts refer to the idea, ensuring alignment with external resources and professional discourse.</p>
+<p><strong>Atomic concept examples from this course:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Atomic Concept</th>
+<th>Why Atomic</th>
+<th>Non-Atomic Alternative</th>
+<th>Why Not Atomic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Skill</td>
+<td>Single tool type, distinct from commands</td>
+<td>Claude Automation</td>
+<td>Too broad, conflates skills and commands</td>
+</tr>
+<tr>
+<td>YAML Frontmatter</td>
+<td>Specific skill file component</td>
+<td>Skill Metadata</td>
+<td>Too vague, encompasses multiple elements</td>
+</tr>
+<tr>
+<td>Learning Graph</td>
+<td>Single artifact type</td>
+<td>Course Planning Documents</td>
+<td>Too broad, includes other artifacts</td>
+</tr>
+<tr>
+<td>DAG Requirement</td>
+<td>Specific constraint</td>
+<td>Graph Properties</td>
+<td>Too broad, many properties exist</td>
+</tr>
+</tbody>
+</table>
+<p>Maintaining atomicity across 200 concepts requires discipline. The temptation to create compound concepts like "Installing and Invoking Skills" must be resisted—split into "Installing Claude Skill" and "Invoking Skills with Slash Commands" as distinct atomic concepts with clear dependency relationship.</p>
+<h2 id="dependency-mapping-process">Dependency Mapping Process</h2>
+<p>Dependency mapping transforms the flat concept inventory into a structured graph by identifying prerequisite relationships. This process demands domain expertise to distinguish true pedagogical dependencies from mere topical relationships.</p>
+<p><strong>Dependency mapping workflow:</strong></p>
+<p><strong>1. Identify foundational concepts:</strong>
+Concepts with zero dependencies serve as entry points. These typically include:
+- Definitional concepts for the domain ("Artificial Intelligence," "Claude AI")
+- Tool/platform concepts learners must start with ("Claude Code Interface")
+- Prerequisite knowledge restated for context ("Programming Basics")</p>
+<p>Mark these concepts as foundational, assigning them no incoming edges.</p>
+<p><strong>2. Build sequential chains:</strong>
+Identify linear progressions where concept B clearly requires A, C requires B, D requires C:
+- "Installing Claude Skill" → "Listing Available Skills" → "Invoking Skills"
+- "Course Description" → "Learning Graph Generation" → "Chapter Structure"</p>
+<p>These sequential dependencies are often procedural (steps in a process) or hierarchical (specific instance of general class).</p>
+<p><strong>3. Map convergent dependencies:</strong>
+Advanced concepts often require multiple prerequisites converging:
+- "Learning Graph Quality Validation" requires both "Learning Graph" and "DAG Properties"
+- "Chapter Content Generation" requires "Chapter Structure," "Reading Level," and "Bloom's Taxonomy"</p>
+<p>For concept C with prerequisites A and B, add edges A → C and B → C.</p>
+<p><strong>4. Verify transitivity:</strong>
+Check whether proposed edge A → C is transitive (implied by A → B → C) or direct (genuinely first-order prerequisite). Remove transitive edges to keep the graph sparse and maintainable.</p>
+<p><strong>5. Detect and resolve cycles:</strong>
+Run cycle detection algorithm (DFS-based or topological sort). If cycles found:
+- Examine concepts in cycle to identify granularity mismatch (split overly broad concepts)
+- Determine pedagogical primacy (which concept is truly foundational to the other)
+- Break cycle by removing weakest dependency edge</p>
+<p>Repeat until DAG constraint satisfied.</p>
+<p><strong>6. Validate dependency strengths:</strong>
+Review edge set to ensure all dependencies represent true prerequisites, not merely "helpful background." Weak dependencies should be omitted unless they significantly aid learning.</p>
+<p>The learning-graph-generator skill automates much of this process using LLM reasoning about concept relationships, but manual review typically identifies 10-20% of dependencies requiring adjustment—either missing edges (under-specification) or spurious edges (over-specification).</p>
+<details>
+    <summary>Dependency Mapping Workflow</summary>
+    Type: workflow
+
+    Purpose: Show step-by-step process for mapping concept dependencies
+
+    Visual style: Sequential workflow with decision points
+
+    Steps:
+    1. Start: "200 concepts enumerated"
+       Hover text: "Flat list with ConceptID and ConceptLabel"
+
+    2. Process: "Identify foundational concepts (zero dependencies)"
+       Hover text: "Domain definitions, starting points, tools"
+       Output: 10-15 foundational concepts marked
+
+    3. Process: "Map sequential chains"
+       Hover text: "A → B → C linear progressions"
+       Output: 30-40 edges added
+
+    4. Process: "Map convergent dependencies"
+       Hover text: "A → C ← B patterns for advanced concepts"
+       Output: 40-60 edges added
+
+    5. Process: "Remove transitive redundancies"
+       Hover text: "If A → B → C exists, remove A → C"
+       Output: 10-20 edges removed
+
+    6. Decision: "DAG validation - cycles detected?"
+       Yes → Process: "Resolve cycles (split concepts, identify primacy)"
+       No → Continue to 7
+
+    7. Process: "Validate dependency strengths"
+       Hover text: "Ensure all edges represent true prerequisites"
+       Output: 5-10 weak edges removed
+
+    8. End: "Valid DAG with 180-220 dependencies"
+       Hover text: "~1.0 average dependencies per concept"
+
+    Color coding:
+    - Blue: Enumeration and identification
+    - Green: Dependency addition
+    - Orange: Refinement and validation
+    - Purple: Cycle resolution (if needed)
+
+    Implementation: SVG flowchart
+</details>
+
+<h2 id="csv-file-format-for-learning-graphs">CSV File Format for Learning Graphs</h2>
+<p>Learning graphs are persisted in CSV (Comma-Separated Values) format, enabling both human readability for manual editing and programmatic processing by validation scripts and visualization tools. The CSV structure follows a standardized schema essential for downstream skill compatibility.</p>
+<p><strong>Required CSV columns:</strong></p>
+<p><strong>ConceptID:</strong> Integer identifier (1 to n) uniquely identifying each concept. Sequential numbering with no gaps required.</p>
+<p><strong>ConceptLabel:</strong> String following Title Case convention, maximum 32 characters. Human-readable concept name appearing in all generated content.</p>
+<p><strong>Dependencies:</strong> Pipe-delimited list of ConceptIDs representing direct prerequisites, or empty string for foundational concepts.</p>
+<p><strong>TaxonomyID:</strong> (Optional) Short abbreviation (3-5 letters) categorizing the concept. Discussed in Chapter 7.</p>
+<p><strong>File format specifications:</strong></p>
+<p><strong>Header row:</strong> First row must contain column names exactly as specified: <code>ConceptID,ConceptLabel,Dependencies,TaxonomyID</code></p>
+<p><strong>Field delimiters:</strong> Commas separate fields. If concept labels contain commas, enclose in double quotes.</p>
+<p><strong>Dependency delimiter:</strong> Pipe character (|) separates multiple dependency IDs within the Dependencies field.</p>
+<p><strong>Line endings:</strong> Unix-style line endings (\n) preferred, but Windows (\r\n) accepted.</p>
+<p><strong>Character encoding:</strong> UTF-8 encoding required to support special characters in concept labels.</p>
+<p><strong>Example CSV excerpt:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>ConceptID,ConceptLabel,Dependencies,TaxonomyID
+1,Artificial Intelligence,,FOUND
+2,Claude AI,1,BASIC
+3,Large Language Models Overview,2,BASIC
+4,Prompt Engineering,3,SKILL
+5,Learning Graph,1|4,CORE
+6,Directed Acyclic Graph (DAG),5,CORE
+7,Concept Enumeration Process,5,PROC
+</code></pre></div></td></tr></table></div>
+<p>This format enables:
+- Spreadsheet editing in Excel, Google Sheets, LibreOffice
+- Programmatic parsing with Python pandas, CSV libraries
+- Version control with git (text-based diffing)
+- Conversion to JSON for graph visualization tools</p>
+<p>The learning-graph-generator skill outputs properly formatted CSV; manual editing should preserve the format specification to ensure downstream skills function correctly.</p>
+<h3 id="pipe-delimited-dependencies">Pipe-Delimited Dependencies</h3>
+<p>The Dependencies column uses pipe (|) delimiters to separate multiple prerequisite ConceptIDs, enabling compact representation of concepts with multiple prerequisites.</p>
+<p><strong>Dependency field formats:</strong></p>
+<p><strong>Zero dependencies (foundational concept):</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1,Artificial Intelligence,,FOUND
+</code></pre></div></td></tr></table></div>
+Empty Dependencies field (two consecutive commas).</p>
+<p><strong>Single dependency:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>2,Claude AI,1,BASIC
+</code></pre></div></td></tr></table></div>
+Single ConceptID in Dependencies field.</p>
+<p><strong>Multiple dependencies:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>10,Learning Graph Generation,5|7|8,PROC
+</code></pre></div></td></tr></table></div>
+Pipe-delimited list: concept 10 depends on concepts 5, 7, and 8.</p>
+<p><strong>Ordering within dependency list:</strong>
+The order of IDs within a pipe-delimited list has no semantic significance—<code>5|7|8</code> is equivalent to <code>8|5|7</code>. Topological sorting determines actual pedagogical ordering, not dependency field order.</p>
+<p><strong>No spaces around pipes:</strong>
+Correct: <code>5|7|8</code>
+Incorrect: <code>5 | 7 | 8</code> (spaces may cause parsing errors)</p>
+<p><strong>All IDs must exist:</strong>
+Every ConceptID referenced in Dependencies must appear as a ConceptID in some row. Referencing non-existent ID 999 causes validation errors.</p>
+<p>When manually editing CSV files to add or modify dependencies:
+1. Identify the ConceptID of the prerequisite concept
+2. Add to Dependencies field using pipe delimiter if multiple
+3. Verify all referenced IDs exist
+4. Run validation script to check for cycles before proceeding</p>
+<details>
+    <summary>CSV File Format Example with Validation</summary>
+    Type: markdown-table
+
+    Purpose: Show correct and incorrect CSV formatting
+
+    **Correct CSV Format:**
+    | ConceptID | ConceptLabel | Dependencies | TaxonomyID |
+    |-----------|--------------|--------------|------------|
+    | 1 | Artificial Intelligence | | FOUND |
+    | 2 | Claude AI | 1 | BASIC |
+    | 3 | Large Language Models | 2 | BASIC |
+    | 4 | Prompt Engineering | 3 | SKILL |
+    | 5 | Learning Graph | 1\|4 | CORE |
+
+    ✓ Sequential IDs starting at 1
+    ✓ Title Case labels
+    ✓ Pipe-delimited dependencies (row 5)
+    ✓ Empty Dependencies for foundational concept (row 1)
+
+    **Common Errors:**
+    | ConceptID | ConceptLabel | Dependencies | TaxonomyID |
+    |-----------|--------------|--------------|------------|
+    | 1 | artificial intelligence | | found |
+    | 3 | Large Language Models | 2 | BASIC |
+    | 4 | Prompt Engineering | 5 | SKILL |
+
+    ✗ Row 1: Not Title Case ("artificial" should be "Artificial")
+    ✗ Row 1: TaxonomyID not uppercase ("found" should be "FOUND")
+    ✗ Missing ConceptID 2 (gap in sequence)
+    ✗ Row 4: Dependency on non-existent concept 5 when only 1-4 exist
+</details>
+
+<h2 id="understanding-conceptid-conceptlabel-and-dependencies-fields">Understanding ConceptID, ConceptLabel, and Dependencies Fields</h2>
+<p>The three core CSV columns—ConceptID, ConceptLabel, and Dependencies—encode all information necessary for learning graph construction, validation, and content generation.</p>
+<h3 id="conceptid-field">ConceptID Field</h3>
+<p>ConceptID serves as the immutable identifier for concepts, enabling dependency references and programmatic processing while remaining independent of concept labels that may be refined during development.</p>
+<p><strong>ConceptID properties:</strong></p>
+<p><strong>Sequential integers starting at 1:</strong> The first concept has ID 1, second has ID 2, continuing to n (typically ~200).</p>
+<p><strong>No gaps:</strong> Every integer from 1 to n must appear exactly once. Gaps (e.g., 1, 2, 4, 5—missing 3) cause validation failures.</p>
+<p><strong>Order-independent:</strong> ConceptID sequence does not imply pedagogical ordering. Concept 50 may be foundational while Concept 5 is advanced. Dependencies, not ID order, determine teaching sequence.</p>
+<p><strong>Immutable after generation:</strong> Once dependencies reference ConceptID X, changing X's ID breaks those references. Prefer refining ConceptLabel rather than renumbering.</p>
+<p><strong>Use in dependencies:</strong> The Dependencies field contains ConceptIDs, not labels. This ensures dependency robustness when labels are refined.</p>
+<p>When manually adding concepts to an existing learning graph:
+- Assign the next available ID (if max ID is 200, new concept gets 201)
+- Update any dependencies referencing the new concept
+- Run validation to ensure no ID gaps created</p>
+<h3 id="conceptlabel-field">ConceptLabel Field</h3>
+<p>ConceptLabel provides the human-readable name appearing in all generated content. Labels must balance precision, brevity, and domain-standard terminology.</p>
+<p><strong>ConceptLabel standards (review):</strong></p>
+<ul>
+<li>Title Case capitalization</li>
+<li>Maximum 32 characters</li>
+<li>Domain-standard terms</li>
+<li>Singular unless plural is standard</li>
+<li>Noun form preferred over gerund</li>
+</ul>
+<p><strong>Refining labels during development:</strong></p>
+<p>Unlike ConceptIDs, labels can be refined iteratively:
+- Initial: "LLM Overview" → Refined: "Large Language Models Overview"
+- Initial: "Mapping Dependencies" → Refined: "Dependency Mapping Process"</p>
+<p>Refinements should maintain consistency across all instances. If "Learning Graph" appears in multiple contexts (e.g., "Learning Graph Generation," "Learning Graph Quality"), ensure the core term remains consistent.</p>
+<h3 id="dependencies-field">Dependencies Field</h3>
+<p>The Dependencies field encodes prerequisite relationships as pipe-delimited ConceptID lists, constructing the directed graph structure.</p>
+<p><strong>Dependency field semantics:</strong></p>
+<p><strong>Empty field (zero dependencies):</strong> Foundational concept requiring no prerequisites. Typically 10-15 concepts in a 200-concept graph.</p>
+<p><strong>Single ID:</strong> Concept depends on exactly one prerequisite. Common for sequential chains.</p>
+<p><strong>Pipe-delimited IDs:</strong> Concept depends on multiple prerequisites that must all be understood before tackling this concept.</p>
+<p><strong>Best practices for dependency specification:</strong></p>
+<p><strong>Minimize transitive edges:</strong> If A → B → C exists, omit direct A → C edge. The transitive relationship is implied.</p>
+<p><strong>Represent true prerequisites only:</strong> Only add edge A → B if understanding B genuinely requires first understanding A, not merely "A provides helpful context."</p>
+<p><strong>Avoid circular dependencies:</strong> Never create cycles like A → B → C → A. DAG constraint must be satisfied.</p>
+<p><strong>Reasonable fan-in:</strong> While no hard limit exists, concepts depending on 5+ prerequisites often indicate overly advanced or insufficiently atomic concepts. Consider splitting.</p>
+<details>
+    <summary>ConceptID vs ConceptLabel Comparison</summary>
+    Type: markdown-table
+
+    Purpose: Contrast the roles and properties of ConceptID vs ConceptLabel
+
+    | Aspect | ConceptID | ConceptLabel |
+    |--------|-----------|--------------|
+    | **Purpose** | Unique identifier for programmatic reference | Human-readable concept name |
+    | **Format** | Integer (1 to n) | String (Title Case, ≤32 chars) |
+    | **Mutability** | Immutable after dependencies set | Refinable during development |
+    | **Used in** | Dependencies field, validation scripts | Generated content, UI, assessments |
+    | **Ordering significance** | No semantic ordering | N/A (dependencies define order) |
+    | **Uniqueness** | Must be unique across graph | Should be unique (avoid duplicates) |
+    | **Example** | 42 | "Directed Acyclic Graph (DAG)" |
+
+    Note: ConceptID enables robust dependency tracking; ConceptLabel provides clarity for human readers
+</details>
+
+<h2 id="taxonomy-and-concept-categorization">Taxonomy and Concept Categorization</h2>
+<p>While not required for minimal learning graph functionality, taxonomy categorization organizes concepts into thematic groups enabling quality analysis, balanced chapter design, and navigation enhancement. Chapter 7 explores taxonomy in depth; this section introduces the concept.</p>
+<p><strong>Taxonomy purposes:</strong></p>
+<p><strong>Quality assessment:</strong> Ensure balanced coverage across topic areas. If 80% of concepts fall in one taxonomy category, the course may be imbalanced.</p>
+<p><strong>Chapter organization:</strong> Group related concepts (same taxonomy) into cohesive chapters rather than scattering them across the textbook.</p>
+<p><strong>Navigation enhancement:</strong> Enable filtering or browsing by category (e.g., "Show all SKILL concepts" or "Show all CORE theory concepts").</p>
+<p><strong>Prerequisite validation:</strong> Foundational categories should have few dependencies; advanced categories should have many. Violations suggest categorization errors.</p>
+<p><strong>Common taxonomy schemes:</strong></p>
+<p><strong>Foundational/Basic/Advanced:</strong> 3-tier depth categorization
+- FOUND: Entry-level concepts requiring minimal prerequisites
+- BASIC: Core concepts building on foundations
+- ADVANCED: Integrative concepts requiring significant prerequisites</p>
+<p><strong>Topic-based:</strong> Categories aligned with course topics
+- GRAPH: Graph database concepts
+- SKILL: Claude Skills concepts
+- CONTENT: Content generation concepts
+- QUALITY: Quality assurance concepts</p>
+<p><strong>Procedural/Conceptual/Evaluative:</strong> Cognitive type categorization aligned with Bloom's
+- PROCEDURE: How-to concepts (Apply level)
+- CONCEPT: Definitional and theoretical (Remember, Understand)
+- ANALYSIS: Analytical and evaluative (Analyze, Evaluate, Create)</p>
+<p>The TaxonomyID field in the CSV stores a 3-5 letter abbreviation for the assigned category. Learning-graph-generator can propose taxonomy categorization based on concept content and dependencies, but manual refinement improves accuracy.</p>
+<h2 id="foundational-prerequisite-and-advanced-concepts">Foundational, Prerequisite, and Advanced Concepts</h2>
+<p>Concepts naturally stratify into depth tiers based on their position in the dependency graph. Understanding these tiers aids chapter organization and quality assessment.</p>
+<p><strong>Foundational concepts:</strong>
+- Zero incoming edges (no dependencies)
+- Represent entry points to the knowledge graph
+- Typically 5-10% of total concepts (~10-20 in a 200-concept graph)
+- Often definitional or prerequisite knowledge restated for context</p>
+<p>Examples: "Artificial Intelligence," "Claude Code Interface," "Programming Basics"</p>
+<p><strong>Prerequisite/intermediate concepts:</strong>
+- Few incoming edges (1-3 dependencies)
+- Build on foundations but enable further learning
+- Represent core course content
+- Typically 60-70% of total concepts (~120-140 in a 200-concept graph)</p>
+<p>Examples: "Claude Skill," "Learning Graph," "Bloom's Taxonomy"</p>
+<p><strong>Advanced/integrative concepts:</strong>
+- Many incoming edges (4+ dependencies)
+- Require synthesis of multiple prerequisite concepts
+- Represent learning culmination
+- Typically 20-30% of total concepts (~40-60 in a 200-concept graph)</p>
+<p>Examples: "Learning Graph Quality Validation," "Complete Textbook Generation Workflow," "Custom Skill Design"</p>
+<p><strong>Distribution analysis:</strong></p>
+<p>A healthy learning graph exhibits gradual progression from foundational through intermediate to advanced:</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Dependency Count</th>
+<th>Percent of Concepts</th>
+<th>Typical Chapter Placement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Foundational</td>
+<td>0</td>
+<td>5-10%</td>
+<td>Chapters 1-2</td>
+</tr>
+<tr>
+<td>Prerequisite</td>
+<td>1-3</td>
+<td>60-70%</td>
+<td>Chapters 2-10</td>
+</tr>
+<tr>
+<td>Advanced</td>
+<td>4+</td>
+<td>20-30%</td>
+<td>Chapters 10-13</td>
+</tr>
+</tbody>
+</table>
+<p>Anomalies suggesting quality issues:
+- <strong>Too many foundational concepts (&gt;15%):</strong> Course may lack depth or include unnecessary prerequisites
+- <strong>Too few foundational concepts (&lt;5%):</strong> Course may have circular dependencies or missing entry points
+- <strong>No advanced concepts:</strong> Course may be too shallow, lacking integrative learning
+- <strong>Too many advanced concepts (&gt;40%):</strong> Dependencies may be over-specified or concepts insufficiently atomic</p>
+<p>The analyze-graph.py script in the learning-graph-generator skill computes these distributions and flags anomalies in the quality report.</p>
+<details>
+    <summary>Concept Depth Distribution Analysis</summary>
+    Type: chart
+
+    Chart type: Stacked area chart over topological ordering
+
+    Purpose: Show how concept depth (number of dependencies) progresses from foundational to advanced
+
+    X-axis: Concept position in topological order (1-200)
+    Y-axis: Cumulative count of concepts by depth tier
+
+    Data series (stacked):
+    - Foundational (0 deps): Red area, concentrated at left (positions 1-20)
+    - Prerequisite (1-3 deps): Orange area, middle bulk (positions 10-180)
+    - Advanced (4+ deps): Yellow area, concentrated at right (positions 170-200)
+
+    Title: "Concept Depth Progression Across Learning Graph"
+
+    Annotations:
+    - "Foundational concepts: Early in topological order"
+    - "Prerequisite concepts: Core middle sections"
+    - "Advanced concepts: Late in order, require integration"
+
+    Visual pattern:
+    - Healthy graph shows smooth progression from red → orange → yellow
+    - Irregular patterns (e.g., yellow sections in early positions) indicate potential dependency errors
+
+    Color scheme: Heat map from red (foundational) through orange (prerequisite) to yellow (advanced)
+
+    Implementation: Chart.js stacked area chart with topological ordering on X-axis
+</details>
+
+<h2 id="summary_1">Summary</h2>
+<p>This chapter explored the mechanics of concept enumeration and dependency mapping that transform course descriptions into structured learning graphs. You learned the systematic workflow for generating ~200 atomic concepts, applying label conventions (Title Case, 32-character maximum, domain-standard terminology), and maintaining optimal granularity balancing pedagogical coherence with assessability.</p>
+<p>We examined the CSV file format specification encoding learning graphs with ConceptID, ConceptLabel, Dependencies, and optional TaxonomyID fields. You learned dependency mapping workflows identifying foundational concepts, building sequential chains, mapping convergent dependencies, and validating DAG constraints.</p>
+<p>Finally, we explored how concepts stratify into foundational, prerequisite, and advanced tiers based on dependency depth, and introduced taxonomy categorization for quality analysis and chapter organization. These concept enumeration and dependency mapping skills provide the foundation for the quality validation and learning graph generation workflows in subsequent chapters.</p>
+<p><strong>Concepts covered:</strong> Concept Enumeration Process ✓, Generating 200 Concepts ✓, Concept Label Requirements ✓, Title Case Convention ✓, Maximum Character Length ✓, Concept Granularity ✓, Atomic Concepts ✓, Dependency Mapping Process ✓, CSV File Format for Graphs ✓, Pipe-Delimited Dependencies ✓, ConceptID Field ✓, ConceptLabel Field ✓, Dependencies Field ✓, Foundational Concepts ✓, Prerequisite Concepts ✓, Advanced Concepts ✓, Taxonomy ✓, Concept Categorization ✓</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../04-intro-learning-graphs/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Chapter 4 - Introduction to Learning Graphs">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Chapter 4 - Introduction to Learning Graphs
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../06-learning-graph-quality-validation/" class="md-footer__link md-footer__link--next" aria-label="Next: Chapter 6 - Learning Graph Quality and Validation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Chapter 6 - Learning Graph Quality and Validation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

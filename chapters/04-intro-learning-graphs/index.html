@@ -1,0 +1,1937 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/chapters/04-intro-learning-graphs/">
+      
+      
+        <link rel="prev" href="../03-course-design-educational-theory/">
+      
+      
+        <link rel="next" href="../05-concept-enumeration-dependencies/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Chapter 4 - Introduction to Learning Graphs - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-to-learning-graphs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 4 - Introduction to Learning Graphs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-ai-intelligent-textbooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 - Introduction to AI and Intelligent Textbooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-getting-started-claude-skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 - Getting Started with Claude and Skills
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-course-design-educational-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 - Course Design and Educational Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 4 - Introduction to Learning Graphs
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 - Introduction to Learning Graphs
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-learning-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Learning Graph?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-nodes-in-learning-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept Nodes in Learning Graphs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-edges-in-learning-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependency Edges in Learning Graphs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directed-acyclic-graph-dag-requirement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directed Acyclic Graph (DAG) Requirement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisite-relationships-and-learning-pathways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisite Relationships and Learning Pathways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-dependencies-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept Dependencies in Practice
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimizing-claude-usage-for-learning-graph-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimizing Claude Usage for Learning Graph Generation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optimizing Claude Usage for Learning Graph Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-4-hour-usage-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding 4-Hour Usage Windows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-pro-limitations-and-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Pro Limitations and Planning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-generation-process-and-token-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Generation Process and Token Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chapter-structure-and-token-budgeting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter Structure and Token Budgeting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-concept-enumeration-dependencies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 - Concept Enumeration and Dependencies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-learning-graph-quality-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 - Learning Graph Quality and Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-taxonomy-data-formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 - Taxonomy and Data Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-mkdocs-platform-documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 - MkDocs Platform and Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-claude-skills-architecture-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 - Claude Skills Architecture and Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-content-creation-workflows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 - Content Creation Workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-educational-resources-assessment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 11 - Educational Resources and Assessment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-interactive-elements-microsims/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 12 - Interactive Elements and MicroSims
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-dev-tools-version-control-deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 13 - Development Tools, Version Control, and Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    List of Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/index.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-learning-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Learning Graph?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-nodes-in-learning-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept Nodes in Learning Graphs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-edges-in-learning-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependency Edges in Learning Graphs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directed-acyclic-graph-dag-requirement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directed Acyclic Graph (DAG) Requirement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisite-relationships-and-learning-pathways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisite Relationships and Learning Pathways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-dependencies-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept Dependencies in Practice
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimizing-claude-usage-for-learning-graph-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimizing Claude Usage for Learning Graph Generation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optimizing Claude Usage for Learning Graph Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-4-hour-usage-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding 4-Hour Usage Windows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-pro-limitations-and-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Pro Limitations and Planning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-generation-process-and-token-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Generation Process and Token Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chapter-structure-and-token-budgeting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter Structure and Token Budgeting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/chapters/04-intro-learning-graphs/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="introduction-to-learning-graphs">Introduction to Learning Graphs</h1>
+<h2 id="summary">Summary</h2>
+<p>This chapter introduces learning graphs, a powerful tool for mapping the knowledge structure of your course. You'll learn about concept nodes, dependency edges, and how they form a Directed Acyclic Graph (DAG) that represents prerequisite relationships. The chapter explains how concept dependencies create learning pathways that guide students through material in an optimal sequence.</p>
+<p>You'll also learn practical strategies for optimizing your Claude usage, understanding 4-hour usage windows and Claude Pro limitations, which will help you work efficiently as you generate learning graphs and other content in later chapters.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 12 concepts from the learning graph:</p>
+<ol>
+<li>Learning Graph</li>
+<li>Concept Nodes in Learning Graphs</li>
+<li>Dependency Edges in Learning Graphs</li>
+<li>Directed Acyclic Graph (DAG)</li>
+<li>Prerequisite Relationships</li>
+<li>Concept Dependencies</li>
+<li>Learning Pathways</li>
+<li>4-Hour Usage Windows</li>
+<li>Claude Pro Limitations</li>
+<li>Optimizing Claude Usage</li>
+<li>Content Generation Process</li>
+<li>Chapter Structure</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-ai-intelligent-textbooks/">Chapter 1: Introduction to AI and Intelligent Textbooks</a></li>
+</ul>
+<hr />
+<h2 id="what-is-a-learning-graph">What is a Learning Graph?</h2>
+<p>A learning graph is a directed graph data structure that maps the conceptual landscape of a course domain, explicitly representing concepts as nodes and prerequisite dependencies as edges. This formalization of knowledge structure enables systematic curriculum design, optimal content sequencing, and adaptive learning pathways that respect conceptual dependencies.</p>
+<p>Unlike linear course outlines or topic lists, learning graphs capture the inherent relationships among concepts, distinguishing foundational knowledge from advanced topics and identifying prerequisite chains that must be respected for effective learning. By encoding these relationships explicitly, learning graphs enable both human instructional designers and AI systems to reason about pedagogical sequencing, identify knowledge gaps, and generate content that builds systematically from simple to complex.</p>
+<p>For intelligent textbook creation, the learning graph serves multiple critical functions:</p>
+<p><strong>Concept inventory:</strong> Comprehensive enumeration of all concepts the course addresses, typically 150-250 concepts for a semester-length course</p>
+<p><strong>Dependency specification:</strong> Explicit prerequisite relationships determining which concepts must be understood before others</p>
+<p><strong>Chapter organization foundation:</strong> Grouping concepts into chapters that respect dependencies and maintain appropriate scope</p>
+<p><strong>Content generation guide:</strong> Informing AI skills about which concepts to cover, in what order, and with what assumed background</p>
+<p><strong>Assessment alignment:</strong> Enabling quiz and exercise generation that tests concepts learners should have mastered at each stage</p>
+<p>The graph structure provides computational tractability—algorithms can verify the graph is a valid DAG (Directed Acyclic Graph), compute topological orderings for valid learning sequences, identify strongly connected components indicating circular dependencies that must be resolved, and calculate concept depth as a proxy for difficulty.</p>
+<details>
+    <summary>Learning Graph Structure Visualization</summary>
+    Type: graph-model
+
+    Purpose: Illustrate the node-edge structure of a learning graph with sample concepts
+
+    Node types:
+    1. Foundational Concepts (red circles, no incoming edges)
+       - Example: "Artificial Intelligence"
+       - Example: "Claude AI"
+
+    2. Intermediate Concepts (orange circles, some incoming edges)
+       - Example: "Large Language Models"
+       - Example: "Prompt Engineering"
+
+    3. Advanced Concepts (yellow circles, multiple incoming edges)
+       - Example: "Learning Graph Generation"
+       - Example: "Skill Workflow Design"
+
+    Edge types:
+    - Dependency edges (black arrows)
+      - From prerequisite to dependent concept
+      - Example: "Artificial Intelligence" → "Claude AI"
+      - Example: "Claude AI" → "Large Language Models"
+      - Example: "Large Language Models" → "Prompt Engineering"
+      - Example: "Prompt Engineering" → "Skill Workflow Design"
+
+    Sample data (subset of Chapter 1-3 concepts):
+    - Artificial Intelligence (foundational)
+      └─→ Claude AI (intermediate)
+          ├─→ Large Language Models (intermediate)
+          │   └─→ Prompt Engineering (intermediate)
+          │       └─→ Learning Graph Generation (advanced)
+          └─→ Claude Code Interface (intermediate)
+              └─→ Claude Skill (intermediate)
+                  └─→ Skill Workflow Design (advanced)
+
+    Layout: Hierarchical top-down with foundational concepts at top
+
+    Interactive features:
+    - Hover node: Show concept description
+    - Click node: Highlight all prerequisites (incoming edges) and dependents (outgoing edges)
+    - Color coding by depth: foundational (red), intermediate (orange), advanced (yellow)
+    - Zoom and pan controls
+
+    Visual styling:
+    - Node size proportional to number of dependents
+    - Edge thickness constant
+    - Clear labels on nodes
+
+    Implementation: vis-network JavaScript library
+    Canvas size: 800x600px
+</details>
+
+<h2 id="concept-nodes-in-learning-graphs">Concept Nodes in Learning Graphs</h2>
+<p>Concept nodes represent atomic knowledge units—discrete, well-defined ideas, procedures, or principles that learners must understand or demonstrate. Each node in the learning graph corresponds to a single concept with a unique identifier and human-readable label.</p>
+<p><strong>Node attributes:</strong></p>
+<p><strong>ConceptID:</strong> Integer identifier (1 to n) uniquely identifying the concept within the graph. Sequential numbering simplifies reference but does not imply pedagogical ordering—dependency edges, not ID sequence, determine learning order.</p>
+<p><strong>ConceptLabel:</strong> Human-readable title following Title Case convention, maximum 32 characters. Labels should be precise, domain-standard terminology. Examples: "Directed Acyclic Graph (DAG)," "Bloom's Taxonomy," "MicroSim Development."</p>
+<p><strong>TaxonomyID</strong> (optional): Category identifier grouping related concepts for organizational purposes. Discussed in detail in Chapter 7.</p>
+<p><strong>Concept granularity principles:</strong></p>
+<p><strong>Atomic:</strong> Each concept represents a single, cohesive idea. "Graph Databases" is too broad; split into "Graph Database Architecture," "Graph Query Languages," "Graph Database Use Cases."</p>
+<p><strong>Assessable:</strong> Concept should be specific enough to create targeted assessment items. Can you write a quiz question testing this concept specifically?</p>
+<p><strong>Prerequisite-friendly:</strong> Concept scope enables clear prerequisite relationships. "All of Machine Learning" cannot be a prerequisite; "Supervised Learning Basics" can.</p>
+<p><strong>Terminology-aligned:</strong> Use domain-standard terms. In educational technology, "Bloom's Taxonomy" not "Learning Objectives Framework"; in graph theory, "Directed Acyclic Graph (DAG)" not "Non-circular graph."</p>
+<p>For this intelligent textbooks course, the learning graph contains approximately 200 concepts spanning foundational AI knowledge through advanced skill development, each meeting these granularity criteria to enable precise dependency mapping and content generation.</p>
+<h2 id="dependency-edges-in-learning-graphs">Dependency Edges in Learning Graphs</h2>
+<p>Dependency edges represent prerequisite relationships: an edge from concept A to concept B indicates that learners should understand A before attempting to learn B. These directed edges encode the pedagogical ordering constraints that chapter sequencing and content generation must respect.</p>
+<p><strong>Edge semantics:</strong></p>
+<p>A directed edge A → B means:
+- A is a prerequisite for B
+- B depends on A
+- A should be taught before B
+- Learners must master A to understand B fully</p>
+<p>Multiple incoming edges indicate multiple prerequisites. If edges point from A → C and B → C, learners should understand both A and B before tackling C.</p>
+<p><strong>Dependency strength considerations:</strong></p>
+<p>Not all dependencies are equally strong. Some relationships are absolute prerequisites (cannot understand concept B without A), while others are helpful background (B is easier with A but technically independent). For simplicity, the learning graph generator typically models only strong dependencies, accepting some pedagogical discretion in ordering concepts with weak relationships.</p>
+<p><strong>Transitive dependencies:</strong></p>
+<p>If A → B and B → C, then A is transitively prerequisite to C even without a direct A → C edge. Learning graph algorithms leverage transitivity to compute full prerequisite sets without requiring explicit edges for every relationship. This keeps the graph sparse and maintainable.</p>
+<p><strong>Common dependency patterns:</strong></p>
+<p><strong>Sequential chains:</strong> A → B → C → D represents a linear learning sequence common in skill development (e.g., "Install Skill" → "List Skills" → "Invoke Skill" → "Create Custom Skill")</p>
+<p><strong>Fan-in (convergence):</strong> Multiple prerequisites converging on advanced concept (e.g., "Course Description" → "Learning Graph Generation" ← "Bloom's Taxonomy")</p>
+<p><strong>Fan-out (divergence):</strong> Foundational concept enabling multiple dependent concepts (e.g., "Claude Code Interface" → "File System Access," "Command Execution," "Context Management")</p>
+<details>
+    <summary>Dependency Pattern Examples</summary>
+    Type: diagram
+
+    Purpose: Illustrate common patterns of dependencies in learning graphs
+
+    Patterns to show:
+
+    1. Sequential Chain (left section):
+       A → B → C → D
+       Label: "Linear progression"
+       Example: "Basic Skill" → "Intermediate Skill" → "Advanced Skill" → "Expert Skill"
+
+    2. Fan-In / Convergence (center section):
+       A ─┐
+       B ─┤→ D
+       C ─┘
+       Label: "Multiple prerequisites converge"
+       Example: "Course Description," "Bloom's Taxonomy," "Prompt Engineering" all point to "Learning Graph Generation"
+
+    3. Fan-Out / Divergence (right section):
+           ┌→ B
+       A ──┼→ C
+           └→ D
+       Label: "Foundation enables multiple concepts"
+       Example: "Claude Code Interface" enables "File Access," "Command Execution," "Tool Integration"
+
+    Visual style: Clean arrow diagrams with labeled nodes
+
+    Color scheme: Blue nodes, black arrows, green labels
+
+    Annotations:
+    - "Sequential: Common in skill acquisition"
+    - "Fan-in: Advanced concepts require integration"
+    - "Fan-out: Foundational concepts are highly leveraged"
+
+    Implementation: SVG diagram with clear geometric layout
+</details>
+
+<h2 id="directed-acyclic-graph-dag-requirement">Directed Acyclic Graph (DAG) Requirement</h2>
+<p>A valid learning graph must be a Directed Acyclic Graph (DAG)—a directed graph containing no cycles. This mathematical constraint ensures a valid pedagogical ordering exists: there is some sequence in which concepts can be taught such that all prerequisites precede their dependents.</p>
+<p><strong>Why DAGs are necessary:</strong></p>
+<p>If the graph contained a cycle (A → B → C → A), it would imply:
+- A must be learned before B
+- B must be learned before C
+- C must be learned before A
+- Therefore A must be learned before itself—a logical impossibility</p>
+<p>Cycles indicate errors in dependency specification that must be resolved before content generation proceeds. Common causes include:</p>
+<ul>
+<li><strong>Circular reasoning:</strong> Defining A in terms of B and B in terms of A</li>
+<li><strong>Granularity mismatch:</strong> Concepts at wrong abstraction levels creating spurious dependencies</li>
+<li><strong>Bidirectional relationships:</strong> True bidirectional relationships (A influences B, B influences A) should be split into unidirectional dependencies based on pedagogical primacy</li>
+</ul>
+<p><strong>DAG verification:</strong></p>
+<p>The learning-graph-generator skill and quality validation scripts check for cycles using standard graph algorithms:</p>
+<ol>
+<li><strong>Depth-first search (DFS):</strong> Traverse the graph marking nodes as "visiting" and "visited"; encountering a "visiting" node indicates a back edge and therefore a cycle</li>
+<li><strong>Topological sort:</strong> Attempt to produce topological ordering; if impossible, cycles exist</li>
+<li><strong>Strongly connected components:</strong> Compute SCCs; any component with &gt;1 node indicates a cycle</li>
+</ol>
+<p>If cycles are detected, the validation report identifies the concepts involved, enabling manual resolution before proceeding with chapter generation.</p>
+<p><strong>Topological ordering:</strong></p>
+<p>A DAG admits at least one topological ordering—a linear sequence of concepts such that for every edge A → B, A appears before B in the sequence. This ordering provides one valid teaching sequence, though multiple valid orderings typically exist.</p>
+<p>Chapter generation leverages topological ordering to group concepts into sequential chapters while respecting dependencies. Concepts with no incoming edges (foundational) appear in early chapters; concepts with many incoming edges (advanced, integrative) appear in later chapters.</p>
+<details>
+    <summary>DAG vs Cyclic Graph Comparison</summary>
+    Type: diagram
+
+    Purpose: Contrast valid DAG learning graph with invalid cyclic graph
+
+    Components to show (side-by-side):
+
+    Left side - Valid DAG:
+    A → B → C
+    A → C (additional edge showing transitive relationship is fine)
+    Label: "Valid Learning Graph (DAG)"
+    Annotation: "Can be ordered: A, B, C or A, C, B"
+    Check mark: ✓ "Pedagogically sound"
+
+    Right side - Invalid Cyclic Graph:
+    A → B → C → A (cycle shown with circular arrow)
+    Label: "Invalid Learning Graph (Contains Cycle)"
+    Annotation: "Cannot be ordered: A requires A as prerequisite!"
+    X mark: ✗ "Logically impossible"
+
+    Visual style: Side-by-side comparison with clear labels
+
+    Color scheme: Green for valid DAG, red for invalid cycle
+
+    Implementation: SVG diagram showing both structures
+</details>
+
+<h2 id="prerequisite-relationships-and-learning-pathways">Prerequisite Relationships and Learning Pathways</h2>
+<p>Prerequisite relationships define the pedagogical ordering constraints that shape content sequencing. Understanding how prerequisites propagate through the graph and define valid learning pathways is essential for chapter organization and adaptive content delivery.</p>
+<p><strong>Direct vs transitive prerequisites:</strong></p>
+<ul>
+<li><strong>Direct prerequisites:</strong> Explicitly encoded edges. A → B means A is a direct prerequisite of B.</li>
+<li><strong>Transitive prerequisites:</strong> Implied by paths through the graph. If A → B → C, then A is a transitive prerequisite of C even without edge A → C.</li>
+</ul>
+<p>The full prerequisite set for concept C includes all nodes from which C is reachable via directed paths. This set defines what learners must have mastered before tackling C.</p>
+<p><strong>Learning pathways:</strong></p>
+<p>A learning pathway is a valid sequence of concepts respecting all prerequisite relationships. Multiple pathways typically exist from foundational to advanced concepts, offering flexibility in curriculum design.</p>
+<p>For example, given this fragment:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>Artificial Intelligence → Claude AI → Large Language Models
+Artificial Intelligence → Prompt Engineering
+Large Language Models → Learning Graph Generation
+Prompt Engineering → Learning Graph Generation
+</code></pre></div></td></tr></table></div></p>
+<p>Valid pathways to "Learning Graph Generation" include:
+1. AI → Claude AI → LLMs → Learning Graph Generation
+2. AI → Prompt Engineering → Learning Graph Generation (missing LLM prerequisite)
+3. AI → Claude AI → LLMs → Learning Graph Generation (via Prompt Engineering also)</p>
+<p>The existence of multiple pathways enables curriculum designers to emphasize different aspects—a theoretically-oriented course might emphasize the LLM pathway, while a practitioner-oriented course might emphasize prompt engineering.</p>
+<p><strong>Adaptive sequencing:</strong></p>
+<p>For Level 4-5 intelligent textbooks implementing adaptive content, learning pathways enable dynamic prerequisite checking. Before presenting concept C, assess whether learner has demonstrated mastery of prerequisite concepts in C's full prerequisite set. If gaps exist, recommend remediating those prerequisites before advancing.</p>
+<p>This prerequisite-aware adaptation ensures learners don't encounter content requiring background they haven't yet developed, reducing confusion and improving learning efficiency.</p>
+<h2 id="concept-dependencies-in-practice">Concept Dependencies in Practice</h2>
+<p>Mapping concept dependencies is the most cognitively demanding aspect of learning graph creation. This process requires deep domain expertise to identify which relationships are true prerequisites versus merely related topics.</p>
+<p><strong>Dependency identification heuristics:</strong></p>
+<p><strong>Definitional dependencies:</strong> If concept B's definition references concept A, A is likely prerequisite to B. "Directed Acyclic Graph" definition references "directed graph"; therefore "Directed Graph" → "Directed Acyclic Graph."</p>
+<p><strong>Procedural dependencies:</strong> If procedure B requires executing procedure A as a substep, A precedes B. "Invoking Skills" requires "Installing Skills"; therefore "Installing Skills" → "Invoking Skills."</p>
+<p><strong>Conceptual foundation:</strong> If understanding B requires conceptual framework from A, A precedes B. Understanding "Learning Graph Quality Metrics" requires understanding "Learning Graph"; therefore "Learning Graph" → "Learning Graph Quality Metrics."</p>
+<p><strong>Tool/artifact dependencies:</strong> If working with artifact B requires having created artifact A, A precedes B. "Chapter Content Generation" requires "Chapter Structure"; therefore "Chapter Structure" → "Chapter Content Generation."</p>
+<p><strong>Common dependency specification errors:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Error Type</th>
+<th>Description</th>
+<th>Example</th>
+<th>Resolution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Over-specification</td>
+<td>Adding unnecessary edges</td>
+<td>Direct edge A → C when A → B → C exists</td>
+<td>Remove redundant A → C edge</td>
+</tr>
+<tr>
+<td>Under-specification</td>
+<td>Missing critical prerequisites</td>
+<td>B depends on A but no edge exists</td>
+<td>Add missing A → B edge</td>
+</tr>
+<tr>
+<td>Circular dependencies</td>
+<td>Cycle in dependency graph</td>
+<td>A → B → C → A</td>
+<td>Identify pedagogical primacy, break cycle</td>
+</tr>
+<tr>
+<td>Granularity mismatch</td>
+<td>Concepts at wrong abstraction level</td>
+<td>"All of Programming" → specific concept</td>
+<td>Refactor to atomic concepts</td>
+</tr>
+</tbody>
+</table>
+<p>The learning-graph-generator skill uses the course description's topic list and learning outcomes to infer likely dependencies, but manual review and refinement typically improves accuracy. Chapter 6 discusses quality validation metrics that identify potential dependency errors.</p>
+<details>
+    <summary>Dependency Mapping Decision Tree</summary>
+    Type: workflow
+
+    Purpose: Guide users in determining whether concept A should be prerequisite to concept B
+
+    Visual style: Decision tree with yes/no branches
+
+    Decision points:
+    1. Start: "Is concept B defined using concept A?"
+       Yes → "A is prerequisite to B"
+       No → Continue to 2
+
+    2. "Does understanding B require the framework or principles from A?"
+       Yes → "A is likely prerequisite to B"
+       No → Continue to 3
+
+    3. "Does the procedure/skill B include executing procedure A as a substep?"
+       Yes → "A is prerequisite to B"
+       No → Continue to 4
+
+    4. "Does B build directly on examples or cases from A?"
+       Yes → "A is likely prerequisite to B"
+       No → Continue to 5
+
+    5. "Are A and B simply related topics without pedagogical ordering?"
+       Yes → "No prerequisite relationship (related but independent)"
+       No → "Consider creating edge A → B if learners benefit from A before B"
+
+    Terminal nodes:
+    - "A is prerequisite to B" (green) - Add edge A → B
+    - "A is likely prerequisite to B" (yellow) - Add edge, mark for review
+    - "No prerequisite relationship" (gray) - No edge needed
+    - "Consider edge" (orange) - Judgment call based on course design
+
+    Color coding:
+    - Green: Strong prerequisite
+    - Yellow: Probable prerequisite
+    - Orange: Weak/optional prerequisite
+    - Gray: No relationship
+
+    Implementation: SVG decision tree with diamond decision nodes
+</details>
+
+<h2 id="optimizing-claude-usage-for-learning-graph-generation">Optimizing Claude Usage for Learning Graph Generation</h2>
+<p>Generating comprehensive learning graphs with 200+ concepts and their dependencies is one of the most token-intensive operations in intelligent textbook creation. Strategic Claude usage optimization ensures you remain within 4-hour window budgets while producing high-quality graphs.</p>
+<h3 id="understanding-4-hour-usage-windows">Understanding 4-Hour Usage Windows</h3>
+<p>As introduced in Chapter 2, Claude Pro accounts operate on rolling 4-hour usage windows. Token consumption from learning graph generation—typically 30,000-50,000 tokens for a complete graph including quality validation—remains unavailable for 4 hours after generation.</p>
+<p>For multi-textbook projects, this creates a planning consideration: stagger learning graph generation across days rather than generating multiple graphs in rapid succession. Alternatively, complete learning graph generation early in a session, then proceed with lower-token operations (skill installation, file organization, markdown formatting) while waiting for token restoration.</p>
+<p><strong>Usage planning strategies:</strong></p>
+<p><strong>Front-load generation:</strong> Start sessions with high-token operations (learning graph generation, chapter content generation) to maximize productive use of available tokens before approaching limits.</p>
+<p><strong>Interleave with low-token tasks:</strong> After generating a learning graph, switch to reviewing output quality, manually refining concepts, or organizing project files—tasks requiring minimal Claude interaction.</p>
+<p><strong>Session boundaries:</strong> If approaching token limits, pause substantive generation and resume after the 4-hour window. Use intervening time for manual quality review or skill familiarization.</p>
+<p><strong>Batch processing:</strong> If generating learning graphs for multiple related courses, consolidate generation into dedicated sessions, leveraging shared context from related domains to improve efficiency.</p>
+<h3 id="claude-pro-limitations-and-planning">Claude Pro Limitations and Planning</h3>
+<p>Beyond the rolling 4-hour windows, Claude Pro imposes additional constraints worth understanding for project planning:</p>
+<p><strong>Daily aggregate limits:</strong> While usage regenerates on a rolling 4-hour basis, there may be aggregate daily limits preventing sustained high-volume usage. For most textbook projects, this is non-binding, but multi-book endeavors should confirm current Claude Pro tier limits.</p>
+<p><strong>Model access:</strong> Claude Pro provides access to the highest-capability models (Opus, Sonnet 4.5) essential for complex reasoning tasks like dependency mapping and quality validation. The learning-graph-generator skill leverages these capabilities to produce coherent, well-structured concept graphs.</p>
+<p><strong>Priority access:</strong> During high-demand periods, Pro accounts receive priority, reducing latency for time-sensitive work.</p>
+<p>For professional textbook development projects, the Pro subscription proves essential—free-tier limitations would severely constrain the multi-chapter generation workflows this course teaches.</p>
+<h3 id="content-generation-process-and-token-management">Content Generation Process and Token Management</h3>
+<p>The intelligent textbook workflow involves multiple content generation stages, each with different token consumption profiles:</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Typical Token Consumption</th>
+<th>Frequency</th>
+<th>Optimization Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Course Description</td>
+<td>5,000-10,000</td>
+<td>Once per project</td>
+<td>Front-load, high value per token</td>
+</tr>
+<tr>
+<td>Learning Graph Generation</td>
+<td>30,000-50,000</td>
+<td>Once per project</td>
+<td>Front-load, critical foundation</td>
+</tr>
+<tr>
+<td>Glossary Generation</td>
+<td>15,000-25,000</td>
+<td>Once per project</td>
+<td>After learning graph validation</td>
+</tr>
+<tr>
+<td>Chapter Outline Generation</td>
+<td>5,000-10,000</td>
+<td>Once per project</td>
+<td>Batch with other planning</td>
+</tr>
+<tr>
+<td>Chapter Content Generation</td>
+<td>20,000-40,000 per chapter</td>
+<td>10-15 times</td>
+<td>Spread across sessions</td>
+</tr>
+<tr>
+<td>Quiz Generation</td>
+<td>5,000-10,000 per chapter</td>
+<td>10-15 times</td>
+<td>Batch multiple chapters</td>
+</tr>
+<tr>
+<td>MicroSim Specification</td>
+<td>3,000-8,000 per sim</td>
+<td>15-30 times</td>
+<td>Generate as needed during content creation</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Token optimization tactics:</strong></p>
+<p><strong>Leverage file-based context:</strong> Rather than maintaining entire learning graphs in conversation context, the learning-graph-generator writes to CSV files. Subsequent skills read these files, avoiding context re-transmission.</p>
+<p><strong>Incremental generation:</strong> Generate chapter content incrementally rather than attempting entire books in single sessions. Each chapter is independent after outline completion.</p>
+<p><strong>Skill specialization:</strong> Purpose-built skills with focused contexts consume fewer tokens than general-purpose interactions attempting equivalent tasks.</p>
+<p><strong>Quality thresholds:</strong> Establish acceptable quality thresholds (e.g., learning graph quality score ≥ 70) that balance perfection against token expenditure. Iterating to 95+ consumes disproportionate tokens for marginal improvement.</p>
+<h3 id="chapter-structure-and-token-budgeting">Chapter Structure and Token Budgeting</h3>
+<p>Chapter structure significantly impacts token consumption during content generation. The chapter outline produced by book-chapter-generator determines how many concepts each chapter covers, directly affecting content generation token usage.</p>
+<p><strong>Chapter sizing heuristics:</strong></p>
+<p><strong>Balanced chapters:</strong> Aim for 12-18 concepts per chapter. This produces ~3,500-5,000 word chapters requiring ~25,000-35,000 tokens to generate.</p>
+<p><strong>Front-loaded chapters:</strong> Foundational chapters with many prerequisite concepts may be larger (20-25 concepts). Budget proportionally more tokens.</p>
+<p><strong>Advanced synthesis chapters:</strong> Later chapters integrating previous concepts may have fewer new concepts (8-12) but require deeper treatment. Token consumption remains moderate due to referencing rather than re-explaining prerequisites.</p>
+<p>For a 13-chapter textbook, total chapter content generation consumes ~325,000-455,000 tokens across all chapters. At 20,000 tokens per 4-hour window (hypothetical limit), this spans ~16-23 windows or 64-92 hours of rolling window time. Distributed across 2-3 weeks with 3-4 hours of generation work daily, this comfortably fits within Claude Pro capabilities.</p>
+<p><strong>Parallelization considerations:</strong></p>
+<p>While Claude Code itself operates sequentially within a session, you can run multiple independent Claude Code sessions across different projects or chapter generation tasks. This "poor man's parallelization" enables working on Chapter 1 content while Chapter 2 quiz generation runs in a separate session, effectively doubling throughput within token budget constraints.</p>
+<details>
+    <summary>Token Consumption Timeline for Complete Textbook Project</summary>
+    Type: timeline
+
+    Purpose: Show typical token consumption across complete intelligent textbook project lifecycle
+
+    Time period: 0-20 days (typical project timeline)
+
+    Orientation: Horizontal timeline with cumulative token consumption shown as area chart below
+
+    Events and token consumption:
+    - Day 1: Course description (8,000 tokens)
+    - Day 2: Learning graph generation (45,000 tokens)
+    - Day 3: Glossary generation (20,000 tokens)
+    - Day 4: Chapter outline (8,000 tokens)
+    - Days 5-14: Chapter content generation, ~3 chapters every 2-3 days (30,000 tokens per chapter × 13 = 390,000 tokens distributed)
+    - Days 15-18: Quiz generation batches (8,000 tokens per batch × 5 batches = 40,000 tokens)
+    - Days 19-20: MicroSim specifications as needed (5,000 tokens per day)
+
+    Visual elements:
+    - Timeline with major milestones
+    - Area chart showing cumulative token consumption
+    - Shaded regions indicating 4-hour window regeneration
+    - Annotations showing total tokens per phase
+
+    Color coding:
+    - Blue: Foundation phase (course description, learning graph)
+    - Purple: Supporting content phase (glossary, outlines)
+    - Green: Content generation phase (chapters, quizzes)
+    - Orange: Enhancement phase (MicroSims)
+
+    Annotations:
+    - "Total project: ~530,000 tokens"
+    - "Spread across 20 days: ~26,500 tokens/day average"
+    - "Well within Claude Pro capabilities with planning"
+
+    Interactive features:
+    - Hover over timeline points to see specific token amounts
+    - Hover over area chart to see cumulative consumption
+
+    Implementation: HTML/CSS/JavaScript with Chart.js timeline and area chart
+</details>
+
+<h2 id="summary_1">Summary</h2>
+<p>This chapter introduced learning graphs as formalized knowledge structures representing concepts as nodes and prerequisite dependencies as edges. You learned how learning graphs function as Directed Acyclic Graphs (DAGs) ensuring valid pedagogical orderings exist, and how prerequisite relationships define learning pathways through course content.</p>
+<p>We explored concept nodes with their atomic granularity principles and dependency edges encoding prerequisite relationships. You learned to distinguish direct from transitive dependencies, identify common dependency patterns (sequential chains, fan-in, fan-out), and recognize why the DAG constraint is mathematically necessary for coherent curriculum design.</p>
+<p>Finally, we addressed practical Claude usage optimization for learning graph generation, exploring how 4-hour usage windows, token budgeting across project phases, and chapter sizing decisions impact sustainable textbook development workflows. These foundations prepare you for Chapter 5's deep dive into the mechanics of concept enumeration and dependency mapping.</p>
+<p><strong>Concepts covered:</strong> Learning Graph ✓, Concept Nodes in Learning Graphs ✓, Dependency Edges in Learning Graphs ✓, Directed Acyclic Graph (DAG) ✓, Prerequisite Relationships ✓, Concept Dependencies ✓, Learning Pathways ✓, 4-Hour Usage Windows ✓, Claude Pro Limitations ✓, Optimizing Claude Usage ✓, Content Generation Process ✓, Chapter Structure ✓</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../03-course-design-educational-theory/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Chapter 3 - Course Design and Educational Theory">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Chapter 3 - Course Design and Educational Theory
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../05-concept-enumeration-dependencies/" class="md-footer__link md-footer__link--next" aria-label="Next: Chapter 5 - Concept Enumeration and Dependencies">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Chapter 5 - Concept Enumeration and Dependencies
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

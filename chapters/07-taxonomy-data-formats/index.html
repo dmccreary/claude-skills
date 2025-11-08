@@ -1,0 +1,3011 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/chapters/07-taxonomy-data-formats/">
+      
+      
+        <link rel="prev" href="../06-learning-graph-quality-validation/">
+      
+      
+        <link rel="next" href="../08-mkdocs-platform-documentation/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Chapter 7 - Taxonomy and Data Formats - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#taxonomy-and-data-formats" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 7 - Taxonomy and Data Formats
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-ai-intelligent-textbooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 - Introduction to AI and Intelligent Textbooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-getting-started-claude-skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 - Getting Started with Claude and Skills
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-course-design-educational-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 - Course Design and Educational Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-intro-learning-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 - Introduction to Learning Graphs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-concept-enumeration-dependencies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 - Concept Enumeration and Dependencies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-learning-graph-quality-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 - Learning Graph Quality and Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 7 - Taxonomy and Data Formats
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 - Taxonomy and Data Formats
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-data-formats-for-learning-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to Data Formats for Learning Graphs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-taxonomyid-field-in-csv-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      The TaxonomyID Field in CSV Format
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The TaxonomyID Field in CSV Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-taxonomy-to-existing-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Taxonomy to Existing Graphs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vis-network-json-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      vis-network JSON Format
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="vis-network JSON Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-schema-for-learning-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Schema for Learning Graphs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata-section-in-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Section in JSON
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groups-section-in-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Groups Section in JSON
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodes-section-in-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nodes Section in JSON
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edges-section-in-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edges Section in JSON
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dublin-core-metadata-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dublin Core Metadata Standard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dublin Core Metadata Standard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#title-metadata-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      Title Metadata Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description-metadata-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description Metadata Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creator-metadata-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creator Metadata Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#date-metadata-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      Date Metadata Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-metadata-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version Metadata Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format-metadata-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      Format Metadata Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#license-metadata-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      License Metadata Field
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#color-coding-in-visualizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Coding in Visualizations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Color Coding in Visualizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#color-palette-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Palette Selection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#font-colors-for-readability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Font Colors for Readability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-for-learning-graph-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python for Learning Graph Processing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python for Learning Graph Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-scripts-for-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Scripts for Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyze-graphpy-script-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      analyze-graph.py Script Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv-to-jsonpy-script-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      csv-to-json.py Script Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary and Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-mkdocs-platform-documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 - MkDocs Platform and Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-claude-skills-architecture-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 - Claude Skills Architecture and Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-content-creation-workflows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 - Content Creation Workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-educational-resources-assessment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 11 - Educational Resources and Assessment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-interactive-elements-microsims/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 12 - Interactive Elements and MicroSims
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-dev-tools-version-control-deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 13 - Development Tools, Version Control, and Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    List of Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/index.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-data-formats-for-learning-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to Data Formats for Learning Graphs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-taxonomyid-field-in-csv-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      The TaxonomyID Field in CSV Format
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The TaxonomyID Field in CSV Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-taxonomy-to-existing-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Taxonomy to Existing Graphs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vis-network-json-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      vis-network JSON Format
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="vis-network JSON Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-schema-for-learning-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Schema for Learning Graphs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata-section-in-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Section in JSON
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groups-section-in-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Groups Section in JSON
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodes-section-in-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nodes Section in JSON
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edges-section-in-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edges Section in JSON
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dublin-core-metadata-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dublin Core Metadata Standard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dublin Core Metadata Standard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#title-metadata-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      Title Metadata Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description-metadata-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description Metadata Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creator-metadata-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creator Metadata Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#date-metadata-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      Date Metadata Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-metadata-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version Metadata Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format-metadata-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      Format Metadata Field
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#license-metadata-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      License Metadata Field
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#color-coding-in-visualizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Coding in Visualizations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Color Coding in Visualizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#color-palette-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Palette Selection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#font-colors-for-readability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Font Colors for Readability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-for-learning-graph-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python for Learning Graph Processing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python for Learning Graph Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-scripts-for-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Scripts for Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyze-graphpy-script-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      analyze-graph.py Script Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv-to-jsonpy-script-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      csv-to-json.py Script Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary and Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/chapters/07-taxonomy-data-formats/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="taxonomy-and-data-formats">Taxonomy and Data Formats</h1>
+<h2 id="summary">Summary</h2>
+<p>This chapter explores how to add taxonomy information to your learning graph and convert it to various formats for visualization and processing. You'll learn about the TaxonomyID field in CSV files and the process of adding taxonomy categorization to existing concept graphs. The chapter provides comprehensive coverage of the vis-network JSON format, including its schema structure with metadata, groups, nodes, and edges sections.</p>
+<p>You'll learn about Dublin Core metadata standards and how to properly populate metadata fields including title, description, creator, date, version, format, and license. The chapter also covers color coding strategies for visualizations and font color selection for readability. Finally, you'll be introduced to Python scripting for learning graph processing, including key scripts like analyze-graph.py and csv-to-json.py.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 22 concepts from the learning graph:</p>
+<ol>
+<li>TaxonomyID Field in CSV</li>
+<li>Adding Taxonomy to Graph</li>
+<li>vis-network JSON Format</li>
+<li>JSON Schema for Learning Graphs</li>
+<li>Metadata Section in JSON</li>
+<li>Groups Section in JSON</li>
+<li>Nodes Section in JSON</li>
+<li>Edges Section in JSON</li>
+<li>Dublin Core Metadata</li>
+<li>Title Metadata Field</li>
+<li>Description Metadata Field</li>
+<li>Creator Metadata Field</li>
+<li>Date Metadata Field</li>
+<li>Version Metadata Field</li>
+<li>Format Metadata Field</li>
+<li>License Metadata Field</li>
+<li>Color Coding in Visualizations</li>
+<li>Font Colors for Readability</li>
+<li>Python</li>
+<li>Python Scripts for Processing</li>
+<li>analyze-graph.py Script</li>
+<li>csv-to-json.py Script</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../05-concept-enumeration-dependencies/">Chapter 5: Concept Enumeration and Dependencies</a></li>
+<li><a href="../06-learning-graph-quality-validation/">Chapter 6: Learning Graph Quality and Validation</a></li>
+</ul>
+<hr />
+<h2 id="introduction-to-data-formats-for-learning-graphs">Introduction to Data Formats for Learning Graphs</h2>
+<p>Learning graphs exist as data structures that must be stored, processed, and visualized effectively. While the conceptual model of a learning graph—concepts connected by dependency relationships—is straightforward, implementing that model requires careful attention to data formats and transformation pipelines. This chapter explores the complete data workflow from CSV-based graph authoring through JSON conversion to interactive visualization.</p>
+<p>You'll learn how taxonomy information enriches your learning graph with categorical structure, enabling color-coded visualizations and category-based filtering. The chapter provides comprehensive coverage of the vis-network JSON format, which serves as the intermediate representation for browser-based graph visualization. Understanding JSON schema design, metadata standards, and color coding strategies will enable you to create professional, accessible learning graph visualizations.</p>
+<p>The chapter culminates with practical Python scripting for learning graph processing. You'll explore the implementation details of scripts that validate, transform, and analyze your learning graph data, empowering you to customize the toolchain for your specific needs.</p>
+<h2 id="the-taxonomyid-field-in-csv-format">The TaxonomyID Field in CSV Format</h2>
+<p>The learning graph CSV format introduced in Chapter 5 includes four essential columns: ConceptID, ConceptLabel, Dependencies, and <strong>TaxonomyID</strong>. While the first three columns define graph structure, the TaxonomyID column provides categorical metadata that enhances both organization and visualization.</p>
+<p>A TaxonomyID is a short (3-5 letter) abbreviation representing a conceptual category or domain. Examples include:</p>
+<ul>
+<li><strong>FOUND</strong>: Foundational concepts</li>
+<li><strong>TOOL</strong>: Tools and technologies</li>
+<li><strong>IMPL</strong>: Implementation techniques</li>
+<li><strong>ARCH</strong>: Architecture and design</li>
+<li><strong>EVAL</strong>: Evaluation and assessment</li>
+</ul>
+<p>The TaxonomyID field serves multiple purposes in the learning graph ecosystem:</p>
+<ol>
+<li><strong>Visual grouping</strong>: Concepts with the same TaxonomyID display in the same color in visualizations</li>
+<li><strong>Filtering</strong>: Users can filter graph views to show only specific categories</li>
+<li><strong>Balance analysis</strong>: Distribution reports identify over- or under-represented categories</li>
+<li><strong>Conceptual organization</strong>: Related concepts cluster naturally during authoring</li>
+</ol>
+<p>In the CSV format, TaxonomyID appears as the fourth column:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>ConceptID,ConceptLabel,Dependencies,TaxonomyID
+1,Introduction to Learning Graphs,,FOUND
+2,What is a Concept?,1,FOUND
+3,Concept Dependencies,1|2,BASIC
+4,Graph Data Structures,3,ARCH
+</code></pre></div></td></tr></table></div>
+<h3 id="adding-taxonomy-to-existing-graphs">Adding Taxonomy to Existing Graphs</h3>
+<p>If you created a learning graph without TaxonomyID information, you can add it retroactively using a multi-step process:</p>
+<ol>
+<li><strong>Identify natural categories</strong>: Review your concept list and identify 5-10 logical groupings based on topic similarity, complexity level, or knowledge domain</li>
+<li><strong>Design TaxonomyID abbreviations</strong>: Create distinctive, memorable 3-5 letter codes for each category</li>
+<li><strong>Add TaxonomyID column to CSV</strong>: Insert a new column header "TaxonomyID" as the fourth column</li>
+<li><strong>Categorize concepts</strong>: Assign each concept to its most appropriate category</li>
+<li><strong>Validate distribution</strong>: Run <code>taxonomy-distribution.py</code> to check for balanced categorization</li>
+</ol>
+<p>The <code>add-taxonomy.py</code> helper script can semi-automate this process by suggesting categories based on concept labels using keyword matching:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>docs/learning-graph
+python<span class="w"> </span>add-taxonomy.py<span class="w"> </span>learning-graph.csv<span class="w"> </span>learning-graph-with-taxonomy.csv
+</code></pre></div></td></tr></table></div>
+<p>The script prompts for taxonomy rules (keyword → TaxonomyID mappings) and applies them systematically, flagging ambiguous cases for manual review.</p>
+<details>
+    <summary>Adding Taxonomy to CSV Workflow Diagram</summary>
+    Type: workflow
+
+    Purpose: Show the step-by-step process of adding taxonomy information to an existing learning graph CSV
+
+    Visual style: Flowchart with process rectangles and decision diamonds
+
+    Steps:
+    1. Start: "Learning Graph CSV without TaxonomyID"
+       Hover text: "Existing CSV with ConceptID, ConceptLabel, Dependencies columns only"
+
+    2. Process: "Identify Natural Categories"
+       Hover text: "Review all concept labels and group by topic, domain, or complexity"
+
+    3. Process: "Design TaxonomyID Abbreviations"
+       Hover text: "Create 3-5 letter codes (FOUND, BASIC, ARCH, etc.)"
+
+    4. Decision: "Use automated categorization?"
+       Hover text: "Choose between manual assignment or add-taxonomy.py script"
+
+    5a. Process: "Run add-taxonomy.py" (if automated)
+        Hover text: "Script uses keyword matching to suggest categories"
+
+    5b. Process: "Manually add TaxonomyID column" (if manual)
+        Hover text: "Insert column in spreadsheet, assign each concept"
+
+    6. Process: "Review and adjust assignments"
+       Hover text: "Check that categorization makes logical sense"
+
+    7. Process: "Run taxonomy-distribution.py"
+       Hover text: "Validate that no category exceeds 30% of concepts"
+
+    8. Decision: "Distribution balanced?"
+       Hover text: "Check quality report for over/under-representation"
+
+    9a. Process: "Adjust categories" (if unbalanced)
+        Hover text: "Merge over-represented categories or expand under-represented"
+        → Loop back to step 6
+
+    9b. End: "Learning Graph with Taxonomy" (if balanced)
+        Hover text: "CSV ready for JSON conversion and visualization"
+
+    Color coding:
+    - Blue: Data processing steps
+    - Yellow: Decision points
+    - Green: Quality validation
+    - Orange: Manual review steps
+
+    Swimlanes: Not applicable (single-actor process)
+
+    Implementation: SVG flowchart with hover tooltips
+</details>
+
+<h2 id="vis-network-json-format">vis-network JSON Format</h2>
+<p>The vis-network JavaScript library provides powerful, interactive graph visualization in web browsers. To leverage vis-network for learning graph visualization, you must convert your CSV data into the vis-network JSON format—a structured representation that defines nodes, edges, visual styling, and metadata.</p>
+<p>The vis-network format organizes graph data into four primary sections:</p>
+<ol>
+<li><strong>metadata</strong>: Information about the graph itself (title, creator, date, etc.)</li>
+<li><strong>groups</strong>: Visual styling definitions for each TaxonomyID category</li>
+<li><strong>nodes</strong>: Array of concept objects with id, label, and group properties</li>
+<li><strong>edges</strong>: Array of dependency objects with from and to properties</li>
+</ol>
+<p>This hierarchical structure separates content (what concepts exist) from presentation (how concepts should be displayed), following best practices for data interchange formats.</p>
+<h3 id="json-schema-for-learning-graphs">JSON Schema for Learning Graphs</h3>
+<p>A JSON schema defines the expected structure, data types, and constraints for JSON documents. For learning graphs, the schema ensures that generated JSON files conform to vis-network requirements and include all necessary metadata.</p>
+<p>The learning graph JSON schema specifies:</p>
+<p><strong>Top-level structure:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;groups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;edges&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Data type constraints:</strong></p>
+<ul>
+<li><code>metadata</code>: Object with string values for title, description, etc.</li>
+<li><code>groups</code>: Object with group names as keys, styling objects as values</li>
+<li><code>nodes</code>: Array of objects, each with required <code>id</code> (number), <code>label</code> (string), <code>group</code> (string)</li>
+<li><code>edges</code>: Array of objects, each with required <code>from</code> (number), <code>to</code> (number)</li>
+</ul>
+<p><strong>Validation rules:</strong></p>
+<ul>
+<li>All node IDs must be unique within the nodes array</li>
+<li>All edge <code>from</code> and <code>to</code> values must reference existing node IDs</li>
+<li>All node <code>group</code> values must have corresponding entries in the <code>groups</code> object</li>
+<li>Metadata fields should follow Dublin Core standards (covered in next section)</li>
+</ul>
+<p>The <code>csv-to-json.py</code> script implements this schema validation automatically, rejecting CSV data that would produce invalid JSON and providing detailed error messages for corrections.</p>
+<details>
+    <summary>Learning Graph JSON Schema Diagram</summary>
+    Type: diagram
+
+    Purpose: Visualize the hierarchical structure of the learning graph JSON format
+
+    Layout: Tree diagram showing nested structure
+
+    Components:
+    - Root: "learning-graph.json" (gold rounded rectangle)
+      ├─ "metadata" (blue rounded rectangle)
+      │  ├─ title: string
+      │  ├─ description: string
+      │  ├─ creator: string
+      │  ├─ date: string (ISO 8601)
+      │  ├─ version: string
+      │  ├─ format: string
+      │  └─ license: string
+      │
+      ├─ "groups" (green rounded rectangle)
+      │  ├─ FOUND: {color, font, shape}
+      │  ├─ BASIC: {color, font, shape}
+      │  └─ ... (other taxonomy groups)
+      │
+      ├─ "nodes" (purple rounded rectangle)
+      │  ├─ [0]: {id: number, label: string, group: string}
+      │  ├─ [1]: {id: number, label: string, group: string}
+      │  └─ ... (array of 200 concept objects)
+      │
+      └─ "edges" (orange rounded rectangle)
+         ├─ [0]: {from: number, to: number}
+         ├─ [1]: {from: number, to: number}
+         └─ ... (array of dependency relationships)
+
+    Visual style: Tree diagram with connecting lines
+
+    Color coding:
+    - Gold: Root document
+    - Blue: Metadata section
+    - Green: Groups/styling section
+    - Purple: Nodes/content section
+    - Orange: Edges/relationships section
+
+    Annotations:
+    - "Required by vis-network" label pointing to nodes and edges
+    - "Dublin Core metadata" label pointing to metadata section
+    - "Visual styling" label pointing to groups section
+    - "~200 objects" annotation on nodes array
+    - "~600 objects" annotation on edges array (for 200-concept graph with avg 3 dependencies)
+
+    Implementation: SVG tree diagram with labeled boxes and connecting lines
+</details>
+
+<h3 id="metadata-section-in-json">Metadata Section in JSON</h3>
+<p>The <strong>metadata section</strong> contains descriptive information about the learning graph as a whole, following Dublin Core metadata standards. This section enables proper attribution, versioning, and documentation of your learning graph dataset.</p>
+<p>Example metadata section:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Introduction to Graph Databases Learning Graph&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Concept dependency graph for a 15-week course on graph database fundamentals, architecture, and implementation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;creator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Dr. Jane Smith&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-09-15&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vis-network JSON&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CC-BY-4.0&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>While metadata doesn't affect graph visualization directly, it provides essential context for:</p>
+<ul>
+<li><strong>Attribution</strong>: Identifying who created or maintains the learning graph</li>
+<li><strong>Versioning</strong>: Tracking changes over time and ensuring correct versions are used</li>
+<li><strong>Documentation</strong>: Describing the graph's purpose, scope, and educational context</li>
+<li><strong>Licensing</strong>: Clarifying usage rights and redistribution terms</li>
+</ul>
+<h3 id="groups-section-in-json">Groups Section in JSON</h3>
+<p>The <strong>groups section</strong> defines visual styling for each TaxonomyID category, enabling consistent color-coded visualization across the learning graph. Each group specifies:</p>
+<ul>
+<li><strong>color</strong>: Background color for nodes in this category</li>
+<li><strong>font</strong>: Text color and size for labels</li>
+<li><strong>shape</strong>: Node shape (circle, box, diamond, etc.)</li>
+</ul>
+<p>Example groups section:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;groups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;FOUND&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;background&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#FF6B6B&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;border&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#C92A2A&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;font&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#000000&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;circle&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;BASIC&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;background&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#FFA94D&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;border&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#E67700&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;font&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#000000&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;circle&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;ARCH&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;background&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#FFD43B&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;border&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#F59F00&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;font&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#000000&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;circle&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Consistent group styling creates visual coherence and aids comprehension by allowing users to quickly identify concept categories by color.</p>
+<h3 id="nodes-section-in-json">Nodes Section in JSON</h3>
+<p>The <strong>nodes section</strong> contains an array of concept objects representing the vertices of your learning graph. Each node object requires three properties:</p>
+<ul>
+<li><strong>id</strong>: Unique numeric identifier (matches ConceptID from CSV)</li>
+<li><strong>label</strong>: Human-readable concept name (matches ConceptLabel from CSV)</li>
+<li><strong>group</strong>: TaxonomyID category for visual styling</li>
+</ul>
+<p>Example nodes section:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Introduction to Learning Graphs&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FOUND&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Concept Dependencies&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BASIC&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Graph Data Structures&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ARCH&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The nodes array typically contains 150-250 objects for a comprehensive learning graph. vis-network uses this array to render graph vertices, applying styling from the groups section based on each node's group property.</p>
+<h3 id="edges-section-in-json">Edges Section in JSON</h3>
+<p>The <strong>edges section</strong> contains an array of dependency relationship objects representing the directed edges of your learning graph. Each edge object requires two properties:</p>
+<ul>
+<li><strong>from</strong>: Node ID of the prerequisite concept</li>
+<li><strong>to</strong>: Node ID of the dependent concept</li>
+</ul>
+<p>Example edges section:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;edges&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The edges array defines the directed acyclic graph structure. vis-network renders these as arrows pointing from prerequisite to dependent concepts, creating the visual flow of the learning progression.</p>
+<p>For a 200-concept learning graph with an average of 3 dependencies per concept, expect approximately 600 edge objects in this array.</p>
+<details>
+    <summary>CSV to JSON Conversion Mapping Diagram</summary>
+    Type: diagram
+
+    Purpose: Show how CSV columns map to JSON structure during conversion
+
+    Layout: Side-by-side comparison with mapping arrows
+
+    Left side - "CSV Format":
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>ConceptID | ConceptLabel | Dependencies | TaxonomyID
+----------|--------------|--------------|------------
+1         | Intro        |              | FOUND
+2         | Dependencies | 1            | BASIC
+3         | DAG          | 1|2          | ARCH
+</code></pre></div></td></tr></table></div>
+
+    Right side - "JSON Format":
+    - Nodes section showing objects with id, label, group
+    - Edges section showing objects with from, to
+
+    Mapping arrows:
+    - ConceptID → nodes[].id
+    - ConceptLabel → nodes[].label
+    - TaxonomyID → nodes[].group
+    - Dependencies (split by |) → multiple edges with from/to
+
+    Example transformation:
+    - Row 2 (ConceptID=2, Dependencies="1") creates:
+      * Node: {id: 2, label: "Dependencies", group: "BASIC"}
+      * Edge: {from: 1, to: 2}
+
+    - Row 3 (ConceptID=3, Dependencies="1|2") creates:
+      * Node: {id: 3, label: "DAG", group: "ARCH"}
+      * Edge: {from: 1, to: 3}
+      * Edge: {from: 2, to: 3}
+
+    Color coding:
+    - Orange arrows: Direct 1:1 mappings
+    - Purple arrows: Transformation mappings (Dependencies → Edges)
+
+    Annotations:
+    - "csv-to-json.py performs this transformation"
+    - "Empty Dependencies creates node but no edges (foundational concept)"
+    - "Pipe-delimited Dependencies create multiple edges"
+
+    Implementation: Diagram with data tables and connecting arrows
+</details>
+
+<h2 id="dublin-core-metadata-standard">Dublin Core Metadata Standard</h2>
+<p>Dublin Core is an internationally recognized metadata standard (ISO 15836) for describing digital resources. Originally developed for library catalog systems, Dublin Core provides a simple yet powerful vocabulary for resource description that translates well to learning graph documentation.</p>
+<p>The core Dublin Core elements most relevant to learning graphs include:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title</td>
+<td>Name of the resource</td>
+<td>"Graph Databases Learning Graph"</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Summary of content and scope</td>
+<td>"200-concept graph covering Neo4j..."</td>
+</tr>
+<tr>
+<td>Creator</td>
+<td>Primary author or maintainer</td>
+<td>"Dr. Jane Smith"</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>Creation or modification date</td>
+<td>"2024-09-15" (ISO 8601)</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>Version number</td>
+<td>"1.2.0" (semantic versioning)</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>File format specification</td>
+<td>"vis-network JSON v9.1"</td>
+</tr>
+<tr>
+<td>License</td>
+<td>Usage rights</td>
+<td>"CC-BY-4.0" or "MIT"</td>
+</tr>
+</tbody>
+</table>
+<p>Using Dublin Core metadata ensures your learning graphs are properly documented, discoverable, and interoperable with academic and educational resource repositories.</p>
+<h3 id="title-metadata-field">Title Metadata Field</h3>
+<p>The <strong>title</strong> field provides the primary name for your learning graph. Effective titles are:</p>
+<ul>
+<li><strong>Descriptive</strong>: Clearly indicate the subject matter</li>
+<li><strong>Specific</strong>: Distinguish from other learning graphs</li>
+<li><strong>Concise</strong>: Typically 5-10 words maximum</li>
+</ul>
+<p>Examples of effective titles:</p>
+<ul>
+<li>"Introduction to Graph Databases Learning Graph"</li>
+<li>"Python Programming Fundamentals Concept Map"</li>
+<li>"ITIL Service Management Dependency Graph"</li>
+</ul>
+<p>Avoid generic titles like "Learning Graph" or "Course Concepts" that provide no information about content.</p>
+<h3 id="description-metadata-field">Description Metadata Field</h3>
+<p>The <strong>description</strong> field offers a 1-3 sentence summary of the learning graph's scope, audience, and purpose:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Comprehensive 200-concept learning graph for a 15-week undergraduate course on graph database fundamentals, covering Neo4j architecture, Cypher query language, and graph data modeling. Designed for computer science students with prerequisites in data structures and SQL.&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Effective descriptions answer:</p>
+<ul>
+<li><strong>What</strong>: Topic and scope</li>
+<li><strong>Who</strong>: Target audience and prerequisites</li>
+<li><strong>How many</strong>: Number of concepts</li>
+<li><strong>When/Where</strong>: Course duration or context</li>
+</ul>
+<h3 id="creator-metadata-field">Creator Metadata Field</h3>
+<p>The <strong>creator</strong> field identifies the primary author or team responsible for developing the learning graph:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;creator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Dr. Jane Smith, Computer Science Department, State University&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>For multiple creators, use semicolon-separated list:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;creator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Dr. Jane Smith; Dr. John Doe; Teaching Assistant Team&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Proper attribution ensures:</p>
+<ul>
+<li>Academic credit for intellectual work</li>
+<li>Contact information for questions or collaborations</li>
+<li>Provenance tracking in educational repositories</li>
+</ul>
+<h3 id="date-metadata-field">Date Metadata Field</h3>
+<p>The <strong>date</strong> field records when the learning graph was created or last significantly updated. Use ISO 8601 format (YYYY-MM-DD) for unambiguous, machine-parseable dates:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-09-15&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>For resources with multiple relevant dates, use qualified Dublin Core:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;dateCreated&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-01-10&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;dateModified&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-09-15&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;dateAvailable&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-09-20&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Accurate dating enables versioning, change tracking, and temporal queries in learning resource repositories.</p>
+<h3 id="version-metadata-field">Version Metadata Field</h3>
+<p>The <strong>version</strong> field tracks revisions using semantic versioning (MAJOR.MINOR.PATCH):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.2.0&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Version numbering conventions:</p>
+<ul>
+<li><strong>MAJOR</strong>: Increment for incompatible changes (e.g., restructuring categories, removing concepts)</li>
+<li><strong>MINOR</strong>: Increment for backwards-compatible additions (e.g., adding concepts, refining dependencies)</li>
+<li><strong>PATCH</strong>: Increment for corrections (e.g., fixing typos, correcting metadata)</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li><code>1.0.0</code>: Initial release</li>
+<li><code>1.1.0</code>: Added 15 new concepts on advanced topics</li>
+<li><code>1.1.1</code>: Fixed typo in concept label</li>
+<li><code>2.0.0</code>: Restructured taxonomy from 8 to 12 categories (breaking change)</li>
+</ul>
+<h3 id="format-metadata-field">Format Metadata Field</h3>
+<p>The <strong>format</strong> field specifies the file format and version:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vis-network JSON v9.1&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>For learning graphs, useful format specifications include:</p>
+<ul>
+<li>Technical format: "vis-network JSON v9.1"</li>
+<li>MIME type: "application/json"</li>
+<li>Schema version: "Learning Graph Schema v2.0"</li>
+</ul>
+<p>Explicit format declaration enables:</p>
+<ul>
+<li>Validation against correct schemas</li>
+<li>Compatibility checking with visualization tools</li>
+<li>Automated format conversion pipelines</li>
+</ul>
+<h3 id="license-metadata-field">License Metadata Field</h3>
+<p>The <strong>license</strong> field clarifies usage rights using standard license identifiers:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CC-BY-4.0&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Common licenses for educational resources:</p>
+<table>
+<thead>
+<tr>
+<th>License</th>
+<th>Meaning</th>
+<th>Usage Rights</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CC-BY-4.0</td>
+<td>Attribution required</td>
+<td>Commercial and derivative works allowed</td>
+</tr>
+<tr>
+<td>CC-BY-SA-4.0</td>
+<td>Attribution + Share-Alike</td>
+<td>Derivatives must use same license</td>
+</tr>
+<tr>
+<td>CC-BY-NC-4.0</td>
+<td>Attribution + Non-Commercial</td>
+<td>No commercial use</td>
+</tr>
+<tr>
+<td>MIT</td>
+<td>Permissive open source</td>
+<td>Minimal restrictions</td>
+</tr>
+<tr>
+<td>All Rights Reserved</td>
+<td>Traditional copyright</td>
+<td>No use without permission</td>
+</tr>
+</tbody>
+</table>
+<p>Clear licensing enables:</p>
+<ul>
+<li>Legal sharing and remixing</li>
+<li>Inclusion in open educational resource repositories</li>
+<li>Compliance with institutional policies</li>
+</ul>
+<details>
+    <summary>Dublin Core Metadata Field Reference Card</summary>
+    Type: infographic
+
+    Purpose: Create a visual reference guide for all Dublin Core metadata fields used in learning graphs
+
+    Layout: Grid layout with 7 cards (one per metadata field)
+
+    Each card contains:
+    - Field name (large, bold)
+    - Purpose (1 sentence)
+    - Format/constraint
+    - Example value
+    - Icon representing the field
+
+    Card details:
+
+    1. Title
+       Icon: 📚
+       Purpose: "Primary name of the learning graph"
+       Format: "String, 5-10 words"
+       Example: "Graph Databases Learning Graph"
+
+    2. Description
+       Icon: 📝
+       Purpose: "Detailed summary of scope and audience"
+       Format: "String, 1-3 sentences"
+       Example: "200-concept graph for undergraduate..."
+
+    3. Creator
+       Icon: 👤
+       Purpose: "Primary author or maintainer"
+       Format: "String, name and affiliation"
+       Example: "Dr. Jane Smith, State University"
+
+    4. Date
+       Icon: 📅
+       Purpose: "Creation or last update date"
+       Format: "ISO 8601: YYYY-MM-DD"
+       Example: "2024-09-15"
+
+    5. Version
+       Icon: 🔢
+       Purpose: "Revision number for tracking changes"
+       Format: "Semantic: MAJOR.MINOR.PATCH"
+       Example: "1.2.0"
+
+    6. Format
+       Icon: 📄
+       Purpose: "File format and version specification"
+       Format: "String, format name + version"
+       Example: "vis-network JSON v9.1"
+
+    7. License
+       Icon: ⚖️
+       Purpose: "Usage rights and restrictions"
+       Format: "License identifier"
+       Example: "CC-BY-4.0"
+
+    Visual style: Modern card-based grid with icons and color-coded borders
+
+    Color scheme:
+    - Title: Blue border
+    - Description: Green border
+    - Creator: Purple border
+    - Date: Orange border
+    - Version: Red border
+    - Format: Teal border
+    - License: Gold border
+
+    Interactive elements:
+    - Click card to expand with detailed guidelines
+    - Hover to show validation rules
+
+    Implementation: HTML/CSS grid with JavaScript for interactivity
+</details>
+
+<h2 id="color-coding-in-visualizations">Color Coding in Visualizations</h2>
+<p>Color coding transforms abstract graph data into intuitive visual representations where patterns emerge naturally. For learning graphs, color serves as a primary visual variable encoding taxonomy categories, enabling users to identify concept domains at a glance.</p>
+<p>Effective color coding schemes for learning graphs follow several design principles:</p>
+<h3 id="color-palette-selection">Color Palette Selection</h3>
+<p>Choose colors that are:</p>
+<ol>
+<li><strong>Distinctive</strong>: Easily distinguished from one another</li>
+<li><strong>Meaningful</strong>: Associate naturally with category semantics when possible</li>
+<li><strong>Accessible</strong>: Visible to users with color vision deficiencies</li>
+<li><strong>Consistent</strong>: Use same colors across all visualizations</li>
+</ol>
+<p>Recommended palette strategies:</p>
+<p><strong>Rainbow gradient</strong> (for sequential categories):</p>
+<ul>
+<li>FOUND: Red (#FF6B6B)</li>
+<li>BASIC: Orange (#FFA94D)</li>
+<li>ARCH: Yellow (#FFD43B)</li>
+<li>IMPL: Light Green (#8CE99A)</li>
+<li>DATA: Green (#51CF66)</li>
+<li>TOOL: Light Blue (#74C0FC)</li>
+<li>QUAL: Blue (#4C6EF5)</li>
+<li>ADV: Purple (#9775FA)</li>
+</ul>
+<p><strong>Categorical palette</strong> (for non-sequential categories):</p>
+<p>Use palettes designed for categorical data with maximum perceptual distance:</p>
+<ul>
+<li>ColorBrewer qualitative schemes (Set1, Set2, Set3)</li>
+<li>Tableau categorical palettes</li>
+<li>Okabe-Ito colorblind-safe palette</li>
+</ul>
+<h3 id="font-colors-for-readability">Font Colors for Readability</h3>
+<p>Node label text must be readable against the background color. The W3C Web Content Accessibility Guidelines (WCAG) specify minimum contrast ratios:</p>
+<ul>
+<li><strong>Normal text</strong>: 4.5:1 contrast ratio (AA level)</li>
+<li><strong>Large text</strong> (18pt+): 3:1 contrast ratio (AA level)</li>
+<li><strong>Enhanced</strong> (AAA level): 7:1 for normal, 4.5:1 for large</li>
+</ul>
+<p>General rules for font color selection:</p>
+<table>
+<thead>
+<tr>
+<th>Background Lightness</th>
+<th>Recommended Font Color</th>
+<th>Hex Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dark (L &lt; 50%)</td>
+<td>White or very light gray</td>
+<td>#FFFFFF or #F8F9FA</td>
+</tr>
+<tr>
+<td>Light (L &gt; 50%)</td>
+<td>Black or very dark gray</td>
+<td>#000000 or #212529</td>
+</tr>
+<tr>
+<td>Medium (L ≈ 50%)</td>
+<td>Test both; choose higher contrast</td>
+<td>Depends on specific color</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>csv-to-json.py</code> script can calculate optimal font colors automatically using the relative luminance formula:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Relative Luminance = 0.2126 * R + 0.7152 * G + 0.0722 * B
+</code></pre></div></td></tr></table></div>
+<p>If luminance &gt; 0.5, use black text; otherwise, use white text.</p>
+<details>
+    <summary>Color Accessibility Checker MicroSim</summary>
+    Type: microsim
+
+    Learning objective: Demonstrate WCAG contrast ratio requirements and help users select accessible color combinations
+
+    Canvas layout (800x500px):
+    - Left side (400x500): Color preview area
+    - Right side (400x500): Controls and contrast analysis
+
+    Visual elements (left panel):
+    - Large preview box (350x250px) showing selected background color
+    - Text samples in different sizes:
+      * 14pt normal text: "The quick brown fox jumps over the lazy dog"
+      * 18pt large text: "The quick brown fox jumps"
+      * 24pt heading: "Sample Heading"
+    - Text displayed in selected font color
+    - Pass/Fail indicators (✓ or ✗) next to each text sample
+
+    Interactive controls (right panel):
+    - Color picker: "Background Color" (default: #FFA94D orange)
+    - Color picker: "Font Color" (default: #000000 black)
+    - Button: "Auto-Calculate Optimal Font Color"
+    - Display: "Contrast Ratio: X.XX:1"
+    - Display: "WCAG AA Compliance: ✓/✗"
+    - Display: "WCAG AAA Compliance: ✓/✗"
+    - Preset buttons:
+      * "FOUND (Red bg)"
+      * "BASIC (Orange bg)"
+      * "ARCH (Yellow bg)"
+      * "IMPL (Green bg)"
+      * "TOOL (Blue bg)"
+      * "ADV (Purple bg)"
+
+    Default parameters:
+    - Background: #FFA94D (orange)
+    - Font: #000000 (black)
+    - Contrast ratio: 5.2:1
+    - AA: Pass, AAA: Fail
+
+    Behavior:
+    - Real-time contrast ratio calculation as colors change
+    - "Auto-Calculate" button sets font to black or white for optimal contrast
+    - Pass/Fail indicators update based on WCAG thresholds
+    - Preset buttons load taxonomy category colors
+    - Warning message if contrast ratio < 3.0 (severe accessibility issue)
+
+    Implementation notes:
+    - Use p5.js for rendering preview box and text
+    - Calculate relative luminance: L = 0.2126*R + 0.7152*G + 0.0722*B
+    - Contrast ratio = (L1 + 0.05) / (L2 + 0.05) where L1 > L2
+    - Use DOM color pickers for easier color selection
+
+    Implementation: p5.js MicroSim with color picker controls
+</details>
+
+<h2 id="python-for-learning-graph-processing">Python for Learning Graph Processing</h2>
+<p>Python serves as the primary scripting language for learning graph validation, transformation, and analysis. Its rich ecosystem of libraries for data processing (csv, json, pandas) and graph analysis (networkx) makes it ideal for implementing the learning graph toolchain.</p>
+<p>The learning graph workflow uses Python for three main tasks:</p>
+<ol>
+<li><strong>Validation</strong>: Checking structural integrity and quality metrics</li>
+<li><strong>Transformation</strong>: Converting between formats (CSV → JSON)</li>
+<li><strong>Analysis</strong>: Generating quality reports and distribution statistics</li>
+</ol>
+<p>Python scripts follow consistent patterns:</p>
+<p><strong>Command-line interface:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Usage: python script.py input.csv output.md&quot;</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">input_file</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">output_file</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>CSV reading with error handling:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">input_file</span><span class="si">}</span><span class="s2"> not found&quot;</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>JSON writing with formatting:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="python-scripts-for-processing">Python Scripts for Processing</h3>
+<p>The learning graph toolkit includes three core Python scripts, each focused on a specific processing task:</p>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Input</th>
+<th>Output</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>analyze-graph.py</td>
+<td>learning-graph.csv</td>
+<td>quality-metrics.md</td>
+<td>Validate structure, calculate quality score</td>
+</tr>
+<tr>
+<td>csv-to-json.py</td>
+<td>learning-graph.csv</td>
+<td>learning-graph.json</td>
+<td>Convert to vis-network format</td>
+</tr>
+<tr>
+<td>taxonomy-distribution.py</td>
+<td>learning-graph.csv</td>
+<td>taxonomy-distribution.md</td>
+<td>Analyze category balance</td>
+</tr>
+</tbody>
+</table>
+<p>All scripts follow similar architectural patterns:</p>
+<ol>
+<li><strong>Argument parsing</strong>: Accept input/output filenames via command line</li>
+<li><strong>File reading</strong>: Load CSV data with error handling</li>
+<li><strong>Data validation</strong>: Check format, detect errors</li>
+<li><strong>Processing</strong>: Perform core transformation or analysis</li>
+<li><strong>Output generation</strong>: Write results to file</li>
+<li><strong>Status reporting</strong>: Print summary to console</li>
+</ol>
+<p>This consistency makes scripts easy to understand, maintain, and extend.</p>
+<h3 id="analyze-graphpy-script-implementation">analyze-graph.py Script Implementation</h3>
+<p>The <code>analyze-graph.py</code> script performs comprehensive learning graph validation and quality analysis. Its implementation illustrates key graph algorithms and quality metric calculations.</p>
+<p><strong>Core functionality:</strong></p>
+<ol>
+<li><strong>CSV parsing</strong>: Reads four-column format, creates graph data structure</li>
+<li><strong>Dependency parsing</strong>: Splits pipe-delimited dependencies into integer lists</li>
+<li><strong>Graph construction</strong>: Builds adjacency list representation for traversal</li>
+<li><strong>Cycle detection</strong>: DFS-based algorithm with three-color marking</li>
+<li><strong>Connectivity analysis</strong>: Identifies disconnected components</li>
+<li><strong>Metric calculation</strong>: Computes indegree, outdegree, chain lengths</li>
+<li><strong>Quality scoring</strong>: Aggregates metrics into overall score</li>
+<li><strong>Report generation</strong>: Outputs formatted Markdown</li>
+</ol>
+<p><strong>Key implementation details:</strong></p>
+<p>Cycle detection using DFS:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">detect_cycles</span><span class="p">(</span><span class="n">graph</span><span class="p">):</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="s1">&#39;WHITE&#39;</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">}</span>
+    <span class="n">cycles</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="n">color</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;GRAY&#39;</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">node</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">color</span><span class="p">[</span><span class="n">neighbor</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;GRAY&#39;</span><span class="p">:</span>
+                <span class="c1"># Cycle detected</span>
+                <span class="n">cycle_start</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">neighbor</span><span class="p">)</span>
+                <span class="n">cycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">[</span><span class="n">cycle_start</span><span class="p">:])</span>
+            <span class="k">elif</span> <span class="n">color</span><span class="p">[</span><span class="n">neighbor</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;WHITE&#39;</span><span class="p">:</span>
+                <span class="n">dfs</span><span class="p">(</span><span class="n">neighbor</span><span class="p">,</span> <span class="n">path</span><span class="p">[:])</span>
+
+        <span class="n">color</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;BLACK&#39;</span>
+
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">color</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;WHITE&#39;</span><span class="p">:</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="p">[])</span>
+
+    <span class="k">return</span> <span class="n">cycles</span>
+</code></pre></div></td></tr></table></div>
+<p>Quality score calculation:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_quality_score</span><span class="p">(</span><span class="n">metrics</span><span class="p">):</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Structural validity (40 points)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;has_cycles&#39;</span><span class="p">]:</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="mi">20</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;has_self_deps&#39;</span><span class="p">]:</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="mi">10</span>
+    <span class="k">if</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;num_components&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="mi">10</span>
+
+    <span class="c1"># Connectivity quality (30 points)</span>
+    <span class="n">orphaned_pct</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;orphaned_nodes&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;total_nodes&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="mf">0.05</span> <span class="o">&lt;=</span> <span class="n">orphaned_pct</span> <span class="o">&lt;=</span> <span class="mf">0.15</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="mi">10</span>
+    <span class="k">elif</span> <span class="n">orphaned_pct</span> <span class="o">&lt;</span> <span class="mf">0.25</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="mi">5</span>
+
+    <span class="c1"># ... (additional metrics)</span>
+
+    <span class="k">return</span> <span class="n">score</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="csv-to-jsonpy-script-implementation">csv-to-json.py Script Implementation</h3>
+<p>The <code>csv-to-json.py</code> script transforms CSV learning graphs into vis-network JSON format. Its implementation demonstrates data format conversion and JSON schema construction.</p>
+<p><strong>Core functionality:</strong></p>
+<ol>
+<li><strong>CSV reading</strong>: Parses four-column format</li>
+<li><strong>Nodes array construction</strong>: Creates objects with id, label, group</li>
+<li><strong>Edges array construction</strong>: Parses dependencies, creates from/to objects</li>
+<li><strong>Groups object construction</strong>: Defines color schemes for each TaxonomyID</li>
+<li><strong>Metadata population</strong>: Adds Dublin Core fields</li>
+<li><strong>JSON serialization</strong>: Outputs formatted vis-network JSON</li>
+</ol>
+<p><strong>Key implementation details:</strong></p>
+<p>Node creation:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">nodes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_data</span><span class="p">:</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;ConceptID&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;ConceptLabel&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;TaxonomyID&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+    <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Edge creation from dependencies:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">edges</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_data</span><span class="p">:</span>
+    <span class="n">concept_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;ConceptID&#39;</span><span class="p">])</span>
+    <span class="n">deps</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Dependencies&#39;</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">deps</span><span class="p">:</span>  <span class="c1"># Not empty</span>
+        <span class="k">for</span> <span class="n">dep</span> <span class="ow">in</span> <span class="n">deps</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">):</span>
+            <span class="n">edge</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;from&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">dep</span><span class="p">),</span>
+                <span class="s1">&#39;to&#39;</span><span class="p">:</span> <span class="n">concept_id</span>
+            <span class="p">}</span>
+            <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Groups generation with color palette:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">taxonomy_colors</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;FOUND&#39;</span><span class="p">:</span> <span class="s1">&#39;#FF6B6B&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;BASIC&#39;</span><span class="p">:</span> <span class="s1">&#39;#FFA94D&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ARCH&#39;</span><span class="p">:</span> <span class="s1">&#39;#FFD43B&#39;</span><span class="p">,</span>
+    <span class="c1"># ... more colors</span>
+<span class="p">}</span>
+
+<span class="n">groups</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">tax_id</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;TaxonomyID&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_data</span><span class="p">):</span>
+    <span class="n">groups</span><span class="p">[</span><span class="n">tax_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;background&#39;</span><span class="p">:</span> <span class="n">taxonomy_colors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tax_id</span><span class="p">,</span> <span class="s1">&#39;#CCCCCC&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;border&#39;</span><span class="p">:</span> <span class="n">darken_color</span><span class="p">(</span><span class="n">taxonomy_colors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tax_id</span><span class="p">))</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;font&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#000000&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">},</span>
+        <span class="s1">&#39;shape&#39;</span><span class="p">:</span> <span class="s1">&#39;circle&#39;</span>
+    <span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Complete JSON structure assembly:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">output</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;metadata&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Learning Graph&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;vis-network JSON v9.1&#39;</span><span class="p">,</span>
+        <span class="c1"># ... more fields</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;groups&#39;</span><span class="p">:</span> <span class="n">groups</span><span class="p">,</span>
+    <span class="s1">&#39;nodes&#39;</span><span class="p">:</span> <span class="n">nodes</span><span class="p">,</span>
+    <span class="s1">&#39;edges&#39;</span><span class="p">:</span> <span class="n">edges</span>
+<span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<details>
+    <summary>Python Learning Graph Processing Pipeline</summary>
+    Type: diagram
+
+    Purpose: Show the complete data flow from CSV creation through JSON visualization
+
+    Layout: Horizontal pipeline with data transformations
+
+    Pipeline stages:
+
+    1. "Author CSV" (Human)
+       - Tool: Spreadsheet editor
+       - Output: learning-graph.csv
+       - Format: ConceptID, ConceptLabel, Dependencies, TaxonomyID
+
+    2. "Validate Structure" (analyze-graph.py)
+       - Input: learning-graph.csv
+       - Process: DAG validation, quality metrics
+       - Output: quality-metrics.md
+       - Decision: Pass → continue, Fail → return to stage 1
+
+    3. "Analyze Distribution" (taxonomy-distribution.py)
+       - Input: learning-graph.csv
+       - Process: Category counting, balance checking
+       - Output: taxonomy-distribution.md
+       - Decision: Balanced → continue, Unbalanced → return to stage 1
+
+    4. "Convert to JSON" (csv-to-json.py)
+       - Input: learning-graph.csv
+       - Process: Parse CSV, build nodes/edges, add metadata
+       - Output: learning-graph.json
+       - Format: vis-network JSON
+
+    5. "Visualize Graph" (Browser)
+       - Input: learning-graph.json
+       - Tool: vis-network JavaScript library
+       - Output: Interactive graph visualization
+       - User can explore, zoom, filter by taxonomy
+
+    Data flow arrows:
+    - CSV file flows forward through pipeline
+    - Quality reports feed back to stage 1 for corrections
+    - JSON is final output for visualization
+
+    Color coding:
+    - Human steps: Blue
+    - Python automation: Green
+    - Decision points: Yellow
+    - Browser visualization: Purple
+
+    Annotations:
+    - "Iterative refinement loop" showing feedback from stages 2-3 to stage 1
+    - "Automated pipeline" showing stages 2-4 can run in sequence
+    - "One-time setup" for initial CSV creation
+
+    Implementation: Flowchart diagram with data flow arrows and decision diamonds
+</details>
+
+<h2 id="summary-and-next-steps">Summary and Next Steps</h2>
+<p>This chapter provided comprehensive coverage of data formats and processing pipelines for learning graphs. You learned how the TaxonomyID field enables categorical organization and color-coded visualization, how the vis-network JSON format structures graph data for web-based visualization, and how Dublin Core metadata standards ensure proper documentation.</p>
+<p>The Python scripting coverage demonstrated practical implementation patterns for graph validation, format conversion, and analysis. These scripts form a reusable toolkit that processes learning graph data from authoring through quality validation to visualization-ready JSON.</p>
+<p>Key takeaways:</p>
+<ul>
+<li><strong>TaxonomyID is the fourth column</strong> in learning graph CSV, providing categorical metadata</li>
+<li><strong>vis-network JSON has four sections</strong>: metadata, groups, nodes, edges</li>
+<li><strong>Dublin Core metadata</strong> ensures proper attribution, versioning, and licensing</li>
+<li><strong>Color accessibility matters</strong>: Use WCAG contrast ratios for readable text</li>
+<li><strong>Python scripts automate processing</strong>: Validation, conversion, and analysis in consistent pipelines</li>
+<li><strong>Data flows CSV → validation → JSON → visualization</strong>: Each stage builds on the previous</li>
+</ul>
+<p>With validated learning graphs converted to visualization-ready JSON format, you're prepared to deploy interactive graph viewers that enable students and instructors to explore concept dependencies visually. The next chapters will cover visualization implementation, chapter structure generation, and content creation workflows that transform your learning graph into a complete intelligent textbook.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../06-learning-graph-quality-validation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Chapter 6 - Learning Graph Quality and Validation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Chapter 6 - Learning Graph Quality and Validation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../08-mkdocs-platform-documentation/" class="md-footer__link md-footer__link--next" aria-label="Next: Chapter 8 - MkDocs Platform and Documentation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Chapter 8 - MkDocs Platform and Documentation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -37,6 +37,62 @@
          <lastmod>2025-11-08</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/01-intro-ai-intelligent-textbooks/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/02-getting-started-claude-skills/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/03-course-design-educational-theory/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/04-intro-learning-graphs/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/05-concept-enumeration-dependencies/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/06-learning-graph-quality-validation/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/07-taxonomy-data-formats/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/08-mkdocs-platform-documentation/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/09-claude-skills-architecture-development/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/10-content-creation-workflows/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/11-educational-resources-assessment/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/12-interactive-elements-microsims/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/13-dev-tools-version-control-deployment/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/learning-graph/</loc>
          <lastmod>2025-11-08</lastmod>
     </url>
@@ -82,6 +138,14 @@
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/prompts/create-mermaid-generator-skill/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/prompts/generate-chapter-structure/</loc>
+         <lastmod>2025-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/prompts/generate-content-for-chapters-1-5/</loc>
          <lastmod>2025-11-08</lastmod>
     </url>
     <url>

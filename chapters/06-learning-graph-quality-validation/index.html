@@ -1,0 +1,2411 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/chapters/06-learning-graph-quality-validation/">
+      
+      
+        <link rel="prev" href="../05-concept-enumeration-dependencies/">
+      
+      
+        <link rel="next" href="../07-taxonomy-data-formats/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Chapter 6 - Learning Graph Quality and Validation - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#learning-graph-quality-and-validation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 6 - Learning Graph Quality and Validation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-ai-intelligent-textbooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 - Introduction to AI and Intelligent Textbooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-getting-started-claude-skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 - Getting Started with Claude and Skills
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-course-design-educational-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 - Course Design and Educational Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-intro-learning-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 - Introduction to Learning Graphs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-concept-enumeration-dependencies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 - Concept Enumeration and Dependencies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 6 - Learning Graph Quality and Validation
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 - Learning Graph Quality and Validation
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-learning-graph-quality-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to Learning Graph Quality Validation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directed-acyclic-graphs-and-educational-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directed Acyclic Graphs and Educational Dependencies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Directed Acyclic Graphs and Educational Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dag-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      DAG Validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circular-dependency-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Circular Dependency Detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-dependency-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Self-Dependency Checking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-metrics-for-learning-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Metrics for Learning Graphs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality Metrics for Learning Graphs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orphaned-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orphaned Nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disconnected-subgraphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disconnected Subgraphs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linear-chain-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linear Chain Detection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graph-analysis-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Analysis Metrics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Analysis Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indegree-and-outdegree-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Indegree and Outdegree Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#average-dependencies-per-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Average Dependencies Per Concept
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximum-dependency-chain-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maximum Dependency Chain Length
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-graph-quality-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Graph Quality Score
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taxonomy-distribution-and-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxonomy Distribution and Balance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Taxonomy Distribution and Balance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#taxonomy-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxonomy Categories
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taxonomyid-abbreviations" class="md-nav__link">
+    <span class="md-ellipsis">
+      TaxonomyID Abbreviations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#category-distribution-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Category Distribution Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avoiding-over-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avoiding Over-Representation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-quality-reports-with-python-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating Quality Reports with Python Scripts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generating Quality Reports with Python Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analyze-graphpy-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      analyze-graph.py Script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv-to-jsonpy-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      csv-to-json.py Script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taxonomy-distributionpy-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      taxonomy-distribution.py Script
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary and Best Practices
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-taxonomy-data-formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 - Taxonomy and Data Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-mkdocs-platform-documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 - MkDocs Platform and Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-claude-skills-architecture-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 - Claude Skills Architecture and Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-content-creation-workflows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 - Content Creation Workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-educational-resources-assessment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 11 - Educational Resources and Assessment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-interactive-elements-microsims/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 12 - Interactive Elements and MicroSims
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-dev-tools-version-control-deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 13 - Development Tools, Version Control, and Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    List of Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/index.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-learning-graph-quality-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to Learning Graph Quality Validation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directed-acyclic-graphs-and-educational-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directed Acyclic Graphs and Educational Dependencies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Directed Acyclic Graphs and Educational Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dag-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      DAG Validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circular-dependency-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Circular Dependency Detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-dependency-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Self-Dependency Checking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-metrics-for-learning-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Metrics for Learning Graphs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality Metrics for Learning Graphs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orphaned-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orphaned Nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disconnected-subgraphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disconnected Subgraphs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linear-chain-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linear Chain Detection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graph-analysis-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Analysis Metrics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Analysis Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indegree-and-outdegree-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Indegree and Outdegree Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#average-dependencies-per-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Average Dependencies Per Concept
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximum-dependency-chain-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maximum Dependency Chain Length
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-graph-quality-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Graph Quality Score
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taxonomy-distribution-and-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxonomy Distribution and Balance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Taxonomy Distribution and Balance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#taxonomy-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxonomy Categories
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taxonomyid-abbreviations" class="md-nav__link">
+    <span class="md-ellipsis">
+      TaxonomyID Abbreviations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#category-distribution-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Category Distribution Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avoiding-over-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avoiding Over-Representation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-quality-reports-with-python-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating Quality Reports with Python Scripts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generating Quality Reports with Python Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analyze-graphpy-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      analyze-graph.py Script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv-to-jsonpy-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      csv-to-json.py Script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taxonomy-distributionpy-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      taxonomy-distribution.py Script
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary and Best Practices
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/chapters/06-learning-graph-quality-validation/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="learning-graph-quality-and-validation">Learning Graph Quality and Validation</h1>
+<h2 id="summary">Summary</h2>
+<p>This chapter focuses on validating and assessing the quality of your learning graph. You'll learn techniques for detecting circular dependencies and validating that your graph is a proper Directed Acyclic Graph (DAG). The chapter covers self-dependency checking and introduces comprehensive quality metrics including orphaned nodes, disconnected subgraphs, and linear chain detection.</p>
+<p>You'll learn to analyze your graph using indegree and outdegree metrics, calculate average dependencies per concept, and determine the maximum dependency chain length. The chapter culminates with learning how to generate an overall learning graph quality score. Additionally, you'll explore taxonomy distribution metrics to ensure balanced category representation and avoid over-representation of any single topic area.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 16 concepts from the learning graph:</p>
+<ol>
+<li>Circular Dependency Detection</li>
+<li>DAG Validation</li>
+<li>Self-Dependency Checking</li>
+<li>Quality Metrics for Graphs</li>
+<li>Orphaned Nodes</li>
+<li>Disconnected Subgraphs</li>
+<li>Linear Chain Detection</li>
+<li>Indegree Analysis</li>
+<li>Outdegree Analysis</li>
+<li>Average Dependencies Per Concept</li>
+<li>Maximum Dependency Chain Length</li>
+<li>Learning Graph Quality Score</li>
+<li>Taxonomy Categories</li>
+<li>TaxonomyID Abbreviations</li>
+<li>Category Distribution</li>
+<li>Avoiding Over-Representation</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../04-intro-learning-graphs/">Chapter 4: Introduction to Learning Graphs</a></li>
+<li><a href="../05-concept-enumeration-dependencies/">Chapter 5: Concept Enumeration and Dependencies</a></li>
+</ul>
+<hr />
+<h2 id="introduction-to-learning-graph-quality-validation">Introduction to Learning Graph Quality Validation</h2>
+<p>Creating a learning graph is a significant achievement, but ensuring its quality is equally important for effective educational outcomes. A well-constructed learning graph serves as the foundation for your intelligent textbook, guiding students through concepts in a logical, dependency-aware sequence. Poor quality graphs—those with circular dependencies, orphaned concepts, or imbalanced taxonomy distributions—can confuse learners and undermine the pedagogical value of your materials.</p>
+<p>This chapter introduces systematic approaches for validating and assessing the quality of your learning graph. You'll learn both structural validation techniques that ensure your graph is mathematically sound as a Directed Acyclic Graph (DAG), and quality metrics that measure pedagogical effectiveness. These validation techniques are essential for identifying and correcting issues before generating chapter content, as structural problems in your graph will propagate throughout your entire textbook.</p>
+<p>The validation process combines automated analysis through Python scripts with manual review of quality reports. By the end of this chapter, you'll be able to generate comprehensive quality assessments for your learning graphs and make data-driven improvements to enhance their educational value.</p>
+<h2 id="directed-acyclic-graphs-and-educational-dependencies">Directed Acyclic Graphs and Educational Dependencies</h2>
+<p>Learning graphs must be structured as <strong>Directed Acyclic Graphs (DAGs)</strong> to represent prerequisite relationships correctly. In a DAG, directed edges point from prerequisite concepts to dependent concepts, and the graph contains no cycles—you cannot follow the dependency arrows and return to your starting concept.</p>
+<p>This DAG structure ensures that students can learn concepts in a valid sequence. If your graph contains a cycle (Concept A depends on B, B depends on C, and C depends on A), there is no valid starting point for learning—a logical impossibility that must be detected and corrected.</p>
+<h3 id="dag-validation">DAG Validation</h3>
+<p>Validating that your learning graph is a proper DAG involves checking two critical properties:</p>
+<ol>
+<li><strong>Acyclicity:</strong> No circular dependency chains exist in the graph</li>
+<li><strong>Connectivity:</strong> All concepts are reachable from foundational nodes</li>
+</ol>
+<p>The <code>analyze-graph.py</code> Python script performs DAG validation automatically by implementing a depth-first search (DFS) algorithm with cycle detection. During traversal, the algorithm maintains three node states:</p>
+<ul>
+<li><strong>White (unvisited):</strong> Node has not been explored</li>
+<li><strong>Gray (in progress):</strong> Node is being explored, currently on the recursion stack</li>
+<li><strong>Black (completed):</strong> Node and all its descendants have been fully explored</li>
+</ul>
+<p>If the algorithm encounters a gray node during traversal, it has detected a back edge indicating a cycle. This validation runs in O(V + E) time complexity, where V is the number of vertices (concepts) and E is the number of edges (dependencies).</p>
+<details>
+    <summary>DAG Validation Algorithm Visualization</summary>
+    Type: diagram
+
+    Purpose: Illustrate the three-color DFS algorithm used for cycle detection in learning graphs
+
+    Components to show:
+    - A sample learning graph with 8 nodes arranged in a network
+    - Color-coded nodes showing White (gray), Gray (yellow), Black (green)
+    - Directed edges showing dependencies
+    - One back edge highlighted in red creating a cycle
+    - DFS traversal stack shown on the right side
+    - Traversal order numbered 1-8
+
+    Layout: Network graph on left (70%), DFS stack visualization on right (30%)
+
+    Example nodes:
+    - Node 1: "Variables" (Black - completed)
+    - Node 2: "Functions" (Black - completed)
+    - Node 3: "Loops" (Gray - in progress)
+    - Node 4: "Recursion" (Gray - in progress)
+    - Node 5: "Data Structures" (White - unvisited)
+    - Node 6: "Algorithms" (White - unvisited)
+
+    Edges:
+    - Black arrows: Valid forward edges
+    - Red arrow: Back edge from "Recursion" to "Loops" (cycle detected!)
+
+    Annotations:
+    - Arrow pointing to red edge: "Cycle detected: Loops ← Recursion ← Loops"
+    - Stack showing: [Loops, Recursion]
+
+    Style: Network diagram with color-coded nodes and directional arrows
+
+    Implementation: SVG diagram with color-coded circles and arrows
+</details>
+
+<h3 id="circular-dependency-detection">Circular Dependency Detection</h3>
+<p>Circular dependencies represent the most critical structural flaw in a learning graph. They create logical impossibilities in the learning sequence and must be identified and eliminated before proceeding with content generation.</p>
+<p>Common sources of circular dependencies include:</p>
+<ul>
+<li><strong>Bidirectional prerequisites:</strong> Concept A requires B, and B requires A</li>
+<li><strong>Multi-hop cycles:</strong> A requires B, B requires C, C requires A</li>
+<li><strong>Self-dependencies:</strong> A concept incorrectly lists itself as a prerequisite</li>
+</ul>
+<p>The <code>analyze-graph.py</code> script reports all cycles found, displaying the complete dependency chain for each cycle. This detailed output allows you to identify which dependency link to remove to break the cycle.</p>
+<p>Here's an example of cycle detection output:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>CYCLE DETECTED:
+  Graph Databases (ID: 45)
+  → Query Performance (ID: 52)
+  → Index Selection (ID: 48)
+  → Database Design (ID: 44)
+  → Graph Databases (ID: 45)
+
+Recommendation: Remove dependency &quot;Database Design → Graph Databases&quot;
+</code></pre></div></td></tr></table></div>
+<h3 id="self-dependency-checking">Self-Dependency Checking</h3>
+<p>Self-dependencies occur when a concept incorrectly lists its own ConceptID in its dependencies column. While technically a special case of circular dependencies, self-dependencies are so common—often resulting from copy-paste errors in CSV editing—that the validation script checks for them explicitly before running the general cycle detection algorithm.</p>
+<p>The self-dependency check is trivial but essential:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span> <span class="n">concept</span> <span class="ow">in</span> <span class="n">learning_graph</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">concept</span><span class="o">.</span><span class="n">id</span> <span class="ow">in</span> <span class="n">concept</span><span class="o">.</span><span class="n">dependencies</span><span class="p">:</span>
+        <span class="n">report_error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Concept </span><span class="si">{</span><span class="n">concept</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2"> depends on itself&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Any self-dependencies detected indicate data entry errors that should be corrected immediately in your <code>learning-graph.csv</code> file.</p>
+<h2 id="quality-metrics-for-learning-graphs">Quality Metrics for Learning Graphs</h2>
+<p>Beyond structural validation, effective learning graphs exhibit certain quality characteristics that enhance their pedagogical value. Quality metrics quantify these characteristics, providing objective measures for assessing and comparing learning graphs.</p>
+<p>The following metrics help identify potential issues that, while not structurally invalid, may indicate pedagogical problems or opportunities for improvement.</p>
+<h3 id="orphaned-nodes">Orphaned Nodes</h3>
+<p>An <strong>orphaned node</strong> is a concept that no other concept depends upon—it has an outdegree of zero. While terminal concepts (endpoints in the learning journey) naturally have no dependents, excessive orphaned nodes suggest concepts that may be:</p>
+<ul>
+<li>Too specialized or advanced for the course scope</li>
+<li>Improperly isolated from the main learning progression</li>
+<li>Missing their dependent concepts due to incomplete graph construction</li>
+</ul>
+<p>A well-designed learning graph typically has 5-10% orphaned nodes, representing culminating concepts and specialized topics. If more than 20% of your concepts are orphaned, review them to determine whether they should be connected to later material or removed from the graph entirely.</p>
+<details>
+    <summary>Orphaned Nodes Identification Chart</summary>
+    Type: chart
+
+    Chart type: Scatter plot
+
+    Purpose: Visualize concept connectivity by showing indegree vs outdegree for all concepts, highlighting orphaned nodes
+
+    X-axis: Indegree (number of prerequisites, 0-8)
+    Y-axis: Outdegree (number of dependents, 0-12)
+
+    Data series:
+    1. Foundational concepts (green dots, indegree = 0, outdegree > 0)
+       - Example: "Introduction to Learning Graphs" (0, 8)
+       - Example: "What is a Concept?" (0, 6)
+
+    2. Intermediate concepts (blue dots, indegree > 0, outdegree > 0)
+       - Scatter of 150+ points representing well-connected concepts
+       - Example: "DAG Validation" (2, 4)
+
+    3. Orphaned concepts (red dots, indegree > 0, outdegree = 0)
+       - Example: "Advanced Quality Metrics" (5, 0)
+       - Example: "Future of Learning Graphs" (3, 0)
+       - Show approximately 15-20 red dots
+
+    Title: "Concept Connectivity Analysis: Indegree vs Outdegree"
+
+    Annotations:
+    - Vertical line at outdegree=0 labeled "Orphaned Zone"
+    - Horizontal line at indegree=0 labeled "Foundation Zone"
+    - Callout: "12% orphaned (healthy range: 5-15%)"
+
+    Legend: Position top-right with color coding explanation
+
+    Implementation: Chart.js scatter plot with color-coded point categories
+</details>
+
+<h3 id="disconnected-subgraphs">Disconnected Subgraphs</h3>
+<p>A <strong>disconnected subgraph</strong> is a cluster of concepts isolated from the main learning graph—they have no dependency paths connecting them to foundational concepts. This indicates a serious structural problem: students cannot reach these concepts through the normal learning progression.</p>
+<p>Disconnected subgraphs typically result from:</p>
+<ul>
+<li>Copy-pasting concept blocks without establishing connections</li>
+<li>Incomplete dependency mapping during graph construction</li>
+<li>Accidental deletion of bridging concepts</li>
+</ul>
+<p>The <code>analyze-graph.py</code> script uses a connectivity analysis algorithm to identify all disconnected components. In a valid learning graph, there should be exactly one connected component containing all concepts. Any additional components indicate isolated concept clusters that need to be integrated into the main graph.</p>
+<h3 id="linear-chain-detection">Linear Chain Detection</h3>
+<p>A <strong>linear chain</strong> is a sequence of concepts where each concept depends on exactly one predecessor and is depended upon by exactly one successor, forming a single-file progression. While some linear sequences are natural (basic → intermediate → advanced), excessive linear chains indicate missed opportunities for:</p>
+<ul>
+<li>Parallel learning paths that students could explore in different orders</li>
+<li>Cross-concept connections that reinforce understanding</li>
+<li>Flexible curriculum that accommodates different learning styles</li>
+</ul>
+<p>Linear chains are identified by checking each concept's indegree and outdegree:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">is_linear_chain_node</span><span class="p">(</span><span class="n">concept</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">concept</span><span class="o">.</span><span class="n">indegree</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">concept</span><span class="o">.</span><span class="n">outdegree</span> <span class="o">==</span> <span class="mi">1</span>
+</code></pre></div></td></tr></table></div>
+<p>Quality learning graphs typically have 20-40% of concepts in linear chains, with the remainder providing branching paths and concept integration points. If more than 60% of concepts form linear chains, consider adding cross-dependencies to create a richer learning network.</p>
+<details>
+    <summary>Linear Chain vs Network Structure Comparison</summary>
+    Type: diagram
+
+    Purpose: Compare linear chain structure (poor) with network structure (good) for learning graphs
+
+    Layout: Two side-by-side network diagrams
+
+    Left diagram - "Linear Chain Structure (Poor)":
+    - 10 concepts arranged vertically
+    - Single path: Concept 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10
+    - All nodes colored orange
+    - Title: "Linear Chain: 100% of concepts in single path"
+    - Caption: "No flexibility, single learning route"
+
+    Right diagram - "Network Structure (Good)":
+    - Same 10 concepts arranged in a network
+    - Multiple paths and connections:
+      - Concept 1 (foundation) connects to 2, 3, 4
+      - Concepts 2, 3, 4 are parallel (same level)
+      - Concept 5 depends on 2 and 3
+      - Concept 6 depends on 3 and 4
+      - Concepts 7, 8 depend on various combinations
+      - Concepts 9, 10 are terminal (culminating concepts)
+    - Nodes colored by depth: green (foundation), blue (intermediate), purple (advanced)
+    - Title: "Network Structure: 40% linear, 60% networked"
+    - Caption: "Multiple paths, cross-concept integration"
+
+    Visual style: Network diagrams with nodes as circles, directed arrows showing dependencies
+
+    Annotations:
+    - Left: Red "X" indicating poor structure
+    - Right: Green checkmark indicating good structure
+    - Arrow between diagrams showing "Refactor to add cross-dependencies"
+
+    Color scheme: Orange for linear, green/blue/purple gradient for network depth
+
+    Implementation: SVG network diagram with positioned nodes and edges
+</details>
+
+<h2 id="graph-analysis-metrics">Graph Analysis Metrics</h2>
+<p>Quantitative metrics provide objective measures of graph structure and complexity. These metrics help you understand your learning graph's characteristics and compare it to best practices for educational graph design.</p>
+<h3 id="indegree-and-outdegree-analysis">Indegree and Outdegree Analysis</h3>
+<p><strong>Indegree</strong> (number of prerequisites) and <strong>outdegree</strong> (number of dependents) are fundamental graph metrics that reveal concept roles within the learning progression:</p>
+<ul>
+<li><strong>High indegree:</strong> Advanced concepts requiring substantial prior knowledge</li>
+<li><strong>Low indegree (0):</strong> Foundational concepts accessible without prerequisites</li>
+<li><strong>High outdegree:</strong> Core concepts that enable many subsequent topics</li>
+<li><strong>Low outdegree (0):</strong> Specialized or terminal concepts</li>
+</ul>
+<p>Distribution of indegree values across your learning graph indicates its prerequisite structure:</p>
+<table>
+<thead>
+<tr>
+<th>Indegree</th>
+<th>Interpretation</th>
+<th>Typical % of Concepts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Foundational concepts</td>
+<td>5-10%</td>
+</tr>
+<tr>
+<td>1-2</td>
+<td>Early concepts with minimal prerequisites</td>
+<td>30-40%</td>
+</tr>
+<tr>
+<td>3-5</td>
+<td>Intermediate concepts requiring solid foundation</td>
+<td>40-50%</td>
+</tr>
+<tr>
+<td>6+</td>
+<td>Advanced concepts requiring extensive background</td>
+<td>5-15%</td>
+</tr>
+</tbody>
+</table>
+<p>If your graph has too many high-indegree concepts (&gt;20% with indegree ≥ 6), consider whether some prerequisites are redundant or if the course scope is too advanced. Conversely, if most concepts have indegree 0-1, you may be missing important prerequisite relationships.</p>
+<h3 id="average-dependencies-per-concept">Average Dependencies Per Concept</h3>
+<p>The <strong>average dependencies per concept</strong> metric indicates overall graph connectivity and curriculum density:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Average Dependencies = Total Edges / Total Nodes
+</code></pre></div></td></tr></table></div>
+<p>For educational learning graphs, empirical research suggests optimal ranges:</p>
+<ul>
+<li><strong>2.0-3.0:</strong> Appropriate for introductory courses with linear progressions</li>
+<li><strong>3.0-4.0:</strong> Ideal for intermediate courses with moderate integration</li>
+<li><strong>4.0-5.0:</strong> Suitable for advanced courses with high concept integration</li>
+<li><strong>&gt;5.0:</strong> May indicate over-specification of prerequisites</li>
+</ul>
+<p>The <code>analyze-graph.py</code> script calculates this metric and flags values outside the recommended 2.0-4.5 range. Graphs with average dependencies below 2.0 may be too linear, while those above 5.0 may impose unrealistic prerequisite burdens on learners.</p>
+<details>
+    <summary>Average Dependencies Distribution Bar Chart</summary>
+    Type: chart
+
+    Chart type: Histogram (bar chart)
+
+    Purpose: Show distribution of prerequisite counts across all concepts in the learning graph
+
+    X-axis: Number of prerequisites (0, 1, 2, 3, 4, 5, 6, 7, 8+)
+    Y-axis: Number of concepts
+
+    Data (example for 200-concept graph):
+    - 0 prerequisites: 12 concepts (foundational)
+    - 1 prerequisite: 45 concepts
+    - 2 prerequisites: 58 concepts
+    - 3 prerequisites: 42 concepts
+    - 4 prerequisites: 25 concepts
+    - 5 prerequisites: 12 concepts
+    - 6 prerequisites: 4 concepts
+    - 7 prerequisites: 2 concepts
+    - 8+ prerequisites: 0 concepts
+
+    Title: "Prerequisite Distribution Across Learning Graph"
+
+    Calculated metrics displayed below chart:
+    - Total concepts: 200
+    - Total dependencies: 620
+    - Average dependencies: 3.1 per concept
+    - Median: 2
+    - Mode: 2
+
+    Annotations:
+    - Shaded region (2-4 prerequisites) in light green labeled "Optimal Range"
+    - Average line (vertical) at 3.1 in blue
+    - Callout: "84% of concepts in optimal range (1-5 prerequisites)"
+
+    Color scheme: Gold bars with green shading for optimal range
+
+    Implementation: Chart.js bar chart with annotations
+</details>
+
+<h3 id="maximum-dependency-chain-length">Maximum Dependency Chain Length</h3>
+<p>The <strong>maximum dependency chain length</strong> represents the longest sequence of prerequisite concepts from any foundational node to any terminal node. This metric indicates the depth of your curriculum and affects course duration planning.</p>
+<p>For a 200-concept learning graph, typical maximum chain lengths are:</p>
+<ul>
+<li><strong>8-12 concepts:</strong> Short course (4-6 weeks)</li>
+<li><strong>12-18 concepts:</strong> Standard semester course (12-15 weeks)</li>
+<li><strong>18-25 concepts:</strong> Extended course or multi-semester sequence</li>
+<li><strong>&gt;25 concepts:</strong> May indicate overly linear structure</li>
+</ul>
+<p>The chain length affects student progress velocity. If your maximum chain is 20 concepts deep, students must complete at least 20 learning steps to reach the most advanced material—establishing a minimum time investment regardless of study intensity.</p>
+<p>Critical path analysis identifies these longest chains, helping you understand pacing requirements and potential bottlenecks in the learning progression. Concepts on the critical path deserve extra attention in content development, as delays in mastering these concepts cascade through all dependent material.</p>
+<h2 id="learning-graph-quality-score">Learning Graph Quality Score</h2>
+<p>The overall <strong>learning graph quality score</strong> provides a single metric (0-100) that aggregates multiple quality dimensions into an interpretable assessment. While individual metrics reveal specific issues, the quality score enables quick comparison and tracking of improvements over time.</p>
+<p>The quality scoring algorithm used by <code>analyze-graph.py</code> weights various factors:</p>
+<p><strong>Structural Validity (40 points):</strong></p>
+<ul>
+<li>DAG validation passes (20 points)</li>
+<li>No self-dependencies (10 points)</li>
+<li>All concepts in single connected component (10 points)</li>
+</ul>
+<p><strong>Connectivity Quality (30 points):</strong></p>
+<ul>
+<li>Orphaned nodes 5-15% of total (10 points, scaled for deviation)</li>
+<li>Average dependencies 2.5-4.0 per concept (10 points, scaled)</li>
+<li>Maximum chain length appropriate for scope (10 points)</li>
+</ul>
+<p><strong>Distribution Quality (20 points):</strong></p>
+<ul>
+<li>No linear chains exceeding 20% of graph (10 points)</li>
+<li>Indegree distribution follows expected pattern (10 points)</li>
+</ul>
+<p><strong>Taxonomy Balance (10 points):</strong></p>
+<ul>
+<li>No single taxonomy category exceeds 30% (5 points)</li>
+<li>At least 5 taxonomy categories represented (5 points)</li>
+</ul>
+<p>Interpretation of quality scores:</p>
+<table>
+<thead>
+<tr>
+<th>Score Range</th>
+<th>Quality Level</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>90-100</td>
+<td>Excellent</td>
+<td>Publication-ready, well-structured graph</td>
+</tr>
+<tr>
+<td>75-89</td>
+<td>Good</td>
+<td>Minor improvements recommended</td>
+</tr>
+<tr>
+<td>60-74</td>
+<td>Acceptable</td>
+<td>Several issues to address before content generation</td>
+</tr>
+<tr>
+<td>40-59</td>
+<td>Poor</td>
+<td>Significant structural or quality problems</td>
+</tr>
+<tr>
+<td>0-39</td>
+<td>Critical</td>
+<td>Major revision required</td>
+</tr>
+</tbody>
+</table>
+<p>The quality score should be calculated after every significant graph revision. Track scores over time to ensure your changes improve rather than degrade graph quality.</p>
+<details>
+    <summary>Learning Graph Quality Score Calculator MicroSim</summary>
+    Type: microsim
+
+    Learning objective: Allow students to experiment with how different graph characteristics affect overall quality score
+
+    Canvas layout (900x600px):
+    - Left side (600x600): Quality score visualization
+    - Right side (300x600): Interactive controls
+
+    Visual elements (left panel):
+    - Large circular gauge showing overall score (0-100)
+    - Color-coded segments: Red (0-39), Orange (40-59), Yellow (60-74), Light Green (75-89), Dark Green (90-100)
+    - Current score displayed in center in large font
+    - Four horizontal bars below gauge showing component scores:
+      * Structural Validity: 0-40 points (blue bar)
+      * Connectivity Quality: 0-30 points (green bar)
+      * Distribution Quality: 0-20 points (orange bar)
+      * Taxonomy Balance: 0-10 points (purple bar)
+    - Each bar shows points earned out of maximum
+
+    Interactive controls (right panel):
+    - Slider: "Number of Concepts" (50-300, default 200)
+    - Slider: "Orphaned Nodes %" (0-40%, default 10%)
+    - Slider: "Avg Dependencies" (1.0-6.0, default 3.2)
+    - Slider: "Max Chain Length" (5-35, default 16)
+    - Slider: "Linear Chain %" (10-80%, default 35%)
+    - Slider: "Largest Taxonomy %" (10-60%, default 22%)
+    - Checkbox: "Has Cycles" (default unchecked)
+    - Checkbox: "Has Disconnected Subgraphs" (default unchecked)
+    - Button: "Reset to Defaults"
+    - Button: "Load Example: Poor Graph"
+    - Button: "Load Example: Excellent Graph"
+
+    Default parameters (Good Graph):
+    - Concepts: 200
+    - Orphaned: 10%
+    - Avg Dependencies: 3.2
+    - Max Chain: 16
+    - Linear Chain %: 35%
+    - Largest Taxonomy: 22%
+    - No cycles, no disconnected subgraphs
+    - **Expected Score: 82** (Good)
+
+    Behavior:
+    - Real-time recalculation as sliders move
+    - Score gauge animates to new value
+    - Component bars update proportionally
+    - Color of gauge changes based on score range
+    - Tooltip on hover shows calculation details for each component
+    - "Poor Graph" example: cycles=true, orphaned=35%, score~28
+    - "Excellent Graph" example: optimal all parameters, score~96
+
+    Implementation notes:
+    - Use p5.js for rendering gauge and bars
+    - Implement scoring algorithm matching analyze-graph.py logic
+    - Use DOM elements for sliders and checkboxes
+    - Map() function to scale slider values to score components
+    - Lerp() for smooth score animations
+
+    Implementation: p5.js MicroSim with interactive controls
+</details>
+
+<h2 id="taxonomy-distribution-and-balance">Taxonomy Distribution and Balance</h2>
+<p>Beyond graph structure, the distribution of concepts across taxonomy categories affects curriculum balance and learning progression. A well-balanced taxonomy distribution ensures students encounter appropriate variety across knowledge domains without over-concentration in any single area.</p>
+<h3 id="taxonomy-categories">Taxonomy Categories</h3>
+<p>Learning graphs typically categorize concepts using a <strong>TaxonomyID</strong> field that groups related concepts into domains. Common taxonomy categories for technical courses include:</p>
+<ul>
+<li><strong>FOUND</strong> - Foundational concepts and definitions</li>
+<li><strong>BASIC</strong> - Basic principles and core ideas</li>
+<li><strong>ARCH</strong> - Architecture and system design</li>
+<li><strong>IMPL</strong> - Implementation and practical skills</li>
+<li><strong>TOOL</strong> - Tools and technologies</li>
+<li><strong>SKILL</strong> - Professional skills and practices</li>
+<li><strong>ADV</strong> - Advanced topics and specializations</li>
+</ul>
+<p>The number and specificity of taxonomy categories varies by subject matter. Introductory courses might use 5-8 broad categories, while specialized courses might employ 10-15 granular categories.</p>
+<h3 id="taxonomyid-abbreviations">TaxonomyID Abbreviations</h3>
+<p>TaxonomyIDs use 3-5 letter abbreviations for compactness in CSV files and visualization color-coding. When designing your taxonomy, choose abbreviations that are:</p>
+<ul>
+<li><strong>Distinctive:</strong> No two categories should share the same first 3 letters</li>
+<li><strong>Mnemonic:</strong> Abbreviation should suggest the full category name</li>
+<li><strong>Consistent:</strong> Use similar grammatical forms (nouns vs. adjectives)</li>
+</ul>
+<p>Example taxonomy abbreviations:</p>
+<table>
+<thead>
+<tr>
+<th>TaxonomyID</th>
+<th>Full Category Name</th>
+<th>Color Code (visualization)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FOUND</td>
+<td>Foundational Concepts</td>
+<td>Red</td>
+</tr>
+<tr>
+<td>BASIC</td>
+<td>Basic Principles</td>
+<td>Orange</td>
+</tr>
+<tr>
+<td>ARCH</td>
+<td>Architecture &amp; Design</td>
+<td>Yellow</td>
+</tr>
+<tr>
+<td>IMPL</td>
+<td>Implementation</td>
+<td>Light Green</td>
+</tr>
+<tr>
+<td>DATA</td>
+<td>Data Management</td>
+<td>Green</td>
+</tr>
+<tr>
+<td>TOOL</td>
+<td>Tools &amp; Technologies</td>
+<td>Light Blue</td>
+</tr>
+<tr>
+<td>QUAL</td>
+<td>Quality Assurance</td>
+<td>Blue</td>
+</tr>
+<tr>
+<td>ADV</td>
+<td>Advanced Topics</td>
+<td>Purple</td>
+</tr>
+</tbody>
+</table>
+<h3 id="category-distribution-analysis">Category Distribution Analysis</h3>
+<p>The <strong>category distribution</strong> metric shows what percentage of your total concepts fall into each taxonomy category. This distribution should reflect the emphasis and scope of your course.</p>
+<p>Healthy category distributions typically exhibit:</p>
+<ul>
+<li><strong>No single category exceeds 30%:</strong> Avoid over-concentration</li>
+<li><strong>Top 3 categories contain 50-70% of concepts:</strong> Natural emphasis areas</li>
+<li><strong>At least 5 categories represented:</strong> Adequate coverage breadth</li>
+<li><strong>Foundational category: 5-10% of concepts:</strong> Appropriate base layer</li>
+</ul>
+<p>The <code>taxonomy-distribution.py</code> script generates a detailed report showing both absolute counts and percentages for each category, enabling quick identification of imbalanced distributions.</p>
+<details>
+    <summary>Taxonomy Distribution Pie Chart</summary>
+    Type: chart
+
+    Chart type: Pie chart with percentage labels
+
+    Purpose: Visualize the distribution of 200 concepts across taxonomy categories
+
+    Data:
+    - FOUND (Foundational): 18 concepts (9%) - Red
+    - BASIC (Basic Principles): 42 concepts (21%) - Orange
+    - ARCH (Architecture): 38 concepts (19%) - Yellow
+    - IMPL (Implementation): 35 concepts (17.5%) - Light Green
+    - DATA (Data Management): 28 concepts (14%) - Green
+    - TOOL (Tools): 22 concepts (11%) - Light Blue
+    - QUAL (Quality): 12 concepts (6%) - Blue
+    - ADV (Advanced): 5 concepts (2.5%) - Purple
+
+    Title: "Learning Graph Taxonomy Distribution (200 Concepts)"
+
+    Label format: "CATEGORY: N concepts (P%)"
+
+    Annotations:
+    - Callout for BASIC slice: "Largest category: 21% (healthy)"
+    - Callout for ADV slice: "Smallest category: 2.5% (may need expansion)"
+    - Legend positioned to right side
+
+    Quality indicators:
+    - Green checkmark: "No category exceeds 30% ✓"
+    - Green checkmark: "8 categories represented ✓"
+    - Green checkmark: "Top 3 categories = 59% ✓"
+
+    Color scheme: Rainbow gradient (red → orange → yellow → green → blue → purple)
+
+    Implementation: Chart.js pie chart with custom colors and labels
+</details>
+
+<h3 id="avoiding-over-representation">Avoiding Over-Representation</h3>
+<p><strong>Over-representation</strong> occurs when a single taxonomy category dominates the learning graph, consuming more than 30% of total concepts. This imbalance can result from:</p>
+<ul>
+<li><strong>Scope creep:</strong> Course expanded in one area without proportional breadth</li>
+<li><strong>Expert bias:</strong> Instructor's specialization over-emphasized</li>
+<li><strong>Incomplete mapping:</strong> Other categories insufficiently developed</li>
+</ul>
+<p>Over-representation in foundational or basic categories suggests the course may be too introductory, while over-representation in advanced or specialized categories indicates potential accessibility issues for learners.</p>
+<p>To correct over-representation:</p>
+<ol>
+<li><strong>Review over-represented category:</strong> Identify concepts that could be consolidated or removed</li>
+<li><strong>Expand under-represented categories:</strong> Add concepts to balance distribution</li>
+<li><strong>Reclassify borderline concepts:</strong> Move concepts to more appropriate categories</li>
+<li><strong>Validate against learning outcomes:</strong> Ensure distribution aligns with stated course objectives</li>
+</ol>
+<p>The taxonomy distribution report generated by <code>taxonomy-distribution.py</code> flags any categories exceeding the 30% threshold, enabling quick identification of balance issues.</p>
+<h2 id="generating-quality-reports-with-python-scripts">Generating Quality Reports with Python Scripts</h2>
+<p>The learning graph quality validation process relies on three Python scripts located in the <code>docs/learning-graph/</code> directory. These scripts analyze your <code>learning-graph.csv</code> file and generate comprehensive quality reports in Markdown format.</p>
+<h3 id="analyze-graphpy-script">analyze-graph.py Script</h3>
+<p>The <code>analyze-graph.py</code> script performs comprehensive graph validation and quality analysis:</p>
+<p><strong>Usage:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>docs/learning-graph
+python<span class="w"> </span>analyze-graph.py<span class="w"> </span>learning-graph.csv<span class="w"> </span>quality-metrics.md
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Checks performed:</strong></p>
+<ol>
+<li>CSV format validation</li>
+<li>Self-dependency detection</li>
+<li>Cycle detection (DAG validation)</li>
+<li>Connectivity analysis</li>
+<li>Orphaned node identification</li>
+<li>Linear chain detection</li>
+<li>Indegree/outdegree statistics</li>
+<li>Maximum dependency chain calculation</li>
+<li>Overall quality score computation</li>
+</ol>
+<p><strong>Output:</strong> Generates <code>quality-metrics.md</code> report file containing all findings, metrics, and a final quality score. Any critical issues (cycles, disconnected subgraphs) are highlighted at the top of the report.</p>
+<h3 id="csv-to-jsonpy-script">csv-to-json.py Script</h3>
+<p>The <code>csv-to-json.py</code> script converts your learning graph CSV to vis-network JSON format for visualization:</p>
+<p><strong>Usage:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>docs/learning-graph
+python<span class="w"> </span>csv-to-json.py<span class="w"> </span>learning-graph.csv<span class="w"> </span>learning-graph.json
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Functionality:</strong></p>
+<ul>
+<li>Parses CSV with ConceptID, ConceptLabel, Dependencies, TaxonomyID columns</li>
+<li>Generates nodes array with id, label, and group (taxonomy) fields</li>
+<li>Generates edges array with from and to fields (dependency arrows)</li>
+<li>Adds metadata section with graph statistics</li>
+<li>Validates JSON output format</li>
+</ul>
+<p><strong>Output:</strong> Creates <code>learning-graph.json</code> file that can be loaded by vis-network visualization tools to display your learning graph interactively.</p>
+<h3 id="taxonomy-distributionpy-script">taxonomy-distribution.py Script</h3>
+<p>The <code>taxonomy-distribution.py</code> script analyzes the distribution of concepts across taxonomy categories:</p>
+<p><strong>Usage:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>docs/learning-graph
+python<span class="w"> </span>taxonomy-distribution.py<span class="w"> </span>learning-graph.csv<span class="w"> </span>taxonomy-distribution.md
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Analysis performed:</strong></p>
+<ul>
+<li>Counts concepts per taxonomy category</li>
+<li>Calculates percentage distribution</li>
+<li>Identifies over-represented categories (&gt;30%)</li>
+<li>Identifies under-represented categories (&lt;3%)</li>
+<li>Generates distribution table and summary statistics</li>
+</ul>
+<p><strong>Output:</strong> Creates <code>taxonomy-distribution.md</code> report with a table showing each category's count and percentage, plus recommendations for rebalancing if needed.</p>
+<p>All three scripts should be run after any changes to your learning graph CSV file. Incorporate the generated reports into your MkDocs navigation to make quality metrics visible to reviewers and collaborators.</p>
+<h2 id="summary-and-best-practices">Summary and Best Practices</h2>
+<p>Validating learning graph quality ensures your intelligent textbook rests on a sound pedagogical foundation. This chapter covered both structural validation (DAG properties, connectivity) and quality metrics (orphaned nodes, dependency distribution, taxonomy balance) that collectively determine graph effectiveness.</p>
+<p>Key takeaways for maintaining high-quality learning graphs:</p>
+<ul>
+<li><strong>Always validate DAG structure first:</strong> Circular dependencies and disconnected subgraphs are critical errors that must be fixed before proceeding</li>
+<li><strong>Target quality scores above 75:</strong> Scores in this range indicate graphs ready for content generation</li>
+<li><strong>Monitor taxonomy distribution:</strong> Keep any single category below 30% and ensure at least 5 categories represented</li>
+<li><strong>Aim for 2.5-4.0 average dependencies:</strong> This range balances prerequisite completeness with learner accessibility</li>
+<li><strong>Accept 5-15% orphaned nodes:</strong> Terminal and specialized concepts naturally have no dependents</li>
+<li><strong>Run all three Python scripts after edits:</strong> Complete quality assessment requires structural validation, format conversion, and taxonomy analysis</li>
+</ul>
+<p>Learning graph validation is iterative. Your first quality score may be low, but systematic application of the techniques in this chapter will guide improvements. Track your quality scores over time, targeting incremental increases until you achieve publication-ready scores above 85.</p>
+<p>With a validated, high-quality learning graph in hand, you're ready to proceed to the next phase: converting your graph data to visualization formats and generating the rich content that will bring your intelligent textbook to life.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../05-concept-enumeration-dependencies/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Chapter 5 - Concept Enumeration and Dependencies">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Chapter 5 - Concept Enumeration and Dependencies
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../07-taxonomy-data-formats/" class="md-footer__link md-footer__link--next" aria-label="Next: Chapter 7 - Taxonomy and Data Formats">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Chapter 7 - Taxonomy and Data Formats
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

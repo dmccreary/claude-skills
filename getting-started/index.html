@@ -18,7 +18,7 @@
         <link rel="prev" href="../course-description/">
       
       
-        <link rel="next" href="../skill-descriptions/">
+        <link rel="next" href="../chapters/">
       
       
       <link rel="icon" href="../img/favicon.ico">
@@ -406,9 +406,115 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissions
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
       
     </li>
   
@@ -826,6 +932,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissions
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1052,6 +1167,33 @@ sure that this is in your $PATH so that Claude Code can find the script.</p>
 
   All 8 skills are from your user directory (~/.claude/skills/). No project-specific skills found in .claude/skills/.
 </code></pre></div></td></tr></table></div>
+<h2 id="permissions">Permissions</h2>
+<p>The default permission behavior is very strict and Claude is constantly nagging you for harmless tasks such
+as if can have read access to a file.  This means you can never walk away from Claude without having it stop and wait
+for you to give it permissions.</p>
+<p>In a normal desktop environment you should <strong>ONLY</strong> run Claude from within a directory
+that you check out from Git.  Then you ONLY give it permission to read and write to those
+files.  Since they are igThe following is my way </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;permissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;allow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;Skill(*)&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;Bash(*:*)&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;FileSystem(read:./**/*.*,write:./**/*.*)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;deny&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">&quot;ask&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 
 
 
@@ -1104,7 +1246,7 @@ sure that this is in your $PATH so that Claude Code can find the script.</p>
         
         
           
-          <a href="../skill-descriptions/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+          <a href="../chapters/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next

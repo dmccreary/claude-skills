@@ -1,0 +1,2758 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/chapters/02-getting-started-claude-skills/">
+      
+      
+        <link rel="prev" href="../01-intro-ai-intelligent-textbooks/">
+      
+      
+        <link rel="next" href="../03-course-design-educational-theory/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Chapter 2 - Getting Started with Claude and Skills - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started-with-claude-and-skills" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 2 - Getting Started with Claude and Skills
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-ai-intelligent-textbooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 - Introduction to AI and Intelligent Textbooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 2 - Getting Started with Claude and Skills
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 - Getting Started with Claude and Skills
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-claude-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Claude Skills
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill-definition-file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill Definition File Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Skill Definition File Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#yaml-frontmatter-in-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      YAML Frontmatter in Skills
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-name-and-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill Name and Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-license-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill License Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allowed-tools-in-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allowed Tools in Skills
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-workflow-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill Workflow Instructions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-a-claude-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing a Claude Skill
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing a Claude Skill">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-local-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project-Local Installation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listing-available-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listing Available Skills
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Listing Available Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-the-skills-slash-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the /skills Slash Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-list-skillssh-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using list-skills.sh Script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programmatic-skill-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programmatic Skill Discovery
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invoking-skills-with-slash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invoking Skills with Slash Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Invoking Skills with Slash Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-invocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Invocation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-execution-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill Execution Process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passing-context-to-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passing Context to Skills
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-execution-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill Execution Context
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-claude-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Claude Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Claude Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-definition-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command Definition Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-claude-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Claude Commands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#difference-between-skills-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Difference Between Skills &amp; Commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token-management-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token Management Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Token Management Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Tokens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-token-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Token Limits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hour-usage-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      4-Hour Usage Windows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimizing-claude-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimizing Claude Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterative-prompt-refinement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterative Prompt Refinement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Iterative Prompt Refinement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-prompt-drafting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initial Prompt Drafting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-and-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing and Evaluation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refinement-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refinement Strategies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convergence-to-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convergence to Quality
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-course-design-educational-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 - Course Design and Educational Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-intro-learning-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 - Introduction to Learning Graphs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-concept-enumeration-dependencies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 - Concept Enumeration and Dependencies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-learning-graph-quality-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 - Learning Graph Quality and Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-taxonomy-data-formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 - Taxonomy and Data Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-mkdocs-platform-documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 - MkDocs Platform and Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-claude-skills-architecture-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 - Claude Skills Architecture and Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-content-creation-workflows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 - Content Creation Workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-educational-resources-assessment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 11 - Educational Resources and Assessment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-interactive-elements-microsims/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 12 - Interactive Elements and MicroSims
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-dev-tools-version-control-deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 13 - Development Tools, Version Control, and Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    List of Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/index.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-claude-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Claude Skills
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill-definition-file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill Definition File Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Skill Definition File Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#yaml-frontmatter-in-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      YAML Frontmatter in Skills
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-name-and-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill Name and Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-license-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill License Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allowed-tools-in-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allowed Tools in Skills
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-workflow-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill Workflow Instructions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-a-claude-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing a Claude Skill
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing a Claude Skill">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-local-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project-Local Installation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listing-available-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listing Available Skills
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Listing Available Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-the-skills-slash-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the /skills Slash Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-list-skillssh-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using list-skills.sh Script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programmatic-skill-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programmatic Skill Discovery
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invoking-skills-with-slash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invoking Skills with Slash Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Invoking Skills with Slash Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-invocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Invocation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-execution-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill Execution Process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passing-context-to-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passing Context to Skills
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-execution-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill Execution Context
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-claude-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Claude Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Claude Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-definition-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command Definition Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-claude-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Claude Commands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#difference-between-skills-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Difference Between Skills &amp; Commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token-management-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token Management Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Token Management Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Tokens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-token-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Token Limits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hour-usage-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      4-Hour Usage Windows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimizing-claude-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimizing Claude Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterative-prompt-refinement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterative Prompt Refinement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Iterative Prompt Refinement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-prompt-drafting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initial Prompt Drafting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-and-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing and Evaluation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refinement-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refinement Strategies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convergence-to-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convergence to Quality
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/chapters/02-getting-started-claude-skills/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="getting-started-with-claude-and-skills">Getting Started with Claude and Skills</h1>
+<h2 id="summary">Summary</h2>
+<p>This chapter introduces the Claude Skills system, which is the foundation for automating intelligent textbook creation. You'll learn the structure of skill definition files, including YAML frontmatter, skill names, descriptions, licenses, and allowed tools. The chapter covers how to install skills, list available skills, and invoke them using slash commands. You'll also learn about Claude Commands and understand the important differences between skills and commands.</p>
+<p>Additionally, this chapter explores practical considerations for working with Claude, including token limits, token management strategies, and iterative prompt refinement techniques that will help you work more effectively throughout the course.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 18 concepts from the learning graph:</p>
+<ol>
+<li>Claude Skill</li>
+<li>Skill Definition File Structure</li>
+<li>YAML Frontmatter in Skills</li>
+<li>Skill Name and Description</li>
+<li>Skill License Information</li>
+<li>Allowed Tools in Skills</li>
+<li>Skill Workflow Instructions</li>
+<li>Installing a Claude Skill</li>
+<li>Listing Available Skills</li>
+<li>Invoking Skills with Slash Commands</li>
+<li>Skill Execution Context</li>
+<li>Claude Command</li>
+<li>Command Definition Files</li>
+<li>Installing Claude Commands</li>
+<li>Difference Between Skills &amp; Commands</li>
+<li>Iterative Prompt Refinement</li>
+<li>Claude Token Limits</li>
+<li>Token Management Strategies</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-ai-intelligent-textbooks/">Chapter 1: Introduction to AI and Intelligent Textbooks</a></li>
+</ul>
+<hr />
+<h2 id="understanding-claude-skills">Understanding Claude Skills</h2>
+<p>Claude Skills represent autonomous agents—specialized AI assistants designed to execute complex, multi-step workflows without continuous human intervention. Unlike simple prompts that request a single output, skills encapsulate comprehensive procedures including context gathering, quality validation, iterative refinement, and structured deliverable generation.</p>
+<p>In the context of intelligent textbook creation, skills automate domain-specific tasks such as generating learning graphs from course descriptions, creating glossaries aligned with ISO 11179 metadata standards, and producing interactive quizzes distributed across Bloom's Taxonomy cognitive levels. Each skill embodies best-practice workflows developed through iterative refinement, enabling consistent, high-quality outputs even for users new to educational content creation.</p>
+<p>The skills framework addresses a fundamental challenge in AI-assisted content generation: translating high-level goals ("create an intelligent textbook") into executable sequences of specific operations. By packaging workflow expertise into reusable skills, the framework democratizes access to sophisticated educational content creation capabilities that would otherwise require extensive prompt engineering expertise.</p>
+<p>Key distinctions between skills and general prompts:</p>
+<ul>
+<li><strong>Workflow automation:</strong> Skills execute multi-step procedures autonomously</li>
+<li><strong>Quality assurance:</strong> Built-in validation checkpoints ensure outputs meet standards</li>
+<li><strong>Context management:</strong> Skills determine which files and resources to access</li>
+<li><strong>Error handling:</strong> Skills adapt when expected files are missing or formats differ</li>
+<li><strong>Consistency:</strong> Repeated executions produce structurally similar outputs</li>
+</ul>
+<h2 id="skill-definition-file-structure">Skill Definition File Structure</h2>
+<p>Every Claude Skill is defined by a <code>SKILL.md</code> file containing both metadata (YAML frontmatter) and workflow instructions (markdown content). This standardized structure enables Claude Code to discover, load, and execute skills consistently across projects.</p>
+<p>The canonical skill file structure follows this pattern:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code>---
+name: skill-name-in-kebab-case
+description: One-sentence summary of what the skill does
+license: MIT
+<span class="gu">allowed-tools: [Tool1, Tool2, Tool3]</span>
+<span class="gu">---</span>
+
+<span class="gh"># Skill Display Name</span>
+
+<span class="gu">## Overview</span>
+
+Brief description of the skill&#39;s purpose and when to use it.
+
+<span class="gu">## When to Use This Skill</span>
+
+Specific scenarios where this skill applies.
+
+<span class="gu">## Workflow</span>
+
+<span class="gu">### Step 1: First Action</span>
+
+Detailed instructions for the first step.
+
+<span class="gu">### Step 2: Second Action</span>
+
+Detailed instructions for the second step.
+
+<span class="gu">## Resources</span>
+
+References to supporting files, templates, or documentation.
+</code></pre></div></td></tr></table></div>
+<p>The separation of metadata (YAML frontmatter) from workflow instructions (markdown body) enables both machine parsing for skill discovery and human readability for understanding and customization. Claude Code processes the YAML to determine skill identity and tool permissions, then executes the markdown workflow instructions sequentially.</p>
+<details>
+    <summary>Skill File Anatomy Diagram</summary>
+    Type: diagram
+
+    Purpose: Illustrate the structure of a SKILL.md file with labeled components
+
+    Components to show:
+    - YAML Frontmatter section (top, enclosed in --- delimiters)
+      - name field
+      - description field
+      - license field
+      - allowed-tools field (shown as array)
+    - Markdown Body section (below frontmatter)
+      - ## Overview heading
+      - ## When to Use heading
+      - ## Workflow heading with numbered steps
+      - ## Resources heading
+    - Annotations showing what each section controls
+
+    Layout: Vertical document structure with left sidebar annotations
+
+    Labels:
+    - "YAML Frontmatter: Machine-readable metadata"
+    - "name: Identifies skill for invocation"
+    - "description: Used in skill listings"
+    - "allowed-tools: Permissions for tool access"
+    - "Markdown Body: Human-readable workflow"
+    - "Workflow section: Step-by-step execution instructions"
+
+    Visual style: Document mockup with syntax highlighting
+
+    Color scheme: Yellow background for YAML section, white for markdown body, blue annotations
+
+    Implementation: SVG diagram with code-style formatting
+</details>
+
+<h3 id="yaml-frontmatter-in-skills">YAML Frontmatter in Skills</h3>
+<p>The YAML frontmatter section provides metadata that Claude Code uses for skill discovery, permission management, and user-facing documentation. All frontmatter fields use lowercase keys and follow YAML syntax conventions.</p>
+<p>Required frontmatter fields:</p>
+<p><strong>name:</strong> The skill identifier in kebab-case (lowercase with hyphens). Must be unique within the skills directory. Examples: <code>learning-graph-generator</code>, <code>quiz-generator</code>, <code>microsim-p5</code></p>
+<p><strong>description:</strong> A concise (typically 1-3 sentences) summary of the skill's function. This appears in skill listings when users run <code>/skills</code> or list-skills.sh. Should clearly communicate what the skill does and when to use it.</p>
+<p><strong>license:</strong> The software license under which the skill is distributed. Common choices: MIT, Apache-2.0, CC-BY-4.0. For educational skills in this repository, MIT is standard.</p>
+<p>Optional frontmatter fields:</p>
+<p><strong>allowed-tools:</strong> An array of tool names the skill is permitted to use. When specified, this constrains the skill to only those tools, preventing unintended file modifications or external network access. Example: <code>[Read, Grep, Bash]</code> for a skill that only needs to analyze existing files.</p>
+<p>When <code>allowed-tools</code> is omitted, the skill has access to all tools available to Claude Code. This is appropriate for skills that need full flexibility (like the intelligent-textbook-creator skill that orchestrates multiple sub-skills), but should be avoided when narrower permissions suffice.</p>
+<h3 id="skill-name-and-description">Skill Name and Description</h3>
+<p>Effective skill names and descriptions follow conventions that aid discoverability and communicate purpose clearly.</p>
+<p><strong>Naming conventions:</strong></p>
+<ul>
+<li>Use verb-noun pattern: <code>generate-glossary</code>, <code>create-microsim</code>, <code>analyze-quality</code></li>
+<li>Reflect the primary output: <code>learning-graph-generator</code> produces learning graphs</li>
+<li>Avoid abbreviations unless universally understood</li>
+<li>Keep length under 40 characters for usability in listings</li>
+<li>Use hyphens (kebab-case), never underscores or camelCase</li>
+</ul>
+<p><strong>Description best practices:</strong></p>
+<ul>
+<li>Start with present-tense verb: "Generates", "Creates", "Analyzes"</li>
+<li>Specify primary input and output: "Generates a comprehensive glossary from learning graph concepts"</li>
+<li>Include key constraints or standards: "following ISO 11179 metadata registry standards"</li>
+<li>Mention when to use relative to other skills: "Use after learning graph has been finalized"</li>
+<li>Keep under 200 characters for display in skill listings</li>
+</ul>
+<p>Example skill descriptions from this repository:</p>
+<ul>
+<li><code>learning-graph-generator</code>: "Generates a comprehensive learning graph from a course description, including 200 concepts with dependencies, taxonomy categorization, and quality validation reports."</li>
+<li><code>glossary-generator</code>: "Automatically generates a comprehensive glossary of terms from a learning graph's concept list, ensuring each definition follows ISO 11179 metadata registry standards."</li>
+<li><code>quiz-generator</code>: "Generates interactive multiple-choice quizzes for each chapter with questions aligned to specific concepts and distributed across Bloom's Taxonomy cognitive levels."</li>
+</ul>
+<p>Notice how each description answers: What does it make? From what input? Following what standards? This clarity enables users to select the appropriate skill for their current workflow stage.</p>
+<h3 id="skill-license-information">Skill License Information</h3>
+<p>Licensing determines how skills can be shared, modified, and redistributed. For educational skills in open-source repositories, permissive licenses like MIT enable maximum adoption and customization.</p>
+<p>The MIT License provides:</p>
+<ul>
+<li>Permission to use, copy, modify, merge, publish, distribute, sublicense, and sell</li>
+<li>Requirement to include copyright notice and license text in redistributions</li>
+<li>No warranty or liability for the licensor</li>
+</ul>
+<p>For skills in this repository, the MIT license supports the educational mission by allowing instructors to adapt skills for their specific courses, students to learn from and modify the code, and developers to build derivative works.</p>
+<p>Alternative licenses you might encounter:</p>
+<ul>
+<li><strong>Apache 2.0:</strong> Similar to MIT but with explicit patent grant protection</li>
+<li><strong>CC-BY-4.0:</strong> Creative Commons Attribution license, appropriate for documentation-heavy skills</li>
+<li><strong>GPL-3.0:</strong> Copyleft license requiring derivative works to use the same license</li>
+</ul>
+<p>When creating your own skills, choose licenses that align with your sharing goals. For educational contexts, permissive licenses (MIT, Apache 2.0, CC-BY) generally maximize positive impact.</p>
+<h3 id="allowed-tools-in-skills">Allowed Tools in Skills</h3>
+<p>The <code>allowed-tools</code> frontmatter field provides fine-grained permission control, limiting skills to specific Claude Code tools. This security and safety mechanism prevents skills from performing unintended operations.</p>
+<p>Tool categories and common use cases:</p>
+<p><strong>Read-only tools:</strong>
+- <code>Read</code>: Access file contents
+- <code>Grep</code>: Search file contents with regex
+- <code>Glob</code>: Find files matching patterns
+- Appropriate for analysis and reporting skills</p>
+<p><strong>Read-write tools:</strong>
+- <code>Write</code>: Create new files
+- <code>Edit</code>: Modify existing files
+- Appropriate for content generation skills</p>
+<p><strong>Execution tools:</strong>
+- <code>Bash</code>: Execute shell commands
+- Essential for running scripts, installing dependencies, executing builds</p>
+<p><strong>Research tools:</strong>
+- <code>WebFetch</code>: Retrieve web page contents
+- <code>WebSearch</code>: Search the web for information
+- Appropriate for skills needing current documentation or examples</p>
+<p>Example allowed-tools configurations:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Analysis skill: read-only access</span>
+<span class="nt">allowed-tools</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">Read</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Grep</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Glob</span><span class="p p-Indicator">]</span>
+
+<span class="c1"># Content generator: read and write, no execution</span>
+<span class="nt">allowed-tools</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">Read</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Write</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Edit</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Grep</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Glob</span><span class="p p-Indicator">]</span>
+
+<span class="c1"># Complete workflow: full access</span>
+<span class="c1"># (allowed-tools omitted or set to all tools)</span>
+</code></pre></div></td></tr></table></div>
+<p>When developing skills, follow the principle of least privilege: grant only the tools necessary for the skill's function. This reduces risk of unintended modifications and makes skill behavior more predictable.</p>
+<details>
+    <summary>Skill Permission Matrix</summary>
+    Type: markdown-table
+
+    Purpose: Show which tools different skill types typically require
+
+    | Skill Type | Read | Grep | Glob | Write | Edit | Bash | WebFetch |
+    |---|---|---|---|---|---|---|---|
+    | Quality Analyzer | ✓ | ✓ | ✓ | ✓ | | | |
+    | Content Generator | ✓ | ✓ | ✓ | ✓ | ✓ | | |
+    | MicroSim Creator | ✓ | ✓ | ✓ | ✓ | | | ✓ |
+    | Workflow Orchestrator | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | |
+    | Script Executor | ✓ | | | ✓ | | ✓ | |
+
+    Note: ✓ indicates typically required tool
+</details>
+
+<h3 id="skill-workflow-instructions">Skill Workflow Instructions</h3>
+<p>The markdown body of a SKILL.md file contains detailed, step-by-step instructions that Claude Code executes autonomously. Well-designed workflow instructions exhibit several characteristics:</p>
+<p><strong>Explicit sequencing:</strong> Steps numbered clearly (Step 1, Step 2, etc.) with dependencies identified. Each step should be completable before proceeding to the next.</p>
+<p><strong>Conditional logic:</strong> Decision points where workflow branches based on file existence, quality metrics, or user input. Example: "If quality score &lt; 70, prompt user to revise course description."</p>
+<p><strong>Verification checkpoints:</strong> Validation steps confirming expected files exist, contain required sections, and meet quality standards before proceeding.</p>
+<p><strong>Error handling guidance:</strong> Instructions for what to do when expected conditions aren't met. Example: "If learning-graph.csv not found, check for alternate filenames matching pattern learning-graph*.csv."</p>
+<p><strong>Output specifications:</strong> Detailed requirements for generated content including format, structure, naming conventions, and quality criteria.</p>
+<p>Example workflow structure from the glossary-generator skill:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gu">## Workflow</span>
+
+<span class="gu">### Step 1: Verify Learning Graph Exists</span>
+
+Check for learning-graph.csv in /docs/learning-graph/ directory.
+
+Actions:
+<span class="k">-</span><span class="w"> </span>Use Glob tool to search for learning-graph*.csv
+<span class="k">-</span><span class="w"> </span>If not found, inform user and request path to learning graph
+<span class="k">-</span><span class="w"> </span>Read the CSV file to extract ConceptLabel column
+
+<span class="gu">### Step 2: Generate Definitions</span>
+
+For each concept label, generate an ISO 11179-compliant definition.
+
+Requirements:
+<span class="k">-</span><span class="w"> </span>Precise: Exact meaning without ambiguity
+<span class="k">-</span><span class="w"> </span>Concise: Minimal words needed
+<span class="k">-</span><span class="w"> </span>Distinct: Differentiated from related concepts
+<span class="k">-</span><span class="w"> </span>Non-circular: Doesn&#39;t define concept using itself
+<span class="k">-</span><span class="w"> </span>Factual: No business rules or implementation details
+
+<span class="gu">### Step 3: Create Glossary File</span>
+
+Write glossary.md in /docs/glossary/ directory.
+
+Format:
+<span class="k">-</span><span class="w"> </span>Alphabetically sorted terms
+<span class="k">-</span><span class="w"> </span>Each term as level 2 heading (##)
+<span class="k">-</span><span class="w"> </span>Definition in paragraph below
+<span class="k">-</span><span class="w"> </span>Back-to-top links after each entry
+</code></pre></div></td></tr></table></div>
+<p>This structure provides Claude Code with sufficient detail to execute the skill autonomously while maintaining flexibility for handling variations in project structure.</p>
+<h2 id="installing-a-claude-skill">Installing a Claude Skill</h2>
+<p>Skills can be installed globally (available across all projects) or locally (available only in a specific project). The installation process creates the <code>.claude/skills/</code> directory structure and copies skill files to the appropriate location.</p>
+<h3 id="global-installation">Global Installation</h3>
+<p>Global installation makes skills available in all Claude Code sessions regardless of current working directory. Skills are stored in <code>~/.claude/skills/</code> in the user's home directory.</p>
+<p>Installation process:</p>
+<ol>
+<li>
+<p><strong>Create skills directory structure:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude/skills/skill-name
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>Copy skill files:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>cp<span class="w"> </span>skill-name/SKILL.md<span class="w"> </span>~/.claude/skills/skill-name/
+cp<span class="w"> </span>-r<span class="w"> </span>skill-name/references<span class="w"> </span>~/.claude/skills/skill-name/<span class="w">  </span><span class="c1"># if present</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>Verify installation:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span>-la<span class="w"> </span>~/.claude/skills/
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<p>For this course's skills, the provided <code>install-claude-skills.sh</code> script automates global installation:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>scripts
+./install-claude-skills.sh
+</code></pre></div></td></tr></table></div>
+<p>This script iterates through all skill directories in <code>./skills/</code>, creating symlinks from <code>~/.claude/skills/</code> to the source files. Symlinks enable editing skills in the original repository while having them accessible globally—changes immediately propagate without reinstallation.</p>
+<h3 id="project-local-installation">Project-Local Installation</h3>
+<p>Project-local installation confines skills to a specific project, appropriate for specialized workflows unique to that textbook or for testing skills before global deployment.</p>
+<p>Installation process:</p>
+<ol>
+<li>
+<p><strong>Create project skills directory:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>.claude/skills/skill-name
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>Copy skill files to project:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cp<span class="w"> </span>/path/to/skill-name/SKILL.md<span class="w"> </span>.claude/skills/skill-name/
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>Verify in project context:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span>-la<span class="w"> </span>.claude/skills/
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<p>Project-local skills take precedence over global skills with the same name, enabling project-specific customization of standard workflows.</p>
+<details>
+    <summary>Skill Installation Locations and Priority</summary>
+    Type: diagram
+
+    Purpose: Show where skills can be installed and which location takes precedence
+
+    Components to show:
+    - User Home Directory level
+      - ~/.claude/skills/ (global skills)
+    - Project Directory level
+      - /project/.claude/skills/ (project-local skills)
+    - Skill Loading Priority indicator (project-local overrides global)
+    - Example: If both locations have "quiz-generator", project-local version used
+
+    Layout: Hierarchical tree structure
+
+    Labels:
+    - "~/.claude/skills/: Global skills available in all projects"
+    - ".claude/skills/: Project-specific skills or overrides"
+    - "Priority: Project > Global"
+
+    Visual style: Directory tree diagram with folder icons
+
+    Color scheme: Blue for global location, green for project-local, orange for priority indicator
+
+    Implementation: SVG diagram with tree structure
+</details>
+
+<h2 id="listing-available-skills">Listing Available Skills</h2>
+<p>Discovering which skills are installed and available is essential for workflow planning. Multiple methods exist for listing skills, each providing different levels of detail.</p>
+<h3 id="using-the-skills-slash-command">Using the /skills Slash Command</h3>
+<p>The <code>/skills</code> slash command provides the quickest way to list available skills from within a Claude Code session:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/skills
+</code></pre></div></td></tr></table></div>
+<p>This command outputs a formatted list of all skills accessible from the current project, including both globally installed and project-local skills. Each entry shows the skill name and description from the SKILL.md frontmatter.</p>
+<h3 id="using-list-skillssh-script">Using list-skills.sh Script</h3>
+<p>The <code>scripts/list-skills.sh</code> bash script provides more detailed skill listings with various output formats:</p>
+<p><strong>Basic listing:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./scripts/list-skills.sh
+</code></pre></div></td></tr></table></div></p>
+<p>Outputs skill names and descriptions in human-readable format.</p>
+<p><strong>JSON format:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./scripts/list-skills-format.sh<span class="w"> </span>json
+</code></pre></div></td></tr></table></div></p>
+<p>Produces JSON array of skill objects with name, description, and file path—useful for programmatic processing or integration with other tools.</p>
+<p><strong>Markdown format:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./scripts/list-skills-format.sh<span class="w"> </span>markdown
+</code></pre></div></td></tr></table></div></p>
+<p>Generates markdown-formatted list suitable for documentation or README files.</p>
+<p>The listing scripts search both <code>~/.claude/skills/</code> and the current project's <code>.claude/skills/</code> directories, indicating which skills are globally versus locally installed.</p>
+<h3 id="programmatic-skill-discovery">Programmatic Skill Discovery</h3>
+<p>For integration with custom workflows or tooling, skills can be discovered programmatically by searching for <code>SKILL.md</code> files and parsing their YAML frontmatter:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>find<span class="w"> </span>~/.claude/skills<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;SKILL.md&quot;</span><span class="w"> </span>-type<span class="w"> </span>f
+</code></pre></div></td></tr></table></div>
+<p>This approach enables building custom skill managers, automated testing frameworks, or skill catalog generation for documentation sites.</p>
+<h2 id="invoking-skills-with-slash-commands">Invoking Skills with Slash Commands</h2>
+<p>Skills are invoked using slash commands with the syntax <code>/skill skill-name</code> or through the Skill tool in direct tool use.</p>
+<h3 id="basic-invocation">Basic Invocation</h3>
+<p>To execute a skill, type the slash command followed by the skill name (without file extension):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/skill learning-graph-generator
+</code></pre></div></td></tr></table></div>
+<p>Claude Code loads the corresponding SKILL.md file, processes the frontmatter to configure permissions, and begins executing the workflow instructions sequentially.</p>
+<h3 id="skill-execution-process">Skill Execution Process</h3>
+<p>When a skill is invoked:</p>
+<ol>
+<li><strong>Skill loading:</strong> Claude Code locates SKILL.md in <code>.claude/skills/</code> or <code>~/.claude/skills/</code></li>
+<li><strong>Permission configuration:</strong> <code>allowed-tools</code> frontmatter restricts available tools</li>
+<li><strong>Context inheritance:</strong> Skill receives full conversation history up to invocation point</li>
+<li><strong>Workflow execution:</strong> Claude Code processes markdown instructions as autonomous directives</li>
+<li><strong>Output generation:</strong> Skill produces specified files, reports, or artifacts</li>
+<li><strong>Completion report:</strong> Skill returns summary of actions taken and results achieved</li>
+</ol>
+<p>Skills execute autonomously—once invoked, they make decisions about which files to read, what content to generate, and how to handle edge cases based on their workflow instructions. Users receive progress updates and final reports but don't need to make decisions at each step.</p>
+<h3 id="passing-context-to-skills">Passing Context to Skills</h3>
+<p>Skills have access to the conversation history before their invocation, enabling contextual understanding. Users can provide additional context by preceding the skill invocation with instructions:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Generate chapter content for junior-high reading level with emphasis on concrete examples
+
+/skill chapter-content-generator
+</code></pre></div></td></tr></table></div>
+<p>The skill receives both the general instruction and executes its standard workflow, incorporating the contextual guidance where applicable.</p>
+<details>
+    <summary>Skill Invocation and Execution Lifecycle</summary>
+    Type: workflow
+
+    Purpose: Illustrate what happens when a skill is invoked from command to completion
+
+    Visual style: Flowchart with swimlanes
+
+    Swimlanes:
+    - User
+    - Claude Code System
+    - Skill Executor
+    - File System
+
+    Steps:
+    1. Start (User): "User types /skill skill-name"
+       Hover text: "Example: /skill glossary-generator"
+
+    2. Process (Claude Code): "Locate SKILL.md file"
+       Hover text: "Search .claude/skills/ then ~/.claude/skills/ for matching skill"
+
+    3. Decision (Claude Code): "Skill found?"
+       Hover text: "Check if SKILL.md exists in either location"
+
+    4a. End (User): "Error: Skill not found"
+        Hover text: "Suggest running /skills to see available skills"
+
+    4b. Process (Claude Code): "Parse YAML frontmatter"
+        Hover text: "Extract name, description, allowed-tools"
+
+    5. Process (Claude Code): "Configure tool permissions"
+       Hover text: "Restrict to allowed-tools if specified"
+
+    6. Process (Skill Executor): "Load workflow instructions"
+       Hover text: "Read markdown body from SKILL.md"
+
+    7. Process (Skill Executor): "Execute Step 1"
+       Hover text: "Follow workflow instructions autonomously"
+
+    8. Process (File System): "Read/write files as directed"
+       Hover text: "Access course description, learning graphs, generate content"
+
+    9. Decision (Skill Executor): "More steps?"
+       Hover text: "Check if workflow complete"
+
+    10. Loop: Execute next step (back to step 7)
+        Hover text: "Continue through all workflow steps"
+
+    11. Process (Skill Executor): "Generate completion report"
+        Hover text: "Summarize actions taken, files created, quality metrics"
+
+    12. End (User): "Display results and next steps"
+        Hover text: "User sees summary and can proceed with next task"
+
+    Color coding:
+    - Blue: User interactions
+    - Purple: System processing
+    - Green: Skill execution
+    - Orange: File operations
+
+    Implementation: SVG flowchart with decision diamonds and process rectangles
+</details>
+
+<h3 id="skill-execution-context">Skill Execution Context</h3>
+<p>Skills execute within a context that includes:</p>
+<p><strong>Conversation history:</strong> All messages and tool calls prior to skill invocation, enabling skills to understand project state and user objectives.</p>
+<p><strong>Working directory:</strong> The current directory where Claude Code was launched, typically the project root.</p>
+<p><strong>File system access:</strong> Ability to read and write files within project directory tree (subject to tool permissions).</p>
+<p><strong>Isolated state:</strong> Each skill invocation starts fresh—skills don't maintain state across invocations unless they write to files.</p>
+<p>Understanding this context model helps in designing effective skills. For instance, the learning-graph-generator skill reads the course description file to understand course scope, generates concepts based on that description, and writes results to files that subsequent skills (like glossary-generator) will read.</p>
+<h2 id="understanding-claude-commands">Understanding Claude Commands</h2>
+<p>Claude Commands provide a simpler alternative to skills for single-purpose prompt expansions. While skills execute multi-step workflows autonomously, commands simply expand to a predefined prompt, effectively providing reusable prompt templates.</p>
+<p>Commands are defined in markdown files in the <code>.claude/commands/</code> directory. Unlike skills, commands don't have YAML frontmatter—they consist purely of the prompt text to be executed.</p>
+<h3 id="command-definition-files">Command Definition Files</h3>
+<p>A command file contains only the prompt that should be executed when the command is invoked. For example, <code>review-code.md</code> might contain:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>Review the code in this project for:
+<span class="k">-</span><span class="w"> </span>Security vulnerabilities
+<span class="k">-</span><span class="w"> </span>Performance issues
+<span class="k">-</span><span class="w"> </span>Code style consistency
+<span class="k">-</span><span class="w"> </span>Best practice violations
+
+Provide a prioritized list of issues with specific file locations and suggested fixes.
+</code></pre></div></td></tr></table></div>
+<p>When a user types <code>/review-code</code>, Claude Code replaces the command with this prompt and executes it in the current context.</p>
+<h3 id="installing-claude-commands">Installing Claude Commands</h3>
+<p>Commands are installed similarly to skills but in the <code>.claude/commands/</code> directory:</p>
+<p><strong>Global installation:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude/commands/
+cp<span class="w"> </span>command-name.md<span class="w"> </span>~/.claude/commands/
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Project-local installation:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>.claude/commands/
+cp<span class="w"> </span>command-name.md<span class="w"> </span>.claude/commands/
+</code></pre></div></td></tr></table></div></p>
+<p>Like skills, project-local commands take precedence over global commands with the same name.</p>
+<h3 id="difference-between-skills-commands">Difference Between Skills &amp; Commands</h3>
+<p>The fundamental distinction between skills and commands lies in autonomy and complexity:</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Skills</th>
+<th>Commands</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Definition</td>
+<td>Multi-step autonomous workflows</td>
+<td>Single prompt templates</td>
+</tr>
+<tr>
+<td>File structure</td>
+<td>SKILL.md with YAML frontmatter</td>
+<td>Plain markdown file</td>
+</tr>
+<tr>
+<td>Execution</td>
+<td>Autonomous with decision-making</td>
+<td>Simple prompt expansion</td>
+</tr>
+<tr>
+<td>Tool control</td>
+<td>allowed-tools permissions</td>
+<td>Uses all available tools</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Multi-file operations, quality checks</td>
+<td>Single request-response</td>
+</tr>
+<tr>
+<td>State</td>
+<td>Can read/write files, maintain project state</td>
+<td>Stateless prompt execution</td>
+</tr>
+<tr>
+<td>Examples</td>
+<td>learning-graph-generator, quiz-generator</td>
+<td>review-code, explain-concept</td>
+</tr>
+</tbody>
+</table>
+<p><strong>When to use skills:</strong>
+- Multi-step workflows requiring sequential operations
+- Tasks needing file reading, analysis, and generation
+- Processes with quality validation checkpoints
+- Operations requiring consistency across projects</p>
+<p><strong>When to use commands:</strong>
+- Simple prompt templates used frequently
+- Single-request operations
+- Project-specific prompt patterns
+- Quick shortcuts for common questions</p>
+<p>In this course, the intelligent textbook workflow relies primarily on skills due to the complexity and multi-step nature of content generation. Commands might be used for auxiliary tasks like "check-concept-coverage" or "validate-markdown-format."</p>
+<details>
+    <summary>Skills vs Commands Decision Tree</summary>
+    Type: workflow
+
+    Purpose: Help users decide whether to create a skill or command for their use case
+
+    Visual style: Decision tree with yes/no branches
+
+    Decision points:
+    1. Start: "Do you need to perform multiple sequential steps?"
+       Yes → Continue to 2
+       No → "Consider using a Command"
+
+    2. "Do you need to read from and write to multiple files?"
+       Yes → Continue to 3
+       No → "Consider using a Command"
+
+    3. "Do you need quality validation or error handling?"
+       Yes → Continue to 4
+       No → "Simple Skill might work"
+
+    4. "Will this workflow be reused across multiple projects?"
+       Yes → "Create a Skill with full workflow"
+       No → "Project-local Skill or Command"
+
+    Terminal nodes:
+    - "Create a Skill": For complex, reusable workflows
+    - "Use a Command": For simple prompt templates
+    - "Simple Skill might work": For straightforward multi-step tasks
+    - "Project-local Skill or Command": For project-specific automation
+
+    Color coding:
+    - Green: Indicates skill is appropriate
+    - Yellow: Indicates command might suffice
+    - Orange: Indicates borderline case
+
+    Implementation: SVG decision tree with diamond decision nodes
+</details>
+
+<h2 id="token-management-strategies">Token Management Strategies</h2>
+<p>Effective use of Claude requires understanding and managing token consumption. Claude Pro accounts provide generous but finite token budgets within 4-hour usage windows, making token management essential for sustained productivity on textbook projects.</p>
+<h3 id="understanding-tokens">Understanding Tokens</h3>
+<p>Tokens represent the fundamental units of text processing in large language models. A token typically corresponds to:</p>
+<ul>
+<li>One word (e.g., "textbook" = 1 token)</li>
+<li>Part of a long word (e.g., "educational" might be 2-3 tokens)</li>
+<li>Punctuation marks (e.g., "." = 1 token)</li>
+<li>Whitespace (spaces generally included with adjacent words)</li>
+</ul>
+<p>On average, English text contains approximately 1 token per 4 characters or 1 token per 0.75 words. Technical content with specialized terminology may consume more tokens due to uncommon word fragments.</p>
+<p>Both input (prompts, file contents, conversation history) and output (generated text) count toward token consumption. For intelligent textbook workflows, large inputs (entire learning graphs, multiple chapter files) combined with extensive outputs (comprehensive chapter content) can accumulate tokens quickly.</p>
+<h3 id="claude-token-limits">Claude Token Limits</h3>
+<p>Claude Code uses the Sonnet or Opus models depending on task complexity. As of 2025, typical token windows are:</p>
+<ul>
+<li><strong>Context window:</strong> 200,000 tokens (amount of text Claude can consider simultaneously)</li>
+<li><strong>Output limit:</strong> ~4,000-8,000 tokens per response (model-dependent)</li>
+</ul>
+<p>These generous limits enable Claude to process entire textbook chapters, comprehensive learning graphs, and extensive reference materials in a single context. However, the cumulative token consumption across an entire session must be managed within Claude Pro usage limits.</p>
+<h3 id="4-hour-usage-windows">4-Hour Usage Windows</h3>
+<p>Claude Pro accounts operate on a rolling 4-hour usage window model. Rather than a daily reset, your available capacity regenerates continuously based on when tokens were consumed.</p>
+<p>How it works:</p>
+<ol>
+<li>You have a token budget (specific amount varies by subscription tier)</li>
+<li>Each request consumes tokens from this budget</li>
+<li>After 4 hours, those tokens return to your available pool</li>
+<li>Usage resets continuously, not at a fixed daily time</li>
+</ol>
+<p>Example: If you consume 50,000 tokens at 9:00 AM, those tokens remain unavailable until 1:00 PM (4 hours later), when they're restored to your budget.</p>
+<p>This model rewards distributed work patterns over concentrated bursts. For textbook creation workflows that may involve generating content for 13 chapters, spreading skill invocations across several sessions prevents exhausting your token budget.</p>
+<details>
+    <summary>4-Hour Token Window Visualization</summary>
+    Type: timeline
+
+    Purpose: Show how token usage and regeneration works over time
+
+    Time period: 12-hour window
+
+    Orientation: Horizontal timeline with token budget shown as vertical bar chart below
+
+    Events:
+    - 9:00 AM: Generate Chapter 1 content (consume 30,000 tokens)
+    - 9:30 AM: Generate glossary (consume 15,000 tokens)
+    - 11:00 AM: Generate Chapter 2 content (consume 30,000 tokens)
+    - 1:00 PM: 9:00 AM tokens restored (+30,000 tokens)
+    - 1:30 PM: 9:30 AM tokens restored (+15,000 tokens)
+    - 3:00 PM: 11:00 AM tokens restored (+30,000 tokens)
+    - 5:00 PM: Available budget fully replenished
+
+    Visual elements:
+    - Timeline showing activity times
+    - Stacked bar chart below showing available vs consumed tokens at each time point
+    - Rolling 4-hour window indicator
+    - Annotations showing "Tokens consumed" and "Tokens restored"
+
+    Color coding:
+    - Blue: Available token budget
+    - Orange: Consumed tokens
+    - Green: Restored tokens
+    - Gray: 4-hour restoration window
+
+    Interactive features:
+    - Hover over timeline events to see token amounts
+    - Hover over bars to see total available vs used
+
+    Implementation: HTML/CSS/JavaScript with Chart.js timeline
+</details>
+
+<h3 id="optimizing-claude-usage">Optimizing Claude Usage</h3>
+<p>Several strategies maximize productivity within token budgets:</p>
+<p><strong>Strategy 1: Batch related operations</strong></p>
+<p>Rather than generating one chapter at a time with full context reloading, batch similar operations together. Generate all quiz questions in one session, all MicroSim specifications in another.</p>
+<p><strong>Strategy 2: Use focused contexts</strong></p>
+<p>When invoking skills, provide only necessary context. Don't include the entire learning graph if the skill only needs concept labels. Use skill-specific context loading rather than maintaining everything in conversation history.</p>
+<p><strong>Strategy 3: Leverage file-based state</strong></p>
+<p>Skills that write intermediate results to files enable breaking workflows into smaller sessions. Generate chapter outlines in one session, detailed content in another—the outline file provides continuity without maintaining conversation history.</p>
+<p><strong>Strategy 4: Progressive refinement over regeneration</strong></p>
+<p>When chapter content needs adjustment, use targeted edits rather than regenerating entire chapters. Edit specific sections or add missing concepts rather than rewriting from scratch.</p>
+<p><strong>Strategy 5: Monitor usage patterns</strong></p>
+<p>Track which skills consume the most tokens (typically learning-graph-generator and chapter-content-generator for large textbooks). Plan sessions to stay within 4-hour windows for these heavy operations.</p>
+<p><strong>Strategy 6: Use appropriate model variants</strong></p>
+<p>For simpler tasks like validating markdown formatting or checking concept coverage, request that Claude use more efficient models. Reserve Opus for complex reasoning and content generation.</p>
+<h2 id="iterative-prompt-refinement">Iterative Prompt Refinement</h2>
+<p>Effective prompt engineering for skills and educational content generation follows an iterative refinement cycle: draft, test, evaluate, refine, repeat. This section explores techniques for systematically improving prompts to achieve desired educational outcomes.</p>
+<h3 id="initial-prompt-drafting">Initial Prompt Drafting</h3>
+<p>The first iteration focuses on establishing basic structure and requirements:</p>
+<ol>
+<li><strong>Define learning objectives:</strong> What should learners understand or be able to do?</li>
+<li><strong>Specify output format:</strong> Markdown sections, details blocks, specific structures</li>
+<li><strong>Identify constraints:</strong> Reading level, word count, concept coverage</li>
+<li><strong>Provide examples:</strong> Reference materials demonstrating desired quality</li>
+</ol>
+<p>For a chapter content generation prompt, an initial draft might specify:
+- Target reading level (graduate)
+- Concepts to cover (list from chapter outline)
+- Required sections (introduction, concept explanations, summary)
+- Interactive element frequency (every 3-5 paragraphs)</p>
+<h3 id="testing-and-evaluation">Testing and Evaluation</h3>
+<p>Execute the prompt and evaluate outputs against quality criteria:</p>
+<p><strong>Content coverage:</strong> Are all required concepts addressed with adequate depth?</p>
+<p><strong>Reading level appropriateness:</strong> Does sentence complexity, vocabulary, and explanation style match target level?</p>
+<p><strong>Structural compliance:</strong> Does output follow specified markdown format with correct heading hierarchy?</p>
+<p><strong>Interactive element integration:</strong> Are details blocks properly formatted with sufficient specification detail?</p>
+<p><strong>Pedagogical soundness:</strong> Do explanations build logically? Are examples appropriate?</p>
+<p>Document specific deficiencies: "Missing coverage of concepts 14-16," "Reading level too advanced for target audience," "Interactive elements lack implementation specifications."</p>
+<h3 id="refinement-strategies">Refinement Strategies</h3>
+<p>Based on evaluation results, refine prompts using these techniques:</p>
+<p><strong>Add explicit constraints:</strong> If output too verbose, add word count ranges. If examples too abstract, specify "concrete examples from daily professional experience."</p>
+<p><strong>Provide negative examples:</strong> Show what NOT to do alongside positive examples. "Avoid jargon like this [bad example]; instead use accessible language like this [good example]."</p>
+<p><strong>Increase specificity:</strong> Replace "add interactive elements" with "include 2 diagrams, 1 MicroSim, and 1 interactive infographic specified in details blocks."</p>
+<p><strong>Incorporate rubrics:</strong> Provide scoring criteria that Claude should self-evaluate against before finalizing output.</p>
+<p><strong>Sequential generation:</strong> Break complex generation into phases—outline first, then detailed content, then interactive elements—with validation checkpoints between phases.</p>
+<h3 id="convergence-to-quality">Convergence to Quality</h3>
+<p>Over 3-5 iterations, prompts typically converge to consistent, high-quality outputs. Indicators of convergence:</p>
+<ul>
+<li>Multiple consecutive executions produce similarly high-quality results</li>
+<li>Quality scores consistently exceed threshold (e.g., &gt;85/100)</li>
+<li>Manual review finds few deficiencies requiring correction</li>
+<li>Generated content requires minimal post-processing</li>
+</ul>
+<p>Converged prompts can be captured as skills or commands for reuse across projects, sharing expertise and accelerating future textbook development.</p>
+<details>
+    <summary>Iterative Prompt Refinement Metrics</summary>
+    Type: chart
+
+    Chart type: Line chart with annotations
+
+    Purpose: Show how prompt quality improves across refinement iterations
+
+    X-axis: Iteration number (1-5)
+    Y-axis: Quality score (0-100)
+
+    Data series:
+    - Quality Score: [45, 62, 78, 88, 91]
+    - Quality Threshold (horizontal line at 85)
+
+    Title: "Prompt Quality Improvement Across Iterations"
+
+    Data points:
+    - Iteration 1 (45): "Initial draft - missing concepts, wrong reading level"
+    - Iteration 2 (62): "Added concept coverage constraints - improved but verbose"
+    - Iteration 3 (78): "Refined reading level parameters - closer to target"
+    - Iteration 4 (88): "Added interactive element specifications - exceeds threshold"
+    - Iteration 5 (91): "Minor refinements - consistent quality achieved"
+
+    Visual elements:
+    - Line showing quality progression
+    - Threshold line at 85
+    - Annotations for each data point explaining changes
+    - Shaded region above 85 indicating "Acceptable Quality Zone"
+
+    Color scheme: Blue line for quality score, green shaded region for acceptable zone, red dashed line for threshold
+
+    Implementation: Chart.js line chart with annotations plugin
+</details>
+
+<h2 id="summary_1">Summary</h2>
+<p>This chapter introduced the Claude Skills system as the foundation for automating intelligent textbook creation workflows. You learned the anatomy of skill definition files, including YAML frontmatter for metadata and markdown workflow instructions for autonomous execution. We explored how skills differ from simpler command-based prompt expansions and when each approach is appropriate.</p>
+<p>You learned practical techniques for installing skills globally or project-locally, listing available skills through slash commands and scripts, and invoking skills within Claude Code sessions. We examined the skill execution lifecycle and how skills access context, make autonomous decisions, and produce structured outputs.</p>
+<p>Finally, we addressed token management strategies essential for sustained productivity within Claude Pro's 4-hour usage windows and explored iterative prompt refinement techniques for systematically improving educational content generation quality. These capabilities form the foundation for the educational framework and learning graph concepts introduced in subsequent chapters.</p>
+<p><strong>Concepts covered:</strong> Claude Skill ✓, Skill Definition File Structure ✓, YAML Frontmatter in Skills ✓, Skill Name and Description ✓, Skill License Information ✓, Allowed Tools in Skills ✓, Skill Workflow Instructions ✓, Installing a Claude Skill ✓, Listing Available Skills ✓, Invoking Skills with Slash Commands ✓, Skill Execution Context ✓, Claude Command ✓, Command Definition Files ✓, Installing Claude Commands ✓, Difference Between Skills &amp; Commands ✓, Iterative Prompt Refinement ✓, Claude Token Limits ✓, Token Management Strategies ✓</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../01-intro-ai-intelligent-textbooks/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Chapter 1 - Introduction to AI and Intelligent Textbooks">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Chapter 1 - Introduction to AI and Intelligent Textbooks
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../03-course-design-educational-theory/" class="md-footer__link md-footer__link--next" aria-label="Next: Chapter 3 - Course Design and Educational Theory">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Chapter 3 - Course Design and Educational Theory
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
