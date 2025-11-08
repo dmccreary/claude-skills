@@ -15,6 +15,10 @@
         <link rel="canonical" href="https://dmccreary.github.io/claude-skills/prompts/chapter-content-generator/">
       
       
+        <link rel="prev" href="../venn-diagram-skill-generator/">
+      
+      
+        <link rel="next" href="../generate-chapter-10-content/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -22,7 +26,7 @@
     
     
       
-        <title>Chapter Content Generator - Claude Skills for Intelligent Textbooks</title>
+        <title>Chapter Generator - Claude Skills for Intelligent Textbooks</title>
       
     
     
@@ -109,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Chapter Content Generator
+              Chapter Generator
             
           </span>
         </div>
@@ -487,6 +491,8 @@
       
         
       
+        
+      
     
     
     
@@ -576,54 +582,733 @@
       
   
   
+    
   
   
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
   
-  
-    <a href="../index.md" class="md-nav__link">
+    
+    
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
     Prompts
   </span>
   
 
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Prompts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    List of Prompts
+  </span>
   
 
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../course-description-skill/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run the Course Description Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references-generator-skill/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run the References Generator Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../book-chapter-generator-skill/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Book Chapter Generator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter Generator
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter Generator
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background Context
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill Order
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typical-chapter-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Typical Chapter Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#existing-chapter-content-expected" class="md-nav__link">
+    <span class="md-ellipsis">
+      Existing Chapter Content Expected
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-verity-chapter-file-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      STEP 1: Verity Chapter File Exists
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-verify-chapter-content-is-correct" class="md-nav__link">
+    <span class="md-ellipsis">
+      STEP 2: Verify Chapter Content is Correct
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-get-the-reading-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      STEP 3: Get the Reading Level
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-generate-detailed-chapter-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      STEP 4: Generate Detailed Chapter Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-verify-completeness" class="md-nav__link">
+    <span class="md-ellipsis">
+      STEP 6: Verify Completeness
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-report-summary-to-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      STEP 5: Report Summary to User
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of Run
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-mermaid-generator-skill/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create Mermaid Generator Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run-glossary-generator-skill/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run glossary generator skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../venn-diagram-skill-generator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Venn Diagram Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter Generator
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter Generator
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background Context
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill Order
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typical-chapter-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Typical Chapter Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#existing-chapter-content-expected" class="md-nav__link">
+    <span class="md-ellipsis">
+      Existing Chapter Content Expected
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-verity-chapter-file-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      STEP 1: Verity Chapter File Exists
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-verify-chapter-content-is-correct" class="md-nav__link">
+    <span class="md-ellipsis">
+      STEP 2: Verify Chapter Content is Correct
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-get-the-reading-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      STEP 3: Get the Reading Level
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-generate-detailed-chapter-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      STEP 4: Generate Detailed Chapter Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-verify-completeness" class="md-nav__link">
+    <span class="md-ellipsis">
+      STEP 6: Verify Completeness
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-report-summary-to-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      STEP 5: Report Summary to User
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of Run
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-chapter-10-content/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 Content Generation Log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-chapter-11-content-log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 11 Content Generation Log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-chapter-8-content/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generate chapter 8 content
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-chapter-9-content/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 Content Generation Log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-chapter-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generate chapter structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-content-for-6-7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generate content for 6 7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-content-for-chapters-1-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generate content for chapters 1 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -1694,6 +2379,44 @@ be run on the content for interactive items.</p>
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../venn-diagram-skill-generator/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Venn Diagram Skill">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Venn Diagram Skill
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../generate-chapter-10-content/" class="md-footer__link md-footer__link--next" aria-label="Next: Chapter 10 Content Generation Log">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Chapter 10 Content Generation Log
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
