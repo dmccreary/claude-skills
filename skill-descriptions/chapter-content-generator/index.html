@@ -12,13 +12,13 @@
         <meta name="author" content="Dan McCreary">
       
       
-        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/skill-descriptions/quiz-generator/">
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/skill-descriptions/chapter-content-generator/">
       
       
-        <link rel="prev" href="../microsim-p5/">
+        <link rel="prev" href="../book-chapter-generator/">
       
       
-        <link rel="next" href="../add-glossary-links/">
+        <link rel="next" href="../glossary-generator/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Quiz Generator - Claude Skills for Intelligent Textbooks</title>
+        <title>5 - Chapter Content Generator - Claude Skills for Intelligent Textbooks</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#quiz-generator" class="md-skip">
+        <a href="#chapter-content-generator" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Quiz Generator
+              5 - Chapter Content Generator
             
           </span>
         </div>
@@ -467,10 +467,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../chapter-content-generator/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    5 - Chapter Content Generator
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -479,6 +499,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-this-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use This Skill
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -551,30 +600,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Quiz Generator
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../quiz-generator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -583,143 +612,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#step-1-assess-content-readiness" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1: Assess Content Readiness
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-2-determine-target-distribution" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Determine Target Distribution
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-3-identify-concepts-to-test" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 3: Identify Concepts to Test
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-4-generate-questions-by-blooms-level" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 4: Generate Questions by Bloom's Level
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-5-write-quality-distractors" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 5: Write Quality Distractors
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-6-write-explanations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 6: Write Explanations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-7-ensure-answer-balance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 7: Ensure Answer Balance
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-8-create-quiz-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 8: Create Quiz File
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-9-generate-metadata-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 9: Generate Metadata File
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-10-generate-quiz-bank" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 10: Generate Quiz Bank
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-11-generate-quality-report" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 11: Generate Quality Report
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-12-validate-quality" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 12: Validate Quality
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-13-generate-alternative-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 13: Generate Alternative Questions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1030,117 +922,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#step-1-assess-content-readiness" class="md-nav__link">
+  <a href="#when-to-use-this-skill" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Assess Content Readiness
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-2-determine-target-distribution" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Determine Target Distribution
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-3-identify-concepts-to-test" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 3: Identify Concepts to Test
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-4-generate-questions-by-blooms-level" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 4: Generate Questions by Bloom's Level
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-5-write-quality-distractors" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 5: Write Quality Distractors
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-6-write-explanations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 6: Write Explanations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-7-ensure-answer-balance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 7: Ensure Answer Balance
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-8-create-quiz-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 8: Create Quiz File
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-9-generate-metadata-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 9: Generate Metadata File
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-10-generate-quiz-bank" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 10: Generate Quiz Bank
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-11-generate-quality-report" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 11: Generate Quality Report
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-12-validate-quality" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 12: Validate Quality
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-13-generate-alternative-questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 13: Generate Alternative Questions
+      When to Use This Skill
     </span>
   </a>
   
@@ -1161,7 +945,7 @@
                   
 
   
-    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/skill-descriptions/quiz-generator.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/skill-descriptions/chapter-content-generator.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1169,34 +953,32 @@
   
 
 
-<h1 id="quiz-generator">Quiz Generator</h1>
-<p>This skill generates interactive multiple-choice quizzes for each chapter of an intelligent textbook, with questions aligned to specific concepts from the learning graph and distributed across Bloom's Taxonomy cognitive levels to assess student understanding effectively.</p>
-<h2 id="step-1-assess-content-readiness">Step 1: Assess Content Readiness</h2>
-<p>Calculates content readiness score (1-100) for each target chapter based on five quality checks: chapter word count (20 points for 2000+ words), example coverage (20 points for 60%+ concepts with examples), glossary coverage (20 points for 80%+ chapter concepts defined), concept clarity (20 points for clear explanations), and learning graph alignment (20 points for all concepts mapped). Triggers user dialog if score is below 60 or critical content is missing.</p>
-<h2 id="step-2-determine-target-distribution">Step 2: Determine Target Distribution</h2>
-<p>Sets target Bloom's Taxonomy distribution based on chapter type (introductory, intermediate, or advanced). Introductory chapters focus heavily on Remember (40%) and Understand (40%) with minimal higher-order thinking. Intermediate chapters balance Remember (25%), Understand (30%), and Apply (30%) with some Analyze (15%). Advanced chapters emphasize Apply (25%), Analyze (25%), Evaluate (10%), and Create (5%) with less emphasis on lower levels. Target question count is 8-12 per chapter (default: 10).</p>
-<h2 id="step-3-identify-concepts-to-test">Step 3: Identify Concepts to Test</h2>
-<p>Analyzes chapter content and learning graph to prioritize concepts into three tiers. Priority 1 (must test) includes high-centrality concepts, concepts in chapter title/introduction, dedicated sections, and emphasized key terms. Priority 2 (should test) includes supporting concepts with substantial explanation, concepts with examples, and prerequisites. Priority 3 (may test) covers peripheral concepts mentioned briefly. Aims for 80%+ coverage of Priority 1 concepts.</p>
-<h2 id="step-4-generate-questions-by-blooms-level">Step 4: Generate Questions by Bloom's Level</h2>
-<p>Creates questions using the mkdocs-material question admonition format with upper-alpha list styling. Each question uses level-4 header with number, <code>&lt;div class="upper-alpha" markdown&gt;</code> wrapper, numbered list (1-4) for options, and <code>??? question "Show Answer"</code> admonition. Questions are written according to Bloom's level: Remember (definitions/facts), Understand (explanations/relationships), Apply (scenarios), Analyze (patterns/causes), Evaluate (judgments), and Create (design solutions).</p>
-<h2 id="step-5-write-quality-distractors">Step 5: Write Quality Distractors</h2>
-<p>Ensures each incorrect answer option is plausible, uses related terminology, has similar length to correct answer, and addresses common misconceptions. Avoids obviously wrong answers, "all/none of the above" options, jokes, grammatical inconsistencies, and overlapping answers. Uses common distractor patterns including partial truth, reversals, similar terminology, and typical student errors.</p>
-<h2 id="step-6-write-explanations">Step 6: Write Explanations</h2>
-<p>Creates explanations (50-100 words target) that clearly state the correct answer letter, explain why it's correct, reference chapter content or concept definitions, and optionally explain why distractors are incorrect. Each explanation includes the concept tested and a link to the relevant chapter section for additional detail.</p>
-<h2 id="step-7-ensure-answer-balance">Step 7: Ensure Answer Balance</h2>
-<p>Verifies correct answers are distributed evenly across A, B, C, D options (target: 25% each, ±5% acceptable). Avoids predictable patterns like consecutive same letters, alternating sequences, or position bias. Generates random sequence, shuffles for each question, and adjusts if distribution is imbalanced.</p>
-<h2 id="step-8-create-quiz-file">Step 8: Create Quiz File</h2>
-<p>Generates quiz as either a separate file (<code>docs/[section]/[chapter-name]-quiz.md</code>) or embedded at the end of the chapter file. Uses consistent formatting with level-4 headers for questions, horizontal rules (---) between questions, sequential numbering, and proper markdown rendering. Includes introductory text explaining the quiz purpose.</p>
-<h2 id="step-9-generate-metadata-file">Step 9: Generate Metadata File</h2>
-<p>Creates <code>docs/learning-graph/quizzes/[chapter-name]-quiz-metadata.json</code> containing chapter information, file paths, generation date, content readiness score, quality score, detailed question data (ID, number, text, correct answer, Bloom's level, difficulty, concept tested, links, distractor quality), answer distribution statistics, Bloom's distribution breakdown, and concept coverage metrics.</p>
-<h2 id="step-10-generate-quiz-bank">Step 10: Generate Quiz Bank</h2>
-<p>Creates or updates <code>docs/learning-graph/quiz-bank.json</code> aggregating all questions across chapters. Each entry includes unique ID, chapter reference, question text, all options, correct answer, explanation, Bloom's level, difficulty, concept, source links, and tags. Supports LMS export, quiz randomization, alternative versions, chatbot integration, and study app integration.</p>
-<h2 id="step-11-generate-quality-report">Step 11: Generate Quality Report</h2>
-<p>Creates <code>docs/learning-graph/quiz-generation-report.md</code> with overall statistics (total chapters, questions, averages, quality score), per-chapter summary table, Bloom's Taxonomy distribution analysis comparing actual vs target, answer balance statistics, concept coverage metrics, question quality analysis (well-formed questions, distractor quality, explanations, valid links), and prioritized recommendations for improvement.</p>
-<h2 id="step-12-validate-quality">Step 12: Validate Quality</h2>
-<p>Performs comprehensive validation across 10 criteria: no ambiguity (one correct answer, clear question), distractor quality (plausible and educational), grammar and clarity (professional writing), answer balance (distributed across options), Bloom's distribution (matches target within ±15%), concept coverage (75%+ major concepts), no duplicates (unique questions), explanation quality (teaching value, proper length), link validation (all links work), and bias check (no cultural, gender, or accessibility issues).</p>
-<h2 id="step-13-generate-alternative-questions">Step 13: Generate Alternative Questions</h2>
-<p>Optionally creates <code>docs/learning-graph/quizzes/alternative-questions.json</code> with 2-3 alternative questions per concept. Each alternative tests the same concept at the same Bloom's level but with different phrasing. Supports quiz randomization, test variations (A/B versions), practice mode with different questions each time, and adaptive difficulty adjustments.</p>
+<h1 id="chapter-content-generator">Chapter Content Generator</h1>
+<p>This skill is run on each chapter after the book-chapter-generator has been run.</p>
+<p>This skill generates a structured chapter outline for intelligent textbooks by analyzing course descriptions, learning graphs, and concept dependencies. Use this skill after the learning graph has been created and before generating chapter content, to design an optimal chapter structure that respects concept dependencies and distributes content evenly across 6-20 chapters.</p>
+<h2 id="when-to-use-this-skill">When to Use This Skill</h2>
+<p>Use this skill when:
+- A learning graph has been generated (learning-graph.json exists)
+- The course description is finalized
+- The concept taxonomy has been established
+- Chapter content structure needs to be designed before writing begins</p>
+<p><strong>Prerequisites:</strong>
+- <code>/docs/course-description.md</code> must exist
+- <code>/docs/learning-graph/learning-graph.json</code> must exist with ~200 concepts
+- <code>/docs/learning-graph/concept-taxonomy.md</code> should exist
+- MkDocs chapter structure must be in place:</p>
+<p>The table of contents must exist:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&#39;/docs/chapters/index.md`
+</code></pre></div></td></tr></table></div>
+<p>There must be one index.md file for each chapter:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&#39;/docs/chapters/NN-CHAPTER_TITLE/index.md`
+</code></pre></div></td></tr></table></div>
+<p>Withing the chapter index.md file there is a chapter title, summary and concept list.</p>
+<p><strong>Do NOT use this skill if:</strong>
+- The learning graph hasn't been generated yet (use <code>learning-graph-generator</code> first)
+- Chapter content already exists and just needs updating</p>
+<p>For a full description of the steps see the main SKILL.md file in the skills folder:</p>
+<p><a href="https://github.com/dmccreary/claude-skills/blob/main/skills/chapter-content-generator/SKILL.md">GitHub SKILL.md file for the Chapter Content Generator</a></p>
 
 
 
@@ -1232,7 +1014,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../microsim-p5/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MicroSims p5 Generator">
+          <a href="../book-chapter-generator/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 4 - Book Chapter Structure Generator">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1242,20 +1024,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                MicroSims p5 Generator
+                4 - Book Chapter Structure Generator
               </div>
             </div>
           </a>
         
         
           
-          <a href="../add-glossary-links/" class="md-footer__link md-footer__link--next" aria-label="Next: Add Glossary Links">
+          <a href="../glossary-generator/" class="md-footer__link md-footer__link--next" aria-label="Next: Glossary Generator">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Add Glossary Links
+                Glossary Generator
               </div>
             </div>
             <div class="md-footer__button md-icon">
