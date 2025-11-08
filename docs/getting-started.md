@@ -192,5 +192,28 @@ Available Claude Skills (8 total)
 
 ```
 
+## Permissions
+
+The default permission behavior is very strict and Claude is constantly nagging you for harmless tasks such
+as if can have read access to a file.  This means you can never walk away from Claude without having it stop and wait
+for you to give it permissions.
+
+In a normal desktop environment you should **ONLY** run Claude from within a directory
+that you check out from Git.  Then you ONLY give it permission to read and write to those
+files.  Since they are igThe following is my way 
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "Skill(*)",
+      "Bash(*:*)",
+      "FileSystem(read:./**/*.*,write:./**/*.*)",
+    "deny": [],
+    "ask": []
+  }
+}
+```
+
 
 
