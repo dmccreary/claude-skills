@@ -11,7 +11,23 @@ nav:
   - About: about.md
   - Course Description: course-description.md
   - Getting Started: getting-started.md
-  
+
+  - Chapters:
+    - Overview: chapters/index.md
+    - Chapter 1 - Introduction to AI and Intelligent Textbooks: chapters/01-intro-ai-intelligent-textbooks/index.md
+    - Chapter 2 - Getting Started with Claude and Skills: chapters/02-getting-started-claude-skills/index.md
+    - Chapter 3 - Course Design and Educational Theory: chapters/03-course-design-educational-theory/index.md
+    - Chapter 4 - Introduction to Learning Graphs: chapters/04-intro-learning-graphs/index.md
+    - Chapter 5 - Concept Enumeration and Dependencies: chapters/05-concept-enumeration-dependencies/index.md
+    - Chapter 6 - Learning Graph Quality and Validation: chapters/06-learning-graph-quality-validation/index.md
+    - Chapter 7 - Taxonomy and Data Formats: chapters/07-taxonomy-data-formats/index.md
+    - Chapter 8 - MkDocs Platform and Documentation: chapters/08-mkdocs-platform-documentation/index.md
+    - Chapter 9 - Claude Skills Architecture and Development: chapters/09-claude-skills-architecture-development/index.md
+    - Chapter 10 - Content Creation Workflows: chapters/10-content-creation-workflows/index.md
+    - Chapter 11 - Educational Resources and Assessment: chapters/11-educational-resources-assessment/index.md
+    - Chapter 12 - Interactive Elements and MicroSims: chapters/12-interactive-elements-microsims/index.md
+    - Chapter 13 - Development Tools, Version Control, and Deployment: chapters/13-dev-tools-version-control-deployment/index.md
+
   - List of Skills: 
     - Overview: skill-descriptions/index.md
     - 1 - Course Description Generator and Analyzer: skill-descriptions/course-description-analyzer.md
