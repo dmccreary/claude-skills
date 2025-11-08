@@ -98,13 +98,13 @@
   "nodes": [
     {
       "id": 1,
-      "label": "What is Artificial Intelligence",
+      "label": "Artificial Intelligence",
       "group": "AIFND",
       "shape": "box"
     },
     {
       "id": 2,
-      "label": "What is Claude AI",
+      "label": "Claude AI",
       "group": "AIFND"
     },
     {
@@ -124,7 +124,7 @@
     },
     {
       "id": 6,
-      "label": "What is a Claude Skill",
+      "label": "Claude Skill",
       "group": "SKILL"
     },
     {
@@ -179,7 +179,7 @@
     },
     {
       "id": 17,
-      "label": "What is a Claude Command",
+      "label": "Claude Command",
       "group": "SKILL"
     },
     {
@@ -224,7 +224,7 @@
     },
     {
       "id": 26,
-      "label": "What is an Intelligent Textbook",
+      "label": "Intelligent Textbook",
       "group": "IBOOK",
       "shape": "box"
     },
@@ -260,7 +260,7 @@
     },
     {
       "id": 33,
-      "label": "What is MkDocs",
+      "label": "MkDocs",
       "group": "MKDOC"
     },
     {
@@ -291,7 +291,7 @@
     },
     {
       "id": 39,
-      "label": "What is a Learning Graph",
+      "label": "Learning Graph",
       "group": "GRAPH"
     },
     {
@@ -326,7 +326,7 @@
     },
     {
       "id": 46,
-      "label": "What is a Course Description",
+      "label": "Course Description",
       "group": "EDTHY"
     },
     {
@@ -356,7 +356,7 @@
     },
     {
       "id": 52,
-      "label": "What is Bloom's Taxonomy",
+      "label": "Bloom's Taxonomy",
       "group": "EDTHY"
     },
     {
@@ -551,7 +551,7 @@
     },
     {
       "id": 91,
-      "label": "What is a Taxonomy",
+      "label": "Taxonomy",
       "group": "DATAS",
       "shape": "box"
     },
@@ -672,7 +672,7 @@
     },
     {
       "id": 115,
-      "label": "What is a Glossary",
+      "label": "Glossary",
       "group": "RSRCE"
     },
     {
@@ -712,7 +712,7 @@
     },
     {
       "id": 123,
-      "label": "What is a FAQ",
+      "label": "FAQ",
       "group": "RSRCE"
     },
     {
@@ -732,7 +732,7 @@
     },
     {
       "id": 127,
-      "label": "What is a MicroSim",
+      "label": "MicroSim",
       "group": "INTER"
     },
     {
@@ -792,7 +792,7 @@
     },
     {
       "id": 139,
-      "label": "What is a Quiz",
+      "label": "Quiz",
       "group": "RSRCE"
     },
     {
@@ -862,7 +862,7 @@
     },
     {
       "id": 153,
-      "label": "What is Git",
+      "label": "Git",
       "group": "VERCT",
       "shape": "box"
     },
@@ -908,7 +908,7 @@
     },
     {
       "id": 162,
-      "label": "What is Visual Studio Code",
+      "label": "Visual Studio Code",
       "group": "TOOLS",
       "shape": "box"
     },
@@ -924,7 +924,7 @@
     },
     {
       "id": 165,
-      "label": "What is Bash",
+      "label": "Bash",
       "group": "TOOLS"
     },
     {
@@ -939,7 +939,7 @@
     },
     {
       "id": 168,
-      "label": "What is Python",
+      "label": "Python",
       "group": "DATAS",
       "shape": "box"
     },
@@ -980,7 +980,7 @@
     },
     {
       "id": 176,
-      "label": "What is Prompt Engineering",
+      "label": "Prompt Engineering",
       "group": "AIFND"
     },
     {

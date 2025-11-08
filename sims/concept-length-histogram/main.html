@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept Label Length Histogram</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .stat-unit {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin-bottom: 30px;
+        }
+        .examples {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .example-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .example-box h3 {
+            margin-top: 0;
+            color: #667eea;
+            font-size: 16px;
+        }
+        .example-box ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .example-box li {
+            margin: 8px 0;
+            color: #333;
+            font-size: 14px;
+        }
+        .length-badge {
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Concept Label Length Analysis</h1>
+        <div class="subtitle">Learning Graph for "Using Claude Skills to Create Intelligent Textbooks"</div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Concepts</div>
+                <div class="stat-value">200</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Average Length</div>
+                <div class="stat-value">23.77 <span class="stat-unit">chars</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Median Length</div>
+                <div class="stat-value">24 <span class="stat-unit">chars</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Range</div>
+                <div class="stat-value">11-36 <span class="stat-unit">chars</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Std Deviation</div>
+                <div class="stat-value">5.15 <span class="stat-unit">chars</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Within 32 Chars</div>
+                <div class="stat-value">98.5 <span class="stat-unit">%</span></div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="histogramChart"></canvas>
+        </div>
+
+        <div class="examples">
+            <div class="example-box">
+                <h3>📏 Shortest Labels (11 chars)</h3>
+                <ul>
+                    <li>What is Git <span class="length-badge">11</span></li>
+                    <li>What is Bash <span class="length-badge">12</span></li>
+                    <li>What is Python <span class="length-badge">14</span></li>
+                </ul>
+            </div>
+            <div class="example-box">
+                <h3>📐 Longest Labels (36 chars)</h3>
+                <ul>
+                    <li>Difference Between Skills & Commands <span class="length-badge">36</span></li>
+                    <li>Five Levels of Textbook Intelligence <span class="length-badge">36</span></li>
+                    <li>Bloom's Taxonomy in Quizzes <span class="length-badge">30</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data from analysis
+        const data = {
+            11: 1, 12: 1, 13: 2, 14: 5, 15: 3, 16: 3, 17: 9, 18: 10, 19: 10, 20: 8,
+            21: 14, 22: 14, 23: 14, 24: 18, 25: 8, 26: 20, 27: 15, 28: 10, 29: 7, 30: 7,
+            31: 10, 32: 3, 33: 1, 34: 2, 35: 3, 36: 2
+        };
+
+        const lengths = Object.keys(data).map(Number);
+        const counts = Object.values(data);
+
+        const ctx = document.getElementById('histogramChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: lengths,
+                datasets: [{
+                    label: 'Number of Concepts',
+                    data: counts,
+                    backgroundColor: 'rgba(102, 126, 234, 0.7)',
+                    borderColor: 'rgba(102, 126, 234, 1)',
+                    borderWidth: 2,
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Distribution of Concept Label Lengths',
+                        font: {
+                            size: 18,
+                            weight: 'bold'
+                        }
+                    },
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(context) {
+                                return context[0].label + ' characters';
+                            },
+                            label: function(context) {
+                                const count = context.parsed.y;
+                                const total = counts.reduce((a, b) => a + b, 0);
+                                const percentage = ((count / total) * 100).toFixed(1);
+                                return `${count} concepts (${percentage}%)`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Label Length (characters)',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Number of Concepts',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 2
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
