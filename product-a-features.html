@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product A Features</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let Product_A_Features = [
+            "Models of language",
+            "Contains Knowledge of the Outside World",
+            "Designed to predict the next token",
+            "Statistical",
+            "Likely to hallucinate"
+        ];
+
+        function setup() {
+            createCanvas(600, 400);
+            noLoop();
+        }
+
+        function draw() {
+            background(255);
+
+            // Title
+            fill(0);
+            textSize(24);
+            textStyle(BOLD);
+            text("Product A Features", 50, 50);
+
+            // Bullet list
+            textSize(16);
+            textStyle(NORMAL);
+            let startY = 90;
+            let lineHeight = 35;
+
+            for (let i = 0; i < Product_A_Features.length; i++) {
+                let yPos = startY + (i * lineHeight);
+
+                // Draw bullet point
+                fill(0);
+                circle(60, yPos - 5, 8);
+
+                // Draw text
+                text(Product_A_Features[i], 80, yPos);
+            }
+        }
+    </script>
+</body>
+</html>
