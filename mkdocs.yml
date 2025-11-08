@@ -37,7 +37,7 @@ nav:
 
   - MicroSims:
     - List of MicroSims: sims/index.md
-    - Graph Viewer: sims/graph-viewer/in
+    - Graph Viewer: sims/graph-viewer/index.md
   
   - Prompts:
     - List of Prompts: prompts/index.md
