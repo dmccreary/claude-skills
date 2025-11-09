@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "title": "Course Description Quality Impact on Workflow",
+    "description": "An interactive infographic showing how course description quality affects subsequent skill outputs in the intelligent textbook generation process",
+    "author": "Claude Skills",
+    "created": "2025-01-09"
+  },
+  "groups": {
+    "start": {
+      "color": "#9CA3AF",
+      "borderColor": "#4B5563",
+      "shape": "ellipse"
+    },
+    "decision": {
+      "color": "#60A5FA",
+      "borderColor": "#2563EB",
+      "shape": "diamond"
+    },
+    "high-quality": {
+      "color": "#34D399",
+      "borderColor": "#059669",
+      "shape": "box"
+    },
+    "low-quality": {
+      "color": "#FBBF24",
+      "borderColor": "#D97706",
+      "shape": "box"
+    },
+    "result-good": {
+      "color": "#10B981",
+      "borderColor": "#047857",
+      "shape": "box"
+    },
+    "result-bad": {
+      "color": "#F59E0B",
+      "borderColor": "#B45309",
+      "shape": "box"
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "label": "Course Description\nCreated",
+      "group": "start",
+      "x": 400,
+      "y": 80,
+      "size": 45,
+      "shortDescription": "Starting point: initial course description document",
+      "fullDescription": "The course description is the foundation of the entire intelligent textbook generation process. It contains the title, audience level, prerequisites, topics, and Bloom's Taxonomy learning outcomes."
+    },
+    {
+      "id": 2,
+      "label": "Quality Score\n≥ 85?",
+      "group": "decision",
+      "x": 400,
+      "y": 200,
+      "size": 50,
+      "shortDescription": "Decision point based on quality score",
+      "fullDescription": "Assessed using course-description-analyzer skill. Scores ≥70 indicate acceptable quality, ≥85 indicates excellent quality. The quality score determines whether the workflow proceeds smoothly or requires extensive manual correction."
+    },
+    {
+      "id": 3,
+      "label": "Learning Graph\nGeneration",
+      "group": "high-quality",
+      "x": 250,
+      "y": 320,
+      "size": 45,
+      "shortDescription": "High-quality path: Generate learning graph",
+      "fullDescription": "200 relevant concepts with accurate dependencies. The high-quality course description ensures the AI generates concepts that are on-target, properly scoped, and have clear prerequisite relationships forming a valid DAG structure."
+    },
+    {
+      "id": 4,
+      "label": "Chapter\nStructure",
+      "group": "high-quality",
+      "x": 250,
+      "y": 420,
+      "size": 45,
+      "shortDescription": "Partition concepts ino chapters",
+      "fullDescription": "When the learning graph is accurate, the book chapter structure generator can effectively group related concepts into chapters that flow logically and cover all necessary topics.  No concept will be introduced before its prerequisites."
+    },
+    {
+      "id": 5,
+      "label": "Chapter Concent\nGeneration",
+      "group": "high-quality",
+      "x": 250,
+      "y": 520,
+      "size": 45,
+      "shortDescription": "High-quality path: Generate chapter content for each chapter with diagram placeholders",
+      "fullDescription": "Logical sequencing respecting prerequisites. The chapter generator uses the dependency graph to create a chapter structure where concepts are introduced in the correct order, building naturally from foundational to advanced topics."
+    },
+    {
+      "id": 6,
+      "label": "High-Quality\nContent",
+      "group": "result-good",
+      "x": 250,
+      "y": 620,
+      "size": 50,
+      "shortDescription": "Successful outcome with minimal corrections needed",
+      "fullDescription": "High-quality textbook content generated with minimal manual correction. The investment in course description quality pays exponential dividends, resulting in a coherent, well-structured educational resource that requires only minor refinements before publication."
+    },
+    {
+      "id": 7,
+      "label": "Course Description \n Rubric Report",
+      "group": "low-quality",
+      "x": 550,
+      "y": 320,
+      "size": 50,
+      "shortDescription": "Low-quality path: Generate learning graph",
+      "fullDescription": "A report on the 10 critical areas of a course description weakness. Poor course descriptions lead to learning graphs with concepts that don't align with course goals, have vague relationships, or include irrelevant topics that waste development time."
+    },
+    {
+      "id": 8,
+      "label": "Manual\nCorrection Required",
+      "group": "low-quality",
+      "x": 550,
+      "y": 420,
+      "size": 45,
+      "shortDescription": "Low-quality path: Manual intervention needed",
+      "fullDescription": "Significant effort to refine concepts and relationships. Subject matter experts must review the generated graph, remove irrelevant concepts, add missing ones, correct dependencies, and ensure the graph forms a proper DAG structure."
+    },
+    {
+      "id": 9,
+      "label": "Regenerate\nDownstream Artifacts",
+      "group": "low-quality",
+      "x": 550,
+      "y": 520,
+      "size": 45,
+      "shortDescription": "Low-quality path: Redo dependent work",
+      "fullDescription": "Glossary, chapters must be redone with corrected graph. After manually fixing the learning graph, all downstream artifacts (glossary, chapter structure, content) must be regenerated, effectively doubling the development effort."
+    },
+    {
+      "id": 10,
+      "label": "Extended\nDevelopment Time",
+      "group": "result-bad",
+      "x": 550,
+      "y": 620,
+      "size": 50,
+      "shortDescription": "Poor outcome requiring extensive rework",
+      "fullDescription": "Extended development time, inconsistent quality. The low-quality course description creates a cascade of problems throughout the workflow, resulting in 2-3x longer development cycles and potentially inconsistent content quality across chapters."
+    }
+  ],
+  "edges": [
+    {
+      "from": 1,
+      "to": 2,
+      "color": "#6B7280",
+      "width": 2
+    },
+    {
+      "from": 2,
+      "to": 3,
+      "label": "Score ≥ 85",
+      "color": "#10B981",
+      "width": 3
+    },
+    {
+      "from": 2,
+      "to": 7,
+      "label": "Score < 85",
+      "color": "#F59E0B",
+      "width": 3
+    },
+    {
+      "from": 3,
+      "to": 4,
+      "color": "#059669",
+      "width": 2
+    },
+    {
+      "from": 4,
+      "to": 5,
+      "color": "#059669",
+      "width": 2
+    },
+    {
+      "from": 5,
+      "to": 6,
+      "color": "#059669",
+      "width": 2
+    },
+    {
+      "from": 7,
+      "to": 8,
+      "color": "#D97706",
+      "width": 2
+    },
+    {
+      "from": 8,
+      "to": 9,
+      "color": "#D97706",
+      "width": 2
+    },
+    {
+      "from": 9,
+      "to": 10,
+      "color": "#D97706",
+      "width": 2
+    }
+  ]
+}
