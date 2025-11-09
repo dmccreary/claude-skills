@@ -450,6 +450,24 @@
       },
       "group": "Developer Tools & Skills",
       "notes": "The timeline-generator skill completes the visualization toolkit, enabling chronological presentation of historical events and project milestones."
+    },
+    {
+      "start_date": {"year": "2025", "month": "2", "day": "24"},
+      "text": {
+        "headline": "Claude Code Released",
+        "text": "Anthropic officially releases Claude Code 1.0, bringing production-ready AI pair programming to developers worldwide."
+      },
+      "group": "Developer Tools & Skills",
+      "notes": "Claude Code's official release marked the maturation of AI-assisted development tools, offering terminal integration, MCP support, and autonomous coding capabilities for professional software development."
+    },
+    {
+      "start_date": {"year": "2025", "month": "10", "day": "16"},
+      "text": {
+        "headline": "Claude Skills Announcement",
+        "text": "Anthropic officially announces Claude Skills, enabling users to extend Claude's capabilities with custom autonomous agents and specialized workflows."
+      },
+      "group": "Developer Tools & Skills",
+      "notes": "Claude Skills formalized the extension framework, allowing developers to create specialized agents for domain-specific tasks, educational content generation, and workflow automation."
     }
   ]
 }
