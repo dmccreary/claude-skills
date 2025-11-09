@@ -49,6 +49,29 @@ In the context of intelligent textbooks built with MkDocs Material, MicroSims fu
 | MicroSims | High | Narrow | Moderate | Excellent (interaction patterns) |
 | Full Simulations | Very High | Broad | High | Excellent but complex |
 
+## Example: Timeline-Based MicroSim
+
+Before diving into p5.js-based MicroSims, let's examine a production-quality example that demonstrates professional MicroSim design patterns. The **[Evolution of AI: From Neural Networks to Claude Code](../../sims/claude-code-timeline/index.md)** timeline showcases a different approach to interactive visualization using the vis-timeline.js library.
+
+This MicroSim demonstrates several key principles covered in this chapter:
+
+- **Structured directory organization**: `main.html` (visualization), `timeline.json` (data), `index.md` (documentation)
+- **Interactive controls**: Category filter buttons allowing users to focus on specific technology areas
+- **Rich context delivery**: Hover tooltips provide historical notes; click events display full descriptions
+- **Educational metadata**: 52 events organized into 6 color-coded categories with comprehensive references
+- **Professional polish**: Responsive design, smooth animations, clear visual hierarchy
+
+[Explore the Interactive Timeline](../../sims/claude-code-timeline/main.html){ .md-button .md-button--primary }
+
+**Key takeaways for MicroSim developers:**
+
+1. **Data separation**: Timeline data lives in `timeline.json`, separate from visualization code—making updates easy
+2. **Multiple interaction modes**: Supports zoom/pan, filtering, hover, and click interactions simultaneously
+3. **Reference linking**: Click events link to a comprehensive References section with 51 curated sources
+4. **Category organization**: 6 thematic categories help users navigate 70 years of AI history systematically
+
+While this timeline uses vis-timeline.js rather than p5.js, it exemplifies the MicroSim philosophy: focused scope (AI history leading to Claude), high interactivity (multiple input modes), and clear educational purpose (understanding technological foundations). The principles of seeded randomness, interactive controls, and metadata that we'll explore with p5.js apply equally to timeline-based visualizations.
+
 ## The p5.js Foundation
 
 MicroSims in this textbook framework are built using p5.js, a JavaScript library designed to make coding accessible for artists, designers, educators, and beginners. Created by Lauren McCarthy in 2013, p5.js is a modern interpretation of Processing, the influential creative coding framework originally developed by Ben Fry and Casey Reas. The library provides a gentle learning curve for educators who may not have extensive programming backgrounds, while still offering the power needed to create sophisticated visualizations.

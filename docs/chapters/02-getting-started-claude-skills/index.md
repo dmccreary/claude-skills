@@ -45,6 +45,20 @@ In the context of intelligent textbook creation, skills automate domain-specific
 
 The skills framework addresses a fundamental challenge in AI-assisted content generation: translating high-level goals ("create an intelligent textbook") into executable sequences of specific operations. By packaging workflow expertise into reusable skills, the framework democratizes access to sophisticated educational content creation capabilities that would otherwise require extensive prompt engineering expertise.
 
+!!! info "Historical Context: The Evolution to Claude Skills"
+    Claude Skills emerged from decades of AI research and development. To understand the technological foundations that made skills possible, explore the **[Evolution of AI: From Neural Networks to Claude Code](../../sims/claude-code-timeline/index.md)** interactive timeline. This visualization traces 52 pivotal moments from the Perceptron (1957) through transformers, large language models, and Constitutional AI, culminating in Claude Code and the official Claude Skills announcement in October 2025.
+
+    Key milestones enabling skills:
+
+    - **1957-2011**: Neural network foundations (backpropagation, LSTM, deep learning revival)
+    - **2012-2016**: Computer vision breakthroughs (AlexNet, ResNet demonstrating deep learning power)
+    - **2017-2019**: Transformer architecture enabling language understanding at scale
+    - **2020-2022**: Large language models (GPT-3, ChatGPT) bringing AI to mainstream users
+    - **2021-2024**: Anthropic's Constitutional AI and Claude development focusing on safety
+    - **2024-2025**: Claude Code and Skills formalizing AI-assisted development workflows
+
+    [View Interactive Timeline](../../sims/claude-code-timeline/main.html){ .md-button }
+
 Key distinctions between skills and general prompts:
 
 - **Workflow automation:** Skills execute multi-step procedures autonomously
