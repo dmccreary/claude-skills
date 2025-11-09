@@ -106,7 +106,7 @@
            +  time complexity, where V is the number of vertices (concepts) and E is 
            + the number of edges (dependencies).
         67 +  
-        68 +  <details>
+        68 +  <details markdown="1">
         69 +      <summary>DAG Validation Algorithm Visualization</summary>
         70 +      Type: diagram
         71 +  
@@ -225,7 +225,7 @@
            + 20% of your concepts are orphaned, review them to determine whether they 
            + should be connected to later material or removed from the graph entirely.
        159 +  
-       160 +  <details>
+       160 +  <details markdown="1">
        161 +      <summary>Orphaned Nodes Identification Chart</summary>
        162 +      Type: chart
        163 +  
@@ -310,7 +310,7 @@
            + integration points. If more than 60% of concepts form linear chains, 
            + consider adding cross-dependencies to create a richer learning network.
        225 +  
-       226 +  <details>
+       226 +  <details markdown="1">
        227 +      <summary>Linear Chain vs Network Structure Comparison</summary>
        228 +      Type: diagram
        229 +  
@@ -414,7 +414,7 @@
            + below 2.0 may be too linear, while those above 5.0 may impose unrealistic
            +  prerequisite burdens on learners.
        306 +  
-       307 +  <details>
+       307 +  <details markdown="1">
        308 +      <summary>Average Dependencies Distribution Bar Chart</summary>
        309 +      Type: chart
        310 +  
@@ -529,7 +529,7 @@
            + revision. Track scores over time to ensure your changes improve rather 
            + than degrade graph quality.
        402 +  
-       403 +  <details>
+       403 +  <details markdown="1">
        404 +      <summary>Learning Graph Quality Score Calculator MicroSim</summary>
        405 +      Type: microsim
        406 +  
@@ -662,7 +662,7 @@
            + showing both absolute counts and percentages for each category, enabling 
            + quick identification of imbalanced distributions.
        517 +  
-       518 +  <details>
+       518 +  <details markdown="1">
        519 +      <summary>Taxonomy Distribution Pie Chart</summary>
        520 +      Type: chart
        521 +  
@@ -956,7 +956,7 @@
             + and applies them systematically, flagging ambiguous cases for manual 
             + review.
         100 +  
-        101 +  <details>
+        101 +  <details markdown="1">
         102 +      <summary>Adding Taxonomy to CSV Workflow Diagram</summary>
         103 +      Type: workflow
         104 +  
@@ -1079,7 +1079,7 @@
             + automatically, rejecting CSV data that would produce invalid JSON and 
             + providing detailed error messages for corrections.
         199 +  
-        200 +  <details>
+        200 +  <details markdown="1">
         201 +      <summary>Learning Graph JSON Schema Diagram</summary>
         202 +      Type: diagram
         203 +  
@@ -1286,7 +1286,7 @@
         378 +  For a 200-concept learning graph with an average of 3 dependencies per 
             + concept, expect approximately 600 edge objects in this array.
         379 +  
-        380 +  <details>
+        380 +  <details markdown="1">
         381 +      <summary>CSV to JSON Conversion Mapping Diagram</summary>
         382 +      Type: diagram
         383 +  
@@ -1533,7 +1533,7 @@
         594 +  - Inclusion in open educational resource repositories
         595 +  - Compliance with institutional policies
         596 +  
-        597 +  <details>
+        597 +  <details markdown="1">
         598 +      <summary>Dublin Core Metadata Field Reference Card</summary>
         599 +      Type: infographic
         600 +  
@@ -1682,7 +1682,7 @@
         731 +  
         732 +  If luminance > 0.5, use black text; otherwise, use white text.
         733 +  
-        734 +  <details>
+        734 +  <details markdown="1">
         735 +      <summary>Color Accessibility Checker MicroSim</summary>
         736 +      Type: microsim
         737 +  
@@ -1981,7 +1981,7 @@
        1010 +      json.dump(output, f, indent=2)
        1011 +  ```
        1012 +  
-       1013 +  <details>
+       1013 +  <details markdown="1">
        1014 +      <summary>Python Learning Graph Processing Pipeline</summary>
        1015 +      Type: diagram
        1016 +  
@@ -2163,7 +2163,7 @@
   - Technical vocabulary with concise definitions
   - Balance of practical and theoretical content
   - Mix of visual elements every 3-5 paragraphs
-  - Detailed <details> blocks for complex visual/interactive elements
+  - Detailed <details markdown="1"> blocks for complex visual/interactive elements
 
   All content is ready for MkDocs publication and includes comprehensive specifications
   that would enable other skills (like microsim-p5, mermaid-generator) to implement the
@@ -2188,7 +2188,7 @@
 
   The content generation was quite token-intensive because:
   - Each chapter required detailed, college-level educational content
-  - Multiple non-text element specifications (<details> blocks) with comprehensive
+  - Multiple non-text element specifications (<details markdown="1"> blocks) with comprehensive
   implementation details
   - Reading extensive reference materials to ensure proper formatting and quality
   - Two substantial chapters (6,800 and 7,200 words respectively)

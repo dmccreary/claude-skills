@@ -77,7 +77,7 @@ The following table summarizes the question categories and their pedagogical fun
 | Comparative | "How does X differ from Y?" | Establishes conceptual boundaries |
 | Metacognitive | "How will I know if I understand?" | Supports self-assessment and reflection |
 
-<details>
+<details markdown="1">
     <summary>FAQ Question Pattern Analysis Workflow</summary>
     Type: workflow
 
@@ -239,7 +239,7 @@ The following table illustrates distractor categories and their diagnostic funct
 | Underdiscrimination | Indicates insufficient boundary understanding | Student cannot distinguish index-free adjacency from indexed lookup |
 | Procedural Error | Exposes common implementation mistakes | Student confuses BFS and DFS traversal patterns |
 
-<details>
+<details markdown="1">
     <summary>Interactive Quiz Question Constructor MicroSim</summary>
     Type: microsim
 
@@ -422,7 +422,7 @@ The following table maps Bloom's levels to characteristic question stems and exa
 | Evaluate | Judge, Critique, Assess, Decide | "Which approach is most appropriate for this use case?" | 5-10% |
 | Create | Design, Construct, Plan, Generate | "What would be the optimal graph schema for this scenario?" | 0-5% |
 
-<details>
+<details markdown="1">
     <summary>Bloom's Taxonomy Distribution Analyzer Chart</summary>
     Type: chart
 
@@ -571,7 +571,7 @@ The terminal emulator serves as the window into the command-line world, providin
 
 A critical distinction between GUI and CLI workflows involves the visibility of state and operations. GUI applications typically show all available options visually, allowing users to discover functionality through exploration. Command-line tools, conversely, assume users know what they want to accomplish and provide the syntax to express it concisely, requiring external documentation or help systems (man pages, --help flags) to discover available functionality. This documentation-dependent model proves efficient for experienced users executing known workflows but demands initial investment in learning command syntax and consulting references.
 
-<details>
+<details markdown="1">
     <summary>Command-Line Interface Basics Interactive Infographic</summary>
     Type: infographic
 

@@ -62,7 +62,7 @@ The essential components of every chapter include:
 - **Exercises**: Practice problems allowing students to apply and reinforce learning
 - **Key Takeaways**: Summary of essential points students should retain
 
-<details>
+<details markdown="1">
     <summary>Chapter Organization Workflow Diagram</summary>
     Type: workflow
 
@@ -145,7 +145,7 @@ The concept list within a chapter index file serves multiple critical functions 
 
 When working with concept lists, keep several important considerations in mind. The concepts should reflect learning graph entries exactly as they appear, maintaining consistency across the entire textbook. While the list order may follow the learning graph numbering, the actual content presentation order should be determined by pedagogical effectiveness rather than list sequence. Each concept should be atomic and focused on a single clear idea rather than combining multiple distinct notions.
 
-<details>
+<details markdown="1">
     <summary>Chapter Index File Structure Diagram</summary>
     Type: diagram
 
@@ -204,7 +204,7 @@ The skill follows a six-step workflow to ensure systematic, high-quality content
 
 Several key parameters influence how content is generated, ensuring it aligns with course objectives and audience needs. The reading level, determined from the course description file, affects sentence complexity, vocabulary choices, explanation depth, and example sophistication. The concept list defines the precise scope of coverage, while concept dependencies from the learning graph determine the optimal presentation order.
 
-<details>
+<details markdown="1">
     <summary>Content Generation Process Timeline</summary>
     Type: timeline
 
@@ -298,7 +298,7 @@ High-quality worked examples share several key characteristics that maximize the
 
 Effective examples also include progressive complexity, starting with straightforward cases that isolate individual concepts before advancing to integrated examples that require combining multiple concepts. Each example should connect explicitly to the concept it illustrates, with annotations or callouts highlighting where specific principles are being applied. For college-level content, examples should draw from realistic professional contexts that learners are likely to encounter, increasing relevance and motivation.
 
-<details>
+<details markdown="1">
     <summary>Worked Example: Determining Reading Level from Course Description</summary>
     Type: infographic
 
@@ -376,7 +376,7 @@ For a chapter on content creation workflows, appropriate exercises might include
 - **Evaluate**: Assess a sample chapter index file for completeness and quality
 - **Create**: Design a complete content generation workflow for a new educational technology
 
-<details>
+<details markdown="1">
     <summary>Interactive Exercise Generator MicroSim</summary>
     Type: microsim
 
@@ -487,7 +487,7 @@ Violations: Circular (uses "learning" and "learn"), includes business rules (men
 
 This definition is precise (specifies DAG structure), concise (minimal words), distinct (differentiates from other graph types through the prerequisite dependency characteristic), non-circular (doesn't use "learning" in the definition), and free of business rules (describes what it is, not how it's used).
 
-<details>
+<details markdown="1">
     <summary>ISO 11179 Principles Comparison Table Infographic</summary>
     Type: infographic
 

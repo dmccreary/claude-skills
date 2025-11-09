@@ -86,7 +86,7 @@ chapters
            + appropriate content makes them powerful tools for instructional design 
            + and curriculum development.
         47 +  
-        48 +  <details>
+        48 +  <details markdown="1">
         49 +      <summary>Evolution of AI Approaches Timeline</summary>
         50 +      Type: timeline
         51 +  
@@ -159,7 +159,7 @@ chapters
         98 +  - **Emergent capabilities:** Behaviors not explicitly programmed, 
            + arising from scale and training
         99 +  
-       100 +  <details>
+       100 +  <details markdown="1">
        101 +      <summary>Transformer Architecture Diagram</summary>
        102 +      Type: diagram
        103 +  
@@ -269,7 +269,7 @@ chapters
            + subscription operates on a usage-based model with 4-hour windows, a 
            + concept we'll explore in depth in Chapter 4.
        168 +  
-       169 +  <details>
+       169 +  <details markdown="1">
        170 +      <summary>Claude Code Workflow Diagram</summary>
        171 +      Type: workflow
        172 +  
@@ -439,7 +439,7 @@ chapters
            + `microsim-p5`, `quiz-generator`, and specifications for interactive 
            + infographics in chapter content.
        287 +  
-       288 +  <details>
+       288 +  <details markdown="1">
        289 +      <summary>Interactive Learning Element Types Comparison</summary>
        290 +      Type: chart
        291 +  
@@ -527,7 +527,7 @@ chapters
            + question-answer pairs that can seed AI tutoring agents, bridging toward 
            + Level 5 functionality.
        348 +  
-       349 +  <details>
+       349 +  <details markdown="1">
        350 +      <summary>Five Levels of Textbook Intelligence Visual Model</summary>
        351 +      Type: diagram
        352 +  
@@ -651,7 +651,7 @@ chapters
            + assessment. Generate draft content, run quality checks (completeness, 
            + concept coverage, reading level), and refine based on evaluation results.
        436 +  
-       437 +  <details>
+       437 +  <details markdown="1">
        438 +      <summary>Prompt Engineering Iterative Refinement Workflow</summary>
        439 +      Type: workflow
        440 +  
@@ -885,7 +885,7 @@ chapters
            + processes the YAML to determine skill identity and tool permissions, then
            +  executes the markdown workflow instructions sequentially.
         96 +  
-        97 +  <details>
+        97 +  <details markdown="1">
         98 +      <summary>Skill File Anatomy Diagram</summary>
         99 +      Type: diagram
        100 +  
@@ -1079,7 +1079,7 @@ chapters
            + only the tools necessary for the skill's function. This reduces risk of 
            + unintended modifications and makes skill behavior more predictable.
        239 +  
-       240 +  <details>
+       240 +  <details markdown="1">
        241 +      <summary>Skill Permission Matrix</summary>
        242 +      Type: markdown-table
        243 +  
@@ -1231,7 +1231,7 @@ chapters
        365 +  Project-local skills take precedence over global skills with the same 
            + name, enabling project-specific customization of standard workflows.
        366 +  
-       367 +  <details>
+       367 +  <details markdown="1">
        368 +      <summary>Skill Installation Locations and Priority</summary>
        369 +      Type: diagram
        370 +  
@@ -1384,7 +1384,7 @@ chapters
            + standard workflow, incorporating the contextual guidance where 
            + applicable.
        484 +  
-       485 +  <details>
+       485 +  <details markdown="1">
        486 +      <summary>Skill Invocation and Execution Lifecycle</summary>
        487 +      Type: workflow
        488 +  
@@ -1563,7 +1563,7 @@ chapters
            +  Commands might be used for auxiliary tasks like "check-concept-coverage"
            +  or "validate-markdown-format."
        629 +  
-       630 +  <details>
+       630 +  <details markdown="1">
        631 +      <summary>Skills vs Commands Decision Tree</summary>
        632 +      Type: workflow
        633 +  
@@ -1666,7 +1666,7 @@ chapters
            + 13 chapters, spreading skill invocations across several sessions prevents
            +  exhausting your token budget.
        709 +  
-       710 +  <details>
+       710 +  <details markdown="1">
        711 +      <summary>4-Hour Token Window Visualization</summary>
        712 +      Type: timeline
        713 +  
@@ -1835,7 +1835,7 @@ chapters
            +  projects, sharing expertise and accelerating future textbook 
            + development.
        835 +  
-       836 +  <details>
+       836 +  <details markdown="1">
        837 +      <summary>Iterative Prompt Refinement Metrics</summary>
        838 +      Type: chart
        839 +  
@@ -1953,7 +1953,7 @@ chapters
            + underspecified description yields generic or off-target concept graphs 
            + requiring extensive manual correction.
         54 +  
-        55 +  <details>
+        55 +  <details markdown="1">
         56 +      <summary>Course Description Quality Impact on Workflow</summary>
         57 +      Type: workflow
         58 +  
@@ -2107,7 +2107,7 @@ chapters
            + architecture) through intermediate (learning graphs) to advanced 
            + (MicroSim development), demonstrating appropriate scope and progression.
        151 +  
-       152 +  <details>
+       152 +  <details markdown="1">
        153 +      <summary>Topic-to-Concept Expansion Example</summary>
        154 +      Type: diagram
        155 +  
@@ -2264,7 +2264,7 @@ chapters
            + examples requiring learners to evaluate trade-offs" rather than the less 
            + actionable "create evaluation content."
        252 +  
-       253 +  <details>
+       253 +  <details markdown="1">
        254 +      <summary>Bloom's Taxonomy 1956 vs 2001 Comparison</summary>
        255 +      Type: diagram
        256 +  
@@ -2434,7 +2434,7 @@ chapters
            + guidance adaptable to contexts, and scaffolded problem-solving 
            + transitioning from guided to independent application.
        381 +  
-       382 +  <details>
+       382 +  <details markdown="1">
        383 +      <summary>Lower-Order vs Higher-Order Thinking Skills</summary>
        384 +      Type: diagram
        385 +  
@@ -2588,7 +2588,7 @@ chapters
            + creative work highlighting key features, and scaffolds complex production
            +  through phase-wise guidance.
        492 +  
-       493 +  <details>
+       493 +  <details markdown="1">
        494 +      <summary>Bloom's Taxonomy Application Distribution in Quality 
            + Courses</summary>
        495 +      Type: chart
@@ -2736,7 +2736,7 @@ chapters
            + learning-graph-generator, as quality deficiencies in the course 
            + description propagate through all downstream artifacts.
        600 +  
-       601 +  <details>
+       601 +  <details markdown="1">
        602 +      <summary>Course Description Quality Rubric Visualization</summary>
        603 +      Type: infographic
        604 +  
@@ -2906,7 +2906,7 @@ chapters
            + connected components indicating circular dependencies that must be 
            + resolved, and calculate concept depth as a proxy for difficulty.
         53 +  
-        54 +  <details>
+        54 +  <details markdown="1">
         55 +      <summary>Learning Graph Structure Visualization</summary>
         56 +      Type: graph-model
         57 +  
@@ -3059,7 +3059,7 @@ chapters
            + dependent concepts (e.g., "Claude Code Interface" → "File System Access,"
            +  "Command Execution," "Context Management")
        161 +  
-       162 +  <details>
+       162 +  <details markdown="1">
        163 +      <summary>Dependency Pattern Examples</summary>
        164 +      Type: diagram
        165 +  
@@ -3156,7 +3156,7 @@ chapters
            + incoming edges (foundational) appear in early chapters; concepts with 
            + many incoming edges (advanced, integrative) appear in later chapters.
        234 +  
-       235 +  <details>
+       235 +  <details markdown="1">
        236 +      <summary>DAG vs Cyclic Graph Comparison</summary>
        237 +      Type: diagram
        238 +  
@@ -3288,7 +3288,7 @@ chapters
            + review and refinement typically improves accuracy. Chapter 6 discusses 
            + quality validation metrics that identify potential dependency errors.
        323 +  
-       324 +  <details>
+       324 +  <details markdown="1">
        325 +      <summary>Dependency Mapping Decision Tree</summary>
        326 +      Type: workflow
        327 +  
@@ -3479,7 +3479,7 @@ chapters
            + separate session, effectively doubling throughput within token budget 
            + constraints.
        441 +  
-       442 +  <details>
+       442 +  <details markdown="1">
        443 +      <summary>Token Consumption Timeline for Complete Textbook 
            + Project</summary>
        444 +      Type: timeline
@@ -3609,7 +3609,7 @@ chapters
            +  concepts (Remember), procedural concepts (Apply), and analytical 
            + concepts (Analyze, Evaluate).
         60 +  
-        61 +  <details>
+        61 +  <details markdown="1">
         62 +      <summary>Topic-to-Concept Expansion Process</summary>
         63 +      Type: workflow
         64 +  
@@ -3718,7 +3718,7 @@ chapters
            +  comprehensive two-semester sequence" signals ~400 concepts split into 
            + multiple graphs.
        144 +  
-       145 +  <details>
+       145 +  <details markdown="1">
        146 +      <summary>Concept Count by Course Duration</summary>
        147 +      Type: chart
        148 +  
@@ -3790,7 +3790,7 @@ chapters
            + Dependencies." This aligns with knowledge domain nomenclature 
            + conventions.
        196 +  
-       197 +  <details>
+       197 +  <details markdown="1">
        198 +      <summary>Concept Label Quality Checklist</summary>
        199 +      Type: infographic
        200 +  
@@ -3904,7 +3904,7 @@ chapters
            + symbols. "Bloom's Taxonomy (2001)" counts as 23 characters including 
            + spaces and parentheses.
        289 +  
-       290 +  <details>
+       290 +  <details markdown="1">
        291 +      <summary>Concept Label Length Optimization</summary>
        292 +      Type: markdown-table
        293 +  
@@ -3980,7 +3980,7 @@ chapters
            + mixed granularity; manual review identifies and resolves granularity 
            + mismatches before finalizing the graph.
        339 +  
-       340 +  <details>
+       340 +  <details markdown="1">
        341 +      <summary>Concept Granularity Spectrum Visualization</summary>
        342 +      Type: diagram
        343 +  
@@ -4143,7 +4143,7 @@ chapters
            + identifies 10-20% of dependencies requiring adjustment—either missing 
            + edges (under-specification) or spurious edges (over-specification).
        451 +  
-       452 +  <details>
+       452 +  <details markdown="1">
        453 +      <summary>Dependency Mapping Workflow</summary>
        454 +      Type: workflow
        455 +  
@@ -4300,7 +4300,7 @@ chapters
        584 +  3. Verify all referenced IDs exist
        585 +  4. Run validation script to check for cycles before proceeding
        586 +  
-       587 +  <details>
+       587 +  <details markdown="1">
        588 +      <summary>CSV File Format Example with Validation</summary>
        589 +      Type: markdown-table
        590 +  
@@ -4428,7 +4428,7 @@ chapters
            +  5+ prerequisites often indicate overly advanced or insufficiently atomic
            +  concepts. Consider splitting.
        686 +  
-       687 +  <details>
+       687 +  <details markdown="1">
        688 +      <summary>ConceptID vs ConceptLabel Comparison</summary>
        689 +      Type: markdown-table
        690 +  
@@ -4559,7 +4559,7 @@ chapters
        784 +  The analyze-graph.py script in the learning-graph-generator skill 
            + computes these distributions and flags anomalies in the quality report.
        785 +  
-       786 +  <details>
+       786 +  <details markdown="1">
        787 +      <summary>Concept Depth Distribution Analysis</summary>
        788 +      Type: chart
        789 +  
@@ -4688,7 +4688,7 @@ chapters
 
   All chapters include:
   - Graduate-level sentence complexity and vocabulary
-  - Detailed <details> block specifications for interactive elements
+  - Detailed <details markdown="1"> block specifications for interactive elements
   - Proper markdown formatting with blank lines before lists and tables
   - Comprehensive coverage of all concepts from chapter outlines
   - Professional terminology and technical precision

@@ -140,11 +140,11 @@ plugins:
   - search
 #  - social
 markdown_extensions:
-  - admonition
-  - md_in_html
+    - md_in_html
+    - admonition
+    - attr_list
   - pymdownx.details
   - pymdownx.superfences
-  - attr_list
   - pymdownx.highlight:
       linenums: true
 extra_css:

@@ -65,7 +65,7 @@ The `analyze-graph.py` Python script performs DAG validation automatically by im
 
 If the algorithm encounters a gray node during traversal, it has detected a back edge indicating a cycle. This validation runs in O(V + E) time complexity, where V is the number of vertices (concepts) and E is the number of edges (dependencies).
 
-<details>
+<details markdown="1">
     <summary>DAG Validation Algorithm Visualization</summary>
     Type: diagram
 
@@ -157,7 +157,7 @@ An **orphaned node** is a concept that no other concept depends upon—it has an
 
 A well-designed learning graph typically has 5-10% orphaned nodes, representing culminating concepts and specialized topics. If more than 20% of your concepts are orphaned, review them to determine whether they should be connected to later material or removed from the graph entirely.
 
-<details>
+<details markdown="1">
     <summary>Orphaned Nodes Identification Chart</summary>
     Type: chart
 
@@ -223,7 +223,7 @@ def is_linear_chain_node(concept):
 
 Quality learning graphs typically have 20-40% of concepts in linear chains, with the remainder providing branching paths and concept integration points. If more than 60% of concepts form linear chains, consider adding cross-dependencies to create a richer learning network.
 
-<details>
+<details markdown="1">
     <summary>Linear Chain vs Network Structure Comparison</summary>
     Type: diagram
 
@@ -304,7 +304,7 @@ For educational learning graphs, empirical research suggests optimal ranges:
 
 The `analyze-graph.py` script calculates this metric and flags values outside the recommended 2.0-4.5 range. Graphs with average dependencies below 2.0 may be too linear, while those above 5.0 may impose unrealistic prerequisite burdens on learners.
 
-<details>
+<details markdown="1">
     <summary>Average Dependencies Distribution Bar Chart</summary>
     Type: chart
 
@@ -400,7 +400,7 @@ Interpretation of quality scores:
 
 The quality score should be calculated after every significant graph revision. Track scores over time to ensure your changes improve rather than degrade graph quality.
 
-<details>
+<details markdown="1">
     <summary>Learning Graph Quality Score Calculator MicroSim</summary>
     Type: microsim
 
@@ -515,7 +515,7 @@ Healthy category distributions typically exhibit:
 
 The `taxonomy-distribution.py` script generates a detailed report showing both absolute counts and percentages for each category, enabling quick identification of imbalanced distributions.
 
-<details>
+<details markdown="1">
     <summary>Taxonomy Distribution Pie Chart</summary>
     Type: chart
 

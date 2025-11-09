@@ -144,7 +144,7 @@ Successfully generated comprehensive content for Chapter 9: Claude Skills Archit
 - College-level sentence complexity ✓
 - Technical terminology with context ✓
 - Real-world examples (Git workflows, installation scripts) ✓
-- Interactive element emphasis (5 `<details>` specs) ✓
+- Interactive element emphasis (5 `<details markdown="1">` specs) ✓
 
 **Outcome**: 5,200-word chapter with 18 non-text elements
 
@@ -258,7 +258,7 @@ Successfully generated comprehensive content for Chapter 9: Claude Skills Archit
 3. **Reading level consistency**: Maintained college-level complexity throughout
 4. **Visual diversity**: 6 different non-text element types used
 5. **Practical examples**: Real-world code snippets, commands, and workflows
-6. **Interactive specifications**: Detailed `<details>` blocks for 5 visual elements
+6. **Interactive specifications**: Detailed `<details markdown="1">` blocks for 5 visual elements
 7. **Blank line compliance**: All markdown lists and tables properly formatted
 
 ### Pedagogical Features
@@ -282,7 +282,7 @@ Successfully generated comprehensive content for Chapter 9: Claude Skills Archit
 
 ### For Visual Element Creation
 
-The chapter includes 5 `<details>` block specifications that will need implementation:
+The chapter includes 5 `<details markdown="1">` block specifications that will need implementation:
 
 1. **Skill Directory Structure Diagram** (line ~64)
    - Technology: Mermaid.js graph or SVG

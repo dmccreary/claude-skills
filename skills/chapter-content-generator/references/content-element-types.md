@@ -1,6 +1,6 @@
 # Content Element Types for Textbook Chapters
 
-This reference describes the various non-pure-text content elements that can be used to break up textbook content and enhance learning. Each element type should be specified in `<details>` blocks when generating chapter content.
+This reference describes the various non-pure-text content elements that can be used to break up textbook content and enhance learning. Each element type should be specified in `<details markdown="1">` blocks when generating chapter content.
 
 ## Element Types Overview
 
@@ -15,7 +15,7 @@ The goal is to have no more than three paragraphs of pure text without incorpora
 - Presenting step-by-step procedures
 - Listing examples or categories
 
-**Implementation:** Embed directly in markdown content (no `<details>` block needed)
+**Implementation:** Embed directly in markdown content (no `<details markdown="1">` block needed)
 
 **Requirements:**
 - ALWAYS place a blank line before the list
@@ -40,7 +40,7 @@ The following are key characteristics of graph databases:
 - Presenting structured data
 - Showing before/after comparisons
 
-**Implementation:** Embed directly in markdown content (no `<details>` block needed)
+**Implementation:** Embed directly in markdown content (no `<details markdown="1">` block needed)
 
 **Requirements:**
 - ALWAYS place a blank line before the table
@@ -69,7 +69,7 @@ Here is a comparison of database types:
 - Explaining abstract concepts visually
 - Depicting data flows or processes
 
-**Implementation:** Use `<details>` block with specification
+**Implementation:** Use `<details markdown="1">` block with specification
 
 **Required information in description:**
 - Purpose of the diagram
@@ -81,7 +81,7 @@ Here is a comparison of database types:
 
 **Example specification:**
 ```xml
-<details>
+<details markdown="1">
     <summary>CMDB Architecture Diagram</summary>
     Type: diagram
 
@@ -119,7 +119,7 @@ Here is a comparison of database types:
 - Building progressive disclosure interfaces
 - Showing hierarchical information
 
-**Implementation:** Use `<details>` block with specification
+**Implementation:** Use `<details markdown="1">` block with specification
 
 **Required information in description:**
 - Purpose and main message
@@ -131,7 +131,7 @@ Here is a comparison of database types:
 
 **Example specification:**
 ```xml
-<details>
+<details markdown="1">
     <summary>ITIL Framework Evolution Interactive Timeline</summary>
     Type: infographic
 
@@ -168,7 +168,7 @@ Here is a comparison of database types:
 - Visualizing algorithms or processes
 - Showing cause-and-effect relationships
 
-**Implementation:** Use `<details>` block with specification
+**Implementation:** Use `<details markdown="1">` block with specification
 
 **Required information in description:**
 - Learning objective (what concept is being taught)
@@ -181,7 +181,7 @@ Here is a comparison of database types:
 
 **Example specification:**
 ```xml
-<details>
+<details markdown="1">
     <summary>Graph Traversal Visualization MicroSim</summary>
     Type: microsim
 
@@ -236,7 +236,7 @@ Here is a comparison of database types:
 - Comparing values across categories
 - Illustrating proportions or distributions
 
-**Implementation:** Use `<details>` block with specification
+**Implementation:** Use `<details markdown="1">` block with specification
 
 **Required information in description:**
 - Chart type (bar, line, pie, scatter, etc.)
@@ -248,7 +248,7 @@ Here is a comparison of database types:
 
 **Example specification:**
 ```xml
-<details>
+<details markdown="1">
     <summary>Query Performance Comparison: RDBMS vs Graph Database</summary>
     Type: chart
 
@@ -295,7 +295,7 @@ Here is a comparison of database types:
 - Demonstrating evolution of concepts
 - Presenting sequential events
 
-**Implementation:** Use `<details>` block with specification
+**Implementation:** Use `<details markdown="1">` block with specification
 
 **Required information in description:**
 - Time period covered
@@ -307,7 +307,7 @@ Here is a comparison of database types:
 
 **Example specification:**
 ```xml
-<details>
+<details markdown="1">
     <summary>Evolution of Configuration Management Timeline</summary>
     Type: timeline
 
@@ -352,7 +352,7 @@ Here is a comparison of database types:
 - Demonstrating adoption patterns
 - Visualizing network topologies
 
-**Implementation:** Use `<details>` block with specification
+**Implementation:** Use `<details markdown="1">` block with specification
 
 **Required information in description:**
 - Geographic scope (world, region, country)
@@ -365,7 +365,7 @@ Here is a comparison of database types:
 
 **Example specification:**
 ```xml
-<details>
+<details markdown="1">
     <summary>GDPR Data Flow Compliance Map</summary>
     Type: map
 
@@ -410,7 +410,7 @@ Here is a comparison of database types:
 - Explaining system interactions
 - Demonstrating procedural steps
 
-**Implementation:** Use `<details>` block with specification
+**Implementation:** Use `<details markdown="1">` block with specification
 
 **Required information in description:**
 - Process name and purpose
@@ -423,7 +423,7 @@ Here is a comparison of database types:
 
 **Example specification:**
 ```xml
-<details>
+<details markdown="1">
     <summary>Change Management Workflow with Impact Analysis</summary>
     Type: workflow
 
@@ -483,7 +483,7 @@ Here is a comparison of database types:
 - Illustrating dependency networks
 - Visualizing knowledge graphs
 
-**Implementation:** Use `<details>` block with specification
+**Implementation:** Use `<details markdown="1">` block with specification
 
 **Required information in description:**
 - Node types and their properties
@@ -496,7 +496,7 @@ Here is a comparison of database types:
 
 **Example specification:**
 ```xml
-<details>
+<details markdown="1">
     <summary>IT Management Graph Data Model</summary>
     Type: graph-model
 
@@ -579,7 +579,7 @@ Here is a comparison of database types:
 For any element requiring specification (types 3-10), use this template:
 
 ```xml
-<details>
+<details markdown="1">
     <summary>Brief descriptive title</summary>
     Type: [element-type]
 

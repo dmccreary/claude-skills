@@ -69,13 +69,13 @@ Extract the grade reading level from the /dpcs/course-description.md.  If the fi
     10. a graph data model using the vis-network library
 
 If the content is just markdown (lists, tables set) put it in the text.
-If the content is anything else in the list, you must write a description of it and put it in a `<details>` block.
+If the content is anything else in the list, you must write a description of it and put it in a `<details markdown="1">` block.
 The details
 
 For each of these non-pure-text elements you will generate the following structure:
 
 ```xml
-<details>
+<details markdown="1">
     <summary>SUMMARY TEXT<summary>
     Type: ITEM_TYPE
     A detailed description of the item that is non-pure text.
@@ -165,7 +165,7 @@ Read(docs/chapters/01-intro-to-itil-and-config-mgmt/index.md)
            + process-centric worldview, where IT management is decomposed into distinct, 
            + coordinated workflows rather than viewed as a unified data management challenge.
         52 +  
-        53 +  <details>
+        53 +  <details markdown="1">
         54 +      <summary>ITIL Framework Structure Diagram</summary>
         55 +      Type: diagram
         56 +  
@@ -425,7 +425,7 @@ Read(docs/chapters/01-intro-to-itil-and-config-mgmt/index.md)
            + Software asset management must track license entitlements against actual deployments
            +  to avoid compliance risk and optimize software spending.
        198 +  
-       199 +  <details>
+       199 +  <details markdown="1">
        200 +      <summary>IT Asset Hierarchy Infographic</summary>
        201 +      Type: infographic
        202 +  
@@ -533,7 +533,7 @@ Read(docs/chapters/01-intro-to-itil-and-config-mgmt/index.md)
            + alternatives demonstrated orders of magnitude performance improvements for multi-hop
            +  dependency traversal.
        280 +  
-       281 +  <details>
+       281 +  <details markdown="1">
        282 +      <summary>Traditional CMDB Data Flow and Integration Architecture</summary>
        283 +      Type: diagram
        284 +  
@@ -758,7 +758,7 @@ Read(docs/chapters/01-intro-to-itil-and-config-mgmt/index.md)
   Markdown tables: 3
   - CI Attribute Categories table
   - Asset Management vs. Configuration Management comparison
-  - (One table embedded in <details> specification)
+  - (One table embedded in <details markdown="1"> specification)
 
   Diagrams: 2
   - ITIL Framework Structure Diagram (hierarchical, showing Service Support/Delivery and CMDB
@@ -821,7 +821,7 @@ Read(docs/chapters/01-intro-to-itil-and-config-mgmt/index.md)
   - Critical analysis: Discusses both theoretical framework and practical failures
   - Bridge to next chapter: Concludes by setting up Chapter 3 (Relational Database Fundamentals)
 
-  The chapter is now ready for review. The three <details> blocks contain comprehensive
+  The chapter is now ready for review. The three <details markdown="1"> blocks contain comprehensive
   specifications that can be handed off to designers or used with visualization skills to generate
   the actual diagrams and infographic.
 

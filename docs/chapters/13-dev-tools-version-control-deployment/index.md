@@ -1376,7 +1376,7 @@ For each chapter, use the `chapter-content-generator` skill:
 The skill generates:
 - Detailed educational content at appropriate reading level
 - Diverse non-text elements (lists, tables, diagrams)
-- Specifications for complex elements (MicroSims, infographics) in `<details>` blocks
+- Specifications for complex elements (MicroSims, infographics) in `<details markdown="1">` blocks
 
 **Minimum requirement:** Complete 3 chapters with rich content
 

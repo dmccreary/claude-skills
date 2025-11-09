@@ -140,7 +140,7 @@
            +  the content development process compared to traditional publishing 
            + workflows that require manual build and preview steps.
         77 +  
-        78 +  <details>
+        78 +  <details markdown="1">
         79 +      <summary>MkDocs Build Process Workflow Diagram</summary>
         80 +      Type: workflow
         81 +  
@@ -227,7 +227,7 @@
            + KaTeX), code syntax highlighting, and complex content hierarchies makes 
            + it particularly well-suited for technical educational content.
        134 +  
-       135 +  <details>
+       135 +  <details markdown="1">
        136 +      <summary>Material Theme Features Interactive Comparison</summary>
        137 +      Type: infographic
        138 +  
@@ -451,7 +451,7 @@
            + overwhelming presentation of information while keeping it accessible for 
            + learners who need additional depth.
        281 +  
-       282 +  <details>
+       282 +  <details markdown="1">
        283 +      <summary>Admonition Types Interactive Reference</summary>
        284 +      Type: infographic
        285 +  
@@ -600,7 +600,7 @@
            + from affecting others while preserving the ability to integrate finished 
            + work at any time.
        372 +  
-       373 +  <details>
+       373 +  <details markdown="1">
        374 +      <summary>Git Branching and Merging Visualization MicroSim</summary>
        375 +      Type: microsim
        376 +  
@@ -766,7 +766,7 @@
            + while preserving the ability to reference specific historical versions 
            + when needed.
        478 +  
-       479 +  <details>
+       479 +  <details markdown="1">
        480 +      <summary>MkDocs GitHub Pages Deployment Workflow</summary>
        481 +      Type: workflow
        482 +  
@@ -951,7 +951,7 @@
   - Code blocks: 3 (YAML configuration examples, markdown syntax examples, navigation
   structure)
 
-  Specified in <details> blocks (require implementation):
+  Specified in <details markdown="1"> blocks (require implementation):
   - Workflows: 2
     - MkDocs Build Process Workflow Diagram
     - MkDocs GitHub Pages Deployment Workflow
@@ -990,7 +990,7 @@
 
   Skills Required for Interactive Elements
 
-  To implement the 5 interactive elements specified in <details> blocks:
+  To implement the 5 interactive elements specified in <details markdown="1"> blocks:
   - mermaid-generator skill: For the 2 workflow diagrams
   - Custom infographic development: For the 2 interactive comparison/reference panels
   - microsim-p5 skill: For the Git branching visualization

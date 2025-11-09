@@ -58,7 +58,7 @@ The enumeration process follows a systematic workflow:
 
 For AI-assisted enumeration via the learning-graph-generator skill, the course description provides essential context. Rich topic lists with 20-30 entries enable more accurate concept generation than sparse lists with 5-10 entries. Learning outcomes aligned with Bloom's Taxonomy signal which cognitive levels to emphasize, influencing the mix of definitional concepts (Remember), procedural concepts (Apply), and analytical concepts (Analyze, Evaluate).
 
-<details>
+<details markdown="1">
     <summary>Topic-to-Concept Expansion Process</summary>
     Type: workflow
 
@@ -142,7 +142,7 @@ The target of approximately 200 concepts for a semester-length course derives fr
 
 The learning-graph-generator skill defaults to 200 concepts but accepts guidance in the course description. A statement like "This is an intensive 6-week boot camp" signals to generate ~100 concepts; "This is a comprehensive two-semester sequence" signals ~400 concepts split into multiple graphs.
 
-<details>
+<details markdown="1">
     <summary>Concept Count by Course Duration</summary>
     Type: chart
 
@@ -194,7 +194,7 @@ Concept labels serve as human-readable identifiers appearing in learning graphs,
 
 **Avoid gerunds in favor of noun forms:** "Concept Enumeration" rather than "Enumerating Concepts"; "Dependency Mapping" rather than "Mapping Dependencies." This aligns with knowledge domain nomenclature conventions.
 
-<details>
+<details markdown="1">
     <summary>Concept Label Quality Checklist</summary>
     Type: infographic
 
@@ -287,7 +287,7 @@ The 32-character constraint balances information density with usability across c
 
 The character count includes all letters, spaces, punctuation, and symbols. "Bloom's Taxonomy (2001)" counts as 23 characters including spaces and parentheses.
 
-<details>
+<details markdown="1">
     <summary>Concept Label Length Optimization</summary>
     Type: markdown-table
 
@@ -337,7 +337,7 @@ Concept granularity—the level of detail and scope at which concepts are define
 
 Achieving consistent granularity across 200 concepts requires iterative refinement. The learning-graph-generator produces initial concepts at mixed granularity; manual review identifies and resolves granularity mismatches before finalizing the graph.
 
-<details>
+<details markdown="1">
     <summary>Concept Granularity Spectrum Visualization</summary>
     Type: diagram
 
@@ -449,7 +449,7 @@ Review edge set to ensure all dependencies represent true prerequisites, not mer
 
 The learning-graph-generator skill automates much of this process using LLM reasoning about concept relationships, but manual review typically identifies 10-20% of dependencies requiring adjustment—either missing edges (under-specification) or spurious edges (over-specification).
 
-<details>
+<details markdown="1">
     <summary>Dependency Mapping Workflow</summary>
     Type: workflow
 
@@ -584,7 +584,7 @@ When manually editing CSV files to add or modify dependencies:
 3. Verify all referenced IDs exist
 4. Run validation script to check for cycles before proceeding
 
-<details>
+<details markdown="1">
     <summary>CSV File Format Example with Validation</summary>
     Type: markdown-table
 
@@ -684,7 +684,7 @@ The Dependencies field encodes prerequisite relationships as pipe-delimited Conc
 
 **Reasonable fan-in:** While no hard limit exists, concepts depending on 5+ prerequisites often indicate overly advanced or insufficiently atomic concepts. Consider splitting.
 
-<details>
+<details markdown="1">
     <summary>ConceptID vs ConceptLabel Comparison</summary>
     Type: markdown-table
 
@@ -783,7 +783,7 @@ Anomalies suggesting quality issues:
 
 The analyze-graph.py script in the learning-graph-generator skill computes these distributions and flags anomalies in the quality report.
 
-<details>
+<details markdown="1">
     <summary>Concept Depth Distribution Analysis</summary>
     Type: chart
 

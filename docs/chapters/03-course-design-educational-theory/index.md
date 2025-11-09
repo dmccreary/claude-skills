@@ -52,7 +52,7 @@ Well-crafted course descriptions exhibit several key characteristics that enable
 
 For intelligent textbook projects, the course description quality directly impacts downstream artifacts. A comprehensive, well-structured course description enables the learning-graph-generator skill to produce 200+ relevant concepts with accurate dependencies, while an underspecified description yields generic or off-target concept graphs requiring extensive manual correction.
 
-<details>
+<details markdown="1">
     <summary>Course Description Quality Impact on Workflow</summary>
     Type: workflow
 
@@ -149,7 +149,7 @@ Effective topic listings exhibit:
 
 The course description for this intelligent textbooks course provides an exemplar with 25+ main topics ranging from foundational (Claude Skills architecture) through intermediate (learning graphs) to advanced (MicroSim development), demonstrating appropriate scope and progression.
 
-<details>
+<details markdown="1">
     <summary>Topic-to-Concept Expansion Example</summary>
     Type: diagram
 
@@ -250,7 +250,7 @@ The verb-based framework better aligns with outcome statements: "Students will a
 
 For AI-assisted content generation, the verb-based taxonomy enables more precise prompt engineering. Skills can be instructed to "generate examples requiring learners to evaluate trade-offs" rather than the less actionable "create evaluation content."
 
-<details>
+<details markdown="1">
     <summary>Bloom's Taxonomy 1956 vs 2001 Comparison</summary>
     Type: diagram
 
@@ -379,7 +379,7 @@ Apply, execute, implement, use, carry out, solve, demonstrate, operate, employ, 
 **Content generation implications:**
 Apply-level content includes worked examples with step-by-step execution, practice opportunities with varied scenarios, procedural guidance adaptable to contexts, and scaffolded problem-solving transitioning from guided to independent application.
 
-<details>
+<details markdown="1">
     <summary>Lower-Order vs Higher-Order Thinking Skills</summary>
     Type: diagram
 
@@ -490,7 +490,7 @@ Create, design, construct, develop, formulate, author, generate, plan, produce, 
 **Content generation implications:**
 Create-level content provides open-ended challenges, offers frameworks and constraints fostering structured creativity, showcases examples of creative work highlighting key features, and scaffolds complex production through phase-wise guidance.
 
-<details>
+<details markdown="1">
     <summary>Bloom's Taxonomy Application Distribution in Quality Courses</summary>
     Type: chart
 
@@ -598,7 +598,7 @@ Assessing course description quality systematically ensures sufficient detail an
 
 Courses scoring below 70 should be revised before invoking learning-graph-generator, as quality deficiencies in the course description propagate through all downstream artifacts.
 
-<details>
+<details markdown="1">
     <summary>Course Description Quality Rubric Visualization</summary>
     Type: infographic
 

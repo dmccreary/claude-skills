@@ -45,7 +45,7 @@ The field has evolved through multiple waves of innovation, from early expert sy
 
 For educational content creation, AI represents an unprecedented opportunity to augment human expertise with computational scale and consistency. The ability of AI systems to process vast amounts of information, identify pedagogical patterns, and generate contextually appropriate content makes them powerful tools for instructional design and curriculum development.
 
-<details>
+<details markdown="1">
     <summary>Evolution of AI Approaches Timeline</summary>
     Type: timeline
 
@@ -97,7 +97,7 @@ Key characteristics of modern LLMs include:
 - **Contextual understanding:** Processing contexts spanning thousands of tokens
 - **Emergent capabilities:** Behaviors not explicitly programmed, arising from scale and training
 
-<details>
+<details markdown="1">
     <summary>Transformer Architecture Diagram</summary>
     Type: diagram
 
@@ -166,7 +166,7 @@ The Claude Code interface provides several capabilities critical for intelligent
 
 To access Claude Code, users require an **Anthropic Claude Pro account**, which provides enhanced usage limits, priority access during high-demand periods, and access to the latest model versions. The Pro subscription operates on a usage-based model with 4-hour windows, a concept we'll explore in depth in Chapter 4.
 
-<details>
+<details markdown="1">
     <summary>Claude Code Workflow Diagram</summary>
     Type: workflow
 
@@ -285,7 +285,7 @@ Interactive elements at Level 3 include:
 
 This course emphasizes creating Level 3 textbooks through skills like `microsim-p5`, `quiz-generator`, and specifications for interactive infographics in chapter content.
 
-<details>
+<details markdown="1">
     <summary>Interactive Learning Element Types Comparison</summary>
     Type: chart
 
@@ -346,7 +346,7 @@ AI personalization capabilities include:
 
 While Level 5 systems remain largely experimental in 2025, the skills framework in this course positions learners to integrate AI capabilities as they mature. The FAQ generator skill, for instance, creates question-answer pairs that can seed AI tutoring agents, bridging toward Level 5 functionality.
 
-<details>
+<details markdown="1">
     <summary>Five Levels of Textbook Intelligence Visual Model</summary>
     Type: diagram
 
@@ -434,7 +434,7 @@ Initial prompts rarely achieve optimal results. Expert prompt engineers treat pr
 
 Rather than attempting to generate perfect content in a single step, sophisticated workflows separate content generation from quality assessment. Generate draft content, run quality checks (completeness, concept coverage, reading level), and refine based on evaluation results.
 
-<details>
+<details markdown="1">
     <summary>Prompt Engineering Iterative Refinement Workflow</summary>
     Type: workflow
 

@@ -75,7 +75,7 @@ The static site generation approach offers significant advantages for educationa
 
 MkDocs operates through a simple command-line interface with three primary commands: `mkdocs new` creates a new documentation project, `mkdocs serve` launches a local development server with live reload functionality, and `mkdocs build` generates the production-ready static site. The development server watches for file changes and automatically rebuilds the site, providing immediate feedback as content authors write and edit documentation. This tight feedback loop dramatically accelerates the content development process compared to traditional publishing workflows that require manual build and preview steps.
 
-<details>
+<details markdown="1">
     <summary>MkDocs Build Process Workflow Diagram</summary>
     Type: workflow
 
@@ -132,7 +132,7 @@ The Material theme extends MkDocs with powerful additional capabilities through 
 
 The theme's configuration system allows extensive customization while maintaining sensible defaults for rapid deployment. Color palettes can be customized to match institutional branding, fonts can be selected from Google Fonts or custom sources, and page layouts can be adjusted to emphasize different content types. For intelligent textbook development, the Material theme's support for mathematical notation (via MathJax or KaTeX), code syntax highlighting, and complex content hierarchies makes it particularly well-suited for technical educational content.
 
-<details>
+<details markdown="1">
     <summary>Material Theme Features Interactive Comparison</summary>
     Type: infographic
 
@@ -279,7 +279,7 @@ Standard admonition types include several semantic categories:
 
 The `pymdownx.details` extension adds collapsible admonitions using `???` instead of `!!!`, creating interactive disclosure widgets that can be expanded by clicking. This feature is particularly valuable for optional content, detailed explanations, or supplementary information that some learners may want to skip. Collapsible admonitions help manage content density by hiding details until explicitly requested, preventing overwhelming presentation of information while keeping it accessible for learners who need additional depth.
 
-<details>
+<details markdown="1">
     <summary>Admonition Types Interactive Reference</summary>
     Type: infographic
 
@@ -370,7 +370,7 @@ The staging area concept initially confuses new Git users but provides essential
 
 Git's branching model enables parallel development workflows where different aspects of a textbook can be developed simultaneously without interference. A typical intelligent textbook project might have branches for chapter development, technical editing, graphics creation, and interactive element integration, all proceeding independently until ready to merge into the main branch. This isolation prevents incomplete work from affecting others while preserving the ability to integrate finished work at any time.
 
-<details>
+<details markdown="1">
     <summary>Git Branching and Merging Visualization MicroSim</summary>
     Type: microsim
 
@@ -476,7 +476,7 @@ The deployment workflow for an intelligent textbook follows these steps:
 
 GitHub Pages provides CDN-backed hosting with automatic HTTPS encryption, ensuring fast global access to educational content regardless of student location. The integration with Git version control means every published version is tracked, and rolling back to previous versions is trivial. For courses that update content iteratively, this provides students with stable URLs that always reflect the current curriculum while preserving the ability to reference specific historical versions when needed.
 
-<details>
+<details markdown="1">
     <summary>MkDocs GitHub Pages Deployment Workflow</summary>
     Type: workflow
 

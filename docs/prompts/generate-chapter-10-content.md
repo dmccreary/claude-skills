@@ -95,20 +95,20 @@ This chapter focuses on practical workflows for generating educational content, 
   1. Chapter index file required elements
   2. Reading level characteristics comparison
 
-- Workflow diagrams (in `<details>` blocks): 1
+- Workflow diagrams (in `<details markdown="1">` blocks): 1
   1. Chapter Organization Workflow Diagram
 
-- Diagrams (in `<details>` blocks): 1
+- Diagrams (in `<details markdown="1">` blocks): 1
   1. Chapter Index File Structure Diagram
 
-- Timelines (in `<details>` blocks): 1
+- Timelines (in `<details markdown="1">` blocks): 1
   1. Content Generation Process Timeline
 
-- Interactive infographics (in `<details>` blocks): 2
+- Interactive infographics (in `<details markdown="1">` blocks): 2
   1. Worked Example: Determining Reading Level from Course Description
   2. ISO 11179 Principles Comparison Table Infographic
 
-- MicroSims (in `<details>` blocks): 1
+- MicroSims (in `<details markdown="1">` blocks): 1
   1. Interactive Exercise Generator MicroSim
 
 **Interactive elements requiring skill execution**: 4

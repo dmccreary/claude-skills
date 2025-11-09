@@ -120,11 +120,11 @@ Generate comprehensive educational content based on the chapter outline, concept
 
 **Non-text element types:**
 
-Elements embedded directly in markdown (no `<details>` block):
+Elements embedded directly in markdown (no `<details markdown="1">` block):
 1. **Markdown lists** (bullet or numbered) - ALWAYS put blank line before list
 2. **Markdown tables** - ALWAYS put blank line before table
 
-Elements requiring `<details>` specification blocks:
+Elements requiring `<details markdown="1">` specification blocks:
 3. **Diagrams/drawings** - System architectures, relationships, data flows
 4. **Interactive infographics** - Clickable concept maps, progressive disclosure
 5. **MicroSims** - p5.js simulations with interactive controls
@@ -134,7 +134,7 @@ Elements requiring `<details>` specification blocks:
 9. **Workflow diagrams** - Business processes with hover text
 10. **Graph data models** - Entity relationships using vis-network
 
-For each `<details>` block element, use this structure:
+For each `<details markdown="1">` block element, use this structure:
 
 ```xml
 <details markdown="1">
@@ -159,7 +159,7 @@ For each `<details>` block element, use this structure:
 2. Present concepts in pedagogical order (simple to complex)
 3. Integrate non-text elements naturally throughout
 4. Use markdown lists and tables frequently (with blank lines before them)
-5. Include `<details>` blocks for complex visual/interactive elements
+5. Include `<details markdown="1">` blocks for complex visual/interactive elements
 6. End with summary or key takeaways section
 
 **Interactive elements emphasis:**
@@ -242,7 +242,7 @@ Comprehensive specifications for all non-text element types (3-10 above). Includ
 - When to use each element type
 - Required information for specifications
 - Implementation approaches
-- Example specifications in `<details>` block format
+- Example specifications in `<details markdown="1">` block format
 
 Load this reference when generating content to ensure proper specification of diagrams, MicroSims, infographics, charts, timelines, maps, workflows, and graph models.
 
@@ -270,7 +270,7 @@ Load this reference when determining how to write content at the appropriate rea
 
 5. **Interactive emphasis:** Prioritize MicroSims and infographics that enable student engagement tracking
 
-6. **Detailed specifications:** Make `<details>` blocks comprehensive enough for implementation without additional context
+6. **Detailed specifications:** Make `<details markdown="1">` blocks comprehensive enough for implementation without additional context
 
 7. **Concept integration:** Weave concepts together naturally rather than treating them as isolated topics
 

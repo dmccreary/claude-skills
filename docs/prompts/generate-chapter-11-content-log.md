@@ -155,7 +155,7 @@ The course description indicates:
 
 2. Read `/Users/dan/.claude/skills/chapter-content-generator/references/content-element-types.md`
    - Reviewed all 10 non-text element types
-   - Studied `<details>` block specification format
+   - Studied `<details markdown="1">` block specification format
    - Noted requirements for each element type
    - Identified goal: max 3 paragraphs between non-text elements
 
@@ -189,7 +189,7 @@ Pedagogical ordering (simple to complex):
 - Concept 3: Common Student Questions (primary focus)
 - Enumerated question categories: Definitional, Prerequisite, Application, Troubleshooting, Comparative, Metacognitive
 - **Non-text element 1:** Markdown table summarizing question categories and pedagogical functions
-- **Non-text element 2:** Workflow diagram specification (FAQ Question Pattern Analysis - detailed <details> block)
+- **Non-text element 2:** Workflow diagram specification (FAQ Question Pattern Analysis - detailed <details markdown="1"> block)
 
 *Subsection: The FAQ Generation Process (4 paragraphs)*
 - Concept 2: FAQ Generation Process
@@ -220,7 +220,7 @@ Pedagogical ordering (simple to complex):
 - MCQ anatomy: stem, key, distractors
 - Best practices for construction
 - **Non-text element 4:** Markdown table (distractor types and diagnostic functions)
-- **Non-text element 5:** MicroSim specification (Interactive Quiz Question Constructor - extensive <details> block)
+- **Non-text element 5:** MicroSim specification (Interactive Quiz Question Constructor - extensive <details markdown="1"> block)
 
 *Subsection: Aligning Quizzes with Learning Graph Concepts (4 paragraphs)*
 - Concept 7: Quiz Alignment with Concepts
@@ -233,7 +233,7 @@ Pedagogical ordering (simple to complex):
 - Six cognitive levels explained (Remember through Create)
 - MCQ design for each level
 - **Non-text element 6:** Markdown table (Bloom's levels with verbs, stems, percentages)
-- **Non-text element 7:** Chart specification (Bloom's Taxonomy Distribution Analyzer - detailed <details> block)
+- **Non-text element 7:** Chart specification (Bloom's Taxonomy Distribution Analyzer - detailed <details markdown="1"> block)
 
 *Subsection: Distributing Questions Across Cognitive Levels (4 paragraphs)*
 - Concept 9: Quiz Distribution Across Levels
@@ -256,7 +256,7 @@ Pedagogical ordering (simple to complex):
 - Unix philosophy and compositional approach
 - Foundational concepts for educators
 - Terminal emulators across platforms
-- **Non-text element 9:** Infographic specification (Command-Line Interface Basics - extensive <details> block)
+- **Non-text element 9:** Infographic specification (Command-Line Interface Basics - extensive <details markdown="1"> block)
 
 *Subsection: Essential Terminal Commands for Textbook Workflows (7 paragraphs + markdown table)*
 - Concept 14: Terminal Commands
@@ -378,14 +378,14 @@ Pedagogical ordering (simple to complex):
 | # | Type | Title/Purpose | Location | Specification Quality |
 |---|------|---------------|----------|---------------------|
 | 1 | Markdown Table | Question Categories & Functions | Common Student Questions | Direct embed ✅ |
-| 2 | Workflow Diagram | FAQ Question Pattern Analysis | FAQ Generation Process | Detailed `<details>` ✅ |
+| 2 | Workflow Diagram | FAQ Question Pattern Analysis | FAQ Generation Process | Detailed `<details markdown="1">` ✅ |
 | 3 | Markdown List | FAQ Database Organization | FAQ from Course Content | Direct embed ✅ |
 | 4 | Markdown Table | Distractor Types | MCQ Design Principles | Direct embed ✅ |
-| 5 | MicroSim | Interactive Quiz Constructor | MCQ Design Principles | Extensive `<details>` ✅ |
+| 5 | MicroSim | Interactive Quiz Constructor | MCQ Design Principles | Extensive `<details markdown="1">` ✅ |
 | 6 | Markdown Table | Bloom's Levels Mapping | Bloom's Taxonomy in Quizzes | Direct embed ✅ |
-| 7 | Chart | Bloom's Distribution Analyzer | Bloom's Taxonomy in Quizzes | Detailed `<details>` ✅ |
+| 7 | Chart | Bloom's Distribution Analyzer | Bloom's Taxonomy in Quizzes | Detailed `<details markdown="1">` ✅ |
 | 8 | Markdown List | Quiz Analytics Dashboard | Assessing Understanding | Direct embed ✅ |
-| 9 | Infographic | CLI Basics Interactive Guide | CLI Introduction | Extensive `<details>` ✅ |
+| 9 | Infographic | CLI Basics Interactive Guide | CLI Introduction | Extensive `<details markdown="1">` ✅ |
 | 10 | Markdown Table | Essential Commands Summary | Terminal Commands | Direct embed ✅ |
 
 **Total non-text elements:** 10
@@ -398,7 +398,7 @@ Pedagogical ordering (simple to complex):
 
 **Variety:** ✅ Excellent mix of element types
 **Frequency:** ✅ Appropriate distribution (average 2-3 paragraphs between elements)
-**Specifications:** ✅ All `<details>` blocks include comprehensive implementation details
+**Specifications:** ✅ All `<details markdown="1">` blocks include comprehensive implementation details
 
 ---
 
@@ -456,7 +456,7 @@ Pedagogical ordering (simple to complex):
   - Identifying Questions: ~600 words
   - Generation Process: ~600 words
   - From Course Content: ~850 words
-  - Workflow spec: ~300 words (in `<details>`)
+  - Workflow spec: ~300 words (in `<details markdown="1">`)
 - **Quiz Section:** ~4,200 words
   - Pedagogical Function: ~450 words
   - MCQ Design: ~700 words
@@ -464,14 +464,14 @@ Pedagogical ordering (simple to complex):
   - Bloom's Taxonomy: ~1,100 words
   - Distribution: ~550 words
   - Analytics: ~600 words
-  - MicroSim spec: ~1,100 words (in `<details>`)
-  - Chart spec: ~800 words (in `<details>`)
+  - MicroSim spec: ~1,100 words (in `<details markdown="1">`)
+  - Chart spec: ~800 words (in `<details markdown="1">`)
 - **CLI Tools Section:** ~2,700 words
   - CLI Introduction: ~600 words
   - Terminal Commands: ~800 words
   - add-taxonomy.py: ~600 words
   - taxonomy-distribution.py: ~700 words
-  - Infographic spec: ~1,000 words (in `<details>`)
+  - Infographic spec: ~1,000 words (in `<details markdown="1">`)
 - **Summary:** ~450 words
 
 **Total:** ~10,500 words
@@ -575,7 +575,7 @@ Concepts "FAQ", "Common Student Questions", and "FAQ Generation Process" are int
 
 ## Interactive Elements Requiring Implementation
 
-The following `<details>` block specifications require implementation by other skills:
+The following `<details markdown="1">` block specifications require implementation by other skills:
 
 ### 1. FAQ Question Pattern Analysis Workflow
 - **Skill required:** `mermaid-generator` skill
@@ -627,7 +627,7 @@ The following `<details>` block specifications require implementation by other s
 - [x] Diverse element types (10 elements, 6 different types)
 - [x] Appropriate frequency (max 3 paragraphs between elements)
 - [x] Markdown tables include blank lines before them
-- [x] `<details>` blocks have comprehensive specifications
+- [x] `<details markdown="1">` blocks have comprehensive specifications
 - [x] All specifications implementation-ready
 
 ### Pedagogical Quality
@@ -686,7 +686,7 @@ The following `<details>` block specifications require implementation by other s
 - ✅ Clear workflow with well-defined steps
 - ✅ Excellent reference materials (reading-levels.md, content-element-types.md)
 - ✅ Appropriate guidance for reading level adaptation
-- ✅ Comprehensive specification templates for `<details>` blocks
+- ✅ Comprehensive specification templates for `<details markdown="1">` blocks
 - ✅ Good balance between automation and quality
 
 **Areas for improvement:**
