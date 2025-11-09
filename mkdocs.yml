@@ -88,6 +88,7 @@ nav:
     - Graph Viewer: sims/graph-viewer/index.md
     - Concept Length Histogram: sims/concept-length-histogram/index.md
     - Timeline: sims/timeline/index.md
+    - Claude Code Timeline: sims/claude-code-timeline/index.md
   
   - Prompts:
     - List of Prompts: prompts/index.md
