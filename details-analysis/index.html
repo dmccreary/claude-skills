@@ -1,0 +1,1939 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/details-analysis/">
+      
+      
+        <link rel="prev" href="../prompts/suggest-timeline-placement/">
+      
+      
+        <link rel="next" href="../glossary/">
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Details Analysis - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HPLDD3D3K2"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HPLDD3D3K2",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HPLDD3D3K2",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Details Analysis - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  property="og:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/details-analysis.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/claude-skills/details-analysis/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Details Analysis - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  name="twitter:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/details-analysis.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#details-tag-content-analysis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Details Analysis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../skill-descriptions/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    List of Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../prompts/index.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Details Analysis
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Details Analysis
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary Statistics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization-type-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualization Type Distribution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#priority-matrix-for-skill-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Priority Matrix for Skill Development
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Priority Matrix for Skill Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#priority-scores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Priority Scores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-priority-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Priority Matrix
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visual Priority Matrix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quadrant-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quadrant Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-breakdown-by-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed Breakdown by Type
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Breakdown by Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-23-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram (23 instances)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-16-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow (16 instances)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infographic-11-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infographic (11 instances)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-9-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart (9 instances)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsim-8-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microsim (8 instances)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markdown-table-4-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markdown-Table (4 instances)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeline-3-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeline (3 instances)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unknown-1-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unknown (1 instances)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-model-1-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph-Model (1 instances)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary Statistics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization-type-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualization Type Distribution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#priority-matrix-for-skill-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Priority Matrix for Skill Development
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Priority Matrix for Skill Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#priority-scores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Priority Scores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-priority-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Priority Matrix
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visual Priority Matrix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quadrant-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quadrant Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-breakdown-by-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed Breakdown by Type
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Breakdown by Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-23-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram (23 instances)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-16-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow (16 instances)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infographic-11-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infographic (11 instances)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-9-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart (9 instances)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsim-8-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microsim (8 instances)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markdown-table-4-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markdown-Table (4 instances)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeline-3-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeline (3 instances)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unknown-1-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unknown (1 instances)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-model-1-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph-Model (1 instances)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/details-analysis.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="details-tag-content-analysis">Details Tag Content Analysis</h1>
+<p>This report analyzes all <code>&lt;details&gt;</code> tags (both old and new <code>markdown="1"</code> format) in the textbook chapters to categorize visualization types and prioritize skill development.</p>
+<h2 id="summary-statistics">Summary Statistics</h2>
+<ul>
+<li><strong>Total <code>&lt;details&gt;</code> tags:</strong> 76</li>
+<li><strong>Unique visualization types:</strong> 9</li>
+</ul>
+<h2 id="visualization-type-distribution">Visualization Type Distribution</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Count</th>
+<th>Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>diagram</td>
+<td>23</td>
+<td>30.3%</td>
+</tr>
+<tr>
+<td>workflow</td>
+<td>16</td>
+<td>21.1%</td>
+</tr>
+<tr>
+<td>infographic</td>
+<td>11</td>
+<td>14.5%</td>
+</tr>
+<tr>
+<td>chart</td>
+<td>9</td>
+<td>11.8%</td>
+</tr>
+<tr>
+<td>microsim</td>
+<td>8</td>
+<td>10.5%</td>
+</tr>
+<tr>
+<td>markdown-table</td>
+<td>4</td>
+<td>5.3%</td>
+</tr>
+<tr>
+<td>timeline</td>
+<td>3</td>
+<td>3.9%</td>
+</tr>
+<tr>
+<td>unknown</td>
+<td>1</td>
+<td>1.3%</td>
+</tr>
+<tr>
+<td>graph-model</td>
+<td>1</td>
+<td>1.3%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="priority-matrix-for-skill-development">Priority Matrix for Skill Development</h2>
+<p>Prioritization based on <strong>Impact</strong> (frequency of use) vs. <strong>Effort</strong> (similarity to existing MicroSims).</p>
+<h3 id="priority-scores">Priority Scores</h3>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Type</th>
+<th>Count</th>
+<th>Impact (0-10)</th>
+<th>Effort (0-10)</th>
+<th>Priority Score</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>microsim</strong></td>
+<td>8</td>
+<td>3.5</td>
+<td>0</td>
+<td>3.48</td>
+<td>✅ Exists</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>diagram</strong></td>
+<td>23</td>
+<td>10</td>
+<td>4</td>
+<td>2.5</td>
+<td>🔨 Build</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>infographic</strong></td>
+<td>11</td>
+<td>4.8</td>
+<td>2</td>
+<td>2.39</td>
+<td>🔨 Build</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>workflow</strong></td>
+<td>16</td>
+<td>7.0</td>
+<td>6</td>
+<td>1.16</td>
+<td>🔨 Build</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>chart</strong></td>
+<td>9</td>
+<td>3.9</td>
+<td>5</td>
+<td>0.78</td>
+<td>🔨 Build</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>graph-model</strong></td>
+<td>1</td>
+<td>0.4</td>
+<td>1</td>
+<td>0.43</td>
+<td>🔨 Build</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>markdown-table</strong></td>
+<td>4</td>
+<td>1.7</td>
+<td>5</td>
+<td>0.35</td>
+<td>🔨 Build</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>timeline</strong></td>
+<td>3</td>
+<td>1.3</td>
+<td>7</td>
+<td>0.19</td>
+<td>🔨 Build</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>unknown</strong></td>
+<td>1</td>
+<td>0.4</td>
+<td>5</td>
+<td>0.09</td>
+<td>🔨 Build</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interpretation">Interpretation</h3>
+<ul>
+<li><strong>Impact</strong>: Higher values indicate more instances of this visualization type across chapters</li>
+<li><strong>Effort</strong>: Higher values indicate more development effort required (less similar to existing MicroSims)</li>
+<li><strong>Priority Score</strong>: Impact/Effort ratio - higher scores suggest better ROI for skill development</li>
+</ul>
+<h2 id="visual-priority-matrix">Visual Priority Matrix</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code>Impact (Frequency)
+     ↑
+  10 │
+   9 │
+   8 │
+   7 │
+   6 │
+   5 │
+   4 │
+   3 │
+   2 │
+   1 │
+   0 └──────────────────────────────────────────────────→ Effort (Dissimilarity)
+     0  1  2  3  4  5  6  7  8  9  10
+
+   [0, 3]: microsim (n=8)
+   [4, 10]: diagram (n=23)
+   [2, 4]: infographic (n=11)
+   [6, 7]: workflow (n=16)
+   [5, 3]: chart (n=9)
+   [1, 0]: graph-model (n=1)
+   [5, 1]: markdown-table (n=4)
+   [7, 1]: timeline (n=3)
+   [5, 0]: unknown (n=1)
+</code></pre></div></td></tr></table></div>
+<h3 id="quadrant-analysis">Quadrant Analysis</h3>
+<p><strong>High Impact, Low Effort (Priority 1):</strong>
+- <strong>diagram</strong> (Impact: 10, Effort: 4, Count: 23)</p>
+<p><strong>High Impact, High Effort (Priority 2):</strong>
+- <strong>workflow</strong> (Impact: 7.0, Effort: 6, Count: 16)</p>
+<p><strong>Low Impact, Low Effort (Priority 3):</strong>
+- <strong>microsim</strong> (Impact: 3.5, Effort: 0, Count: 8)
+- <strong>infographic</strong> (Impact: 4.8, Effort: 2, Count: 11)
+- <strong>chart</strong> (Impact: 3.9, Effort: 5, Count: 9)
+- <strong>graph-model</strong> (Impact: 0.4, Effort: 1, Count: 1)
+- <strong>markdown-table</strong> (Impact: 1.7, Effort: 5, Count: 4)
+- <strong>unknown</strong> (Impact: 0.4, Effort: 5, Count: 1)</p>
+<p><strong>Low Impact, High Effort (Priority 4):</strong>
+- <strong>timeline</strong> (Impact: 1.3, Effort: 7, Count: 3)</p>
+<h2 id="detailed-breakdown-by-type">Detailed Breakdown by Type</h2>
+<h3 id="diagram-23-instances">Diagram (23 instances)</h3>
+<p><strong>Chapter:</strong> Introduction to AI and Intelligent Textbooks</p>
+<p><strong>Summary:</strong> Transformer Architecture Diagram</p>
+<p><strong>Purpose:</strong> Illustrate the key components of the transformer architecture underlying LLMs</p>
+<hr />
+<p><strong>Chapter:</strong> Introduction to AI and Intelligent Textbooks</p>
+<p><strong>Summary:</strong> Five Levels of Textbook Intelligence Visual Model</p>
+<p><strong>Purpose:</strong> Illustrate the progression from static to AI-powered textbooks with cumulative capabilities</p>
+<hr />
+<p><strong>Chapter:</strong> Getting Started with Claude and Skills</p>
+<p><strong>Summary:</strong> Skill File Anatomy Diagram</p>
+<p><strong>Purpose:</strong> Illustrate the structure of a SKILL.md file with labeled components</p>
+<hr />
+<p><strong>Chapter:</strong> Getting Started with Claude and Skills</p>
+<p><strong>Summary:</strong> Skill Installation Locations and Priority</p>
+<p><strong>Purpose:</strong> Show where skills can be installed and which location takes precedence</p>
+<hr />
+<p><strong>Chapter:</strong> Course Design and Educational Theory</p>
+<p><strong>Summary:</strong> Topic-to-Concept Expansion Example</p>
+<p><strong>Purpose:</strong> Illustrate how main topics expand into concept enumerations in learning graphs</p>
+<hr />
+<p><strong>Chapter:</strong> Course Design and Educational Theory</p>
+<p><strong>Summary:</strong> Bloom's Taxonomy 1956 vs 2001 Comparison</p>
+<p><strong>Purpose:</strong> Show the structural differences between original and revised taxonomies</p>
+<hr />
+<p><strong>Chapter:</strong> Course Design and Educational Theory</p>
+<p><strong>Summary:</strong> Lower-Order vs Higher-Order Thinking Skills</p>
+<p><strong>Purpose:</strong> Show the division between lower-order (Remember, Understand, Apply) and higher-order (Analyze, Evaluate, Create) cognitive skills</p>
+<hr />
+<p><strong>Chapter:</strong> Introduction to Learning Graphs</p>
+<p><strong>Summary:</strong> Dependency Pattern Examples</p>
+<p><strong>Purpose:</strong> Illustrate common patterns of dependencies in learning graphs</p>
+<hr />
+<p><strong>Chapter:</strong> Introduction to Learning Graphs</p>
+<p><strong>Summary:</strong> DAG vs Cyclic Graph Comparison</p>
+<p><strong>Purpose:</strong> Contrast valid DAG learning graph with invalid cyclic graph</p>
+<hr />
+<p><strong>Chapter:</strong> Concept Enumeration and Dependencies</p>
+<p><strong>Summary:</strong> Concept Granularity Spectrum Visualization</p>
+<p><strong>Purpose:</strong> Illustrate the spectrum from too coarse to too fine with examples</p>
+<hr />
+<p><strong>Chapter:</strong> Learning Graph Quality and Validation</p>
+<p><strong>Summary:</strong> DAG Validation Algorithm Visualization</p>
+<p><strong>Purpose:</strong> Illustrate the three-color DFS algorithm used for cycle detection in learning graphs</p>
+<hr />
+<p><strong>Chapter:</strong> Learning Graph Quality and Validation</p>
+<p><strong>Summary:</strong> Linear Chain vs Network Structure Comparison</p>
+<p><strong>Purpose:</strong> Compare linear chain structure (poor) with network structure (good) for learning graphs</p>
+<hr />
+<p><strong>Chapter:</strong> Taxonomy and Data Formats</p>
+<p><strong>Summary:</strong> Learning Graph JSON Schema Diagram</p>
+<p><strong>Purpose:</strong> Visualize the hierarchical structure of the learning graph JSON format</p>
+<hr />
+<p><strong>Chapter:</strong> Taxonomy and Data Formats</p>
+<p><strong>Summary:</strong> CSV to JSON Conversion Mapping Diagram</p>
+<p><strong>Purpose:</strong> Show how CSV columns map to JSON structure during conversion</p>
+<hr />
+<p><strong>Chapter:</strong> Taxonomy and Data Formats</p>
+<p><strong>Summary:</strong> Python Learning Graph Processing Pipeline</p>
+<p><strong>Purpose:</strong> Show the complete data flow from CSV creation through JSON visualization</p>
+<hr />
+<p><strong>Chapter:</strong> Claude Skills Architecture and Development</p>
+<p><strong>Summary:</strong> Skill Directory Structure Diagram</p>
+<p><strong>Purpose:</strong> Illustrate the standard directory organization for a Claude Skill</p>
+<hr />
+<p><strong>Chapter:</strong> Claude Skills Architecture and Development</p>
+<p><strong>Summary:</strong> Security Zones Diagram</p>
+<p><strong>Purpose:</strong> Illustrate the security boundaries and permission levels for skill execution</p>
+<hr />
+<p><strong>Chapter:</strong> Content Creation Workflows</p>
+<p><strong>Summary:</strong> Chapter Index File Structure Diagram</p>
+<p><strong>Purpose:</strong> Visualize the hierarchical structure and required elements of a chapter index.md file</p>
+<hr />
+<p><strong>Chapter:</strong> Interactive Elements and MicroSims</p>
+<p><strong>Summary:</strong> p5.js Architecture and Execution Model</p>
+<p><strong>Purpose:</strong> Illustrate the execution flow of a p5.js sketch and how setup, draw, and event handlers interact</p>
+<hr />
+<p><strong>Chapter:</strong> Interactive Elements and MicroSims</p>
+<p><strong>Summary:</strong> MicroSim File Relationship Diagram</p>
+<p><strong>Purpose:</strong> Show how the three core MicroSim files relate to each other and integrate into the MkDocs textbook</p>
+<hr />
+<p><strong>Chapter:</strong> Interactive Elements and MicroSims</p>
+<p><strong>Summary:</strong> Basic MicroSim Template Structure</p>
+<p><strong>Purpose:</strong> Show the HTML structure and organization of a typical main.html file</p>
+<hr />
+<p><strong>Chapter:</strong> Development Tools, Version Control, and Deployment</p>
+<p><strong>Summary:</strong> VS Code Interface Layout for Textbook Development</p>
+<p><strong>Purpose:</strong> Show the VS Code interface configured for intelligent textbook authoring</p>
+<hr />
+<p><strong>Chapter:</strong> Development Tools, Version Control, and Deployment</p>
+<p><strong>Summary:</strong> Skill Installation Workflow Diagram</p>
+<p><strong>Purpose:</strong> Show the relationship between project skills directory, global skills directory, and Claude Code's skill discovery</p>
+<hr />
+<h3 id="workflow-16-instances">Workflow (16 instances)</h3>
+<p><strong>Chapter:</strong> Introduction to AI and Intelligent Textbooks</p>
+<p><strong>Summary:</strong> Claude Code Workflow Diagram</p>
+<p><strong>Purpose:</strong> Show how Claude Code integrates with development environment for textbook creation</p>
+<hr />
+<p><strong>Chapter:</strong> Introduction to AI and Intelligent Textbooks</p>
+<p><strong>Summary:</strong> Prompt Engineering Iterative Refinement Workflow</p>
+<p><strong>Purpose:</strong> Show the iterative process of developing effective prompts for educational content generation</p>
+<hr />
+<p><strong>Chapter:</strong> Getting Started with Claude and Skills</p>
+<p><strong>Summary:</strong> Skill Invocation and Execution Lifecycle</p>
+<p><strong>Purpose:</strong> Illustrate what happens when a skill is invoked from command to completion</p>
+<hr />
+<p><strong>Chapter:</strong> Getting Started with Claude and Skills</p>
+<p><strong>Summary:</strong> Skills vs Commands Decision Tree</p>
+<p><strong>Purpose:</strong> Help users decide whether to create a skill or command for their use case</p>
+<hr />
+<p><strong>Chapter:</strong> Course Design and Educational Theory</p>
+<p><strong>Summary:</strong> Course Description Quality Impact on Workflow</p>
+<p><strong>Purpose:</strong> Show how course description quality affects subsequent skill outputs</p>
+<hr />
+<p><strong>Chapter:</strong> Introduction to Learning Graphs</p>
+<p><strong>Summary:</strong> Dependency Mapping Decision Tree</p>
+<p><strong>Purpose:</strong> Guide users in determining whether concept A should be prerequisite to concept B</p>
+<hr />
+<p><strong>Chapter:</strong> Concept Enumeration and Dependencies</p>
+<p><strong>Summary:</strong> Topic-to-Concept Expansion Process</p>
+<p><strong>Purpose:</strong> Show how a single course topic expands into multiple atomic concepts</p>
+<hr />
+<p><strong>Chapter:</strong> Concept Enumeration and Dependencies</p>
+<p><strong>Summary:</strong> Dependency Mapping Workflow</p>
+<p><strong>Purpose:</strong> Show step-by-step process for mapping concept dependencies</p>
+<hr />
+<p><strong>Chapter:</strong> Taxonomy and Data Formats</p>
+<p><strong>Summary:</strong> Adding Taxonomy to CSV Workflow Diagram</p>
+<p><strong>Purpose:</strong> Show the step-by-step process of adding taxonomy information to an existing learning graph CSV</p>
+<hr />
+<p><strong>Chapter:</strong> MkDocs Platform and Documentation</p>
+<p><strong>Summary:</strong> MkDocs Build Process Workflow Diagram</p>
+<p><strong>Purpose:</strong> Illustrate the MkDocs build pipeline from source markdown to deployed HTML site</p>
+<hr />
+<p><strong>Chapter:</strong> MkDocs Platform and Documentation</p>
+<p><strong>Summary:</strong> MkDocs GitHub Pages Deployment Workflow</p>
+<p><strong>Purpose:</strong> Show the complete workflow from local markdown editing to published GitHub Pages site</p>
+<hr />
+<p><strong>Chapter:</strong> Claude Skills Architecture and Development</p>
+<p><strong>Summary:</strong> Skill Testing Workflow Diagram</p>
+<p><strong>Purpose:</strong> Show the iterative process of skill development, testing, and refinement</p>
+<hr />
+<p><strong>Chapter:</strong> Claude Skills Architecture and Development</p>
+<p><strong>Summary:</strong> Git Workflow for Skill Development</p>
+<p><strong>Purpose:</strong> Illustrate the typical Git workflow for developing and publishing a skill</p>
+<hr />
+<p><strong>Chapter:</strong> Content Creation Workflows</p>
+<p><strong>Summary:</strong> Chapter Organization Workflow Diagram</p>
+<p><strong>Purpose:</strong> Illustrate the decision-making process for organizing content within a chapter</p>
+<hr />
+<p><strong>Chapter:</strong> Educational Resources and Assessment</p>
+<p><strong>Summary:</strong> FAQ Question Pattern Analysis Workflow</p>
+<p><strong>Purpose:</strong> Illustrate the systematic process of identifying common student questions from course materials and learning analytics</p>
+<hr />
+<p><strong>Chapter:</strong> Development Tools, Version Control, and Deployment</p>
+<p><strong>Summary:</strong> Terminal Workflow for Textbook Development</p>
+<p><strong>Purpose:</strong> Illustrate the typical terminal command sequence for developing and deploying textbook content</p>
+<hr />
+<h3 id="infographic-11-instances">Infographic (11 instances)</h3>
+<p><strong>Chapter:</strong> Course Design and Educational Theory</p>
+<p><strong>Summary:</strong> Course Description Quality Rubric Visualization</p>
+<p><strong>Purpose:</strong> Present the quality scoring rubric in visual, interactive format</p>
+<hr />
+<p><strong>Chapter:</strong> Concept Enumeration and Dependencies</p>
+<p><strong>Summary:</strong> Concept Label Quality Checklist</p>
+<p><strong>Purpose:</strong> Provide visual checklist for validating concept labels</p>
+<hr />
+<p><strong>Chapter:</strong> Taxonomy and Data Formats</p>
+<p><strong>Summary:</strong> Dublin Core Metadata Field Reference Card</p>
+<p><strong>Purpose:</strong> Create a visual reference guide for all Dublin Core metadata fields used in learning graphs</p>
+<hr />
+<p><strong>Chapter:</strong> MkDocs Platform and Documentation</p>
+<p><strong>Summary:</strong> Material Theme Features Interactive Comparison</p>
+<p><strong>Purpose:</strong> Compare standard MkDocs theme with Material theme features through interactive panels</p>
+<hr />
+<p><strong>Chapter:</strong> MkDocs Platform and Documentation</p>
+<p><strong>Summary:</strong> Admonition Types Interactive Reference</p>
+<p><strong>Purpose:</strong> Demonstrate all admonition types with interactive examples showing both syntax and rendered output</p>
+<hr />
+<p><strong>Chapter:</strong> Claude Skills Architecture and Development</p>
+<p><strong>Summary:</strong> Skill Package Contents Checklist</p>
+<p><strong>Purpose:</strong> Provide visual checklist of all components in a well-packaged skill</p>
+<hr />
+<p><strong>Chapter:</strong> Content Creation Workflows</p>
+<p><strong>Summary:</strong> Worked Example: Determining Reading Level from Course Description</p>
+<p><strong>Purpose:</strong> Provide an interactive worked example showing the systematic process of analyzing a course description to determine appropriate reading level</p>
+<hr />
+<p><strong>Chapter:</strong> Content Creation Workflows</p>
+<p><strong>Summary:</strong> ISO 11179 Principles Comparison Table Infographic</p>
+<p><strong>Purpose:</strong> Create an interactive comparison showing examples of definitions that violate vs. comply with each ISO 11179 principle</p>
+<hr />
+<p><strong>Chapter:</strong> Educational Resources and Assessment</p>
+<p><strong>Summary:</strong> Command-Line Interface Basics Interactive Infographic</p>
+<p><strong>Purpose:</strong> Provide visual guide to terminal components, command syntax, and common operations for educators new to CLI workflows</p>
+<hr />
+<p><strong>Chapter:</strong> Interactive Elements and MicroSims</p>
+<p><strong>Summary:</strong> MicroSim Design Quality Checklist</p>
+<p><strong>Purpose:</strong> Provide a visual, interactive checklist for evaluating educational simulation design quality</p>
+<hr />
+<p><strong>Chapter:</strong> Development Tools, Version Control, and Deployment</p>
+<p><strong>Summary:</strong> Permission Bits Visual Infographic</p>
+<p><strong>Purpose:</strong> Explain Unix file permission system with visual representation of permission bits</p>
+<hr />
+<h3 id="chart-9-instances">Chart (9 instances)</h3>
+<p><strong>Chapter:</strong> Introduction to AI and Intelligent Textbooks</p>
+<p><strong>Summary:</strong> Interactive Learning Element Types Comparison</p>
+<p><strong>Purpose:</strong> Show the relative engagement impact of different interactive element types</p>
+<hr />
+<p><strong>Chapter:</strong> Getting Started with Claude and Skills</p>
+<p><strong>Summary:</strong> Iterative Prompt Refinement Metrics</p>
+<p><strong>Purpose:</strong> Show how prompt quality improves across refinement iterations</p>
+<hr />
+<p><strong>Chapter:</strong> Course Design and Educational Theory</p>
+<p><strong>Summary:</strong> Bloom's Taxonomy Application Distribution in Quality Courses</p>
+<p><strong>Purpose:</strong> Show recommended distribution of learning outcomes across cognitive levels</p>
+<hr />
+<p><strong>Chapter:</strong> Concept Enumeration and Dependencies</p>
+<p><strong>Summary:</strong> Concept Count by Course Duration</p>
+<p><strong>Purpose:</strong> Show appropriate concept counts for different course lengths</p>
+<hr />
+<p><strong>Chapter:</strong> Concept Enumeration and Dependencies</p>
+<p><strong>Summary:</strong> Concept Depth Distribution Analysis</p>
+<p><strong>Purpose:</strong> Show how concept depth (number of dependencies) progresses from foundational to advanced</p>
+<hr />
+<p><strong>Chapter:</strong> Learning Graph Quality and Validation</p>
+<p><strong>Summary:</strong> Orphaned Nodes Identification Chart</p>
+<p><strong>Purpose:</strong> Visualize concept connectivity by showing indegree vs outdegree for all concepts, highlighting orphaned nodes</p>
+<hr />
+<p><strong>Chapter:</strong> Learning Graph Quality and Validation</p>
+<p><strong>Summary:</strong> Average Dependencies Distribution Bar Chart</p>
+<p><strong>Purpose:</strong> Show distribution of prerequisite counts across all concepts in the learning graph</p>
+<hr />
+<p><strong>Chapter:</strong> Learning Graph Quality and Validation</p>
+<p><strong>Summary:</strong> Taxonomy Distribution Pie Chart</p>
+<p><strong>Purpose:</strong> Visualize the distribution of 200 concepts across taxonomy categories</p>
+<hr />
+<p><strong>Chapter:</strong> Educational Resources and Assessment</p>
+<p><strong>Summary:</strong> Bloom's Taxonomy Distribution Analyzer Chart</p>
+<p><strong>Purpose:</strong> Visualize the distribution of quiz questions across Bloom's Taxonomy levels to ensure balanced cognitive demand and identify potential assessment gaps</p>
+<hr />
+<h3 id="microsim-8-instances">Microsim (8 instances)</h3>
+<p><strong>Chapter:</strong> Learning Graph Quality and Validation</p>
+<p><strong>Summary:</strong> Learning Graph Quality Score Calculator MicroSim</p>
+<p><strong>Learning Objective:</strong> Allow students to experiment with how different graph characteristics affect overall quality score</p>
+<hr />
+<p><strong>Chapter:</strong> Taxonomy and Data Formats</p>
+<p><strong>Summary:</strong> Color Accessibility Checker MicroSim</p>
+<p><strong>Learning Objective:</strong> Demonstrate WCAG contrast ratio requirements and help users select accessible color combinations</p>
+<hr />
+<p><strong>Chapter:</strong> MkDocs Platform and Documentation</p>
+<p><strong>Summary:</strong> Git Branching and Merging Visualization MicroSim</p>
+<p><strong>Learning Objective:</strong> Demonstrate how Git branches enable parallel development and how merges combine work from different branches</p>
+<hr />
+<p><strong>Chapter:</strong> Content Creation Workflows</p>
+<p><strong>Summary:</strong> Interactive Exercise Generator MicroSim</p>
+<p><strong>Learning Objective:</strong> Allow learners to practice identifying appropriate reading levels for different course descriptions, receiving immediate feedback</p>
+<hr />
+<p><strong>Chapter:</strong> Educational Resources and Assessment</p>
+<p><strong>Summary:</strong> Interactive Quiz Question Constructor MicroSim</p>
+<p><strong>Learning Objective:</strong> Enable students to practice constructing effective multiple-choice questions by experimenting with stems, keys, and distractors while receiving real-time feedback on design quality</p>
+<hr />
+<p><strong>Chapter:</strong> Interactive Elements and MicroSims</p>
+<p><strong>Summary:</strong> Responsive Iframe Embedding MicroSim</p>
+<p><strong>Learning Objective:</strong> Demonstrate how iframe embedding works and how responsive wrappers adapt to different viewport sizes</p>
+<hr />
+<p><strong>Chapter:</strong> Interactive Elements and MicroSims</p>
+<p><strong>Summary:</strong> Algorithm Visualization with Step Controls MicroSim</p>
+<p><strong>Learning Objective:</strong> Demonstrate how button controls enable step-by-step exploration of algorithms, using bubble sort as an example</p>
+<hr />
+<p><strong>Chapter:</strong> Development Tools, Version Control, and Deployment</p>
+<p><strong>Summary:</strong> Interactive Directory Navigation Practice MicroSim</p>
+<p><strong>Learning Objective:</strong> Practice Bash directory navigation commands in a simulated filesystem without risk of breaking a real project</p>
+<hr />
+<h3 id="markdown-table-4-instances">Markdown-Table (4 instances)</h3>
+<p><strong>Chapter:</strong> Getting Started with Claude and Skills</p>
+<p><strong>Summary:</strong> Skill Permission Matrix</p>
+<p><strong>Purpose:</strong> Show which tools different skill types typically require</p>
+<hr />
+<p><strong>Chapter:</strong> Concept Enumeration and Dependencies</p>
+<p><strong>Summary:</strong> Concept Label Length Optimization</p>
+<p><strong>Purpose:</strong> Show before/after examples of optimizing overlength labels</p>
+<hr />
+<p><strong>Chapter:</strong> Concept Enumeration and Dependencies</p>
+<p><strong>Summary:</strong> CSV File Format Example with Validation</p>
+<p><strong>Purpose:</strong> Show correct and incorrect CSV formatting</p>
+<hr />
+<p><strong>Chapter:</strong> Concept Enumeration and Dependencies</p>
+<p><strong>Summary:</strong> ConceptID vs ConceptLabel Comparison</p>
+<p><strong>Purpose:</strong> Contrast the roles and properties of ConceptID vs ConceptLabel</p>
+<hr />
+<h3 id="timeline-3-instances">Timeline (3 instances)</h3>
+<p><strong>Chapter:</strong> Getting Started with Claude and Skills</p>
+<p><strong>Summary:</strong> 4-Hour Token Window Visualization</p>
+<p><strong>Purpose:</strong> Show how token usage and regeneration works over time</p>
+<hr />
+<p><strong>Chapter:</strong> Introduction to Learning Graphs</p>
+<p><strong>Summary:</strong> Token Consumption Timeline for Complete Textbook Project</p>
+<p><strong>Purpose:</strong> Show typical token consumption across complete intelligent textbook project lifecycle</p>
+<hr />
+<p><strong>Chapter:</strong> Content Creation Workflows</p>
+<p><strong>Summary:</strong> Content Generation Process Timeline</p>
+<hr />
+<h3 id="unknown-1-instances">Unknown (1 instances)</h3>
+<p><strong>Chapter:</strong> Introduction to AI and Intelligent Textbooks</p>
+<p><strong>Summary:</strong> Evolution of AI Approaches Timeline</p>
+<hr />
+<h3 id="graph-model-1-instances">Graph-Model (1 instances)</h3>
+<p><strong>Chapter:</strong> Introduction to Learning Graphs</p>
+<p><strong>Summary:</strong> Learning Graph Structure Visualization</p>
+<p><strong>Purpose:</strong> Illustrate the node-edge structure of a learning graph with sample concepts</p>
+<hr />
+<h2 id="recommendations">Recommendations</h2>
+<p>Based on the priority analysis, focus on developing skills for:</p>
+<ol>
+<li><strong>diagram</strong> - 23 instances, priority score 2.5</li>
+<li>Example: Transformer Architecture Diagram</li>
+<li><strong>infographic</strong> - 11 instances, priority score 2.39</li>
+<li>Example: Course Description Quality Rubric Visualization</li>
+<li><strong>workflow</strong> - 16 instances, priority score 1.16</li>
+<li>Example: Claude Code Workflow Diagram</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../prompts/suggest-timeline-placement/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Suggest Timeline Placement">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Suggest Timeline Placement
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../glossary/" class="md-footer__link md-footer__link--next" aria-label="Next: Glossary">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Glossary
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
