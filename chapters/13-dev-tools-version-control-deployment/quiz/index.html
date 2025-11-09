@@ -1,0 +1,2038 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/chapters/13-dev-tools-version-control-deployment/quiz/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../../skill-descriptions/">
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Quiz - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quiz-development-tools-version-control-and-deployment" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quiz
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course Description
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Chapters
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../01-intro-ai-intelligent-textbooks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1 - Introduction to AI and Intelligent Textbooks
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../02-getting-started-claude-skills/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 2 - Getting Started with Claude and Skills
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../03-course-design-educational-theory/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 3 - Course Design and Educational Theory
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../04-intro-learning-graphs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 4 - Introduction to Learning Graphs
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../05-concept-enumeration-dependencies/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 5 - Concept Enumeration and Dependencies
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../06-learning-graph-quality-validation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 6 - Learning Graph Quality and Validation
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../07-taxonomy-data-formats/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 7 - Taxonomy and Data Formats
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../08-mkdocs-platform-documentation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 8 - MkDocs Platform and Documentation
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../09-claude-skills-architecture-development/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 9 - Claude Skills Architecture and Development
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../10-content-creation-workflows/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 10 - Content Creation Workflows
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../11-educational-resources-assessment/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 11 - Educational Resources and Assessment
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../12-interactive-elements-microsims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 12 - Interactive Elements and MicroSims
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_14" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Chapter 13 - Development Tools, Version Control, and Deployment
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_14" id="__nav_5_14_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_14_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_14">
+            <span class="md-nav__icon md-icon"></span>
+            Chapter 13 - Development Tools, Version Control, and Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Quiz
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quiz
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-why-is-visual-studio-code-preferred-over-traditional-word-processors-like-microsoft-word-for-intelligent-textbook-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Why is Visual Studio Code preferred over traditional word processors like Microsoft Word for intelligent textbook development?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-what-is-the-recommended-workflow-for-efficient-content-development-in-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. What is the recommended workflow for efficient content development in VS Code?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-what-is-a-key-advantage-of-using-the-integrated-terminal-in-vs-code-instead-of-a-separate-terminal-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. What is a key advantage of using the integrated terminal in VS Code instead of a separate terminal application?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-what-is-the-distinction-between-a-terminal-a-shell-and-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. What is the distinction between a terminal, a shell, and Bash?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-you-need-to-execute-a-python-script-located-at-docslearning-graphanalyze-graphpy-with-two-arguments-learning-graphcsv-and-quality-metricsmd-what-is-the-correct-command-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. You need to execute a Python script located at docs/learning-graph/analyze-graph.py with two arguments: learning-graph.csv and quality-metrics.md. What is the correct command structure?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-what-does-the-command-cd-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. What does the command cd ../.. do?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-you-need-to-create-a-new-chapter-directory-structure-at-docschapters14-future-directions-which-command-accomplishes-this-most-efficiently" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. You need to create a new chapter directory structure at docs/chapters/14-future-directions/. Which command accomplishes this most efficiently?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-your-shell-script-install-claude-skillssh-gives-a-permission-denied-error-when-you-try-to-run-it-with-install-claude-skillssh-what-is-the-most-likely-cause-and-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Your shell script install-claude-skills.sh gives a "Permission denied" error when you try to run it with ./install-claude-skills.sh. What is the most likely cause and solution?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-what-is-the-primary-advantage-of-using-symbolic-links-symlinks-for-claude-skill-installation-rather-than-copying-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. What is the primary advantage of using symbolic links (symlinks) for Claude skill installation rather than copying files?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-in-the-capstone-project-workflow-what-is-the-correct-sequence-of-major-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. In the capstone project workflow, what is the correct sequence of major phases?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../skill-descriptions/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    List of Skills
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Learning Graph
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    MicroSims
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../prompts/index.md" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Prompts
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glossary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-why-is-visual-studio-code-preferred-over-traditional-word-processors-like-microsoft-word-for-intelligent-textbook-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Why is Visual Studio Code preferred over traditional word processors like Microsoft Word for intelligent textbook development?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-what-is-the-recommended-workflow-for-efficient-content-development-in-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. What is the recommended workflow for efficient content development in VS Code?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-what-is-a-key-advantage-of-using-the-integrated-terminal-in-vs-code-instead-of-a-separate-terminal-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. What is a key advantage of using the integrated terminal in VS Code instead of a separate terminal application?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-what-is-the-distinction-between-a-terminal-a-shell-and-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. What is the distinction between a terminal, a shell, and Bash?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-you-need-to-execute-a-python-script-located-at-docslearning-graphanalyze-graphpy-with-two-arguments-learning-graphcsv-and-quality-metricsmd-what-is-the-correct-command-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. You need to execute a Python script located at docs/learning-graph/analyze-graph.py with two arguments: learning-graph.csv and quality-metrics.md. What is the correct command structure?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-what-does-the-command-cd-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. What does the command cd ../.. do?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-you-need-to-create-a-new-chapter-directory-structure-at-docschapters14-future-directions-which-command-accomplishes-this-most-efficiently" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. You need to create a new chapter directory structure at docs/chapters/14-future-directions/. Which command accomplishes this most efficiently?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-your-shell-script-install-claude-skillssh-gives-a-permission-denied-error-when-you-try-to-run-it-with-install-claude-skillssh-what-is-the-most-likely-cause-and-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Your shell script install-claude-skills.sh gives a "Permission denied" error when you try to run it with ./install-claude-skills.sh. What is the most likely cause and solution?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-what-is-the-primary-advantage-of-using-symbolic-links-symlinks-for-claude-skill-installation-rather-than-copying-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. What is the primary advantage of using symbolic links (symlinks) for Claude skill installation rather than copying files?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-in-the-capstone-project-workflow-what-is-the-correct-sequence-of-major-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. In the capstone project workflow, what is the correct sequence of major phases?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/chapters/13-dev-tools-version-control-deployment/quiz.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="quiz-development-tools-version-control-and-deployment">Quiz: Development Tools, Version Control, and Deployment</h1>
+<p>Test your understanding of Visual Studio Code, command-line interfaces, Bash shell scripting, file operations, script permissions, symlinks, and the complete textbook development workflow with these questions.</p>
+<hr />
+<h4 id="1-why-is-visual-studio-code-preferred-over-traditional-word-processors-like-microsoft-word-for-intelligent-textbook-development">1. Why is Visual Studio Code preferred over traditional word processors like Microsoft Word for intelligent textbook development?</h4>
+<div class="upper-alpha">
+<ol>
+<li>VS Code has better spell-checking capabilities</li>
+<li>VS Code is optimized for web-based markdown content with integrated terminal and Git support</li>
+<li>VS Code produces smaller file sizes than Word documents</li>
+<li>VS Code is the only editor that can open markdown files</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. Traditional word processors are optimized for print documents with fixed page layouts, while intelligent textbooks are dynamic, web-based resources built from markdown source files. VS Code provides markdown editing with live preview, integrated Git support, built-in terminal for MkDocs commands, and extension ecosystem—all optimized for this workflow. Option A is incorrect as both have spell-checking, option C confuses file format with editor choice, and option D is factually wrong.</p>
+<p><strong>Concept Tested:</strong> Visual Studio Code</p>
+<p><strong>See:</strong> <a href="../#visual-studio-code">Visual Studio Code</a></p>
+</details>
+<hr />
+<h4 id="2-what-is-the-recommended-workflow-for-efficient-content-development-in-vs-code">2. What is the recommended workflow for efficient content development in VS Code?</h4>
+<div class="upper-alpha">
+<ol>
+<li>Write all content first, then run mkdocs serve once at the end</li>
+<li>Open project folder, start mkdocs serve, edit in split view with preview, save frequently</li>
+<li>Edit directly in the browser at localhost:8000</li>
+<li>Write content in Word, then copy-paste into VS Code</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. A typical content development session follows this pattern: open the project folder, start the development server with <code>mkdocs serve</code>, navigate to target chapter, edit in split view with markdown preview, save frequently, and preview in browser. This workflow enables rapid iteration where changes are immediately reflected in the browser within 1-2 seconds. Options A and D don't leverage the live preview capability, while option C misunderstands where editing occurs.</p>
+<p><strong>Concept Tested:</strong> VS Code for Content Development</p>
+<p><strong>See:</strong> <a href="../#vs-code-for-content-development">VS Code for Content Development</a></p>
+</details>
+<hr />
+<h4 id="3-what-is-a-key-advantage-of-using-the-integrated-terminal-in-vs-code-instead-of-a-separate-terminal-application">3. What is a key advantage of using the integrated terminal in VS Code instead of a separate terminal application?</h4>
+<div class="upper-alpha">
+<ol>
+<li>The integrated terminal runs commands faster than external terminals</li>
+<li>The integrated terminal automatically opens in the project root and provides output linking to files</li>
+<li>The integrated terminal is the only way to run Python scripts</li>
+<li>The integrated terminal prevents all command-line errors</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. The integrated terminal eliminates context switching, automatically opens in the project root directory, and provides output linking where clicking file paths in error messages jumps to that file. It also supports split terminals for running multiple commands simultaneously. Option A confuses integration with performance, option C is factually incorrect, and option D misrepresents terminal capabilities.</p>
+<p><strong>Concept Tested:</strong> Terminal in VS Code</p>
+<p><strong>See:</strong> <a href="../#terminal-in-vs-code">Terminal in VS Code</a></p>
+</details>
+<hr />
+<h4 id="4-what-is-the-distinction-between-a-terminal-a-shell-and-bash">4. What is the distinction between a terminal, a shell, and Bash?</h4>
+<div class="upper-alpha">
+<ol>
+<li>They are three different names for the same thing</li>
+<li>Terminal is the application, shell is the command interpreter, Bash is a specific shell implementation</li>
+<li>Bash is the newest version that replaces terminals and shells</li>
+<li>Terminal runs on Windows, shell runs on macOS, Bash runs on Linux</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. Terminal is the application that provides a text interface (e.g., Terminal.app), shell is the program that interprets commands (e.g., Bash, Zsh, Fish), and Bash is a specific shell implementation currently most widely used on Unix-like systems. These are distinct components with different roles. Options A and C incorrectly conflate the terms, while option D mischaracterizes platform associations.</p>
+<p><strong>Concept Tested:</strong> Bash</p>
+<p><strong>See:</strong> <a href="../#bash">Bash</a></p>
+</details>
+<hr />
+<h4 id="5-you-need-to-execute-a-python-script-located-at-docslearning-graphanalyze-graphpy-with-two-arguments-learning-graphcsv-and-quality-metricsmd-what-is-the-correct-command-structure">5. You need to execute a Python script located at <code>docs/learning-graph/analyze-graph.py</code> with two arguments: <code>learning-graph.csv</code> and <code>quality-metrics.md</code>. What is the correct command structure?</h4>
+<div class="upper-alpha">
+<ol>
+<li><code>analyze-graph.py python learning-graph.csv quality-metrics.md</code></li>
+<li><code>python docs/learning-graph/analyze-graph.py learning-graph.csv quality-metrics.md</code></li>
+<li><code>run python --script analyze-graph.py --input learning-graph.csv --output quality-metrics.md</code></li>
+<li><code>execute docs/learning-graph/analyze-graph.py (learning-graph.csv, quality-metrics.md)</code></li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. Bash commands follow the structure <code>command [options] [arguments]</code>. Here, <code>python</code> is the command, <code>docs/learning-graph/analyze-graph.py</code> is the first argument (script to execute), and the CSV and MD files are additional arguments. Option A reverses command and script, option C uses non-existent syntax, and option D uses invalid parenthetical argument notation.</p>
+<p><strong>Concept Tested:</strong> Bash</p>
+<p><strong>See:</strong> <a href="../#bash-command-structure">Bash Command Structure</a></p>
+</details>
+<hr />
+<h4 id="6-what-does-the-command-cd-do">6. What does the command <code>cd ../..</code> do?</h4>
+<div class="upper-alpha">
+<ol>
+<li>Navigate to the current directory twice</li>
+<li>Navigate up two levels to the grandparent directory</li>
+<li>Navigate to the user's home directory</li>
+<li>Display the contents of the parent directory</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. The <code>..</code> (double dot) represents the parent directory. Therefore, <code>cd ..</code> moves up one level, and <code>cd ../..</code> moves up two levels to the grandparent directory. Option A misunderstands the <code>..</code> notation, option C confuses <code>..</code> with <code>~</code> (home directory), and option D describes <code>ls ..</code> not <code>cd ..</code>.</p>
+<p><strong>Concept Tested:</strong> Directory Navigation</p>
+<p><strong>See:</strong> <a href="../#directory-navigation">Directory Navigation</a></p>
+</details>
+<hr />
+<h4 id="7-you-need-to-create-a-new-chapter-directory-structure-at-docschapters14-future-directions-which-command-accomplishes-this-most-efficiently">7. You need to create a new chapter directory structure at <code>docs/chapters/14-future-directions/</code>. Which command accomplishes this most efficiently?</h4>
+<div class="upper-alpha">
+<ol>
+<li><code>mkdir docs; mkdir docs/chapters; mkdir docs/chapters/14-future-directions</code></li>
+<li><code>mkdir -p docs/chapters/14-future-directions</code></li>
+<li><code>touch docs/chapters/14-future-directions</code></li>
+<li><code>cd docs/chapters/14-future-directions</code></li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. The <code>mkdir -p</code> command creates the directory and all necessary parent directories in a single operation. The <code>-p</code> flag means "create parents as needed." Option A is unnecessarily verbose and would fail if docs already exists, option C creates a file not a directory, and option D attempts to navigate to a non-existent directory without creating it.</p>
+<p><strong>Concept Tested:</strong> File Creation and Editing</p>
+<p><strong>See:</strong> <a href="../#file-creation-and-editing">File Creation and Editing</a></p>
+</details>
+<hr />
+<h4 id="8-your-shell-script-install-claude-skillssh-gives-a-permission-denied-error-when-you-try-to-run-it-with-install-claude-skillssh-what-is-the-most-likely-cause-and-solution">8. Your shell script <code>install-claude-skills.sh</code> gives a "Permission denied" error when you try to run it with <code>./install-claude-skills.sh</code>. What is the most likely cause and solution?</h4>
+<div class="upper-alpha">
+<ol>
+<li>The file doesn't exist; create it with <code>touch install-claude-skills.sh</code></li>
+<li>The script lacks execute permissions; fix with <code>chmod +x install-claude-skills.sh</code></li>
+<li>The file is corrupted; delete and recreate it</li>
+<li>The script is in the wrong directory; move it to /usr/bin</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. Unix-like systems require files to have execute permissions before they can be run as scripts. The <code>chmod +x</code> command adds execute permission for the owner, allowing the script to be executed. Option A would produce "No such file" not "Permission denied," option C misdiagnoses the issue, and option D is unnecessary and potentially problematic for local scripts.</p>
+<p><strong>Concept Tested:</strong> Script Execution Permissions</p>
+<p><strong>See:</strong> <a href="../#script-execution-permissions">Script Execution Permissions</a></p>
+</details>
+<hr />
+<h4 id="9-what-is-the-primary-advantage-of-using-symbolic-links-symlinks-for-claude-skill-installation-rather-than-copying-files">9. What is the primary advantage of using symbolic links (symlinks) for Claude skill installation rather than copying files?</h4>
+<div class="upper-alpha">
+<ol>
+<li>Symlinks use significantly less disk space than copies</li>
+<li>Symlinks automatically update when original files change, avoiding manual synchronization</li>
+<li>Symlinks work on all operating systems including Windows</li>
+<li>Symlinks are more secure than file copies</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. Symlinks create a reference in <code>~/.claude/skills/</code> that points to original skill files in the project repository. When original files are updated, changes are immediately reflected in all projects using that symlink, eliminating manual re-copying and synchronization. While option A is technically true, it's not the primary advantage. Options C and D are incorrect regarding symlink characteristics.</p>
+<p><strong>Concept Tested:</strong> Symlink Creation</p>
+<p><strong>See:</strong> <a href="../#symlink-creation">Symlink Creation</a></p>
+</details>
+<hr />
+<h4 id="10-in-the-capstone-project-workflow-what-is-the-correct-sequence-of-major-phases">10. In the capstone project workflow, what is the correct sequence of major phases?</h4>
+<div class="upper-alpha">
+<ol>
+<li>Deployment → Course Design → Content Creation → Integration</li>
+<li>Content Creation → Course Design → Integration → Deployment</li>
+<li>Course Design → Content Creation → Integration → Deployment</li>
+<li>Integration → Content Creation → Course Design → Deployment</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. The capstone project follows a logical progression: Phase 1 Course Design (course description, learning graph, chapter structure), Phase 2 Content Creation (chapter content, interactive elements, supporting resources), Phase 3 Integration and Quality Assurance (MkDocs configuration, testing, validation), and Phase 4 Deployment (GitHub repository setup, GitHub Pages deployment). This sequence ensures each phase builds on previous work. All other options present illogical orderings that would create workflow problems.</p>
+<p><strong>Concept Tested:</strong> Capstone: Complete Textbook Project</p>
+<p><strong>See:</strong> <a href="../#capstone-complete-textbook-project">Capstone: Complete Textbook Project</a></p>
+</details>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Content">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Content
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../skill-descriptions/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

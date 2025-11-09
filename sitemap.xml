@@ -49,7 +49,15 @@
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/01-intro-ai-intelligent-textbooks/quiz/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/chapters/02-getting-started-claude-skills/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/02-getting-started-claude-skills/quiz/</loc>
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
@@ -57,7 +65,15 @@
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/03-course-design-educational-theory/quiz/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/chapters/04-intro-learning-graphs/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/04-intro-learning-graphs/quiz/</loc>
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
@@ -65,7 +81,15 @@
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/05-concept-enumeration-dependencies/quiz/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/chapters/06-learning-graph-quality-validation/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/06-learning-graph-quality-validation/quiz/</loc>
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
@@ -73,7 +97,15 @@
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/07-taxonomy-data-formats/quiz/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/chapters/08-mkdocs-platform-documentation/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/08-mkdocs-platform-documentation/quiz/</loc>
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
@@ -81,7 +113,15 @@
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/09-claude-skills-architecture-development/quiz/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/chapters/10-content-creation-workflows/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/10-content-creation-workflows/quiz/</loc>
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
@@ -89,11 +129,23 @@
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/11-educational-resources-assessment/quiz/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/chapters/12-interactive-elements-microsims/</loc>
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/12-interactive-elements-microsims/quiz/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/chapters/13-dev-tools-version-control-deployment/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/chapters/13-dev-tools-version-control-deployment/quiz/</loc>
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
@@ -130,6 +182,10 @@
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/learning-graph/quality-metrics/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/learning-graph/quiz-generation-report/</loc>
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
@@ -178,6 +234,10 @@
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/prompts/generate-content-for-chapters-1-5/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/prompts/quiz-generation/</loc>
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>

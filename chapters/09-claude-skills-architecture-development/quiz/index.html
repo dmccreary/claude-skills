@@ -1,0 +1,2066 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/chapters/09-claude-skills-architecture-development/quiz/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../10-content-creation-workflows/">
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Quiz - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quiz-claude-skills-architecture-and-development" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quiz
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course Description
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Chapters
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../01-intro-ai-intelligent-textbooks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1 - Introduction to AI and Intelligent Textbooks
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../02-getting-started-claude-skills/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 2 - Getting Started with Claude and Skills
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../03-course-design-educational-theory/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 3 - Course Design and Educational Theory
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../04-intro-learning-graphs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 4 - Introduction to Learning Graphs
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../05-concept-enumeration-dependencies/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 5 - Concept Enumeration and Dependencies
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../06-learning-graph-quality-validation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 6 - Learning Graph Quality and Validation
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../07-taxonomy-data-formats/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 7 - Taxonomy and Data Formats
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../08-mkdocs-platform-documentation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 8 - MkDocs Platform and Documentation
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_10" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Chapter 9 - Claude Skills Architecture and Development
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_10" id="__nav_5_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_10">
+            <span class="md-nav__icon md-icon"></span>
+            Chapter 9 - Claude Skills Architecture and Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Quiz
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quiz
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-the-primary-skill-definition-file-that-serves-as-the-entry-point-for-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. What is the primary skill definition file that serves as the entry point for Claude?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-which-category-of-supporting-assets-provides-computational-capabilities-for-tasks-that-exceed-claudes-direct-tool-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Which category of supporting assets provides computational capabilities for tasks that exceed Claude's direct tool access?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-what-is-the-purpose-of-reference-documentation-files-in-claude-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. What is the purpose of reference documentation files in Claude Skills?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-which-testing-strategy-verifies-that-a-skill-performs-correctly-with-missing-files-or-malformed-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Which testing strategy verifies that a skill performs correctly with missing files or malformed data?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-in-claude-skills-security-model-what-is-the-principle-behind-the-allowed-tools-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. In Claude Skills security model, what is the principle behind the allowed-tools field?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-where-are-globally-installed-skills-stored-to-make-them-available-across-all-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Where are globally installed skills stored to make them available across all projects?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-a-developer-needs-to-create-a-skill-that-will-be-used-across-multiple-intelligent-textbook-projects-with-identical-functionality-should-they-use-global-or-project-specific-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. A developer needs to create a skill that will be used across multiple intelligent textbook projects with identical functionality. Should they use global or project-specific installation?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-what-is-the-purpose-of-the-git-status-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. What is the purpose of the git status command?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-a-skill-requires-the-python-packages-pandas-networkx-and-matplotlib-how-should-these-dependencies-be-documented-and-installed" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. A skill requires the Python packages pandas, networkx, and matplotlib. How should these dependencies be documented and installed?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-why-is-distributing-skills-via-git-repositories-more-flexible-than-packaged-archives" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Why is distributing skills via Git repositories more flexible than packaged archives?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quiz-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quiz Statistics
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../10-content-creation-workflows/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 10 - Content Creation Workflows
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../11-educational-resources-assessment/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 11 - Educational Resources and Assessment
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../12-interactive-elements-microsims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 12 - Interactive Elements and MicroSims
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../13-dev-tools-version-control-deployment/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 13 - Development Tools, Version Control, and Deployment
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../skill-descriptions/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    List of Skills
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Learning Graph
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    MicroSims
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../prompts/index.md" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Prompts
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glossary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-the-primary-skill-definition-file-that-serves-as-the-entry-point-for-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. What is the primary skill definition file that serves as the entry point for Claude?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-which-category-of-supporting-assets-provides-computational-capabilities-for-tasks-that-exceed-claudes-direct-tool-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Which category of supporting assets provides computational capabilities for tasks that exceed Claude's direct tool access?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-what-is-the-purpose-of-reference-documentation-files-in-claude-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. What is the purpose of reference documentation files in Claude Skills?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-which-testing-strategy-verifies-that-a-skill-performs-correctly-with-missing-files-or-malformed-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Which testing strategy verifies that a skill performs correctly with missing files or malformed data?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-in-claude-skills-security-model-what-is-the-principle-behind-the-allowed-tools-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. In Claude Skills security model, what is the principle behind the allowed-tools field?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-where-are-globally-installed-skills-stored-to-make-them-available-across-all-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Where are globally installed skills stored to make them available across all projects?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-a-developer-needs-to-create-a-skill-that-will-be-used-across-multiple-intelligent-textbook-projects-with-identical-functionality-should-they-use-global-or-project-specific-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. A developer needs to create a skill that will be used across multiple intelligent textbook projects with identical functionality. Should they use global or project-specific installation?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-what-is-the-purpose-of-the-git-status-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. What is the purpose of the git status command?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-a-skill-requires-the-python-packages-pandas-networkx-and-matplotlib-how-should-these-dependencies-be-documented-and-installed" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. A skill requires the Python packages pandas, networkx, and matplotlib. How should these dependencies be documented and installed?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-why-is-distributing-skills-via-git-repositories-more-flexible-than-packaged-archives" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Why is distributing skills via Git repositories more flexible than packaged archives?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quiz-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quiz Statistics
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/chapters/09-claude-skills-architecture-development/quiz.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="quiz-claude-skills-architecture-and-development">Quiz: Claude Skills Architecture and Development</h1>
+<p>Test your understanding of skill directory structure, supporting assets, testing, security, distribution, Git commands, and Python package management with these questions.</p>
+<hr />
+<h4 id="1-what-is-the-primary-skill-definition-file-that-serves-as-the-entry-point-for-claude">1. What is the primary skill definition file that serves as the entry point for Claude?</h4>
+<div class="upper-alpha">
+<ol>
+<li>README.md</li>
+<li>SKILL.md</li>
+<li>config.json</li>
+<li>skill-definition.txt</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. SKILL.md serves as both the entry point for Claude and documentation for developers. Its YAML frontmatter defines metadata including name, description, and optionally allowed-tools, while the markdown body contains the detailed workflow instructions that Claude executes when the skill is invoked. Options A, C, and D reference files not used as skill definition files in the Claude Skills architecture.</p>
+<p><strong>Concept Tested:</strong> Skill Directory Structure</p>
+<p><strong>See:</strong> <a href="../#skill-directory-structure">Skill Directory Structure</a></p>
+</details>
+<hr />
+<h4 id="2-which-category-of-supporting-assets-provides-computational-capabilities-for-tasks-that-exceed-claudes-direct-tool-access">2. Which category of supporting assets provides computational capabilities for tasks that exceed Claude's direct tool access?</h4>
+<div class="upper-alpha">
+<ol>
+<li>Template files</li>
+<li>Reference documentation</li>
+<li>Python scripts</li>
+<li>Configuration files</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. Python scripts provide computational capabilities for tasks that exceed Claude's direct tool access or require specialized algorithms. Common use cases include data transformation, graph analysis, quality validation, and format conversion. Template files provide structured content patterns, reference documentation provides detailed guidelines, and configuration files are not a primary supporting asset category.</p>
+<p><strong>Concept Tested:</strong> Python Scripts in Skills</p>
+<p><strong>See:</strong> <a href="../#python-scripts-in-skills">Python Scripts in Skills</a></p>
+</details>
+<hr />
+<h4 id="3-what-is-the-purpose-of-reference-documentation-files-in-claude-skills">3. What is the purpose of reference documentation files in Claude Skills?</h4>
+<div class="upper-alpha">
+<ol>
+<li>To execute automated data processing</li>
+<li>To provide detailed specifications and guidelines without cluttering SKILL.md</li>
+<li>To store user preferences</li>
+<li>To generate test cases</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. Reference documentation files provide detailed specifications, guidelines, and context that inform skill execution without cluttering the main SKILL.md workflow. These files are typically loaded at specific points in the workflow when detailed information is needed, such as reading-level guidelines or content-element-type specifications. Options A, C, and D describe functions not served by reference documentation.</p>
+<p><strong>Concept Tested:</strong> Reference Documentation in Skills</p>
+<p><strong>See:</strong> <a href="../#reference-documentation-in-skills">Reference Documentation in Skills</a></p>
+</details>
+<hr />
+<h4 id="4-which-testing-strategy-verifies-that-a-skill-performs-correctly-with-missing-files-or-malformed-data">4. Which testing strategy verifies that a skill performs correctly with missing files or malformed data?</h4>
+<div class="upper-alpha">
+<ol>
+<li>Unit testing</li>
+<li>Edge case testing</li>
+<li>End-to-end testing</li>
+<li>Regression testing</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. Edge case testing verifies behavior with missing files, malformed data, or unusual inputs that fall outside normal operating conditions. This testing strategy ensures skills handle exceptional situations gracefully rather than failing unexpectedly. Unit testing checks individual components, end-to-end testing validates complete workflows, and regression testing ensures existing functionality remains intact after changes.</p>
+<p><strong>Concept Tested:</strong> Skill Testing and Debugging</p>
+<p><strong>See:</strong> <a href="../#skill-testing-and-debugging">Skill Testing and Debugging</a></p>
+</details>
+<hr />
+<h4 id="5-in-claude-skills-security-model-what-is-the-principle-behind-the-allowed-tools-field">5. In Claude Skills security model, what is the principle behind the allowed-tools field?</h4>
+<div class="upper-alpha">
+<ol>
+<li>Maximum privilege to enable all features</li>
+<li>Least privilege, granting only necessary tools</li>
+<li>Equal privilege across all skills</li>
+<li>Dynamic privilege based on user role</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. The allowed-tools field implements the principle of least privilege, granting only the tools necessary for the skill's function. This security mechanism prevents skills from performing unintended operations by restricting access to specific Claude Code tools. Options A, C, and D describe security principles not used in the Claude Skills permission model.</p>
+<p><strong>Concept Tested:</strong> Security in Skill Execution</p>
+<p><strong>See:</strong> <a href="../#security-in-skill-execution">Security in Skill Execution</a></p>
+</details>
+<hr />
+<h4 id="6-where-are-globally-installed-skills-stored-to-make-them-available-across-all-projects">6. Where are globally installed skills stored to make them available across all projects?</h4>
+<div class="upper-alpha">
+<ol>
+<li>/usr/local/bin/skills/</li>
+<li>.claude/skills/ in the project directory</li>
+<li>~/.claude/skills/ in the user's home directory</li>
+<li>/opt/claude/global-skills/</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. Global skill installation places skills in <code>~/.claude/skills/</code> in the user's home directory, making them available across all Claude Code sessions regardless of current working directory. Project-specific skills are stored in <code>.claude/skills/</code> within a project directory. Options A and D reference directories not used by Claude Skills.</p>
+<p><strong>Concept Tested:</strong> Installing Skills Globally</p>
+<p><strong>See:</strong> <a href="../#installing-skills-globally-vs-project-specific">Installing Skills Globally</a></p>
+</details>
+<hr />
+<h4 id="7-a-developer-needs-to-create-a-skill-that-will-be-used-across-multiple-intelligent-textbook-projects-with-identical-functionality-should-they-use-global-or-project-specific-installation">7. A developer needs to create a skill that will be used across multiple intelligent textbook projects with identical functionality. Should they use global or project-specific installation?</h4>
+<div class="upper-alpha">
+<ol>
+<li>Project-specific, to ensure each project can customize the skill</li>
+<li>Global, to enable reusability without duplicating the skill in each project</li>
+<li>Both simultaneously, to provide redundancy</li>
+<li>Neither, skills cannot be shared across projects</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. Global installation is ideal for general-purpose skills that apply across many projects, providing reusability without duplication. The skill can be modified once to affect all projects. Project-specific installation is more appropriate when skills contain project-specific logic or when different projects require different versions. Options C and D describe incorrect installation approaches.</p>
+<p><strong>Concept Tested:</strong> Installing Skills Globally</p>
+<p><strong>See:</strong> <a href="../#installing-skills-globally-vs-project-specific">Installing Skills Globally vs Project-Specific</a></p>
+</details>
+<hr />
+<h4 id="8-what-is-the-purpose-of-the-git-status-command">8. What is the purpose of the <code>git status</code> command?</h4>
+<div class="upper-alpha">
+<ol>
+<li>To create a new commit</li>
+<li>To display the current state of the working directory and staging area</li>
+<li>To upload changes to GitHub</li>
+<li>To merge two branches</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. The <code>git status</code> command displays the current state of the working directory and staging area, showing modified files, untracked files, staged changes, branch information, and sync status with remote. This command helps developers understand repository state before committing changes. Options A, C, and D describe the functions of <code>git commit</code>, <code>git push</code>, and <code>git merge</code> respectively.</p>
+<p><strong>Concept Tested:</strong> Git Status Command</p>
+<p><strong>See:</strong> <a href="../#git-status-command">Git Status Command</a></p>
+</details>
+<hr />
+<h4 id="9-a-skill-requires-the-python-packages-pandas-networkx-and-matplotlib-how-should-these-dependencies-be-documented-and-installed">9. A skill requires the Python packages pandas, networkx, and matplotlib. How should these dependencies be documented and installed?</h4>
+<div class="upper-alpha">
+<ol>
+<li>List them in a README file and ask users to install manually</li>
+<li>Include them in SKILL.md frontmatter</li>
+<li>Document them in requirements.txt and install with pip install -r requirements.txt</li>
+<li>Embed installation commands directly in the skill workflow</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. Python package dependencies should be documented in a <code>requirements.txt</code> file specifying exact versions (e.g., <code>pandas==2.1.0</code>), then installed using <code>pip install -r requirements.txt</code>. This approach ensures reproducible environments and follows Python packaging best practices. Option A lacks automation, option B misuses frontmatter, and option D conflates dependency installation with skill execution.</p>
+<p><strong>Concept Tested:</strong> pip Package Management</p>
+<p><strong>See:</strong> <a href="../#installing-python-packages">Installing Python Packages</a></p>
+</details>
+<hr />
+<h4 id="10-why-is-distributing-skills-via-git-repositories-more-flexible-than-packaged-archives">10. Why is distributing skills via Git repositories more flexible than packaged archives?</h4>
+<div class="upper-alpha">
+<ol>
+<li>Git repositories are smaller in file size</li>
+<li>Git repositories enable version control, collaborative development, and easy updates</li>
+<li>Git repositories work offline while archives require internet</li>
+<li>Git repositories don't require documentation</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. Git repositories provide the most flexible and maintainable distribution method because they enable version control (complete change history), collaborative development (forks and pull requests), issue tracking, and easy updates (users can pull latest changes). Archive distribution sacrifices these benefits but reduces installation barriers for non-technical users. Options A, C, and D provide incorrect or misleading comparisons.</p>
+<p><strong>Concept Tested:</strong> Skill Distribution Methods</p>
+<p><strong>See:</strong> <a href="../#skill-distribution-methods">Skill Distribution Methods</a></p>
+</details>
+<hr />
+<h2 id="quiz-statistics">Quiz Statistics</h2>
+<ul>
+<li><strong>Total Questions:</strong> 10</li>
+<li><strong>Bloom's Taxonomy Distribution:</strong></li>
+<li>Remember: 3 questions (30%)</li>
+<li>Understand: 3 questions (30%)</li>
+<li>Apply: 3 questions (30%)</li>
+<li>Analyze: 1 question (10%)</li>
+<li><strong>Concepts Covered:</strong> 13 of 22 chapter concepts (59%)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Content">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Content
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../10-content-creation-workflows/" class="md-footer__link md-footer__link--next" aria-label="Next: Content">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Content
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

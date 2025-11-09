@@ -1,0 +1,2066 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/chapters/02-getting-started-claude-skills/quiz/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../03-course-design-educational-theory/">
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Quiz - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quiz-getting-started-with-claude-and-skills" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quiz
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course Description
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Chapters
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../01-intro-ai-intelligent-textbooks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1 - Introduction to AI and Intelligent Textbooks
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Chapter 2 - Getting Started with Claude and Skills
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapter 2 - Getting Started with Claude and Skills
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Quiz
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quiz
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-a-claude-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. What is a Claude Skill?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-which-file-defines-a-claude-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Which file defines a Claude Skill?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-what-information-is-included-in-the-yaml-frontmatter-of-a-skill-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. What information is included in the YAML frontmatter of a skill file?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-what-is-the-purpose-of-the-allowed-tools-field-in-skill-frontmatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. What is the purpose of the allowed-tools field in skill frontmatter?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-what-is-the-difference-between-a-claude-skill-and-a-claude-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. What is the difference between a Claude Skill and a Claude Command?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-where-should-skills-be-installed-for-global-availability-across-all-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Where should skills be installed for global availability across all projects?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-how-does-claude-code-determine-which-workflow-steps-to-execute-when-a-skill-is-invoked" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. How does Claude Code determine which workflow steps to execute when a skill is invoked?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-a-developer-creates-a-new-skill-that-needs-to-analyze-existing-files-but-should-never-modify-them-or-access-the-internet-which-allowed-tools-configuration-is-most-appropriate" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. A developer creates a new skill that needs to analyze existing files but should never modify them or access the internet. Which allowed-tools configuration is most appropriate?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-why-do-well-designed-skill-workflow-instructions-include-verification-checkpoints-and-error-handling-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Why do well-designed skill workflow instructions include verification checkpoints and error handling guidance?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-what-does-invoking-a-skill-with-a-slash-command-like-quiz-generator-accomplish" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. What does invoking a skill with a slash command like /quiz-generator accomplish?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quiz-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quiz Statistics
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../03-course-design-educational-theory/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 3 - Course Design and Educational Theory
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../04-intro-learning-graphs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 4 - Introduction to Learning Graphs
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../05-concept-enumeration-dependencies/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 5 - Concept Enumeration and Dependencies
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../06-learning-graph-quality-validation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 6 - Learning Graph Quality and Validation
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../07-taxonomy-data-formats/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 7 - Taxonomy and Data Formats
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../08-mkdocs-platform-documentation/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 8 - MkDocs Platform and Documentation
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../09-claude-skills-architecture-development/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 9 - Claude Skills Architecture and Development
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../10-content-creation-workflows/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 10 - Content Creation Workflows
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../11-educational-resources-assessment/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 11 - Educational Resources and Assessment
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../12-interactive-elements-microsims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 12 - Interactive Elements and MicroSims
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../13-dev-tools-version-control-deployment/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Chapter 13 - Development Tools, Version Control, and Deployment
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../skill-descriptions/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    List of Skills
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Learning Graph
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    MicroSims
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../prompts/index.md" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Prompts
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glossary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-a-claude-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. What is a Claude Skill?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-which-file-defines-a-claude-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Which file defines a Claude Skill?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-what-information-is-included-in-the-yaml-frontmatter-of-a-skill-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. What information is included in the YAML frontmatter of a skill file?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-what-is-the-purpose-of-the-allowed-tools-field-in-skill-frontmatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. What is the purpose of the allowed-tools field in skill frontmatter?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-what-is-the-difference-between-a-claude-skill-and-a-claude-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. What is the difference between a Claude Skill and a Claude Command?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-where-should-skills-be-installed-for-global-availability-across-all-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Where should skills be installed for global availability across all projects?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-how-does-claude-code-determine-which-workflow-steps-to-execute-when-a-skill-is-invoked" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. How does Claude Code determine which workflow steps to execute when a skill is invoked?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-a-developer-creates-a-new-skill-that-needs-to-analyze-existing-files-but-should-never-modify-them-or-access-the-internet-which-allowed-tools-configuration-is-most-appropriate" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. A developer creates a new skill that needs to analyze existing files but should never modify them or access the internet. Which allowed-tools configuration is most appropriate?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-why-do-well-designed-skill-workflow-instructions-include-verification-checkpoints-and-error-handling-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Why do well-designed skill workflow instructions include verification checkpoints and error handling guidance?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-what-does-invoking-a-skill-with-a-slash-command-like-quiz-generator-accomplish" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. What does invoking a skill with a slash command like /quiz-generator accomplish?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quiz-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quiz Statistics
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/chapters/02-getting-started-claude-skills/quiz.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="quiz-getting-started-with-claude-and-skills">Quiz: Getting Started with Claude and Skills</h1>
+<p>Test your understanding of Claude Skills, skill definition files, installation, and invocation with these questions.</p>
+<hr />
+<h4 id="1-what-is-a-claude-skill">1. What is a Claude Skill?</h4>
+<div class="upper-alpha">
+<ol>
+<li>A simple one-line prompt for Claude AI</li>
+<li>An autonomous agent that executes complex, multi-step workflows</li>
+<li>A keyboard shortcut for common tasks</li>
+<li>A programming language for AI systems</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. Claude Skills represent autonomous agents designed to execute complex, multi-step workflows without continuous human intervention. Unlike simple prompts that request a single output, skills encapsulate comprehensive procedures including context gathering, quality validation, iterative refinement, and structured deliverable generation. Option A describes basic prompts, option C describes hotkeys, and option D mischaracterizes skills as a programming language.</p>
+<p><strong>Concept Tested:</strong> Claude Skill</p>
+<p><strong>See:</strong> <a href="../#understanding-claude-skills">Understanding Claude Skills</a></p>
+</details>
+<hr />
+<h4 id="2-which-file-defines-a-claude-skill">2. Which file defines a Claude Skill?</h4>
+<div class="upper-alpha">
+<ol>
+<li>README.md with configuration settings</li>
+<li>skill.json containing workflow steps</li>
+<li>SKILL.md with YAML frontmatter and markdown workflow</li>
+<li>config.yml with execution parameters</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. Every Claude Skill is defined by a <code>SKILL.md</code> file containing both metadata (YAML frontmatter) and workflow instructions (markdown content). This standardized structure enables Claude Code to discover, load, and execute skills consistently across projects. Options A, B, and D reference files that are not used in the Claude Skills system.</p>
+<p><strong>Concept Tested:</strong> Skill Definition File Structure</p>
+<p><strong>See:</strong> <a href="../#skill-definition-file-structure">Skill Definition File Structure</a></p>
+</details>
+<hr />
+<h4 id="3-what-information-is-included-in-the-yaml-frontmatter-of-a-skill-file">3. What information is included in the YAML frontmatter of a skill file?</h4>
+<div class="upper-alpha">
+<ol>
+<li>Step-by-step workflow instructions</li>
+<li>Code examples and templates</li>
+<li>Name, description, license, and allowed tools</li>
+<li>User feedback and quality ratings</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. The YAML frontmatter section provides metadata that Claude Code uses for skill discovery, permission management, and user-facing documentation. Required fields include name, description, and license, while the optional allowed-tools field specifies which tools the skill can use. Option A describes the markdown body (not frontmatter), option B describes supporting resources, and option D is not part of skill files.</p>
+<p><strong>Concept Tested:</strong> YAML Frontmatter in Skills</p>
+<p><strong>See:</strong> <a href="../#yaml-frontmatter-in-skills">YAML Frontmatter in Skills</a></p>
+</details>
+<hr />
+<h4 id="4-what-is-the-purpose-of-the-allowed-tools-field-in-skill-frontmatter">4. What is the purpose of the <code>allowed-tools</code> field in skill frontmatter?</h4>
+<div class="upper-alpha">
+<ol>
+<li>To list tools the user must install before running the skill</li>
+<li>To speed up skill execution by preloading tools</li>
+<li>To improve skill documentation for beginners</li>
+<li>To limit the skill to specific Claude Code tools for security</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>D</strong>. The <code>allowed-tools</code> frontmatter field provides fine-grained permission control, limiting skills to specific Claude Code tools. This security and safety mechanism prevents skills from performing unintended operations by following the principle of least privilege—granting only the tools necessary for the skill's function. Options A, B, and C mischaracterize the purpose of this field.</p>
+<p><strong>Concept Tested:</strong> Allowed Tools in Skills</p>
+<p><strong>See:</strong> <a href="../#allowed-tools-in-skills">Allowed Tools in Skills</a></p>
+</details>
+<hr />
+<h4 id="5-what-is-the-difference-between-a-claude-skill-and-a-claude-command">5. What is the difference between a Claude Skill and a Claude Command?</h4>
+<div class="upper-alpha">
+<ol>
+<li>Skills are for beginners, commands are for experts</li>
+<li>Skills execute multi-step workflows, commands expand simple text prompts</li>
+<li>Skills are free, commands require payment</li>
+<li>Skills work offline, commands require internet</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. Skills are autonomous agents that execute complex, multi-step workflows with context gathering, quality validation, and structured outputs. Commands, by contrast, are simpler mechanisms that expand text prompts—when a user types a slash command like <code>/commit</code>, it expands to a predefined prompt. Skills are more sophisticated workflow automation tools, while commands are text expansion shortcuts. The other options describe incorrect distinctions.</p>
+<p><strong>Concept Tested:</strong> Difference Between Skills &amp; Commands</p>
+<p><strong>See:</strong> <a href="../#claude-command">Claude Command</a> and <a href="../#difference-between-skills-commands">Difference Between Skills &amp; Commands</a></p>
+</details>
+<hr />
+<h4 id="6-where-should-skills-be-installed-for-global-availability-across-all-projects">6. Where should skills be installed for global availability across all projects?</h4>
+<div class="upper-alpha">
+<ol>
+<li>In the project root directory</li>
+<li>In /usr/local/share/claude-skills/</li>
+<li>In ~/.claude/skills/ in the user's home directory</li>
+<li>In the Claude AI cloud account settings</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. Global installation makes skills available in all Claude Code sessions regardless of current working directory by storing them in <code>~/.claude/skills/</code> in the user's home directory. Project-local skills can be installed in <code>.claude/skills/</code> within a specific project directory, but these are not globally available. Options A, B, and D describe incorrect installation locations.</p>
+<p><strong>Concept Tested:</strong> Installing a Claude Skill</p>
+<p><strong>See:</strong> <a href="../#installing-a-claude-skill">Installing a Claude Skill</a></p>
+</details>
+<hr />
+<h4 id="7-how-does-claude-code-determine-which-workflow-steps-to-execute-when-a-skill-is-invoked">7. How does Claude Code determine which workflow steps to execute when a skill is invoked?</h4>
+<div class="upper-alpha">
+<ol>
+<li>By analyzing user intent from the invocation command</li>
+<li>By reading the step-by-step instructions in the markdown body of SKILL.md</li>
+<li>By executing all Python scripts in the skill directory</li>
+<li>By querying the Claude AI model for the optimal workflow</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>B</strong>. The markdown body of a SKILL.md file contains detailed, step-by-step instructions (typically under a "## Workflow" section with numbered steps like "Step 1", "Step 2") that Claude Code executes autonomously. These instructions are explicitly written and sequenced, providing clear guidance for execution. Options A, C, and D describe incorrect mechanisms for determining workflow execution.</p>
+<p><strong>Concept Tested:</strong> Skill Workflow Instructions</p>
+<p><strong>See:</strong> <a href="../#skill-workflow-instructions">Skill Workflow Instructions</a></p>
+</details>
+<hr />
+<h4 id="8-a-developer-creates-a-new-skill-that-needs-to-analyze-existing-files-but-should-never-modify-them-or-access-the-internet-which-allowed-tools-configuration-is-most-appropriate">8. A developer creates a new skill that needs to analyze existing files but should never modify them or access the internet. Which <code>allowed-tools</code> configuration is most appropriate?</h4>
+<div class="upper-alpha">
+<ol>
+<li>[Read, Grep, Glob]</li>
+<li>[Write, Edit, Bash]</li>
+<li>[WebFetch, WebSearch, Read]</li>
+<li>All tools (allowed-tools field omitted)</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>A</strong>. For a skill that only analyzes existing files without modification, read-only tools are appropriate: Read (access file contents), Grep (search file contents), and Glob (find files matching patterns). This follows the principle of least privilege by granting only necessary tools. Option B includes write tools, option C includes web access tools, and option D grants excessive permissions. Using [Read, Grep, Glob] ensures the skill cannot accidentally modify files or access external resources.</p>
+<p><strong>Concept Tested:</strong> Allowed Tools in Skills</p>
+<p><strong>See:</strong> <a href="../#allowed-tools-in-skills">Allowed Tools in Skills</a></p>
+</details>
+<hr />
+<h4 id="9-why-do-well-designed-skill-workflow-instructions-include-verification-checkpoints-and-error-handling-guidance">9. Why do well-designed skill workflow instructions include verification checkpoints and error handling guidance?</h4>
+<div class="upper-alpha">
+<ol>
+<li>To make the skill file longer and more impressive</li>
+<li>To test Claude's ability to handle complex logic</li>
+<li>To enable autonomous execution even when conditions vary</li>
+<li>To satisfy software licensing requirements</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>C</strong>. Verification checkpoints (confirming expected files exist and meet quality standards) and error handling guidance (instructions for when expected conditions aren't met) enable skills to execute autonomously even when project structures vary or unexpected conditions occur. This makes skills robust and adaptable rather than brittle. Options A, B, and D misunderstand the purpose of these workflow elements.</p>
+<p><strong>Concept Tested:</strong> Skill Workflow Instructions</p>
+<p><strong>See:</strong> <a href="../#skill-workflow-instructions">Skill Workflow Instructions</a></p>
+</details>
+<hr />
+<h4 id="10-what-does-invoking-a-skill-with-a-slash-command-like-quiz-generator-accomplish">10. What does invoking a skill with a slash command like <code>/quiz-generator</code> accomplish?</h4>
+<div class="upper-alpha">
+<ol>
+<li>It downloads the skill from the internet</li>
+<li>It creates a new SKILL.md file in the project</li>
+<li>It compiles the skill into executable code</li>
+<li>It loads and executes the skill's workflow instructions</li>
+</ol>
+</div>
+<details class="question">
+<summary>Show Answer</summary>
+<p>The correct answer is <strong>D</strong>. When you invoke a skill using a slash command (like <code>/quiz-generator</code>), Claude Code loads the corresponding SKILL.md file, reads the YAML frontmatter for metadata and permissions, and then executes the step-by-step workflow instructions in the markdown body. The skill must already be installed; invocation doesn't download (A), create (B), or compile (C) anything—it executes an existing installed skill.</p>
+<p><strong>Concept Tested:</strong> Invoking Skills with Slash Commands</p>
+<p><strong>See:</strong> <a href="../#invoking-skills-with-slash-commands">Invoking Skills with Slash Commands</a></p>
+</details>
+<hr />
+<h2 id="quiz-statistics">Quiz Statistics</h2>
+<ul>
+<li><strong>Total Questions:</strong> 10</li>
+<li><strong>Bloom's Taxonomy Distribution:</strong></li>
+<li>Remember: 4 questions (40%)</li>
+<li>Understand: 4 questions (40%)</li>
+<li>Apply: 1 question (10%)</li>
+<li>Analyze: 1 question (10%)</li>
+<li><strong>Concepts Covered:</strong> 10 of 18 chapter concepts (56%)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Content">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Content
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../03-course-design-educational-theory/" class="md-footer__link md-footer__link--next" aria-label="Next: Content">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Content
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
