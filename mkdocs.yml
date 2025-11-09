@@ -87,6 +87,7 @@ nav:
     - List of MicroSims: sims/index.md
     - Graph Viewer: sims/graph-viewer/index.md
     - Concept Length Histogram: sims/concept-length-histogram/index.md
+    - Timeline: sims/timeline/index.md
   
   - Prompts:
     - List of Prompts: prompts/index.md

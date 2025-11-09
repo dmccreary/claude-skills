@@ -1,0 +1,83 @@
+{
+  "title": "Sample Timeline",
+  "events": [
+    {
+      "start_date": {
+        "year": "2020",
+        "month": "1",
+        "day": "15"
+      },
+      "text": {
+        "headline": "Project Initiated",
+        "text": "The project was formally initiated with stakeholder approval and budget allocation."
+      },
+      "group": "Planning",
+      "notes": "This milestone marked the official start of the project after months of preparation and proposal development."
+    },
+    {
+      "start_date": {
+        "year": "2020",
+        "month": "3",
+        "day": "1"
+      },
+      "text": {
+        "headline": "Team Assembled",
+        "text": "Core team members were recruited and onboarded to begin the development phase."
+      },
+      "group": "Planning",
+      "notes": "The team included developers, designers, and project managers from multiple departments."
+    },
+    {
+      "start_date": {
+        "year": "2020",
+        "month": "5",
+        "day": "10"
+      },
+      "text": {
+        "headline": "First Prototype Released",
+        "text": "Initial prototype completed and released for internal testing and feedback."
+      },
+      "group": "Development",
+      "notes": "The prototype demonstrated core functionality and validated key technical approaches."
+    },
+    {
+      "start_date": {
+        "year": "2020",
+        "month": "8",
+        "day": "20"
+      },
+      "text": {
+        "headline": "Beta Testing Begins",
+        "text": "Beta version released to select external users for comprehensive testing."
+      },
+      "group": "Development",
+      "notes": "Over 100 beta testers participated, providing valuable feedback that shaped the final release."
+    },
+    {
+      "start_date": {
+        "year": "2020",
+        "month": "11",
+        "day": "1"
+      },
+      "text": {
+        "headline": "Official Launch",
+        "text": "Product officially launched to the public with full feature set and documentation."
+      },
+      "group": "Launch",
+      "notes": "The launch included a marketing campaign, press releases, and user onboarding materials."
+    },
+    {
+      "start_date": {
+        "year": "2021",
+        "month": "2",
+        "day": "15"
+      },
+      "text": {
+        "headline": "First Major Update",
+        "text": "First significant update released with new features and improvements based on user feedback."
+      },
+      "group": "Maintenance",
+      "notes": "This update addressed the top 20 feature requests from the community and fixed reported issues."
+    }
+  ]
+}
