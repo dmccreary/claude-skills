@@ -1813,49 +1813,89 @@
 <p><strong>Outcome focus:</strong> Learning objectives stated as measurable, demonstrable competencies rather than aspirational goals.</p>
 <p>For intelligent textbook projects, the course description quality directly impacts downstream artifacts. A comprehensive, well-structured course description enables the learning-graph-generator skill to produce 200+ relevant concepts with accurate dependencies, while an underspecified description yields generic or off-target concept graphs requiring extensive manual correction.</p>
 <details>
-    <summary>Course Description Quality Impact on Workflow</summary>
-    Type: workflow
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Course Description Quality Impact on Workflow&lt;/summary&gt;
+Type: workflow
 
-    Purpose: Show how course description quality affects subsequent skill outputs
+Purpose: Show how course description quality affects subsequent skill outputs
 
-    Visual style: Flowchart with quality branching
+Visual style: Flowchart with quality branching
 
-    Steps:
-    1. Start: "Course Description Created"
+Steps:
+1. Start: &quot;Course Description Created&quot;
 
-    2. Decision: "Quality Score ≥ 70?"
-       Hover text: "Assessed using course-description-analyzer skill"
+2. Decision: &quot;Quality Score ≥ 70?&quot;
+   Hover text: &quot;Assessed using course-description-analyzer skill&quot;
 
-    3a. High Quality Path (Score ≥ 70):
-        - Process: "Learning graph generation"
-          Hover text: "200 relevant concepts with accurate dependencies"
-        - Process: "Glossary generation"
-          Hover text: "Precise definitions aligned with concepts"
-        - Process: "Chapter structure"
-          Hover text: "Logical sequencing respecting prerequisites"
-        - Result: "High-quality textbook with minimal manual correction"
+3a. High Quality Path (Score ≥ 70):
+    - Process: &quot;Learning graph generation&quot;
+      Hover text: &quot;200 relevant concepts with accurate dependencies&quot;
+    - Process: &quot;Glossary generation&quot;
+      Hover text: &quot;Precise definitions aligned with concepts&quot;
+    - Process: &quot;Chapter structure&quot;
+      Hover text: &quot;Logical sequencing respecting prerequisites&quot;
+    - Result: &quot;High-quality textbook with minimal manual correction&quot;
 
-    3b. Low Quality Path (Score < 70):
-        - Process: "Learning graph generation"
-          Hover text: "Generic or off-target concepts, unclear dependencies"
-        - Process: "Manual correction required"
-          Hover text: "Significant effort to refine concepts and relationships"
-        - Process: "Regenerate downstream artifacts"
-          Hover text: "Glossary, chapters must be redone with corrected graph"
-        - Result: "Extended development time, inconsistent quality"
+3b. Low Quality Path (Score &lt; 70):
+    - Process: &quot;Learning graph generation&quot;
+      Hover text: &quot;Generic or off-target concepts, unclear dependencies&quot;
+    - Process: &quot;Manual correction required&quot;
+      Hover text: &quot;Significant effort to refine concepts and relationships&quot;
+    - Process: &quot;Regenerate downstream artifacts&quot;
+      Hover text: &quot;Glossary, chapters must be redone with corrected graph&quot;
+    - Result: &quot;Extended development time, inconsistent quality&quot;
 
-    Annotations:
-    - "Investing time in course description quality pays exponential dividends"
-    - "Quality threshold: 70+ for acceptable, 85+ for excellent"
+Annotations:
+- &quot;Investing time in course description quality pays exponential dividends&quot;
+- &quot;Quality threshold: 70+ for acceptable, 85+ for excellent&quot;
 
-    Color coding:
-    - Green: High-quality path
-    - Orange: Low-quality path requiring rework
-    - Blue: Assessment and decision points
+Color coding:
+- Green: High-quality path
+- Orange: Low-quality path requiring rework
+- Blue: Assessment and decision points
 
-    Implementation: SVG flowchart with parallel quality paths
+Implementation: SVG flowchart with parallel quality paths
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="target-audience-definition">Target Audience Definition</h3>
 <p>Defining the target audience establishes critical constraints for content generation including reading level, assumed background knowledge, professional context, and motivational framing.</p>
 <p>Effective target audience definitions address:</p>
@@ -1886,47 +1926,85 @@
 <p><strong>Technical precision:</strong> Use domain-standard terminology. In a graph database course, "Cypher query language" rather than "graph querying"; in this course, "Bloom's Taxonomy 2001 revision" rather than "learning objectives."</p>
 <p>The course description for this intelligent textbooks course provides an exemplar with 25+ main topics ranging from foundational (Claude Skills architecture) through intermediate (learning graphs) to advanced (MicroSim development), demonstrating appropriate scope and progression.</p>
 <details>
-    <summary>Topic-to-Concept Expansion Example</summary>
-    Type: diagram
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Topic-to-Concept Expansion Example&lt;/summary&gt;
+Type: diagram
 
-    Purpose: Illustrate how main topics expand into concept enumerations in learning graphs
+Purpose: Illustrate how main topics expand into concept enumerations in learning graphs
 
-    Components to show:
-    - Main topic: "Learning Graphs" (top level)
-    - Expanded concepts (second level, connected with arrows):
-      1. Learning Graph
-      2. Concept Nodes in Learning Graphs
-      3. Dependency Edges in Learning Graphs
-      4. Directed Acyclic Graph (DAG)
-      5. Prerequisite Relationships
-      6. Concept Dependencies
-      7. Learning Pathways
-      8. Graph Traversal Algorithms
-      9. Topological Sorting
-      10. Circular Dependency Detection
-      11. Foundational vs Advanced Concepts
-      12. Learning Graph Visualization
-      13. Concept Granularity
-      14. Atomic Concepts
-      15. Concept Label Standards
+Components to show:
+- Main topic: &quot;Learning Graphs&quot; (top level)
+- Expanded concepts (second level, connected with arrows):
+  1. Learning Graph
+  2. Concept Nodes in Learning Graphs
+  3. Dependency Edges in Learning Graphs
+  4. Directed Acyclic Graph (DAG)
+  5. Prerequisite Relationships
+  6. Concept Dependencies
+  7. Learning Pathways
+  8. Graph Traversal Algorithms
+  9. Topological Sorting
+  10. Circular Dependency Detection
+  11. Foundational vs Advanced Concepts
+  12. Learning Graph Visualization
+  13. Concept Granularity
+  14. Atomic Concepts
+  15. Concept Label Standards
 
-    - Annotation showing "1 topic → 10-20 concepts typical expansion"
-    - Visual indicators of concept dependencies (arrows between concepts)
+- Annotation showing &quot;1 topic → 10-20 concepts typical expansion&quot;
+- Visual indicators of concept dependencies (arrows between concepts)
 
-    Layout: Mind map or tree structure
+Layout: Mind map or tree structure
 
-    Labels:
-    - "Main Topic (from course description)"
-    - "Concepts (generated by learning-graph-generator skill)"
-    - "Dependencies shown as arrows"
+Labels:
+- &quot;Main Topic (from course description)&quot;
+- &quot;Concepts (generated by learning-graph-generator skill)&quot;
+- &quot;Dependencies shown as arrows&quot;
 
-    Visual style: Mind map with radial layout
+Visual style: Mind map with radial layout
 
-    Color scheme: Purple for main topic, blue for foundational concepts, green for intermediate, gold for advanced
+Color scheme: Purple for main topic, blue for foundational concepts, green for intermediate, gold for advanced
 
-    Implementation: SVG mind map diagram
+Implementation: SVG mind map diagram
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="topics-excluded-from-course">Topics Excluded from Course</h3>
 <p>Explicitly stating what the course does NOT cover provides essential boundary-setting for concept generation, preventing scope creep and maintaining focus on defined learning objectives.</p>
 <p>The exclusion section serves several purposes:</p>
@@ -1994,47 +2072,85 @@
 <p>The verb-based framework better aligns with outcome statements: "Students will analyze dependency graphs" (2001) versus "Students will demonstrate analysis of dependency graphs" (1956 phrasing). The active voice clarifies what learners do to demonstrate competency.</p>
 <p>For AI-assisted content generation, the verb-based taxonomy enables more precise prompt engineering. Skills can be instructed to "generate examples requiring learners to evaluate trade-offs" rather than the less actionable "create evaluation content."</p>
 <details>
-    <summary>Bloom's Taxonomy 1956 vs 2001 Comparison</summary>
-    Type: diagram
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Bloom&#39;s Taxonomy 1956 vs 2001 Comparison&lt;/summary&gt;
+Type: diagram
 
-    Purpose: Show the structural differences between original and revised taxonomies
+Purpose: Show the structural differences between original and revised taxonomies
 
-    Components to show (side-by-side pyramids):
+Components to show (side-by-side pyramids):
 
-    Left pyramid (1956 version):
-    - Evaluation (top)
-    - Synthesis
-    - Analysis
-    - Application
-    - Comprehension
-    - Knowledge (bottom)
+Left pyramid (1956 version):
+- Evaluation (top)
+- Synthesis
+- Analysis
+- Application
+- Comprehension
+- Knowledge (bottom)
 
-    Right pyramid (2001 version):
-    - Create (top)
-    - Evaluate
-    - Analyze
-    - Apply
-    - Understand
-    - Remember (bottom)
+Right pyramid (2001 version):
+- Create (top)
+- Evaluate
+- Analyze
+- Apply
+- Understand
+- Remember (bottom)
 
-    Arrows showing transformations:
-    - Knowledge → Remember
-    - Comprehension → Understand
-    - Synthesis → Create (moved to top)
-    - Evaluation → Evaluate (moved down one level)
+Arrows showing transformations:
+- Knowledge → Remember
+- Comprehension → Understand
+- Synthesis → Create (moved to top)
+- Evaluation → Evaluate (moved down one level)
 
-    Labels:
-    - "Original: Noun-based knowledge categories"
-    - "Revised: Verb-based cognitive processes"
-    - Annotation: "Create elevated to highest level, emphasizing generative thinking"
+Labels:
+- &quot;Original: Noun-based knowledge categories&quot;
+- &quot;Revised: Verb-based cognitive processes&quot;
+- Annotation: &quot;Create elevated to highest level, emphasizing generative thinking&quot;
 
-    Visual style: Two pyramids side-by-side with transformation arrows
+Visual style: Two pyramids side-by-side with transformation arrows
 
-    Color scheme: Red gradient for 1956, rainbow gradient (red to purple) for 2001
+Color scheme: Red gradient for 1956, rainbow gradient (red to purple) for 2001
 
-    Implementation: SVG diagram with pyramid shapes
+Implementation: SVG diagram with pyramid shapes
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="the-six-cognitive-levels">The Six Cognitive Levels</h2>
 <p>The 2001 Bloom's Taxonomy organizes cognitive processes into six hierarchical levels, each building on the capabilities of lower levels. Understanding these levels is essential for designing learning outcomes, structuring content progression, and creating assessments that measure intended competencies.</p>
 <h3 id="remember-cognitive-level-1">Remember (Cognitive Level 1)</h3>
@@ -2100,33 +2216,57 @@ Apply, execute, implement, use, carry out, solve, demonstrate, operate, employ, 
 <p><strong>Content generation implications:</strong>
 Apply-level content includes worked examples with step-by-step execution, practice opportunities with varied scenarios, procedural guidance adaptable to contexts, and scaffolded problem-solving transitioning from guided to independent application.</p>
 <details>
-    <summary>Lower-Order vs Higher-Order Thinking Skills</summary>
-    Type: diagram
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Lower-Order vs Higher-Order Thinking Skills&lt;/summary&gt;
+Type: diagram
 
-    Purpose: Show the division between lower-order (Remember, Understand, Apply) and higher-order (Analyze, Evaluate, Create) cognitive skills
+Purpose: Show the division between lower-order (Remember, Understand, Apply) and higher-order (Analyze, Evaluate, Create) cognitive skills
 
-    Components to show:
-    - Pyramid divided horizontally at the middle
-    - Lower half (shaded blue): Remember, Understand, Apply
-    - Upper half (shaded gold): Analyze, Evaluate, Create
-    - Label: "Lower-Order Thinking Skills (LOTS)"
-    - Label: "Higher-Order Thinking Skills (HOTS)"
-    - Annotations showing:
-      - LOTS: Focus on knowledge acquisition and application
-      - HOTS: Focus on critical thinking and creation
+Components to show:
+- Pyramid divided horizontally at the middle
+- Lower half (shaded blue): Remember, Understand, Apply
+- Upper half (shaded gold): Analyze, Evaluate, Create
+- Label: &quot;Lower-Order Thinking Skills (LOTS)&quot;
+- Label: &quot;Higher-Order Thinking Skills (HOTS)&quot;
+- Annotations showing:
+  - LOTS: Focus on knowledge acquisition and application
+  - HOTS: Focus on critical thinking and creation
 
-    Additional info boxes:
-    - LOTS: "Essential foundation, but insufficient for mastery"
-    - HOTS: "Demonstrate deeper learning, critical for professional competence"
-    - Educational research note: "Well-designed courses include 60-70% HOTS outcomes"
+Additional info boxes:
+- LOTS: &quot;Essential foundation, but insufficient for mastery&quot;
+- HOTS: &quot;Demonstrate deeper learning, critical for professional competence&quot;
+- Educational research note: &quot;Well-designed courses include 60-70% HOTS outcomes&quot;
 
-    Visual style: Pyramid with horizontal division
+Visual style: Pyramid with horizontal division
 
-    Color scheme: Blue for LOTS, gold for HOTS, gradient transition at boundary
+Color scheme: Blue for LOTS, gold for HOTS, gradient transition at boundary
 
-    Implementation: SVG pyramid diagram with annotation boxes
+Implementation: SVG pyramid diagram with annotation boxes
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="analyze-cognitive-level-4">Analyze (Cognitive Level 4)</h3>
 <p><strong>Analyze</strong> involves breaking material into constituent parts and determining how parts relate to one another and to an overall structure or purpose. Analysis enables learners to distinguish relevant from irrelevant information, identify organizational principles, and recognize unstated assumptions.</p>
 <p><strong>Cognitive processes:</strong>
@@ -2190,38 +2330,67 @@ Create, design, construct, develop, formulate, author, generate, plan, produce, 
 <p><strong>Content generation implications:</strong>
 Create-level content provides open-ended challenges, offers frameworks and constraints fostering structured creativity, showcases examples of creative work highlighting key features, and scaffolds complex production through phase-wise guidance.</p>
 <details>
-    <summary>Bloom's Taxonomy Application Distribution in Quality Courses</summary>
-    Type: chart
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Bloom&#39;s Taxonomy Application Distribution in Quality Courses&lt;/summary&gt;
+Type: chart
 
-    Chart type: Horizontal stacked bar chart
+Chart type: Horizontal stacked bar chart
 
-    Purpose: Show recommended distribution of learning outcomes across cognitive levels
+Purpose: Show recommended distribution of learning outcomes across cognitive levels
 
-    Data (percentage of learning outcomes by level):
-    - Remember: 10%
-    - Understand: 20%
-    - Apply: 25%
-    - Analyze: 20%
-    - Evaluate: 15%
-    - Create: 10%
+Data (percentage of learning outcomes by level):
+- Remember: 10%
+- Understand: 20%
+- Apply: 25%
+- Analyze: 20%
+- Evaluate: 15%
+- Create: 10%
 
-    Title: "Recommended Learning Outcome Distribution for Graduate-Level Courses"
+Title: &quot;Recommended Learning Outcome Distribution for Graduate-Level Courses&quot;
 
-    Bar segments:
-    - Each cognitive level shown as different color segment
-    - Percentages labeled within segments
-    - Total sums to 100%
+Bar segments:
+- Each cognitive level shown as different color segment
+- Percentages labeled within segments
+- Total sums to 100%
 
-    Annotations:
-    - Bracket grouping Remember+Understand+Apply: "45% Lower-order (foundational)"
-    - Bracket grouping Analyze+Evaluate+Create: "45% Higher-order (mastery)"
-    - Note: "Distribution should match target audience sophistication"
+Annotations:
+- Bracket grouping Remember+Understand+Apply: &quot;45% Lower-order (foundational)&quot;
+- Bracket grouping Analyze+Evaluate+Create: &quot;45% Higher-order (mastery)&quot;
+- Note: &quot;Distribution should match target audience sophistication&quot;
 
-    Color scheme: Rainbow gradient from red (Remember) to purple (Create)
+Color scheme: Rainbow gradient from red (Remember) to purple (Create)
 
-    Implementation: Chart.js horizontal stacked bar chart
+Implementation: Chart.js horizontal stacked bar chart
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="action-verbs-for-learning-outcomes">Action Verbs for Learning Outcomes</h2>
 <p>Selecting appropriate action verbs for learning outcome statements ensures outcomes are measurable, aligned with cognitive levels, and actionable for assessment design. Each Bloom's Taxonomy level has characteristic verbs that signal the intended cognitive process.</p>
 <p><strong>Verb selection principles:</strong></p>
@@ -2273,40 +2442,71 @@ Create-level content provides open-ended challenges, offers frameworks and const
 - &lt;50: Insufficient - major revision required before proceeding</p>
 <p>Courses scoring below 70 should be revised before invoking learning-graph-generator, as quality deficiencies in the course description propagate through all downstream artifacts.</p>
 <details>
-    <summary>Course Description Quality Rubric Visualization</summary>
-    Type: infographic
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Course Description Quality Rubric Visualization&lt;/summary&gt;
+Type: infographic
 
-    Purpose: Present the quality scoring rubric in visual, interactive format
+Purpose: Present the quality scoring rubric in visual, interactive format
 
-    Layout: Circular dashboard with five segments (one per quality dimension)
+Layout: Circular dashboard with five segments (one per quality dimension)
 
-    Segments:
-    1. Target Audience (15 points max) - Blue segment
-    2. Prerequisites (15 points max) - Purple segment
-    3. Main Topics (20 points max) - Green segment
-    4. Exclusions (10 points max) - Orange segment
-    5. Learning Outcomes (40 points max) - Gold segment
+Segments:
+1. Target Audience (15 points max) - Blue segment
+2. Prerequisites (15 points max) - Purple segment
+3. Main Topics (20 points max) - Green segment
+4. Exclusions (10 points max) - Orange segment
+5. Learning Outcomes (40 points max) - Gold segment
 
-    Visual representation:
-    - Each segment shows point value
-    - Radial fill indicates score level (empty=0, full=max)
-    - Color intensity indicates quality tier
-    - Center displays total score and quality rating
+Visual representation:
+- Each segment shows point value
+- Radial fill indicates score level (empty=0, full=max)
+- Color intensity indicates quality tier
+- Center displays total score and quality rating
 
-    Interactive elements:
-    - Hover over segment to see detailed rubric for that dimension
-    - Click segment to expand with improvement recommendations
-    - Central score updates dynamically if used as assessment tool
+Interactive elements:
+- Hover over segment to see detailed rubric for that dimension
+- Click segment to expand with improvement recommendations
+- Central score updates dynamically if used as assessment tool
 
-    Quality tiers:
-    - 90-100: Excellent (dark green background)
-    - 70-89: Good (light green background)
-    - 50-69: Acceptable (yellow background)
-    - <50: Insufficient (red background)
+Quality tiers:
+- 90-100: Excellent (dark green background)
+- 70-89: Good (light green background)
+- 50-69: Acceptable (yellow background)
+- &lt;50: Insufficient (red background)
 
-    Implementation: HTML/CSS/JavaScript with SVG circular dashboard
+Implementation: HTML/CSS/JavaScript with SVG circular dashboard
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="assessing-course-descriptions">Assessing Course Descriptions</h3>
 <p>The process of evaluating course description quality combines automated analysis (via course-description-analyzer skill) with human judgment for pedagogical appropriateness.</p>
 <p><strong>Automated assessment workflow:</strong></p>

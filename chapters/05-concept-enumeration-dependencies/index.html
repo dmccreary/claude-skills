@@ -1793,67 +1793,125 @@
 <p><strong>Eliminate duplicates and resolve overlaps:</strong> Identify concepts with significant overlap, merging or refining to maintain distinctness.</p>
 <p>For AI-assisted enumeration via the learning-graph-generator skill, the course description provides essential context. Rich topic lists with 20-30 entries enable more accurate concept generation than sparse lists with 5-10 entries. Learning outcomes aligned with Bloom's Taxonomy signal which cognitive levels to emphasize, influencing the mix of definitional concepts (Remember), procedural concepts (Apply), and analytical concepts (Analyze, Evaluate).</p>
 <details>
-    <summary>Topic-to-Concept Expansion Process</summary>
-    Type: workflow
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Topic-to-Concept Expansion Process&lt;/summary&gt;
+Type: workflow
 
-    Purpose: Show how a single course topic expands into multiple atomic concepts
+Purpose: Show how a single course topic expands into multiple atomic concepts
 
-    Visual style: Hierarchical breakdown with expansion stages
+Visual style: Hierarchical breakdown with expansion stages
 
-    Example topic: "Learning Graphs"
+Example topic: &quot;Learning Graphs&quot;
 
-    Steps:
-    1. Start: Main topic "Learning Graphs"
-       Hover text: "From course description main topics section"
+Steps:
+1. Start: Main topic &quot;Learning Graphs&quot;
+   Hover text: &quot;From course description main topics section&quot;
 
-    2. Process: "Identify core components"
-       Hover text: "What are the essential parts? Nodes, edges, structure"
-       Output: Component concepts (3-5)
-       - Learning Graph
-       - Concept Nodes in Learning Graphs
-       - Dependency Edges in Learning Graphs
-       - Directed Acyclic Graph (DAG)
+2. Process: &quot;Identify core components&quot;
+   Hover text: &quot;What are the essential parts? Nodes, edges, structure&quot;
+   Output: Component concepts (3-5)
+   - Learning Graph
+   - Concept Nodes in Learning Graphs
+   - Dependency Edges in Learning Graphs
+   - Directed Acyclic Graph (DAG)
 
-    3. Process: "Identify key relationships and properties"
-       Hover text: "How do components relate? What constraints exist?"
-       Output: Relationship concepts (2-4)
-       - Prerequisite Relationships
-       - Concept Dependencies
-       - Learning Pathways
+3. Process: &quot;Identify key relationships and properties&quot;
+   Hover text: &quot;How do components relate? What constraints exist?&quot;
+   Output: Relationship concepts (2-4)
+   - Prerequisite Relationships
+   - Concept Dependencies
+   - Learning Pathways
 
-    4. Process: "Identify procedures and operations"
-       Hover text: "What do learners do with learning graphs?"
-       Output: Procedural concepts (2-3)
-       - Concept Enumeration Process
-       - Dependency Mapping Process
-       - Graph Quality Validation
+4. Process: &quot;Identify procedures and operations&quot;
+   Hover text: &quot;What do learners do with learning graphs?&quot;
+   Output: Procedural concepts (2-3)
+   - Concept Enumeration Process
+   - Dependency Mapping Process
+   - Graph Quality Validation
 
-    5. Process: "Identify standards and conventions"
-       Hover text: "What rules or formats must be followed?"
-       Output: Standard concepts (2-3)
-       - Concept Label Requirements
-       - CSV File Format for Graphs
-       - Title Case Convention
+5. Process: &quot;Identify standards and conventions&quot;
+   Hover text: &quot;What rules or formats must be followed?&quot;
+   Output: Standard concepts (2-3)
+   - Concept Label Requirements
+   - CSV File Format for Graphs
+   - Title Case Convention
 
-    6. Result: "12-15 atomic concepts from one topic"
-       Hover text: "Typical expansion ratio: 1 topic → 10-20 concepts"
+6. Result: &quot;12-15 atomic concepts from one topic&quot;
+   Hover text: &quot;Typical expansion ratio: 1 topic → 10-20 concepts&quot;
 
-    Visual elements:
-    - Tree structure showing topic at root
-    - Branches for components, relationships, procedures, standards
-    - Leaf nodes showing specific concepts
-    - Annotation: "Repeat for each of 20-30 main topics → 200+ total concepts"
+Visual elements:
+- Tree structure showing topic at root
+- Branches for components, relationships, procedures, standards
+- Leaf nodes showing specific concepts
+- Annotation: &quot;Repeat for each of 20-30 main topics → 200+ total concepts&quot;
 
-    Color coding:
-    - Purple: Main topic
-    - Blue: Component concepts
-    - Green: Relationship concepts
-    - Orange: Procedural concepts
-    - Gold: Standard/convention concepts
+Color coding:
+- Purple: Main topic
+- Blue: Component concepts
+- Green: Relationship concepts
+- Orange: Procedural concepts
+- Gold: Standard/convention concepts
 
-    Implementation: SVG hierarchical tree diagram
+Implementation: SVG hierarchical tree diagram
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="generating-200-concepts">Generating 200 Concepts</h2>
 <p>The target of approximately 200 concepts for a semester-length course derives from pedagogical research on cognitive load, assessment scope, and knowledge retention. Courses with fewer than 100 concepts risk insufficient depth; courses with more than 300 concepts overwhelm learners and instructors alike.</p>
 <p><strong>Rationale for 200-concept target:</strong></p>
@@ -1869,36 +1927,63 @@
 </ul>
 <p>The learning-graph-generator skill defaults to 200 concepts but accepts guidance in the course description. A statement like "This is an intensive 6-week boot camp" signals to generate ~100 concepts; "This is a comprehensive two-semester sequence" signals ~400 concepts split into multiple graphs.</p>
 <details>
-    <summary>Concept Count by Course Duration</summary>
-    Type: chart
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Concept Count by Course Duration&lt;/summary&gt;
+Type: chart
 
-    Chart type: Bar chart with recommended ranges
+Chart type: Bar chart with recommended ranges
 
-    Purpose: Show appropriate concept counts for different course lengths
+Purpose: Show appropriate concept counts for different course lengths
 
-    X-axis: Course duration (weeks)
-    Y-axis: Recommended concept count
+X-axis: Course duration (weeks)
+Y-axis: Recommended concept count
 
-    Data points (with ranges shown as error bars):
-    - 4 weeks: 80 concepts (range: 60-100)
-    - 6 weeks: 100 concepts (range: 80-120)
-    - 8 weeks: 130 concepts (range: 110-150)
-    - 12 weeks: 180 concepts (range: 160-200)
-    - 15 weeks: 200 concepts (range: 180-220)
-    - 30 weeks: 400 concepts (range: 350-450, note: split into 2 graphs)
+Data points (with ranges shown as error bars):
+- 4 weeks: 80 concepts (range: 60-100)
+- 6 weeks: 100 concepts (range: 80-120)
+- 8 weeks: 130 concepts (range: 110-150)
+- 12 weeks: 180 concepts (range: 160-200)
+- 15 weeks: 200 concepts (range: 180-220)
+- 30 weeks: 400 concepts (range: 350-450, note: split into 2 graphs)
 
-    Title: "Recommended Concept Count by Course Duration"
+Title: &quot;Recommended Concept Count by Course Duration&quot;
 
-    Annotations:
-    - Arrow at 200: "Standard semester course"
-    - Note at 400: "Split into fall/spring learning graphs"
-    - Shaded region 180-220: "Optimal range for semester courses"
+Annotations:
+- Arrow at 200: &quot;Standard semester course&quot;
+- Note at 400: &quot;Split into fall/spring learning graphs&quot;
+- Shaded region 180-220: &quot;Optimal range for semester courses&quot;
 
-    Color scheme: Blue bars, green shaded optimal region
+Color scheme: Blue bars, green shaded optimal region
 
-    Implementation: Chart.js bar chart with range indicators
+Implementation: Chart.js bar chart with range indicators
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="concept-label-requirements">Concept Label Requirements</h2>
 <p>Concept labels serve as human-readable identifiers appearing in learning graphs, chapter headings, quiz questions, and glossary entries. Standardized labeling conventions ensure consistency across automated content generation and enable effective search and reference.</p>
 <p><strong>Required conventions:</strong></p>
@@ -1912,50 +1997,91 @@
 <p><strong>Acronym handling:</strong> For well-known acronyms, include both expansion and acronym on first use, acronym only thereafter. "Directed Acyclic Graph (DAG)" for first mention, "DAG Properties" for subsequent concepts.</p>
 <p><strong>Avoid gerunds in favor of noun forms:</strong> "Concept Enumeration" rather than "Enumerating Concepts"; "Dependency Mapping" rather than "Mapping Dependencies." This aligns with knowledge domain nomenclature conventions.</p>
 <details>
-    <summary>Concept Label Quality Checklist</summary>
-    Type: infographic
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Concept Label Quality Checklist&lt;/summary&gt;
+Type: infographic
 
-    Purpose: Provide visual checklist for validating concept labels
+Purpose: Provide visual checklist for validating concept labels
 
-    Layout: Checklist with yes/no indicators
+Layout: Checklist with yes/no indicators
 
-    Quality criteria:
-    ✓ Title Case capitalization?
-      Example: "Learning Graph Quality Metrics" ✓
-      Counter-example: "learning graph quality metrics" ✗
+Quality criteria:
+✓ Title Case capitalization?
+  Example: &quot;Learning Graph Quality Metrics&quot; ✓
+  Counter-example: &quot;learning graph quality metrics&quot; ✗
 
-    ✓ ≤ 32 characters including spaces?
-      Example: "Graph Database Architecture" (28 chars) ✓
-      Counter-example: "Comprehensive Overview of Graph Database Architectures and Patterns" (72 chars) ✗
+✓ ≤ 32 characters including spaces?
+  Example: &quot;Graph Database Architecture&quot; (28 chars) ✓
+  Counter-example: &quot;Comprehensive Overview of Graph Database Architectures and Patterns&quot; (72 chars) ✗
 
-    ✓ Domain-standard terminology?
-      Example: "Bloom's Taxonomy" ✓
-      Counter-example: "Educational Goal Levels" ✗
+✓ Domain-standard terminology?
+  Example: &quot;Bloom&#39;s Taxonomy&quot; ✓
+  Counter-example: &quot;Educational Goal Levels&quot; ✗
 
-    ✓ Singular form (unless plural is standard)?
-      Example: "Concept Node" ✓
-      Counter-example: "Concept Nodes" ✗ (unless referring to the collection)
+✓ Singular form (unless plural is standard)?
+  Example: &quot;Concept Node&quot; ✓
+  Counter-example: &quot;Concept Nodes&quot; ✗ (unless referring to the collection)
 
-    ✓ Noun form rather than gerund?
-      Example: "Dependency Mapping" ✓
-      Counter-example: "Mapping Dependencies" ✗
+✓ Noun form rather than gerund?
+  Example: &quot;Dependency Mapping&quot; ✓
+  Counter-example: &quot;Mapping Dependencies&quot; ✗
 
-    ✓ No redundant words?
-      Example: "Claude Skills" ✓
-      Counter-example: "Claude Skills System Framework" ✗
+✓ No redundant words?
+  Example: &quot;Claude Skills&quot; ✓
+  Counter-example: &quot;Claude Skills System Framework&quot; ✗
 
-    Visual elements:
-    - Green checkmarks for compliant examples
-    - Red X marks for non-compliant examples
-    - Annotation: "All 6 criteria must pass for valid label"
+Visual elements:
+- Green checkmarks for compliant examples
+- Red X marks for non-compliant examples
+- Annotation: &quot;All 6 criteria must pass for valid label&quot;
 
-    Interactive features:
-    - Click criterion to see additional examples
-    - Hover for explanation of why criterion matters
+Interactive features:
+- Click criterion to see additional examples
+- Hover for explanation of why criterion matters
 
-    Implementation: HTML/CSS with interactive JavaScript
+Implementation: HTML/CSS with interactive JavaScript
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="title-case-convention">Title Case Convention</h3>
 <p>Title Case capitalization follows specific rules differentiating words that should be capitalized from those that remain lowercase:</p>
 <p><strong>Always capitalize:</strong>
@@ -1990,22 +2116,35 @@
 <p><strong>Split overly broad concepts:</strong> If a label exceeds 32 characters, the concept may not be sufficiently atomic. Consider splitting: "Learning Graph Generation Process and Quality Validation" (56 chars) becomes two concepts: "Learning Graph Generation" + "Learning Graph Quality Validation."</p>
 <p>The character count includes all letters, spaces, punctuation, and symbols. "Bloom's Taxonomy (2001)" counts as 23 characters including spaces and parentheses.</p>
 <details>
-    <summary>Concept Label Length Optimization</summary>
-    Type: markdown-table
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Concept Label Length Optimization&lt;/summary&gt;
+Type: markdown-table
 
-    Purpose: Show before/after examples of optimizing overlength labels
+Purpose: Show before/after examples of optimizing overlength labels
 
-    | Too Long (>32 chars) | Character Count | Optimized (<32 chars) | Character Count |
-    |----------------------|-----------------|------------------------|-----------------|
-    | Comprehensive Course Description Development | 45 | Course Description | 20 |
-    | Learning Graph Dependency Edge Validation | 45 | Dependency Edge Validation | 30 |
-    | MicroSim Specification and Implementation | 46 | MicroSim Implementation | 25 |
-    | Chapter Content Generation Process Workflow | 48 | Chapter Content Generation | 28 |
-    | Interactive Element Types and Specifications | 49 | Interactive Element Types | 29 |
+| Too Long (&gt;32 chars) | Character Count | Optimized (&lt;32 chars) | Character Count |
+|----------------------|-----------------|------------------------|-----------------|
+| Comprehensive Course Description Development | 45 | Course Description | 20 |
+| Learning Graph Dependency Edge Validation | 45 | Dependency Edge Validation | 30 |
+| MicroSim Specification and Implementation | 46 | MicroSim Implementation | 25 |
+| Chapter Content Generation Process Workflow | 48 | Chapter Content Generation | 28 |
+| Interactive Element Types and Specifications | 49 | Interactive Element Types | 29 |
 
-    Note: Optimization preserves meaning while meeting length constraint
+Note: Optimization preserves meaning while meeting length constraint
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="concept-granularity">Concept Granularity</h2>
 <p>Concept granularity—the level of detail and scope at which concepts are defined—critically impacts learning graph quality, content generation effectiveness, and assessment design. Optimal granularity balances atomic precision with pedagogical coherence.</p>
 <p><strong>Granularity spectrum:</strong></p>
@@ -2028,46 +2167,83 @@
 <p><strong>Terminology test:</strong> Is this concept referenced in domain literature using this specific term? Domain-standard concepts have appropriate granularity; ad-hoc invented concepts may be too fine.</p>
 <p>Achieving consistent granularity across 200 concepts requires iterative refinement. The learning-graph-generator produces initial concepts at mixed granularity; manual review identifies and resolves granularity mismatches before finalizing the graph.</p>
 <details>
-    <summary>Concept Granularity Spectrum Visualization</summary>
-    Type: diagram
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Concept Granularity Spectrum Visualization&lt;/summary&gt;
+Type: diagram
 
-    Purpose: Illustrate the spectrum from too coarse to too fine with examples
+Purpose: Illustrate the spectrum from too coarse to too fine with examples
 
-    Components to show (left to right spectrum):
+Components to show (left to right spectrum):
 
-    Left (Too Coarse):
-    - "All of Programming"
-    - "Complete Database Theory"
-    - "Everything About AI"
-    Color: Red
-    Label: "Too Broad - Must Split"
-    Problems noted: Cannot assess, vague dependencies, generic content
+Left (Too Coarse):
+- &quot;All of Programming&quot;
+- &quot;Complete Database Theory&quot;
+- &quot;Everything About AI&quot;
+Color: Red
+Label: &quot;Too Broad - Must Split&quot;
+Problems noted: Cannot assess, vague dependencies, generic content
 
-    Center (Optimal - Atomic):
-    - "Directed Acyclic Graph (DAG)"
-    - "Bloom's Taxonomy"
-    - "Claude Skill"
-    Color: Green
-    Label: "Atomic - Target Granularity"
-    Characteristics noted: Assessable, clear dependencies, substantial content
+Center (Optimal - Atomic):
+- &quot;Directed Acyclic Graph (DAG)&quot;
+- &quot;Bloom&#39;s Taxonomy&quot;
+- &quot;Claude Skill&quot;
+Color: Green
+Label: &quot;Atomic - Target Granularity&quot;
+Characteristics noted: Assessable, clear dependencies, substantial content
 
-    Right (Too Fine):
-    - "Third Parameter of Function X"
-    - "Step 2b of Procedure Y"
-    - "Specific Code Line 147"
-    Color: Red
-    Label: "Too Narrow - Must Merge"
-    Problems noted: Trivial to assess, dependency explosion, minimal content
+Right (Too Fine):
+- &quot;Third Parameter of Function X&quot;
+- &quot;Step 2b of Procedure Y&quot;
+- &quot;Specific Code Line 147&quot;
+Color: Red
+Label: &quot;Too Narrow - Must Merge&quot;
+Problems noted: Trivial to assess, dependency explosion, minimal content
 
-    Visual style: Spectrum bar with example concepts positioned along it
+Visual style: Spectrum bar with example concepts positioned along it
 
-    Annotations:
-    - Arrow pointing to center: "Target 200 concepts at this level"
-    - Note: "Granularity consistency more important than perfection"
+Annotations:
+- Arrow pointing to center: &quot;Target 200 concepts at this level&quot;
+- Note: &quot;Granularity consistency more important than perfection&quot;
 
-    Implementation: SVG diagram with spectrum bar
+Implementation: SVG diagram with spectrum bar
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="atomic-concepts">Atomic Concepts</h2>
 <p>An atomic concept represents the smallest meaningful knowledge unit suitable for independent instruction and assessment. Atomicity ensures concepts are neither so broad they encompass multiple distinct ideas nor so narrow they lack pedagogical substance.</p>
 <p><strong>Atomic concept characteristics:</strong></p>
@@ -2145,53 +2321,97 @@ Run cycle detection algorithm (DFS-based or topological sort). If cycles found:
 Review edge set to ensure all dependencies represent true prerequisites, not merely "helpful background." Weak dependencies should be omitted unless they significantly aid learning.</p>
 <p>The learning-graph-generator skill automates much of this process using LLM reasoning about concept relationships, but manual review typically identifies 10-20% of dependencies requiring adjustment—either missing edges (under-specification) or spurious edges (over-specification).</p>
 <details>
-    <summary>Dependency Mapping Workflow</summary>
-    Type: workflow
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Dependency Mapping Workflow&lt;/summary&gt;
+Type: workflow
 
-    Purpose: Show step-by-step process for mapping concept dependencies
+Purpose: Show step-by-step process for mapping concept dependencies
 
-    Visual style: Sequential workflow with decision points
+Visual style: Sequential workflow with decision points
 
-    Steps:
-    1. Start: "200 concepts enumerated"
-       Hover text: "Flat list with ConceptID and ConceptLabel"
+Steps:
+1. Start: &quot;200 concepts enumerated&quot;
+   Hover text: &quot;Flat list with ConceptID and ConceptLabel&quot;
 
-    2. Process: "Identify foundational concepts (zero dependencies)"
-       Hover text: "Domain definitions, starting points, tools"
-       Output: 10-15 foundational concepts marked
+2. Process: &quot;Identify foundational concepts (zero dependencies)&quot;
+   Hover text: &quot;Domain definitions, starting points, tools&quot;
+   Output: 10-15 foundational concepts marked
 
-    3. Process: "Map sequential chains"
-       Hover text: "A → B → C linear progressions"
-       Output: 30-40 edges added
+3. Process: &quot;Map sequential chains&quot;
+   Hover text: &quot;A → B → C linear progressions&quot;
+   Output: 30-40 edges added
 
-    4. Process: "Map convergent dependencies"
-       Hover text: "A → C ← B patterns for advanced concepts"
-       Output: 40-60 edges added
+4. Process: &quot;Map convergent dependencies&quot;
+   Hover text: &quot;A → C ← B patterns for advanced concepts&quot;
+   Output: 40-60 edges added
 
-    5. Process: "Remove transitive redundancies"
-       Hover text: "If A → B → C exists, remove A → C"
-       Output: 10-20 edges removed
+5. Process: &quot;Remove transitive redundancies&quot;
+   Hover text: &quot;If A → B → C exists, remove A → C&quot;
+   Output: 10-20 edges removed
 
-    6. Decision: "DAG validation - cycles detected?"
-       Yes → Process: "Resolve cycles (split concepts, identify primacy)"
-       No → Continue to 7
+6. Decision: &quot;DAG validation - cycles detected?&quot;
+   Yes → Process: &quot;Resolve cycles (split concepts, identify primacy)&quot;
+   No → Continue to 7
 
-    7. Process: "Validate dependency strengths"
-       Hover text: "Ensure all edges represent true prerequisites"
-       Output: 5-10 weak edges removed
+7. Process: &quot;Validate dependency strengths&quot;
+   Hover text: &quot;Ensure all edges represent true prerequisites&quot;
+   Output: 5-10 weak edges removed
 
-    8. End: "Valid DAG with 180-220 dependencies"
-       Hover text: "~1.0 average dependencies per concept"
+8. End: &quot;Valid DAG with 180-220 dependencies&quot;
+   Hover text: &quot;~1.0 average dependencies per concept&quot;
 
-    Color coding:
-    - Blue: Enumeration and identification
-    - Green: Dependency addition
-    - Orange: Refinement and validation
-    - Purple: Cycle resolution (if needed)
+Color coding:
+- Blue: Enumeration and identification
+- Green: Dependency addition
+- Orange: Refinement and validation
+- Purple: Cycle resolution (if needed)
 
-    Implementation: SVG flowchart
+Implementation: SVG flowchart
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="csv-file-format-for-learning-graphs">CSV File Format for Learning Graphs</h2>
 <p>Learning graphs are persisted in CSV (Comma-Separated Values) format, enabling both human readability for manual editing and programmatic processing by validation scripts and visualization tools. The CSV structure follows a standardized schema essential for downstream skill compatibility.</p>
 <p><strong>Required CSV columns:</strong></p>
@@ -2256,38 +2476,67 @@ Every ConceptID referenced in Dependencies must appear as a ConceptID in some ro
 3. Verify all referenced IDs exist
 4. Run validation script to check for cycles before proceeding</p>
 <details>
-    <summary>CSV File Format Example with Validation</summary>
-    Type: markdown-table
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;CSV File Format Example with Validation&lt;/summary&gt;
+Type: markdown-table
 
-    Purpose: Show correct and incorrect CSV formatting
+Purpose: Show correct and incorrect CSV formatting
 
-    **Correct CSV Format:**
-    | ConceptID | ConceptLabel | Dependencies | TaxonomyID |
-    |-----------|--------------|--------------|------------|
-    | 1 | Artificial Intelligence | | FOUND |
-    | 2 | Claude AI | 1 | BASIC |
-    | 3 | Large Language Models | 2 | BASIC |
-    | 4 | Prompt Engineering | 3 | SKILL |
-    | 5 | Learning Graph | 1\|4 | CORE |
+**Correct CSV Format:**
+| ConceptID | ConceptLabel | Dependencies | TaxonomyID |
+|-----------|--------------|--------------|------------|
+| 1 | Artificial Intelligence | | FOUND |
+| 2 | Claude AI | 1 | BASIC |
+| 3 | Large Language Models | 2 | BASIC |
+| 4 | Prompt Engineering | 3 | SKILL |
+| 5 | Learning Graph | 1\|4 | CORE |
 
-    ✓ Sequential IDs starting at 1
-    ✓ Title Case labels
-    ✓ Pipe-delimited dependencies (row 5)
-    ✓ Empty Dependencies for foundational concept (row 1)
+✓ Sequential IDs starting at 1
+✓ Title Case labels
+✓ Pipe-delimited dependencies (row 5)
+✓ Empty Dependencies for foundational concept (row 1)
 
-    **Common Errors:**
-    | ConceptID | ConceptLabel | Dependencies | TaxonomyID |
-    |-----------|--------------|--------------|------------|
-    | 1 | artificial intelligence | | found |
-    | 3 | Large Language Models | 2 | BASIC |
-    | 4 | Prompt Engineering | 5 | SKILL |
+**Common Errors:**
+| ConceptID | ConceptLabel | Dependencies | TaxonomyID |
+|-----------|--------------|--------------|------------|
+| 1 | artificial intelligence | | found |
+| 3 | Large Language Models | 2 | BASIC |
+| 4 | Prompt Engineering | 5 | SKILL |
 
-    ✗ Row 1: Not Title Case ("artificial" should be "Artificial")
-    ✗ Row 1: TaxonomyID not uppercase ("found" should be "FOUND")
-    ✗ Missing ConceptID 2 (gap in sequence)
-    ✗ Row 4: Dependency on non-existent concept 5 when only 1-4 exist
+✗ Row 1: Not Title Case (&quot;artificial&quot; should be &quot;Artificial&quot;)
+✗ Row 1: TaxonomyID not uppercase (&quot;found&quot; should be &quot;FOUND&quot;)
+✗ Missing ConceptID 2 (gap in sequence)
+✗ Row 4: Dependency on non-existent concept 5 when only 1-4 exist
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="understanding-conceptid-conceptlabel-and-dependencies-fields">Understanding ConceptID, ConceptLabel, and Dependencies Fields</h2>
 <p>The three core CSV columns—ConceptID, ConceptLabel, and Dependencies—encode all information necessary for learning graph construction, validation, and content generation.</p>
 <h3 id="conceptid-field">ConceptID Field</h3>
@@ -2329,24 +2578,39 @@ Every ConceptID referenced in Dependencies must appear as a ConceptID in some ro
 <p><strong>Avoid circular dependencies:</strong> Never create cycles like A → B → C → A. DAG constraint must be satisfied.</p>
 <p><strong>Reasonable fan-in:</strong> While no hard limit exists, concepts depending on 5+ prerequisites often indicate overly advanced or insufficiently atomic concepts. Consider splitting.</p>
 <details>
-    <summary>ConceptID vs ConceptLabel Comparison</summary>
-    Type: markdown-table
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;ConceptID vs ConceptLabel Comparison&lt;/summary&gt;
+Type: markdown-table
 
-    Purpose: Contrast the roles and properties of ConceptID vs ConceptLabel
+Purpose: Contrast the roles and properties of ConceptID vs ConceptLabel
 
-    | Aspect | ConceptID | ConceptLabel |
-    |--------|-----------|--------------|
-    | **Purpose** | Unique identifier for programmatic reference | Human-readable concept name |
-    | **Format** | Integer (1 to n) | String (Title Case, ≤32 chars) |
-    | **Mutability** | Immutable after dependencies set | Refinable during development |
-    | **Used in** | Dependencies field, validation scripts | Generated content, UI, assessments |
-    | **Ordering significance** | No semantic ordering | N/A (dependencies define order) |
-    | **Uniqueness** | Must be unique across graph | Should be unique (avoid duplicates) |
-    | **Example** | 42 | "Directed Acyclic Graph (DAG)" |
+| Aspect | ConceptID | ConceptLabel |
+|--------|-----------|--------------|
+| **Purpose** | Unique identifier for programmatic reference | Human-readable concept name |
+| **Format** | Integer (1 to n) | String (Title Case, ≤32 chars) |
+| **Mutability** | Immutable after dependencies set | Refinable during development |
+| **Used in** | Dependencies field, validation scripts | Generated content, UI, assessments |
+| **Ordering significance** | No semantic ordering | N/A (dependencies define order) |
+| **Uniqueness** | Must be unique across graph | Should be unique (avoid duplicates) |
+| **Example** | 42 | &quot;Directed Acyclic Graph (DAG)&quot; |
 
-    Note: ConceptID enables robust dependency tracking; ConceptLabel provides clarity for human readers
+Note: ConceptID enables robust dependency tracking; ConceptLabel provides clarity for human readers
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="taxonomy-and-concept-categorization">Taxonomy and Concept Categorization</h2>
 <p>While not required for minimal learning graph functionality, taxonomy categorization organizes concepts into thematic groups enabling quality analysis, balanced chapter design, and navigation enhancement. Chapter 7 explores taxonomy in depth; this section introduces the concept.</p>
 <p><strong>Taxonomy purposes:</strong></p>
@@ -2428,37 +2692,65 @@ Every ConceptID referenced in Dependencies must appear as a ConceptID in some ro
 - <strong>Too many advanced concepts (&gt;40%):</strong> Dependencies may be over-specified or concepts insufficiently atomic</p>
 <p>The analyze-graph.py script in the learning-graph-generator skill computes these distributions and flags anomalies in the quality report.</p>
 <details>
-    <summary>Concept Depth Distribution Analysis</summary>
-    Type: chart
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Concept Depth Distribution Analysis&lt;/summary&gt;
+Type: chart
 
-    Chart type: Stacked area chart over topological ordering
+Chart type: Stacked area chart over topological ordering
 
-    Purpose: Show how concept depth (number of dependencies) progresses from foundational to advanced
+Purpose: Show how concept depth (number of dependencies) progresses from foundational to advanced
 
-    X-axis: Concept position in topological order (1-200)
-    Y-axis: Cumulative count of concepts by depth tier
+X-axis: Concept position in topological order (1-200)
+Y-axis: Cumulative count of concepts by depth tier
 
-    Data series (stacked):
-    - Foundational (0 deps): Red area, concentrated at left (positions 1-20)
-    - Prerequisite (1-3 deps): Orange area, middle bulk (positions 10-180)
-    - Advanced (4+ deps): Yellow area, concentrated at right (positions 170-200)
+Data series (stacked):
+- Foundational (0 deps): Red area, concentrated at left (positions 1-20)
+- Prerequisite (1-3 deps): Orange area, middle bulk (positions 10-180)
+- Advanced (4+ deps): Yellow area, concentrated at right (positions 170-200)
 
-    Title: "Concept Depth Progression Across Learning Graph"
+Title: &quot;Concept Depth Progression Across Learning Graph&quot;
 
-    Annotations:
-    - "Foundational concepts: Early in topological order"
-    - "Prerequisite concepts: Core middle sections"
-    - "Advanced concepts: Late in order, require integration"
+Annotations:
+- &quot;Foundational concepts: Early in topological order&quot;
+- &quot;Prerequisite concepts: Core middle sections&quot;
+- &quot;Advanced concepts: Late in order, require integration&quot;
 
-    Visual pattern:
-    - Healthy graph shows smooth progression from red → orange → yellow
-    - Irregular patterns (e.g., yellow sections in early positions) indicate potential dependency errors
+Visual pattern:
+- Healthy graph shows smooth progression from red → orange → yellow
+- Irregular patterns (e.g., yellow sections in early positions) indicate potential dependency errors
 
-    Color scheme: Heat map from red (foundational) through orange (prerequisite) to yellow (advanced)
+Color scheme: Heat map from red (foundational) through orange (prerequisite) to yellow (advanced)
 
-    Implementation: Chart.js stacked area chart with topological ordering on X-axis
+Implementation: Chart.js stacked area chart with topological ordering on X-axis
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="summary_1">Summary</h2>
 <p>This chapter explored the mechanics of concept enumeration and dependency mapping that transform course descriptions into structured learning graphs. You learned the systematic workflow for generating ~200 atomic concepts, applying label conventions (Title Case, 32-character maximum, domain-standard terminology), and maintaining optimal granularity balancing pedagogical coherence with assessability.</p>
 <p>We examined the CSV file format specification encoding learning graphs with ConceptID, ConceptLabel, Dependencies, and optional TaxonomyID fields. You learned dependency mapping workflows identifying foundational concepts, building sequential chains, mapping convergent dependencies, and validating DAG constraints.</p>

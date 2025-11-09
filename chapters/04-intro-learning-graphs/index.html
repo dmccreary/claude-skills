@@ -1729,59 +1729,109 @@
 <p><strong>Assessment alignment:</strong> Enabling quiz and exercise generation that tests concepts learners should have mastered at each stage</p>
 <p>The graph structure provides computational tractability—algorithms can verify the graph is a valid DAG (Directed Acyclic Graph), compute topological orderings for valid learning sequences, identify strongly connected components indicating circular dependencies that must be resolved, and calculate concept depth as a proxy for difficulty.</p>
 <details>
-    <summary>Learning Graph Structure Visualization</summary>
-    Type: graph-model
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Learning Graph Structure Visualization&lt;/summary&gt;
+Type: graph-model
 
-    Purpose: Illustrate the node-edge structure of a learning graph with sample concepts
+Purpose: Illustrate the node-edge structure of a learning graph with sample concepts
 
-    Node types:
-    1. Foundational Concepts (red circles, no incoming edges)
-       - Example: "Artificial Intelligence"
-       - Example: "Claude AI"
+Node types:
+1. Foundational Concepts (red circles, no incoming edges)
+   - Example: &quot;Artificial Intelligence&quot;
+   - Example: &quot;Claude AI&quot;
 
-    2. Intermediate Concepts (orange circles, some incoming edges)
-       - Example: "Large Language Models"
-       - Example: "Prompt Engineering"
+2. Intermediate Concepts (orange circles, some incoming edges)
+   - Example: &quot;Large Language Models&quot;
+   - Example: &quot;Prompt Engineering&quot;
 
-    3. Advanced Concepts (yellow circles, multiple incoming edges)
-       - Example: "Learning Graph Generation"
-       - Example: "Skill Workflow Design"
+3. Advanced Concepts (yellow circles, multiple incoming edges)
+   - Example: &quot;Learning Graph Generation&quot;
+   - Example: &quot;Skill Workflow Design&quot;
 
-    Edge types:
-    - Dependency edges (black arrows)
-      - From prerequisite to dependent concept
-      - Example: "Artificial Intelligence" → "Claude AI"
-      - Example: "Claude AI" → "Large Language Models"
-      - Example: "Large Language Models" → "Prompt Engineering"
-      - Example: "Prompt Engineering" → "Skill Workflow Design"
+Edge types:
+- Dependency edges (black arrows)
+  - From prerequisite to dependent concept
+  - Example: &quot;Artificial Intelligence&quot; → &quot;Claude AI&quot;
+  - Example: &quot;Claude AI&quot; → &quot;Large Language Models&quot;
+  - Example: &quot;Large Language Models&quot; → &quot;Prompt Engineering&quot;
+  - Example: &quot;Prompt Engineering&quot; → &quot;Skill Workflow Design&quot;
 
-    Sample data (subset of Chapter 1-3 concepts):
-    - Artificial Intelligence (foundational)
-      └─→ Claude AI (intermediate)
-          ├─→ Large Language Models (intermediate)
-          │   └─→ Prompt Engineering (intermediate)
-          │       └─→ Learning Graph Generation (advanced)
-          └─→ Claude Code Interface (intermediate)
-              └─→ Claude Skill (intermediate)
-                  └─→ Skill Workflow Design (advanced)
+Sample data (subset of Chapter 1-3 concepts):
+- Artificial Intelligence (foundational)
+  └─→ Claude AI (intermediate)
+      ├─→ Large Language Models (intermediate)
+      │   └─→ Prompt Engineering (intermediate)
+      │       └─→ Learning Graph Generation (advanced)
+      └─→ Claude Code Interface (intermediate)
+          └─→ Claude Skill (intermediate)
+              └─→ Skill Workflow Design (advanced)
 
-    Layout: Hierarchical top-down with foundational concepts at top
+Layout: Hierarchical top-down with foundational concepts at top
 
-    Interactive features:
-    - Hover node: Show concept description
-    - Click node: Highlight all prerequisites (incoming edges) and dependents (outgoing edges)
-    - Color coding by depth: foundational (red), intermediate (orange), advanced (yellow)
-    - Zoom and pan controls
+Interactive features:
+- Hover node: Show concept description
+- Click node: Highlight all prerequisites (incoming edges) and dependents (outgoing edges)
+- Color coding by depth: foundational (red), intermediate (orange), advanced (yellow)
+- Zoom and pan controls
 
-    Visual styling:
-    - Node size proportional to number of dependents
-    - Edge thickness constant
-    - Clear labels on nodes
+Visual styling:
+- Node size proportional to number of dependents
+- Edge thickness constant
+- Clear labels on nodes
 
-    Implementation: vis-network JavaScript library
-    Canvas size: 800x600px
+Implementation: vis-network JavaScript library
+Canvas size: 800x600px
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="concept-nodes-in-learning-graphs">Concept Nodes in Learning Graphs</h2>
 <p>Concept nodes represent atomic knowledge units—discrete, well-defined ideas, procedures, or principles that learners must understand or demonstrate. Each node in the learning graph corresponds to a single concept with a unique identifier and human-readable label.</p>
 <p><strong>Node attributes:</strong></p>
@@ -1812,44 +1862,79 @@
 <p><strong>Fan-in (convergence):</strong> Multiple prerequisites converging on advanced concept (e.g., "Course Description" → "Learning Graph Generation" ← "Bloom's Taxonomy")</p>
 <p><strong>Fan-out (divergence):</strong> Foundational concept enabling multiple dependent concepts (e.g., "Claude Code Interface" → "File System Access," "Command Execution," "Context Management")</p>
 <details>
-    <summary>Dependency Pattern Examples</summary>
-    Type: diagram
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Dependency Pattern Examples&lt;/summary&gt;
+Type: diagram
 
-    Purpose: Illustrate common patterns of dependencies in learning graphs
+Purpose: Illustrate common patterns of dependencies in learning graphs
 
-    Patterns to show:
+Patterns to show:
 
-    1. Sequential Chain (left section):
-       A → B → C → D
-       Label: "Linear progression"
-       Example: "Basic Skill" → "Intermediate Skill" → "Advanced Skill" → "Expert Skill"
+1. Sequential Chain (left section):
+   A → B → C → D
+   Label: &quot;Linear progression&quot;
+   Example: &quot;Basic Skill&quot; → &quot;Intermediate Skill&quot; → &quot;Advanced Skill&quot; → &quot;Expert Skill&quot;
 
-    2. Fan-In / Convergence (center section):
-       A ─┐
-       B ─┤→ D
-       C ─┘
-       Label: "Multiple prerequisites converge"
-       Example: "Course Description," "Bloom's Taxonomy," "Prompt Engineering" all point to "Learning Graph Generation"
+2. Fan-In / Convergence (center section):
+   A ─┐
+   B ─┤→ D
+   C ─┘
+   Label: &quot;Multiple prerequisites converge&quot;
+   Example: &quot;Course Description,&quot; &quot;Bloom&#39;s Taxonomy,&quot; &quot;Prompt Engineering&quot; all point to &quot;Learning Graph Generation&quot;
 
-    3. Fan-Out / Divergence (right section):
-           ┌→ B
-       A ──┼→ C
-           └→ D
-       Label: "Foundation enables multiple concepts"
-       Example: "Claude Code Interface" enables "File Access," "Command Execution," "Tool Integration"
+3. Fan-Out / Divergence (right section):
+       ┌→ B
+   A ──┼→ C
+       └→ D
+   Label: &quot;Foundation enables multiple concepts&quot;
+   Example: &quot;Claude Code Interface&quot; enables &quot;File Access,&quot; &quot;Command Execution,&quot; &quot;Tool Integration&quot;
 
-    Visual style: Clean arrow diagrams with labeled nodes
+Visual style: Clean arrow diagrams with labeled nodes
 
-    Color scheme: Blue nodes, black arrows, green labels
+Color scheme: Blue nodes, black arrows, green labels
 
-    Annotations:
-    - "Sequential: Common in skill acquisition"
-    - "Fan-in: Advanced concepts require integration"
-    - "Fan-out: Foundational concepts are highly leveraged"
+Annotations:
+- &quot;Sequential: Common in skill acquisition&quot;
+- &quot;Fan-in: Advanced concepts require integration&quot;
+- &quot;Fan-out: Foundational concepts are highly leveraged&quot;
 
-    Implementation: SVG diagram with clear geometric layout
+Implementation: SVG diagram with clear geometric layout
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="directed-acyclic-graph-dag-requirement">Directed Acyclic Graph (DAG) Requirement</h2>
 <p>A valid learning graph must be a Directed Acyclic Graph (DAG)—a directed graph containing no cycles. This mathematical constraint ensures a valid pedagogical ordering exists: there is some sequence in which concepts can be taught such that all prerequisites precede their dependents.</p>
 <p><strong>Why DAGs are necessary:</strong></p>
@@ -1876,33 +1961,57 @@
 <p>A DAG admits at least one topological ordering—a linear sequence of concepts such that for every edge A → B, A appears before B in the sequence. This ordering provides one valid teaching sequence, though multiple valid orderings typically exist.</p>
 <p>Chapter generation leverages topological ordering to group concepts into sequential chapters while respecting dependencies. Concepts with no incoming edges (foundational) appear in early chapters; concepts with many incoming edges (advanced, integrative) appear in later chapters.</p>
 <details>
-    <summary>DAG vs Cyclic Graph Comparison</summary>
-    Type: diagram
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;DAG vs Cyclic Graph Comparison&lt;/summary&gt;
+Type: diagram
 
-    Purpose: Contrast valid DAG learning graph with invalid cyclic graph
+Purpose: Contrast valid DAG learning graph with invalid cyclic graph
 
-    Components to show (side-by-side):
+Components to show (side-by-side):
 
-    Left side - Valid DAG:
-    A → B → C
-    A → C (additional edge showing transitive relationship is fine)
-    Label: "Valid Learning Graph (DAG)"
-    Annotation: "Can be ordered: A, B, C or A, C, B"
-    Check mark: ✓ "Pedagogically sound"
+Left side - Valid DAG:
+A → B → C
+A → C (additional edge showing transitive relationship is fine)
+Label: &quot;Valid Learning Graph (DAG)&quot;
+Annotation: &quot;Can be ordered: A, B, C or A, C, B&quot;
+Check mark: ✓ &quot;Pedagogically sound&quot;
 
-    Right side - Invalid Cyclic Graph:
-    A → B → C → A (cycle shown with circular arrow)
-    Label: "Invalid Learning Graph (Contains Cycle)"
-    Annotation: "Cannot be ordered: A requires A as prerequisite!"
-    X mark: ✗ "Logically impossible"
+Right side - Invalid Cyclic Graph:
+A → B → C → A (cycle shown with circular arrow)
+Label: &quot;Invalid Learning Graph (Contains Cycle)&quot;
+Annotation: &quot;Cannot be ordered: A requires A as prerequisite!&quot;
+X mark: ✗ &quot;Logically impossible&quot;
 
-    Visual style: Side-by-side comparison with clear labels
+Visual style: Side-by-side comparison with clear labels
 
-    Color scheme: Green for valid DAG, red for invalid cycle
+Color scheme: Green for valid DAG, red for invalid cycle
 
-    Implementation: SVG diagram showing both structures
+Implementation: SVG diagram showing both structures
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="prerequisite-relationships-and-learning-pathways">Prerequisite Relationships and Learning Pathways</h2>
 <p>Prerequisite relationships define the pedagogical ordering constraints that shape content sequencing. Understanding how prerequisites propagate through the graph and define valid learning pathways is essential for chapter organization and adaptive content delivery.</p>
 <p><strong>Direct vs transitive prerequisites:</strong></p>
@@ -1976,49 +2085,89 @@ Prompt Engineering → Learning Graph Generation
 </table>
 <p>The learning-graph-generator skill uses the course description's topic list and learning outcomes to infer likely dependencies, but manual review and refinement typically improves accuracy. Chapter 6 discusses quality validation metrics that identify potential dependency errors.</p>
 <details>
-    <summary>Dependency Mapping Decision Tree</summary>
-    Type: workflow
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Dependency Mapping Decision Tree&lt;/summary&gt;
+Type: workflow
 
-    Purpose: Guide users in determining whether concept A should be prerequisite to concept B
+Purpose: Guide users in determining whether concept A should be prerequisite to concept B
 
-    Visual style: Decision tree with yes/no branches
+Visual style: Decision tree with yes/no branches
 
-    Decision points:
-    1. Start: "Is concept B defined using concept A?"
-       Yes → "A is prerequisite to B"
-       No → Continue to 2
+Decision points:
+1. Start: &quot;Is concept B defined using concept A?&quot;
+   Yes → &quot;A is prerequisite to B&quot;
+   No → Continue to 2
 
-    2. "Does understanding B require the framework or principles from A?"
-       Yes → "A is likely prerequisite to B"
-       No → Continue to 3
+2. &quot;Does understanding B require the framework or principles from A?&quot;
+   Yes → &quot;A is likely prerequisite to B&quot;
+   No → Continue to 3
 
-    3. "Does the procedure/skill B include executing procedure A as a substep?"
-       Yes → "A is prerequisite to B"
-       No → Continue to 4
+3. &quot;Does the procedure/skill B include executing procedure A as a substep?&quot;
+   Yes → &quot;A is prerequisite to B&quot;
+   No → Continue to 4
 
-    4. "Does B build directly on examples or cases from A?"
-       Yes → "A is likely prerequisite to B"
-       No → Continue to 5
+4. &quot;Does B build directly on examples or cases from A?&quot;
+   Yes → &quot;A is likely prerequisite to B&quot;
+   No → Continue to 5
 
-    5. "Are A and B simply related topics without pedagogical ordering?"
-       Yes → "No prerequisite relationship (related but independent)"
-       No → "Consider creating edge A → B if learners benefit from A before B"
+5. &quot;Are A and B simply related topics without pedagogical ordering?&quot;
+   Yes → &quot;No prerequisite relationship (related but independent)&quot;
+   No → &quot;Consider creating edge A → B if learners benefit from A before B&quot;
 
-    Terminal nodes:
-    - "A is prerequisite to B" (green) - Add edge A → B
-    - "A is likely prerequisite to B" (yellow) - Add edge, mark for review
-    - "No prerequisite relationship" (gray) - No edge needed
-    - "Consider edge" (orange) - Judgment call based on course design
+Terminal nodes:
+- &quot;A is prerequisite to B&quot; (green) - Add edge A → B
+- &quot;A is likely prerequisite to B&quot; (yellow) - Add edge, mark for review
+- &quot;No prerequisite relationship&quot; (gray) - No edge needed
+- &quot;Consider edge&quot; (orange) - Judgment call based on course design
 
-    Color coding:
-    - Green: Strong prerequisite
-    - Yellow: Probable prerequisite
-    - Orange: Weak/optional prerequisite
-    - Gray: No relationship
+Color coding:
+- Green: Strong prerequisite
+- Yellow: Probable prerequisite
+- Orange: Weak/optional prerequisite
+- Gray: No relationship
 
-    Implementation: SVG decision tree with diamond decision nodes
+Implementation: SVG decision tree with diamond decision nodes
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="optimizing-claude-usage-for-learning-graph-generation">Optimizing Claude Usage for Learning Graph Generation</h2>
 <p>Generating comprehensive learning graphs with 200+ concepts and their dependencies is one of the most token-intensive operations in intelligent textbook creation. Strategic Claude usage optimization ensures you remain within 4-hour window budgets while producing high-quality graphs.</p>
 <h3 id="understanding-4-hour-usage-windows">Understanding 4-Hour Usage Windows</h3>
@@ -2106,48 +2255,87 @@ Prompt Engineering → Learning Graph Generation
 <p><strong>Parallelization considerations:</strong></p>
 <p>While Claude Code itself operates sequentially within a session, you can run multiple independent Claude Code sessions across different projects or chapter generation tasks. This "poor man's parallelization" enables working on Chapter 1 content while Chapter 2 quiz generation runs in a separate session, effectively doubling throughput within token budget constraints.</p>
 <details>
-    <summary>Token Consumption Timeline for Complete Textbook Project</summary>
-    Type: timeline
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Token Consumption Timeline for Complete Textbook Project&lt;/summary&gt;
+Type: timeline
 
-    Purpose: Show typical token consumption across complete intelligent textbook project lifecycle
+Purpose: Show typical token consumption across complete intelligent textbook project lifecycle
 
-    Time period: 0-20 days (typical project timeline)
+Time period: 0-20 days (typical project timeline)
 
-    Orientation: Horizontal timeline with cumulative token consumption shown as area chart below
+Orientation: Horizontal timeline with cumulative token consumption shown as area chart below
 
-    Events and token consumption:
-    - Day 1: Course description (8,000 tokens)
-    - Day 2: Learning graph generation (45,000 tokens)
-    - Day 3: Glossary generation (20,000 tokens)
-    - Day 4: Chapter outline (8,000 tokens)
-    - Days 5-14: Chapter content generation, ~3 chapters every 2-3 days (30,000 tokens per chapter × 13 = 390,000 tokens distributed)
-    - Days 15-18: Quiz generation batches (8,000 tokens per batch × 5 batches = 40,000 tokens)
-    - Days 19-20: MicroSim specifications as needed (5,000 tokens per day)
+Events and token consumption:
+- Day 1: Course description (8,000 tokens)
+- Day 2: Learning graph generation (45,000 tokens)
+- Day 3: Glossary generation (20,000 tokens)
+- Day 4: Chapter outline (8,000 tokens)
+- Days 5-14: Chapter content generation, ~3 chapters every 2-3 days (30,000 tokens per chapter × 13 = 390,000 tokens distributed)
+- Days 15-18: Quiz generation batches (8,000 tokens per batch × 5 batches = 40,000 tokens)
+- Days 19-20: MicroSim specifications as needed (5,000 tokens per day)
 
-    Visual elements:
-    - Timeline with major milestones
-    - Area chart showing cumulative token consumption
-    - Shaded regions indicating 4-hour window regeneration
-    - Annotations showing total tokens per phase
+Visual elements:
+- Timeline with major milestones
+- Area chart showing cumulative token consumption
+- Shaded regions indicating 4-hour window regeneration
+- Annotations showing total tokens per phase
 
-    Color coding:
-    - Blue: Foundation phase (course description, learning graph)
-    - Purple: Supporting content phase (glossary, outlines)
-    - Green: Content generation phase (chapters, quizzes)
-    - Orange: Enhancement phase (MicroSims)
+Color coding:
+- Blue: Foundation phase (course description, learning graph)
+- Purple: Supporting content phase (glossary, outlines)
+- Green: Content generation phase (chapters, quizzes)
+- Orange: Enhancement phase (MicroSims)
 
-    Annotations:
-    - "Total project: ~530,000 tokens"
-    - "Spread across 20 days: ~26,500 tokens/day average"
-    - "Well within Claude Pro capabilities with planning"
+Annotations:
+- &quot;Total project: ~530,000 tokens&quot;
+- &quot;Spread across 20 days: ~26,500 tokens/day average&quot;
+- &quot;Well within Claude Pro capabilities with planning&quot;
 
-    Interactive features:
-    - Hover over timeline points to see specific token amounts
-    - Hover over area chart to see cumulative consumption
+Interactive features:
+- Hover over timeline points to see specific token amounts
+- Hover over area chart to see cumulative consumption
 
-    Implementation: HTML/CSS/JavaScript with Chart.js timeline and area chart
+Implementation: HTML/CSS/JavaScript with Chart.js timeline and area chart
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="summary_1">Summary</h2>
 <p>This chapter introduced learning graphs as formalized knowledge structures representing concepts as nodes and prerequisite dependencies as edges. You learned how learning graphs function as Directed Acyclic Graphs (DAGs) ensuring valid pedagogical orderings exist, and how prerequisite relationships define learning pathways through course content.</p>
 <p>We explored concept nodes with their atomic granularity principles and dependency edges encoding prerequisite relationships. You learned to distinguish direct from transitive dependencies, identify common dependency patterns (sequential chains, fan-in, fan-out), and recognize why the DAG constraint is mathematically necessary for coherent curriculum design.</p>

@@ -2035,41 +2035,73 @@ References to supporting files, templates, or documentation.
 </code></pre></div></td></tr></table></div>
 <p>The separation of metadata (YAML frontmatter) from workflow instructions (markdown body) enables both machine parsing for skill discovery and human readability for understanding and customization. Claude Code processes the YAML to determine skill identity and tool permissions, then executes the markdown workflow instructions sequentially.</p>
 <details>
-    <summary>Skill File Anatomy Diagram</summary>
-    Type: diagram
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Skill File Anatomy Diagram&lt;/summary&gt;
+Type: diagram
 
-    Purpose: Illustrate the structure of a SKILL.md file with labeled components
+Purpose: Illustrate the structure of a SKILL.md file with labeled components
 
-    Components to show:
-    - YAML Frontmatter section (top, enclosed in --- delimiters)
-      - name field
-      - description field
-      - license field
-      - allowed-tools field (shown as array)
-    - Markdown Body section (below frontmatter)
-      - ## Overview heading
-      - ## When to Use heading
-      - ## Workflow heading with numbered steps
-      - ## Resources heading
-    - Annotations showing what each section controls
+Components to show:
+- YAML Frontmatter section (top, enclosed in --- delimiters)
+  - name field
+  - description field
+  - license field
+  - allowed-tools field (shown as array)
+- Markdown Body section (below frontmatter)
+  - ## Overview heading
+  - ## When to Use heading
+  - ## Workflow heading with numbered steps
+  - ## Resources heading
+- Annotations showing what each section controls
 
-    Layout: Vertical document structure with left sidebar annotations
+Layout: Vertical document structure with left sidebar annotations
 
-    Labels:
-    - "YAML Frontmatter: Machine-readable metadata"
-    - "name: Identifies skill for invocation"
-    - "description: Used in skill listings"
-    - "allowed-tools: Permissions for tool access"
-    - "Markdown Body: Human-readable workflow"
-    - "Workflow section: Step-by-step execution instructions"
+Labels:
+- &quot;YAML Frontmatter: Machine-readable metadata&quot;
+- &quot;name: Identifies skill for invocation&quot;
+- &quot;description: Used in skill listings&quot;
+- &quot;allowed-tools: Permissions for tool access&quot;
+- &quot;Markdown Body: Human-readable workflow&quot;
+- &quot;Workflow section: Step-by-step execution instructions&quot;
 
-    Visual style: Document mockup with syntax highlighting
+Visual style: Document mockup with syntax highlighting
 
-    Color scheme: Yellow background for YAML section, white for markdown body, blue annotations
+Color scheme: Yellow background for YAML section, white for markdown body, blue annotations
 
-    Implementation: SVG diagram with code-style formatting
+Implementation: SVG diagram with code-style formatting
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="yaml-frontmatter-in-skills">YAML Frontmatter in Skills</h3>
 <p>The YAML frontmatter section provides metadata that Claude Code uses for skill discovery, permission management, and user-facing documentation. All frontmatter fields use lowercase keys and follow YAML syntax conventions.</p>
 <p>Required frontmatter fields:</p>
@@ -2158,22 +2190,35 @@ References to supporting files, templates, or documentation.
 </code></pre></div></td></tr></table></div>
 <p>When developing skills, follow the principle of least privilege: grant only the tools necessary for the skill's function. This reduces risk of unintended modifications and makes skill behavior more predictable.</p>
 <details>
-    <summary>Skill Permission Matrix</summary>
-    Type: markdown-table
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Skill Permission Matrix&lt;/summary&gt;
+Type: markdown-table
 
-    Purpose: Show which tools different skill types typically require
+Purpose: Show which tools different skill types typically require
 
-    | Skill Type | Read | Grep | Glob | Write | Edit | Bash | WebFetch |
-    |---|---|---|---|---|---|---|---|
-    | Quality Analyzer | ✓ | ✓ | ✓ | ✓ | | | |
-    | Content Generator | ✓ | ✓ | ✓ | ✓ | ✓ | | |
-    | MicroSim Creator | ✓ | ✓ | ✓ | ✓ | | | ✓ |
-    | Workflow Orchestrator | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | |
-    | Script Executor | ✓ | | | ✓ | | ✓ | |
+| Skill Type | Read | Grep | Glob | Write | Edit | Bash | WebFetch |
+|---|---|---|---|---|---|---|---|
+| Quality Analyzer | ✓ | ✓ | ✓ | ✓ | | | |
+| Content Generator | ✓ | ✓ | ✓ | ✓ | ✓ | | |
+| MicroSim Creator | ✓ | ✓ | ✓ | ✓ | | | ✓ |
+| Workflow Orchestrator | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | |
+| Script Executor | ✓ | | | ✓ | | ✓ | |
 
-    Note: ✓ indicates typically required tool
+Note: ✓ indicates typically required tool
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="skill-workflow-instructions">Skill Workflow Instructions</h3>
 <p>The markdown body of a SKILL.md file contains detailed, step-by-step instructions that Claude Code executes autonomously. Well-designed workflow instructions exhibit several characteristics:</p>
 <p><strong>Explicit sequencing:</strong> Steps numbered clearly (Step 1, Step 2, etc.) with dependencies identified. Each step should be completable before proceeding to the next.</p>
@@ -2297,33 +2342,57 @@ cp<span class="w"> </span>-r<span class="w"> </span>skill-name/references<span c
 </ol>
 <p>Project-local skills take precedence over global skills with the same name, enabling project-specific customization of standard workflows.</p>
 <details>
-    <summary>Skill Installation Locations and Priority</summary>
-    Type: diagram
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Skill Installation Locations and Priority&lt;/summary&gt;
+Type: diagram
 
-    Purpose: Show where skills can be installed and which location takes precedence
+Purpose: Show where skills can be installed and which location takes precedence
 
-    Components to show:
-    - User Home Directory level
-      - ~/.claude/skills/ (global skills)
-    - Project Directory level
-      - /project/.claude/skills/ (project-local skills)
-    - Skill Loading Priority indicator (project-local overrides global)
-    - Example: If both locations have "quiz-generator", project-local version used
+Components to show:
+- User Home Directory level
+  - ~/.claude/skills/ (global skills)
+- Project Directory level
+  - /project/.claude/skills/ (project-local skills)
+- Skill Loading Priority indicator (project-local overrides global)
+- Example: If both locations have &quot;quiz-generator&quot;, project-local version used
 
-    Layout: Hierarchical tree structure
+Layout: Hierarchical tree structure
 
-    Labels:
-    - "~/.claude/skills/: Global skills available in all projects"
-    - ".claude/skills/: Project-specific skills or overrides"
-    - "Priority: Project > Global"
+Labels:
+- &quot;~/.claude/skills/: Global skills available in all projects&quot;
+- &quot;.claude/skills/: Project-specific skills or overrides&quot;
+- &quot;Priority: Project &gt; Global&quot;
 
-    Visual style: Directory tree diagram with folder icons
+Visual style: Directory tree diagram with folder icons
 
-    Color scheme: Blue for global location, green for project-local, orange for priority indicator
+Color scheme: Blue for global location, green for project-local, orange for priority indicator
 
-    Implementation: SVG diagram with tree structure
+Implementation: SVG diagram with tree structure
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="listing-available-skills">Listing Available Skills</h2>
 <p>Discovering which skills are installed and available is essential for workflow planning. Multiple methods exist for listing skills, each providing different levels of detail.</p>
 <h3 id="using-the-skills-slash-command">Using the /skills Slash Command</h3>
@@ -2379,68 +2448,127 @@ cp<span class="w"> </span>-r<span class="w"> </span>skill-name/references<span c
 </code></pre></div></td></tr></table></div>
 <p>The skill receives both the general instruction and executes its standard workflow, incorporating the contextual guidance where applicable.</p>
 <details>
-    <summary>Skill Invocation and Execution Lifecycle</summary>
-    Type: workflow
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Skill Invocation and Execution Lifecycle&lt;/summary&gt;
+Type: workflow
 
-    Purpose: Illustrate what happens when a skill is invoked from command to completion
+Purpose: Illustrate what happens when a skill is invoked from command to completion
 
-    Visual style: Flowchart with swimlanes
+Visual style: Flowchart with swimlanes
 
-    Swimlanes:
-    - User
-    - Claude Code System
-    - Skill Executor
-    - File System
+Swimlanes:
+- User
+- Claude Code System
+- Skill Executor
+- File System
 
-    Steps:
-    1. Start (User): "User types /skill skill-name"
-       Hover text: "Example: /skill glossary-generator"
+Steps:
+1. Start (User): &quot;User types /skill skill-name&quot;
+   Hover text: &quot;Example: /skill glossary-generator&quot;
 
-    2. Process (Claude Code): "Locate SKILL.md file"
-       Hover text: "Search .claude/skills/ then ~/.claude/skills/ for matching skill"
+2. Process (Claude Code): &quot;Locate SKILL.md file&quot;
+   Hover text: &quot;Search .claude/skills/ then ~/.claude/skills/ for matching skill&quot;
 
-    3. Decision (Claude Code): "Skill found?"
-       Hover text: "Check if SKILL.md exists in either location"
+3. Decision (Claude Code): &quot;Skill found?&quot;
+   Hover text: &quot;Check if SKILL.md exists in either location&quot;
 
-    4a. End (User): "Error: Skill not found"
-        Hover text: "Suggest running /skills to see available skills"
+4a. End (User): &quot;Error: Skill not found&quot;
+    Hover text: &quot;Suggest running /skills to see available skills&quot;
 
-    4b. Process (Claude Code): "Parse YAML frontmatter"
-        Hover text: "Extract name, description, allowed-tools"
+4b. Process (Claude Code): &quot;Parse YAML frontmatter&quot;
+    Hover text: &quot;Extract name, description, allowed-tools&quot;
 
-    5. Process (Claude Code): "Configure tool permissions"
-       Hover text: "Restrict to allowed-tools if specified"
+5. Process (Claude Code): &quot;Configure tool permissions&quot;
+   Hover text: &quot;Restrict to allowed-tools if specified&quot;
 
-    6. Process (Skill Executor): "Load workflow instructions"
-       Hover text: "Read markdown body from SKILL.md"
+6. Process (Skill Executor): &quot;Load workflow instructions&quot;
+   Hover text: &quot;Read markdown body from SKILL.md&quot;
 
-    7. Process (Skill Executor): "Execute Step 1"
-       Hover text: "Follow workflow instructions autonomously"
+7. Process (Skill Executor): &quot;Execute Step 1&quot;
+   Hover text: &quot;Follow workflow instructions autonomously&quot;
 
-    8. Process (File System): "Read/write files as directed"
-       Hover text: "Access course description, learning graphs, generate content"
+8. Process (File System): &quot;Read/write files as directed&quot;
+   Hover text: &quot;Access course description, learning graphs, generate content&quot;
 
-    9. Decision (Skill Executor): "More steps?"
-       Hover text: "Check if workflow complete"
+9. Decision (Skill Executor): &quot;More steps?&quot;
+   Hover text: &quot;Check if workflow complete&quot;
 
-    10. Loop: Execute next step (back to step 7)
-        Hover text: "Continue through all workflow steps"
+10. Loop: Execute next step (back to step 7)
+    Hover text: &quot;Continue through all workflow steps&quot;
 
-    11. Process (Skill Executor): "Generate completion report"
-        Hover text: "Summarize actions taken, files created, quality metrics"
+11. Process (Skill Executor): &quot;Generate completion report&quot;
+    Hover text: &quot;Summarize actions taken, files created, quality metrics&quot;
 
-    12. End (User): "Display results and next steps"
-        Hover text: "User sees summary and can proceed with next task"
+12. End (User): &quot;Display results and next steps&quot;
+    Hover text: &quot;User sees summary and can proceed with next task&quot;
 
-    Color coding:
-    - Blue: User interactions
-    - Purple: System processing
-    - Green: Skill execution
-    - Orange: File operations
+Color coding:
+- Blue: User interactions
+- Purple: System processing
+- Green: Skill execution
+- Orange: File operations
 
-    Implementation: SVG flowchart with decision diamonds and process rectangles
+Implementation: SVG flowchart with decision diamonds and process rectangles
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="skill-execution-context">Skill Execution Context</h3>
 <p>Skills execute within a context that includes:</p>
 <p><strong>Conversation history:</strong> All messages and tool calls prior to skill invocation, enabling skills to understand project state and user objectives.</p>
@@ -2541,44 +2669,79 @@ cp<span class="w"> </span>command-name.md<span class="w"> </span>.claude/command
 - Quick shortcuts for common questions</p>
 <p>In this course, the intelligent textbook workflow relies primarily on skills due to the complexity and multi-step nature of content generation. Commands might be used for auxiliary tasks like "check-concept-coverage" or "validate-markdown-format."</p>
 <details>
-    <summary>Skills vs Commands Decision Tree</summary>
-    Type: workflow
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Skills vs Commands Decision Tree&lt;/summary&gt;
+Type: workflow
 
-    Purpose: Help users decide whether to create a skill or command for their use case
+Purpose: Help users decide whether to create a skill or command for their use case
 
-    Visual style: Decision tree with yes/no branches
+Visual style: Decision tree with yes/no branches
 
-    Decision points:
-    1. Start: "Do you need to perform multiple sequential steps?"
-       Yes → Continue to 2
-       No → "Consider using a Command"
+Decision points:
+1. Start: &quot;Do you need to perform multiple sequential steps?&quot;
+   Yes → Continue to 2
+   No → &quot;Consider using a Command&quot;
 
-    2. "Do you need to read from and write to multiple files?"
-       Yes → Continue to 3
-       No → "Consider using a Command"
+2. &quot;Do you need to read from and write to multiple files?&quot;
+   Yes → Continue to 3
+   No → &quot;Consider using a Command&quot;
 
-    3. "Do you need quality validation or error handling?"
-       Yes → Continue to 4
-       No → "Simple Skill might work"
+3. &quot;Do you need quality validation or error handling?&quot;
+   Yes → Continue to 4
+   No → &quot;Simple Skill might work&quot;
 
-    4. "Will this workflow be reused across multiple projects?"
-       Yes → "Create a Skill with full workflow"
-       No → "Project-local Skill or Command"
+4. &quot;Will this workflow be reused across multiple projects?&quot;
+   Yes → &quot;Create a Skill with full workflow&quot;
+   No → &quot;Project-local Skill or Command&quot;
 
-    Terminal nodes:
-    - "Create a Skill": For complex, reusable workflows
-    - "Use a Command": For simple prompt templates
-    - "Simple Skill might work": For straightforward multi-step tasks
-    - "Project-local Skill or Command": For project-specific automation
+Terminal nodes:
+- &quot;Create a Skill&quot;: For complex, reusable workflows
+- &quot;Use a Command&quot;: For simple prompt templates
+- &quot;Simple Skill might work&quot;: For straightforward multi-step tasks
+- &quot;Project-local Skill or Command&quot;: For project-specific automation
 
-    Color coding:
-    - Green: Indicates skill is appropriate
-    - Yellow: Indicates command might suffice
-    - Orange: Indicates borderline case
+Color coding:
+- Green: Indicates skill is appropriate
+- Yellow: Indicates command might suffice
+- Orange: Indicates borderline case
 
-    Implementation: SVG decision tree with diamond decision nodes
+Implementation: SVG decision tree with diamond decision nodes
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="token-management-strategies">Token Management Strategies</h2>
 <p>Effective use of Claude requires understanding and managing token consumption. Claude Pro accounts provide generous but finite token budgets within 4-hour usage windows, making token management essential for sustained productivity on textbook projects.</p>
 <h3 id="understanding-tokens">Understanding Tokens</h3>
@@ -2610,43 +2773,77 @@ cp<span class="w"> </span>command-name.md<span class="w"> </span>.claude/command
 <p>Example: If you consume 50,000 tokens at 9:00 AM, those tokens remain unavailable until 1:00 PM (4 hours later), when they're restored to your budget.</p>
 <p>This model rewards distributed work patterns over concentrated bursts. For textbook creation workflows that may involve generating content for 13 chapters, spreading skill invocations across several sessions prevents exhausting your token budget.</p>
 <details>
-    <summary>4-Hour Token Window Visualization</summary>
-    Type: timeline
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;4-Hour Token Window Visualization&lt;/summary&gt;
+Type: timeline
 
-    Purpose: Show how token usage and regeneration works over time
+Purpose: Show how token usage and regeneration works over time
 
-    Time period: 12-hour window
+Time period: 12-hour window
 
-    Orientation: Horizontal timeline with token budget shown as vertical bar chart below
+Orientation: Horizontal timeline with token budget shown as vertical bar chart below
 
-    Events:
-    - 9:00 AM: Generate Chapter 1 content (consume 30,000 tokens)
-    - 9:30 AM: Generate glossary (consume 15,000 tokens)
-    - 11:00 AM: Generate Chapter 2 content (consume 30,000 tokens)
-    - 1:00 PM: 9:00 AM tokens restored (+30,000 tokens)
-    - 1:30 PM: 9:30 AM tokens restored (+15,000 tokens)
-    - 3:00 PM: 11:00 AM tokens restored (+30,000 tokens)
-    - 5:00 PM: Available budget fully replenished
+Events:
+- 9:00 AM: Generate Chapter 1 content (consume 30,000 tokens)
+- 9:30 AM: Generate glossary (consume 15,000 tokens)
+- 11:00 AM: Generate Chapter 2 content (consume 30,000 tokens)
+- 1:00 PM: 9:00 AM tokens restored (+30,000 tokens)
+- 1:30 PM: 9:30 AM tokens restored (+15,000 tokens)
+- 3:00 PM: 11:00 AM tokens restored (+30,000 tokens)
+- 5:00 PM: Available budget fully replenished
 
-    Visual elements:
-    - Timeline showing activity times
-    - Stacked bar chart below showing available vs consumed tokens at each time point
-    - Rolling 4-hour window indicator
-    - Annotations showing "Tokens consumed" and "Tokens restored"
+Visual elements:
+- Timeline showing activity times
+- Stacked bar chart below showing available vs consumed tokens at each time point
+- Rolling 4-hour window indicator
+- Annotations showing &quot;Tokens consumed&quot; and &quot;Tokens restored&quot;
 
-    Color coding:
-    - Blue: Available token budget
-    - Orange: Consumed tokens
-    - Green: Restored tokens
-    - Gray: 4-hour restoration window
+Color coding:
+- Blue: Available token budget
+- Orange: Consumed tokens
+- Green: Restored tokens
+- Gray: 4-hour restoration window
 
-    Interactive features:
-    - Hover over timeline events to see token amounts
-    - Hover over bars to see total available vs used
+Interactive features:
+- Hover over timeline events to see token amounts
+- Hover over bars to see total available vs used
 
-    Implementation: HTML/CSS/JavaScript with Chart.js timeline
+Implementation: HTML/CSS/JavaScript with Chart.js timeline
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="optimizing-claude-usage">Optimizing Claude Usage</h3>
 <p>Several strategies maximize productivity within token budgets:</p>
 <p><strong>Strategy 1: Batch related operations</strong></p>
@@ -2701,40 +2898,71 @@ cp<span class="w"> </span>command-name.md<span class="w"> </span>.claude/command
 </ul>
 <p>Converged prompts can be captured as skills or commands for reuse across projects, sharing expertise and accelerating future textbook development.</p>
 <details>
-    <summary>Iterative Prompt Refinement Metrics</summary>
-    Type: chart
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Iterative Prompt Refinement Metrics&lt;/summary&gt;
+Type: chart
 
-    Chart type: Line chart with annotations
+Chart type: Line chart with annotations
 
-    Purpose: Show how prompt quality improves across refinement iterations
+Purpose: Show how prompt quality improves across refinement iterations
 
-    X-axis: Iteration number (1-5)
-    Y-axis: Quality score (0-100)
+X-axis: Iteration number (1-5)
+Y-axis: Quality score (0-100)
 
-    Data series:
-    - Quality Score: [45, 62, 78, 88, 91]
-    - Quality Threshold (horizontal line at 85)
+Data series:
+- Quality Score: [45, 62, 78, 88, 91]
+- Quality Threshold (horizontal line at 85)
 
-    Title: "Prompt Quality Improvement Across Iterations"
+Title: &quot;Prompt Quality Improvement Across Iterations&quot;
 
-    Data points:
-    - Iteration 1 (45): "Initial draft - missing concepts, wrong reading level"
-    - Iteration 2 (62): "Added concept coverage constraints - improved but verbose"
-    - Iteration 3 (78): "Refined reading level parameters - closer to target"
-    - Iteration 4 (88): "Added interactive element specifications - exceeds threshold"
-    - Iteration 5 (91): "Minor refinements - consistent quality achieved"
+Data points:
+- Iteration 1 (45): &quot;Initial draft - missing concepts, wrong reading level&quot;
+- Iteration 2 (62): &quot;Added concept coverage constraints - improved but verbose&quot;
+- Iteration 3 (78): &quot;Refined reading level parameters - closer to target&quot;
+- Iteration 4 (88): &quot;Added interactive element specifications - exceeds threshold&quot;
+- Iteration 5 (91): &quot;Minor refinements - consistent quality achieved&quot;
 
-    Visual elements:
-    - Line showing quality progression
-    - Threshold line at 85
-    - Annotations for each data point explaining changes
-    - Shaded region above 85 indicating "Acceptable Quality Zone"
+Visual elements:
+- Line showing quality progression
+- Threshold line at 85
+- Annotations for each data point explaining changes
+- Shaded region above 85 indicating &quot;Acceptable Quality Zone&quot;
 
-    Color scheme: Blue line for quality score, green shaded region for acceptable zone, red dashed line for threshold
+Color scheme: Blue line for quality score, green shaded region for acceptable zone, red dashed line for threshold
 
-    Implementation: Chart.js line chart with annotations plugin
+Implementation: Chart.js line chart with annotations plugin
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="summary_1">Summary</h2>
 <p>This chapter introduced the Claude Skills system as the foundation for automating intelligent textbook creation workflows. You learned the anatomy of skill definition files, including YAML frontmatter for metadata and markdown workflow instructions for autonomous execution. We explored how skills differ from simpler command-based prompt expansions and when each approach is appropriate.</p>
 <p>You learned practical techniques for installing skills globally or project-locally, listing available skills through slash commands and scripts, and invoking skills within Claude Code sessions. We examined the skill execution lifecycle and how skills access context, make autonomous decisions, and produce structured outputs.</p>

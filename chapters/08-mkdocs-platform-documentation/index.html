@@ -1788,46 +1788,83 @@
 </ul>
 <p>MkDocs operates through a simple command-line interface with three primary commands: <code>mkdocs new</code> creates a new documentation project, <code>mkdocs serve</code> launches a local development server with live reload functionality, and <code>mkdocs build</code> generates the production-ready static site. The development server watches for file changes and automatically rebuilds the site, providing immediate feedback as content authors write and edit documentation. This tight feedback loop dramatically accelerates the content development process compared to traditional publishing workflows that require manual build and preview steps.</p>
 <details>
-    <summary>MkDocs Build Process Workflow Diagram</summary>
-    Type: workflow
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;MkDocs Build Process Workflow Diagram&lt;/summary&gt;
+Type: workflow
 
-    Purpose: Illustrate the MkDocs build pipeline from source markdown to deployed HTML site
+Purpose: Illustrate the MkDocs build pipeline from source markdown to deployed HTML site
 
-    Visual style: Flowchart with process rectangles and data stores
+Visual style: Flowchart with process rectangles and data stores
 
-    Steps:
-    1. Start: "Markdown Source Files"
-       Hover text: "Chapter content written in markdown format (.md files)"
+Steps:
+1. Start: &quot;Markdown Source Files&quot;
+   Hover text: &quot;Chapter content written in markdown format (.md files)&quot;
 
-    2. Data: "mkdocs.yml Configuration"
-       Hover text: "Site configuration including theme, navigation, plugins, and extensions"
+2. Data: &quot;mkdocs.yml Configuration&quot;
+   Hover text: &quot;Site configuration including theme, navigation, plugins, and extensions&quot;
 
-    3. Process: "MkDocs Parser"
-       Hover text: "Reads markdown files and parses them into abstract syntax trees"
+3. Process: &quot;MkDocs Parser&quot;
+   Hover text: &quot;Reads markdown files and parses them into abstract syntax trees&quot;
 
-    4. Process: "Plugin Pipeline"
-       Hover text: "Executes plugins to transform content (search index, macros, etc.)"
+4. Process: &quot;Plugin Pipeline&quot;
+   Hover text: &quot;Executes plugins to transform content (search index, macros, etc.)&quot;
 
-    5. Process: "Theme Template Engine"
-       Hover text: "Applies Jinja2 templates from the selected theme (Material, ReadTheDocs, etc.)"
+5. Process: &quot;Theme Template Engine&quot;
+   Hover text: &quot;Applies Jinja2 templates from the selected theme (Material, ReadTheDocs, etc.)&quot;
 
-    6. Process: "HTML Generation"
-       Hover text: "Converts markdown AST to semantic HTML5 with theme styling"
+6. Process: &quot;HTML Generation&quot;
+   Hover text: &quot;Converts markdown AST to semantic HTML5 with theme styling&quot;
 
-    7. Data: "Static Assets"
-       Hover text: "CSS, JavaScript, images, and fonts copied to build directory"
+7. Data: &quot;Static Assets&quot;
+   Hover text: &quot;CSS, JavaScript, images, and fonts copied to build directory&quot;
 
-    8. End: "site/ Directory"
-       Hover text: "Complete static website ready for deployment to web server or CDN"
+8. End: &quot;site/ Directory&quot;
+   Hover text: &quot;Complete static website ready for deployment to web server or CDN&quot;
 
-    Color coding:
-    - Blue: Input files and data
-    - Green: Processing stages
-    - Orange: Output artifacts
+Color coding:
+- Blue: Input files and data
+- Green: Processing stages
+- Orange: Output artifacts
 
-    Implementation: Mermaid diagram or similar flowchart tool
+Implementation: Mermaid diagram or similar flowchart tool
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="mkdocs-material-theme">MkDocs Material Theme</h2>
 <p>Material for MkDocs is a professional theme built on Google's Material Design principles, transforming standard MkDocs sites into modern, responsive documentation portals. Developed and maintained by Martin Donath, the Material theme has become the most popular MkDocs theme due to its extensive feature set, exceptional documentation, and active development community. The theme provides features far beyond basic styling, including customizable color schemes, advanced search capabilities, tabbed content blocks, and responsive navigation that adapts seamlessly from desktop to mobile devices.</p>
 <p>The Material theme extends MkDocs with powerful additional capabilities through its plugin ecosystem and built-in features:</p>
@@ -1842,49 +1879,89 @@
 </ul>
 <p>The theme's configuration system allows extensive customization while maintaining sensible defaults for rapid deployment. Color palettes can be customized to match institutional branding, fonts can be selected from Google Fonts or custom sources, and page layouts can be adjusted to emphasize different content types. For intelligent textbook development, the Material theme's support for mathematical notation (via MathJax or KaTeX), code syntax highlighting, and complex content hierarchies makes it particularly well-suited for technical educational content.</p>
 <details>
-    <summary>Material Theme Features Interactive Comparison</summary>
-    Type: infographic
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Material Theme Features Interactive Comparison&lt;/summary&gt;
+Type: infographic
 
-    Purpose: Compare standard MkDocs theme with Material theme features through interactive panels
+Purpose: Compare standard MkDocs theme with Material theme features through interactive panels
 
-    Layout: Side-by-side comparison with two columns (Standard vs Material)
+Layout: Side-by-side comparison with two columns (Standard vs Material)
 
-    Features to compare:
-    1. Navigation
-       - Standard: Simple vertical menu
-       - Material: Multi-level navigation with sections, search integration, instant loading
+Features to compare:
+1. Navigation
+   - Standard: Simple vertical menu
+   - Material: Multi-level navigation with sections, search integration, instant loading
 
-    2. Search
-       - Standard: Basic keyword search
-       - Material: Advanced search with highlighting, filtering by section, keyboard shortcuts
+2. Search
+   - Standard: Basic keyword search
+   - Material: Advanced search with highlighting, filtering by section, keyboard shortcuts
 
-    3. Visual Design
-       - Standard: Minimal styling, basic responsive design
-       - Material: Material Design components, extensive customization, dark mode
+3. Visual Design
+   - Standard: Minimal styling, basic responsive design
+   - Material: Material Design components, extensive customization, dark mode
 
-    4. Content Features
-       - Standard: Basic markdown rendering
-       - Material: Admonitions, tabs, annotations, diagrams, icons
+4. Content Features
+   - Standard: Basic markdown rendering
+   - Material: Admonitions, tabs, annotations, diagrams, icons
 
-    5. Mobile Experience
-       - Standard: Basic responsive layout
-       - Material: Touch-optimized navigation, drawer interface, adaptive tables
+5. Mobile Experience
+   - Standard: Basic responsive layout
+   - Material: Touch-optimized navigation, drawer interface, adaptive tables
 
-    6. Performance
-       - Standard: Traditional page loads
-       - Material: Instant loading with prefetching and caching
+6. Performance
+   - Standard: Traditional page loads
+   - Material: Instant loading with prefetching and caching
 
-    Interactive elements:
-    - Click each feature to see side-by-side comparison screenshots
-    - Hover over features to see technical details
-    - Toggle between light/dark mode examples
+Interactive elements:
+- Click each feature to see side-by-side comparison screenshots
+- Hover over features to see technical details
+- Toggle between light/dark mode examples
 
-    Visual style: Split screen with Material Design cards for each feature
-    Color scheme: Blue for standard theme, purple/pink for Material theme
+Visual style: Split screen with Material Design cards for each feature
+Color scheme: Blue for standard theme, purple/pink for Material theme
 
-    Implementation: HTML/CSS/JavaScript with responsive grid layout
+Implementation: HTML/CSS/JavaScript with responsive grid layout
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="mkdocs-configuration-file-mkdocsyml">MkDocs Configuration File (mkdocs.yml)</h2>
 <p>The mkdocs.yml file serves as the central configuration document for your documentation site, written in YAML (YAML Ain't Markup Language) format. This human-readable data serialization format allows you to specify site metadata, theme configuration, navigation structure, plugin settings, and markdown extensions in a hierarchical structure that mirrors the logical organization of configuration settings. Understanding the mkdocs.yml file structure is essential for customizing documentation sites beyond default behaviors and integrating advanced features required for intelligent textbooks.</p>
 <p>A typical mkdocs.yml file for an intelligent textbook project includes several key sections:</p>
@@ -2023,50 +2100,91 @@
 </ul>
 <p>The <code>pymdownx.details</code> extension adds collapsible admonitions using <code>???</code> instead of <code>!!!</code>, creating interactive disclosure widgets that can be expanded by clicking. This feature is particularly valuable for optional content, detailed explanations, or supplementary information that some learners may want to skip. Collapsible admonitions help manage content density by hiding details until explicitly requested, preventing overwhelming presentation of information while keeping it accessible for learners who need additional depth.</p>
 <details>
-    <summary>Admonition Types Interactive Reference</summary>
-    Type: infographic
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Admonition Types Interactive Reference&lt;/summary&gt;
+Type: infographic
 
-    Purpose: Demonstrate all admonition types with interactive examples showing both syntax and rendered output
+Purpose: Demonstrate all admonition types with interactive examples showing both syntax and rendered output
 
-    Layout: Grid of cards, each representing one admonition type
+Layout: Grid of cards, each representing one admonition type
 
-    Admonition types to show:
-    1. Note (blue, info icon)
-       - Purpose: General information
-       - Example: "Remember to save your work frequently"
+Admonition types to show:
+1. Note (blue, info icon)
+   - Purpose: General information
+   - Example: &quot;Remember to save your work frequently&quot;
 
-    2. Tip (green, lightbulb icon)
-       - Purpose: Helpful suggestions
-       - Example: "Use keyboard shortcuts to speed up navigation"
+2. Tip (green, lightbulb icon)
+   - Purpose: Helpful suggestions
+   - Example: &quot;Use keyboard shortcuts to speed up navigation&quot;
 
-    3. Warning (orange, warning triangle icon)
-       - Purpose: Important cautions
-       - Example: "This operation cannot be undone"
+3. Warning (orange, warning triangle icon)
+   - Purpose: Important cautions
+   - Example: &quot;This operation cannot be undone&quot;
 
-    4. Danger (red, alert icon)
-       - Purpose: Critical warnings
-       - Example: "Deleting this file will remove all data"
+4. Danger (red, alert icon)
+   - Purpose: Critical warnings
+   - Example: &quot;Deleting this file will remove all data&quot;
 
-    5. Example (purple, document icon)
-       - Purpose: Code samples
-       - Example: Shows a code block with syntax
+5. Example (purple, document icon)
+   - Purpose: Code samples
+   - Example: Shows a code block with syntax
 
-    6. Quote (gray, quotation icon)
-       - Purpose: Citations
-       - Example: Referenced text from external source
+6. Quote (gray, quotation icon)
+   - Purpose: Citations
+   - Example: Referenced text from external source
 
-    Interactive elements:
-    - Each card shows both markdown syntax (on hover or click left side)
-    - And rendered output (right side or on toggle)
-    - Toggle button to switch between expanded and collapsed versions
-    - Copy button to copy markdown syntax
+Interactive elements:
+- Each card shows both markdown syntax (on hover or click left side)
+- And rendered output (right side or on toggle)
+- Toggle button to switch between expanded and collapsed versions
+- Copy button to copy markdown syntax
 
-    Visual style: Material Design cards with appropriate color coding
-    Layout: 2x3 grid on desktop, single column on mobile
+Visual style: Material Design cards with appropriate color coding
+Layout: 2x3 grid on desktop, single column on mobile
 
-    Implementation: HTML/CSS/JavaScript with syntax highlighting and copy-to-clipboard functionality
+Implementation: HTML/CSS/JavaScript with syntax highlighting and copy-to-clipboard functionality
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="version-control-basics">Version Control Basics</h2>
 <p>Version control is a system for tracking changes to files over time, enabling multiple people to collaborate on content while preserving a complete history of modifications. Rather than managing files through naming conventions like "chapter-final.md", "chapter-final-revised.md", and "chapter-final-really-final.md", version control systems maintain a single authoritative file with a complete record of every change, who made it, when, and why. This fundamental shift in file management enables professional content development workflows that parallel software engineering practices while providing safety nets for experimentation and error recovery.</p>
 <p>The core concepts in version control include several key elements:</p>
@@ -2149,70 +2267,131 @@
 <p>The staging area concept initially confuses new Git users but provides essential flexibility for professional workflows. Rather than committing every change in your working directory, you can stage specific files or even specific lines within files, creating focused commits that represent logical units of work. For textbook development, this means you can edit multiple chapters, then create separate commits for each chapter with descriptive messages, maintaining a clean and understandable project history despite working on multiple files simultaneously.</p>
 <p>Git's branching model enables parallel development workflows where different aspects of a textbook can be developed simultaneously without interference. A typical intelligent textbook project might have branches for chapter development, technical editing, graphics creation, and interactive element integration, all proceeding independently until ready to merge into the main branch. This isolation prevents incomplete work from affecting others while preserving the ability to integrate finished work at any time.</p>
 <details>
-    <summary>Git Branching and Merging Visualization MicroSim</summary>
-    Type: microsim
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Git Branching and Merging Visualization MicroSim&lt;/summary&gt;
+Type: microsim
 
-    Learning objective: Demonstrate how Git branches enable parallel development and how merges combine work from different branches
+Learning objective: Demonstrate how Git branches enable parallel development and how merges combine work from different branches
 
-    Canvas layout (900x600px):
-    - Main area (900x500): Graph visualization showing branch timeline
-    - Bottom panel (900x100): Controls and information display
+Canvas layout (900x600px):
+- Main area (900x500): Graph visualization showing branch timeline
+- Bottom panel (900x100): Controls and information display
 
-    Visual elements:
-    - Timeline running horizontally from left to right
-    - Main branch shown as blue line along center
-    - Feature branches shown as lines diverging upward or downward
-    - Commits shown as circles on branches
-    - Merge points shown as larger circles where branches join
-    - Active branch highlighted in gold
-    - Commit messages shown on hover
+Visual elements:
+- Timeline running horizontally from left to right
+- Main branch shown as blue line along center
+- Feature branches shown as lines diverging upward or downward
+- Commits shown as circles on branches
+- Merge points shown as larger circles where branches join
+- Active branch highlighted in gold
+- Commit messages shown on hover
 
-    Interactive controls:
-    - Button: "Create Branch" - creates new branch from current commit
-    - Button: "Make Commit" - adds commit to active branch
-    - Button: "Switch Branch" - changes active branch (dropdown selector)
-    - Button: "Merge Branch" - merges selected branch into active branch
-    - Button: "Reset Scenario" - returns to initial state
-    - Display: Shows current branch name, total commits, active branches
+Interactive controls:
+- Button: &quot;Create Branch&quot; - creates new branch from current commit
+- Button: &quot;Make Commit&quot; - adds commit to active branch
+- Button: &quot;Switch Branch&quot; - changes active branch (dropdown selector)
+- Button: &quot;Merge Branch&quot; - merges selected branch into active branch
+- Button: &quot;Reset Scenario&quot; - returns to initial state
+- Display: Shows current branch name, total commits, active branches
 
-    Default parameters:
-    - Start with main branch with 3 initial commits
-    - Scenario: "Chapter Development Workflow"
+Default parameters:
+- Start with main branch with 3 initial commits
+- Scenario: &quot;Chapter Development Workflow&quot;
 
-    Behavior:
-    - When "Create Branch" clicked:
-      * New branch line diverges from current commit
-      * Prompt for branch name
-      * Switch to new branch automatically
+Behavior:
+- When &quot;Create Branch&quot; clicked:
+  * New branch line diverges from current commit
+  * Prompt for branch name
+  * Switch to new branch automatically
 
-    - When "Make Commit" clicked:
-      * New circle appears on active branch
-      * Prompt for commit message
-      * Timeline extends to accommodate new commit
+- When &quot;Make Commit&quot; clicked:
+  * New circle appears on active branch
+  * Prompt for commit message
+  * Timeline extends to accommodate new commit
 
-    - When "Merge Branch" clicked:
-      * Line from selected branch connects to active branch
-      * Creates merge commit circle
-      * Selected branch becomes inactive (grayed out)
+- When &quot;Merge Branch&quot; clicked:
+  * Line from selected branch connects to active branch
+  * Creates merge commit circle
+  * Selected branch becomes inactive (grayed out)
 
-    - Hover over commits shows:
-      * Commit message
-      * Branch name
-      * Timestamp (simulated)
+- Hover over commits shows:
+  * Commit message
+  * Branch name
+  * Timestamp (simulated)
 
-    Preset scenarios (selectable):
-    1. "Simple Feature Development" - main + 1 feature branch
-    2. "Parallel Chapter Writing" - main + 3 chapter branches
-    3. "Merge Conflict" - two branches modifying same content
+Preset scenarios (selectable):
+1. &quot;Simple Feature Development&quot; - main + 1 feature branch
+2. &quot;Parallel Chapter Writing&quot; - main + 3 chapter branches
+3. &quot;Merge Conflict&quot; - two branches modifying same content
 
-    Implementation notes:
-    - Use p5.js for rendering
-    - Store git graph as directed acyclic graph structure
-    - Calculate branch positions using force-directed layout
-    - Animate branch creation and merge operations
-    - Use different colors for different branch types
+Implementation notes:
+- Use p5.js for rendering
+- Store git graph as directed acyclic graph structure
+- Calculate branch positions using force-directed layout
+- Animate branch creation and merge operations
+- Use different colors for different branch types
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="github-integration">GitHub Integration</h2>
 <p>GitHub is a web-based platform that hosts Git repositories while providing collaboration features, issue tracking, pull request workflows, and integrated continuous integration/deployment capabilities. Microsoft-owned GitHub has become the de facto standard for open-source software development and increasingly serves as infrastructure for documentation and educational content collaboration. The platform transforms Git from a local version control tool into a complete content development ecosystem with social features, permission management, and web-based editing interfaces.</p>
 <p>Key GitHub features for documentation projects include:</p>
@@ -2247,73 +2426,137 @@
 </ol>
 <p>GitHub Pages provides CDN-backed hosting with automatic HTTPS encryption, ensuring fast global access to educational content regardless of student location. The integration with Git version control means every published version is tracked, and rolling back to previous versions is trivial. For courses that update content iteratively, this provides students with stable URLs that always reflect the current curriculum while preserving the ability to reference specific historical versions when needed.</p>
 <details>
-    <summary>MkDocs GitHub Pages Deployment Workflow</summary>
-    Type: workflow
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;MkDocs GitHub Pages Deployment Workflow&lt;/summary&gt;
+Type: workflow
 
-    Purpose: Show the complete workflow from local markdown editing to published GitHub Pages site
+Purpose: Show the complete workflow from local markdown editing to published GitHub Pages site
 
-    Visual style: Swimlane diagram with three swim lanes (Local Development, Git/GitHub, GitHub Pages)
+Visual style: Swimlane diagram with three swim lanes (Local Development, Git/GitHub, GitHub Pages)
 
-    Swimlanes:
-    1. Local Development
-    2. Git/GitHub
-    3. GitHub Pages Service
+Swimlanes:
+1. Local Development
+2. Git/GitHub
+3. GitHub Pages Service
 
-    Steps:
+Steps:
 
-    Local Development Lane:
-    1. Start: "Edit Markdown Files"
-       Hover text: "Author writes content in /docs folder using text editor or IDE"
+Local Development Lane:
+1. Start: &quot;Edit Markdown Files&quot;
+   Hover text: &quot;Author writes content in /docs folder using text editor or IDE&quot;
 
-    2. Process: "mkdocs serve"
-       Hover text: "Launch local development server on http://localhost:8000 to preview changes"
+2. Process: &quot;mkdocs serve&quot;
+   Hover text: &quot;Launch local development server on http://localhost:8000 to preview changes&quot;
 
-    3. Process: "mkdocs build"
-       Hover text: "Generate static site in /site directory to verify build succeeds"
+3. Process: &quot;mkdocs build&quot;
+   Hover text: &quot;Generate static site in /site directory to verify build succeeds&quot;
 
-    4. Decision: "Build Successful?"
-       Hover text: "Check for errors in markdown parsing, missing files, or broken links"
+4. Decision: &quot;Build Successful?&quot;
+   Hover text: &quot;Check for errors in markdown parsing, missing files, or broken links&quot;
 
-    If No → return to "Edit Markdown Files"
-    If Yes → continue
+If No → return to &quot;Edit Markdown Files&quot;
+If Yes → continue
 
-    5. Process: "git add & commit"
-       Hover text: "Stage markdown source files and commit with descriptive message"
+5. Process: &quot;git add &amp; commit&quot;
+   Hover text: &quot;Stage markdown source files and commit with descriptive message&quot;
 
-    Git/GitHub Lane:
-    6. Process: "git push origin main"
-       Hover text: "Upload source commits to GitHub repository main branch"
+Git/GitHub Lane:
+6. Process: &quot;git push origin main&quot;
+   Hover text: &quot;Upload source commits to GitHub repository main branch&quot;
 
-    7. Process: "mkdocs gh-deploy"
-       Hover text: "Build site and force-push to gh-pages branch automatically"
+7. Process: &quot;mkdocs gh-deploy&quot;
+   Hover text: &quot;Build site and force-push to gh-pages branch automatically&quot;
 
-    8. Process: "GitHub receives gh-pages push"
-       Hover text: "GitHub detects new commits to gh-pages branch"
+8. Process: &quot;GitHub receives gh-pages push&quot;
+   Hover text: &quot;GitHub detects new commits to gh-pages branch&quot;
 
-    GitHub Pages Lane:
-    9. Process: "GitHub Pages Build"
-       Hover text: "GitHub copies files from gh-pages branch to CDN hosting infrastructure"
+GitHub Pages Lane:
+9. Process: &quot;GitHub Pages Build&quot;
+   Hover text: &quot;GitHub copies files from gh-pages branch to CDN hosting infrastructure&quot;
 
-    10. Process: "Deploy to CDN"
-        Hover text: "Site deployed to global CDN with HTTPS enabled"
+10. Process: &quot;Deploy to CDN&quot;
+    Hover text: &quot;Site deployed to global CDN with HTTPS enabled&quot;
 
-    11. End: "Site Live at username.github.io/repo-name/"
-        Hover text: "Documentation accessible worldwide with custom domain option"
+11. End: &quot;Site Live at username.github.io/repo-name/&quot;
+    Hover text: &quot;Documentation accessible worldwide with custom domain option&quot;
 
-    Color coding:
-    - Green: Successful operations
-    - Blue: Build and verification steps
-    - Orange: Git operations
-    - Purple: GitHub automated processes
+Color coding:
+- Green: Successful operations
+- Blue: Build and verification steps
+- Orange: Git operations
+- Purple: GitHub automated processes
 
-    Annotations:
-    - Arrow from step 7 to step 1: "Continue development cycle"
-    - Note at step 7: "gh-deploy handles build + push to gh-pages automatically"
-    - Note at step 11: "Typical deployment time: 1-2 minutes"
+Annotations:
+- Arrow from step 7 to step 1: &quot;Continue development cycle&quot;
+- Note at step 7: &quot;gh-deploy handles build + push to gh-pages automatically&quot;
+- Note at step 11: &quot;Typical deployment time: 1-2 minutes&quot;
 
-    Implementation: Mermaid diagram or Lucidchart-style workflow visualization
+Implementation: Mermaid diagram or Lucidchart-style workflow visualization
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="integrating-the-mkdocs-ecosystem">Integrating the MkDocs Ecosystem</h2>
 <p>The true power of the MkDocs ecosystem emerges when you integrate all these components into a cohesive documentation development workflow. Markdown provides the readable source format, MkDocs transforms it into a professional site, the Material theme adds modern design and interactivity, Git tracks every change, GitHub enables collaboration, and GitHub Pages delivers content to learners. This stack represents a complete publishing platform that rivals traditional content management systems while remaining simple enough for individual authors to manage without specialized technical teams.</p>
 <p>For intelligent textbook development, this ecosystem provides several critical capabilities:</p>

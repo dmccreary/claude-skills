@@ -1856,99 +1856,189 @@
 </tbody>
 </table>
 <details>
-    <summary>FAQ Question Pattern Analysis Workflow</summary>
-    Type: workflow
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;FAQ Question Pattern Analysis Workflow&lt;/summary&gt;
+Type: workflow
 
-    Purpose: Illustrate the systematic process of identifying common student questions from course materials and learning analytics
+Purpose: Illustrate the systematic process of identifying common student questions from course materials and learning analytics
 
-    Visual style: Flowchart with swim lanes separating automated analysis, human review, and validation steps
+Visual style: Flowchart with swim lanes separating automated analysis, human review, and validation steps
 
-    Swimlanes:
-    - Automated Analysis (Claude Skills)
-    - Human Reviewer (Educator/Instructional Designer)
-    - Validation & Refinement
+Swimlanes:
+- Automated Analysis (Claude Skills)
+- Human Reviewer (Educator/Instructional Designer)
+- Validation &amp; Refinement
 
-    Steps:
+Steps:
 
-    1. Start: "Course Materials Assembled"
-       Hover text: "Course description, learning graph, glossary, chapter content, and MicroSim documentation compiled into corpus"
-       Swimlane: Automated Analysis
+1. Start: &quot;Course Materials Assembled&quot;
+   Hover text: &quot;Course description, learning graph, glossary, chapter content, and MicroSim documentation compiled into corpus&quot;
+   Swimlane: Automated Analysis
 
-    2. Process: "Extract Concept List"
-       Hover text: "Parse learning graph to enumerate all concepts; identify which concepts appear in chapter content and which are referenced in glossary"
-       Swimlane: Automated Analysis
+2. Process: &quot;Extract Concept List&quot;
+   Hover text: &quot;Parse learning graph to enumerate all concepts; identify which concepts appear in chapter content and which are referenced in glossary&quot;
+   Swimlane: Automated Analysis
 
-    3. Process: "Analyze Concept Dependencies"
-       Hover text: "Identify concepts with high in-degree (many prerequisites) that may generate prerequisite questions; flag concepts with zero dependencies as potential definition questions"
-       Swimlane: Automated Analysis
+3. Process: &quot;Analyze Concept Dependencies&quot;
+   Hover text: &quot;Identify concepts with high in-degree (many prerequisites) that may generate prerequisite questions; flag concepts with zero dependencies as potential definition questions&quot;
+   Swimlane: Automated Analysis
 
-    4. Process: "Search for Question Patterns"
-       Hover text: "Scan corpus for existing questions, prompts, and interrogative structures; extract common patterns like 'What is...', 'How do I...', 'When should...'"
-       Swimlane: Automated Analysis
+4. Process: &quot;Search for Question Patterns&quot;
+   Hover text: &quot;Scan corpus for existing questions, prompts, and interrogative structures; extract common patterns like &#39;What is...&#39;, &#39;How do I...&#39;, &#39;When should...&#39;&quot;
+   Swimlane: Automated Analysis
 
-    5. Process: "Generate Candidate Questions"
-       Hover text: "Use Claude API to generate 5-10 questions per concept across definitional, procedural, troubleshooting, and comparative categories"
-       Swimlane: Automated Analysis
+5. Process: &quot;Generate Candidate Questions&quot;
+   Hover text: &quot;Use Claude API to generate 5-10 questions per concept across definitional, procedural, troubleshooting, and comparative categories&quot;
+   Swimlane: Automated Analysis
 
-    6. Decision: "Quality Threshold Met?"
-       Hover text: "Check if questions are: (1) non-redundant, (2) answerable from course content, (3) aligned with reading level, (4) diverse across categories"
-       Swimlane: Automated Analysis
+6. Decision: &quot;Quality Threshold Met?&quot;
+   Hover text: &quot;Check if questions are: (1) non-redundant, (2) answerable from course content, (3) aligned with reading level, (4) diverse across categories&quot;
+   Swimlane: Automated Analysis
 
-    7a. Process: "Flag for Human Review" (if quality threshold not met)
-        Hover text: "Questions lacking clarity, those answerable only with external knowledge, or redundant questions sent to human reviewer"
-        Swimlane: Human Reviewer
+7a. Process: &quot;Flag for Human Review&quot; (if quality threshold not met)
+    Hover text: &quot;Questions lacking clarity, those answerable only with external knowledge, or redundant questions sent to human reviewer&quot;
+    Swimlane: Human Reviewer
 
-    7b. Process: "Add to FAQ Database" (if quality threshold met)
-        Hover text: "Approved questions added to structured FAQ with metadata: concept_id, category, difficulty_level, bloom_level"
-        Swimlane: Automated Analysis
+7b. Process: &quot;Add to FAQ Database&quot; (if quality threshold met)
+    Hover text: &quot;Approved questions added to structured FAQ with metadata: concept_id, category, difficulty_level, bloom_level&quot;
+    Swimlane: Automated Analysis
 
-    8. Process: "Educator Review"
-       Hover text: "Subject matter expert reviews flagged questions; edits for clarity, accuracy, and pedagogical appropriateness"
-       Swimlane: Human Reviewer
+8. Process: &quot;Educator Review&quot;
+   Hover text: &quot;Subject matter expert reviews flagged questions; edits for clarity, accuracy, and pedagogical appropriateness&quot;
+   Swimlane: Human Reviewer
 
-    9. Process: "Generate Answers from Corpus"
-       Hover text: "Claude generates comprehensive answers by retrieving relevant passages from course content; cites specific chapter sections"
-       Swimlane: Automated Analysis
+9. Process: &quot;Generate Answers from Corpus&quot;
+   Hover text: &quot;Claude generates comprehensive answers by retrieving relevant passages from course content; cites specific chapter sections&quot;
+   Swimlane: Automated Analysis
 
-    10. Process: "Validate Answer Completeness"
-        Hover text: "Check that answers: (1) directly address question, (2) stay within course scope, (3) reference relevant concepts, (4) match reading level"
-        Swimlane: Validation & Refinement
+10. Process: &quot;Validate Answer Completeness&quot;
+    Hover text: &quot;Check that answers: (1) directly address question, (2) stay within course scope, (3) reference relevant concepts, (4) match reading level&quot;
+    Swimlane: Validation &amp; Refinement
 
-    11. Decision: "Answer Complete?"
-        Hover text: "Human reviewer assesses whether answer provides sufficient information without requiring external resources"
-        Swimlane: Human Reviewer
+11. Decision: &quot;Answer Complete?&quot;
+    Hover text: &quot;Human reviewer assesses whether answer provides sufficient information without requiring external resources&quot;
+    Swimlane: Human Reviewer
 
-    12a. Process: "Revise Answer" (if incomplete)
-         Hover text: "Educator supplements or rewrites answer; may identify gap in course content requiring new chapter section"
-         Swimlane: Human Reviewer
+12a. Process: &quot;Revise Answer&quot; (if incomplete)
+     Hover text: &quot;Educator supplements or rewrites answer; may identify gap in course content requiring new chapter section&quot;
+     Swimlane: Human Reviewer
 
-    12b. Process: "Approve FAQ Entry" (if complete)
-         Hover text: "FAQ question-answer pair approved and added to /docs/faq.md with appropriate cross-references to chapters"
-         Swimlane: Validation & Refinement
+12b. Process: &quot;Approve FAQ Entry&quot; (if complete)
+     Hover text: &quot;FAQ question-answer pair approved and added to /docs/faq.md with appropriate cross-references to chapters&quot;
+     Swimlane: Validation &amp; Refinement
 
-    13. Process: "Update FAQ Index"
-        Hover text: "FAQ database updated with search keywords, concept tags, and navigation links; integrated into MkDocs site navigation"
-        Swimlane: Automated Analysis
+13. Process: &quot;Update FAQ Index&quot;
+    Hover text: &quot;FAQ database updated with search keywords, concept tags, and navigation links; integrated into MkDocs site navigation&quot;
+    Swimlane: Automated Analysis
 
-    14. End: "FAQ Published"
-        Hover text: "FAQ accessible via search, concept page links, and dedicated FAQ section; analytics tracking which questions receive most views"
-        Swimlane: Validation & Refinement
+14. End: &quot;FAQ Published&quot;
+    Hover text: &quot;FAQ accessible via search, concept page links, and dedicated FAQ section; analytics tracking which questions receive most views&quot;
+    Swimlane: Validation &amp; Refinement
 
-    Color coding:
-    - Blue: Automated analysis steps
-    - Orange: Human review required
-    - Green: Approval/validation steps
-    - Purple: Database updates
-    - Gray: Decision points
+Color coding:
+- Blue: Automated analysis steps
+- Orange: Human review required
+- Green: Approval/validation steps
+- Purple: Database updates
+- Gray: Decision points
 
-    Annotations:
-    - Bidirectional arrow between "Generate Answers" and "Validate Completeness" labeled "Iterative refinement loop"
-    - Note attached to "Educator Review": "Typically 30-40% of auto-generated questions require human intervention"
-    - Note attached to "Update FAQ Index": "Searchable database enables chatbot integration"
+Annotations:
+- Bidirectional arrow between &quot;Generate Answers&quot; and &quot;Validate Completeness&quot; labeled &quot;Iterative refinement loop&quot;
+- Note attached to &quot;Educator Review&quot;: &quot;Typically 30-40% of auto-generated questions require human intervention&quot;
+- Note attached to &quot;Update FAQ Index&quot;: &quot;Searchable database enables chatbot integration&quot;
 
-    Implementation: Mermaid.js flowchart rendered in MicroSim with interactive hover states
+Implementation: Mermaid.js flowchart rendered in MicroSim with interactive hover states
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="the-faq-generation-process">The FAQ Generation Process</h3>
 <p>The FAQ generation process in the intelligent textbook workflow represents a sophisticated application of natural language processing, corpus analysis, and educational design principles to systematically extract, validate, and structure question-answer pairs that address predictable student information needs. Unlike manually curated FAQs that rely exclusively on instructor experience and anecdotal evidence of student confusion, automated FAQ generation leverages the comprehensive course content corpus—including course descriptions, learning graphs, glossary terms, chapter content, and MicroSim documentation—to identify conceptual gaps, terminology requiring clarification, and procedural steps demanding additional guidance.</p>
 <p>The FAQ generator skill operates after substantial course content exists, typically when the course description has been finalized, the learning graph constructed and validated, the glossary populated with ISO 11179-compliant definitions, and at least 30-40% of chapter content drafted. This sequencing requirement ensures sufficient textual corpus exists for meaningful pattern analysis while still allowing FAQ insights to inform remaining content generation, creating a productive feedback loop between primary instruction and supplementary support materials.</p>
@@ -2024,149 +2114,289 @@
 </tbody>
 </table>
 <details>
-    <summary>Interactive Quiz Question Constructor MicroSim</summary>
-    Type: microsim
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Interactive Quiz Question Constructor MicroSim&lt;/summary&gt;
+Type: microsim
 
-    Learning objective: Enable students to practice constructing effective multiple-choice questions by experimenting with stems, keys, and distractors while receiving real-time feedback on design quality
+Learning objective: Enable students to practice constructing effective multiple-choice questions by experimenting with stems, keys, and distractors while receiving real-time feedback on design quality
 
-    Canvas layout (1000x700px):
-    - Top section (1000x100): Title and instructions
-    - Left section (650x600): Quiz question builder interface
-    - Right section (350x600): Quality feedback panel
+Canvas layout (1000x700px):
+- Top section (1000x100): Title and instructions
+- Left section (650x600): Quiz question builder interface
+- Right section (350x600): Quality feedback panel
 
-    Visual elements in quiz builder (left section):
+Visual elements in quiz builder (left section):
 
-    1. Stem input area:
-       - Large text box (600x100) for entering question stem
-       - Character counter (target: 50-150 characters)
-       - Clarity indicator (green/yellow/red based on readability analysis)
+1. Stem input area:
+   - Large text box (600x100) for entering question stem
+   - Character counter (target: 50-150 characters)
+   - Clarity indicator (green/yellow/red based on readability analysis)
 
-    2. Concept selector:
-       - Dropdown menu listing all concepts from learning graph
-       - Selected concept highlights in green
-       - Shows concept dependencies below dropdown
+2. Concept selector:
+   - Dropdown menu listing all concepts from learning graph
+   - Selected concept highlights in green
+   - Shows concept dependencies below dropdown
 
-    3. Bloom's level selector:
-       - Six buttons (Remember, Understand, Apply, Analyze, Evaluate, Create)
-       - Color-coded buttons matching Bloom's taxonomy colors
-       - Selected level highlights and shows example question stems
+3. Bloom&#39;s level selector:
+   - Six buttons (Remember, Understand, Apply, Analyze, Evaluate, Create)
+   - Color-coded buttons matching Bloom&#39;s taxonomy colors
+   - Selected level highlights and shows example question stems
 
-    4. Answer options area:
-       - Four input boxes (600x50 each) for answers A-D
-       - Radio button next to each to select the correct answer
-       - "Add Distractor" button (allows 3-5 answer options)
+4. Answer options area:
+   - Four input boxes (600x50 each) for answers A-D
+   - Radio button next to each to select the correct answer
+   - &quot;Add Distractor&quot; button (allows 3-5 answer options)
 
-    5. Explanation input:
-       - Text area (600x80) for correct answer explanation
-       - Text area (600x80) for why distractors are incorrect
+5. Explanation input:
+   - Text area (600x80) for correct answer explanation
+   - Text area (600x80) for why distractors are incorrect
 
-    6. Action buttons:
-       - "Analyze Quality" (blue button)
-       - "Preview Question" (green button)
-       - "Export to JSON" (orange button)
-       - "Reset" (red button)
+6. Action buttons:
+   - &quot;Analyze Quality&quot; (blue button)
+   - &quot;Preview Question&quot; (green button)
+   - &quot;Export to JSON&quot; (orange button)
+   - &quot;Reset&quot; (red button)
 
-    Visual elements in quality feedback panel (right section):
+Visual elements in quality feedback panel (right section):
 
-    1. Overall quality score:
-       - Large number (0-100) with color coding
-       - Progress bar visualization
-       - Label: "Question Quality Score"
+1. Overall quality score:
+   - Large number (0-100) with color coding
+   - Progress bar visualization
+   - Label: &quot;Question Quality Score&quot;
 
-    2. Quality metrics breakdown:
-       - Stem clarity: X/20 points
-       - Distractor plausibility: X/20 points
-       - Homogeneity: X/15 points
-       - Bloom's alignment: X/15 points
-       - Concept alignment: X/15 points
-       - Explanation quality: X/15 points
+2. Quality metrics breakdown:
+   - Stem clarity: X/20 points
+   - Distractor plausibility: X/20 points
+   - Homogeneity: X/15 points
+   - Bloom&#39;s alignment: X/15 points
+   - Concept alignment: X/15 points
+   - Explanation quality: X/15 points
 
-    3. Specific feedback messages:
-       - List of issues detected (e.g., "Stem contains absolute qualifier 'always'")
-       - List of strengths (e.g., "All distractors are parallel in structure")
-       - Suggestions for improvement
+3. Specific feedback messages:
+   - List of issues detected (e.g., &quot;Stem contains absolute qualifier &#39;always&#39;&quot;)
+   - List of strengths (e.g., &quot;All distractors are parallel in structure&quot;)
+   - Suggestions for improvement
 
-    4. Comparison to exemplar:
-       - Shows a high-quality example question for same concept
-       - Highlights design features to emulate
+4. Comparison to exemplar:
+   - Shows a high-quality example question for same concept
+   - Highlights design features to emulate
 
-    Interactive controls and behaviors:
+Interactive controls and behaviors:
 
-    1. Real-time validation:
-       - As user types in stem, readability metrics update
-       - Character counter turns red if >150 or <50 characters
-       - Bloom's level selector enables/disables based on stem phrasing
+1. Real-time validation:
+   - As user types in stem, readability metrics update
+   - Character counter turns red if &gt;150 or &lt;50 characters
+   - Bloom&#39;s level selector enables/disables based on stem phrasing
 
-    2. Distractor analysis:
-       - When user enters distractors, similarity analysis runs
-       - Highlights distractors that are too similar to key
-       - Warns if distractors are implausible (e.g., obviously wrong)
-       - Checks for length homogeneity across all options
+2. Distractor analysis:
+   - When user enters distractors, similarity analysis runs
+   - Highlights distractors that are too similar to key
+   - Warns if distractors are implausible (e.g., obviously wrong)
+   - Checks for length homogeneity across all options
 
-    3. Concept alignment:
-       - Checks if stem language mentions the selected concept
-       - Verifies that question tests the concept, not prerequisites
-       - Suggests related concepts if misalignment detected
+3. Concept alignment:
+   - Checks if stem language mentions the selected concept
+   - Verifies that question tests the concept, not prerequisites
+   - Suggests related concepts if misalignment detected
 
-    4. Bloom's level verification:
-       - Analyzes stem verb and cognitive demand
-       - Compares to typical verbs for selected Bloom's level
-       - Warns if mismatch detected (e.g., "Define X" with "Apply" selected)
+4. Bloom&#39;s level verification:
+   - Analyzes stem verb and cognitive demand
+   - Compares to typical verbs for selected Bloom&#39;s level
+   - Warns if mismatch detected (e.g., &quot;Define X&quot; with &quot;Apply&quot; selected)
 
-    5. Preview mode:
-       - Displays question as student would see it
-       - Shows correct answer with green highlight
-       - Shows explanations in expandable sections
+5. Preview mode:
+   - Displays question as student would see it
+   - Shows correct answer with green highlight
+   - Shows explanations in expandable sections
 
-    6. Export functionality:
-       - Generates JSON in quiz generator skill format
-       - Includes all metadata: concept_id, bloom_level, difficulty
-       - Copies to clipboard with success notification
+6. Export functionality:
+   - Generates JSON in quiz generator skill format
+   - Includes all metadata: concept_id, bloom_level, difficulty
+   - Copies to clipboard with success notification
 
-    Default parameters:
-    - Concept: "Graph Database" (first concept in learning graph)
-    - Bloom's level: "Understand"
-    - Number of distractors: 3 (total 4 options)
-    - Quality threshold: 70/100 for "acceptable" question
+Default parameters:
+- Concept: &quot;Graph Database&quot; (first concept in learning graph)
+- Bloom&#39;s level: &quot;Understand&quot;
+- Number of distractors: 3 (total 4 options)
+- Quality threshold: 70/100 for &quot;acceptable&quot; question
 
-    Scoring algorithm:
+Scoring algorithm:
 
-    1. Stem clarity (20 points):
-       - Flesch Reading Ease score > 60: +10
-       - No double negatives: +5
-       - Clear question or completion: +5
+1. Stem clarity (20 points):
+   - Flesch Reading Ease score &gt; 60: +10
+   - No double negatives: +5
+   - Clear question or completion: +5
 
-    2. Distractor plausibility (20 points):
-       - Each distractor scores 0-5 based on edit distance from key
-       - Too similar (edit distance < 3): -2 penalty
-       - Too dissimilar (obviously wrong): -2 penalty
+2. Distractor plausibility (20 points):
+   - Each distractor scores 0-5 based on edit distance from key
+   - Too similar (edit distance &lt; 3): -2 penalty
+   - Too dissimilar (obviously wrong): -2 penalty
 
-    3. Homogeneity (15 points):
-       - Length variance < 20%: +5
-       - Parallel grammatical structure: +5
-       - Consistent format (all phrases, all sentences): +5
+3. Homogeneity (15 points):
+   - Length variance &lt; 20%: +5
+   - Parallel grammatical structure: +5
+   - Consistent format (all phrases, all sentences): +5
 
-    4. Bloom's alignment (15 points):
-       - Stem verb matches selected level: +10
-       - Cognitive demand matches level: +5
+4. Bloom&#39;s alignment (15 points):
+   - Stem verb matches selected level: +10
+   - Cognitive demand matches level: +5
 
-    5. Concept alignment (15 points):
-       - Concept mentioned in stem: +5
-       - Question tests concept directly: +5
-       - Distractors relate to common misconceptions: +5
+5. Concept alignment (15 points):
+   - Concept mentioned in stem: +5
+   - Question tests concept directly: +5
+   - Distractors relate to common misconceptions: +5
 
-    6. Explanation quality (15 points):
-       - Explains why key is correct: +7
-       - Explains why each distractor is incorrect: +8
+6. Explanation quality (15 points):
+   - Explains why key is correct: +7
+   - Explains why each distractor is incorrect: +8
 
-    Implementation notes:
-    - Use p5.js for canvas and UI components
-    - Natural Language Processing via simple heuristics (verb detection, readability formulas)
-    - Store learning graph concepts in JavaScript array
-    - Use Levenshtein distance algorithm for answer similarity
-    - Export format compatible with quiz-generator skill JSON schema
+Implementation notes:
+- Use p5.js for canvas and UI components
+- Natural Language Processing via simple heuristics (verb detection, readability formulas)
+- Store learning graph concepts in JavaScript array
+- Use Levenshtein distance algorithm for answer similarity
+- Export format compatible with quiz-generator skill JSON schema
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="aligning-quizzes-with-learning-graph-concepts">Aligning Quizzes with Learning Graph Concepts</h3>
 <p>The alignment of quiz questions with learning graph concepts represents a fundamental design principle that ensures assessment instruments probe the specific knowledge elements defined in the course's conceptual architecture rather than tangentially related or prerequisite information that students should already possess. This alignment transforms quizzes from generic knowledge probes into targeted diagnostic tools that map directly to the learning graph's node structure, enabling precise identification of which concepts students have mastered and which require additional instruction or practice.</p>
 <p>Each quiz question should explicitly target one primary concept from the learning graph, with the concept ID embedded in the question metadata to enable analytics that track mastery rates across the entire concept network. When a student struggles with a particular question, the intelligent textbook system can trace back through the learning graph's dependency structure to identify prerequisite concepts that may require review, creating adaptive learning pathways that respond to individual knowledge gaps rather than forcing all students through identical instructional sequences.</p>
@@ -2231,106 +2461,203 @@
 </tbody>
 </table>
 <details>
-    <summary>Bloom's Taxonomy Distribution Analyzer Chart</summary>
-    Type: chart
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span>
+<span class="normal">96</span>
+<span class="normal">97</span>
+<span class="normal">98</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Bloom&#39;s Taxonomy Distribution Analyzer Chart&lt;/summary&gt;
+Type: chart
 
-    Purpose: Visualize the distribution of quiz questions across Bloom's Taxonomy levels to ensure balanced cognitive demand and identify potential assessment gaps
+Purpose: Visualize the distribution of quiz questions across Bloom&#39;s Taxonomy levels to ensure balanced cognitive demand and identify potential assessment gaps
 
-    Chart type: Stacked bar chart with comparison mode
+Chart type: Stacked bar chart with comparison mode
 
-    X-axis: Quiz chapters or sections (e.g., "Chapter 1 Quiz", "Chapter 2 Quiz", etc.)
-    Y-axis: Number of questions (0-20 typical range per chapter)
+X-axis: Quiz chapters or sections (e.g., &quot;Chapter 1 Quiz&quot;, &quot;Chapter 2 Quiz&quot;, etc.)
+Y-axis: Number of questions (0-20 typical range per chapter)
 
-    Data series (stacked segments, color-coded by Bloom's level):
+Data series (stacked segments, color-coded by Bloom&#39;s level):
 
-    1. Remember (Red):
-       - Target range: 20-30% of total questions
-       - Example data: [5, 6, 4, 7, 5] questions across 5 chapters
+1. Remember (Red):
+   - Target range: 20-30% of total questions
+   - Example data: [5, 6, 4, 7, 5] questions across 5 chapters
 
-    2. Understand (Orange):
-       - Target range: 30-40% of total questions
-       - Example data: [7, 8, 9, 8, 7] questions across 5 chapters
+2. Understand (Orange):
+   - Target range: 30-40% of total questions
+   - Example data: [7, 8, 9, 8, 7] questions across 5 chapters
 
-    3. Apply (Yellow):
-       - Target range: 20-30% of total questions
-       - Example data: [4, 5, 6, 5, 6] questions across 5 chapters
+3. Apply (Yellow):
+   - Target range: 20-30% of total questions
+   - Example data: [4, 5, 6, 5, 6] questions across 5 chapters
 
-    4. Analyze (Green):
-       - Target range: 10-15% of total questions
-       - Example data: [2, 3, 3, 2, 3] questions across 5 chapters
+4. Analyze (Green):
+   - Target range: 10-15% of total questions
+   - Example data: [2, 3, 3, 2, 3] questions across 5 chapters
 
-    5. Evaluate (Blue):
-       - Target range: 5-10% of total questions
-       - Example data: [1, 1, 2, 2, 1] questions across 5 chapters
+5. Evaluate (Blue):
+   - Target range: 5-10% of total questions
+   - Example data: [1, 1, 2, 2, 1] questions across 5 chapters
 
-    6. Create (Purple):
-       - Target range: 0-5% of total questions
-       - Example data: [1, 0, 1, 1, 1] questions across 5 chapters
+6. Create (Purple):
+   - Target range: 0-5% of total questions
+   - Example data: [1, 0, 1, 1, 1] questions across 5 chapters
 
-    Additional visual elements:
+Additional visual elements:
 
-    1. Target range overlay:
-       - Semi-transparent horizontal bands showing ideal percentage ranges
-       - Green band: 30-40% (Understand target)
-       - Yellow bands: 20-30% (Remember and Apply targets)
-       - Orange bands: other level targets
+1. Target range overlay:
+   - Semi-transparent horizontal bands showing ideal percentage ranges
+   - Green band: 30-40% (Understand target)
+   - Yellow bands: 20-30% (Remember and Apply targets)
+   - Orange bands: other level targets
 
-    2. Total question count labels:
-       - Above each bar showing total questions (e.g., "20 questions")
-       - Color-coded based on adequacy (green if 15-25, yellow if 10-14 or 26-30, red if <10 or >30)
+2. Total question count labels:
+   - Above each bar showing total questions (e.g., &quot;20 questions&quot;)
+   - Color-coded based on adequacy (green if 15-25, yellow if 10-14 or 26-30, red if &lt;10 or &gt;30)
 
-    3. Percentage annotations:
-       - Show percentage within each Bloom's level segment
-       - Only display if segment is large enough (>3% of total)
+3. Percentage annotations:
+   - Show percentage within each Bloom&#39;s level segment
+   - Only display if segment is large enough (&gt;3% of total)
 
-    4. Comparison view toggle:
-       - Button to switch between "Stacked" and "Grouped" bar display
-       - Grouped view shows Bloom's levels side-by-side for easier comparison across chapters
+4. Comparison view toggle:
+   - Button to switch between &quot;Stacked&quot; and &quot;Grouped&quot; bar display
+   - Grouped view shows Bloom&#39;s levels side-by-side for easier comparison across chapters
 
-    Interactive features:
+Interactive features:
 
-    1. Hover over bar segment:
-       - Tooltip shows: Bloom's level, exact count, percentage of chapter total
-       - Highlights all segments of same Bloom's level across all chapters
+1. Hover over bar segment:
+   - Tooltip shows: Bloom&#39;s level, exact count, percentage of chapter total
+   - Highlights all segments of same Bloom&#39;s level across all chapters
 
-    2. Click on legend item:
-       - Toggles visibility of that Bloom's level across all chapters
-       - Recalculates percentages excluding hidden levels
+2. Click on legend item:
+   - Toggles visibility of that Bloom&#39;s level across all chapters
+   - Recalculates percentages excluding hidden levels
 
-    3. Click on chapter bar:
-       - Expands to show individual question details
-       - Lists question stems for each Bloom's level
-       - Shows concept alignment for each question
+3. Click on chapter bar:
+   - Expands to show individual question details
+   - Lists question stems for each Bloom&#39;s level
+   - Shows concept alignment for each question
 
-    4. Export functionality:
-       - "Export PNG" button for saving chart image
-       - "Export CSV" button for downloading raw data
-       - "Generate Report" button for PDF summary with recommendations
+4. Export functionality:
+   - &quot;Export PNG&quot; button for saving chart image
+   - &quot;Export CSV&quot; button for downloading raw data
+   - &quot;Generate Report&quot; button for PDF summary with recommendations
 
-    Quality assessment indicators:
+Quality assessment indicators:
 
-    1. Warning flags:
-       - Red flag icon if Remember level >40% (too recall-focused)
-       - Orange flag icon if Understand level <20% (insufficient conceptual assessment)
-       - Yellow flag icon if Apply+Analyze+Evaluate combined <30% (insufficient higher-order thinking)
+1. Warning flags:
+   - Red flag icon if Remember level &gt;40% (too recall-focused)
+   - Orange flag icon if Understand level &lt;20% (insufficient conceptual assessment)
+   - Yellow flag icon if Apply+Analyze+Evaluate combined &lt;30% (insufficient higher-order thinking)
 
-    2. Recommendations panel (below chart):
-       - "Add 3 more Understand questions to Chapter 1"
-       - "Reduce Remember questions in Chapter 4 from 7 to 5"
-       - "Chapter 3 has excellent Bloom's distribution"
+2. Recommendations panel (below chart):
+   - &quot;Add 3 more Understand questions to Chapter 1&quot;
+   - &quot;Reduce Remember questions in Chapter 4 from 7 to 5&quot;
+   - &quot;Chapter 3 has excellent Bloom&#39;s distribution&quot;
 
-    Title: "Quiz Question Distribution Across Bloom's Taxonomy Levels"
+Title: &quot;Quiz Question Distribution Across Bloom&#39;s Taxonomy Levels&quot;
 
-    Legend: Positioned top-right with Bloom's taxonomy color coding
+Legend: Positioned top-right with Bloom&#39;s taxonomy color coding
 
-    Annotations:
-    - Arrow pointing to ideal distribution pattern: "Target distribution balances recall with higher-order thinking"
-    - Note below chart: "Generated from quiz-generator skill metadata; updated automatically when quizzes modified"
+Annotations:
+- Arrow pointing to ideal distribution pattern: &quot;Target distribution balances recall with higher-order thinking&quot;
+- Note below chart: &quot;Generated from quiz-generator skill metadata; updated automatically when quizzes modified&quot;
 
-    Implementation: Chart.js with custom stacking plugin and interactive tooltips
-    Canvas size: 1000x600px
+Implementation: Chart.js with custom stacking plugin and interactive tooltips
+Canvas size: 1000x600px
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="distributing-questions-across-cognitive-levels">Distributing Questions Across Cognitive Levels</h3>
 <p>The systematic distribution of quiz questions across Bloom's Taxonomy levels requires deliberate planning to ensure assessment instruments probe the full range of cognitive operations students should perform with course content while avoiding overreliance on low-level recall that fails to capture deeper understanding or practical competence. Effective distribution balances the need for foundational knowledge verification (Remember level) with assessment of conceptual understanding (Understand), practical application (Apply), analytical reasoning (Analyze), critical judgment (Evaluate), and creative synthesis (Create).</p>
 <p>Research in educational measurement suggests that quiz distributions heavily weighted toward Remember-level questions—a common pattern in hastily constructed assessments—create an illusion of student mastery that evaporates when learners encounter novel problems requiring actual understanding or application. Students can successfully complete recall-heavy quizzes through memorization strategies that bypass conceptual understanding, leading to high quiz scores that fail to predict performance on authentic tasks. Conversely, quizzes that lean too heavily on high-level cognitive operations (Evaluate, Create) may frustrate students who lack the foundational knowledge and conceptual understanding necessary for sophisticated reasoning, creating discouragement rather than formative feedback.</p>
@@ -2361,176 +2688,343 @@
 <p>The terminal emulator serves as the window into the command-line world, providing a text interface that interprets keystrokes, displays output, and maintains session state including the current working directory and environment variables. macOS provides Terminal.app by default, while Windows offers Command Prompt and PowerShell (though the Windows Subsystem for Linux provides a more Unix-like experience), and Linux distributions typically include GNOME Terminal or other emulators. Regardless of specific emulator choice, the fundamental interaction pattern remains consistent: type a command, press Enter, observe output, repeat.</p>
 <p>A critical distinction between GUI and CLI workflows involves the visibility of state and operations. GUI applications typically show all available options visually, allowing users to discover functionality through exploration. Command-line tools, conversely, assume users know what they want to accomplish and provide the syntax to express it concisely, requiring external documentation or help systems (man pages, --help flags) to discover available functionality. This documentation-dependent model proves efficient for experienced users executing known workflows but demands initial investment in learning command syntax and consulting references.</p>
 <details>
-    <summary>Command-Line Interface Basics Interactive Infographic</summary>
-    Type: infographic
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Command-Line Interface Basics Interactive Infographic&lt;/summary&gt;
+Type: infographic
 
-    Purpose: Provide visual guide to terminal components, command syntax, and common operations for educators new to CLI workflows
+Purpose: Provide visual guide to terminal components, command syntax, and common operations for educators new to CLI workflows
 
-    Layout: Single-page infographic with three main sections arranged vertically
+Layout: Single-page infographic with three main sections arranged vertically
 
-    Section 1: Terminal Anatomy (Top third, 900x300)
+Section 1: Terminal Anatomy (Top third, 900x300)
 
-    Visual: Screenshot-style representation of terminal window with labeled callouts
+Visual: Screenshot-style representation of terminal window with labeled callouts
 
-    Components labeled:
-    1. Title bar: Shows "Terminal - /docs/learning-graph" with colored dots (red/yellow/green close/minimize/maximize)
-    2. Prompt: "user@macbook learning-graph %" - broken down with callouts:
-       - "user@macbook" = username and hostname
-       - "learning-graph" = current directory name
-       - "%" or "$" = prompt character (ready for input)
-    3. Command: "python analyze-graph.py learning-graph.csv quality-metrics.md" - broken down:
-       - "python" = command/program to run
-       - "analyze-graph.py" = argument 1 (script to execute)
-       - "learning-graph.csv" = argument 2 (input file)
-       - "quality-metrics.md" = argument 3 (output file)
-    4. Output area: Shows script output with colored text (green for success, red for errors)
-    5. Cursor: Blinking block showing where next input will appear
+Components labeled:
+1. Title bar: Shows &quot;Terminal - /docs/learning-graph&quot; with colored dots (red/yellow/green close/minimize/maximize)
+2. Prompt: &quot;user@macbook learning-graph %&quot; - broken down with callouts:
+   - &quot;user@macbook&quot; = username and hostname
+   - &quot;learning-graph&quot; = current directory name
+   - &quot;%&quot; or &quot;$&quot; = prompt character (ready for input)
+3. Command: &quot;python analyze-graph.py learning-graph.csv quality-metrics.md&quot; - broken down:
+   - &quot;python&quot; = command/program to run
+   - &quot;analyze-graph.py&quot; = argument 1 (script to execute)
+   - &quot;learning-graph.csv&quot; = argument 2 (input file)
+   - &quot;quality-metrics.md&quot; = argument 3 (output file)
+4. Output area: Shows script output with colored text (green for success, red for errors)
+5. Cursor: Blinking block showing where next input will appear
 
-    Callout boxes with arrows pointing to each component, containing brief explanations
+Callout boxes with arrows pointing to each component, containing brief explanations
 
-    Section 2: Command Syntax Patterns (Middle third, 900x300)
+Section 2: Command Syntax Patterns (Middle third, 900x300)
 
-    Visual: Four common command patterns displayed as syntax diagrams with examples
+Visual: Four common command patterns displayed as syntax diagrams with examples
 
-    Pattern 1: Simple command
-    - Syntax: `command`
-    - Example: `ls` (list directory contents)
-    - Visual: Box labeled "command" with green checkmark
+Pattern 1: Simple command
+- Syntax: `command`
+- Example: `ls` (list directory contents)
+- Visual: Box labeled &quot;command&quot; with green checkmark
 
-    Pattern 2: Command with flags
-    - Syntax: `command -flag`
-    - Example: `ls -la` (list all files with details)
-    - Visual: Box "command" connected to box "-flag" with color coding (blue for flags)
+Pattern 2: Command with flags
+- Syntax: `command -flag`
+- Example: `ls -la` (list all files with details)
+- Visual: Box &quot;command&quot; connected to box &quot;-flag&quot; with color coding (blue for flags)
 
-    Pattern 3: Command with arguments
-    - Syntax: `command argument`
-    - Example: `cd /docs/chapters` (change to chapters directory)
-    - Visual: Box "command" connected to box "argument" (orange for arguments)
+Pattern 3: Command with arguments
+- Syntax: `command argument`
+- Example: `cd /docs/chapters` (change to chapters directory)
+- Visual: Box &quot;command&quot; connected to box &quot;argument&quot; (orange for arguments)
 
-    Pattern 4: Command with flags and arguments
-    - Syntax: `command -flag argument1 argument2`
-    - Example: `python analyze-graph.py learning-graph.csv output.md`
-    - Visual: All three box types connected in sequence
+Pattern 4: Command with flags and arguments
+- Syntax: `command -flag argument1 argument2`
+- Example: `python analyze-graph.py learning-graph.csv output.md`
+- Visual: All three box types connected in sequence
 
-    Color coding legend:
-    - Green: Command names
-    - Blue: Flags/options (modify behavior)
-    - Orange: Arguments (data/files to operate on)
+Color coding legend:
+- Green: Command names
+- Blue: Flags/options (modify behavior)
+- Orange: Arguments (data/files to operate on)
 
-    Section 3: Essential Commands for Textbook Workflow (Bottom third, 900x400)
+Section 3: Essential Commands for Textbook Workflow (Bottom third, 900x400)
 
-    Visual: Grid layout showing 12 essential commands with icons and examples
+Visual: Grid layout showing 12 essential commands with icons and examples
 
-    Grid cells (150x130 each, 6 columns × 2 rows):
+Grid cells (150x130 each, 6 columns × 2 rows):
 
-    1. `ls` - List files
-       Icon: Document stack
-       Example: `ls -la`
-       Purpose: "View files in current directory"
+1. `ls` - List files
+   Icon: Document stack
+   Example: `ls -la`
+   Purpose: &quot;View files in current directory&quot;
 
-    2. `cd` - Change directory
-       Icon: Folder with arrow
-       Example: `cd learning-graph`
-       Purpose: "Navigate to different directory"
+2. `cd` - Change directory
+   Icon: Folder with arrow
+   Example: `cd learning-graph`
+   Purpose: &quot;Navigate to different directory&quot;
 
-    3. `pwd` - Print working directory
-       Icon: Location pin
-       Example: `pwd`
-       Purpose: "Show current directory path"
+3. `pwd` - Print working directory
+   Icon: Location pin
+   Example: `pwd`
+   Purpose: &quot;Show current directory path&quot;
 
-    4. `mkdir` - Make directory
-       Icon: New folder
-       Example: `mkdir new-chapter`
-       Purpose: "Create new directory"
+4. `mkdir` - Make directory
+   Icon: New folder
+   Example: `mkdir new-chapter`
+   Purpose: &quot;Create new directory&quot;
 
-    5. `python` - Run Python script
-       Icon: Python logo
-       Example: `python script.py`
-       Purpose: "Execute Python programs"
+5. `python` - Run Python script
+   Icon: Python logo
+   Example: `python script.py`
+   Purpose: &quot;Execute Python programs&quot;
 
-    6. `cat` - Display file contents
-       Icon: Document with magnifying glass
-       Example: `cat quality-metrics.md`
-       Purpose: "View file contents in terminal"
+6. `cat` - Display file contents
+   Icon: Document with magnifying glass
+   Example: `cat quality-metrics.md`
+   Purpose: &quot;View file contents in terminal&quot;
 
-    7. `cp` - Copy files
-       Icon: Two documents
-       Example: `cp source.csv backup.csv`
-       Purpose: "Duplicate files"
+7. `cp` - Copy files
+   Icon: Two documents
+   Example: `cp source.csv backup.csv`
+   Purpose: &quot;Duplicate files&quot;
 
-    8. `mv` - Move/rename files
-       Icon: Document with arrow
-       Example: `mv old.md new.md`
-       Purpose: "Rename or move files"
+8. `mv` - Move/rename files
+   Icon: Document with arrow
+   Example: `mv old.md new.md`
+   Purpose: &quot;Rename or move files&quot;
 
-    9. `rm` - Remove files
-       Icon: Trash can (red)
-       Example: `rm old-file.txt`
-       Purpose: "Delete files (careful!)"
+9. `rm` - Remove files
+   Icon: Trash can (red)
+   Example: `rm old-file.txt`
+   Purpose: &quot;Delete files (careful!)&quot;
 
-    10. `git` - Version control
-        Icon: Git logo
-        Example: `git status`
-        Purpose: "Manage code versions"
+10. `git` - Version control
+    Icon: Git logo
+    Example: `git status`
+    Purpose: &quot;Manage code versions&quot;
 
-    11. `mkdocs` - Build documentation
-        Icon: Book
-        Example: `mkdocs serve`
-        Purpose: "Build and serve textbook site"
+11. `mkdocs` - Build documentation
+    Icon: Book
+    Example: `mkdocs serve`
+    Purpose: &quot;Build and serve textbook site&quot;
 
-    12. `pip` - Install Python packages
-        Icon: Package box
-        Example: `pip install pandas`
-        Purpose: "Install Python libraries"
+12. `pip` - Install Python packages
+    Icon: Package box
+    Example: `pip install pandas`
+    Purpose: &quot;Install Python libraries&quot;
 
-    Interactive features:
+Interactive features:
 
-    1. Hover over labeled components in Section 1:
-       - Highlights corresponding terminal element
-       - Shows additional explanation in tooltip
-       - Example: Hover "%" shows "Prompt character indicates shell is ready for input"
+1. Hover over labeled components in Section 1:
+   - Highlights corresponding terminal element
+   - Shows additional explanation in tooltip
+   - Example: Hover &quot;%&quot; shows &quot;Prompt character indicates shell is ready for input&quot;
 
-    2. Click on command patterns in Section 2:
-       - Expands to show 3-5 additional examples
-       - Highlights different flag combinations
-       - Shows common errors and corrections
+2. Click on command patterns in Section 2:
+   - Expands to show 3-5 additional examples
+   - Highlights different flag combinations
+   - Shows common errors and corrections
 
-    3. Click on command grid cells in Section 3:
-       - Opens detailed command reference panel
-       - Shows common flags for that command
-       - Displays 5-7 practical examples from textbook workflow
-       - Includes "Try it" button that copies command to clipboard
+3. Click on command grid cells in Section 3:
+   - Opens detailed command reference panel
+   - Shows common flags for that command
+   - Displays 5-7 practical examples from textbook workflow
+   - Includes &quot;Try it&quot; button that copies command to clipboard
 
-    4. Search bar (top of infographic):
-       - Filter commands by purpose
-       - Example: Search "file" highlights ls, cat, cp, mv, rm
-       - Search "directory" highlights ls, cd, pwd, mkdir
+4. Search bar (top of infographic):
+   - Filter commands by purpose
+   - Example: Search &quot;file&quot; highlights ls, cat, cp, mv, rm
+   - Search &quot;directory&quot; highlights ls, cd, pwd, mkdir
 
-    5. Progress tracking:
-       - Checkboxes on each grid cell
-       - Users can mark commands they've successfully used
-       - Progress bar shows "8 of 12 commands mastered"
+5. Progress tracking:
+   - Checkboxes on each grid cell
+   - Users can mark commands they&#39;ve successfully used
+   - Progress bar shows &quot;8 of 12 commands mastered&quot;
 
-    Color scheme:
-    - Background: Dark gray (#2b2b2b) for terminal realism
-    - Text: Light green (#4AF626) for terminal output
-    - Callouts: White background with colored borders
-    - Section dividers: Subtle gradients
+Color scheme:
+- Background: Dark gray (#2b2b2b) for terminal realism
+- Text: Light green (#4AF626) for terminal output
+- Callouts: White background with colored borders
+- Section dividers: Subtle gradients
 
-    Typography:
-    - Monospace font (Courier New) for terminal text
-    - Sans-serif (Arial) for explanatory text
-    - Font sizes: 14pt for terminal, 12pt for explanations, 10pt for examples
+Typography:
+- Monospace font (Courier New) for terminal text
+- Sans-serif (Arial) for explanatory text
+- Font sizes: 14pt for terminal, 12pt for explanations, 10pt for examples
 
-    Annotations:
-    - Top banner: "New to command-line? Start with Section 1, then try each Section 3 command"
-    - Bottom banner: "💡 Tip: Use Tab key to auto-complete file and directory names"
-    - Side note: "⚠️ Commands like rm delete files immediately without trash recovery"
+Annotations:
+- Top banner: &quot;New to command-line? Start with Section 1, then try each Section 3 command&quot;
+- Bottom banner: &quot;💡 Tip: Use Tab key to auto-complete file and directory names&quot;
+- Side note: &quot;⚠️ Commands like rm delete files immediately without trash recovery&quot;
 
-    Implementation: HTML/CSS/JavaScript with SVG graphics and interactive hover states
-    Responsive design: Scales down to 800px width minimum, stacks vertically on mobile
+Implementation: HTML/CSS/JavaScript with SVG graphics and interactive hover states
+Responsive design: Scales down to 800px width minimum, stacks vertically on mobile
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="essential-terminal-commands-for-textbook-workflows">Essential Terminal Commands for Textbook Workflows</h3>
 <p>The intelligent textbook creation workflow requires fluency with several categories of terminal commands that handle file system navigation, Python script execution, data file manipulation, version control operations, and MkDocs site management. While the complete universe of command-line tools encompasses thousands of utilities, practical competence for textbook creation demands mastery of perhaps two dozen commands organized into these functional categories.</p>
 <p><strong>File System Navigation Commands</strong> enable moving through the directory hierarchy, listing contents, and understanding current location within the file system structure. The <code>cd</code> (change directory) command modifies the current working directory, accepting either absolute paths (<code>cd /Users/dan/Documents/ws/claude-skills/docs/learning-graph</code>) or relative paths (<code>cd ../chapters</code>). The <code>pwd</code> (print working directory) command displays the absolute path of the current location, useful for confirming position after multiple directory changes. The <code>ls</code> (list) command enumerates directory contents, with common flags including <code>-l</code> for detailed long format showing permissions and dates, <code>-a</code> for all files including hidden ones starting with <code>.</code>, and <code>-h</code> for human-readable file sizes.</p>

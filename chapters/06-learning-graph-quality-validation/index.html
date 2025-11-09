@@ -1876,42 +1876,75 @@
 </ul>
 <p>If the algorithm encounters a gray node during traversal, it has detected a back edge indicating a cycle. This validation runs in O(V + E) time complexity, where V is the number of vertices (concepts) and E is the number of edges (dependencies).</p>
 <details>
-    <summary>DAG Validation Algorithm Visualization</summary>
-    Type: diagram
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;DAG Validation Algorithm Visualization&lt;/summary&gt;
+Type: diagram
 
-    Purpose: Illustrate the three-color DFS algorithm used for cycle detection in learning graphs
+Purpose: Illustrate the three-color DFS algorithm used for cycle detection in learning graphs
 
-    Components to show:
-    - A sample learning graph with 8 nodes arranged in a network
-    - Color-coded nodes showing White (gray), Gray (yellow), Black (green)
-    - Directed edges showing dependencies
-    - One back edge highlighted in red creating a cycle
-    - DFS traversal stack shown on the right side
-    - Traversal order numbered 1-8
+Components to show:
+- A sample learning graph with 8 nodes arranged in a network
+- Color-coded nodes showing White (gray), Gray (yellow), Black (green)
+- Directed edges showing dependencies
+- One back edge highlighted in red creating a cycle
+- DFS traversal stack shown on the right side
+- Traversal order numbered 1-8
 
-    Layout: Network graph on left (70%), DFS stack visualization on right (30%)
+Layout: Network graph on left (70%), DFS stack visualization on right (30%)
 
-    Example nodes:
-    - Node 1: "Variables" (Black - completed)
-    - Node 2: "Functions" (Black - completed)
-    - Node 3: "Loops" (Gray - in progress)
-    - Node 4: "Recursion" (Gray - in progress)
-    - Node 5: "Data Structures" (White - unvisited)
-    - Node 6: "Algorithms" (White - unvisited)
+Example nodes:
+- Node 1: &quot;Variables&quot; (Black - completed)
+- Node 2: &quot;Functions&quot; (Black - completed)
+- Node 3: &quot;Loops&quot; (Gray - in progress)
+- Node 4: &quot;Recursion&quot; (Gray - in progress)
+- Node 5: &quot;Data Structures&quot; (White - unvisited)
+- Node 6: &quot;Algorithms&quot; (White - unvisited)
 
-    Edges:
-    - Black arrows: Valid forward edges
-    - Red arrow: Back edge from "Recursion" to "Loops" (cycle detected!)
+Edges:
+- Black arrows: Valid forward edges
+- Red arrow: Back edge from &quot;Recursion&quot; to &quot;Loops&quot; (cycle detected!)
 
-    Annotations:
-    - Arrow pointing to red edge: "Cycle detected: Loops ← Recursion ← Loops"
-    - Stack showing: [Loops, Recursion]
+Annotations:
+- Arrow pointing to red edge: &quot;Cycle detected: Loops ← Recursion ← Loops&quot;
+- Stack showing: [Loops, Recursion]
 
-    Style: Network diagram with color-coded nodes and directional arrows
+Style: Network diagram with color-coded nodes and directional arrows
 
-    Implementation: SVG diagram with color-coded circles and arrows
+Implementation: SVG diagram with color-coded circles and arrows
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="circular-dependency-detection">Circular Dependency Detection</h3>
 <p>Circular dependencies represent the most critical structural flaw in a learning graph. They create logical impossibilities in the learning sequence and must be identified and eliminated before proceeding with content generation.</p>
 <p>Common sources of circular dependencies include:</p>
@@ -1960,42 +1993,75 @@ Recommendation: Remove dependency &quot;Database Design → Graph Databases&quot
 </ul>
 <p>A well-designed learning graph typically has 5-10% orphaned nodes, representing culminating concepts and specialized topics. If more than 20% of your concepts are orphaned, review them to determine whether they should be connected to later material or removed from the graph entirely.</p>
 <details>
-    <summary>Orphaned Nodes Identification Chart</summary>
-    Type: chart
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Orphaned Nodes Identification Chart&lt;/summary&gt;
+Type: chart
 
-    Chart type: Scatter plot
+Chart type: Scatter plot
 
-    Purpose: Visualize concept connectivity by showing indegree vs outdegree for all concepts, highlighting orphaned nodes
+Purpose: Visualize concept connectivity by showing indegree vs outdegree for all concepts, highlighting orphaned nodes
 
-    X-axis: Indegree (number of prerequisites, 0-8)
-    Y-axis: Outdegree (number of dependents, 0-12)
+X-axis: Indegree (number of prerequisites, 0-8)
+Y-axis: Outdegree (number of dependents, 0-12)
 
-    Data series:
-    1. Foundational concepts (green dots, indegree = 0, outdegree > 0)
-       - Example: "Introduction to Learning Graphs" (0, 8)
-       - Example: "What is a Concept?" (0, 6)
+Data series:
+1. Foundational concepts (green dots, indegree = 0, outdegree &gt; 0)
+   - Example: &quot;Introduction to Learning Graphs&quot; (0, 8)
+   - Example: &quot;What is a Concept?&quot; (0, 6)
 
-    2. Intermediate concepts (blue dots, indegree > 0, outdegree > 0)
-       - Scatter of 150+ points representing well-connected concepts
-       - Example: "DAG Validation" (2, 4)
+2. Intermediate concepts (blue dots, indegree &gt; 0, outdegree &gt; 0)
+   - Scatter of 150+ points representing well-connected concepts
+   - Example: &quot;DAG Validation&quot; (2, 4)
 
-    3. Orphaned concepts (red dots, indegree > 0, outdegree = 0)
-       - Example: "Advanced Quality Metrics" (5, 0)
-       - Example: "Future of Learning Graphs" (3, 0)
-       - Show approximately 15-20 red dots
+3. Orphaned concepts (red dots, indegree &gt; 0, outdegree = 0)
+   - Example: &quot;Advanced Quality Metrics&quot; (5, 0)
+   - Example: &quot;Future of Learning Graphs&quot; (3, 0)
+   - Show approximately 15-20 red dots
 
-    Title: "Concept Connectivity Analysis: Indegree vs Outdegree"
+Title: &quot;Concept Connectivity Analysis: Indegree vs Outdegree&quot;
 
-    Annotations:
-    - Vertical line at outdegree=0 labeled "Orphaned Zone"
-    - Horizontal line at indegree=0 labeled "Foundation Zone"
-    - Callout: "12% orphaned (healthy range: 5-15%)"
+Annotations:
+- Vertical line at outdegree=0 labeled &quot;Orphaned Zone&quot;
+- Horizontal line at indegree=0 labeled &quot;Foundation Zone&quot;
+- Callout: &quot;12% orphaned (healthy range: 5-15%)&quot;
 
-    Legend: Position top-right with color coding explanation
+Legend: Position top-right with color coding explanation
 
-    Implementation: Chart.js scatter plot with color-coded point categories
+Implementation: Chart.js scatter plot with color-coded point categories
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="disconnected-subgraphs">Disconnected Subgraphs</h3>
 <p>A <strong>disconnected subgraph</strong> is a cluster of concepts isolated from the main learning graph—they have no dependency paths connecting them to foundational concepts. This indicates a serious structural problem: students cannot reach these concepts through the normal learning progression.</p>
 <p>Disconnected subgraphs typically result from:</p>
@@ -2019,45 +2085,81 @@ Recommendation: Remove dependency &quot;Database Design → Graph Databases&quot
 </code></pre></div></td></tr></table></div>
 <p>Quality learning graphs typically have 20-40% of concepts in linear chains, with the remainder providing branching paths and concept integration points. If more than 60% of concepts form linear chains, consider adding cross-dependencies to create a richer learning network.</p>
 <details>
-    <summary>Linear Chain vs Network Structure Comparison</summary>
-    Type: diagram
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Linear Chain vs Network Structure Comparison&lt;/summary&gt;
+Type: diagram
 
-    Purpose: Compare linear chain structure (poor) with network structure (good) for learning graphs
+Purpose: Compare linear chain structure (poor) with network structure (good) for learning graphs
 
-    Layout: Two side-by-side network diagrams
+Layout: Two side-by-side network diagrams
 
-    Left diagram - "Linear Chain Structure (Poor)":
-    - 10 concepts arranged vertically
-    - Single path: Concept 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10
-    - All nodes colored orange
-    - Title: "Linear Chain: 100% of concepts in single path"
-    - Caption: "No flexibility, single learning route"
+Left diagram - &quot;Linear Chain Structure (Poor)&quot;:
+- 10 concepts arranged vertically
+- Single path: Concept 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10
+- All nodes colored orange
+- Title: &quot;Linear Chain: 100% of concepts in single path&quot;
+- Caption: &quot;No flexibility, single learning route&quot;
 
-    Right diagram - "Network Structure (Good)":
-    - Same 10 concepts arranged in a network
-    - Multiple paths and connections:
-      - Concept 1 (foundation) connects to 2, 3, 4
-      - Concepts 2, 3, 4 are parallel (same level)
-      - Concept 5 depends on 2 and 3
-      - Concept 6 depends on 3 and 4
-      - Concepts 7, 8 depend on various combinations
-      - Concepts 9, 10 are terminal (culminating concepts)
-    - Nodes colored by depth: green (foundation), blue (intermediate), purple (advanced)
-    - Title: "Network Structure: 40% linear, 60% networked"
-    - Caption: "Multiple paths, cross-concept integration"
+Right diagram - &quot;Network Structure (Good)&quot;:
+- Same 10 concepts arranged in a network
+- Multiple paths and connections:
+  - Concept 1 (foundation) connects to 2, 3, 4
+  - Concepts 2, 3, 4 are parallel (same level)
+  - Concept 5 depends on 2 and 3
+  - Concept 6 depends on 3 and 4
+  - Concepts 7, 8 depend on various combinations
+  - Concepts 9, 10 are terminal (culminating concepts)
+- Nodes colored by depth: green (foundation), blue (intermediate), purple (advanced)
+- Title: &quot;Network Structure: 40% linear, 60% networked&quot;
+- Caption: &quot;Multiple paths, cross-concept integration&quot;
 
-    Visual style: Network diagrams with nodes as circles, directed arrows showing dependencies
+Visual style: Network diagrams with nodes as circles, directed arrows showing dependencies
 
-    Annotations:
-    - Left: Red "X" indicating poor structure
-    - Right: Green checkmark indicating good structure
-    - Arrow between diagrams showing "Refactor to add cross-dependencies"
+Annotations:
+- Left: Red &quot;X&quot; indicating poor structure
+- Right: Green checkmark indicating good structure
+- Arrow between diagrams showing &quot;Refactor to add cross-dependencies&quot;
 
-    Color scheme: Orange for linear, green/blue/purple gradient for network depth
+Color scheme: Orange for linear, green/blue/purple gradient for network depth
 
-    Implementation: SVG network diagram with positioned nodes and edges
+Implementation: SVG network diagram with positioned nodes and edges
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="graph-analysis-metrics">Graph Analysis Metrics</h2>
 <p>Quantitative metrics provide objective measures of graph structure and complexity. These metrics help you understand your learning graph's characteristics and compare it to best practices for educational graph design.</p>
 <h3 id="indegree-and-outdegree-analysis">Indegree and Outdegree Analysis</h3>
@@ -2114,46 +2216,83 @@ Recommendation: Remove dependency &quot;Database Design → Graph Databases&quot
 </ul>
 <p>The <code>analyze-graph.py</code> script calculates this metric and flags values outside the recommended 2.0-4.5 range. Graphs with average dependencies below 2.0 may be too linear, while those above 5.0 may impose unrealistic prerequisite burdens on learners.</p>
 <details>
-    <summary>Average Dependencies Distribution Bar Chart</summary>
-    Type: chart
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Average Dependencies Distribution Bar Chart&lt;/summary&gt;
+Type: chart
 
-    Chart type: Histogram (bar chart)
+Chart type: Histogram (bar chart)
 
-    Purpose: Show distribution of prerequisite counts across all concepts in the learning graph
+Purpose: Show distribution of prerequisite counts across all concepts in the learning graph
 
-    X-axis: Number of prerequisites (0, 1, 2, 3, 4, 5, 6, 7, 8+)
-    Y-axis: Number of concepts
+X-axis: Number of prerequisites (0, 1, 2, 3, 4, 5, 6, 7, 8+)
+Y-axis: Number of concepts
 
-    Data (example for 200-concept graph):
-    - 0 prerequisites: 12 concepts (foundational)
-    - 1 prerequisite: 45 concepts
-    - 2 prerequisites: 58 concepts
-    - 3 prerequisites: 42 concepts
-    - 4 prerequisites: 25 concepts
-    - 5 prerequisites: 12 concepts
-    - 6 prerequisites: 4 concepts
-    - 7 prerequisites: 2 concepts
-    - 8+ prerequisites: 0 concepts
+Data (example for 200-concept graph):
+- 0 prerequisites: 12 concepts (foundational)
+- 1 prerequisite: 45 concepts
+- 2 prerequisites: 58 concepts
+- 3 prerequisites: 42 concepts
+- 4 prerequisites: 25 concepts
+- 5 prerequisites: 12 concepts
+- 6 prerequisites: 4 concepts
+- 7 prerequisites: 2 concepts
+- 8+ prerequisites: 0 concepts
 
-    Title: "Prerequisite Distribution Across Learning Graph"
+Title: &quot;Prerequisite Distribution Across Learning Graph&quot;
 
-    Calculated metrics displayed below chart:
-    - Total concepts: 200
-    - Total dependencies: 620
-    - Average dependencies: 3.1 per concept
-    - Median: 2
-    - Mode: 2
+Calculated metrics displayed below chart:
+- Total concepts: 200
+- Total dependencies: 620
+- Average dependencies: 3.1 per concept
+- Median: 2
+- Mode: 2
 
-    Annotations:
-    - Shaded region (2-4 prerequisites) in light green labeled "Optimal Range"
-    - Average line (vertical) at 3.1 in blue
-    - Callout: "84% of concepts in optimal range (1-5 prerequisites)"
+Annotations:
+- Shaded region (2-4 prerequisites) in light green labeled &quot;Optimal Range&quot;
+- Average line (vertical) at 3.1 in blue
+- Callout: &quot;84% of concepts in optimal range (1-5 prerequisites)&quot;
 
-    Color scheme: Gold bars with green shading for optimal range
+Color scheme: Gold bars with green shading for optimal range
 
-    Implementation: Chart.js bar chart with annotations
+Implementation: Chart.js bar chart with annotations
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="maximum-dependency-chain-length">Maximum Dependency Chain Length</h3>
 <p>The <strong>maximum dependency chain length</strong> represents the longest sequence of prerequisite concepts from any foundational node to any terminal node. This metric indicates the depth of your curriculum and affects course duration planning.</p>
 <p>For a 200-concept learning graph, typical maximum chain lengths are:</p>
@@ -2229,68 +2368,127 @@ Recommendation: Remove dependency &quot;Database Design → Graph Databases&quot
 </table>
 <p>The quality score should be calculated after every significant graph revision. Track scores over time to ensure your changes improve rather than degrade graph quality.</p>
 <details>
-    <summary>Learning Graph Quality Score Calculator MicroSim</summary>
-    Type: microsim
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Learning Graph Quality Score Calculator MicroSim&lt;/summary&gt;
+Type: microsim
 
-    Learning objective: Allow students to experiment with how different graph characteristics affect overall quality score
+Learning objective: Allow students to experiment with how different graph characteristics affect overall quality score
 
-    Canvas layout (900x600px):
-    - Left side (600x600): Quality score visualization
-    - Right side (300x600): Interactive controls
+Canvas layout (900x600px):
+- Left side (600x600): Quality score visualization
+- Right side (300x600): Interactive controls
 
-    Visual elements (left panel):
-    - Large circular gauge showing overall score (0-100)
-    - Color-coded segments: Red (0-39), Orange (40-59), Yellow (60-74), Light Green (75-89), Dark Green (90-100)
-    - Current score displayed in center in large font
-    - Four horizontal bars below gauge showing component scores:
-      * Structural Validity: 0-40 points (blue bar)
-      * Connectivity Quality: 0-30 points (green bar)
-      * Distribution Quality: 0-20 points (orange bar)
-      * Taxonomy Balance: 0-10 points (purple bar)
-    - Each bar shows points earned out of maximum
+Visual elements (left panel):
+- Large circular gauge showing overall score (0-100)
+- Color-coded segments: Red (0-39), Orange (40-59), Yellow (60-74), Light Green (75-89), Dark Green (90-100)
+- Current score displayed in center in large font
+- Four horizontal bars below gauge showing component scores:
+  * Structural Validity: 0-40 points (blue bar)
+  * Connectivity Quality: 0-30 points (green bar)
+  * Distribution Quality: 0-20 points (orange bar)
+  * Taxonomy Balance: 0-10 points (purple bar)
+- Each bar shows points earned out of maximum
 
-    Interactive controls (right panel):
-    - Slider: "Number of Concepts" (50-300, default 200)
-    - Slider: "Orphaned Nodes %" (0-40%, default 10%)
-    - Slider: "Avg Dependencies" (1.0-6.0, default 3.2)
-    - Slider: "Max Chain Length" (5-35, default 16)
-    - Slider: "Linear Chain %" (10-80%, default 35%)
-    - Slider: "Largest Taxonomy %" (10-60%, default 22%)
-    - Checkbox: "Has Cycles" (default unchecked)
-    - Checkbox: "Has Disconnected Subgraphs" (default unchecked)
-    - Button: "Reset to Defaults"
-    - Button: "Load Example: Poor Graph"
-    - Button: "Load Example: Excellent Graph"
+Interactive controls (right panel):
+- Slider: &quot;Number of Concepts&quot; (50-300, default 200)
+- Slider: &quot;Orphaned Nodes %&quot; (0-40%, default 10%)
+- Slider: &quot;Avg Dependencies&quot; (1.0-6.0, default 3.2)
+- Slider: &quot;Max Chain Length&quot; (5-35, default 16)
+- Slider: &quot;Linear Chain %&quot; (10-80%, default 35%)
+- Slider: &quot;Largest Taxonomy %&quot; (10-60%, default 22%)
+- Checkbox: &quot;Has Cycles&quot; (default unchecked)
+- Checkbox: &quot;Has Disconnected Subgraphs&quot; (default unchecked)
+- Button: &quot;Reset to Defaults&quot;
+- Button: &quot;Load Example: Poor Graph&quot;
+- Button: &quot;Load Example: Excellent Graph&quot;
 
-    Default parameters (Good Graph):
-    - Concepts: 200
-    - Orphaned: 10%
-    - Avg Dependencies: 3.2
-    - Max Chain: 16
-    - Linear Chain %: 35%
-    - Largest Taxonomy: 22%
-    - No cycles, no disconnected subgraphs
-    - **Expected Score: 82** (Good)
+Default parameters (Good Graph):
+- Concepts: 200
+- Orphaned: 10%
+- Avg Dependencies: 3.2
+- Max Chain: 16
+- Linear Chain %: 35%
+- Largest Taxonomy: 22%
+- No cycles, no disconnected subgraphs
+- **Expected Score: 82** (Good)
 
-    Behavior:
-    - Real-time recalculation as sliders move
-    - Score gauge animates to new value
-    - Component bars update proportionally
-    - Color of gauge changes based on score range
-    - Tooltip on hover shows calculation details for each component
-    - "Poor Graph" example: cycles=true, orphaned=35%, score~28
-    - "Excellent Graph" example: optimal all parameters, score~96
+Behavior:
+- Real-time recalculation as sliders move
+- Score gauge animates to new value
+- Component bars update proportionally
+- Color of gauge changes based on score range
+- Tooltip on hover shows calculation details for each component
+- &quot;Poor Graph&quot; example: cycles=true, orphaned=35%, score~28
+- &quot;Excellent Graph&quot; example: optimal all parameters, score~96
 
-    Implementation notes:
-    - Use p5.js for rendering gauge and bars
-    - Implement scoring algorithm matching analyze-graph.py logic
-    - Use DOM elements for sliders and checkboxes
-    - Map() function to scale slider values to score components
-    - Lerp() for smooth score animations
+Implementation notes:
+- Use p5.js for rendering gauge and bars
+- Implement scoring algorithm matching analyze-graph.py logic
+- Use DOM elements for sliders and checkboxes
+- Map() function to scale slider values to score components
+- Lerp() for smooth score animations
 
-    Implementation: p5.js MicroSim with interactive controls
+Implementation: p5.js MicroSim with interactive controls
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="taxonomy-distribution-and-balance">Taxonomy Distribution and Balance</h2>
 <p>Beyond graph structure, the distribution of concepts across taxonomy categories affects curriculum balance and learning progression. A well-balanced taxonomy distribution ensures students encounter appropriate variety across knowledge domains without over-concentration in any single area.</p>
 <h3 id="taxonomy-categories">Taxonomy Categories</h3>
@@ -2375,42 +2573,75 @@ Recommendation: Remove dependency &quot;Database Design → Graph Databases&quot
 </ul>
 <p>The <code>taxonomy-distribution.py</code> script generates a detailed report showing both absolute counts and percentages for each category, enabling quick identification of imbalanced distributions.</p>
 <details>
-    <summary>Taxonomy Distribution Pie Chart</summary>
-    Type: chart
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Taxonomy Distribution Pie Chart&lt;/summary&gt;
+Type: chart
 
-    Chart type: Pie chart with percentage labels
+Chart type: Pie chart with percentage labels
 
-    Purpose: Visualize the distribution of 200 concepts across taxonomy categories
+Purpose: Visualize the distribution of 200 concepts across taxonomy categories
 
-    Data:
-    - FOUND (Foundational): 18 concepts (9%) - Red
-    - BASIC (Basic Principles): 42 concepts (21%) - Orange
-    - ARCH (Architecture): 38 concepts (19%) - Yellow
-    - IMPL (Implementation): 35 concepts (17.5%) - Light Green
-    - DATA (Data Management): 28 concepts (14%) - Green
-    - TOOL (Tools): 22 concepts (11%) - Light Blue
-    - QUAL (Quality): 12 concepts (6%) - Blue
-    - ADV (Advanced): 5 concepts (2.5%) - Purple
+Data:
+- FOUND (Foundational): 18 concepts (9%) - Red
+- BASIC (Basic Principles): 42 concepts (21%) - Orange
+- ARCH (Architecture): 38 concepts (19%) - Yellow
+- IMPL (Implementation): 35 concepts (17.5%) - Light Green
+- DATA (Data Management): 28 concepts (14%) - Green
+- TOOL (Tools): 22 concepts (11%) - Light Blue
+- QUAL (Quality): 12 concepts (6%) - Blue
+- ADV (Advanced): 5 concepts (2.5%) - Purple
 
-    Title: "Learning Graph Taxonomy Distribution (200 Concepts)"
+Title: &quot;Learning Graph Taxonomy Distribution (200 Concepts)&quot;
 
-    Label format: "CATEGORY: N concepts (P%)"
+Label format: &quot;CATEGORY: N concepts (P%)&quot;
 
-    Annotations:
-    - Callout for BASIC slice: "Largest category: 21% (healthy)"
-    - Callout for ADV slice: "Smallest category: 2.5% (may need expansion)"
-    - Legend positioned to right side
+Annotations:
+- Callout for BASIC slice: &quot;Largest category: 21% (healthy)&quot;
+- Callout for ADV slice: &quot;Smallest category: 2.5% (may need expansion)&quot;
+- Legend positioned to right side
 
-    Quality indicators:
-    - Green checkmark: "No category exceeds 30% ✓"
-    - Green checkmark: "8 categories represented ✓"
-    - Green checkmark: "Top 3 categories = 59% ✓"
+Quality indicators:
+- Green checkmark: &quot;No category exceeds 30% ✓&quot;
+- Green checkmark: &quot;8 categories represented ✓&quot;
+- Green checkmark: &quot;Top 3 categories = 59% ✓&quot;
 
-    Color scheme: Rainbow gradient (red → orange → yellow → green → blue → purple)
+Color scheme: Rainbow gradient (red → orange → yellow → green → blue → purple)
 
-    Implementation: Chart.js pie chart with custom colors and labels
+Implementation: Chart.js pie chart with custom colors and labels
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h3 id="avoiding-over-representation">Avoiding Over-Representation</h3>
 <p><strong>Over-representation</strong> occurs when a single taxonomy category dominates the learning graph, consuming more than 30% of total concepts. This imbalance can result from:</p>
 <ul>

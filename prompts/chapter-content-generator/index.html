@@ -1724,7 +1724,7 @@ In this example NN is `01` and the LCNAME is `introduction`.
 </li>
 </ol>
 <p>If the content is just markdown (lists, tables set) put it in the text.
-If the content is anything else in the list, you must write a description of it and put it in a <code>&lt;details&gt;</code> block.
+If the content is anything else in the list, you must write a description of it and put it in a <code>&lt;details markdown="1"&gt;</code> block.
 The details</p>
 <p>For each of these non-pure-text elements you will generate the following structure:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -1735,7 +1735,7 @@ The details</p>
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;details&gt;</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;details</span><span class="w"> </span><span class="na">markdown=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;summary&gt;</span>SUMMARY<span class="w"> </span>TEXT<span class="nt">&lt;summary&gt;</span>
 <span class="w">    </span>Type:<span class="w"> </span>ITEM_TYPE
 <span class="w">    </span>A<span class="w"> </span>detailed<span class="w"> </span>description<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>item<span class="w"> </span>that<span class="w"> </span>is<span class="w"> </span>non-pure<span class="w"> </span>text.
@@ -1810,7 +1810,7 @@ be run on the content for interactive items.</p>
            + process-centric worldview, where IT management is decomposed into distinct, 
            + coordinated workflows rather than viewed as a unified data management challenge.
         52 +<br />
-        53 +  <details>
+        53 +  <details markdown="1">
         54 +      <summary>ITIL Framework Structure Diagram</summary>
         55 +      Type: diagram
         56 +<br />
@@ -2070,7 +2070,7 @@ be run on the content for interactive items.</p>
            + Software asset management must track license entitlements against actual deployments
            +  to avoid compliance risk and optimize software spending.
        198 +<br />
-       199 +  <details>
+       199 +  <details markdown="1">
        200 +      <summary>IT Asset Hierarchy Infographic</summary>
        201 +      Type: infographic
        202 +<br />
@@ -2178,7 +2178,7 @@ be run on the content for interactive items.</p>
            + alternatives demonstrated orders of magnitude performance improvements for multi-hop
            +  dependency traversal.
        280 +<br />
-       281 +  <details>
+       281 +  <details markdown="1">
        282 +      <summary>Traditional CMDB Data Flow and Integration Architecture</summary>
        283 +      Type: diagram
        284 +<br />
@@ -2394,7 +2394,7 @@ be run on the content for interactive items.</p>
 <p>Markdown tables: 3
   - CI Attribute Categories table
   - Asset Management vs. Configuration Management comparison
-  - (One table embedded in <details> specification)</p>
+  - (One table embedded in <details markdown="1"> specification)</p>
 <p>Diagrams: 2
   - ITIL Framework Structure Diagram (hierarchical, showing Service Support/Delivery and CMDB
   foundation)
@@ -2446,7 +2446,7 @@ be run on the content for interactive items.</p>
 <li>Critical analysis: Discusses both theoretical framework and practical failures</li>
 <li>Bridge to next chapter: Concludes by setting up Chapter 3 (Relational Database Fundamentals)</li>
 </ul>
-<p>The chapter is now ready for review. The three <details> blocks contain comprehensive
+<p>The chapter is now ready for review. The three <details markdown="1"> blocks contain comprehensive
   specifications that can be handed off to designers or used with visualization skills to generate
   the actual diagrams and infographic.</p>
 

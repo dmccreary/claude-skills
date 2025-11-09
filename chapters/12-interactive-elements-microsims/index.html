@@ -1590,6 +1590,78 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#writing-the-indexmd-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing the index.md Documentation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iframe-embedding-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iframe Embedding Techniques
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-controls-sliders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Controls: Sliders
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-controls-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Controls: Buttons
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ensuring-reproducibility-with-seeded-randomness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ensuring Reproducibility with Seeded Randomness
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsim-metadata-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim Metadata Standards
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#principles-of-educational-simulation-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principles of Educational Simulation Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary and Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1712,42 +1784,75 @@
 <li>Event handlers respond to user interactions (mousePressed, keyPressed, etc.)</li>
 </ul>
 <details>
-    <summary>p5.js Architecture and Execution Model</summary>
-    Type: diagram
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;p5.js Architecture and Execution Model&lt;/summary&gt;
+Type: diagram
 
-    Purpose: Illustrate the execution flow of a p5.js sketch and how setup, draw, and event handlers interact
+Purpose: Illustrate the execution flow of a p5.js sketch and how setup, draw, and event handlers interact
 
-    Components to show:
-    - "Program Start" at top (green circle)
-    - "setup()" function box (blue)
-    - "draw()" function box (orange) with circular arrow indicating loop
-    - "Event Handlers" boxes on the side (purple): mousePressed(), keyPressed(), slider events
-    - "Canvas Display" at bottom (gray rectangle)
+Components to show:
+- &quot;Program Start&quot; at top (green circle)
+- &quot;setup()&quot; function box (blue)
+- &quot;draw()&quot; function box (orange) with circular arrow indicating loop
+- &quot;Event Handlers&quot; boxes on the side (purple): mousePressed(), keyPressed(), slider events
+- &quot;Canvas Display&quot; at bottom (gray rectangle)
 
-    Connections:
-    - Arrow from "Program Start" to "setup()"
-    - Arrow from "setup()" to "draw()"
-    - Circular arrow from "draw()" back to itself with label "60 FPS (default)"
-    - Arrows from "draw()" to "Canvas Display"
-    - Bidirectional arrows between "Event Handlers" and "draw()" labeled "state changes"
+Connections:
+- Arrow from &quot;Program Start&quot; to &quot;setup()&quot;
+- Arrow from &quot;setup()&quot; to &quot;draw()&quot;
+- Circular arrow from &quot;draw()&quot; back to itself with label &quot;60 FPS (default)&quot;
+- Arrows from &quot;draw()&quot; to &quot;Canvas Display&quot;
+- Bidirectional arrows between &quot;Event Handlers&quot; and &quot;draw()&quot; labeled &quot;state changes&quot;
 
-    Style: Flowchart with rounded rectangles for functions, circles for start/end states
+Style: Flowchart with rounded rectangles for functions, circles for start/end states
 
-    Labels:
-    - "Runs once" near setup()
-    - "Runs continuously" near draw()
-    - "Triggered by user input" near Event Handlers
-    - "Updates every frame" near Canvas Display
+Labels:
+- &quot;Runs once&quot; near setup()
+- &quot;Runs continuously&quot; near draw()
+- &quot;Triggered by user input&quot; near Event Handlers
+- &quot;Updates every frame&quot; near Canvas Display
 
-    Annotations:
-    - Note: "Global variables accessible throughout"
-    - Note: "Event handlers can modify state that draw() uses"
+Annotations:
+- Note: &quot;Global variables accessible throughout&quot;
+- Note: &quot;Event handlers can modify state that draw() uses&quot;
 
-    Color scheme: Blue for initialization, orange for main loop, purple for events, gray for output
+Color scheme: Blue for initialization, orange for main loop, purple for events, gray for output
 
-    Implementation: Flowchart diagram using Mermaid or similar tool
+Implementation: Flowchart diagram using Mermaid or similar tool
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="microsim-directory-structure">MicroSim Directory Structure</h2>
 <p>Each MicroSim in an intelligent textbook follows a standardized directory structure that promotes consistency, maintainability, and ease of integration. This organizational pattern separates concerns between the interactive simulation itself, its documentation, and its metadata, following the architectural principle of loose coupling. Understanding this structure is essential for creating, modifying, and debugging MicroSims effectively.</p>
 <p>The canonical MicroSim directory structure places each simulation in a dedicated folder within the <code>/docs/sims/</code> directory of your MkDocs project. The directory name should use kebab-case (lowercase with hyphens) and clearly indicate the concept being simulated. For example, a simulation demonstrating graph traversal algorithms would be located at <code>/docs/sims/graph-traversal-visualization/</code>. This naming convention ensures URLs remain readable and SEO-friendly when the site is deployed.</p>
@@ -1774,45 +1879,81 @@
 </code></pre></div></td></tr></table></div>
 <p>Additional files may be present depending on the complexity of the simulation. Some MicroSims include separate CSS files for sophisticated styling, JSON data files for configuration, or supporting image assets. However, the three core files listed above are mandatory for all MicroSims in the intelligent textbook framework.</p>
 <details>
-    <summary>MicroSim File Relationship Diagram</summary>
-    Type: diagram
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;MicroSim File Relationship Diagram&lt;/summary&gt;
+Type: diagram
 
-    Purpose: Show how the three core MicroSim files relate to each other and integrate into the MkDocs textbook
+Purpose: Show how the three core MicroSim files relate to each other and integrate into the MkDocs textbook
 
-    Components to show:
-    - MkDocs Navigation (top level, light gray box)
-    - index.md (blue document icon, within MkDocs)
-    - iframe element (orange rounded box, within index.md)
-    - main.html (green document icon, pointed to by iframe)
-    - p5.js simulation (red canvas, within main.html)
-    - metadata.json (purple document icon, separate)
-    - Learning Management System (optional, dotted line from metadata.json)
+Components to show:
+- MkDocs Navigation (top level, light gray box)
+- index.md (blue document icon, within MkDocs)
+- iframe element (orange rounded box, within index.md)
+- main.html (green document icon, pointed to by iframe)
+- p5.js simulation (red canvas, within main.html)
+- metadata.json (purple document icon, separate)
+- Learning Management System (optional, dotted line from metadata.json)
 
-    Connections:
-    - MkDocs Navigation → index.md (solid arrow, "includes")
-    - index.md → iframe element (solid arrow, "contains")
-    - iframe element → main.html (solid arrow, "embeds")
-    - main.html → p5.js simulation (solid arrow, "renders")
-    - metadata.json → Learning Management System (dotted arrow, "can export to")
-    - metadata.json → index.md (dotted arrow, "describes")
+Connections:
+- MkDocs Navigation → index.md (solid arrow, &quot;includes&quot;)
+- index.md → iframe element (solid arrow, &quot;contains&quot;)
+- iframe element → main.html (solid arrow, &quot;embeds&quot;)
+- main.html → p5.js simulation (solid arrow, &quot;renders&quot;)
+- metadata.json → Learning Management System (dotted arrow, &quot;can export to&quot;)
+- metadata.json → index.md (dotted arrow, &quot;describes&quot;)
 
-    Style: Block diagram with document icons and containers
+Style: Block diagram with document icons and containers
 
-    Labels:
-    - "Student navigates here" near index.md
-    - "Sandbox isolation" near iframe
-    - "Self-contained, interactive" near main.html
-    - "Discovery & cataloging" near metadata.json
+Labels:
+- &quot;Student navigates here&quot; near index.md
+- &quot;Sandbox isolation&quot; near iframe
+- &quot;Self-contained, interactive&quot; near main.html
+- &quot;Discovery &amp; cataloging&quot; near metadata.json
 
-    Annotations:
-    - Note near iframe: "Provides security boundary"
-    - Note near main.html: "Loads p5.js from CDN"
+Annotations:
+- Note near iframe: &quot;Provides security boundary&quot;
+- Note near main.html: &quot;Loads p5.js from CDN&quot;
 
-    Color scheme: Blue for documentation, green for code, purple for metadata, orange for integration
+Color scheme: Blue for documentation, green for code, purple for metadata, orange for integration
 
-    Implementation: Block diagram with icons
+Implementation: Block diagram with icons
+</code></pre></div></td></tr></table></div>
 </details>
-
 <h2 id="creating-the-mainhtml-file">Creating the main.html File</h2>
 <p>The <code>main.html</code> file serves as the executable heart of a MicroSim, packaging the p5.js sketch into a standalone web page that can be embedded anywhere via iframe. This file must be entirely self-contained, with all JavaScript code, CSS styling, and HTML structure included in a single document. The only external dependency permitted is the p5.js library itself, which is loaded from a content delivery network (CDN) to ensure reliability and leverage browser caching.</p>
 <p>A well-structured <code>main.html</code> file follows a consistent template that divides the page into two primary regions: the canvas area where p5.js renders visualizations, and the control panel where interactive elements like sliders, buttons, and dropdowns reside. This left-right or top-bottom split provides a clear visual hierarchy, separating the simulation display from the manipulation interface. For most educational purposes, an 800x600 pixel canvas with a 200-pixel-wide control panel provides adequate space without overwhelming smaller screens.</p>
@@ -1830,112 +1971,153 @@
 <li>Ensure the simulation starts in a meaningful state</li>
 </ul>
 <details>
-    <summary>Basic MicroSim Template Structure</summary>
-    Type: diagram
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Basic MicroSim Template Structure&lt;/summary&gt;
+Type: diagram
 
-    Purpose: Show the HTML structure and organization of a typical main.html file
+Purpose: Show the HTML structure and organization of a typical main.html file
 
-    Visual style: Hierarchical tree diagram showing HTML element nesting
+Visual style: Hierarchical tree diagram showing HTML element nesting
 
-    Components to show:
-    <!DOCTYPE html> (root, gray)
-    └── <html> (light blue)
-        └── <head> (yellow)
-            ├── <meta charset="utf-8">
-            ├── <meta viewport>
-            ├── <title>
-            ├── <script src="p5.js CDN">
-            └── <style> (contains CSS for layout)
-        └── <body> (light green)
-            ├── <main> (flex container)
-            │   ├── <div id="canvas-container"> (left/top region)
-            │   │   └── <!-- p5.js creates canvas here -->
-            │   └── <aside id="controls"> (right/bottom region)
-            │       ├── <label> + <input type="range"> (sliders)
-            │       ├── <button> (action buttons)
-            │       └── <select> (dropdowns)
-            └── <script> (contains p5.js code)
-                ├── // Global variables
-                ├── function setup() { }
-                ├── function draw() { }
-                └── // Event handlers
+Components to show:
+<!DOCTYPE html> (root, gray)
+└── &lt;html&gt; (light blue)
+    └── &lt;head&gt; (yellow)
+        ├── &lt;meta charset=&quot;utf-8&quot;&gt;
+        ├── &lt;meta viewport&gt;
+        ├── &lt;title&gt;
+        ├── &lt;script src=&quot;p5.js CDN&quot;&gt;
+        └── &lt;style&gt; (contains CSS for layout)
+    └── &lt;body&gt; (light green)
+        ├── &lt;main&gt; (flex container)
+        │   ├── &lt;div id=&quot;canvas-container&quot;&gt; (left/top region)
+        │   │   └── <!-- p5.js creates canvas here -->
+        │   └── &lt;aside id=&quot;controls&quot;&gt; (right/bottom region)
+        │       ├── &lt;label&gt; + &lt;input type=&quot;range&quot;&gt; (sliders)
+        │       ├── &lt;button&gt; (action buttons)
+        │       └── &lt;select&gt; (dropdowns)
+        └── &lt;script&gt; (contains p5.js code)
+            ├── // Global variables
+            ├── function setup() { }
+            ├── function draw() { }
+            └── // Event handlers
 
-    Connections:
-    - Tree structure showing parent-child relationships
-    - Annotations showing purpose of each section
+Connections:
+- Tree structure showing parent-child relationships
+- Annotations showing purpose of each section
 
-    Labels:
-    - "Document structure" at top
-    - "External resources" near head
-    - "Layout and styling" near style
-    - "Visual display" near canvas-container
-    - "User interaction" near controls
-    - "Simulation logic" near script
+Labels:
+- &quot;Document structure&quot; at top
+- &quot;External resources&quot; near head
+- &quot;Layout and styling&quot; near style
+- &quot;Visual display&quot; near canvas-container
+- &quot;User interaction&quot; near controls
+- &quot;Simulation logic&quot; near script
 
-    Annotations:
-    - Note: "p5.js automatically creates canvas in this div"
-    - Note: "All interactivity defined in event handlers"
-    - Note: "CSS flexbox for responsive layout"
+Annotations:
+- Note: &quot;p5.js automatically creates canvas in this div&quot;
+- Note: &quot;All interactivity defined in event handlers&quot;
+- Note: &quot;CSS flexbox for responsive layout&quot;
 
-    Color coding:
-    - Gray: Document root
-    - Yellow: Metadata and resources
-    - Light green: Body structure
-    - Light blue: Interactive elements
-    - Orange: JavaScript code
+Color coding:
+- Gray: Document root
+- Yellow: Metadata and resources
+- Light green: Body structure
+- Light blue: Interactive elements
+- Orange: JavaScript code
 
-    Implementation: Tree diagram or hierarchical block diagram
+Implementation: Tree diagram or hierarchical block diagram
+</code></pre></div></td></tr></table></div>
 </details>
-
-## Writing the index.md Documentation
-
-The `index.md` file serves as the pedagogical wrapper around the MicroSim, providing context, instructions, learning objectives, and reflective prompts that transform a standalone simulation into an integrated learning experience. This Markdown document becomes a page in the MkDocs navigation hierarchy, appearing alongside other chapter content while offering a dedicated space for interactive exploration. The quality of the `index.md` documentation directly impacts how effectively students engage with and learn from the MicroSim.
-
-A comprehensive `index.md` file follows a structured format that guides students through increasingly sophisticated engagement with the simulation. The document opens with a clear statement of what concept the MicroSim demonstrates and why this concept matters in the broader context of the course. This framing activates prior knowledge and establishes relevance. The introduction should connect to previously covered material, referencing specific chapters or concepts that provide necessary background understanding.
-
-Following the introduction, the documentation provides explicit instructions for using the simulation. This section describes each interactive control (sliders, buttons, dropdowns), explains what parameters they adjust, and suggests specific experiments students should try. Effective instructions follow a progressive disclosure pattern: basic interactions first, followed by more sophisticated explorations. For example, instructions might guide students to first observe default behavior, then adjust one parameter at a time, and finally explore interactions between multiple parameters.
-
-The core of the `index.md` file is the iframe embedding of the `main.html` simulation. The iframe should be sized appropriately for the content, typically matching the canvas dimensions plus control panel width. The Markdown syntax for embedding uses raw HTML, as MkDocs passes HTML through unchanged. After the embedded simulation, the documentation includes guided exploration questions, connections to theory, and suggestions for further investigation.
-
-The structure of an effective `index.md` file:
-
-1. **Concept Overview** — What the MicroSim demonstrates and why it matters
-2. **Prerequisites** — Links to chapters or concepts students should understand first
-3. **Learning Objectives** — Specific outcomes students should achieve through exploration
-4. **Instructions** — How to use the controls and what to try
-5. **Embedded Simulation** — The iframe containing main.html
-6. **Guided Exploration** — Specific experiments with questions to answer
-7. **Conceptual Connections** — How the simulation relates to theory
-8. **Extensions** — Advanced topics or related concepts to explore next
-9. **References** — Links to related chapters, external resources, or research
-
-When embedding the simulation, use the following iframe template:
-
+<h2 id="writing-the-indexmd-documentation">Writing the index.md Documentation</h2>
+<p>The <code>index.md</code> file serves as the pedagogical wrapper around the MicroSim, providing context, instructions, learning objectives, and reflective prompts that transform a standalone simulation into an integrated learning experience. This Markdown document becomes a page in the MkDocs navigation hierarchy, appearing alongside other chapter content while offering a dedicated space for interactive exploration. The quality of the <code>index.md</code> documentation directly impacts how effectively students engage with and learn from the MicroSim.</p>
+<p>A comprehensive <code>index.md</code> file follows a structured format that guides students through increasingly sophisticated engagement with the simulation. The document opens with a clear statement of what concept the MicroSim demonstrates and why this concept matters in the broader context of the course. This framing activates prior knowledge and establishes relevance. The introduction should connect to previously covered material, referencing specific chapters or concepts that provide necessary background understanding.</p>
+<p>Following the introduction, the documentation provides explicit instructions for using the simulation. This section describes each interactive control (sliders, buttons, dropdowns), explains what parameters they adjust, and suggests specific experiments students should try. Effective instructions follow a progressive disclosure pattern: basic interactions first, followed by more sophisticated explorations. For example, instructions might guide students to first observe default behavior, then adjust one parameter at a time, and finally explore interactions between multiple parameters.</p>
+<p>The core of the <code>index.md</code> file is the iframe embedding of the <code>main.html</code> simulation. The iframe should be sized appropriately for the content, typically matching the canvas dimensions plus control panel width. The Markdown syntax for embedding uses raw HTML, as MkDocs passes HTML through unchanged. After the embedded simulation, the documentation includes guided exploration questions, connections to theory, and suggestions for further investigation.</p>
+<p>The structure of an effective <code>index.md</code> file:</p>
+<ol>
+<li><strong>Concept Overview</strong> — What the MicroSim demonstrates and why it matters</li>
+<li><strong>Prerequisites</strong> — Links to chapters or concepts students should understand first</li>
+<li><strong>Learning Objectives</strong> — Specific outcomes students should achieve through exploration</li>
+<li><strong>Instructions</strong> — How to use the controls and what to try</li>
+<li><strong>Embedded Simulation</strong> — The iframe containing main.html</li>
+<li><strong>Guided Exploration</strong> — Specific experiments with questions to answer</li>
+<li><strong>Conceptual Connections</strong> — How the simulation relates to theory</li>
+<li><strong>Extensions</strong> — Advanced topics or related concepts to explore next</li>
+<li><strong>References</strong> — Links to related chapters, external resources, or research</li>
+</ol>
+<p>When embedding the simulation, use the following iframe template:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./main.html&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;1000&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;600&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
-
-The `src` attribute uses a relative path (`./main.html`) since both files are in the same directory. The width and height should accommodate the canvas plus controls comfortably. Setting `frameborder="0"` removes the default border for cleaner integration. For responsive designs, consider wrapping the iframe in a container div with appropriate CSS classes from the MkDocs Material theme.
-
-## Iframe Embedding Techniques
-
-Embedding MicroSims into MkDocs pages via iframes provides several technical and pedagogical advantages that align with best practices for web-based learning environments. The iframe (inline frame) element creates a nested browsing context, effectively sandboxing the p5.js simulation within its own document space. This isolation prevents CSS conflicts, namespace collisions in JavaScript, and ensures that errors or performance issues within the simulation don't affect the parent page's functionality or the broader MkDocs site.
-
-From a security perspective, iframes provide a natural boundary between trusted navigation content and potentially untrusted interactive code. While MicroSims you create are trusted, the iframe sandbox serves as a defense-in-depth layer that limits what the embedded content can access. Modern browsers enforce same-origin policies that prevent iframes from accessing parent page content unless explicitly permitted, protecting student navigation state and preventing unintended interactions between multiple embedded simulations on the same page.
-
-The technical implementation of iframe embedding in MkDocs Material is straightforward because Markdown processors pass raw HTML through unchanged. This means you can insert iframe elements directly into your `index.md` files without special plugins or extensions. However, several attributes and best practices enhance the user experience and accessibility of embedded MicroSims.
-
-Essential iframe attributes for MicroSim embedding:
-
-- `src` — Relative path to main.html (use `./main.html` for same directory)
-- `width` — Total width in pixels (canvas + controls + margins)
-- `height` — Total height in pixels (canvas + controls + margins)
-- `frameborder` — Set to "0" for clean integration
-- `title` — Descriptive title for screen readers (accessibility requirement)
-- `loading` — Set to "lazy" for performance optimization on long pages
-- `allow` — Permissions policy (typically not needed for p5.js simulations)
-
-For responsive designs that adapt to different screen sizes, consider using CSS wrapper techniques instead of fixed iframe dimensions. The MkDocs Material theme provides responsive utilities, or you can define custom CSS that makes iframes scale proportionally. The following example shows a responsive iframe wrapper:
-
+<p>The <code>src</code> attribute uses a relative path (<code>./main.html</code>) since both files are in the same directory. The width and height should accommodate the canvas plus controls comfortably. Setting <code>frameborder="0"</code> removes the default border for cleaner integration. For responsive designs, consider wrapping the iframe in a container div with appropriate CSS classes from the MkDocs Material theme.</p>
+<h2 id="iframe-embedding-techniques">Iframe Embedding Techniques</h2>
+<p>Embedding MicroSims into MkDocs pages via iframes provides several technical and pedagogical advantages that align with best practices for web-based learning environments. The iframe (inline frame) element creates a nested browsing context, effectively sandboxing the p5.js simulation within its own document space. This isolation prevents CSS conflicts, namespace collisions in JavaScript, and ensures that errors or performance issues within the simulation don't affect the parent page's functionality or the broader MkDocs site.</p>
+<p>From a security perspective, iframes provide a natural boundary between trusted navigation content and potentially untrusted interactive code. While MicroSims you create are trusted, the iframe sandbox serves as a defense-in-depth layer that limits what the embedded content can access. Modern browsers enforce same-origin policies that prevent iframes from accessing parent page content unless explicitly permitted, protecting student navigation state and preventing unintended interactions between multiple embedded simulations on the same page.</p>
+<p>The technical implementation of iframe embedding in MkDocs Material is straightforward because Markdown processors pass raw HTML through unchanged. This means you can insert iframe elements directly into your <code>index.md</code> files without special plugins or extensions. However, several attributes and best practices enhance the user experience and accessibility of embedded MicroSims.</p>
+<p>Essential iframe attributes for MicroSim embedding:</p>
+<ul>
+<li><code>src</code> — Relative path to main.html (use <code>./main.html</code> for same directory)</li>
+<li><code>width</code> — Total width in pixels (canvas + controls + margins)</li>
+<li><code>height</code> — Total height in pixels (canvas + controls + margins)</li>
+<li><code>frameborder</code> — Set to "0" for clean integration</li>
+<li><code>title</code> — Descriptive title for screen readers (accessibility requirement)</li>
+<li><code>loading</code> — Set to "lazy" for performance optimization on long pages</li>
+<li><code>allow</code> — Permissions policy (typically not needed for p5.js simulations)</li>
+</ul>
+<p>For responsive designs that adapt to different screen sizes, consider using CSS wrapper techniques instead of fixed iframe dimensions. The MkDocs Material theme provides responsive utilities, or you can define custom CSS that makes iframes scale proportionally. The following example shows a responsive iframe wrapper:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1952,71 +2134,112 @@ For responsive designs that adapt to different screen sizes, consider using CSS 
     <span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
-
-This wrapper uses the "padding-bottom percentage trick" where the percentage is calculated as (height/width) × 100%. For a 1000×600 simulation, that's (600/1000) × 100% = 60%. The absolutely positioned iframe then fills this responsive container.
-
+<p>This wrapper uses the "padding-bottom percentage trick" where the percentage is calculated as (height/width) × 100%. For a 1000×600 simulation, that's (600/1000) × 100% = 60%. The absolutely positioned iframe then fills this responsive container.</p>
 <details>
-    <summary>Responsive Iframe Embedding MicroSim</summary>
-    Type: microsim
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Responsive Iframe Embedding MicroSim&lt;/summary&gt;
+Type: microsim
 
-    Learning objective: Demonstrate how iframe embedding works and how responsive wrappers adapt to different viewport sizes
+Learning objective: Demonstrate how iframe embedding works and how responsive wrappers adapt to different viewport sizes
 
-    Canvas layout (1000x600px):
-    - Left side (700x600): Visual demonstration area
-    - Right side (300x600): Control panel
+Canvas layout (1000x600px):
+- Left side (700x600): Visual demonstration area
+- Right side (300x600): Control panel
 
-    Visual elements in demonstration area:
-    - Nested rectangle structure showing iframe within page
-    - Outer rectangle (light gray): "MkDocs Page Content"
-    - Middle rectangle (white): "Iframe Boundary"
-    - Inner rectangle (light blue): "MicroSim Canvas"
-    - Labels and borders clearly showing each level
-    - Resize handles on outer rectangle to show responsive behavior
+Visual elements in demonstration area:
+- Nested rectangle structure showing iframe within page
+- Outer rectangle (light gray): &quot;MkDocs Page Content&quot;
+- Middle rectangle (white): &quot;Iframe Boundary&quot;
+- Inner rectangle (light blue): &quot;MicroSim Canvas&quot;
+- Labels and borders clearly showing each level
+- Resize handles on outer rectangle to show responsive behavior
 
-    Interactive controls (right panel):
-    - Slider: "Viewport Width" (300px - 1200px, default 1000px)
-    - Slider: "Viewport Height" (200px - 800px, default 600px)
-    - Checkbox: "Show Frame Border" (toggle iframe border visibility)
-    - Checkbox: "Responsive Wrapper" (toggle between fixed and responsive sizing)
-    - Button: "Reset to Defaults"
-    - Display: Current dimensions (viewport and iframe)
+Interactive controls (right panel):
+- Slider: &quot;Viewport Width&quot; (300px - 1200px, default 1000px)
+- Slider: &quot;Viewport Height&quot; (200px - 800px, default 600px)
+- Checkbox: &quot;Show Frame Border&quot; (toggle iframe border visibility)
+- Checkbox: &quot;Responsive Wrapper&quot; (toggle between fixed and responsive sizing)
+- Button: &quot;Reset to Defaults&quot;
+- Display: Current dimensions (viewport and iframe)
 
-    Default parameters:
-    - Viewport width: 1000px
-    - Viewport height: 600px
-    - Frame border: visible
-    - Responsive wrapper: off
+Default parameters:
+- Viewport width: 1000px
+- Viewport height: 600px
+- Frame border: visible
+- Responsive wrapper: off
 
-    Behavior:
-    - When viewport sliders move, outer rectangle resizes
-    - If responsive wrapper enabled, inner rectangles scale proportionally
-    - If responsive wrapper disabled, inner rectangles may clip or overflow
-    - Frame border checkbox toggles visibility of iframe boundary
-    - Labels update to show current pixel dimensions
-    - Color coding: gray (page), white (iframe), blue (canvas), red (clipping/overflow)
+Behavior:
+- When viewport sliders move, outer rectangle resizes
+- If responsive wrapper enabled, inner rectangles scale proportionally
+- If responsive wrapper disabled, inner rectangles may clip or overflow
+- Frame border checkbox toggles visibility of iframe boundary
+- Labels update to show current pixel dimensions
+- Color coding: gray (page), white (iframe), blue (canvas), red (clipping/overflow)
 
-    Annotations:
-    - Text showing "Parent Page Context" outside iframe
-    - Text showing "Sandboxed Simulation Context" inside iframe
-    - Arrow labels showing CSS properties used for responsive behavior
+Annotations:
+- Text showing &quot;Parent Page Context&quot; outside iframe
+- Text showing &quot;Sandboxed Simulation Context&quot; inside iframe
+- Arrow labels showing CSS properties used for responsive behavior
 
-    Implementation notes:
-    - Use p5.js for rendering
-    - Demonstrate actual scaling calculations
-    - Show overflow scenarios when responsive wrapper disabled
-    - Include visual indicators for aspect ratio preservation
+Implementation notes:
+- Use p5.js for rendering
+- Demonstrate actual scaling calculations
+- Show overflow scenarios when responsive wrapper disabled
+- Include visual indicators for aspect ratio preservation
+</code></pre></div></td></tr></table></div>
 </details>
-
-## Interactive Controls: Sliders
-
-Sliders represent one of the most effective interaction paradigms for educational simulations, providing continuous parameter adjustment with immediate visual feedback. In p5.js MicroSims, sliders allow students to explore parameter spaces intuitively, developing understanding of how quantitative changes affect system behavior. Unlike discrete controls such as buttons or dropdowns, sliders make the relationship between input and output visible through analog manipulation, supporting the development of quantitative intuition.
-
-The HTML5 range input (`<input type="range">`) provides native slider functionality that works across all modern browsers without requiring custom JavaScript widgets. These native controls are accessible by default, support keyboard navigation, and provide consistent behavior across platforms. In p5.js simulations, sliders typically reside in the control panel region and connect to global variables that the `draw()` function reads on each frame, creating a reactive relationship between user input and visual output.
-
-Creating an effective slider control requires several components working together. The HTML defines the input element with minimum, maximum, step, and default values. A corresponding label provides textual description and displays the current numeric value. JavaScript event listeners capture changes to the slider and update global simulation variables. Finally, the p5.js `draw()` function uses these variables to modify visual elements, closing the feedback loop from user action to displayed result.
-
-Here's a complete example of slider implementation in a MicroSim:
-
+<h2 id="interactive-controls-sliders">Interactive Controls: Sliders</h2>
+<p>Sliders represent one of the most effective interaction paradigms for educational simulations, providing continuous parameter adjustment with immediate visual feedback. In p5.js MicroSims, sliders allow students to explore parameter spaces intuitively, developing understanding of how quantitative changes affect system behavior. Unlike discrete controls such as buttons or dropdowns, sliders make the relationship between input and output visible through analog manipulation, supporting the development of quantitative intuition.</p>
+<p>The HTML5 range input (<code>&lt;input type="range"&gt;</code>) provides native slider functionality that works across all modern browsers without requiring custom JavaScript widgets. These native controls are accessible by default, support keyboard navigation, and provide consistent behavior across platforms. In p5.js simulations, sliders typically reside in the control panel region and connect to global variables that the <code>draw()</code> function reads on each frame, creating a reactive relationship between user input and visual output.</p>
+<p>Creating an effective slider control requires several components working together. The HTML defines the input element with minimum, maximum, step, and default values. A corresponding label provides textual description and displays the current numeric value. JavaScript event listeners capture changes to the slider and update global simulation variables. Finally, the p5.js <code>draw()</code> function uses these variables to modify visual elements, closing the feedback loop from user action to displayed result.</p>
+<p>Here's a complete example of slider implementation in a MicroSim:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2067,39 +2290,32 @@ Here's a complete example of slider implementation in a MicroSim:
 <span class="p">}</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
-
-Best practices for slider design in educational MicroSims:
-
-- **Clear labels** — Include both the parameter name and units of measurement
-- **Visible current value** — Display the numeric value that updates as slider moves
-- **Appropriate ranges** — Set min/max to show interesting behavior without extremes that break the simulation
-- **Meaningful step values** — Match step size to the precision that matters for the concept
-- **Sensible defaults** — Initialize to a value that demonstrates the core concept clearly
-- **Immediate feedback** — Update the visualization every frame, not just on mouseRelease
-- **Multiple slider interactions** — Design simulations where adjusting combinations reveals patterns
-
-Sliders excel when exploring continuous phenomena such as physical constants, probability distributions, growth rates, or timing parameters. They make abstract numerical values concrete by tying them to visual consequences, helping students build mental models that connect quantitative inputs to qualitative system behaviors.
-
-## Interactive Controls: Buttons
-
-Buttons provide discrete, action-oriented controls that complement the continuous adjustment offered by sliders. In educational MicroSims, buttons serve multiple pedagogical functions: triggering state transitions, resetting simulations to initial conditions, stepping through algorithms incrementally, toggling between visualization modes, and randomizing parameters for exploratory learning. The discrete nature of button interactions makes them ideal for actions with clear before-and-after states, where the moment of transition itself carries pedagogical significance.
-
-The HTML5 button element (`<button>`) provides semantic, accessible interaction that clearly communicates affordance—students immediately recognize buttons as clickable elements that perform actions. Unlike sliders which encourage gradual exploration, buttons encourage hypothesis testing: students predict what will happen, click the button, and observe the outcome. This prediction-action-observation cycle aligns with constructivist learning theories and supports active engagement with conceptual material.
-
-Common button patterns in educational MicroSims include:
-
-- **Start/Stop buttons** — Control animation playback, allowing students to pause and examine states
-- **Reset buttons** — Return simulation to initial conditions for repeated experimentation
-- **Step buttons** — Advance algorithms one iteration at a time for detailed examination
-- **Randomize buttons** — Generate new scenarios, supporting exploration of edge cases
-- **Mode toggles** — Switch between different visualization approaches for the same data
-- **Example selection** — Load predefined scenarios that illustrate specific concepts
-- **Challenge buttons** — Present problems or questions for students to solve using the simulation
-
-Implementing buttons in p5.js MicroSims follows a straightforward pattern. HTML defines the button element with descriptive text and semantic meaning. JavaScript event listeners capture click events and call functions that modify simulation state. The p5.js sketch responds to these state changes in the `draw()` function, updating the visualization accordingly. Unlike sliders which read input values continuously, buttons typically set flags or invoke functions that have immediate effects.
-
-Example button implementation for algorithm stepping:
-
+<p>Best practices for slider design in educational MicroSims:</p>
+<ul>
+<li><strong>Clear labels</strong> — Include both the parameter name and units of measurement</li>
+<li><strong>Visible current value</strong> — Display the numeric value that updates as slider moves</li>
+<li><strong>Appropriate ranges</strong> — Set min/max to show interesting behavior without extremes that break the simulation</li>
+<li><strong>Meaningful step values</strong> — Match step size to the precision that matters for the concept</li>
+<li><strong>Sensible defaults</strong> — Initialize to a value that demonstrates the core concept clearly</li>
+<li><strong>Immediate feedback</strong> — Update the visualization every frame, not just on mouseRelease</li>
+<li><strong>Multiple slider interactions</strong> — Design simulations where adjusting combinations reveals patterns</li>
+</ul>
+<p>Sliders excel when exploring continuous phenomena such as physical constants, probability distributions, growth rates, or timing parameters. They make abstract numerical values concrete by tying them to visual consequences, helping students build mental models that connect quantitative inputs to qualitative system behaviors.</p>
+<h2 id="interactive-controls-buttons">Interactive Controls: Buttons</h2>
+<p>Buttons provide discrete, action-oriented controls that complement the continuous adjustment offered by sliders. In educational MicroSims, buttons serve multiple pedagogical functions: triggering state transitions, resetting simulations to initial conditions, stepping through algorithms incrementally, toggling between visualization modes, and randomizing parameters for exploratory learning. The discrete nature of button interactions makes them ideal for actions with clear before-and-after states, where the moment of transition itself carries pedagogical significance.</p>
+<p>The HTML5 button element (<code>&lt;button&gt;</code>) provides semantic, accessible interaction that clearly communicates affordance—students immediately recognize buttons as clickable elements that perform actions. Unlike sliders which encourage gradual exploration, buttons encourage hypothesis testing: students predict what will happen, click the button, and observe the outcome. This prediction-action-observation cycle aligns with constructivist learning theories and supports active engagement with conceptual material.</p>
+<p>Common button patterns in educational MicroSims include:</p>
+<ul>
+<li><strong>Start/Stop buttons</strong> — Control animation playback, allowing students to pause and examine states</li>
+<li><strong>Reset buttons</strong> — Return simulation to initial conditions for repeated experimentation</li>
+<li><strong>Step buttons</strong> — Advance algorithms one iteration at a time for detailed examination</li>
+<li><strong>Randomize buttons</strong> — Generate new scenarios, supporting exploration of edge cases</li>
+<li><strong>Mode toggles</strong> — Switch between different visualization approaches for the same data</li>
+<li><strong>Example selection</strong> — Load predefined scenarios that illustrate specific concepts</li>
+<li><strong>Challenge buttons</strong> — Present problems or questions for students to solve using the simulation</li>
+</ul>
+<p>Implementing buttons in p5.js MicroSims follows a straightforward pattern. HTML defines the button element with descriptive text and semantic meaning. JavaScript event listeners capture click events and call functions that modify simulation state. The p5.js sketch responds to these state changes in the <code>draw()</code> function, updating the visualization accordingly. Unlike sliders which read input values continuously, buttons typically set flags or invoke functions that have immediate effects.</p>
+<p>Example button implementation for algorithm stepping:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2192,87 +2408,135 @@ Example button implementation for algorithm stepping:
 <span class="p">}</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
-
-Effective button design for educational purposes requires attention to labeling, feedback, and state management. Button labels should use action verbs that clearly communicate what will happen ("Start Traversal" rather than "Go"). Visual feedback such as color changes, disabled states, or confirmation messages helps students understand the effects of their actions. For toggleable buttons, the label or appearance should reflect the current state, making it clear whether clicking will enable or disable a feature.
-
+<p>Effective button design for educational purposes requires attention to labeling, feedback, and state management. Button labels should use action verbs that clearly communicate what will happen ("Start Traversal" rather than "Go"). Visual feedback such as color changes, disabled states, or confirmation messages helps students understand the effects of their actions. For toggleable buttons, the label or appearance should reflect the current state, making it clear whether clicking will enable or disable a feature.</p>
 <details>
-    <summary>Algorithm Visualization with Step Controls MicroSim</summary>
-    Type: microsim
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Algorithm Visualization with Step Controls MicroSim&lt;/summary&gt;
+Type: microsim
 
-    Learning objective: Demonstrate how button controls enable step-by-step exploration of algorithms, using bubble sort as an example
+Learning objective: Demonstrate how button controls enable step-by-step exploration of algorithms, using bubble sort as an example
 
-    Canvas layout (900x600px):
-    - Left side (600x600): Visualization area showing array bars
-    - Right side (300x600): Control panel
+Canvas layout (900x600px):
+- Left side (600x600): Visualization area showing array bars
+- Right side (300x600): Control panel
 
-    Visual elements:
-    - Array of 12 vertical bars with varying heights (representing values)
-    - Two bars highlighted when being compared (yellow outline)
-    - Sorted portion of array shown in green
-    - Unsorted portion shown in blue
-    - Current pass number and comparisons count displayed
+Visual elements:
+- Array of 12 vertical bars with varying heights (representing values)
+- Two bars highlighted when being compared (yellow outline)
+- Sorted portion of array shown in green
+- Unsorted portion shown in blue
+- Current pass number and comparisons count displayed
 
-    Interactive controls (right panel):
-    - Button: "Step Forward" (advance one comparison)
-    - Button: "Step to End of Pass" (complete current pass)
-    - Button: "Reset" (generate new random array)
-    - Button: "Auto Run" (toggle automatic stepping)
-    - Slider: "Animation Speed" (100-2000ms per step, default 500ms)
-    - Dropdown: "Array Size" (5, 8, 12, 16 elements)
-    - Checkbox: "Show Comparisons" (display comparison count)
-    - Display: Current state ("Comparing elements 3 and 4")
+Interactive controls (right panel):
+- Button: &quot;Step Forward&quot; (advance one comparison)
+- Button: &quot;Step to End of Pass&quot; (complete current pass)
+- Button: &quot;Reset&quot; (generate new random array)
+- Button: &quot;Auto Run&quot; (toggle automatic stepping)
+- Slider: &quot;Animation Speed&quot; (100-2000ms per step, default 500ms)
+- Dropdown: &quot;Array Size&quot; (5, 8, 12, 16 elements)
+- Checkbox: &quot;Show Comparisons&quot; (display comparison count)
+- Display: Current state (&quot;Comparing elements 3 and 4&quot;)
 
-    Default parameters:
-    - Array size: 12 elements
-    - Animation speed: 500ms
-    - Show comparisons: enabled
-    - Initial state: random unsorted array
+Default parameters:
+- Array size: 12 elements
+- Animation speed: 500ms
+- Show comparisons: enabled
+- Initial state: random unsorted array
 
-    Behavior:
-    - "Step Forward" highlights two elements, compares, swaps if needed
-    - "Step to End of Pass" completes the current bubble sort pass
-    - "Reset" generates new random array and resets algorithm state
-    - "Auto Run" toggles automatic stepping at specified speed
-    - Animation speed slider only affects auto run timing
-    - Array size dropdown generates new array when changed
-    - Visual feedback shows algorithm progress with color coding
-    - Status text explains what comparison is happening
+Behavior:
+- &quot;Step Forward&quot; highlights two elements, compares, swaps if needed
+- &quot;Step to End of Pass&quot; completes the current bubble sort pass
+- &quot;Reset&quot; generates new random array and resets algorithm state
+- &quot;Auto Run&quot; toggles automatic stepping at specified speed
+- Animation speed slider only affects auto run timing
+- Array size dropdown generates new array when changed
+- Visual feedback shows algorithm progress with color coding
+- Status text explains what comparison is happening
 
-    Algorithm visualization:
-    - Use bubble sort for clarity and simplicity
-    - Highlight elements being compared in yellow
-    - Mark sorted elements in green
-    - Mark unsorted elements in blue
-    - Show swap animation when elements exchange positions
-    - Display pass number and total comparisons
+Algorithm visualization:
+- Use bubble sort for clarity and simplicity
+- Highlight elements being compared in yellow
+- Mark sorted elements in green
+- Mark unsorted elements in blue
+- Show swap animation when elements exchange positions
+- Display pass number and total comparisons
 
-    Implementation notes:
-    - Use p5.js for rendering bars as rectangles
-    - Store array and algorithm state in global variables
-    - Implement bubble sort with step-by-step state capture
-    - Use seeded randomness for reproducible arrays
-    - Include visual transitions for swaps (smooth animation)
+Implementation notes:
+- Use p5.js for rendering bars as rectangles
+- Store array and algorithm state in global variables
+- Implement bubble sort with step-by-step state capture
+- Use seeded randomness for reproducible arrays
+- Include visual transitions for swaps (smooth animation)
+</code></pre></div></td></tr></table></div>
 </details>
-
-## Ensuring Reproducibility with Seeded Randomness
-
-Randomness plays a crucial role in educational simulations, introducing variability that helps students see patterns across different scenarios rather than memorizing a single example. However, pure randomness creates a pedagogical challenge: when every student sees different behavior, instruction becomes difficult, debugging is nearly impossible, and students cannot easily share or compare their explorations. Seeded randomness resolves this tension by making randomness reproducible—simulations generate different scenarios, but the same seed always produces the same sequence of random values.
-
-In computational terms, seeded randomness uses deterministic pseudorandom number generators (PRNGs) that produce sequences of numbers that appear random but are entirely determined by an initial seed value. The p5.js library includes a `randomSeed()` function that sets the seed for its internal PRNG. Once seeded, subsequent calls to `random()`, `noise()`, and related functions produce the same sequence every time the program runs. This determinism enables several important capabilities for educational MicroSims.
-
-The pedagogical benefits of seeded randomness in MicroSims include:
-
-- **Debugging** — Developers can reproduce issues exactly by using the same seed
-- **Instruction** — Instructors can reference specific scenarios by seed value
-- **Comparison** — Students can share seeds to explore the same scenario and compare approaches
-- **Assessment** — Quiz questions can reference specific seeds for consistent grading
-- **Documentation** — Screenshots and examples in documentation remain accurate
-- **Progressive disclosure** — Carefully chosen seeds can demonstrate concepts in increasing complexity
-
-Implementing seeded randomness in a p5.js MicroSim requires only a few lines of code. The simplest approach uses a fixed seed value that remains constant across all page loads. This creates a consistent default experience where every student sees the same initial state. A more sophisticated approach provides a text input or dropdown where students can enter different seed values, enabling exploration of alternative scenarios while maintaining reproducibility.
-
-Basic seeded randomness implementation:
-
+<h2 id="ensuring-reproducibility-with-seeded-randomness">Ensuring Reproducibility with Seeded Randomness</h2>
+<p>Randomness plays a crucial role in educational simulations, introducing variability that helps students see patterns across different scenarios rather than memorizing a single example. However, pure randomness creates a pedagogical challenge: when every student sees different behavior, instruction becomes difficult, debugging is nearly impossible, and students cannot easily share or compare their explorations. Seeded randomness resolves this tension by making randomness reproducible—simulations generate different scenarios, but the same seed always produces the same sequence of random values.</p>
+<p>In computational terms, seeded randomness uses deterministic pseudorandom number generators (PRNGs) that produce sequences of numbers that appear random but are entirely determined by an initial seed value. The p5.js library includes a <code>randomSeed()</code> function that sets the seed for its internal PRNG. Once seeded, subsequent calls to <code>random()</code>, <code>noise()</code>, and related functions produce the same sequence every time the program runs. This determinism enables several important capabilities for educational MicroSims.</p>
+<p>The pedagogical benefits of seeded randomness in MicroSims include:</p>
+<ul>
+<li><strong>Debugging</strong> — Developers can reproduce issues exactly by using the same seed</li>
+<li><strong>Instruction</strong> — Instructors can reference specific scenarios by seed value</li>
+<li><strong>Comparison</strong> — Students can share seeds to explore the same scenario and compare approaches</li>
+<li><strong>Assessment</strong> — Quiz questions can reference specific seeds for consistent grading</li>
+<li><strong>Documentation</strong> — Screenshots and examples in documentation remain accurate</li>
+<li><strong>Progressive disclosure</strong> — Carefully chosen seeds can demonstrate concepts in increasing complexity</li>
+</ul>
+<p>Implementing seeded randomness in a p5.js MicroSim requires only a few lines of code. The simplest approach uses a fixed seed value that remains constant across all page loads. This creates a consistent default experience where every student sees the same initial state. A more sophisticated approach provides a text input or dropdown where students can enter different seed values, enabling exploration of alternative scenarios while maintaining reproducibility.</p>
+<p>Basic seeded randomness implementation:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2303,9 +2567,7 @@ Basic seeded randomness implementation:
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-
-Advanced implementation with user-controllable seed:
-
+<p>Advanced implementation with user-controllable seed:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2366,45 +2628,116 @@ Advanced implementation with user-controllable seed:
 <span class="p">}</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
-
-When documenting MicroSims that use seeded randomness, include notes about interesting seed values in the `index.md` file. For example: "Try seed 1234 to see a highly connected graph" or "Seed 5678 demonstrates an edge case with isolated nodes." This guided exploration helps students discover important scenarios without exhaustive random searching.
-
-The choice of default seed value can itself be pedagogically meaningful. Seed 42 (a reference to *The Hitchhiker's Guide to the Galaxy*) is a common choice in computer science education. Alternatively, choose seeds that produce clear demonstrations of the concept being taught. Test multiple seeds during development and select ones that show typical behavior, interesting edge cases, or progressive levels of complexity.
-
-## MicroSim Metadata Standards
-
-Metadata provides structured information about MicroSims that supports discovery, cataloging, assessment alignment, and potential integration with learning management systems. Following Dublin Core metadata standards ensures consistency across MicroSims and compatibility with educational technology ecosystems that consume standardized metadata formats. The `metadata.json` file in each MicroSim directory stores this information in a machine-readable JSON format that can be parsed by build tools, indexed by search systems, or exported to LMS platforms.
-
-Dublin Core is an internationally recognized metadata standard (ISO 15836) originally developed for describing web resources, now widely adopted in educational contexts. The standard defines 15 core elements that capture essential information about any resource: title, creator, subject, description, publisher, contributor, date, type, format, identifier, source, language, relation, coverage, and rights. For MicroSims in intelligent textbooks, a subset of these elements provides sufficient metadata while avoiding documentation overhead.
-
-The essential Dublin Core elements for MicroSim metadata:
-
-| Element | Description | Example |
-|---------|-------------|---------|
-| title | Name of the MicroSim | "Graph Traversal Visualization" |
-| creator | Author or development team | "Claude Skills Framework" |
-| subject | Concept or topic demonstrated | "Graph Algorithms, BFS, DFS" |
-| description | Brief explanation of learning value | "Interactive visualization comparing breadth-first and depth-first graph traversal strategies" |
-| date | Creation or last modified date | "2025-01-15" |
-| type | Resource type | "InteractiveSim" or "Simulation" |
-| format | Technical format | "text/html, application/javascript, p5.js" |
-| identifier | Unique ID within textbook | "microsim-graph-traversal-viz" |
-| language | Natural language used | "en" (English) |
-| rights | License or usage terms | "CC BY-SA 4.0" |
-
-Additional educational metadata fields extend Dublin Core for learning-specific purposes:
-
-| Field | Description | Example |
-|-------|-------------|---------|
-| learningObjectives | Specific outcomes students should achieve | ["Understand difference between BFS and DFS", "Identify traversal order patterns"] |
-| bloomsLevel | Taxonomy level(s) addressed | ["Understand", "Apply", "Analyze"] |
-| prerequisites | Required prior knowledge | ["Basic graph concepts", "Tree data structures"] |
-| estimatedTime | Expected interaction duration | "10-15 minutes" |
-| difficulty | Complexity level | "Intermediate" |
-| keywords | Searchable tags | ["graph", "traversal", "algorithm", "visualization"] |
-
-A complete `metadata.json` file structure:
-
+<p>When documenting MicroSims that use seeded randomness, include notes about interesting seed values in the <code>index.md</code> file. For example: "Try seed 1234 to see a highly connected graph" or "Seed 5678 demonstrates an edge case with isolated nodes." This guided exploration helps students discover important scenarios without exhaustive random searching.</p>
+<p>The choice of default seed value can itself be pedagogically meaningful. Seed 42 (a reference to <em>The Hitchhiker's Guide to the Galaxy</em>) is a common choice in computer science education. Alternatively, choose seeds that produce clear demonstrations of the concept being taught. Test multiple seeds during development and select ones that show typical behavior, interesting edge cases, or progressive levels of complexity.</p>
+<h2 id="microsim-metadata-standards">MicroSim Metadata Standards</h2>
+<p>Metadata provides structured information about MicroSims that supports discovery, cataloging, assessment alignment, and potential integration with learning management systems. Following Dublin Core metadata standards ensures consistency across MicroSims and compatibility with educational technology ecosystems that consume standardized metadata formats. The <code>metadata.json</code> file in each MicroSim directory stores this information in a machine-readable JSON format that can be parsed by build tools, indexed by search systems, or exported to LMS platforms.</p>
+<p>Dublin Core is an internationally recognized metadata standard (ISO 15836) originally developed for describing web resources, now widely adopted in educational contexts. The standard defines 15 core elements that capture essential information about any resource: title, creator, subject, description, publisher, contributor, date, type, format, identifier, source, language, relation, coverage, and rights. For MicroSims in intelligent textbooks, a subset of these elements provides sufficient metadata while avoiding documentation overhead.</p>
+<p>The essential Dublin Core elements for MicroSim metadata:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>Name of the MicroSim</td>
+<td>"Graph Traversal Visualization"</td>
+</tr>
+<tr>
+<td>creator</td>
+<td>Author or development team</td>
+<td>"Claude Skills Framework"</td>
+</tr>
+<tr>
+<td>subject</td>
+<td>Concept or topic demonstrated</td>
+<td>"Graph Algorithms, BFS, DFS"</td>
+</tr>
+<tr>
+<td>description</td>
+<td>Brief explanation of learning value</td>
+<td>"Interactive visualization comparing breadth-first and depth-first graph traversal strategies"</td>
+</tr>
+<tr>
+<td>date</td>
+<td>Creation or last modified date</td>
+<td>"2025-01-15"</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Resource type</td>
+<td>"InteractiveSim" or "Simulation"</td>
+</tr>
+<tr>
+<td>format</td>
+<td>Technical format</td>
+<td>"text/html, application/javascript, p5.js"</td>
+</tr>
+<tr>
+<td>identifier</td>
+<td>Unique ID within textbook</td>
+<td>"microsim-graph-traversal-viz"</td>
+</tr>
+<tr>
+<td>language</td>
+<td>Natural language used</td>
+<td>"en" (English)</td>
+</tr>
+<tr>
+<td>rights</td>
+<td>License or usage terms</td>
+<td>"CC BY-SA 4.0"</td>
+</tr>
+</tbody>
+</table>
+<p>Additional educational metadata fields extend Dublin Core for learning-specific purposes:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>learningObjectives</td>
+<td>Specific outcomes students should achieve</td>
+<td>["Understand difference between BFS and DFS", "Identify traversal order patterns"]</td>
+</tr>
+<tr>
+<td>bloomsLevel</td>
+<td>Taxonomy level(s) addressed</td>
+<td>["Understand", "Apply", "Analyze"]</td>
+</tr>
+<tr>
+<td>prerequisites</td>
+<td>Required prior knowledge</td>
+<td>["Basic graph concepts", "Tree data structures"]</td>
+</tr>
+<tr>
+<td>estimatedTime</td>
+<td>Expected interaction duration</td>
+<td>"10-15 minutes"</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>Complexity level</td>
+<td>"Intermediate"</td>
+</tr>
+<tr>
+<td>keywords</td>
+<td>Searchable tags</td>
+<td>["graph", "traversal", "algorithm", "visualization"]</td>
+</tr>
+</tbody>
+</table>
+<p>A complete <code>metadata.json</code> file structure:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2485,119 +2818,162 @@ A complete `metadata.json` file structure:
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-
-This metadata serves multiple purposes throughout the MicroSim lifecycle. During development, it provides a specification checklist ensuring all educational requirements are met. During deployment, build scripts can extract metadata to generate navigation, search indexes, or course catalogs. During instruction, learning management systems can import metadata to align simulations with course objectives, track student interactions, and assess learning outcomes. Well-maintained metadata transforms a collection of individual simulations into a structured, discoverable learning resource library.
-
-## Principles of Educational Simulation Design
-
-Designing effective educational simulations requires balancing technical capabilities, pedagogical goals, and cognitive load management. While the technical implementation of MicroSims using p5.js is relatively straightforward, creating simulations that genuinely enhance learning requires attention to educational design principles drawn from research in instructional technology, cognitive science, and visualization theory. The following principles provide a framework for evaluating and improving MicroSim designs.
-
-**Focus on a single concept.** The "Micro" in MicroSim is deliberate—these simulations work best when they demonstrate one concept clearly rather than attempting to model complex systems comprehensively. A focused simulation allows students to develop deep intuition about a specific phenomenon without cognitive overload from extraneous details. If you find yourself adding many controls or visualization modes, consider whether the simulation should be split into multiple MicroSims, each addressing a different facet of the broader topic.
-
-**Provide immediate visual feedback.** The power of interactive simulations comes from the tight coupling between user action and visual response. Every slider movement, button click, or parameter change should produce immediate, visible consequences in the visualization. This immediacy helps students build causal mental models connecting inputs to outputs. Avoid designs where students must click "Apply" or "Calculate" buttons to see results—continuous reactivity is preferable in most educational contexts.
-
-**Enable hypothesis testing.** Effective simulations encourage students to form predictions, test them, observe outcomes, and refine their understanding. Design controls and scenarios that invite questions: "What happens if I increase this parameter?" "How does this algorithm behave with different data?" "What's the relationship between these two variables?" Include suggested experiments in the `index.md` documentation that guide students through increasingly sophisticated explorations.
-
-**Support multiple levels of engagement.** Students approach simulations with varying prior knowledge and learning goals. Design MicroSims that support both surface-level observation (watching animations with default settings) and deep exploration (manipulating multiple parameters, testing edge cases, connecting to theory). Provide suggested starting points for different learning objectives, and include both guided explorations and open-ended challenges.
-
-**Make abstract concepts tangible.** Use simulations to transform abstract ideas into concrete, manipulable objects. Algorithm performance becomes visible through animation timing. Mathematical relationships become adjustable through sliders. Probability distributions become observable through repeated random sampling. The visual representation should leverage spatial reasoning, color coding, animation, and interactive manipulation to make invisible concepts perceivable.
-
-**Include realistic constraints and edge cases.** While simulations simplify reality, they should respect important constraints and reveal edge cases that deepen understanding. If simulating physical systems, respect conservation laws. If demonstrating algorithms, include scenarios where performance degrades or special cases arise. These realistic touches prevent students from forming oversimplified mental models that fail in practical applications.
-
-**Maintain performance and responsiveness.** Educational simulations must run smoothly across a range of devices, from high-end desktops to budget laptops and tablets. Aim for consistent 60 frames per second (FPS) performance even with maximum complexity settings. Use efficient algorithms, limit particle counts, and optimize drawing operations. If performance becomes problematic, simplify the visualization or reduce default complexity rather than accepting laggy, unresponsive behavior that frustrates learners.
-
-**Design for accessibility.** Not all students interact with simulations in the same ways. Ensure keyboard navigation works for all controls. Provide text alternatives for color coding (using both color and shape/pattern). Include descriptions of what's happening for screen reader users. Test with different input methods and assistive technologies. Accessibility is not just ethical—it often improves usability for all students.
-
-**Encourage exploration through seeded randomness.** As discussed earlier, use seeded randomness to create variety while maintaining reproducibility. Provide a "Randomize" button that generates new scenarios with different seeds. Document interesting seed values that demonstrate specific concepts. This approach balances the engagement value of novelty with the pedagogical value of shared reference points.
-
-**Align with learning objectives.** Every MicroSim should map clearly to specific learning objectives from your course or chapter. The simulation should help students achieve outcomes like "explain the difference between X and Y," "predict the behavior of system Z under different conditions," or "analyze the trade-offs between approaches A and B." If you cannot articulate what learning objective a simulation addresses, reconsider whether it belongs in your textbook.
-
+<p>This metadata serves multiple purposes throughout the MicroSim lifecycle. During development, it provides a specification checklist ensuring all educational requirements are met. During deployment, build scripts can extract metadata to generate navigation, search indexes, or course catalogs. During instruction, learning management systems can import metadata to align simulations with course objectives, track student interactions, and assess learning outcomes. Well-maintained metadata transforms a collection of individual simulations into a structured, discoverable learning resource library.</p>
+<h2 id="principles-of-educational-simulation-design">Principles of Educational Simulation Design</h2>
+<p>Designing effective educational simulations requires balancing technical capabilities, pedagogical goals, and cognitive load management. While the technical implementation of MicroSims using p5.js is relatively straightforward, creating simulations that genuinely enhance learning requires attention to educational design principles drawn from research in instructional technology, cognitive science, and visualization theory. The following principles provide a framework for evaluating and improving MicroSim designs.</p>
+<p><strong>Focus on a single concept.</strong> The "Micro" in MicroSim is deliberate—these simulations work best when they demonstrate one concept clearly rather than attempting to model complex systems comprehensively. A focused simulation allows students to develop deep intuition about a specific phenomenon without cognitive overload from extraneous details. If you find yourself adding many controls or visualization modes, consider whether the simulation should be split into multiple MicroSims, each addressing a different facet of the broader topic.</p>
+<p><strong>Provide immediate visual feedback.</strong> The power of interactive simulations comes from the tight coupling between user action and visual response. Every slider movement, button click, or parameter change should produce immediate, visible consequences in the visualization. This immediacy helps students build causal mental models connecting inputs to outputs. Avoid designs where students must click "Apply" or "Calculate" buttons to see results—continuous reactivity is preferable in most educational contexts.</p>
+<p><strong>Enable hypothesis testing.</strong> Effective simulations encourage students to form predictions, test them, observe outcomes, and refine their understanding. Design controls and scenarios that invite questions: "What happens if I increase this parameter?" "How does this algorithm behave with different data?" "What's the relationship between these two variables?" Include suggested experiments in the <code>index.md</code> documentation that guide students through increasingly sophisticated explorations.</p>
+<p><strong>Support multiple levels of engagement.</strong> Students approach simulations with varying prior knowledge and learning goals. Design MicroSims that support both surface-level observation (watching animations with default settings) and deep exploration (manipulating multiple parameters, testing edge cases, connecting to theory). Provide suggested starting points for different learning objectives, and include both guided explorations and open-ended challenges.</p>
+<p><strong>Make abstract concepts tangible.</strong> Use simulations to transform abstract ideas into concrete, manipulable objects. Algorithm performance becomes visible through animation timing. Mathematical relationships become adjustable through sliders. Probability distributions become observable through repeated random sampling. The visual representation should leverage spatial reasoning, color coding, animation, and interactive manipulation to make invisible concepts perceivable.</p>
+<p><strong>Include realistic constraints and edge cases.</strong> While simulations simplify reality, they should respect important constraints and reveal edge cases that deepen understanding. If simulating physical systems, respect conservation laws. If demonstrating algorithms, include scenarios where performance degrades or special cases arise. These realistic touches prevent students from forming oversimplified mental models that fail in practical applications.</p>
+<p><strong>Maintain performance and responsiveness.</strong> Educational simulations must run smoothly across a range of devices, from high-end desktops to budget laptops and tablets. Aim for consistent 60 frames per second (FPS) performance even with maximum complexity settings. Use efficient algorithms, limit particle counts, and optimize drawing operations. If performance becomes problematic, simplify the visualization or reduce default complexity rather than accepting laggy, unresponsive behavior that frustrates learners.</p>
+<p><strong>Design for accessibility.</strong> Not all students interact with simulations in the same ways. Ensure keyboard navigation works for all controls. Provide text alternatives for color coding (using both color and shape/pattern). Include descriptions of what's happening for screen reader users. Test with different input methods and assistive technologies. Accessibility is not just ethical—it often improves usability for all students.</p>
+<p><strong>Encourage exploration through seeded randomness.</strong> As discussed earlier, use seeded randomness to create variety while maintaining reproducibility. Provide a "Randomize" button that generates new scenarios with different seeds. Document interesting seed values that demonstrate specific concepts. This approach balances the engagement value of novelty with the pedagogical value of shared reference points.</p>
+<p><strong>Align with learning objectives.</strong> Every MicroSim should map clearly to specific learning objectives from your course or chapter. The simulation should help students achieve outcomes like "explain the difference between X and Y," "predict the behavior of system Z under different conditions," or "analyze the trade-offs between approaches A and B." If you cannot articulate what learning objective a simulation addresses, reconsider whether it belongs in your textbook.</p>
 <details>
-    <summary>MicroSim Design Quality Checklist</summary>
-    Type: infographic
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;MicroSim Design Quality Checklist&lt;/summary&gt;
+Type: infographic
 
-    Purpose: Provide a visual, interactive checklist for evaluating educational simulation design quality
+Purpose: Provide a visual, interactive checklist for evaluating educational simulation design quality
 
-    Layout: Tabbed interface with five categories, each expandable to show detailed criteria
+Layout: Tabbed interface with five categories, each expandable to show detailed criteria
 
-    Categories and criteria:
+Categories and criteria:
 
-    **1. Pedagogical Alignment**
-    - [ ] Focuses on a single concept or closely related concept cluster
-    - [ ] Maps to specific learning objectives from course/chapter
-    - [ ] Addresses appropriate Bloom's taxonomy level(s)
-    - [ ] Includes guided exploration questions in documentation
-    - [ ] Supports hypothesis testing and experimentation
-    - [ ] Provides scaffolding for different knowledge levels
+**1. Pedagogical Alignment**
+- [ ] Focuses on a single concept or closely related concept cluster
+- [ ] Maps to specific learning objectives from course/chapter
+- [ ] Addresses appropriate Bloom&#39;s taxonomy level(s)
+- [ ] Includes guided exploration questions in documentation
+- [ ] Supports hypothesis testing and experimentation
+- [ ] Provides scaffolding for different knowledge levels
 
-    **2. Interaction Design**
-    - [ ] Provides immediate visual feedback to all interactions
-    - [ ] Controls are clearly labeled with units where applicable
-    - [ ] Default parameter values demonstrate core concept clearly
-    - [ ] Multiple sliders/controls enable exploration of relationships
-    - [ ] Reset button returns to meaningful initial state
-    - [ ] Randomize button (if applicable) generates new scenarios
+**2. Interaction Design**
+- [ ] Provides immediate visual feedback to all interactions
+- [ ] Controls are clearly labeled with units where applicable
+- [ ] Default parameter values demonstrate core concept clearly
+- [ ] Multiple sliders/controls enable exploration of relationships
+- [ ] Reset button returns to meaningful initial state
+- [ ] Randomize button (if applicable) generates new scenarios
 
-    **3. Visual Design**
-    - [ ] Visual elements are clear and uncluttered
-    - [ ] Color coding is consistent and meaningful
-    - [ ] Important features are visually prominent
-    - [ ] Animation speed supports observation and analysis
-    - [ ] Canvas size is appropriate for content complexity
-    - [ ] Layout separates visualization from controls clearly
+**3. Visual Design**
+- [ ] Visual elements are clear and uncluttered
+- [ ] Color coding is consistent and meaningful
+- [ ] Important features are visually prominent
+- [ ] Animation speed supports observation and analysis
+- [ ] Canvas size is appropriate for content complexity
+- [ ] Layout separates visualization from controls clearly
 
-    **4. Technical Quality**
-    - [ ] Maintains 60 FPS performance on target devices
-    - [ ] Uses seeded randomness for reproducibility
-    - [ ] main.html is self-contained (only p5.js external dependency)
-    - [ ] Code is well-commented for future modification
-    - [ ] No console errors or warnings
-    - [ ] Works across modern browsers (Chrome, Firefox, Safari, Edge)
+**4. Technical Quality**
+- [ ] Maintains 60 FPS performance on target devices
+- [ ] Uses seeded randomness for reproducibility
+- [ ] main.html is self-contained (only p5.js external dependency)
+- [ ] Code is well-commented for future modification
+- [ ] No console errors or warnings
+- [ ] Works across modern browsers (Chrome, Firefox, Safari, Edge)
 
-    **5. Accessibility & Documentation**
-    - [ ] Keyboard navigation works for all controls
-    - [ ] Color coding supplemented by shape/pattern/text
-    - [ ] iframe has descriptive title attribute
-    - [ ] index.md provides clear usage instructions
-    - [ ] metadata.json is complete and accurate
-    - [ ] Interesting seed values documented
-    - [ ] Prerequisites clearly stated
+**5. Accessibility &amp; Documentation**
+- [ ] Keyboard navigation works for all controls
+- [ ] Color coding supplemented by shape/pattern/text
+- [ ] iframe has descriptive title attribute
+- [ ] index.md provides clear usage instructions
+- [ ] metadata.json is complete and accurate
+- [ ] Interesting seed values documented
+- [ ] Prerequisites clearly stated
 
-    Interactive features:
-    - Click each category to expand/collapse detailed criteria
-    - Checkbox items can be checked off during review
-    - Progress bar shows percentage of criteria met in each category
-    - Overall quality score displayed (percentage of all boxes checked)
-    - Color coding: Red (<60%), Yellow (60-80%), Green (>80%)
-    - "Export Report" button generates markdown checklist with current state
+Interactive features:
+- Click each category to expand/collapse detailed criteria
+- Checkbox items can be checked off during review
+- Progress bar shows percentage of criteria met in each category
+- Overall quality score displayed (percentage of all boxes checked)
+- Color coding: Red (&lt;60%), Yellow (60-80%), Green (&gt;80%)
+- &quot;Export Report&quot; button generates markdown checklist with current state
 
-    Visual style: Modern checklist interface with expandable sections
-    Color scheme: Blue headers, green checkmarks, amber warnings
-    Implementation: HTML/CSS/JavaScript with localStorage for persistence
+Visual style: Modern checklist interface with expandable sections
+Color scheme: Blue headers, green checkmarks, amber warnings
+Implementation: HTML/CSS/JavaScript with localStorage for persistence
+</code></pre></div></td></tr></table></div>
 </details>
-
-## Summary and Key Takeaways
-
-Interactive MicroSims transform intelligent textbooks from static information repositories into dynamic learning environments where students actively construct understanding through experimentation and exploration. Built with the p5.js JavaScript library, these focused simulations demonstrate single concepts through immediate visual feedback, adjustable parameters, and reproducible scenarios. The standardized MicroSim architecture—comprising `main.html` for the simulation, `index.md` for pedagogical context, and `metadata.json` for discovery and cataloging—ensures consistency while supporting integration with the broader MkDocs Material textbook framework.
-
-Effective MicroSim design balances technical implementation with pedagogical intention. Sliders and buttons provide intuitive interaction patterns that encourage hypothesis testing and parameter space exploration. Seeded randomness generates variability while maintaining reproducibility, enabling shared reference points between students and instructors. Iframe embedding provides security boundaries and prevents namespace conflicts while maintaining seamless visual integration with surrounding content.
-
-The principles of educational simulation design emphasize focus, feedback, and alignment with learning objectives. By concentrating on single concepts, providing immediate visual responses to interactions, and connecting simulations to specific course outcomes, MicroSims become powerful tools for making abstract ideas tangible and testable. As you create MicroSims for your own intelligent textbooks, use these principles and patterns to craft experiences that genuinely enhance student understanding rather than merely adding interactivity for its own sake.
-
-Key concepts covered in this chapter:
-
-- **MicroSims** are focused, interactive simulations demonstrating single educational concepts
-- **p5.js** provides an accessible yet powerful framework for creative coding and visualization
-- **Interactive simulations** engage students in active learning through manipulation and observation
-- **MicroSim directory structure** standardizes organization with main.html, index.md, and metadata.json
-- **main.html** contains self-contained p5.js simulations with canvas and control panel regions
-- **index.md** provides pedagogical context, instructions, and iframe embedding
-- **Iframe embedding** sandboxes simulations while integrating them seamlessly into MkDocs pages
-- **Seeded randomness** balances variability with reproducibility for educational purposes
-- **Interactive controls (sliders)** enable continuous parameter exploration with immediate feedback
-- **Interactive controls (buttons)** trigger discrete actions and state transitions
-- **MicroSim metadata** follows Dublin Core standards for discovery, cataloging, and LMS integration
-- **Educational simulation design principles** guide creation of pedagogically effective interactive elements
+<h2 id="summary-and-key-takeaways">Summary and Key Takeaways</h2>
+<p>Interactive MicroSims transform intelligent textbooks from static information repositories into dynamic learning environments where students actively construct understanding through experimentation and exploration. Built with the p5.js JavaScript library, these focused simulations demonstrate single concepts through immediate visual feedback, adjustable parameters, and reproducible scenarios. The standardized MicroSim architecture—comprising <code>main.html</code> for the simulation, <code>index.md</code> for pedagogical context, and <code>metadata.json</code> for discovery and cataloging—ensures consistency while supporting integration with the broader MkDocs Material textbook framework.</p>
+<p>Effective MicroSim design balances technical implementation with pedagogical intention. Sliders and buttons provide intuitive interaction patterns that encourage hypothesis testing and parameter space exploration. Seeded randomness generates variability while maintaining reproducibility, enabling shared reference points between students and instructors. Iframe embedding provides security boundaries and prevents namespace conflicts while maintaining seamless visual integration with surrounding content.</p>
+<p>The principles of educational simulation design emphasize focus, feedback, and alignment with learning objectives. By concentrating on single concepts, providing immediate visual responses to interactions, and connecting simulations to specific course outcomes, MicroSims become powerful tools for making abstract ideas tangible and testable. As you create MicroSims for your own intelligent textbooks, use these principles and patterns to craft experiences that genuinely enhance student understanding rather than merely adding interactivity for its own sake.</p>
+<p>Key concepts covered in this chapter:</p>
+<ul>
+<li><strong>MicroSims</strong> are focused, interactive simulations demonstrating single educational concepts</li>
+<li><strong>p5.js</strong> provides an accessible yet powerful framework for creative coding and visualization</li>
+<li><strong>Interactive simulations</strong> engage students in active learning through manipulation and observation</li>
+<li><strong>MicroSim directory structure</strong> standardizes organization with main.html, index.md, and metadata.json</li>
+<li><strong>main.html</strong> contains self-contained p5.js simulations with canvas and control panel regions</li>
+<li><strong>index.md</strong> provides pedagogical context, instructions, and iframe embedding</li>
+<li><strong>Iframe embedding</strong> sandboxes simulations while integrating them seamlessly into MkDocs pages</li>
+<li><strong>Seeded randomness</strong> balances variability with reproducibility for educational purposes</li>
+<li><strong>Interactive controls (sliders)</strong> enable continuous parameter exploration with immediate feedback</li>
+<li><strong>Interactive controls (buttons)</strong> trigger discrete actions and state transitions</li>
+<li><strong>MicroSim metadata</strong> follows Dublin Core standards for discovery, cataloging, and LMS integration</li>
+<li><strong>Educational simulation design principles</strong> guide creation of pedagogically effective interactive elements</li>
+</ul>
 
 
 
