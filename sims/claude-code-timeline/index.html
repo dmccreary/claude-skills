@@ -1,0 +1,2163 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/sims/claude-code-timeline/">
+      
+      
+        <link rel="prev" href="../timeline/">
+      
+      
+        <link rel="next" href="../../prompts/course-description-skill/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Claude Code Timeline - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HPLDD3D3K2"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HPLDD3D3K2",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HPLDD3D3K2",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Claude Code Timeline - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  property="og:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/sims/claude-code-timeline/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/claude-skills/sims/claude-code-timeline/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Claude Code Timeline - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  name="twitter:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/sims/claude-code-timeline/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#evolution-of-ai-from-neural-networks-to-claude-code" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Claude Code Timeline
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    List of Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            MicroSims
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-viewer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Viewer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-length-histogram/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Length Histogram
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../timeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Claude Code Timeline
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Claude Code Timeline
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timeline-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeline Scope
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-timeline-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why This Timeline Matters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Design
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Fields
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-milestones-highlighted" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Milestones Highlighted
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Milestones Highlighted">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deep-learning-renaissance-2012" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deep Learning Renaissance (2012)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformer-revolution-2017" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transformer Revolution (2017)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpt-3-scale-breakthrough-2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPT-3 Scale Breakthrough (2020)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chatgpt-mainstream-moment-2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      ChatGPT Mainstream Moment (2022)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anthropics-safety-focus-2021-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anthropic's Safety Focus (2021-2024)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-code-era-2024-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Code Era (2024-2025)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customization Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-new-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding New Events
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-category-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing Category Colors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjusting-time-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjusting Time Range
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-new-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding New Categories
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Details
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#educational-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Applications
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deep-learning-foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deep Learning Foundations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computer-vision-revolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computer Vision Revolution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformers-era" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transformers Era
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#large-language-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Large Language Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anthropic-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anthropic &amp; Claude
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developer-tools-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developer Tools &amp; Skills
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-timelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Timelines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acknowledgments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      License
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/index.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timeline-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeline Scope
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-timeline-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why This Timeline Matters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Design
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Fields
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-milestones-highlighted" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Milestones Highlighted
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Milestones Highlighted">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deep-learning-renaissance-2012" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deep Learning Renaissance (2012)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformer-revolution-2017" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transformer Revolution (2017)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpt-3-scale-breakthrough-2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPT-3 Scale Breakthrough (2020)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chatgpt-mainstream-moment-2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      ChatGPT Mainstream Moment (2022)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anthropics-safety-focus-2021-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anthropic's Safety Focus (2021-2024)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-code-era-2024-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Code Era (2024-2025)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customization Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-new-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding New Events
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-category-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing Category Colors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjusting-time-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjusting Time Range
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-new-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding New Categories
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Details
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#educational-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Applications
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deep-learning-foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deep Learning Foundations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computer-vision-revolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computer Vision Revolution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformers-era" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transformers Era
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#large-language-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Large Language Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anthropic-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anthropic &amp; Claude
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developer-tools-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developer Tools &amp; Skills
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-timelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Timelines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acknowledgments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      License
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/sims/claude-code-timeline/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="evolution-of-ai-from-neural-networks-to-claude-code">Evolution of AI: From Neural Networks to Claude Code</h1>
+<p>An interactive timeline visualization chronicling 50 pivotal moments in artificial intelligence history, from the invention of the Perceptron in 1957 to the development of Claude Code Skills in 2025.</p>
+<p><a class="md-button md-button--primary" href="main.html">Run the Claude Code Timeline</a></p>
+<p><a class="md-button" href="timeline.json">View the Raw Timeline Data</a></p>
+<h2 id="overview">Overview</h2>
+<p>This timeline MicroSim traces the remarkable journey of artificial intelligence development, focusing on the key innovations, breakthroughs, and milestones that led to the creation of Claude Code and the Claude Skills framework. The visualization spans nearly 70 years of research and development, organized into six thematic categories that represent distinct eras and focuses in AI evolution.</p>
+<h3 id="timeline-scope">Timeline Scope</h3>
+<p>The timeline covers <strong>50 critical events</strong> from 1957 to 2025, including:</p>
+<ul>
+<li><strong>Foundational Research</strong>: Early neural networks, backpropagation, and deep learning revival</li>
+<li><strong>Computer Vision Breakthroughs</strong>: AlexNet, ResNet, and the ImageNet revolution</li>
+<li><strong>Transformer Architecture</strong>: The "Attention Is All You Need" paradigm shift</li>
+<li><strong>Large Language Models</strong>: GPT series, BERT, and the rise of foundation models</li>
+<li><strong>Anthropic's Journey</strong>: Constitutional AI, Claude development, and safety-focused research</li>
+<li><strong>Developer Tools</strong>: Claude Code, MCP protocol, and the Skills framework</li>
+</ul>
+<h3 id="why-this-timeline-matters">Why This Timeline Matters</h3>
+<p>Understanding the evolution of AI technology helps contextualize:</p>
+<ol>
+<li><strong>Current Capabilities</strong>: How decades of research enabled today's AI assistants</li>
+<li><strong>Safety Progress</strong>: The shift from pure capability to aligned, beneficial AI</li>
+<li><strong>Developer Empowerment</strong>: The progression from research models to practical coding tools</li>
+<li><strong>Educational Innovation</strong>: How AI enables new forms of interactive learning content</li>
+</ol>
+<h2 id="features">Features</h2>
+<h3 id="interactive-elements">Interactive Elements</h3>
+<ul>
+<li><strong>Zoom and Pan</strong>: Navigate across decades with smooth scrolling and zooming</li>
+<li>Scroll wheel to zoom in/out</li>
+<li>Click and drag to pan across the timeline</li>
+<li>
+<p>Double-click an event to focus on its time period</p>
+</li>
+<li>
+<p><strong>Event Details</strong>: Click any event to reveal:</p>
+</li>
+<li>Full event description</li>
+<li>Historical date</li>
+<li>Contextual notes explaining significance</li>
+<li>
+<p>Link to relevant references</p>
+</li>
+<li>
+<p><strong>Hover Tooltips</strong>: Quick context notes appear when hovering over event markers</p>
+</li>
+<li>
+<p><strong>Category Filtering</strong>: Six filter buttons to focus on specific technology areas:</p>
+</li>
+<li>Deep Learning Foundations (1957-2011)</li>
+<li>Computer Vision Revolution (2012-2016)</li>
+<li>Transformers Era (2017-2019)</li>
+<li>Large Language Models (2020-2022)</li>
+<li>Anthropic &amp; Claude (2021-2024)</li>
+<li>Developer Tools &amp; Skills (2024-2025)</li>
+</ul>
+<h3 id="visual-design">Visual Design</h3>
+<ul>
+<li><strong>Color-Coded Categories</strong>: Each era has a distinct color for easy visual navigation</li>
+<li>Red: Deep Learning Foundations</li>
+<li>Orange: Computer Vision Revolution</li>
+<li>Green: Transformers Era</li>
+<li>Blue: Large Language Models</li>
+<li>Purple: Anthropic &amp; Claude</li>
+<li>
+<p>Dark Red: Developer Tools &amp; Skills</p>
+</li>
+<li>
+<p><strong>Responsive Layout</strong>: Optimized for desktop, tablet, and mobile viewing</p>
+</li>
+<li>
+<p><strong>Interactive Legend</strong>: Visual guide showing category colors and event counts</p>
+</li>
+</ul>
+<h2 id="data-structure">Data Structure</h2>
+<p>The timeline uses TimelineJS-compatible JSON format stored in <code>timeline.json</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Timeline Title&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;start_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;year&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;month&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;11&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;day&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;headline&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Event Title&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Detailed description of the event.&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Category Name&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Historical context shown in tooltip&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="data-fields">Data Fields</h3>
+<ul>
+<li><strong>start_date</strong>: Event date (year required, month/day optional)</li>
+<li><strong>text.headline</strong>: Short event title (5-10 words)</li>
+<li><strong>text.text</strong>: Full event description (2-4 sentences)</li>
+<li><strong>group</strong>: Category for filtering and color-coding</li>
+<li><strong>notes</strong>: Additional context displayed in tooltips and detail view</li>
+</ul>
+<h2 id="key-milestones-highlighted">Key Milestones Highlighted</h2>
+<h3 id="deep-learning-renaissance-2012">Deep Learning Renaissance (2012)</h3>
+<p>AlexNet's victory at ImageNet 2012 marked the beginning of the deep learning era, demonstrating that deep convolutional networks trained on GPUs could dramatically outperform traditional computer vision approaches.</p>
+<h3 id="transformer-revolution-2017">Transformer Revolution (2017)</h3>
+<p>The "Attention Is All You Need" paper introduced self-attention mechanisms that replaced recurrent architectures, enabling parallel processing and becoming the foundation for all modern language models.</p>
+<h3 id="gpt-3-scale-breakthrough-2020">GPT-3 Scale Breakthrough (2020)</h3>
+<p>OpenAI's GPT-3 demonstrated that model scale combined with in-context learning could perform diverse tasks with minimal examples, proving the power of large language models.</p>
+<h3 id="chatgpt-mainstream-moment-2022">ChatGPT Mainstream Moment (2022)</h3>
+<p>ChatGPT's launch brought conversational AI to mainstream users, achieving the fastest user growth in history and fundamentally changing public perception of AI capabilities.</p>
+<h3 id="anthropics-safety-focus-2021-2024">Anthropic's Safety Focus (2021-2024)</h3>
+<p>Founded on principles of AI safety, Anthropic developed Constitutional AI methods and the Claude family of models, prioritizing helpfulness, harmlessness, and honesty.</p>
+<h3 id="claude-code-era-2024-2025">Claude Code Era (2024-2025)</h3>
+<p>The release of Claude Code and the Skills framework marked the transition from general-purpose AI assistants to specialized developer tools integrated directly into software workflows.</p>
+<h2 id="customization-guide">Customization Guide</h2>
+<h3 id="adding-new-events">Adding New Events</h3>
+<p>To add events to the timeline:</p>
+<ol>
+<li>Open <code>timeline.json</code> in a text editor</li>
+<li>Add a new event object to the <code>events</code> array:</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;start_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;year&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;month&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;day&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;headline&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;New AI Breakthrough&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Description of the breakthrough and its impact.&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Anthropic &amp; Claude&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Additional historical context for tooltip.&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Save the file and reload the page</li>
+</ol>
+<h3 id="changing-category-colors">Changing Category Colors</h3>
+<p>To modify category colors, edit the <code>categoryColors</code> object in <code>main.html</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">categoryColors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s1">&#39;Deep Learning Foundations&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#e63946&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;Computer Vision Revolution&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#f77f00&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">// Add or modify colors here</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="adjusting-time-range">Adjusting Time Range</h3>
+<p>To change zoom limits, modify the <code>zoomMin</code> and <code>zoomMax</code> options in <code>main.html</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">zoomMin</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">365</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w">   </span><span class="c1">// 5 years minimum</span>
+<span class="w">    </span><span class="nx">zoomMax</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">365</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="c1">// 200 years maximum</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="adding-new-categories">Adding New Categories</h3>
+<ol>
+<li>Add the category to <code>categoryColors</code> in <code>main.html</code></li>
+<li>Assign events to the new category in <code>timeline.json</code></li>
+<li>The filter button and legend will be generated automatically</li>
+</ol>
+<h2 id="technical-details">Technical Details</h2>
+<ul>
+<li><strong>Timeline Library</strong>: vis-timeline 7.7.3 (loaded from CDN)</li>
+<li><strong>Data Format</strong>: TimelineJS-compatible JSON</li>
+<li><strong>Browser Compatibility</strong>: Modern browsers (Chrome, Firefox, Safari, Edge)</li>
+<li><strong>Dependencies</strong>: vis-timeline.js and vis-timeline.css from cdnjs</li>
+<li><strong>File Size</strong>: ~4KB (timeline.json), ~12KB (main.html)</li>
+<li><strong>Performance</strong>: Handles 100+ events smoothly</li>
+</ul>
+<h2 id="use-cases">Use Cases</h2>
+<p>This timeline pattern can be adapted for:</p>
+<ul>
+<li><strong>Educational Content</strong>: Teaching history of technology, science, or social movements</li>
+<li><strong>Project Documentation</strong>: Tracking software development milestones and releases</li>
+<li><strong>Organizational History</strong>: Visualizing company evolution and key achievements</li>
+<li><strong>Research Timelines</strong>: Documenting scientific discoveries and research progress</li>
+<li><strong>Course Schedules</strong>: Planning and visualizing curriculum across semesters</li>
+<li><strong>Personal Timelines</strong>: Creating biographical or family history visualizations</li>
+</ul>
+<h2 id="educational-applications">Educational Applications</h2>
+<p>This timeline is particularly valuable for:</p>
+<ol>
+<li><strong>Computer Science Education</strong>: Understanding AI's evolution and current state</li>
+<li><strong>Technology History</strong>: Contextualizing modern AI within broader computing history</li>
+<li><strong>Research Methods</strong>: Demonstrating how scientific breakthroughs build upon each other</li>
+<li><strong>Critical Thinking</strong>: Analyzing the pace of innovation and paradigm shifts</li>
+<li><strong>Career Guidance</strong>: Showing the trajectory of AI development and future directions</li>
+</ol>
+<h2 id="references">References</h2>
+<h3 id="deep-learning-foundations">Deep Learning Foundations</h3>
+<ol>
+<li>
+<p><a href="https://psycnet.apa.org/record/1959-09865-001">The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain</a> - 1957 - Psychological Review - Frank Rosenblatt's original paper introducing the first neural network model capable of learning, establishing the foundation for all modern deep learning.</p>
+</li>
+<li>
+<p><a href="https://www.nature.com/articles/323533a0">Learning representations by back-propagating errors</a> - 1986 - Nature - Rumelhart, Hinton, and Williams' seminal paper that popularized backpropagation, the algorithm essential for training deep neural networks.</p>
+</li>
+<li>
+<p><a href="https://www.bioinf.jku.at/publications/older/2604.pdf">Long Short-Term Memory</a> - 1997 - Neural Computation - Hochreiter and Schmidhuber's introduction of LSTM networks that solved the vanishing gradient problem, enabling learning of long-term dependencies.</p>
+</li>
+<li>
+<p><a href="https://www.cs.toronto.edu/~hinton/absps/fastnc.pdf">A Fast Learning Algorithm for Deep Belief Nets</a> - 2006 - Neural Computation - Geoffrey Hinton's paper that sparked the deep learning renaissance by showing how to effectively train deep networks.</p>
+</li>
+<li>
+<p><a href="https://ieeexplore.ieee.org/document/5206848">ImageNet: A Large-Scale Hierarchical Image Database</a> - 2009 - CVPR - Introduction of the ImageNet dataset that became the standard benchmark for computer vision and enabled the deep learning revolution.</p>
+</li>
+</ol>
+<h3 id="computer-vision-revolution">Computer Vision Revolution</h3>
+<ol>
+<li>
+<p><a href="https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html">ImageNet Classification with Deep Convolutional Neural Networks</a> - 2012 - NIPS - The AlexNet paper that demonstrated deep learning's superiority in computer vision, winning ImageNet by a massive margin.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/1301.3781">Efficient Estimation of Word Representations in Vector Space</a> - 2013 - arXiv - Mikolov et al.'s Word2Vec paper that revolutionized NLP by representing words as dense vectors capturing semantic relationships.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/1406.2661">Generative Adversarial Networks</a> - 2014 - arXiv - Ian Goodfellow's introduction of GANs, enabling high-quality generative modeling through adversarial training.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/1409.3215">Sequence to Sequence Learning with Neural Networks</a> - 2014 - NIPS - Sutskever et al.'s seq2seq model that revolutionized machine translation and laid groundwork for modern language models.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a> - 2015 - arXiv - He et al.'s ResNet architecture with skip connections, enabling training of networks with 100+ layers and achieving breakthrough performance.</p>
+</li>
+<li>
+<p><a href="https://www.nature.com/articles/nature16961">Mastering the game of Go with deep neural networks and tree search</a> - 2016 - Nature - DeepMind's AlphaGo paper demonstrating AI's capability for strategic reasoning by defeating world champion Lee Sedol.</p>
+</li>
+</ol>
+<h3 id="transformers-era">Transformers Era</h3>
+<ol>
+<li>
+<p><a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a> - 2017 - NIPS - Vaswani et al.'s groundbreaking Transformer paper that introduced self-attention and became the architecture for all modern language models.</p>
+</li>
+<li>
+<p><a href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf">Improving Language Understanding by Generative Pre-Training</a> - 2018 - OpenAI - The GPT-1 paper introducing the pre-training then fine-tuning paradigm that became standard for language models.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/1810.04805">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</a> - 2018 - arXiv - Devlin et al.'s BERT model with masked language modeling, achieving state-of-the-art on 11 NLP tasks.</p>
+</li>
+<li>
+<p><a href="https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf">Language Models are Unsupervised Multitask Learners</a> - 2019 - OpenAI - GPT-2 paper demonstrating impressive zero-shot learning and raising awareness of AI safety concerns.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/1907.11692">RoBERTa: A Robustly Optimized BERT Pretraining Approach</a> - 2019 - arXiv - Facebook AI's improvements to BERT training, showing the importance of training procedures and data quality.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/1910.10683">Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer</a> - 2019 - JMLR - Google's T5 model unifying all NLP tasks as text generation, influencing future instruction-tuned models.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/1910.01108">DistilBERT, a distilled version of BERT</a> - 2019 - arXiv - Hugging Face's model distillation work retaining 97% of BERT's performance at 60% size, pioneering model compression.</p>
+</li>
+</ol>
+<h3 id="large-language-models">Large Language Models</h3>
+<ol>
+<li>
+<p><a href="https://arxiv.org/abs/2005.14165">Language Models are Few-Shot Learners</a> - 2020 - NeurIPS - The GPT-3 paper with 175B parameters demonstrating remarkable in-context learning abilities without fine-tuning.</p>
+</li>
+<li>
+<p><a href="https://openai.com/blog/openai-api">OpenAI API</a> - 2020 - OpenAI Blog - Announcement of GPT-3 API, democratizing access to large language models for developers worldwide.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2102.12092">Zero-Shot Text-to-Image Generation</a> - 2021 - arXiv - OpenAI's DALL-E paper demonstrating text-to-image generation with transformers, extending LLMs to multimodal generation.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2103.00020">Learning Transferable Visual Models From Natural Language Supervision</a> - 2021 - arXiv - OpenAI's CLIP model aligning vision and language, enabling zero-shot image classification and multimodal understanding.</p>
+</li>
+<li>
+<p><a href="https://github.blog/2021-06-29-introducing-github-copilot-ai-pair-programmer/">GitHub Copilot: Your AI pair programmer</a> - 2021 - GitHub Blog - Launch announcement of the first mainstream AI coding assistant powered by OpenAI Codex.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2107.03374">Evaluating Large Language Models Trained on Code</a> - 2021 - arXiv - OpenAI's Codex paper showing that language models fine-tuned on code can understand and generate programming languages.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2203.02155">Training language models to follow instructions with human feedback</a> - 2022 - arXiv - OpenAI's InstructGPT paper introducing RLHF (Reinforcement Learning from Human Feedback), the foundational alignment technique for ChatGPT and modern AI assistants.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2212.08073">Constitutional AI: Harmlessness from AI Feedback</a> - 2022 - arXiv - Anthropic's pioneering work on training AI systems using AI-generated feedback guided by constitutional principles.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2112.10752">High-Resolution Image Synthesis with Latent Diffusion Models</a> - 2022 - CVPR - The Stable Diffusion paper enabling high-quality open-source text-to-image generation, accelerating generative AI research.</p>
+</li>
+<li>
+<p><a href="https://openai.com/blog/chatgpt">ChatGPT: Optimizing Language Models for Dialogue</a> - 2022 - OpenAI Blog - Launch announcement of ChatGPT, bringing conversational AI to mainstream users and achieving fastest user growth in history.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2302.13971">LLaMA: Open and Efficient Foundation Language Models</a> - 2023 - arXiv - Meta's LLaMA models (7B-65B parameters) released for research, accelerating open-source LLM development.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2303.08774">GPT-4 Technical Report</a> - 2023 - arXiv - OpenAI's GPT-4 with multimodal capabilities and significantly improved reasoning, marking a major advance in AI capabilities.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2307.09288">Llama 2: Open Foundation and Fine-Tuned Chat Models</a> - 2023 - arXiv - Meta's LLaMA 2 with commercial license, enabling widespread deployment of powerful open-source language models.</p>
+</li>
+</ol>
+<h3 id="anthropic-claude">Anthropic &amp; Claude</h3>
+<ol>
+<li>
+<p><a href="https://www.anthropic.com/news/announcement">Anthropic Announces $124M in Funding</a> - 2021 - Anthropic - Founded by former OpenAI researchers to build safe, beneficial AI systems with focus on AI alignment research.</p>
+</li>
+<li>
+<p><a href="https://www.anthropic.com/index/introducing-claude">Introducing Claude</a> - 2023 - Anthropic - Launch of Claude, an AI assistant trained using Constitutional AI principles emphasizing safety and helpfulness.</p>
+</li>
+<li>
+<p><a href="https://www.anthropic.com/news/claude-pro">Claude Pro</a> - 2023 - Anthropic - Introduction of Claude Pro subscription offering priority access and increased usage limits for power users.</p>
+</li>
+<li>
+<p><a href="https://www.anthropic.com/index/claude-2">Claude 2</a> - 2023 - Anthropic - Claude 2 release with 100K token context window and improved coding capabilities, enabling full codebase processing.</p>
+</li>
+<li>
+<p><a href="https://www.anthropic.com/index/claude-2-1">Claude 2.1</a> - 2023 - Anthropic - Claude 2.1 with 200K context window and improved accuracy, capable of processing multiple books simultaneously.</p>
+</li>
+<li>
+<p><a href="https://www.anthropic.com/news/claude-3-family">Introducing the next generation of Claude</a> - 2024 - Anthropic - Claude 3 family (Haiku, Sonnet, Opus) with vision capabilities and industry-leading performance across benchmarks.</p>
+</li>
+<li>
+<p><a href="https://openai.com/index/hello-gpt-4o/">GPT-4o: OpenAI's new flagship multimodal model</a> - 2024 - OpenAI - GPT-4o announcement with improved speed, multimodal capabilities, and real-time voice conversation.</p>
+</li>
+<li>
+<p><a href="https://www.anthropic.com/news/claude-3-5-sonnet">Claude 3.5 Sonnet</a> - 2024 - Anthropic - Claude 3.5 Sonnet outperforming Opus while faster and more cost-effective, excelling at coding and reasoning tasks.</p>
+</li>
+<li>
+<p><a href="https://www.anthropic.com/news/artifacts">Introducing Artifacts</a> - 2024 - Anthropic - Artifacts feature enabling Claude to create interactive content, visualizations, and executable code in dedicated workspace.</p>
+</li>
+<li>
+<p><a href="https://www.anthropic.com/news/3-5-models-and-computer-use">Claude can now use computers</a> - 2024 - Anthropic - Computer use capability beta allowing Claude to interact with computer interfaces through screenshots and controls.</p>
+</li>
+<li>
+<p><a href="https://www.anthropic.com/news/claude-desktop">Claude for Desktop</a> - 2024 - Anthropic - Native desktop application for macOS and Windows with local file access and system integrations.</p>
+</li>
+<li>
+<p><a href="https://www.anthropic.com/news/extended-thinking">Extended thinking with Claude</a> - 2024 - Anthropic - Extended thinking mode allowing Claude to solve complex problems with explicit, visible reasoning steps.</p>
+</li>
+</ol>
+<h3 id="developer-tools-skills">Developer Tools &amp; Skills</h3>
+<ol>
+<li>
+<p><a href="https://docs.claude.com/claude-code">Introducing Claude Code</a> - 2024 - Anthropic Docs - Official CLI tool for software development integrating Claude with terminal, git, package managers, and development workflows.</p>
+</li>
+<li>
+<p><a href="https://www.anthropic.com/news/model-context-protocol">Model Context Protocol</a> - 2024 - Anthropic - MCP standardizing how AI assistants connect to enterprise systems, databases, and APIs for context-aware assistance.</p>
+</li>
+<li>
+<p><a href="https://github.com/dmccreary/claude-skills">Claude Skills Framework</a> - 2024 - GitHub - Community-developed framework enabling autonomous agents for specialized tasks like educational content creation and learning graphs.</p>
+</li>
+<li>
+<p><a href="https://dmccreary.github.io/claude-skills/skills/learning-graph-generator/">Learning Graph Generator Skill</a> - 2024 - Claude Skills Docs - Automated generation of concept dependency graphs with 200+ concepts following Bloom's Taxonomy and ISO 11179 standards.</p>
+</li>
+<li>
+<p><a href="https://dmccreary.github.io/claude-skills/sims/">MicroSim Skills Collection</a> - 2024 - Claude Skills Docs - Interactive visualization skills for p5.js simulations, Venn diagrams, and timelines for educational content.</p>
+</li>
+<li>
+<p><a href="https://dmccreary.github.io/claude-skills/skills/timeline-generator/">Timeline Generator Skill</a> - 2025 - Claude Skills Docs - This skill for creating interactive historical timelines using vis-timeline.js with category filtering and rich context.</p>
+</li>
+</ol>
+<h3 id="additional-resources">Additional Resources</h3>
+<ol>
+<li>
+<p><a href="https://www.stateof.ai/">The State of AI Report 2024</a> - 2024 - State of AI - Comprehensive annual report covering AI research, industry, politics, safety, and predictions for future developments.</p>
+</li>
+<li>
+<p><a href="https://aiindex.stanford.edu/report/">AI Index Report 2024</a> - 2024 - Stanford HAI - Detailed analysis of AI progress across technical performance, economic impact, policy, and ethical considerations.</p>
+</li>
+</ol>
+<h2 id="related-timelines">Related Timelines</h2>
+<p>For more AI history visualizations, see:</p>
+<ul>
+<li><a href="https://ourworldindata.org/brief-history-of-ai">AI Timeline by Our World in Data</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Timeline_of_machine_learning">Timeline of Machine Learning</a></li>
+<li><a href="https://en.wikipedia.org/wiki/History_of_artificial_intelligence">History of Artificial Intelligence</a></li>
+</ul>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>This timeline was created using the <strong>timeline-generator</strong> skill from the Claude Skills framework. The visualization leverages the vis-timeline JavaScript library for interactive chronological displays.</p>
+<p>Data compiled from academic papers, company announcements, and historical research in artificial intelligence and machine learning.</p>
+<h2 id="license">License</h2>
+<p>Timeline content and code available under MIT License. Individual references maintain their original copyright and licensing.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../timeline/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Timeline">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Timeline
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../prompts/course-description-skill/" class="md-footer__link md-footer__link--next" aria-label="Next: Run the Course Description Skill">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Run the Course Description Skill
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
