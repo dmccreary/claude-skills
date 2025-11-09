@@ -52,7 +52,7 @@
         "headline": "AlexNet Wins ImageNet",
         "text": "Alex Krizhevsky's AlexNet wins ImageNet competition by large margin, proving deep learning's superiority in computer vision."
       },
-      "group": "Computer Vision Revolution",
+      "group": "GPUs Train Deep Neural Nets",
       "notes": "AlexNet's victory marked the beginning of deep learning dominance in AI, demonstrating the power of deep convolutional networks and GPUs."
     },
     {
@@ -61,7 +61,7 @@
         "headline": "Word2Vec Released",
         "text": "Google researchers release Word2Vec, enabling efficient learning of word embeddings that capture semantic relationships."
       },
-      "group": "Computer Vision Revolution",
+      "group": "GPUs Train Deep Neural Nets",
       "notes": "Word2Vec revolutionized NLP by representing words as dense vectors, enabling machines to understand semantic similarity."
     },
     {
@@ -70,7 +70,7 @@
         "headline": "GANs Introduced",
         "text": "Ian Goodfellow introduces Generative Adversarial Networks, enabling realistic synthetic data generation."
       },
-      "group": "Computer Vision Revolution",
+      "group": "GPUs Train Deep Neural Nets",
       "notes": "GANs pioneered adversarial training and became foundational for generative AI, including image and text generation."
     },
     {
@@ -79,7 +79,7 @@
         "headline": "Sequence-to-Sequence Learning",
         "text": "Google researchers introduce seq2seq models with attention, revolutionizing machine translation and text generation."
       },
-      "group": "Computer Vision Revolution",
+      "group": "GPUs Train Deep Neural Nets",
       "notes": "Seq2seq models with attention mechanisms paved the way for modern language models and transformers."
     },
     {
@@ -88,7 +88,7 @@
         "headline": "ResNet Architecture",
         "text": "Microsoft Research introduces Residual Networks (ResNet), enabling training of networks with 100+ layers."
       },
-      "group": "Computer Vision Revolution",
+      "group": "GPUs Train Deep Neural Nets",
       "notes": "ResNet's skip connections solved the degradation problem, enabling much deeper and more powerful neural networks."
     },
     {
@@ -97,7 +97,7 @@
         "headline": "AlphaGo Defeats Lee Sedol",
         "text": "DeepMind's AlphaGo defeats world champion Lee Sedol in Go, demonstrating AI's strategic reasoning capabilities."
       },
-      "group": "Computer Vision Revolution",
+      "group": "GPUs Train Deep Neural Nets",
       "notes": "AlphaGo's victory showcased reinforcement learning and Monte Carlo tree search, expanding AI beyond pattern recognition."
     },
     {

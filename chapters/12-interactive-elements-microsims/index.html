@@ -1521,6 +1521,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#example-timeline-based-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Timeline-Based MicroSim
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-p5js-foundation" class="md-nav__link">
     <span class="md-ellipsis">
       The p5.js Foundation
@@ -1737,6 +1746,25 @@
 </tr>
 </tbody>
 </table>
+<h2 id="example-timeline-based-microsim">Example: Timeline-Based MicroSim</h2>
+<p>Before diving into p5.js-based MicroSims, let's examine a production-quality example that demonstrates professional MicroSim design patterns. The <strong><a href="../../sims/claude-code-timeline/">Evolution of AI: From Neural Networks to Claude Code</a></strong> timeline showcases a different approach to interactive visualization using the vis-timeline.js library.</p>
+<p>This MicroSim demonstrates several key principles covered in this chapter:</p>
+<ul>
+<li><strong>Structured directory organization</strong>: <code>main.html</code> (visualization), <code>timeline.json</code> (data), <code>index.md</code> (documentation)</li>
+<li><strong>Interactive controls</strong>: Category filter buttons allowing users to focus on specific technology areas</li>
+<li><strong>Rich context delivery</strong>: Hover tooltips provide historical notes; click events display full descriptions</li>
+<li><strong>Educational metadata</strong>: 52 events organized into 6 color-coded categories with comprehensive references</li>
+<li><strong>Professional polish</strong>: Responsive design, smooth animations, clear visual hierarchy</li>
+</ul>
+<p><a class="md-button md-button--primary" href="../../sims/claude-code-timeline/main.html">Explore the Interactive Timeline</a></p>
+<p><strong>Key takeaways for MicroSim developers:</strong></p>
+<ol>
+<li><strong>Data separation</strong>: Timeline data lives in <code>timeline.json</code>, separate from visualization code—making updates easy</li>
+<li><strong>Multiple interaction modes</strong>: Supports zoom/pan, filtering, hover, and click interactions simultaneously</li>
+<li><strong>Reference linking</strong>: Click events link to a comprehensive References section with 51 curated sources</li>
+<li><strong>Category organization</strong>: 6 thematic categories help users navigate 70 years of AI history systematically</li>
+</ol>
+<p>While this timeline uses vis-timeline.js rather than p5.js, it exemplifies the MicroSim philosophy: focused scope (AI history leading to Claude), high interactivity (multiple input modes), and clear educational purpose (understanding technological foundations). The principles of seeded randomness, interactive controls, and metadata that we'll explore with p5.js apply equally to timeline-based visualizations.</p>
 <h2 id="the-p5js-foundation">The p5.js Foundation</h2>
 <p>MicroSims in this textbook framework are built using p5.js, a JavaScript library designed to make coding accessible for artists, designers, educators, and beginners. Created by Lauren McCarthy in 2013, p5.js is a modern interpretation of Processing, the influential creative coding framework originally developed by Ben Fry and Casey Reas. The library provides a gentle learning curve for educators who may not have extensive programming backgrounds, while still offering the power needed to create sophisticated visualizations.</p>
 <p>The p5.js library excels in educational contexts for several key reasons. First, it uses an intuitive immediate-mode graphics paradigm where you simply call functions to draw shapes, eliminating the complexity of retained-mode graphics APIs. Second, it provides built-in animation loops through the <code>draw()</code> function that executes continuously, making it straightforward to create dynamic visualizations without managing timers or animation frameworks. Third, it includes extensive support for interactivity through mouse, keyboard, and touch events, allowing students to manipulate simulations naturally.</p>
