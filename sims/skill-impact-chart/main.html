@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Impact vs Effort Priority Matrix</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="chart-container">
+        <canvas id="priorityMatrix"></canvas>
+    </div>
+    <div class="legend-container">
+        <h3>Quadrant Analysis</h3>
+        <div class="quadrant">
+            <div class="quadrant-label high-impact-low-effort">High Impact, Low Effort (Priority 1)</div>
+            <ul id="q1-items"></ul>
+        </div>
+        <div class="quadrant">
+            <div class="quadrant-label high-impact-high-effort">High Impact, High Effort (Priority 2)</div>
+            <ul id="q2-items"></ul>
+        </div>
+        <div class="quadrant">
+            <div class="quadrant-label low-impact-low-effort">Low Impact, Low Effort (Priority 3)</div>
+            <ul id="q3-items"></ul>
+        </div>
+        <div class="quadrant">
+            <div class="quadrant-label low-impact-high-effort">Low Impact, High Effort (Priority 4)</div>
+            <ul id="q4-items"></ul>
+        </div>
+    </div>
+
+    <script>
+        // Data from the priority matrix table
+        const data = [
+            { type: 'Graph Model', count: 10, impact: 6.7, effort: 1, priority: 6.67, status: 'Exists' },
+            { type: 'Microsim', count: 5, impact: 3.3, effort: 0, priority: 3.33, status: 'Exists' },
+            { type: 'Diagram', count: 15, impact: 10, effort: 4, priority: 2.5, status: 'Build' },
+            { type: 'Infographic', count: 5, impact: 3.3, effort: 2, priority: 1.67, status: 'Build' },
+            { type: 'Chart', count: 9, impact: 6.0, effort: 5, priority: 1.2, status: 'Build' },
+            { type: 'Workflow', count: 7, impact: 4.7, effort: 6, priority: 0.78, status: 'Build' },
+            { type: 'Timeline', count: 3, impact: 2.0, effort: 7, priority: 0.29, status: 'Build' },
+            { type: 'Map', count: 1, impact: 0.7, effort: 5, priority: 0.13, status: 'Build' },
+            { type: 'Markdown Table', count: 1, impact: 0.7, effort: 5, priority: 0.13, status: 'Exists' },
+            { type: 'Portfolio Quadrant Chart', count: 1, impact: 0.7, effort: 5, priority: 0.13, status: 'Build' }
+        ];
+
+        // Color scheme based on status
+        const colors = {
+            'Build': 'rgba(220, 53, 69, 0.8)',  // Red
+            'Exists': 'rgba(40, 167, 69, 0.8)'  // Green
+        };
+
+        const borderColors = {
+            'Build': 'rgb(220, 53, 69)',
+            'Exists': 'rgb(40, 167, 69)'
+        };
+
+        // Calculate bubble sizes based on count (scale from 5 to 25)
+        const minCount = Math.min(...data.map(d => d.count));
+        const maxCount = Math.max(...data.map(d => d.count));
+
+        function getBubbleSize(count) {
+            const minSize = 8;
+            const maxSize = 30;
+            return minSize + ((count - minCount) / (maxCount - minCount)) * (maxSize - minSize);
+        }
+
+        // Prepare scatter plot data
+        const scatterData = data.map(item => ({
+            x: item.effort,
+            y: item.impact,
+            r: getBubbleSize(item.count),
+            label: item.type,
+            count: item.count,
+            priority: item.priority,
+            status: item.status
+        }));
+
+        // Group by status
+        const datasets = [
+            {
+                label: 'Build',
+                data: scatterData.filter(d => d.status === 'Build'),
+                backgroundColor: colors['Build'],
+                borderColor: borderColors['Build'],
+                borderWidth: 2
+            },
+            {
+                label: 'Exists',
+                data: scatterData.filter(d => d.status === 'Exists'),
+                backgroundColor: colors['Exists'],
+                borderColor: borderColors['Exists'],
+                borderWidth: 2
+            }
+        ];
+
+        // Create chart
+        const ctx = document.getElementById('priorityMatrix').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'bubble',
+            data: {
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Skill Development Priority Matrix: Impact vs Effort',
+                        font: {
+                            size: 18,
+                            weight: 'bold'
+                        },
+                        padding: 20
+                    },
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            font: {
+                                size: 12
+                            },
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const item = context.raw;
+                                return [
+                                    `Type: ${item.label}`,
+                                    `Count: ${item.count}`,
+                                    `Impact: ${item.y}`,
+                                    `Effort: ${item.x}`,
+                                    `Priority Score: ${item.priority}`,
+                                    `Status: ${item.status}`
+                                ];
+                            }
+                        }
+                    },
+                    annotation: {
+                        annotations: {
+                            // Quadrant dividers
+                            verticalLine: {
+                                type: 'line',
+                                xMin: 5,
+                                xMax: 5,
+                                borderColor: 'rgba(128, 128, 128, 0.3)',
+                                borderWidth: 2,
+                                borderDash: [5, 5]
+                            },
+                            horizontalLine: {
+                                type: 'line',
+                                yMin: 5,
+                                yMax: 5,
+                                borderColor: 'rgba(128, 128, 128, 0.3)',
+                                borderWidth: 2,
+                                borderDash: [5, 5]
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Effort (Dissimilarity to Existing MicroSims) →',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        min: -1,
+                        max: 10,
+                        ticks: {
+                            stepSize: 1
+                        },
+                        grid: {
+                            color: 'rgba(200, 200, 200, 0.2)'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Impact (Frequency) →',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        min: 0,
+                        max: 12,
+                        ticks: {
+                            stepSize: 1
+                        },
+                        grid: {
+                            color: 'rgba(200, 200, 200, 0.2)'
+                        }
+                    }
+                }
+            },
+            plugins: [{
+                afterDraw: function(chart) {
+                    const ctx = chart.ctx;
+                    const chartArea = chart.chartArea;
+                    const xMid = (chartArea.left + chartArea.right) / 2;
+                    const yMid = (chartArea.top + chartArea.bottom) / 2;
+
+                    ctx.save();
+                    ctx.globalAlpha = 0.05;
+                    ctx.fillStyle = 'green';
+                    ctx.fillRect(chartArea.left, chartArea.top, xMid - chartArea.left, yMid - chartArea.top);
+
+                    ctx.fillStyle = 'yellow';
+                    ctx.fillRect(xMid, chartArea.top, chartArea.right - xMid, yMid - chartArea.top);
+
+                    ctx.fillStyle = 'lightblue';
+                    ctx.fillRect(chartArea.left, yMid, xMid - chartArea.left, chartArea.bottom - yMid);
+
+                    ctx.fillStyle = 'red';
+                    ctx.fillRect(xMid, yMid, chartArea.right - xMid, chartArea.bottom - yMid);
+                    ctx.restore();
+
+                    // Add labels to each point
+                    chart.data.datasets.forEach((dataset, datasetIndex) => {
+                        const meta = chart.getDatasetMeta(datasetIndex);
+                        meta.data.forEach((element, index) => {
+                            const dataPoint = dataset.data[index];
+                            ctx.fillStyle = '#333';
+                            ctx.font = 'bold 10px Arial';
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            ctx.fillText(
+                                `${dataPoint.label} (n=${dataPoint.count})`,
+                                element.x,
+                                element.y - element.options.radius - 8
+                            );
+                        });
+                    });
+                }
+            }]
+        });
+
+        // Populate quadrant analysis lists
+        function populateQuadrants() {
+            const q1 = document.getElementById('q1-items'); // High Impact, Low Effort
+            const q2 = document.getElementById('q2-items'); // High Impact, High Effort
+            const q3 = document.getElementById('q3-items'); // Low Impact, Low Effort
+            const q4 = document.getElementById('q4-items'); // Low Impact, High Effort
+
+            data.forEach(item => {
+                const li = document.createElement('li');
+                const statusIcon = item.status === 'Exists' ? '✅' : '🔨';
+                li.innerHTML = `<strong>${item.type}</strong> (Impact: ${item.impact}, Effort: ${item.effort}, Count: ${item.count}) ${statusIcon}`;
+
+                // Determine quadrant (using 5 as midpoint)
+                if (item.impact > 5 && item.effort <= 5) {
+                    q1.appendChild(li);
+                } else if (item.impact > 5 && item.effort > 5) {
+                    q2.appendChild(li);
+                } else if (item.impact <= 5 && item.effort <= 5) {
+                    q3.appendChild(li);
+                } else {
+                    q4.appendChild(li);
+                }
+            });
+
+            // Add "None" message if quadrant is empty
+            [q1, q2, q3, q4].forEach(ul => {
+                if (ul.children.length === 0) {
+                    const li = document.createElement('li');
+                    li.textContent = 'None';
+                    li.style.color = '#888';
+                    ul.appendChild(li);
+                }
+            });
+        }
+
+        populateQuadrants();
+    </script>
+</body>
+</html>

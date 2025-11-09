@@ -249,6 +249,10 @@
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/prompts/generate-diagram-skill-priorities/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/prompts/generate-references/</loc>
          <lastmod>2025-11-09</lastmod>
     </url>
@@ -293,15 +297,19 @@
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/skill-impact-chart/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/</loc>
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/add-glossary-links/</loc>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/book-chapter-generator/</loc>
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/book-chapter-generator/</loc>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/bubble-chart-generator/</loc>
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
@@ -325,7 +333,19 @@
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/intelligent-textbook-creator/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/intelligent-textbook/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/learning-graph-generator/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/mermaid-generator/</loc>
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
@@ -333,7 +353,27 @@
          <lastmod>2025-11-09</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/moving-rainbow/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/quiz-generator/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/reference-generator/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/timeline-generator/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/venn-diagram-generator/</loc>
+         <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/vis-network/</loc>
          <lastmod>2025-11-09</lastmod>
     </url>
 </urlset>
