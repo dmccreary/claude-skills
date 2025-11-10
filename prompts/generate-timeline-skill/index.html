@@ -1544,7 +1544,7 @@ generic. </p>
   ⎿  Wrote 84 lines to skills/timeline-generator/resources/template-timeline.json
      {
        "title": "Sample Timeline",
-       "events": [
+       "events": `[
          {
            "start_date": {
              "year": "2020",
@@ -1572,8 +1572,8 @@ generic. </p>
   ⎿  Wrote 119 lines to skills/timeline-generator/resources/template-index.md
      # {{TIMELINE_TITLE}}
      {{TIMELINE_OVERVIEW_TEXT}}
-     <a href="./main.html">Run the {{TIMELINE_TITLE}}</a>
-     <a href="timeline.json">View the Raw Timeline Data</a>
+     <code>[Run the {{TIMELINE_TITLE}}](./main.html)</code>
+     `<a href="timeline.json">View the Raw Timeline Data</a>
      ## Overview
      … +109 lines (ctrl+o to expand)</p>
 <p>⏺ Write(skills/timeline-generator/resources/README.md)
