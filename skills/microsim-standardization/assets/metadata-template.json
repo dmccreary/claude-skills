@@ -1,0 +1,40 @@
+{
+  "title": "MicroSim Title",
+  "description": "Detailed description of the MicroSim's purpose, functionality, and educational value",
+  "creator": "Author Name or Organization",
+  "date": "2025-01-01",
+  "subject": [
+    "Keyword 1",
+    "Keyword 2",
+    "Keyword 3"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "contributor": [
+    "Contributor Name 1",
+    "Contributor Name 2"
+  ],
+  "identifier": "https://your-domain.github.io/path/to/sims/microsim-name/",
+  "publisher": "Organization or Publisher Name",
+  "educationalLevel": "High School",
+  "learningResourceType": "simulation",
+  "audience": "Students, Educators",
+  "version": "1.0.0",
+  "bloomLevel": [
+    "Understand",
+    "Apply",
+    "Analyze"
+  ],
+  "concepts": [
+    "Concept 1",
+    "Concept 2",
+    "Concept 3"
+  ],
+  "prerequisites": [
+    "Prerequisite Concept 1",
+    "Prerequisite Concept 2"
+  ],
+  "library": "p5.js"
+}

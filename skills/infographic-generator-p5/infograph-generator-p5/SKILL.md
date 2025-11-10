@@ -1,12 +1,12 @@
 ---
 name: infographic-generator-p5
-description: This skill generates interactive infographic visualizations using p5.js that read vis-network compatible JSON data. Use this skill when creating educational infographics with nodes, edges, and hover interactions where users can explore relationships between concepts. Each infographic displays shapes with labels, shows tooltips on hover, and displays detailed descriptions in a control panel below the drawing area.
+description: This skill generates interactive infographic visualizations using p5.js that read vis-network compatible JSON data. Use this skill when creating educational infographics with nodes, edges, and hover interactions where users can explore relationships between concepts. Each infographic displays shapes with labels, shows tooltips on hover, and displays detailed descriptions in a control panel below the drawing area. The nodes are placed in absolute coordinates.  The output is not a responsive design.
 ---
 # Infographic Generator with P5.js
 
 ## Overview
 
-Generate interactive educational infographics using p5.js that visualize relationships between concepts through nodes and edges. Infographics are data-driven visualizations that read from JSON files in vis-network format, allowing users to hover over elements to see detailed information.
+Generate interactive educational infographics using p5.js that visualize relationships between concepts through nodes and edges. Infographics are data-driven visualizations that read from JSON files in vis-network format, allowing users to hover over elements to see a short definition in a tooltip and detailed information with links below the drawing area.
 
 ## Purpose
 
@@ -19,8 +19,13 @@ Use this skill when:
 - Creating concept maps, mind maps, or knowledge graphs
 - Visualizing relationships between topics, ideas, or entities
 - Building interactive diagrams for educational content
-- Converting vis-network data into standalone p5.js visualizations
-- Creating hover-based information exploration interfaces
+- Converting vis-network data into standalone p5.js visualizations with enhanced behaviors
+- Creating hover and click through based information exploration interfaces
+
+## When to Avoid This Skill
+
+- When you want a fully responsive design that keeps the items in the center regardless of the container size
+- When you have complex diagrams where the edges that connect the concepts must be routed using curves and multiple points in a path description
 
 ## Key Differences from MicroSim
 
@@ -570,6 +575,12 @@ Visualize components and their relationships in complex systems.
 
 ### Knowledge Graphs
 Create explorable networks of related topics or ideas.
+
+## Areas for Extension
+
+- make the design responsive
+- allow items to be placed relative to other items (above, below, right-of, left-of)
+- create animated lines between items to show flows
 
 ## References
 
