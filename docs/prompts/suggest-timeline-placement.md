@@ -53,11 +53,11 @@
   <details markdown="1">
       <summary>Evolution of AI Approaches Timeline</summary>
 
-  Explore the complete [Evolution of AI: From Neural Networks to Claude
-  Code](../../sims/claude-code-timeline/index.md) interactive timeline, chronicling 52
+  Explore the complete `[Evolution of AI: From Neural Networks to Claude
+  Code](../../sims/claude-code-timeline/index.md)` interactive timeline, chronicling 52
   pivotal moments from the Perceptron (1957) to Claude Skills (2025).
 
-  [View Interactive Timeline](../../sims/claude-code-timeline/main.html){ .md-button
+  `[View Interactive Timeline](../../sims/claude-code-timeline/main.html)`{ .md-button
   .md-button--primary }
   </details>
 
@@ -76,12 +76,12 @@
   Suggested placement:
   ## Example: Claude Code Timeline MicroSim
 
-  The [Claude Code Timeline](../../sims/claude-code-timeline/index.md) demonstrates a
+  The `[Claude Code Timeline](../../sims/claude-code-timeline/index.md)` demonstrates a
   production-quality timeline MicroSim built with vis-timeline.js. This example showcases
    category filtering, hover tooltips, event detail displays, and comprehensive reference
    documentation.
 
-  [Explore the Timeline](../../sims/claude-code-timeline/main.html){ .md-button }
+  `[Explore the Timeline](../../sims/claude-code-timeline/main.html)`{ .md-button }
 
   ---
   Tertiary Recommendation: Chapter 2 - Getting Started with Claude and Skills
@@ -93,7 +93,7 @@
 
   Suggested placement:
   To understand how Claude Skills emerged from decades of AI research, explore the
-  [Evolution of AI timeline](../../sims/claude-code-timeline/index.md), which traces 52
+  `[Evolution of AI timeline](../../sims/claude-code-timeline/index.md)`, which traces 52
   critical moments from early neural networks through the Claude Skills announcement in
   2025.
 
@@ -126,8 +126,8 @@
           + textbook creation tools.
        52    
        53 -      Orientation: Horizontal
-       53 +  **[View the Evolution of AI: From Neural Networks to Claude Code 
-          + Timeline](../../sims/claude-code-timeline/index.md)**
+       53 +  **`[View the Evolution of AI: From Neural Networks to Claude Code 
+          + Timeline](../../sims/claude-code-timeline/index.md)`**
        54    
        55 -      Events:
        56 -      - 1950: Turing Test proposed - philosophical foundation for machine 
@@ -149,7 +149,7 @@
        67 -      - 2023: GPT-4, Claude, and multimodal models - human-level 
           - performance on many tasks
        68 -      - 2024-2025: Agentic AI and specialized professional tools
-       55 +  [Launch Interactive Timeline](../../sims/claude-code-timeline/main.html){
+       55 +  `[Launch Interactive Timeline](../../sims/claude-code-timeline/main.html)`{
           +  .md-button .md-button--primary }
        56    
        57 -      Visual style: Horizontal timeline with alternating above/below 
@@ -198,8 +198,8 @@
        53 +  
        54 +  Before diving into p5.js-based MicroSims, let's examine a 
           + production-quality example that demonstrates professional MicroSim design 
-          + patterns. The **[Evolution of AI: From Neural Networks to Claude 
-          + Code](../../sims/claude-code-timeline/index.md)** timeline showcases a 
+          + patterns. The **`[Evolution of AI: From Neural Networks to Claude 
+          + Code](../../sims/claude-code-timeline/index.md)`** timeline showcases a 
           + different approach to interactive visualization using the vis-timeline.js 
           + library.
        55 +  
@@ -217,8 +217,8 @@
        62 +  - **Professional polish**: Responsive design, smooth animations, clear 
           + visual hierarchy
        63 +  
-       64 +  [Explore the Interactive 
-          + Timeline](../../sims/claude-code-timeline/main.html){ .md-button 
+       64 +  `[Explore the Interactive 
+          + Timeline](../../sims/claude-code-timeline/main.html)`{ .md-button 
           + .md-button--primary }
        65 +  
        66 +  **Key takeaways for MicroSim developers:**
@@ -266,8 +266,8 @@
        48 +  !!! info "Historical Context: The Evolution to Claude Skills"
        49 +      Claude Skills emerged from decades of AI research and development. To
           +  understand the technological foundations that made skills possible, 
-          + explore the **[Evolution of AI: From Neural Networks to Claude 
-          + Code](../../sims/claude-code-timeline/index.md)** interactive timeline. 
+          + explore the **`[Evolution of AI: From Neural Networks to Claude 
+          + Code](../../sims/claude-code-timeline/index.md)`** interactive timeline. 
           + This visualization traces 52 pivotal moments from the Perceptron (1957) 
           + through transformers, large language models, and Constitutional AI, 
           + culminating in Claude Code and the official Claude Skills announcement in 
@@ -288,8 +288,8 @@
        58 +      - **2024-2025**: Claude Code and Skills formalizing AI-assisted 
           + development workflows
        59 +  
-       60 +      [View Interactive 
-          + Timeline](../../sims/claude-code-timeline/main.html){ .md-button }
+       60 +      `[View Interactive 
+          + Timeline](../../sims/claude-code-timeline/main.html)`{ .md-button }
        61 +  
        62    Key distinctions between skills and general prompts:
        63    

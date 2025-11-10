@@ -230,11 +230,11 @@
      # Chapters
      This textbook is organized into 12 chapters covering 200 concepts.
      ## Chapter Overview
-     1. [Introduction to ITIL and Configuration 
-     Management](01-intro-to-itil-and-config-mgmt/index.md) - This foundational chapter introduces
+     1. `[Introduction to ITIL and Configuration 
+     Management](01-intro-to-itil-and-config-mgmt/index.md)` - This foundational chapter introduces
      ITIL framework, configuration items, CMDB concepts, and traditional IT service management
      processes that set the stage for understanding why legacy approaches have limitations.
-     2. [IT Asset Management Fundamentals](02-it-asset-management/index.md) - This chapter covers
+     2. `[IT Asset Management Fundamentals](02-it-asset-management/index.md) - This chapter covers
      asset management principles including IT assets, hardware assets, software assets, and their
      relationship to configuration management.
      … +28 lines (ctrl+o to expand)

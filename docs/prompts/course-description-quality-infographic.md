@@ -142,7 +142,7 @@ description: <summary>Course Description Quality Impact on Workflow</summary>
      # Course Description Quality Impact on Workflow
      <iframe src="main.html" width="100%" height="870px" style="border: 1px solid #ddd; 
      border-radius: 8px;" scrolling="no"></iframe>
-     [View Fullscreen](./main.html){ .md-button .md-button--primary }
+     `[View Fullscreen](./main.html){ .md-button .md-button--primary }
      … +108 lines (ctrl+o to expand)
 
 ⏺ Read(mkdocs.yml)

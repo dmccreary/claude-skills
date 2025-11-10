@@ -76,7 +76,7 @@ Sonnet 4.5 · Claude Pro
   ⎿  Wrote 84 lines to skills/timeline-generator/resources/template-timeline.json
      {
        "title": "Sample Timeline",
-       "events": [
+       "events": `[
          {
            "start_date": {
              "year": "2020",
@@ -106,8 +106,8 @@ Sonnet 4.5 · Claude Pro
   ⎿  Wrote 119 lines to skills/timeline-generator/resources/template-index.md
      # {{TIMELINE_TITLE}}
      {{TIMELINE_OVERVIEW_TEXT}}
-     [Run the {{TIMELINE_TITLE}}](./main.html)
-     [View the Raw Timeline Data](timeline.json)
+     `[Run the {{TIMELINE_TITLE}}](./main.html)`
+     `[View the Raw Timeline Data](timeline.json)
      ## Overview
      … +109 lines (ctrl+o to expand)
 

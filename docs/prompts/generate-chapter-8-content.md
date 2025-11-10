@@ -298,8 +298,7 @@
        186 +  site_name: Course Title
        187 +  site_description: Brief description for search engines and social media
        188 +  site_author: Author Name
-       189 +  site_url: https://username.github.io/project-name/
-       190 +  
+       189 +  site_url: `https://username.github.io/project-name/`       190 +  
        191 +  theme:
        192 +    name: material
        193 +    palette:

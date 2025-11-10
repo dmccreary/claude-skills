@@ -36,7 +36,7 @@ Sonnet 4.5 · Claude Pro
   ⎿  Wrote 447 lines to docs/sims/claude-code-timeline/timeline.json                    
      {
        "title": "Evolution of AI: From Neural Networks to Claude Code",
-       "events": [
+       "events": `[
          {
            "start_date": {"year": "1957", "month": "7", "day": "1"},
            "text": {
@@ -73,8 +73,8 @@ Sonnet 4.5 · Claude Pro
      An interactive timeline visualization chronicling 50 pivotal moments in artificial
      intelligence history, from the invention of the Perceptron in 1957 to the
      development of Claude Code Skills in 2025.
-     [Run the Claude Code Timeline](./main.html){ .md-button .md-button--primary }
-     [View the Raw Timeline Data](timeline.json){ .md-button }
+     `[Run the Claude Code Timeline](./main.html)`{ .md-button .md-button--primary }
+     `[View the Raw Timeline Data](timeline.json){ .md-button }
      ## Overview
      … +336 lines (ctrl+o to expand)
 
@@ -490,12 +490,12 @@ Sonnet 4.5 · Claude Pro
         5 +  
         6 +  ## Available MicroSims
         7 +  
-        8 +  - [Graph Viewer](./graph-viewer/index.md) - Interactive learning graph 
+        8 +  - `[Graph Viewer](./graph-viewer/index.md) - Interactive learning graph 
           + visualization
-        9 +  - [Concept Length Histogram](./concept-length-histogram/index.md) - 
+        9 +  - `[Concept Length Histogram](./concept-length-histogram/index.md) - 
           + Distribution analysis of concept label lengths
-       10 +  - [Timeline](./timeline/index.md) - Historical timeline visualization
-       11 +  - [Claude Code Timeline](./claude-code-timeline/index.md) - Evolution of 
+       10 +  - `[Timeline](./timeline/index.md) - Historical timeline visualization
+       11 +  - `[Claude Code Timeline](./claude-code-timeline/index.md) - Evolution of 
           + AI from neural networks to Claude Code
        12   \ No newline at end of file
 

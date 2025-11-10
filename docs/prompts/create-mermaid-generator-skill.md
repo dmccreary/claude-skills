@@ -57,7 +57,7 @@
       /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator/references/a…)
   ⎿  (No content)
 
-⏺ Fetch(https://mermaid.js.org/syntax/flowchart.html)
+⏺ Fetch(`https://mermaid.js.org/syntax/flowchart.html`)
   ⎿  Received 188.5KB (200 OK)
 
 ⏺ Now I'll create the Mermaid syntax reference documentation:

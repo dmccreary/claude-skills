@@ -78,13 +78,13 @@ Sonnet 4.5 · Claude Pro
 
 ⏺ Now let me research the venn.js library from its GitHub repository:
 
-⏺ Fetch(https://github.com/benfred/venn.js/)
+⏺ Fetch(`https://github.com/benfred/venn.js/`)
   ⎿  Received 339.6KB (200 OK)
 
 ⏺ Web Search("venn.js CDN jsdelivr unpkg 2024 2025")
   ⎿  Did 1 search in 17s                                                                           
 
-⏺ Fetch(https://cdnjs.com/libraries/venn.js/0.2.14)
+⏺ Fetch(`https://cdnjs.com/libraries/venn.js/0.2.14`)
   ⎿  Received 91.1KB (200 OK)
 
 ⏺ Now let me create the template files for the venn-diagram-generator skill. First, let me create

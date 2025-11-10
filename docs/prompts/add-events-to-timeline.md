@@ -93,7 +93,7 @@
          +   pivotal moments in artificial intelligence history, from the invention of
          +   the Perceptron in 1957 to the official release of Claude Code in 2025.
        4    
-       5    [Run the Claude Code Timeline](./main.html){ .md-button 
+       5    `[Run the Claude Code Timeline](./main.html){ .md-button 
            .md-button--primary }
        6    
 
@@ -164,8 +164,7 @@
 
   2. index.md - Reference Added
 
-  - Added reference #50: https://www.anthropic.com/news/claude-code
-  - Updated event counts from 50 to 51 throughout the documentation
+  - Added reference #50: `https://www.anthropic.com/news/claude-code`  - Updated event counts from 50 to 51 throughout the documentation
   - Renumbered Additional Resources to #51-52
 
   3. main.html - UI Updated
@@ -187,8 +186,7 @@
    the official production release of Claude Code on February 24, 2025.
 
 > Add 'Claude Skills Announcement' were officially announced on October 16, 2025 and link
- it to this blog: https://www.claude.com/blog/skills 
-
+ it to this blog: `https://www.claude.com/blog/skills`
 ⏺ I'll add the "Claude Skills Announcement" event for October 16, 2025.
 
 ⏺ Update(docs/sims/claude-code-timeline/timeline.json)
@@ -274,7 +272,7 @@
          +   the Perceptron in 1957 to the official announcement of Claude Skills
          +   in 2025.
        4    
-       5    [Run the Claude Code Timeline](./main.html){ .md-button 
+       5    `[Run the Claude Code Timeline](./main.html){ .md-button 
            .md-button--primary }
        6    
 
@@ -350,8 +348,7 @@
 
   2. index.md - Reference Added
 
-  - Added reference #51: https://www.claude.com/blog/skills
-  - Updated event counts from 51 to 52 throughout
+  - Added reference #51: `https://www.claude.com/blog/skills`  - Updated event counts from 51 to 52 throughout
   - Renumbered Additional Resources to #52-53
   - Updated subtitle to mention "announcement of Claude Skills in 2025"
 
