@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolution of AI: From Neural Networks to Claude Code</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.7.3/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.7.3/vis-timeline-graph2d.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .controls {
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .filter-btn.active {
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.5);
+            transform: scale(1.05);
+        }
+
+        #timeline {
+            height: 600px;
+            margin: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+        }
+
+        .info-panel {
+            padding: 30px;
+            background: #f8f9fa;
+            border-top: 2px solid #dee2e6;
+        }
+
+        .legend {
+            margin-bottom: 25px;
+        }
+
+        .legend h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .legend-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .legend-label {
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .event-details {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            display: none;
+        }
+
+        .event-details.visible {
+            display: block;
+        }
+
+        .event-details h3 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .event-date {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .event-description {
+            line-height: 1.6;
+            color: #333;
+            font-size: 1.05em;
+            margin-bottom: 15px;
+        }
+
+        .event-notes {
+            background: #e7f3ff;
+            padding: 15px;
+            border-left: 4px solid #2a5298;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .event-notes strong {
+            color: #1e3c72;
+        }
+
+        .reference-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #2a5298;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .reference-link:hover {
+            color: #667eea;
+        }
+
+        .usage-instructions {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .usage-instructions h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .usage-instructions ul {
+            list-style-position: inside;
+            color: #856404;
+        }
+
+        .usage-instructions li {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            #timeline {
+                height: 400px;
+                margin: 10px;
+            }
+
+            .legend-items {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Evolution of AI: From Neural Networks to Claude Code</h1>
+            <p class="subtitle">A chronological journey through 52 pivotal moments that shaped modern AI</p>
+        </header>
+
+        <div class="controls">
+            <div class="filter-buttons" id="filterButtons">
+                <button class="filter-btn active" onclick="filterCategory('all')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    All Events (52)
+                </button>
+            </div>
+        </div>
+
+        <div id="timeline"></div>
+
+        <div class="info-panel">
+            <div class="usage-instructions">
+                <h4>How to Use This Timeline</h4>
+                <ul>
+                    <li><strong>Zoom:</strong> Scroll to zoom in/out on the timeline</li>
+                    <li><strong>Pan:</strong> Click and drag to move across different time periods</li>
+                    <li><strong>Hover:</strong> Hover over events to see historical context notes</li>
+                    <li><strong>Click:</strong> Click any event to view full details and references below</li>
+                    <li><strong>Filter:</strong> Use category buttons above to focus on specific technology areas</li>
+                </ul>
+            </div>
+
+            <div class="legend">
+                <h3>Event Categories</h3>
+                <div class="legend-items" id="legendItems"></div>
+            </div>
+
+            <div class="event-details" id="eventDetails">
+                <h3 id="eventTitle">Select an event to view details</h3>
+                <p class="event-date" id="eventDate"></p>
+                <p class="event-description" id="eventDescription"></p>
+                <div class="event-notes" id="eventNotes"></div>
+                <a href="index.md#references" class="reference-link" id="referenceLink">View References →</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Category color scheme
+        const categoryColors = {
+            'Deep Learning Foundations': '#e63946',
+            'GPUs Train Deep Neural Nets': '#f77f00',
+            'Transformers Era': '#06a77d',
+            'Large Language Models': '#118ab2',
+            'Anthropic & Claude': '#6a4c93',
+            'Developer Tools & Skills': '#d62828'
+        };
+
+        let timeline;
+        let allItems = [];
+        let timelineData;
+
+        // Load timeline data
+        fetch('timeline.json')
+            .then(response => response.json())
+            .then(data => {
+                initializeTimeline(data);
+            })
+            .catch(error => console.error('Error loading timeline data:', error));
+
+        function initializeTimeline(data) {
+            // Convert JSON data to vis-timeline format
+            allItems = data.events.map((event, index) => {
+                const year = event.start_date.year;
+                const month = event.start_date.month || 1;
+                const day = event.start_date.day || 1;
+                const startDate = new Date(parseInt(year), month - 1, day);
+
+                return {
+                    id: `event-${index}`,
+                    content: event.text.headline,
+                    start: startDate,
+                    title: event.notes || event.text.headline,
+                    className: event.group.replace(/\s+/g, '-').toLowerCase(),
+                    style: `background-color: ${categoryColors[event.group]}; color: white; border-color: ${categoryColors[event.group]};`,
+                    category: event.group,
+                    eventData: event
+                };
+            });
+
+            // Create DataSet
+            timelineData = new vis.DataSet(allItems);
+
+            // Timeline options
+            const options = {
+                width: '100%',
+                height: '600px',
+                margin: {
+                    item: 20,
+                    axis: 40
+                },
+                orientation: 'top',
+                zoomMin: 1000 * 60 * 60 * 24 * 365 * 5,  // 5 years
+                zoomMax: 1000 * 60 * 60 * 24 * 365 * 200, // 200 years
+                tooltip: {
+                    followMouse: true,
+                    overflowMethod: 'cap'
+                },
+                stack: true,
+                selectable: true,
+                multiselect: false,
+                verticalScroll: false,
+                horizontalScroll: true
+            };
+
+            // Create timeline
+            const container = document.getElementById('timeline');
+            timeline = new vis.Timeline(container, timelineData, options);
+
+            // Event selection handler
+            timeline.on('select', function(properties) {
+                if (properties.items.length > 0) {
+                    const itemId = properties.items[0];
+                    const item = allItems.find(i => i.id === itemId);
+                    showEventDetails(item);
+                }
+            });
+
+            // Generate filter buttons and legend
+            generateFiltersAndLegend();
+
+            // Fit timeline to data
+            timeline.fit();
+        }
+
+        function generateFiltersAndLegend() {
+            const categories = Object.keys(categoryColors);
+            const filterButtons = document.getElementById('filterButtons');
+            const legendItems = document.getElementById('legendItems');
+
+            categories.forEach(category => {
+                const count = allItems.filter(item => item.category === category).length;
+
+                // Create filter button
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.style.backgroundColor = categoryColors[category];
+                btn.textContent = `${category} (${count})`;
+                btn.onclick = () => filterCategory(category);
+                filterButtons.appendChild(btn);
+
+                // Create legend item
+                const legendItem = document.createElement('div');
+                legendItem.className = 'legend-item';
+                legendItem.innerHTML = `
+                    <div class="legend-color" style="background-color: ${categoryColors[category]}"></div>
+                    <span class="legend-label">${category}</span>
+                `;
+                legendItems.appendChild(legendItem);
+            });
+        }
+
+        function filterCategory(category) {
+            // Update active button
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter timeline
+            if (category === 'all') {
+                timelineData.clear();
+                timelineData.add(allItems);
+            } else {
+                const filtered = allItems.filter(item => item.category === category);
+                timelineData.clear();
+                timelineData.add(filtered);
+            }
+
+            // Fit timeline to filtered data
+            timeline.fit();
+        }
+
+        function showEventDetails(item) {
+            const details = document.getElementById('eventDetails');
+            const event = item.eventData;
+
+            document.getElementById('eventTitle').textContent = event.text.headline;
+
+            const date = new Date(item.start);
+            const dateStr = date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            document.getElementById('eventDate').textContent = dateStr;
+
+            document.getElementById('eventDescription').textContent = event.text.text;
+
+            const notesDiv = document.getElementById('eventNotes');
+            notesDiv.innerHTML = `<strong>Historical Context:</strong> ${event.notes}`;
+
+            details.classList.add('visible');
+            details.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>

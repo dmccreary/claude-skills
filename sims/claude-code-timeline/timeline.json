@@ -1,0 +1,473 @@
+{
+  "title": "Evolution of AI: From Neural Networks to Claude Code",
+  "events": [
+    {
+      "start_date": {"year": "1957", "month": "7", "day": "1"},
+      "text": {
+        "headline": "Perceptron Invented",
+        "text": "Frank Rosenblatt develops the Perceptron, the first artificial neural network capable of learning through supervised training."
+      },
+      "group": "Deep Learning Foundations",
+      "notes": "The Perceptron laid the groundwork for modern neural networks, introducing the concept of weighted connections and learning from examples."
+    },
+    {
+      "start_date": {"year": "1986", "month": "9", "day": "1"},
+      "text": {
+        "headline": "Backpropagation Popularized",
+        "text": "Rumelhart, Hinton, and Williams publish groundbreaking paper on backpropagation algorithm for training multi-layer neural networks."
+      },
+      "group": "Deep Learning Foundations",
+      "notes": "Backpropagation became the fundamental algorithm for training deep neural networks, enabling the modern AI revolution."
+    },
+    {
+      "start_date": {"year": "1997", "month": "11", "day": "1"},
+      "text": {
+        "headline": "LSTM Networks Introduced",
+        "text": "Sepp Hochreiter and Jürgen Schmidhuber introduce Long Short-Term Memory networks to solve the vanishing gradient problem."
+      },
+      "group": "Deep Learning Foundations",
+      "notes": "LSTMs enabled neural networks to learn long-term dependencies, crucial for language modeling and sequence prediction."
+    },
+    {
+      "start_date": {"year": "2006", "month": "7", "day": "1"},
+      "text": {
+        "headline": "Deep Learning Revival",
+        "text": "Geoffrey Hinton publishes papers on deep belief networks, sparking renewed interest in deep learning."
+      },
+      "group": "Deep Learning Foundations",
+      "notes": "Hinton's work demonstrated that deep networks could be effectively trained, launching the modern deep learning era."
+    },
+    {
+      "start_date": {"year": "2009", "month": "1", "day": "1"},
+      "text": {
+        "headline": "ImageNet Dataset Released",
+        "text": "Fei-Fei Li's team releases ImageNet, a massive visual database with millions of labeled images for computer vision research."
+      },
+      "group": "Deep Learning Foundations",
+      "notes": "ImageNet became the benchmark dataset that drove computer vision advances and the deep learning revolution."
+    },
+    {
+      "start_date": {"year": "2012", "month": "9", "day": "30"},
+      "text": {
+        "headline": "AlexNet Wins ImageNet",
+        "text": "Alex Krizhevsky's AlexNet wins ImageNet competition by large margin, proving deep learning's superiority in computer vision."
+      },
+      "group": "GPUs Train Deep Neural Nets",
+      "notes": "AlexNet's victory marked the beginning of deep learning dominance in AI, demonstrating the power of deep convolutional networks and GPUs."
+    },
+    {
+      "start_date": {"year": "2013", "month": "1", "day": "16"},
+      "text": {
+        "headline": "Word2Vec Released",
+        "text": "Google researchers release Word2Vec, enabling efficient learning of word embeddings that capture semantic relationships."
+      },
+      "group": "GPUs Train Deep Neural Nets",
+      "notes": "Word2Vec revolutionized NLP by representing words as dense vectors, enabling machines to understand semantic similarity."
+    },
+    {
+      "start_date": {"year": "2014", "month": "6", "day": "10"},
+      "text": {
+        "headline": "GANs Introduced",
+        "text": "Ian Goodfellow introduces Generative Adversarial Networks, enabling realistic synthetic data generation."
+      },
+      "group": "GPUs Train Deep Neural Nets",
+      "notes": "GANs pioneered adversarial training and became foundational for generative AI, including image and text generation."
+    },
+    {
+      "start_date": {"year": "2014", "month": "9", "day": "8"},
+      "text": {
+        "headline": "Sequence-to-Sequence Learning",
+        "text": "Google researchers introduce seq2seq models with attention, revolutionizing machine translation and text generation."
+      },
+      "group": "GPUs Train Deep Neural Nets",
+      "notes": "Seq2seq models with attention mechanisms paved the way for modern language models and transformers."
+    },
+    {
+      "start_date": {"year": "2015", "month": "12", "day": "10"},
+      "text": {
+        "headline": "ResNet Architecture",
+        "text": "Microsoft Research introduces Residual Networks (ResNet), enabling training of networks with 100+ layers."
+      },
+      "group": "GPUs Train Deep Neural Nets",
+      "notes": "ResNet's skip connections solved the degradation problem, enabling much deeper and more powerful neural networks."
+    },
+    {
+      "start_date": {"year": "2016", "month": "3", "day": "15"},
+      "text": {
+        "headline": "AlphaGo Defeats Lee Sedol",
+        "text": "DeepMind's AlphaGo defeats world champion Lee Sedol in Go, demonstrating AI's strategic reasoning capabilities."
+      },
+      "group": "GPUs Train Deep Neural Nets",
+      "notes": "AlphaGo's victory showcased reinforcement learning and Monte Carlo tree search, expanding AI beyond pattern recognition."
+    },
+    {
+      "start_date": {"year": "2017", "month": "6", "day": "12"},
+      "text": {
+        "headline": "Attention Is All You Need",
+        "text": "Google researchers publish the Transformer paper, introducing self-attention mechanism that replaced recurrent architectures."
+      },
+      "group": "Transformers Era",
+      "notes": "The Transformer architecture became the foundation for all modern large language models, enabling parallel processing and long-range dependencies."
+    },
+    {
+      "start_date": {"year": "2018", "month": "6", "day": "11"},
+      "text": {
+        "headline": "GPT-1 Released",
+        "text": "OpenAI releases the first Generative Pre-trained Transformer, demonstrating the power of unsupervised pre-training."
+      },
+      "group": "Transformers Era",
+      "notes": "GPT-1 introduced the pre-training then fine-tuning paradigm that became standard for language models."
+    },
+    {
+      "start_date": {"year": "2018", "month": "10", "day": "11"},
+      "text": {
+        "headline": "BERT Published",
+        "text": "Google AI releases BERT, introducing bidirectional pre-training and achieving state-of-the-art on 11 NLP tasks."
+      },
+      "group": "Transformers Era",
+      "notes": "BERT's masked language modeling and bidirectional context understanding set new benchmarks across natural language understanding tasks."
+    },
+    {
+      "start_date": {"year": "2019", "month": "2", "day": "14"},
+      "text": {
+        "headline": "GPT-2 Released",
+        "text": "OpenAI releases GPT-2 (1.5B parameters), initially withholding full model due to safety concerns about text generation."
+      },
+      "group": "Transformers Era",
+      "notes": "GPT-2 demonstrated impressive zero-shot learning and coherent long-form text generation, raising awareness of AI safety issues."
+    },
+    {
+      "start_date": {"year": "2019", "month": "7", "day": "26"},
+      "text": {
+        "headline": "RoBERTa Improvements",
+        "text": "Facebook AI releases RoBERTa, showing that BERT was significantly undertrained and achieving better performance."
+      },
+      "group": "Transformers Era",
+      "notes": "RoBERTa demonstrated the importance of training procedures and data quality in language model performance."
+    },
+    {
+      "start_date": {"year": "2019", "month": "10", "day": "23"},
+      "text": {
+        "headline": "T5 Model Released",
+        "text": "Google introduces Text-to-Text Transfer Transformer (T5), unifying all NLP tasks as text generation problems."
+      },
+      "group": "Transformers Era",
+      "notes": "T5's unified text-to-text framework simplified NLP and influenced future model architectures including instruction-tuned models."
+    },
+    {
+      "start_date": {"year": "2019", "month": "11", "day": "5"},
+      "text": {
+        "headline": "DistilBERT Released",
+        "text": "Hugging Face releases DistilBERT, demonstrating effective model distillation while retaining 97% of BERT's performance."
+      },
+      "group": "Transformers Era",
+      "notes": "DistilBERT pioneered model compression techniques essential for deploying large models in production environments."
+    },
+    {
+      "start_date": {"year": "2020", "month": "5", "day": "28"},
+      "text": {
+        "headline": "GPT-3 Paper Published",
+        "text": "OpenAI publishes GPT-3 paper with 175B parameters, demonstrating remarkable few-shot learning capabilities."
+      },
+      "group": "Large Language Models",
+      "notes": "GPT-3's scale and in-context learning abilities marked a paradigm shift, showing that language models could perform tasks with minimal examples."
+    },
+    {
+      "start_date": {"year": "2020", "month": "7", "day": "1"},
+      "text": {
+        "headline": "GPT-3 API Launch",
+        "text": "OpenAI launches GPT-3 API, making large language models accessible to developers for the first time."
+      },
+      "group": "Large Language Models",
+      "notes": "The GPT-3 API democratized access to powerful language models, enabling thousands of AI applications."
+    },
+    {
+      "start_date": {"year": "2021", "month": "1", "day": "5"},
+      "text": {
+        "headline": "DALL-E Introduced",
+        "text": "OpenAI introduces DALL-E, demonstrating text-to-image generation using transformer architectures."
+      },
+      "group": "Large Language Models",
+      "notes": "DALL-E extended transformer capabilities to multimodal generation, opening new possibilities for creative AI applications."
+    },
+    {
+      "start_date": {"year": "2021", "month": "1", "day": "1"},
+      "text": {
+        "headline": "CLIP Released",
+        "text": "OpenAI releases CLIP, learning visual concepts from natural language descriptions at scale."
+      },
+      "group": "Large Language Models",
+      "notes": "CLIP's vision-language alignment enabled zero-shot image classification and became foundational for multimodal AI."
+    },
+    {
+      "start_date": {"year": "2021", "month": "3", "day": "23"},
+      "text": {
+        "headline": "GitHub Copilot Announced",
+        "text": "GitHub and OpenAI announce Copilot, an AI pair programmer powered by OpenAI Codex based on GPT-3."
+      },
+      "group": "Large Language Models",
+      "notes": "Copilot was the first mainstream AI coding assistant, demonstrating LLMs' practical utility for software development."
+    },
+    {
+      "start_date": {"year": "2021", "month": "5", "day": "1"},
+      "text": {
+        "headline": "Anthropic Founded",
+        "text": "Dario Amodei, Daniela Amodei, and other former OpenAI researchers found Anthropic to build safe, beneficial AI systems."
+      },
+      "group": "Anthropic & Claude",
+      "notes": "Anthropic was founded with a focus on AI safety research and developing Constitutional AI approaches for alignment."
+    },
+    {
+      "start_date": {"year": "2021", "month": "9", "day": "1"},
+      "text": {
+        "headline": "Codex Powers Copilot",
+        "text": "OpenAI releases details on Codex, a GPT model fine-tuned on code that powers GitHub Copilot."
+      },
+      "group": "Large Language Models",
+      "notes": "Codex demonstrated that language models could understand and generate code across multiple programming languages."
+    },
+    {
+      "start_date": {"year": "2022", "month": "1", "day": "27"},
+      "text": {
+        "headline": "InstructGPT and RLHF",
+        "text": "OpenAI releases InstructGPT paper, introducing Reinforcement Learning from Human Feedback (RLHF) for better alignment."
+      },
+      "group": "Large Language Models",
+      "notes": "RLHF became the foundational technique for aligning language models with human preferences, directly enabling ChatGPT and modern AI assistants."
+    },
+    {
+      "start_date": {"year": "2022", "month": "4", "day": "1"},
+      "text": {
+        "headline": "Constitutional AI Paper",
+        "text": "Anthropic publishes research on Constitutional AI, a method for training helpful, harmless, and honest AI systems."
+      },
+      "group": "Anthropic & Claude",
+      "notes": "Constitutional AI introduced a novel approach to AI alignment using AI feedback guided by principles rather than human feedback alone."
+    },
+    {
+      "start_date": {"year": "2022", "month": "8", "day": "22"},
+      "text": {
+        "headline": "Stable Diffusion Released",
+        "text": "Stability AI releases Stable Diffusion, an open-source text-to-image model that democratizes generative AI."
+      },
+      "group": "Large Language Models",
+      "notes": "Stable Diffusion's open release accelerated research and applications in generative AI and multimodal models."
+    },
+    {
+      "start_date": {"year": "2022", "month": "11", "day": "30"},
+      "text": {
+        "headline": "ChatGPT Launched",
+        "text": "OpenAI launches ChatGPT, bringing conversational AI to mainstream users and achieving 1 million users in 5 days."
+      },
+      "group": "Large Language Models",
+      "notes": "ChatGPT's launch marked the mainstream breakthrough of AI assistants, fundamentally changing public perception of AI capabilities."
+    },
+    {
+      "start_date": {"year": "2022", "month": "12", "day": "1"},
+      "text": {
+        "headline": "ChatGPT Reaches 1M Users",
+        "text": "ChatGPT achieves fastest user growth in history, demonstrating massive public demand for AI assistants."
+      },
+      "group": "Large Language Models",
+      "notes": "The explosive adoption validated the product-market fit for conversational AI and accelerated industry investment."
+    },
+    {
+      "start_date": {"year": "2023", "month": "2", "day": "1"},
+      "text": {
+        "headline": "LLaMA Models Released",
+        "text": "Meta releases LLaMA, a collection of foundation language models from 7B to 65B parameters for research."
+      },
+      "group": "Large Language Models",
+      "notes": "LLaMA accelerated open-source LLM development and enabled research on efficient language models."
+    },
+    {
+      "start_date": {"year": "2023", "month": "3", "day": "14"},
+      "text": {
+        "headline": "GPT-4 Released",
+        "text": "OpenAI releases GPT-4, introducing multimodal capabilities and significantly improved reasoning abilities."
+      },
+      "group": "Large Language Models",
+      "notes": "GPT-4 demonstrated major advances in complex reasoning, coding, and creative tasks while accepting image inputs."
+    },
+    {
+      "start_date": {"year": "2023", "month": "3", "day": "14"},
+      "text": {
+        "headline": "Claude Launched",
+        "text": "Anthropic launches Claude, an AI assistant trained using Constitutional AI principles for safety and helpfulness."
+      },
+      "group": "Anthropic & Claude",
+      "notes": "Claude's launch introduced a safety-focused alternative to existing LLMs, emphasizing harmlessness alongside capability."
+    },
+    {
+      "start_date": {"year": "2023", "month": "5", "day": "11"},
+      "text": {
+        "headline": "Claude Pro Released",
+        "text": "Anthropic launches Claude Pro subscription, offering priority access and increased usage limits."
+      },
+      "group": "Anthropic & Claude",
+      "notes": "Claude Pro enabled power users to leverage Claude for professional work and complex tasks."
+    },
+    {
+      "start_date": {"year": "2023", "month": "7", "day": "11"},
+      "text": {
+        "headline": "Claude 2 Released",
+        "text": "Anthropic releases Claude 2 with improved performance, longer context window (100K tokens), and coding capabilities."
+      },
+      "group": "Anthropic & Claude",
+      "notes": "Claude 2's 100K context window enabled processing entire codebases and long documents, a major advancement for practical applications."
+    },
+    {
+      "start_date": {"year": "2023", "month": "7", "day": "18"},
+      "text": {
+        "headline": "LLaMA 2 Released",
+        "text": "Meta releases LLaMA 2 with commercial license, advancing open-source language model development."
+      },
+      "group": "Large Language Models",
+      "notes": "LLaMA 2's open commercial license enabled widespread deployment and customization of powerful language models."
+    },
+    {
+      "start_date": {"year": "2023", "month": "11", "day": "21"},
+      "text": {
+        "headline": "Claude 2.1 Released",
+        "text": "Anthropic releases Claude 2.1 with 200K token context window and improved accuracy on long documents."
+      },
+      "group": "Anthropic & Claude",
+      "notes": "The 200K context window enabled processing multiple books simultaneously, pushing boundaries of language model memory."
+    },
+    {
+      "start_date": {"year": "2024", "month": "3", "day": "4"},
+      "text": {
+        "headline": "Claude 3 Family Released",
+        "text": "Anthropic launches Claude 3 family (Haiku, Sonnet, Opus) with vision capabilities and industry-leading performance."
+      },
+      "group": "Anthropic & Claude",
+      "notes": "Claude 3 introduced multimodal understanding and a model family approach, with Opus achieving state-of-the-art on multiple benchmarks."
+    },
+    {
+      "start_date": {"year": "2024", "month": "5", "day": "13"},
+      "text": {
+        "headline": "GPT-4o Announced",
+        "text": "OpenAI announces GPT-4o, offering GPT-4 level intelligence with improved speed and multimodal capabilities."
+      },
+      "group": "Large Language Models",
+      "notes": "GPT-4o demonstrated real-time voice conversation and enhanced vision, advancing multimodal AI interactions."
+    },
+    {
+      "start_date": {"year": "2024", "month": "6", "day": "20"},
+      "text": {
+        "headline": "Claude 3.5 Sonnet Released",
+        "text": "Anthropic releases Claude 3.5 Sonnet, outperforming Claude 3 Opus while being faster and more cost-effective."
+      },
+      "group": "Anthropic & Claude",
+      "notes": "Claude 3.5 Sonnet achieved best-in-class performance on coding tasks and graduate-level reasoning."
+    },
+    {
+      "start_date": {"year": "2024", "month": "10", "day": "22"},
+      "text": {
+        "headline": "Claude Artifacts Introduced",
+        "text": "Anthropic introduces Artifacts feature, enabling Claude to create interactive content and visualizations in a dedicated workspace."
+      },
+      "group": "Anthropic & Claude",
+      "notes": "Artifacts expanded Claude's capabilities beyond text to creating executable code, diagrams, and interactive applications."
+    },
+    {
+      "start_date": {"year": "2024", "month": "10", "day": "22"},
+      "text": {
+        "headline": "Computer Use Beta",
+        "text": "Anthropic releases computer use capability in beta, allowing Claude to interact with computer interfaces."
+      },
+      "group": "Anthropic & Claude",
+      "notes": "Computer use enabled Claude to control computers through screenshots and keyboard/mouse actions, a significant step toward agentic AI."
+    },
+    {
+      "start_date": {"year": "2024", "month": "10", "day": "29"},
+      "text": {
+        "headline": "Claude Desktop App Released",
+        "text": "Anthropic launches Claude desktop application for macOS and Windows with local file access."
+      },
+      "group": "Developer Tools & Skills",
+      "notes": "The desktop app brought Claude closer to developers' workflows with native integrations and file system access."
+    },
+    {
+      "start_date": {"year": "2024", "month": "11", "day": "1"},
+      "text": {
+        "headline": "Extended Thinking Introduced",
+        "text": "Anthropic introduces extended thinking mode, allowing Claude to reason through complex problems with explicit thinking steps."
+      },
+      "group": "Anthropic & Claude",
+      "notes": "Extended thinking enhanced Claude's ability to solve complex multi-step problems by making reasoning process visible and verifiable."
+    },
+    {
+      "start_date": {"year": "2024", "month": "11", "day": "12"},
+      "text": {
+        "headline": "Claude Code Announced",
+        "text": "Anthropic announces Claude Code, an official CLI tool for software development with terminal integration and tool use."
+      },
+      "group": "Developer Tools & Skills",
+      "notes": "Claude Code brought AI assistance directly into developers' terminals, integrating with git, package managers, and development workflows."
+    },
+    {
+      "start_date": {"year": "2024", "month": "11", "day": "15"},
+      "text": {
+        "headline": "MCP Protocol Released",
+        "text": "Anthropic releases Model Context Protocol (MCP), enabling Claude to connect to external data sources and tools."
+      },
+      "group": "Developer Tools & Skills",
+      "notes": "MCP standardized how AI assistants connect to enterprise systems, databases, and APIs, enabling context-aware assistance."
+    },
+    {
+      "start_date": {"year": "2024", "month": "12", "day": "1"},
+      "text": {
+        "headline": "Claude Skills Framework",
+        "text": "Community develops Claude Skills framework, enabling autonomous agents for specialized educational content creation."
+      },
+      "group": "Developer Tools & Skills",
+      "notes": "The Skills framework extended Claude's capabilities with domain-specific workflows for textbook generation, learning graphs, and interactive simulations."
+    },
+    {
+      "start_date": {"year": "2024", "month": "12", "day": "10"},
+      "text": {
+        "headline": "Learning Graph Generator",
+        "text": "First educational skill released: learning-graph-generator for creating concept dependency graphs with 200+ concepts."
+      },
+      "group": "Developer Tools & Skills",
+      "notes": "The learning graph generator automated creation of educational content structures following Bloom's Taxonomy and ISO 11179 standards."
+    },
+    {
+      "start_date": {"year": "2024", "month": "12", "day": "15"},
+      "text": {
+        "headline": "MicroSim Skills Released",
+        "text": "Interactive visualization skills released: microsim-p5, venn-diagram-generator, and timeline-generator."
+      },
+      "group": "Developer Tools & Skills",
+      "notes": "MicroSim skills enabled automated creation of p5.js simulations and interactive visualizations for educational content."
+    },
+    {
+      "start_date": {"year": "2025", "month": "1", "day": "9"},
+      "text": {
+        "headline": "Timeline Generator Skill",
+        "text": "This skill developed to create interactive historical timelines using vis-timeline.js library with category filtering."
+      },
+      "group": "Developer Tools & Skills",
+      "notes": "The timeline-generator skill completes the visualization toolkit, enabling chronological presentation of historical events and project milestones."
+    },
+    {
+      "start_date": {"year": "2025", "month": "2", "day": "24"},
+      "text": {
+        "headline": "Claude Code Released",
+        "text": "Anthropic officially releases Claude Code 1.0, bringing production-ready AI pair programming to developers worldwide."
+      },
+      "group": "Developer Tools & Skills",
+      "notes": "Claude Code's official release marked the maturation of AI-assisted development tools, offering terminal integration, MCP support, and autonomous coding capabilities for professional software development."
+    },
+    {
+      "start_date": {"year": "2025", "month": "10", "day": "16"},
+      "text": {
+        "headline": "Claude Skills Announcement",
+        "text": "Anthropic officially announces Claude Skills, enabling users to extend Claude's capabilities with custom autonomous agents and specialized workflows."
+      },
+      "group": "Developer Tools & Skills",
+      "notes": "Claude Skills formalized the extension framework, allowing developers to create specialized agents for domain-specific tasks, educational content generation, and workflow automation."
+    }
+  ]
+}
