@@ -89,7 +89,7 @@ Reading level affects:
 
 > Graph databases employ a fundamentally different storage paradigm compared to relational databases. In a relational system, discovering multi-hop relationships—such as friends-of-friends in a social network—requires expensive JOIN operations across multiple tables. Each additional hop compounds the performance penalty. Graph databases, by contrast, use index-free adjacency, where each node directly references its connected nodes. This architectural choice enables constant-time traversals regardless of depth, making them ideal for applications requiring real-time relationship queries.
 
-### College/University (Undergraduate)
+### College/University (Undergraduate) or Professional Development
 
 **Target age:** 18-22 years old
 
