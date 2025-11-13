@@ -8,11 +8,21 @@ description: Create an interactive educational MicroSim using the p5.js JavaScri
 
 This skill guides the creation of Educational MicroSims using the p5.js JavaScript library.  MicroSims are lightweight, interactive educational simulations designed for browser-based learning. MicroSims occupy a unique position at the intersection of **Simplicity** (focused scope, transparent code), **Accessibility** (browser-native, universal embedding), and **AI Generation** (standardized patterns, prompt-compatible design).
 
-This MicroSim Skill is designed to create all the required files for running your MicroSim on your website and return a zip file of the content.
-We assume that the website has a folder called /docs/sims that each MicroSim will be placed in.
-The p5.js file is also designed to that it can be tested by pasting the JavaScript directly
-into the p5.js editor site at https://editor.p5js.org/.
+## Standard Context
 
+This MicroSim Skill is designed to create all the required files for running your MicroSim on your website.
+This microsim skill has been designed to be run within Claude code.
+The best practice is to startup Claude Code from the command line
+where you at the root of the GitHub checkout directory.  This is
+one level down from where you ran GitClone.  This directory should
+contain a `.git` directory.
+If you don't see a `.git` directory and a `mkdocs.yml` file warn the 
+user that the automatic installation process may fail.
+
+We assume that the website has a folder called `docs/sims` that each MicroSim will be placed in.  If you do not see this folder then warn the user.
+
+The p5.js file is also designed to that it can be tested by pasting the JavaScript directly
+into the p5.js editor site at https://editor.p5js.org/.  After the JavaScript file has been generated, indicate to the user that the MicroSim can now be tested.
 
 ## Purpose
 
@@ -28,10 +38,10 @@ Before generating code, articulate the educational purpose:
 
 1. **Subject Area and Topic**: What specific concept does this simulation teach?
 2. **Grade Level**: Elementary (K-5), Middle School (6-8), High School (9-12), or Undergraduate
-3. **Learning Objectives**: What should students understand after using this simulation? (Align with Bloom's Taxonomy: Remember, Understand, Apply, Analyze, Evaluate, Create)
+3. **Learning Objectives**: What should students know after using this simulation? (Align with Bloom's Taxonomy: Remember, Understand, Apply, Analyze, Evaluate, Create).  This step is critical, since the type of p5 MicroSim generated will depend on this classification.
 4. **Duration**: Typical engagement time (5-15 minutes recommended)
 5. **Prerequisites**: What knowledge must students have before using this?
-6. **Assessment Opportunities**: How can educators verify learning?
+6. **Assessment Opportunities**: How can educators verify learning?  Can the user see a "Quiz Mode" button on this version?
 
 This information will be documented at the end of the index.md file and also stored in a file called metadata.json that is
 validated by a JSON Schema at https://github.com/dmccreary/microsims/blob/main/src/microsim-schema/microsim-schema.json
@@ -43,6 +53,11 @@ The program is width responsive and the p5.js javascript file we create should r
 for easy testing by the user.
 
 #### Folder Structure
+
+MicroSims have two properties:
+
+1. MICROSIM_TITLE: A title case string with spaces
+2. MICROSIM_NAME: A lower-case string with dashes (kebob case)
 
 Each MicroSim is contained in a folder within the /docs/sims directory.  The folder name is $MICROSIM_NAME and has the following contents:
 
@@ -57,7 +72,7 @@ Each MicroSim is contained in a folder within the /docs/sims directory.  The fol
 The following steps are an example of generating a new MicroSim within a checked out intelligent textbook built with mkdocs.
 This skill contains templates for the `index.md`, `main.html`, `metadata.json` and a `bouncing-ball.js`.
 
-1. A new folder will be created inside the `/docs/sims` area.  The folder name contains only lower case letters and dashes.  This will be the MICROSIM_NAME
+1. A new folder will be created inside the `/docs/sims` area.  The folder name contains only lower case letters and dashes.  This will be the MICROSIM_NAME which is the kebab case string.
 2. An `index.md` file will be generated in the folder that describes the MicroSim and contains in iframe reference to the `main.html` file
 3. A small `main.html` file will contain the title, link to the p5.js library from the CDN and include the MICROSIM_NAME.js file.  The `main.html` file must contain a `main` HTML element within the body.
 4. A file called `metadata.json` will be created that conforms to the schema at /src/microsim-schema/microsim-schema.json.  This will contain the Dublin core elements such as title, subject, author, publication date etc.  This file is use so that
@@ -65,17 +80,33 @@ faceted search engines can find this MicroSim
 
 ## Technical Architecture Standards
 
-### Canvas Structure (REQUIRED)
+### Iframe Structure (REQUIRED)
 
-MicroSims are designed to be called by an iframe.  They run in a fixed height region with a variable width.
+MicroSims are designed to be called by an HTML `iframe`.  They run in a fixed height region with a variable width.  This is an essential requirement and it will impact
+many design choices you make when generating a MicroSim.
 
-Every MicroSim must have two regions:
+Although the main.html file may have some text outside the `<main></main>` element such as a link to return to the documentation, this text is minimal so the area
+taken by the `iframe` within a textbook is minimized.  Putting headers above the `<main></main>` takes away from the ability to reuse the microsim in many educational contexts where management of screen real-estate is critical.
 
-1. A top drawing region with a fixed height called drawHeight.  No user interface controls are placed in the drawing region.
-2. A user interface controls region below the drawing region that contains buttons and sliders with a fixed height called controlHeight.
+Here is an example of how a MicroSim is integrated into any course webpage:
 
-The width of the canvas is resized according to the container.  It is set initially, but reset in the draw loop
-when the container has changed.
+```html
+<iframe src="https://dmccreary.github.io/microsims/sims/[MICROSIM_NAME]/main.html" height="500pt" width="100%" scrolling="no"></iframe>
+```
+
+The documentation page (index.md) will provide a sample of this iframe statement
+that makes it easy for the user to copy.
+
+All iframes that enclose a MicroSim are designed to be run in the entire width of their container and non-scrolling.  This prevents confusion to the user that sees
+scrolling regions with scrolling regions of a web page.
+
+Every MicroSim must have two distinct regions of the `iframe` canvas:
+
+1. A top `drawing` region with a fixed height called `drawHeight`.  No user interface controls are placed in the drawing region.
+2. A user interface `controls` region below the drawing region that contains buttons and sliders with a fixed height called `controlHeight`.
+
+The **width** of the canvas is resized according to the container.  It is set initially, but reset in the draw loop when the container has changed.
+This resize function is called every time the web browser window is resized.
 
 We use this layout pattern:
 
@@ -90,7 +121,7 @@ let sliderLeftMargin = 105;          // Left margin for slider positioning.  Thi
 let defaultTextSize = 16;            // Base text size
 
 function setup() {
-  updateCanvasSize();
+  updateCanvasSize(); // this gets the width of the container we are running in
   const canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.parent(document.querySelector('main'));
 
@@ -127,6 +158,8 @@ function draw() {
 
 }
 ```
+
+Note that every MicroSim should have a title centered at the top.
 
 ### Responsive Design (REQUIRED)
 
@@ -302,7 +335,7 @@ Here is an example of the content of the index.md file
 ```markdown
 # Bouncing Ball
 
-<iframe src="main.html" height="432px" scrolling="no"></iframe>
+<iframe src="main.html" height="432px" width="100%" scrolling="no"></iframe>
 
 [Run the Bouncing Ball MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 <br/>
@@ -570,6 +603,9 @@ For the height, it should be the sum of the drawHeight and the controlHeight plu
 
 ### Learning Management System Integration
 
+MicroSim should be designed to be easily integrated
+with any website that supports the HTML `iframe` element.
+
 - Compatible with Canvas, Blackboard, Moodle, Google Classroom
 - No server-side requirements
 - Works in restricted network environments
@@ -652,10 +688,47 @@ After initial generation, iteratively improve through prompts like:
 - "Include a graph showing energy over time"
 - "Add a grid to help students measure distances"
 
-## User Instructions
+## Inclusion in the mkdocs Navigation System
 
-After you generate a MicroSim with the required files, create a zip file that the user can download.
-Then return the following instruction:
+After the files have been created the next step
+is to include the MicroSim in the mkdocs navigation system.
+This is done by adding a single line to the `mkdocs.yml` file
+located in the home directory of the GitHub repository.
+The mkdocs.yml file contains a `nav` element.  Within
+that there will be a section for all the MicroSims.
+
+```yml
+nav:
+  [text omitted...]
+  - MicroSims:
+    - List of MicroSims: sims/index.md
+    - MicroSim Name 1: sims/name-1/index.md
+    - MicroSim Name 2: sims/name-2/index.md
+
+  [text omitted...]
+```
+
+The best practice is to add the new MicroSim you just created
+at the end of the MicroSims like this:
+
+```yml
+nav:
+  [text omitted...]
+  - MicroSims:
+    - List of MicroSims: sims/index.md
+    - MicroSim Name 1: sims/name-1/index.md
+    - MicroSim Name 2: sims/name-2/index.md
+    - NEW_MICROSIM_NAME_HERE: sims/name-in-kebab-case/index.md
+
+  [text omitted...]
+```
+
+## Zip Packaging (Optional)
+
+By default, a zip package is not created unless the user requests
+it.
+
+If the users requests "create a package" or "create a zip package", then after you generate a MicroSim with the required files, create a zip file that the user can download.  Then return the following instruction:
 
 Congratulations!  Your MicroSim zip file has been generated and is ready for testing.  The best way
 to instal this is to run the following commands using the bouncing-ball example:
@@ -665,6 +738,7 @@ cd /doc/sims
 unzip bouncing-ball.zip
 ```
 
+## Testing Deployment 
 If you are going to test the MicroSim within mkdocs site you can also do the following:
 ```sh
 # move the zip file out of the way so it does not get copied to the web site
@@ -673,7 +747,7 @@ mv bouncing-ball.zip /tmp
 open ../../mkdocs.yml
 # test your code locally
 mkdocs serve
-# go to the right link: http://localhost:8000/microsims/sims/bouncing-ball/
+# go to the right link: http://localhost:8000/[GITHUB_DIR_NAME]/sims/[sim-name]/
 # check in your code with git
 # deploy your new microsim to production!
 mkdocs gh-deploy

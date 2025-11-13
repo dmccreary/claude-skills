@@ -1,101 +1,104 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://dmccreary.github.io/geometry-course/learning-graph/learning-graph-schema.json",
   "title": "Learning Graph Schema",
-  "description": "JSON Schema for validating learning graph data structures used in educational dependency graphs",
+  "description": "Schema for learning graph JSON files that define concept nodes, dependencies, and taxonomies for educational content",
   "type": "object",
   "required": ["metadata", "groups", "nodes", "edges"],
   "properties": {
     "metadata": {
       "type": "object",
-      "description": "Metadata about the learning graph including title, description, and provenance information",
-      "required": ["title", "description"],
+      "description": "Metadata about the learning graph",
+      "required": ["title"],
       "properties": {
         "title": {
           "type": "string",
-          "description": "The title of the learning graph",
-          "minLength": 1
+          "description": "The title of the course or subject"
         },
         "description": {
           "type": "string",
-          "description": "A detailed description of what this learning graph covers",
-          "minLength": 1
+          "description": "A brief description of the course content"
         },
         "creator": {
           "type": "string",
-          "description": "The person or organization that created this learning graph"
+          "description": "The name of the person or organization who created this learning graph"
         },
         "date": {
           "type": "string",
-          "description": "The creation or last modified date in YYYY-MM-DD format",
-          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          "format": "date",
+          "description": "The creation or last modification date (YYYY-MM-DD)"
         },
         "version": {
           "type": "string",
-          "description": "Version number of the learning graph content",
-          "pattern": "^\\d+\\.\\d+(\\.\\d+)?$"
+          "description": "Version number of the learning graph"
         },
         "format": {
           "type": "string",
-          "description": "The format specification this file adheres to"
+          "description": "The format specification of this learning graph"
         },
         "schema": {
           "type": "string",
-          "description": "URL to the JSON schema used to validate this file",
-          "format": "uri"
+          "format": "uri",
+          "description": "URL to the JSON schema for this learning graph"
         },
         "license": {
           "type": "string",
           "description": "The license under which this learning graph is distributed"
         }
-      },
-      "additionalProperties": true
+      }
     },
     "groups": {
       "type": "object",
-      "description": "Taxonomy groups that categorize nodes with associated styling",
+      "description": "Taxonomy groups/categories for organizing concepts",
       "patternProperties": {
-        "^[A-Za-z0-9_-]+$": {
+        "^[A-Z]+$": {
           "type": "object",
           "required": ["classifierName", "color"],
           "properties": {
             "classifierName": {
               "type": "string",
-              "description": "The name of the classifier for this group in Title Case and it may include spaces",
-              "minLength": 1
+              "description": "Human-readable name for this taxonomy category"
             },
             "color": {
-              "type": "string",
-              "description": "CSS color value for nodes in this group",
-              "pattern": "^(#[0-9A-Fa-f]{3,8}|[a-z]+|rgb\\(.*\\)|rgba\\(.*\\))$"
-            },
-            "font": {
               "type": "object",
-              "description": "Font styling for nodes in this group",
+              "description": "Color styling for nodes in this group",
+              "required": ["color"],
               "properties": {
                 "color": {
                   "type": "string",
-                  "description": "CSS color value for text",
-                  "pattern": "^(#[0-9A-Fa-f]{3,8}|[a-z]+|rgb\\(.*\\)|rgba\\(.*\\))$"
+                  "description": "Color value (hex code like #ff0000 or CSS color name like red)",
+                  "pattern": "^(#[0-9A-Fa-f]{6}|[a-z]+)$"
                 },
-                "size": {
-                  "type": "number",
-                  "description": "Font size in pixels",
-                  "minimum": 1
+                "colorName": {
+                  "type": "string",
+                  "description": "Human-readable color name for display in legends"
+                },
+                "font": {
+                  "type": "object",
+                  "description": "Font styling for text in nodes",
+                  "properties": {
+                    "color": {
+                      "type": "string",
+                      "description": "Font color (typically 'white' or 'black')",
+                      "pattern": "^(#[0-9A-Fa-f]{6}|[a-z]+)$"
+                    }
+                  }
                 }
               }
             },
-            "shape": {
-              "type": "string",
-              "description": "Default shape for nodes in this group",
-              "enum": ["box", "circle", "ellipse", "database", "diamond", "dot", "star", "triangle", "triangleDown", "hexagon", "square"]
+            "font": {
+              "type": "object",
+              "description": "Additional font styling (deprecated - use color.font instead)",
+              "properties": {
+                "color": {
+                  "type": "string",
+                  "pattern": "^(#[0-9A-Fa-f]{6}|[a-z]+)$"
+                }
+              }
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false,
-      "minProperties": 1
+      }
     },
     "nodes": {
       "type": "array",
@@ -111,67 +114,29 @@
           },
           "label": {
             "type": "string",
-            "description": "Display name of the concept",
+            "description": "The name/label of the concept",
             "minLength": 1
           },
           "group": {
             "type": "string",
-            "description": "The taxonomy group this node belongs to"
+            "description": "The taxonomy group this concept belongs to (must match a key in groups)",
+            "pattern": "^[A-Z]+$"
           },
           "shape": {
             "type": "string",
-            "description": "Visual shape of the node (overrides group default)",
-            "enum": ["box", "circle", "ellipse", "database", "diamond", "dot", "star", "triangle", "triangleDown", "hexagon", "square"]
+            "description": "Optional vis.js shape for the node (e.g., 'box', 'circle', 'ellipse')",
+            "enum": ["box", "circle", "ellipse", "database", "diamond", "dot", "square", "star", "triangle", "hexagon"]
           },
-          "color": {
+          "title": {
             "type": "string",
-            "description": "Node color (overrides group default)",
-            "pattern": "^(#[0-9A-Fa-f]{3,8}|[a-z]+|rgb\\(.*\\)|rgba\\(.*\\))$"
+            "description": "Optional tooltip text shown when hovering over the node"
           },
-          "font": {
-            "type": "object",
-            "description": "Font styling for this node (overrides group default)",
-            "properties": {
-              "color": {
-                "type": "string",
-                "description": "Font color",
-                "pattern": "^(#[0-9A-Fa-f]{3,8}|[a-z]+|rgb\\(.*\\)|rgba\\(.*\\))$"
-              },
-              "size": {
-                "type": "number",
-                "description": "Font size in pixels",
-                "minimum": 1
-              }
-            }
-          },
-          "x": {
-            "type": "number",
-            "description": "X coordinate for fixed positioning"
-          },
-          "y": {
-            "type": "number",
-            "description": "Y coordinate for fixed positioning"
-          },
-          "fixed": {
-            "type": "object",
-            "description": "Controls which axes are fixed in position",
-            "properties": {
-              "x": {
-                "type": "boolean"
-              },
-              "y": {
-                "type": "boolean"
-              }
-            }
-          },
-          "hidden": {
-            "type": "boolean",
-            "description": "Whether the node is hidden from view"
+          "level": {
+            "type": "integer",
+            "description": "Optional hierarchical level for layout purposes"
           }
-        },
-        "additionalProperties": false
-      },
-      "minItems": 1
+        }
+      }
     },
     "edges": {
       "type": "array",
@@ -180,48 +145,41 @@
         "type": "object",
         "required": ["from", "to"],
         "properties": {
-          "id": {
-            "type": "integer",
-            "description": "Unique identifier for the edge",
-            "minimum": 1
-          },
           "from": {
             "type": "integer",
-            "description": "ID of the source node",
+            "description": "Source node ID (prerequisite concept)",
             "minimum": 1
           },
           "to": {
             "type": "integer",
-            "description": "ID of the target node",
+            "description": "Target node ID (dependent concept)",
             "minimum": 1
-          },
-          "label": {
-            "type": "string",
-            "description": "Optional label for the edge relationship"
           },
           "arrows": {
             "type": "string",
-            "description": "Arrow configuration",
+            "description": "Arrow direction (typically 'to' for directed edges)",
             "enum": ["to", "from", "middle", "to,from"]
           },
-          "color": {
+          "label": {
             "type": "string",
-            "description": "Edge color",
-            "pattern": "^(#[0-9A-Fa-f]{3,8}|[a-z]+|rgb\\(.*\\)|rgba\\(.*\\))$"
+            "description": "Optional label for the edge"
           },
-          "width": {
-            "type": "number",
-            "description": "Edge width in pixels",
-            "minimum": 0.1
+          "title": {
+            "type": "string",
+            "description": "Optional tooltip for the edge"
           },
-          "dashes": {
-            "type": "boolean",
-            "description": "Whether the edge should be dashed"
+          "smooth": {
+            "type": "object",
+            "description": "Edge smoothing options for vis.js",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["dynamic", "continuous", "discrete", "diagonalCross", "straightCross", "horizontal", "vertical", "curvedCW", "curvedCCW", "cubicBezier"]
+              }
+            }
           }
-        },
-        "additionalProperties": false
+        }
       }
     }
-  },
-  "additionalProperties": false
+  }
 }
