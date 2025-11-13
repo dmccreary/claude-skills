@@ -91,21 +91,34 @@ function getColorName(color) {
     'red': 'Red',
     'orange': 'Orange',
     'gold': 'Gold',
+    'yellow': 'Yellow',
     'green': 'Green',
+    'cyan': 'Cyan',
     'blue': 'Blue',
+    'navy': 'Navy',
     'indigo': 'Indigo',
     'violet': 'Violet',
+    'purple': 'Purple',
+    'magenta': 'Magenta',
     'gray': 'Gray',
+    'grey': 'Grey',
     'brown': 'Brown',
-    'teal': 'Teal'
+    'teal': 'Teal',
+    'black': 'Black',
+    'white': 'White'
   };
-  return colorNames[color.toLowerCase()] || color;
+  return colorNames[color.toLowerCase()] || color.charAt(0).toUpperCase() + color.slice(1);
 }
 
-// Helper function to determine if text should be white or black
-function getTextColorForBackground(backgroundColor) {
-  // Colors that need white text
-  const darkColors = ['red', 'green', 'blue', 'indigo', 'violet', 'gray', 'brown'];
+// Helper function to get text color from group style or determine based on background
+function getTextColorForBackground(backgroundColor, groupStyle) {
+  // If group style has a font color defined, use it
+  if (groupStyle && groupStyle.font && groupStyle.font.color) {
+    return groupStyle.font.color;
+  }
+
+  // Fallback: determine based on background color
+  const darkColors = ['red', 'green', 'blue', 'navy', 'indigo', 'violet', 'purple', 'magenta', 'gray', 'grey', 'brown', 'teal', 'black'];
   return darkColors.includes(backgroundColor.toLowerCase()) ? 'white' : 'black';
 }
 
@@ -135,7 +148,7 @@ function generateLegend(groups) {
     const colorCell = document.createElement('td');
     colorCell.className = 'color-indicator';
     const bgColor = groupStyle.color;
-    const textColor = getTextColorForBackground(bgColor);
+    const textColor = getTextColorForBackground(bgColor, groupStyle);
     colorCell.style.backgroundColor = bgColor;
     colorCell.style.color = textColor;
     colorCell.textContent = getColorName(bgColor);
