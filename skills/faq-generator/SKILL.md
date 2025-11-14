@@ -562,11 +562,30 @@ If FAQ not in `mkdocs.yml`:
 
 1. Read `mkdocs.yml`
 2. Check if "FAQ: faq.md" exists in nav
-3. If missing, add in appropriate location (typically near end)
+3. If missing, add in appropriate location (typically near end of the nav structure)
 4. Preserve existing structure
+
+```yml
+nav:
+...
+  - FAQs: faq.md
+  - Glossary: glossary.md
+  - License: license.md
+  - References: references.md
+  - Contact: contact.md
+```
 
 If quality reports were created in the learning-graph directory
 also add these to the mkdocs.yml file in appropriate places.
+
+```yml
+nav:
+  ...
+  - Learning Graph:
+    ...
+    - FAQ Quality Report: learning-graph/faq-quality-report.md
+    - FAQ Coverage Gaps: learning-graph/faq-coverage-gaps.md
+```
 
 ## Quality Scoring Reference
 
