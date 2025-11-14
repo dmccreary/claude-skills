@@ -739,7 +739,7 @@ Use for:
 10. Updates quiz bank
 11. Reports: "Created 10-question quiz for Chapter 3. Quality score: 78/100. Bloom's distribution: 2 Remember, 3 Understand, 3 Apply, 2 Analyze. Concept coverage: 83%."
 
-### Step 14: Update Site Navigation to Include Quizes
+### Step 14: Update Site Navigation to Include Quizzes and Reports
 
 Now update the `mkdocs.yml` file to include the quizzes in each chapter directory.
 
@@ -761,3 +761,18 @@ nav:
       - Content: chapters/03-course-design-educational-theory/index.md
       - Quiz: chapters/03-course-design-educational-theory/quiz.md
 ```
+
+Next, update the `mkdocs.yml` to include the quiz quality reports that
+have been placed in the learning-graph directory.
+
+```yml
+nav:
+  ...
+  Learning Graph:
+    ...
+    Quiz Generation Report: learning-graph/quiz-generation-report.md
+```
+
+Notify the user that the site navigation section of the `mkdocs.yml` file has 
+been updated to include both the links to the new quizzes as well
+as the quiz reports in the learning-graph.
