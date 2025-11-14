@@ -6,7 +6,8 @@ license: MIT
 
 # FAQ Generator
 
-Generate comprehensive, categorized FAQs from textbook content with Bloom's Taxonomy distribution and chatbot-ready JSON exports.
+Generate comprehensive, categorized FAQs from textbook content and chatbot-ready JSON exports.  Place the
+faqs into the file docs/faqs.md.  Log the results of the session to `logs/faqs.md`.
 
 ## Purpose
 
@@ -555,7 +556,7 @@ Perform comprehensive validation:
 - Zero duplicate questions
 - All internal links valid
 
-### Step 10: Update Navigation (Optional)
+### Step 10: Update Navigation Section in mkdocs.yml (Optional)
 
 If FAQ not in `mkdocs.yml`:
 
@@ -563,6 +564,9 @@ If FAQ not in `mkdocs.yml`:
 2. Check if "FAQ: faq.md" exists in nav
 3. If missing, add in appropriate location (typically near end)
 4. Preserve existing structure
+
+If quality reports were created in the learning-graph directory
+also add these to the mkdocs.yml file in appropriate places.
 
 ## Quality Scoring Reference
 
