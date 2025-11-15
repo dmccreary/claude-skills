@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "title": "Using Claude Skills to Create Intelligent Textbooks",
-    "description": "A comprehensive course on leveraging Claude Skills to create intelligent, interactive textbooks that enhance learning through AI-assisted content generation, from course conception through deployment.",
-    "creator": "Claude AI Learning Graph Generator",
-    "date": "2025-11-08",
+    "title": "Learning Graph",
+    "description": "Learning graph with 200 concepts generated from CSV",
+    "creator": "CSV to JSON Converter",
+    "date": "2025-11-15",
     "version": "1.0",
     "format": "Learning Graph JSON v1.0",
     "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
@@ -12,86 +12,86 @@
   "groups": {
     "AIFND": {
       "classifierName": "AI Foundations",
-      "color": "red",
+      "color": "#FF6B6B",
       "font": {
-        "color": "white"
+        "color": "black"
       }
     },
     "SKILL": {
       "classifierName": "Claude Skills System",
-      "color": "orange",
+      "color": "#4ECDC4",
       "font": {
         "color": "black"
       }
     },
     "IBOOK": {
       "classifierName": "Intelligent Textbooks",
-      "color": "gold",
+      "color": "#45B7D1",
       "font": {
         "color": "black"
       }
     },
     "MKDOC": {
       "classifierName": "MkDocs Platform",
-      "color": "yellow",
+      "color": "#96CEB4",
       "font": {
         "color": "black"
       }
     },
     "GRAPH": {
       "classifierName": "Learning Graphs",
-      "color": "green",
+      "color": "#FFEAA7",
       "font": {
-        "color": "white"
+        "color": "black"
       }
     },
     "EDTHY": {
       "classifierName": "Educational Theory",
-      "color": "cyan",
+      "color": "#DDA15E",
       "font": {
         "color": "black"
       }
     },
     "CONTE": {
       "classifierName": "Content Creation",
-      "color": "blue",
+      "color": "#BC6C25",
       "font": {
-        "color": "white"
+        "color": "black"
       }
     },
     "RSRCE": {
       "classifierName": "Educational Resources",
-      "color": "purple",
+      "color": "#9B59B6",
       "font": {
-        "color": "white"
+        "color": "black"
       }
     },
     "INTER": {
       "classifierName": "Interactive Elements",
-      "color": "magenta",
+      "color": "#E17055",
       "font": {
-        "color": "white"
+        "color": "black"
       }
     },
     "VERCT": {
       "classifierName": "Version Control",
-      "color": "brown",
+      "color": "#74B9FF",
       "font": {
-        "color": "white"
+        "color": "black"
       }
     },
     "TOOLS": {
       "classifierName": "Development Tools",
-      "color": "gray",
+      "color": "#A29BFE",
       "font": {
-        "color": "white"
+        "color": "black"
       }
     },
     "DATAS": {
       "classifierName": "Data & Scripting",
-      "color": "indigo",
+      "color": "#FD79A8",
       "font": {
-        "color": "white"
+        "color": "black"
       }
     }
   },
