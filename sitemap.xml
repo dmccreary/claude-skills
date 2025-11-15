@@ -157,6 +157,14 @@
          <lastmod>2025-11-15</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/learning-graph/book-metrics/</loc>
+         <lastmod>2025-11-15</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/learning-graph/chapter-metrics/</loc>
+         <lastmod>2025-11-15</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/learning-graph/concept-list/</loc>
          <lastmod>2025-11-15</lastmod>
     </url>
@@ -206,6 +214,10 @@
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/prompts/book-chapter-generator-skill/</loc>
+         <lastmod>2025-11-15</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/prompts/book-metrics-skill-creation/</loc>
          <lastmod>2025-11-15</lastmod>
     </url>
     <url>
