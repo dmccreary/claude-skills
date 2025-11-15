@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Diagram and MicroSim Report Generator for Geometry Course
+Diagram and MicroSim Report Generator
 
-This script analyzes all chapter markdown files in the geometry course and generates
-a comprehensive report of all diagrams and MicroSims, including:
+This script analyzes all chapter markdown files and generates a comprehensive
+report of all diagrams and MicroSims, including:
 - Chapter number and name
 - Diagram/MicroSim title
 - Type (diagram or microsim)
@@ -11,8 +11,22 @@ a comprehensive report of all diagrams and MicroSims, including:
 - Number of UI elements
 - Estimated implementation difficulty
 
+The script should be run from the repository home directory. It will automatically
+look for docs/chapters/ and output to docs/learning-graph/.
+
 Usage:
-    python diagram-report.py [--output OUTPUT_FILE] [--format {markdown|csv|html}]
+    # Run from repository home directory (default paths)
+    python diagram-report.py
+
+    # Specify custom paths
+    python diagram-report.py --chapters-dir path/to/chapters --output-dir path/to/output
+
+    # Generate different formats
+    python diagram-report.py --format html
+    python diagram-report.py --format csv
+
+    # Enable verbose output for debugging
+    python diagram-report.py -v
 """
 
 import os
@@ -317,7 +331,7 @@ class ReportGenerator:
             "  - toc",
             "---",
             "",
-            "# Geometry Course - Diagram and MicroSim Table",
+            "# Diagram and MicroSim Table",
             "",
             f"**Total Visual Elements:** {len(self.elements)}",
             f"**Diagrams:** {sum(1 for e in self.elements if e.element_type == 'diagram')}",
@@ -367,7 +381,7 @@ class ReportGenerator:
     def generate_markdown_details(self) -> str:
         """Generate Markdown details report organized by chapter"""
         lines = [
-            "# Geometry Course - Diagram and MicroSim Details",
+            "# Diagram and MicroSim Details",
             "",
             f"**Total Visual Elements:** {len(self.elements)}",
             f"**Diagrams:** {sum(1 for e in self.elements if e.element_type == 'diagram')}",
@@ -436,7 +450,7 @@ class ReportGenerator:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geometry Course - Diagram and MicroSim Report</title>
+    <title>Diagram and MicroSim Report</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -513,7 +527,7 @@ class ReportGenerator:
     </style>
 </head>
 <body>
-    <h1>🎨 Geometry Course - Diagram and MicroSim Report</h1>
+    <h1>🎨 Diagram and MicroSim Report</h1>
 
     <div class="summary">
         <h2>Overview</h2>
@@ -603,12 +617,14 @@ class ReportGenerator:
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Generate report of diagrams and MicroSims in geometry course'
+        description='Generate report of diagrams and MicroSims from chapter markdown files',
+        epilog='Run this script from the repository home directory. '
+               'It will look for docs/chapters/ by default.'
     )
     parser.add_argument(
         '--output-dir',
-        default='../../docs/learning-graph',
-        help='Output directory path (default: ../../docs/learning-graph)'
+        default=None,
+        help='Output directory path (default: docs/learning-graph from current directory)'
     )
     parser.add_argument(
         '--format',
@@ -618,8 +634,8 @@ def main():
     )
     parser.add_argument(
         '--chapters-dir',
-        default='../../docs/chapters',
-        help='Path to chapters directory (default: ../../docs/chapters)'
+        default=None,
+        help='Path to chapters directory (default: docs/chapters from current directory)'
     )
     parser.add_argument(
         '-v', '--verbose',
@@ -629,18 +645,48 @@ def main():
 
     args = parser.parse_args()
 
-    # Resolve paths
-    script_dir = Path(__file__).parent
-    chapters_dir = (script_dir / args.chapters_dir).resolve()
-    output_dir = (script_dir / args.output_dir).resolve()
+    # Use current working directory as the base
+    cwd = Path.cwd()
 
+    # Determine chapters directory
+    if args.chapters_dir:
+        chapters_dir = Path(args.chapters_dir)
+        if not chapters_dir.is_absolute():
+            chapters_dir = (cwd / chapters_dir).resolve()
+    else:
+        chapters_dir = (cwd / 'docs' / 'chapters').resolve()
+
+    # Determine output directory
+    if args.output_dir:
+        output_dir = Path(args.output_dir)
+        if not output_dir.is_absolute():
+            output_dir = (cwd / output_dir).resolve()
+    else:
+        output_dir = (cwd / 'docs' / 'learning-graph').resolve()
+
+    # Validate chapters directory exists
     if not chapters_dir.exists():
         print(f"Error: Chapters directory not found: {chapters_dir}")
+        print(f"\nThis script should be run from a repository home directory that contains:")
+        print(f"  - docs/chapters/  (with numbered chapter subdirectories like 01-*, 02-*, etc.)")
+        print(f"\nCurrent working directory: {cwd}")
+        print(f"\nYou can specify a custom chapters directory with --chapters-dir")
         return 1
 
-    if not output_dir.exists():
-        print(f"Error: Output directory not found: {output_dir}")
+    if not chapters_dir.is_dir():
+        print(f"Error: Chapters path exists but is not a directory: {chapters_dir}")
         return 1
+
+    # Validate or create output directory
+    if not output_dir.exists():
+        print(f"Warning: Output directory does not exist: {output_dir}")
+        print(f"Creating output directory...")
+        try:
+            output_dir.mkdir(parents=True, exist_ok=True)
+            print(f"Created: {output_dir}")
+        except Exception as e:
+            print(f"Error: Could not create output directory: {e}")
+            return 1
 
     print(f"Analyzing chapters in: {chapters_dir}")
 
