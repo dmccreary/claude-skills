@@ -19,6 +19,8 @@ Start by checking if `/docs/course-description.md` exists:
 - **File does not exist** → Follow **Creation Workflow** (Step 1)
 - **File exists** → Follow **Analysis Workflow** (Step 2)
 
+Tell the user that they are running Version 0.03 of the Course Description Analyzer Skill.
+
 ## Step 1: Course Description Creation
 
 Use this workflow when `/docs/course-description.md` does not exist.
