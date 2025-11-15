@@ -453,7 +453,7 @@ class BookMetricsGenerator:
         md += "- **Equations**: LaTeX expressions using $ and $$ delimiters\n"
         md += "- **MicroSims**: Directories in docs/sims/ with index.md files\n"
         md += "- **Total Words**: All words in markdown files (excluding code blocks and URLs)\n"
-        md += "- **Links**: Markdown-formatted links [text](url)\n"
+        md += "- **Links**: Markdown-formatted links `[text](url)`\n"
         md += "- **Equivalent Pages**: Based on 250 words/page + 0.25 page/diagram + 0.5 page/MicroSim\n"
 
         return md
