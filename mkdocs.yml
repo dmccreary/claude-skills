@@ -90,6 +90,8 @@ nav:
     - Quiz Generation Report: learning-graph/quiz-generation-report.md
     - Progress Report: learning-graph/progress.md
     - Usage Limits: claude-usage-limits.md
+    - Book Metrics: learning-graph/book-metrics.md
+    - Chapter Metrics: learning-graph/chapter-metrics.md
 
 
   - MicroSims:

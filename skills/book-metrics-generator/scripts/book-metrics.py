@@ -117,11 +117,9 @@ class BookMetricsGenerator:
         try:
             with open(self.glossary_file, 'r', encoding='utf-8') as f:
                 content = f.read()
-                # Count markdown definition lists (terms starting with line, followed by : definition)
-                # Or count H2/H3 headers as terms
-                h2_count = len(re.findall(r'^##\s+', content, re.MULTILINE))
-                h3_count = len(re.findall(r'^###\s+', content, re.MULTILINE))
-                return h2_count + h3_count
+                # Count H4 headers as glossary terms
+                h4_count = len(re.findall(r'^####\s+', content, re.MULTILINE))
+                return h4_count
         except Exception as e:
             print(f"Warning: Could not read glossary: {e}")
             return 0
@@ -434,13 +432,13 @@ class BookMetricsGenerator:
 
         # Add rows
         md += f"| Chapters | {chapter_count} | [Chapters](../chapters/) | Number of chapter directories |\n"
-        md += f"| Concepts | {concepts} | [Learning Graph](learning-graph.csv) | Concepts from learning graph |\n"
+        md += f"| Concepts | {concepts} | [Learning Graph](./concept-list.md) | Concepts from learning graph |\n"
         md += f"| Glossary Terms | {glossary_terms} | [Glossary](../glossary.md) | Defined terms |\n"
         md += f"| FAQs | {faqs} | [FAQ](../faq.md) | Frequently asked questions |\n"
         md += f"| Quiz Questions | {quiz_questions} | - | Questions across all chapters |\n"
         md += f"| Diagrams | {diagrams} | - | Level 4 headers starting with '#### Diagram:' |\n"
         md += f"| Equations | {equations} | - | LaTeX expressions (inline and display) |\n"
-        md += f"| MicroSims | {microsims} | [Simulations](../sims/) | Interactive p5.js simulations |\n"
+        md += f"| MicroSims | {microsims} | [Simulations](../sims/index.md) | Interactive p5.js simulations |\n"
         md += f"| Total Words | {total_words:,} | - | Words in all markdown files |\n"
         md += f"| Links | {links} | - | Hyperlinks in markdown format |\n"
         md += f"| Equivalent Pages | {equivalent_pages} | - | Estimated pages (250 words/page + visuals) |\n"
@@ -448,7 +446,7 @@ class BookMetricsGenerator:
         md += "\n## Metrics Explanation\n\n"
         md += "- **Chapters**: Count of chapter directories containing index.md files\n"
         md += "- **Concepts**: Number of rows in learning-graph.csv\n"
-        md += "- **Glossary Terms**: H2 and H3 headers in glossary.md\n"
+        md += "- **Glossary Terms**: H4 headers in glossary.md\n"
         md += "- **FAQs**: H2 headers in faq.md\n"
         md += "- **Quiz Questions**: H2 headers in all quiz.md files\n"
         md += "- **Diagrams**: H4 headers starting with '#### Diagram:'\n"
