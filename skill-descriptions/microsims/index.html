@@ -114,7 +114,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#microsim-skills" class="md-skip">
+        <a href="#educational-microsim-skills" class="md-skip">
           Skip to content
         </a>
       
@@ -571,7 +571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="chartjs/" class="md-nav__link">
+      <a href="chartjs.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1183,6 +1183,60 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#chart-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart Generator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mermaid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-process-flow-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Process &amp; Flow Diagrams
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-structural-relationship-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Structural &amp; Relationship Diagrams
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeline-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeline Generator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vis-network-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vis-Network MicroSim
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1206,9 +1260,109 @@
   
 
 
-<h1 id="microsim-skills">MicroSim Skills</h1>
+<h1 id="educational-microsim-skills">Educational MicroSim Skills</h1>
+<p>Educational MicroSims are lightweight, interactive educational simulations designed for browser-based learning. 
+MicroSims are designed to run in a rectangular iframe placed within the a page of a textbook.</p>
+<p>Sample <code>iframe</code> </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://example.com/microsims/my-microsim/main.html&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;500px&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>MicroSims are packaged in a directory with the following files:</p>
+<ol>
+<li>main.html - holds the main HTML code with possible inline CSS, JavaScript and data</li>
+<li>index.md - documentation and <code>iframe</code> reference to a local <code>main.html</code></li>
+<li>style.css - optional CSS file</li>
+<li>script.js - optional JavaScript file</li>
+<li>data.json - optional JSON data file</li>
+</ol>
+<p>Each of the skills below contains an assets directory that has these files with the string <code>template-</code> before the file names above.</p>
+<p>All MicroSims should be designed to be width-responsive meaning that the components recenter and stretch if the containing window is resized.</p>
 <h2 id="microsim-p5-generator">MicroSim P5 Generator</h2>
-<p><strong>Name:</strong> microsim-pg</p>
+<p><strong>Name:</strong> microsim-pg<br/>
+<strong>Width Responsive:</strong> Yes
+This is a general skill that generates any p5.js application that can be tested in the p5.js editor.
+It is ideal for simulations and animations where the user control the behavior through a set of
+controls at the bottom of the drawing area.</p>
+<h2 id="chart-generator">Chart Generator</h2>
+<p><strong>Name:</strong> chartjs-generator<br/>
+This generator creates general charts such as:</p>
+<ol>
+<li>bar charts</li>
+<li>bubble charts</li>
+<li>doughnut charts</li>
+<li>line charts</li>
+<li>pie charts</li>
+<li>polar plot charts</li>
+<li>radar charts</li>
+<li>scatter charts</li>
+</ol>
+<p>The default is 500px high and a width that fills 100% of the enclosing container.
+If the user does not provide the title, chart type and data, the skill will prompt
+them for the appropriate information.</p>
+<h2 id="mermaid">Mermaid</h2>
+<p><strong>Name:</strong> timeline-generator<br/>
+<strong>Width Responsive:</strong> Yes (with limitations in that the size of the shapes may not change, but they are re-centered)</p>
+<p>The Mermaid.js library is ideal for allowing the user to specify the content of a drawing and a layout st</p>
+<h2 id="1-process-flow-diagrams">1. Process &amp; Flow Diagrams</h2>
+<p>These diagrams illustrate workflows, processes, and sequential operations.</p>
+<ol>
+<li>Flowchart/Graph - General-purpose flowcharts showing decision points, processes, and flow direction</li>
+<li>State Diagram - Models state transitions and lifecycle of systems or objects</li>
+<li>Sequence Diagram - Shows interactions between entities over time in a sequential order</li>
+<li>User Journey - Maps user experiences and touchpoints across different stages</li>
+</ol>
+<h2 id="2-structural-relationship-diagrams">2. Structural &amp; Relationship Diagrams</h2>
+<p>These diagrams model the structure and relationships between components or entities.</p>
+<ol>
+<li>Class Diagram - Object-oriented design showing classes, attributes, methods, and relationships</li>
+<li>Entity Relationship (ER) Diagram - Database schemas showing entities, attributes, and relationships</li>
+<li>C4 Diagram - Software architecture context, containers, components, and code views</li>
+<li>Block Diagram - High-level system component diagrams showing functional blocks</li>
+</ol>
+<h2 id="timeline-generator">Timeline Generator</h2>
+<p><strong>Name:</strong> timeline-generator<br/>
+<strong>Width Responsive:</strong> Yes
+This skill will take an input of events and generate a timeline using the vis-timeline JavaScript library.
+The user must specify the following information and JSON is a good format:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sample Timeline&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;start_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;year&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;month&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;11&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;day&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;16&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;headline&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Project Initiated&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The project was formally initiated with stakeholder approval and budget allocation.&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Planning&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This milestone marked the official start of the project after months of preparation and proposal development.&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="vis-network-microsim">Vis-Network MicroSim</h2>
+<p><strong>Name:</strong> vis-network
+This skill will create a graph network diagram using the vis-network JavaScript library.
+The user should provide a list of nodes and edges as well as an optional list of groups.</p>
 
 
 
