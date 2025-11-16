@@ -1,0 +1,183 @@
+/*
+ * Leaflet Map Styles
+ * Designed for iframe embedding with minimal padding and margins
+ * Target: <iframe src="main.html" height="700pt" width="100%" scrolling="no"></iframe>
+ * Optimized for narrow MkDocs pages with navbar (left) and TOC (right)
+ */
+
+/* Critical: Remove all body margins for iframe embedding */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container with minimal margins */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5px;
+    background: aliceblue;
+    border: solid blue 2px;
+}
+
+/* Title with minimal spacing */
+h1 {
+    text-align: center;
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 2px;  /* MINIMAL MARGIN */
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+/* Subtitle with minimal spacing */
+.subtitle {
+    text-align: center;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 5px;  /* MINIMAL MARGIN */
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+/* Map container - MUST have fixed height for Leaflet */
+#map {
+    height: 400px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Controls section (for layer toggles, buttons, etc.) */
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;  /* MINIMAL MARGIN */
+    flex-wrap: wrap;
+}
+
+.controls button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.controls button:hover {
+    background-color: #45a049;
+}
+
+.controls button:active {
+    background-color: #3d8b40;
+}
+
+.controls button.active {
+    background-color: #2196F3;
+}
+
+/* Leaflet popup customization */
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    padding: 0;
+}
+
+.leaflet-popup-content {
+    margin: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.leaflet-popup-content h3 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    color: #2196F3;
+}
+
+.leaflet-popup-content p {
+    margin: 4px 0;
+}
+
+/* Custom marker icon styles (if using custom markers) */
+.custom-marker {
+    background-color: #2196F3;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+    .container {
+        padding: 3px;
+    }
+
+    h1 {
+        font-size: 1.2em;
+        margin-top: 3px;
+        margin-bottom: 2px;
+    }
+
+    .subtitle {
+        font-size: 0.8em;
+        margin-bottom: 3px;
+    }
+
+    #map {
+        height: 300px;
+    }
+
+    .controls {
+        margin-top: 8px;
+        margin-bottom: 3px;
+    }
+
+    .controls button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .container {
+        padding: 2px;
+    }
+
+    h1 {
+        font-size: 1em;
+        margin-top: 2px;
+        margin-bottom: 1px;
+    }
+
+    .subtitle {
+        font-size: 0.75em;
+        margin-bottom: 2px;
+    }
+
+    #map {
+        height: 250px;
+    }
+
+    .controls {
+        gap: 5px;
+        margin-top: 5px;
+        margin-bottom: 2px;
+    }
+
+    .controls button {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+}

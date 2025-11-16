@@ -1,0 +1,49 @@
+{
+  "title": "Major World Cities",
+  "description": "Interactive map showcasing ten major cities across different continents",
+  "subject": "Geography, Urban Studies, Global Population",
+  "creator": "Claude AI with Map Generator Skill",
+  "date": "2025-01-16",
+  "type": "Interactive Map Visualization",
+  "format": "text/html",
+  "language": "en-US",
+  "coverage": "Global",
+  "rights": "Educational Use",
+  "audience": "High School, College",
+  "map_type": "interactive",
+  "center_lat": "20",
+  "center_lng": "0",
+  "zoom_level": 2,
+  "marker_count": 10,
+  "base_map": "OpenStreetMap",
+  "has_layers": false,
+  "has_geojson": false,
+  "concepts": [
+    "Geographic Location",
+    "World Cities",
+    "Population Centers",
+    "Continents",
+    "Urban Geography"
+  ],
+  "bloom_taxonomy": "Understand",
+  "difficulty": "Beginner",
+  "prerequisites": [
+    "Basic geography knowledge",
+    "Understanding of continents"
+  ],
+  "learning_objectives": [
+    "Identify major cities on a world map",
+    "Understand the global distribution of population centers",
+    "Recognize cities across different continents"
+  ],
+  "tags": [
+    "geography",
+    "world-cities",
+    "urban-studies",
+    "population",
+    "interactive-map"
+  ],
+  "version": "1.0",
+  "library": "Leaflet",
+  "library_version": "1.9.4"
+}
