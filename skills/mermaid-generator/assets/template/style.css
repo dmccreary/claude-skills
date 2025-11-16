@@ -12,7 +12,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
@@ -25,7 +24,6 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
 }
 
 header {
@@ -50,9 +48,7 @@ header h1 {
 
 main {
     background: white;
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: var(--shadow);
+    padding: 0;
 }
 
 .diagram-container {

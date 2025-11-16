@@ -2,7 +2,8 @@
 
 ## Overview
 
-The bubble-chart-generator skill creates professional, interactive bubble chart visualizations using Chart.js for displaying three-dimensional data on a 2D plane with X-axis, Y-axis, and bubble size representations.
+The bubble-chart-generator skill creates professional, interactive bubble chart visualizations using Chart.js for displaying three-dimensional data on a 2D plane with X-axis, Y-axis, and bubble size representations.  It's focus is a bubble chart
+that can be easily referenced by an iframe in a spaced constrained page of a textbook.  It has a all the capabilities of the ChartJS bubble chart system.  The user should be able to hover over different bubbles in the chart and see a description of that item in a tooltip.
 
 ## Purpose
 

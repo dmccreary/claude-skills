@@ -246,6 +246,158 @@ Start → Try Action → Success?
 - **quiz-generator**: Create questions about workflow understanding
 - **glossary-generator**: Define terms used in diagram labels
 
+## When to Use Mermaid vs. Chart.js, p5.js, and vis.js
+
+Choose Mermaid When:
+
+### 1\ **Text-Based Generation is Priority**
+
+Mermaid excels when AI needs to generate diagrams from text descriptions because:
+
+-   **Simple, declarative syntax** - LLMs can reliably output valid Mermaid code
+-   **Low hallucination risk** - Structured syntax reduces errors compared to imperative code
+-   **No computation required** - Pure markup, no need for data calculations or logic
+-   **Version control friendly** - Text format works well in documentation and repositories
+
+### 2. **Diagram Type Matches Mermaid Strengths**
+
+Use Mermaid for:
+
+-   Flowcharts and process diagrams
+-   ER diagrams and database schemas
+-   State machines and sequence diagrams
+-   Git graphs and timelines
+-   Architecture diagrams
+-   Class diagrams
+-   Gantt charts (simple project timelines)
+
+### 3. **Static Documentation Context**
+
+-   Embedding in Markdown files (GitHub, GitLab, MkDocs)
+-   Technical documentation sites
+-   README files and wikis
+-   Static site generators
+-   Simple, read-only visualizations
+
+### Choose Chart.js Over Mermaid When:
+
+### 1. **Data-Driven Charts**
+
+-   Bar charts, line graphs, scatter plots with actual data
+-   Need precise control over scales, axes, and gridlines
+-   Real-time data updates and animations
+-   Statistical visualizations
+-   Dashboard metrics
+
+### 2. **Customization Requirements**
+
+-   Complex styling and theming
+-   Interactive tooltips and hover effects
+-   Responsive design with specific breakpoints
+-   Plugin ecosystem for specialized features
+
+## Choose p5.js Over Mermaid When:
+
+### 1. Creative or Custom Visualizations
+
+-   Unique, non-standard diagram types
+-   Generative art or creative data visualization
+-   Custom animations and interactions
+-   Physics simulations
+-   Particle systems
+-   Educational simulations (like you mentioned with microsims)
+
+### 2. Full Control Required
+
+-   Pixel-level drawing control
+-   Complex animation sequences
+-   Game-like interactions
+-   Audio-visual synchronization
+
+### Choose vis.js Over Mermaid When:
+
+#### 1. **Complex Network Graphs**
+
+-   Large node-edge networks (hundreds or thousands of nodes)
+-   Interactive network exploration
+-   Physics-based layout algorithms
+-   Hierarchical networks
+-   Dynamic graph updates
+
+#### 2. **Advanced Timeline Visualizations**
+
+-   Complex timelines with groups and nested items
+-   Interactive time-based data exploration
+-   Resource scheduling
+
+## Decision Matrix for AI Generation
+
+| Factor | Mermaid | Chart.js | p5.js | vis.js |
+| --- |  --- |  --- |  --- |  --- |
+| **AI Generation Ease** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ |
+| --- |  --- |  --- |  --- |  --- |
+| **Syntax Simplicity** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ |
+| **No Runtime Logic** | ⭐⭐⭐⭐⭐ | ⭐⭐ | ⭐ | ⭐⭐ |
+| **Data Visualization** | ⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
+| **Custom Interactions** | ⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| **Static Diagrams** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ⭐⭐ |
+
+### Practical Guidelines for AI-Generated Diagrams
+
+### **Use Mermaid as Default for:**
+
+1.  Conceptual diagrams (workflows, architectures, relationships)
+2.  Documentation that lives in Markdown
+3.  Quick prototypes and mockups
+4.  When the diagram structure is more important than pixel-perfect design
+5.  When you need guaranteed rendering without JavaScript execution
+
+### Switch to From Mermaid to Chart.js when:
+
+1.  You have actual numerical data to plot
+2.  Need standard chart types (bar, line, pie, radar)
+3.  Interactive data exploration is required
+4.  Precise statistical representation matters
+
+### Switch from Mermaid to p5.js when:
+
+1.  Creating educational simulations
+2.  Need custom drawing logic AI can generate
+3.  Building unique, non-standard visualizations
+4.  Combining graphics with user interaction
+
+### Switch to vis.js when:
+
+1.  Dealing with network/graph data with many nodes
+2.  Need physics-based layouts
+3.  Interactive graph exploration is essential
+4.  Mermaid's graph capabilities are insufficient
+
+## AI Generation Considerations
+
+### Why Mermaid is Often Best for AI:
+
+-   **Predictable output** - Syntax is consistent and well-documented
+-   **Error recovery** - Easier to debug text-based syntax
+-   **Token efficiency** - Shorter code for same result
+-   **No state management** - No need to track variables or state
+-   **Rendering agnostic** - Works in multiple environments without modification
+
+### When to Use Other Libraries for MicroSims
+
+-   Chart.js: When you need to **process data** (calculations, aggregations)
+-   p5.js: When you need **procedural generation** or custom logic
+-   vis.js: When you need **complex interactivity** with large datasets
+
+## Summary
+
+1. **Default to Mermaid** for structural, conceptual, and process diagrams in documentation contexts. 
+2. **Upgrade to Chart.js** when you need data-driven charts with standard formats. 
+3. **Choose p5.js** for creative, educational, or highly custom visualizations. 
+4. **Select vis.js** for complex network graphs that exceed Mermaid's capabilities.
+
+For AI generation specifically, Mermaid's text-based, declarative syntax makes it the most reliable choice for ~80% of diagram use cases.
+
 ## References
 
 - Mermaid.js Documentation: https://mermaid.js.org/

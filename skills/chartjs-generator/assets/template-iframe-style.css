@@ -1,3 +1,7 @@
+/* ChartJS CSS file optimized for iframes with small margin and padding 
+   Designed to fit in a 500px high frame with responsive width
+    <iframe src="main.html" height="500pt" width="100%" scrolling="no"></iframe>
+*/
 body {
     margin: 0;
     padding: 0;
@@ -14,30 +18,30 @@ body {
 h1 {
     text-align: center;
     color: black;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     font-size: 1.5em;
 }
 
 .subtitle {
     text-align: center;
     color: black;
-    margin-bottom: 10px;
+    margin-bottom: 2;
     font-size: 0.9em;
 }
 
 .controls {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-top: 15px;
-    margin-bottom: 10px;
+    gap: 10px;
+    margin-top: 5px;
+    margin-bottom: 0px;
     flex-wrap: nowrap;
     align-items: center;
 }
 
 .control-group {
     display: flex;
-    gap: 10px;
+    gap: 5px;
     align-items: center;
     white-space: nowrap;
 }
@@ -54,12 +58,12 @@ h1 {
 }
 
 button {
-    padding: 8px 16px;
+    padding: 2px 4px;
     border: 2px solid #3498db;
     background: white;
     color: #3498db;
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: 2px;
     font-weight: 600;
     transition: all 0.3s ease;
     font-size: 0.85em;
