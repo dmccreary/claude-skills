@@ -1736,6 +1736,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#diagram-skill-file-anatomy-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Skill File Anatomy Diagram
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#yaml-frontmatter-in-skills" class="md-nav__link">
     <span class="md-ellipsis">
       YAML Frontmatter in Skills
@@ -1768,6 +1777,21 @@
       Allowed Tools in Skills
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Allowed Tools in Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-skill-permission-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Skill Permission Matrix
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1810,6 +1834,21 @@
       Project-Local Installation
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Project-Local Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-skill-installation-locations-and-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Skill Installation Locations and Priority
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1895,6 +1934,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Passing Context to Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-skill-invocation-and-execution-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Skill Invocation and Execution Lifecycle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1946,6 +2000,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Difference Between Skills & Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-skills-vs-commands-decision-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Skills vs Commands Decision Tree
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1987,6 +2056,21 @@
       4-Hour Usage Windows
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="4-Hour Usage Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-4-hour-token-window-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: 4-Hour Token Window Visualization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2047,6 +2131,21 @@
       Convergence to Quality
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Convergence to Quality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-iterative-prompt-refinement-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Iterative Prompt Refinement Metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2218,6 +2317,7 @@ Detailed instructions for the second step.
 References to supporting files, templates, or documentation.
 </code></pre></div></td></tr></table></div>
 <p>The separation of metadata (YAML frontmatter) from workflow instructions (markdown body) enables both machine parsing for skill discovery and human readability for understanding and customization. Claude Code processes the YAML to determine skill identity and tool permissions, then executes the markdown workflow instructions sequentially.</p>
+<h4 id="diagram-skill-file-anatomy-diagram">Diagram: Skill File Anatomy Diagram</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2373,6 +2473,7 @@ Implementation: SVG diagram with code-style formatting
 <span class="c1"># (allowed-tools omitted or set to all tools)</span>
 </code></pre></div></td></tr></table></div>
 <p>When developing skills, follow the principle of least privilege: grant only the tools necessary for the skill's function. This reduces risk of unintended modifications and makes skill behavior more predictable.</p>
+<h4 id="diagram-skill-permission-matrix">Diagram: Skill Permission Matrix</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2525,6 +2626,7 @@ cp<span class="w"> </span>-r<span class="w"> </span>skill-name/references<span c
 </li>
 </ol>
 <p>Project-local skills take precedence over global skills with the same name, enabling project-specific customization of standard workflows.</p>
+<h4 id="diagram-skill-installation-locations-and-priority">Diagram: Skill Installation Locations and Priority</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2631,6 +2733,7 @@ Implementation: SVG diagram with tree structure
 /skill chapter-content-generator
 </code></pre></div></td></tr></table></div>
 <p>The skill receives both the general instruction and executes its standard workflow, incorporating the contextual guidance where applicable.</p>
+<h4 id="diagram-skill-invocation-and-execution-lifecycle">Diagram: Skill Invocation and Execution Lifecycle</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2852,6 +2955,7 @@ cp<span class="w"> </span>command-name.md<span class="w"> </span>.claude/command
 - Project-specific prompt patterns
 - Quick shortcuts for common questions</p>
 <p>In this course, the intelligent textbook workflow relies primarily on skills due to the complexity and multi-step nature of content generation. Commands might be used for auxiliary tasks like "check-concept-coverage" or "validate-markdown-format."</p>
+<h4 id="diagram-skills-vs-commands-decision-tree">Diagram: Skills vs Commands Decision Tree</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2956,6 +3060,7 @@ Implementation: SVG decision tree with diamond decision nodes
 </ol>
 <p>Example: If you consume 50,000 tokens at 9:00 AM, those tokens remain unavailable until 1:00 PM (4 hours later), when they're restored to your budget.</p>
 <p>This model rewards distributed work patterns over concentrated bursts. For textbook creation workflows that may involve generating content for 13 chapters, spreading skill invocations across several sessions prevents exhausting your token budget.</p>
+<h4 id="diagram-4-hour-token-window-visualization">Diagram: 4-Hour Token Window Visualization</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3081,6 +3186,7 @@ Implementation: HTML/CSS/JavaScript with Chart.js timeline
 <li>Generated content requires minimal post-processing</li>
 </ul>
 <p>Converged prompts can be captured as skills or commands for reuse across projects, sharing expertise and accelerating future textbook development.</p>
+<h4 id="diagram-iterative-prompt-refinement-metrics">Diagram: Iterative Prompt Refinement Metrics</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>

@@ -1741,6 +1741,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="The p5.js Foundation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-p5js-architecture-and-execution-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: p5.js Architecture and Execution Model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1750,6 +1765,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="MicroSim Directory Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-microsim-file-relationship-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: MicroSim File Relationship Diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1758,6 +1788,21 @@
       Creating the main.html File
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Creating the main.html File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-basic-microsim-template-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Basic MicroSim Template Structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1777,6 +1822,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Iframe Embedding Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-responsive-iframe-embedding-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Responsive Iframe Embedding MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1794,6 +1854,21 @@
       Interactive Controls: Buttons
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Interactive Controls: Buttons">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-algorithm-visualization-with-step-controls-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Algorithm Visualization with Step Controls MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1821,6 +1896,21 @@
       Principles of Educational Simulation Design
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Principles of Educational Simulation Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-microsim-design-quality-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: MicroSim Design Quality Checklist
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1981,6 +2071,7 @@
 <li>Global variables store state that persists across draw cycles</li>
 <li>Event handlers respond to user interactions (mousePressed, keyPressed, etc.)</li>
 </ul>
+<h4 id="diagram-p5js-architecture-and-execution-model">Diagram: p5.js Architecture and Execution Model</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2076,6 +2167,7 @@ Implementation: Flowchart diagram using Mermaid or similar tool
 └── metadata.json      # Dublin Core metadata
 </code></pre></div></td></tr></table></div>
 <p>Additional files may be present depending on the complexity of the simulation. Some MicroSims include separate CSS files for sophisticated styling, JSON data files for configuration, or supporting image assets. However, the three core files listed above are mandatory for all MicroSims in the intelligent textbook framework.</p>
+<h4 id="diagram-microsim-file-relationship-diagram">Diagram: MicroSim File Relationship Diagram</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2168,6 +2260,7 @@ Implementation: Block diagram with icons
 <li>Set default parameter values that produce interesting behavior</li>
 <li>Ensure the simulation starts in a meaningful state</li>
 </ul>
+<h4 id="diagram-basic-microsim-template-structure">Diagram: Basic MicroSim Template Structure</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2333,6 +2426,7 @@ Implementation: Tree diagram or hierarchical block diagram
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>This wrapper uses the "padding-bottom percentage trick" where the percentage is calculated as (height/width) × 100%. For a 1000×600 simulation, that's (600/1000) × 100% = 60%. The absolutely positioned iframe then fills this responsive container.</p>
+<h4 id="diagram-responsive-iframe-embedding-microsim">Diagram: Responsive Iframe Embedding MicroSim</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2607,6 +2701,7 @@ Implementation notes:
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>Effective button design for educational purposes requires attention to labeling, feedback, and state management. Button labels should use action verbs that clearly communicate what will happen ("Start Traversal" rather than "Go"). Visual feedback such as color changes, disabled states, or confirmation messages helps students understand the effects of their actions. For toggleable buttons, the label or appearance should reflect the current state, making it clear whether clicking will enable or disable a feature.</p>
+<h4 id="diagram-algorithm-visualization-with-step-controls-microsim">Diagram: Algorithm Visualization with Step Controls MicroSim</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3029,6 +3124,7 @@ Implementation notes:
 <p><strong>Design for accessibility.</strong> Not all students interact with simulations in the same ways. Ensure keyboard navigation works for all controls. Provide text alternatives for color coding (using both color and shape/pattern). Include descriptions of what's happening for screen reader users. Test with different input methods and assistive technologies. Accessibility is not just ethical—it often improves usability for all students.</p>
 <p><strong>Encourage exploration through seeded randomness.</strong> As discussed earlier, use seeded randomness to create variety while maintaining reproducibility. Provide a "Randomize" button that generates new scenarios with different seeds. Document interesting seed values that demonstrate specific concepts. This approach balances the engagement value of novelty with the pedagogical value of shared reference points.</p>
 <p><strong>Align with learning objectives.</strong> Every MicroSim should map clearly to specific learning objectives from your course or chapter. The simulation should help students achieve outcomes like "explain the difference between X and Y," "predict the behavior of system Z under different conditions," or "analyze the trade-offs between approaches A and B." If you cannot articulate what learning objective a simulation addresses, reconsider whether it belongs in your textbook.</p>
+<h4 id="diagram-microsim-design-quality-checklist">Diagram: MicroSim Design Quality Checklist</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>

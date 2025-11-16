@@ -1732,6 +1732,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Skill Directory Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-skill-directory-structure-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Skill Directory Structure Diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1785,6 +1800,15 @@
   
     <nav class="md-nav" aria-label="Skill Testing and Debugging">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-skill-testing-workflow-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Skill Testing Workflow Diagram
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#testing-strategies" class="md-nav__link">
@@ -1843,6 +1867,21 @@
       File Access Permissions
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="File Access Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-security-zones-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Security Zones Diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1919,6 +1958,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Skill Packaging Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-skill-package-contents-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Skill Package Contents Checklist
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1986,6 +2040,15 @@
   <a href="#git-push-command" class="md-nav__link">
     <span class="md-ellipsis">
       Git Push Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-git-workflow-for-skill-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Git Workflow for Skill Development
     </span>
   </a>
   
@@ -2134,6 +2197,7 @@
 <li><strong>Subdirectories</strong> - Organized folders for different asset types (scripts/, templates/, references/, examples/)</li>
 </ul>
 <p>The SKILL.md file serves as both the entry point for Claude and documentation for developers. Its YAML frontmatter defines metadata including name, description, and optionally allowed-tools to restrict which capabilities the skill can access. The markdown body contains the detailed workflow instructions that Claude executes when the skill is invoked.</p>
+<h4 id="diagram-skill-directory-structure-diagram">Diagram: Skill Directory Structure Diagram</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2289,6 +2353,7 @@ Implementation: Mermaid.js graph or custom SVG diagram
 <p>Reference files should be comprehensive enough to enable implementation without additional context, yet organized for quick navigation to relevant sections.</p>
 <h2 id="skill-testing-and-debugging">Skill Testing and Debugging</h2>
 <p>Effective testing and debugging practices are essential for developing reliable skills that handle edge cases, provide meaningful error messages, and produce consistent results across different contexts.</p>
+<h4 id="diagram-skill-testing-workflow-diagram">Diagram: Skill Testing Workflow Diagram</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2445,6 +2510,7 @@ Swimlanes:
 <li><strong>No access</strong> to system directories, user home directory outside workspace, or sensitive file locations</li>
 </ul>
 <p>Skills should explicitly specify output directories and validate file paths before operations. When skills require access to directories outside default scopes, they should clearly document these requirements and explain why access is necessary.</p>
+<h4 id="diagram-security-zones-diagram">Diagram: Security Zones Diagram</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2636,6 +2702,7 @@ Implementation: SVG diagram or Mermaid.js
 <li><strong>Example data</strong> - Provide sample inputs and expected outputs</li>
 <li><strong>Installation automation</strong> - Include scripts for common installation scenarios</li>
 </ol>
+<h4 id="diagram-skill-package-contents-checklist">Diagram: Skill Package Contents Checklist</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2839,6 +2906,7 @@ git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span
 <li>No sensitive information (credentials, API keys) is included</li>
 <li><code>.gitignore</code> excludes temporary or generated files</li>
 </ul>
+<h4 id="diagram-git-workflow-for-skill-development">Diagram: Git Workflow for Skill Development</h4>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
