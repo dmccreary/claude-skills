@@ -1,0 +1,23 @@
+{
+  "title": "Sine Function Visualization",
+  "description": "Interactive plot of the sine function with slider control to explore points along the curve. Demonstrates periodicity, amplitude, and relationship to the unit circle.",
+  "creator": "Claude Skills - Math Function Plotter",
+  "date": "2025-11-17",
+  "subject": [
+    "mathematics",
+    "trigonometry",
+    "precalculus",
+    "calculus",
+    "visualization",
+    "interactive learning"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "audience": "High school and college students",
+  "educationalLevel": "Grade 10-12, Undergraduate",
+  "learningResourceType": "Interactive Plot",
+  "interactivityType": "active",
+  "typicalLearningTime": "PT10M"
+}

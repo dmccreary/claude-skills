@@ -1,0 +1,149 @@
+/*
+ * Sine Function Visualization - Responsive Styling
+ * Designed for iframe embedding with minimal padding and margins
+ * Target: <iframe src="main.html" height="500pt" width="100%" scrolling="no"></iframe>
+ * Optimized for narrow MkDocs pages with navbar (left) and TOC (right)
+ */
+
+/* Critical: Remove all body margins for iframe embedding */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    background: aliceblue;
+}
+
+/* Container with minimal margins */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5px;
+    background: aliceblue;
+}
+
+/* Title with minimal spacing */
+h1 {
+    margin-top: 5px;
+    margin-bottom: 2px;
+    font-size: 1.5em;
+    text-align: center;
+    color: #333;
+}
+
+.subtitle {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    text-align: center;
+    color: #666;
+}
+
+/* Plot container */
+#plot {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Interactive controls */
+.controls {
+    margin: 10px 5px 5px 5px;
+    padding: 10px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.controls label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #333;
+    font-weight: 500;
+}
+
+#x-slider {
+    width: 100%;
+    margin-top: 5px;
+}
+
+#x-value {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Responsive breakpoints */
+
+/* Tablet and small desktop */
+@media (max-width: 768px) {
+    .container {
+        padding: 3px;
+    }
+
+    h1 {
+        font-size: 1.2em;
+        margin-top: 3px;
+        margin-bottom: 2px;
+    }
+
+    .subtitle {
+        font-size: 0.8em;
+        margin-bottom: 3px;
+    }
+
+    #plot {
+        height: 300px;
+        margin-bottom: 8px;
+    }
+
+    .controls {
+        margin: 8px 3px 3px 3px;
+        padding: 8px;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    .container {
+        padding: 2px;
+    }
+
+    h1 {
+        font-size: 1em;
+        margin-top: 2px;
+        margin-bottom: 1px;
+    }
+
+    .subtitle {
+        font-size: 0.75em;
+        margin-bottom: 2px;
+    }
+
+    #plot {
+        height: 250px;
+        margin-bottom: 5px;
+    }
+
+    .controls {
+        margin: 5px 2px 2px 2px;
+        padding: 5px;
+    }
+
+    .controls label {
+        font-size: 0.8em;
+    }
+}
+
+/* Print styles */
+@media print {
+    .controls {
+        display: none;
+    }
+
+    #plot {
+        height: 500px;
+    }
+}
