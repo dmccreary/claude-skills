@@ -1,0 +1,3596 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/chartjs-generator/">
+      
+      
+        <link rel="prev" href="../microsim-p5/">
+      
+      
+        <link rel="next" href="../vis-network/">
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Chart Generator - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HPLDD3D3K2"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HPLDD3D3K2",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HPLDD3D3K2",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Chart Generator - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  property="og:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/skill-descriptions/microsims/chartjs-generator.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/chartjs-generator/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Chart Generator - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  name="twitter:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/skill-descriptions/microsims/chartjs-generator.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chart-generator-using-chartjs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chart Generator
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../book/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Book Generation Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    MicroSim Generation Skills
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            MicroSim Generation Skills
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsim-p5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroSims p5 Generator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chart Generator
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chart Generator
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-this-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use This Skill
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-chart-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Chart Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Supported Chart Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-line-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Line Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-bar-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Bar Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pie-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Pie Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-doughnut-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Doughnut Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-radar-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Radar Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-polar-area-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Polar Area Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-bubble-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Bubble Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-scatter-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Scatter Charts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Interaction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Use Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-student-performance-tracking-line-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Student Performance Tracking (Line Chart)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-budget-allocation-pie-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Budget Allocation (Pie Chart)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-product-feature-comparison-radar-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Product Feature Comparison (Radar Chart)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-regional-sales-analysis-bar-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Regional Sales Analysis (Bar Chart)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-risk-assessment-matrix-bubble-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Risk Assessment Matrix (Bubble Chart)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-correlation-study-scatter-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Correlation Study (Scatter Chart)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technology Stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chartjs-configuration-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart.js Configuration Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iframe-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iframe Embedding
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customization Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-modification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Modification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-customization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Customization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#animations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Animations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#educational-framework-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Framework Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Educational Framework Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blooms-taxonomy-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloom's Taxonomy Alignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iso-11179-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      ISO 11179 Metadata
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chart-type-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart Type Selection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Preparation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-design_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chart-not-displaying" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart Not Displaying
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-not-updating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Not Updating
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#labels-overlapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Labels Overlapping
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colors-not-showing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Colors Not Showing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsive-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Responsive Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#animation-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Animation Problems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-labels-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Labels Plugin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixed-chart-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mixed Chart Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-tooltips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Tooltips
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#click-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Click Events
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programmatic-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programmatic Updates
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-with-other-visualization-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison with Other Visualization Skills
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparison with Other Visualization Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-bubble-chart-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. Bubble Chart Generator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-mermaid-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. Mermaid Generator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-timeline-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. Timeline Generator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-venn-diagram-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. Venn Diagram Generator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Optimization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessibility-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility Considerations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version History
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Skills
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Start Example
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vis-network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vis Network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bubble-chart-generator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bubble Chart
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mermaid-generator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mermaid
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../timeline-generator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../map-generator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Map
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../venn-diagram-generator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Venn Diagram
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stem-skills/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    STEM Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../intelligent-textbook-creator.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Outdated
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../details-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Details Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-this-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use This Skill
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-chart-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Chart Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Supported Chart Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-line-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Line Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-bar-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Bar Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pie-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Pie Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-doughnut-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Doughnut Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-radar-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Radar Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-polar-area-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Polar Area Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-bubble-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Bubble Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-scatter-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Scatter Charts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Interaction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Use Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-student-performance-tracking-line-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Student Performance Tracking (Line Chart)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-budget-allocation-pie-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Budget Allocation (Pie Chart)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-product-feature-comparison-radar-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Product Feature Comparison (Radar Chart)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-regional-sales-analysis-bar-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Regional Sales Analysis (Bar Chart)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-risk-assessment-matrix-bubble-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Risk Assessment Matrix (Bubble Chart)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-correlation-study-scatter-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Correlation Study (Scatter Chart)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technology Stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chartjs-configuration-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart.js Configuration Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iframe-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iframe Embedding
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customization Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-modification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Modification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-customization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Customization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#animations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Animations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#educational-framework-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Framework Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Educational Framework Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blooms-taxonomy-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloom's Taxonomy Alignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iso-11179-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      ISO 11179 Metadata
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chart-type-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart Type Selection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Preparation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-design_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chart-not-displaying" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart Not Displaying
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-not-updating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Not Updating
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#labels-overlapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Labels Overlapping
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colors-not-showing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Colors Not Showing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsive-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Responsive Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#animation-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Animation Problems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-labels-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Labels Plugin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixed-chart-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mixed Chart Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-tooltips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Tooltips
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#click-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Click Events
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programmatic-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programmatic Updates
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-with-other-visualization-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison with Other Visualization Skills
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparison with Other Visualization Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-bubble-chart-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. Bubble Chart Generator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-mermaid-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. Mermaid Generator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-timeline-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. Timeline Generator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-venn-diagram-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. Venn Diagram Generator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Optimization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessibility-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility Considerations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version History
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Skills
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Start Example
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/skill-descriptions/microsims/chartjs-generator.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="chart-generator-using-chartjs">Chart Generator Using ChartJS</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>Chart.js Generator</strong> skill creates professional, interactive data visualizations using the Chart.js library, supporting all eight major chart types (line, bar, pie, doughnut, radar, polar area, bubble, scatter). This skill generates complete MicroSim packages with HTML, CSS, and documentation, optimized for embedding in educational content, reports, and dashboards built with MkDocs Material theme.</p>
+<p>Chart.js is a powerful, flexible JavaScript library known for its responsive design, smooth animations, and extensive customization options.</p>
+<h2 id="when-to-use-this-skill">When to Use This Skill</h2>
+<p>Use the Chart.js Generator skill when you need to create:</p>
+<ul>
+<li><strong>Statistical Visualizations</strong> - Display data trends, comparisons, and distributions</li>
+<li><strong>Educational Charts</strong> - Illustrate concepts with clear, interactive visualizations</li>
+<li><strong>Dashboard Components</strong> - Create individual charts for data monitoring</li>
+<li><strong>Report Graphics</strong> - Generate publication-ready charts for documents</li>
+<li><strong>Interactive Data Exploration</strong> - Allow users to interact with data through tooltips and legends</li>
+<li><strong>Comparative Analysis</strong> - Show relationships between multiple datasets</li>
+<li><strong>Time Series Data</strong> - Visualize trends over time periods</li>
+<li><strong>Proportional Relationships</strong> - Display part-to-whole relationships</li>
+</ul>
+<h2 id="supported-chart-types">Supported Chart Types</h2>
+<p>The skill supports all eight Chart.js chart types:</p>
+<h3 id="1-line-charts">1. Line Charts</h3>
+<p><strong>Best for</strong>: Time series, trends, continuous data</p>
+<p><strong>Use cases</strong>:
+- Stock prices over time
+- Temperature trends
+- Student progress tracking
+- Sales growth patterns
+- Population changes</p>
+<p><strong>Variations</strong>: Multi-line, filled areas, stepped lines, smooth curves</p>
+<h3 id="2-bar-charts">2. Bar Charts</h3>
+<p><strong>Best for</strong>: Comparisons, categorical data</p>
+<p><strong>Use cases</strong>:
+- Sales by region
+- Test scores by subject
+- Product comparisons
+- Survey results
+- Resource allocation</p>
+<p><strong>Variations</strong>: Vertical, horizontal, stacked, grouped</p>
+<h3 id="3-pie-charts">3. Pie Charts</h3>
+<p><strong>Best for</strong>: Proportions, percentages (≤6 categories)</p>
+<p><strong>Use cases</strong>:
+- Market share distribution
+- Budget allocation
+- Survey response percentages
+- Time allocation (daily activities)
+- Demographic breakdowns</p>
+<p><strong>Limitations</strong>: Not suitable for precise comparisons or many categories</p>
+<h3 id="4-doughnut-charts">4. Doughnut Charts</h3>
+<p><strong>Best for</strong>: Proportions with central space for labels</p>
+<p><strong>Use cases</strong>:
+- Same as pie charts, but with space for total/summary in center
+- Progress indicators (percentage complete)
+- Resource utilization</p>
+<p><strong>Advantages</strong>: More modern appearance, space for additional information</p>
+<h3 id="5-radar-charts">5. Radar Charts</h3>
+<p><strong>Best for</strong>: Multi-dimensional data, comparing profiles</p>
+<p><strong>Use cases</strong>:
+- Skill assessments (spider charts)
+- Product feature comparisons
+- Student competency profiles
+- Performance evaluations across metrics
+- Sports player statistics</p>
+<p><strong>Ideal for</strong>: 3-8 variables, multiple entities compared</p>
+<h3 id="6-polar-area-charts">6. Polar Area Charts</h3>
+<p><strong>Best for</strong>: Proportions with emphasis on differences</p>
+<p><strong>Use cases</strong>:
+- Similar to pie charts but emphasizing magnitude
+- Seasonal patterns (circular time periods)
+- Directional data with magnitude</p>
+<p><strong>Difference from pie</strong>: Segments have equal angles, varying radius</p>
+<h3 id="7-bubble-charts">7. Bubble Charts</h3>
+<p><strong>Best for</strong>: Three-dimensional data (x, y, size)</p>
+<p><strong>Use cases</strong>:
+- Impact vs Effort matrices (with bubble size = priority)
+- Risk assessment (probability, impact, exposure)
+- Portfolio analysis (return, risk, investment size)
+- Geographic data (latitude, longitude, population)
+- Multi-variate correlations</p>
+<p><strong>Data structure</strong>: Each point has x, y, and radius (r) values</p>
+<h3 id="8-scatter-charts">8. Scatter Charts</h3>
+<p><strong>Best for</strong>: Correlations, distributions, relationships</p>
+<p><strong>Use cases</strong>:
+- Correlation analysis (height vs weight)
+- Regression analysis
+- Outlier detection
+- Clustering visualization
+- Scientific data plotting</p>
+<p><strong>Ideal for</strong>: Showing relationships between two continuous variables</p>
+<h2 id="key-features">Key Features</h2>
+<h3 id="interactive-elements">Interactive Elements</h3>
+<ul>
+<li><strong>Hover Tooltips</strong> - Display detailed data on mouseover</li>
+<li><strong>Clickable Legends</strong> - Show/hide datasets by clicking legend items</li>
+<li><strong>Smooth Animations</strong> - Professional animations on load and data updates</li>
+<li><strong>Zoom and Pan</strong> - Optional plugins for data exploration</li>
+<li><strong>Click Events</strong> - Custom interactions with chart elements</li>
+</ul>
+<h3 id="visual-design">Visual Design</h3>
+<ul>
+<li><strong>Responsive Layout</strong> - Automatically adapts to container size</li>
+<li><strong>Customizable Colors</strong> - Flexible color schemes for branding/accessibility</li>
+<li><strong>Grid Lines and Axes</strong> - Clear visual guides for reading values</li>
+<li><strong>Professional Styling</strong> - Modern, clean aesthetics</li>
+<li><strong>Print-Friendly</strong> - CSS optimized for printing</li>
+</ul>
+<h3 id="data-handling">Data Handling</h3>
+<ul>
+<li><strong>Multiple Datasets</strong> - Display multiple series on one chart</li>
+<li><strong>Dynamic Updates</strong> - Update chart data programmatically</li>
+<li><strong>Mixed Chart Types</strong> - Combine different chart types (line + bar)</li>
+<li><strong>Data Labels</strong> - Optional plugin for value labels on elements</li>
+<li><strong>Custom Formatting</strong> - Format numbers, dates, percentages</li>
+</ul>
+<h3 id="accessibility">Accessibility</h3>
+<ul>
+<li><strong>Color Contrast</strong> - WCAG-compliant color schemes</li>
+<li><strong>Semantic HTML</strong> - Proper structure for screen readers</li>
+<li><strong>Keyboard Navigation</strong> - Accessible controls</li>
+<li><strong>Alternative Text</strong> - Descriptive documentation</li>
+<li><strong>Colorblind-Safe Palettes</strong> - Distinguishable without color</li>
+</ul>
+<h2 id="how-it-works">How It Works</h2>
+<h3 id="workflow">Workflow</h3>
+<p>The skill follows an 8-step process:</p>
+<ol>
+<li><strong>Determine Chart Type</strong> - Select from 8 supported types based on data and purpose</li>
+<li><strong>Gather Data and Requirements</strong> - Collect data structure, labels, configuration preferences</li>
+<li><strong>Create Directory Structure</strong> - Set up <code>docs/sims/[chart-name]/</code> following MicroSim pattern</li>
+<li><strong>Create main.html</strong> - Generate HTML with Chart.js CDN and configuration</li>
+<li><strong>Create style.css</strong> - Apply responsive styling and visual design</li>
+<li><strong>Create index.md</strong> - Generate documentation with iframe embed and customization guide</li>
+<li><strong>Integrate into Navigation</strong> - Add entry to <code>mkdocs.yml</code> (if applicable)</li>
+<li><strong>Test and Validate</strong> - Verify visual display, interactivity, and documentation</li>
+</ol>
+<h3 id="user-interaction">User Interaction</h3>
+<p>The skill prompts users for:</p>
+<ul>
+<li><strong>Chart type</strong> - If not specified, offers options with best-use descriptions</li>
+<li><strong>Data structure</strong> - Values, labels, categories, time periods, units</li>
+<li><strong>Chart configuration</strong> - Title, axis labels, legend preferences, color scheme</li>
+<li><strong>Context</strong> - Purpose (educational, analytical, reporting), integration location</li>
+<li><strong>Special features</strong> - Stacked, grouped, filled areas, custom formatting</li>
+</ul>
+<h2 id="example-use-cases">Example Use Cases</h2>
+<h3 id="1-student-performance-tracking-line-chart">1. Student Performance Tracking (Line Chart)</h3>
+<p><strong>Scenario</strong>: A teacher needs to visualize student test scores across a semester.</p>
+<p><strong>Output</strong>:
+- Multi-line chart with one line per student
+- X-axis: Test dates (Sept, Oct, Nov, Dec)
+- Y-axis: Scores (0-100)
+- Interactive tooltips showing exact scores
+- Legend for toggling individual students
+- Educational metadata: Bloom's level = "Analyze", concepts = ["Academic Progress", "Data Interpretation"]</p>
+<h3 id="2-budget-allocation-pie-chart">2. Budget Allocation (Pie Chart)</h3>
+<p><strong>Scenario</strong>: A nonprofit organization needs to show how donations are spent.</p>
+<p><strong>Output</strong>:
+- Pie chart with 5 slices (Programs, Administration, Fundraising, Marketing, Reserves)
+- Color-coded segments with percentages
+- Central total amount (for doughnut variant)
+- Hover tooltips with dollar amounts
+- Print-friendly styling for annual reports</p>
+<h3 id="3-product-feature-comparison-radar-chart">3. Product Feature Comparison (Radar Chart)</h3>
+<p><strong>Scenario</strong>: Compare three smartphones across multiple features.</p>
+<p><strong>Output</strong>:
+- Radar chart with 6 axes (Battery Life, Camera Quality, Performance, Screen Size, Price, Design)
+- Three overlapping datasets (iPhone, Samsung, Google)
+- 0-10 scale for each feature
+- Color-coded areas with transparency
+- Educational use: Teaching multi-dimensional comparison</p>
+<h3 id="4-regional-sales-analysis-bar-chart">4. Regional Sales Analysis (Bar Chart)</h3>
+<p><strong>Scenario</strong>: Display quarterly sales for different regions.</p>
+<p><strong>Output</strong>:
+- Grouped bar chart (Q1, Q2, Q3, Q4 per region)
+- X-axis: Regions (North, South, East, West)
+- Y-axis: Sales revenue ($)
+- Color-coded by quarter
+- Stacked variant option to show total
+- Horizontal orientation option for many regions</p>
+<h3 id="5-risk-assessment-matrix-bubble-chart">5. Risk Assessment Matrix (Bubble Chart)</h3>
+<p><strong>Scenario</strong>: Visualize project risks by likelihood and impact.</p>
+<p><strong>Output</strong>:
+- Bubble chart with quadrants
+- X-axis: Likelihood (0-10)
+- Y-axis: Impact (0-10)
+- Bubble size: Risk exposure (severity × likelihood)
+- Color-coded by risk category (Technical, Financial, Operational)
+- Quadrant backgrounds (low/medium/high zones)</p>
+<h3 id="6-correlation-study-scatter-chart">6. Correlation Study (Scatter Chart)</h3>
+<p><strong>Scenario</strong>: Analyze relationship between study hours and test scores.</p>
+<p><strong>Output</strong>:
+- Scatter plot with one point per student
+- X-axis: Study hours per week
+- Y-axis: Final exam score
+- Optional trend line (requires plugin)
+- Color-coded by grade level
+- Educational metadata: Bloom's level = "Analyze", concepts = ["Correlation", "Statistical Analysis"]</p>
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="technology-stack">Technology Stack</h3>
+<ul>
+<li><strong>Library</strong>: Chart.js 4.4.0 (latest stable)</li>
+<li><strong>CDN</strong>: jsdelivr.net (fast, reliable delivery)</li>
+<li><strong>Format</strong>: HTML5, CSS3, JavaScript (ES6+)</li>
+<li><strong>Dependencies</strong>: Chart.js core (required), optional plugins (data labels, zoom)</li>
+<li><strong>Browser Support</strong>: All modern browsers (Chrome, Firefox, Safari, Edge)</li>
+</ul>
+<h3 id="file-structure">File Structure</h3>
+<p>Each generated chart creates:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>docs/sims/[chart-name]/
+├── main.html           # Standalone HTML page with chart
+├── style.css           # Responsive styling
+└── index.md            # Documentation with iframe embed
+</code></pre></div></td></tr></table></div>
+<h3 id="chartjs-configuration-structure">Chart.js Configuration Structure</h3>
+<p>All charts follow this basic structure:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;line&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// bar, pie, doughnut, radar, polarArea, bubble, scatter</span>
+<span class="w">    </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Jan&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Feb&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Mar&#39;</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">            </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Dataset 1&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">12</span><span class="p">,</span><span class="w"> </span><span class="mf">19</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;rgba(75, 192, 192, 0.2)&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">borderColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;rgb(75, 192, 192)&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">borderWidth</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span>
+<span class="w">        </span><span class="p">}]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">responsive</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">display</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Chart Title&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">legend</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">position</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;top&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">tooltip</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">scales</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// For charts with axes (line, bar, scatter, bubble)</span>
+<span class="w">            </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">beginAtZero</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">myChart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Chart</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myChart&#39;</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">config</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="iframe-embedding">Iframe Embedding</h3>
+<p>Charts are embedded in MkDocs pages using:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;iframe src=&quot;main.html&quot; width=&quot;100%&quot; height=&quot;700&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+
+[<span class="nt">View Fullscreen</span>](<span class="na">main.html</span>){:target=&quot;_blank&quot;}
+</code></pre></div></td></tr></table></div>
+<p><strong>Typical heights by chart type</strong>:
+- Line/Bar: 500-700px
+- Pie/Doughnut: 500-600px
+- Radar/Polar: 600-700px
+- Bubble/Scatter: 700-800px</p>
+<h2 id="customization-options">Customization Options</h2>
+<h3 id="data-modification">Data Modification</h3>
+<p><strong>Changing values</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// In main.html, find the data object</span>
+<span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;New&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Labels&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Here&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">        </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">30</span><span class="p">,</span><span class="w"> </span><span class="mf">40</span><span class="p">]</span><span class="w">  </span><span class="c1">// Update these values</span>
+<span class="w">    </span><span class="p">}]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Adding datasets</strong> (for multi-series charts):
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Series 1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[...],</span><span class="w"> </span><span class="nx">borderColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;red&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Series 2&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[...],</span><span class="w"> </span><span class="nx">borderColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;blue&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Series 3&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[...],</span><span class="w"> </span><span class="nx">borderColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;green&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="color-customization">Color Customization</h3>
+<p><strong>Single color</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;rgba(255, 99, 132, 0.8)&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Multiple colors</strong> (for pie, doughnut, bar):
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s1">&#39;rgba(255, 99, 132, 0.8)&#39;</span><span class="p">,</span><span class="w">   </span><span class="c1">// Red</span>
+<span class="w">    </span><span class="s1">&#39;rgba(54, 162, 235, 0.8)&#39;</span><span class="p">,</span><span class="w">   </span><span class="c1">// Blue</span>
+<span class="w">    </span><span class="s1">&#39;rgba(255, 206, 86, 0.8)&#39;</span><span class="p">,</span><span class="w">   </span><span class="c1">// Yellow</span>
+<span class="w">    </span><span class="s1">&#39;rgba(75, 192, 192, 0.8)&#39;</span><span class="p">,</span><span class="w">   </span><span class="c1">// Green</span>
+<span class="w">    </span><span class="s1">&#39;rgba(153, 102, 255, 0.8)&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Purple</span>
+<span class="w">    </span><span class="s1">&#39;rgba(255, 159, 64, 0.8)&#39;</span><span class="w">    </span><span class="c1">// Orange</span>
+<span class="p">]</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Gradient backgrounds</strong> (advanced):
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myChart&#39;</span><span class="p">).</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">gradient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">createLinearGradient</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">400</span><span class="p">);</span>
+<span class="nx">gradient</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;rgba(75, 192, 192, 0.8)&#39;</span><span class="p">);</span>
+<span class="nx">gradient</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;rgba(75, 192, 192, 0.1)&#39;</span><span class="p">);</span>
+<span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="nx">gradient</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="chart-options">Chart Options</h3>
+<p><strong>Aspect ratio</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">aspectRatio</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w">  </span><span class="c1">// Width:height ratio (2:1)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Axis configuration</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">scales</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">display</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Time Period&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">grid</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">display</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">display</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Values&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">beginAtZero</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">max</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Legend customization</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">legend</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">position</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// top, left, right, bottom</span>
+<span class="w">        </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="mf">14</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Tooltip customization</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">tooltip</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">callbacks</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">label</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;: $&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">parsed</span><span class="p">.</span><span class="nx">y</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="animations">Animations</h3>
+<p><strong>Custom duration and easing</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">animation</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">duration</span><span class="o">:</span><span class="w"> </span><span class="mf">2000</span><span class="p">,</span><span class="w">  </span><span class="c1">// milliseconds</span>
+<span class="w">        </span><span class="nx">easing</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;easeInOutQuart&#39;</span><span class="w">  </span><span class="c1">// easing function</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Disable animations</strong> (for performance):
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">animation</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="educational-framework-integration">Educational Framework Integration</h2>
+<h3 id="blooms-taxonomy-alignment">Bloom's Taxonomy Alignment</h3>
+<p>Charts support multiple cognitive levels:</p>
+<ul>
+<li><strong>Remember</strong> - Identify data points and labels</li>
+<li><strong>Understand</strong> - Interpret trends and relationships shown in charts</li>
+<li><strong>Apply</strong> - Use charts to make predictions or decisions</li>
+<li><strong>Analyze</strong> - Compare datasets, identify patterns, detect outliers</li>
+<li><strong>Evaluate</strong> - Assess data quality, validity of conclusions</li>
+<li><strong>Create</strong> - Design custom visualizations for specific purposes</li>
+</ul>
+<h3 id="learning-objectives">Learning Objectives</h3>
+<p>Generated charts include explicit learning objectives such as:</p>
+<ul>
+<li>"Interpret line charts to identify trends over time"</li>
+<li>"Compare categorical data using bar charts"</li>
+<li>"Understand proportional relationships through pie charts"</li>
+<li>"Analyze multi-dimensional data using radar charts"</li>
+<li>"Identify correlations using scatter plots"</li>
+</ul>
+<h3 id="iso-11179-metadata">ISO 11179 Metadata</h3>
+<p>Chart metadata follows ISO 11179 standards:</p>
+<ul>
+<li><strong>Precise</strong> - Exact data sources and units clearly documented</li>
+<li><strong>Concise</strong> - Focused descriptions of chart purpose</li>
+<li><strong>Distinct</strong> - Clear differentiation between chart types</li>
+<li><strong>Non-circular</strong> - Independent definitions</li>
+<li><strong>Free of business rules</strong> - Focus on educational value</li>
+</ul>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="chart-type-selection">Chart Type Selection</h3>
+<ol>
+<li><strong>Match chart to data type</strong>:</li>
+<li>Continuous → Line, Area, Scatter</li>
+<li>Categorical → Bar, Column</li>
+<li>Proportional → Pie, Doughnut</li>
+<li>
+<p>Multi-dimensional → Radar, Bubble</p>
+</li>
+<li>
+<p><strong>Consider audience</strong>:</p>
+</li>
+<li>General public → Simple charts (line, bar, pie)</li>
+<li>Technical audience → Advanced charts (radar, bubble, scatter)</li>
+<li>
+<p>Students → Interactive, educational charts with clear labels</p>
+</li>
+<li>
+<p><strong>Limit complexity</strong>:</p>
+</li>
+<li>Maximum 6 slices for pie charts</li>
+<li>Maximum 4-5 datasets for line charts</li>
+<li>Maximum 8 variables for radar charts</li>
+</ol>
+<h3 id="data-preparation">Data Preparation</h3>
+<ol>
+<li><strong>Clean data</strong> - Remove duplicates, handle missing values</li>
+<li><strong>Consistent formatting</strong> - Use same units and scales</li>
+<li><strong>Meaningful labels</strong> - Clear, descriptive category names</li>
+<li><strong>Appropriate scale</strong> - Start axes at zero (unless good reason not to)</li>
+<li><strong>Sort data</strong> - Logical ordering (chronological, alphabetical, by value)</li>
+</ol>
+<h3 id="visual-design_1">Visual Design</h3>
+<ol>
+<li><strong>Color accessibility</strong> - Use colorblind-safe palettes</li>
+<li><strong>Contrast</strong> - Ensure WCAG AA compliance (4.5:1 minimum)</li>
+<li><strong>Font size</strong> - Minimum 12px for labels, 14px for titles</li>
+<li><strong>Grid lines</strong> - Subtle, not distracting</li>
+<li><strong>White space</strong> - Adequate padding around chart elements</li>
+</ol>
+<h3 id="documentation">Documentation</h3>
+<ol>
+<li><strong>Clear explanations</strong> - Explain what the chart shows</li>
+<li><strong>Code examples</strong> - Provide exact, working code snippets</li>
+<li><strong>Customization guide</strong> - Step-by-step modification instructions</li>
+<li><strong>Interpretation help</strong> - Guide users on reading the chart</li>
+<li><strong>Data sources</strong> - Credit data sources appropriately</li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="chart-not-displaying">Chart Not Displaying</h3>
+<p><strong>Symptoms</strong>: Blank canvas or error in console</p>
+<p><strong>Solutions</strong>:
+- Verify Chart.js CDN is loading correctly
+- Check canvas element has correct ID
+- Ensure JavaScript runs after DOM loads
+- Validate data structure (no null/undefined values)
+- Check browser console for errors</p>
+<h3 id="data-not-updating">Data Not Updating</h3>
+<p><strong>Symptoms</strong>: Chart doesn't reflect new data</p>
+<p><strong>Solutions</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Update data</span>
+<span class="nx">chart</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newData</span><span class="p">;</span>
+<span class="nx">chart</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newLabels</span><span class="p">;</span>
+
+<span class="c1">// Must call update</span>
+<span class="nx">chart</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="labels-overlapping">Labels Overlapping</h3>
+<p><strong>Symptoms</strong>: X-axis labels overlap and are unreadable</p>
+<p><strong>Solutions</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">scales</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">ticks</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">maxRotation</span><span class="o">:</span><span class="w"> </span><span class="mf">45</span><span class="p">,</span><span class="w">  </span><span class="c1">// Rotate labels</span>
+<span class="w">            </span><span class="nx">minRotation</span><span class="o">:</span><span class="w"> </span><span class="mf">45</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">autoSkip</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">   </span><span class="c1">// Skip some labels</span>
+<span class="w">            </span><span class="nx">maxTicksLimit</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="c1">// Limit number shown</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="colors-not-showing">Colors Not Showing</h3>
+<p><strong>Symptoms</strong>: Chart renders but colors are wrong/missing</p>
+<p><strong>Solutions</strong>:
+- Verify color format (rgba, rgb, hex all valid)
+- Ensure backgroundColor array length matches data length
+- Check for typos in color property names
+- Confirm alpha values (0.0-1.0 range for transparency)</p>
+<h3 id="responsive-issues">Responsive Issues</h3>
+<p><strong>Symptoms</strong>: Chart doesn't resize properly</p>
+<p><strong>Solutions</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">responsive</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">maintainAspectRatio</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">aspectRatio</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w">  </span><span class="c1">// Adjust as needed</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c">/* Container must have defined size */</span>
+<span class="p">.</span><span class="nc">chart-container</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span>
+<span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="animation-problems">Animation Problems</h3>
+<p><strong>Symptoms</strong>: Animations are jerky or cause performance issues</p>
+<p><strong>Solutions</strong>:
+- Reduce animation duration
+- Disable animations for large datasets
+- Use <code>chart.update('none')</code> for instant updates
+- Limit number of data points displayed</p>
+<h2 id="advanced-features">Advanced Features</h2>
+<h3 id="data-labels-plugin">Data Labels Plugin</h3>
+<p>Display values directly on chart elements:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">&lt;!-- Add plugin CDN --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">datalabels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">anchor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;end&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">align</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;top&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">formatter</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s1">&#39;$&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="mixed-chart-types">Mixed Chart Types</h3>
+<p>Combine different chart types in one visualization:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;line&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Target&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[...]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Actual&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[...]</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="custom-tooltips">Custom Tooltips</h3>
+<p>Create fully custom tooltip content:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">tooltip</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">callbacks</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;Custom Title&#39;</span><span class="p">;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;Value: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">parsed</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39; units&#39;</span><span class="p">;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">footer</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;Additional info here&#39;</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="click-events">Click Events</h3>
+<p>Handle user interactions:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">onClick</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">,</span><span class="w"> </span><span class="nx">elements</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">elements</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">elements</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">index</span><span class="p">;</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">chart</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">data</span><span class="p">[</span><span class="nx">index</span><span class="p">];</span>
+<span class="w">            </span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Clicked: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">chart</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">labels</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39; = &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">value</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="programmatic-updates">Programmatic Updates</h3>
+<p>Update chart data dynamically:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">updateChart</span><span class="p">(</span><span class="nx">newData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">chart</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newData</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">chart</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">// Animation mode</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">addDataPoint</span><span class="p">(</span><span class="nx">label</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">chart</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">labels</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">chart</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">datasets</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">chart</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="comparison-with-other-visualization-skills">Comparison with Other Visualization Skills</h2>
+<h3 id="vs-bubble-chart-generator">vs. Bubble Chart Generator</h3>
+<ul>
+<li><strong>Chart.js Generator</strong>: All chart types including basic bubbles</li>
+<li><strong>Bubble Chart Generator</strong>: Specialized for priority matrices with quadrants</li>
+</ul>
+<p><strong>Use Chart.js for</strong>: General bubble charts, simple scatter plots
+<strong>Use Bubble Chart Generator for</strong>: Impact/Effort matrices, strategic analysis</p>
+<h3 id="vs-mermaid-generator">vs. Mermaid Generator</h3>
+<ul>
+<li><strong>Chart.js Generator</strong>: Data-driven statistical charts</li>
+<li><strong>Mermaid Generator</strong>: Flowcharts, process diagrams, conceptual visualizations</li>
+</ul>
+<p><strong>Use Chart.js for</strong>: Numerical data visualization
+<strong>Use Mermaid for</strong>: Workflows, state machines, architecture diagrams</p>
+<h3 id="vs-timeline-generator">vs. Timeline Generator</h3>
+<ul>
+<li><strong>Chart.js Generator</strong>: Time series line charts (continuous metrics)</li>
+<li><strong>Timeline Generator</strong>: Event-based chronological visualization</li>
+</ul>
+<p><strong>Use Chart.js for</strong>: Continuous time-series data (temperature, stock prices)
+<strong>Use Timeline Generator for</strong>: Discrete historical events with dates and descriptions</p>
+<h3 id="vs-venn-diagram-generator">vs. Venn Diagram Generator</h3>
+<ul>
+<li><strong>Chart.js Generator</strong>: Quantitative data visualization</li>
+<li><strong>Venn Diagram Generator</strong>: Set relationships and overlaps</li>
+</ul>
+<p><strong>Use Chart.js for</strong>: Numbers, trends, comparisons
+<strong>Use Venn for</strong>: Conceptual relationships, category overlaps</p>
+<p><strong>Complementary Use</strong>: Combine multiple visualization types for comprehensive content. Example: A business chapter might use bar charts (sales data), line charts (trends), and bubble charts (strategic positioning).</p>
+<h2 id="performance-optimization">Performance Optimization</h2>
+<p>For optimal performance:</p>
+<ul>
+<li><strong>Limit data points</strong> - Best performance with &lt;1000 points per dataset</li>
+<li><strong>Disable animations</strong> - For large datasets or frequent updates</li>
+<li><strong>Use data decimation</strong> - Reduce points displayed at low zoom levels</li>
+<li><strong>Lazy loading</strong> - Load charts when visible (intersection observer)</li>
+<li><strong>Canvas reuse</strong> - Destroy old charts before creating new ones</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Destroy before recreating</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">myChart</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">myChart</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">myChart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Chart</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">config</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="accessibility-considerations">Accessibility Considerations</h2>
+<p>Charts are designed with accessibility in mind:</p>
+<ul>
+<li><strong>Color + Pattern</strong> - Don't rely on color alone</li>
+<li><strong>Keyboard Navigation</strong> - All interactive elements accessible</li>
+<li><strong>Screen Reader Support</strong> - Semantic HTML and ARIA labels</li>
+<li><strong>High Contrast</strong> - WCAG AA compliant color schemes</li>
+<li><strong>Text Alternatives</strong> - Descriptive documentation provided</li>
+<li><strong>Printable</strong> - CSS optimized for print media</li>
+</ul>
+<h2 id="version-history">Version History</h2>
+<ul>
+<li><strong>v1.0</strong> (Chart.js 4.4.0): Initial release</li>
+<li>Support for all 8 chart types</li>
+<li>Responsive design</li>
+<li>Interactive tooltips and legends</li>
+<li>Customizable colors and options</li>
+<li>Complete documentation templates</li>
+<li>MkDocs integration</li>
+<li>Educational metadata</li>
+</ul>
+<h2 id="related-skills">Related Skills</h2>
+<ul>
+<li><strong>Bubble Chart Generator</strong> - Specialized bubble charts for priority matrices</li>
+<li><strong>Timeline Generator</strong> - Event-based chronological visualizations</li>
+<li><strong>Mermaid Generator</strong> - Flowcharts and process diagrams</li>
+<li><strong>Venn Diagram Generator</strong> - Set relationships and overlaps</li>
+<li><strong>MicroSim P5</strong> - Custom interactive simulations (alternative for specialized visualizations)</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.chartjs.org/docs/latest/">Chart.js Official Documentation</a> - Complete API reference</li>
+<li><a href="https://www.chartjs.org/docs/latest/samples/">Chart.js Samples</a> - Example gallery</li>
+<li><a href="https://github.com/chartjs/Chart.js">Chart.js GitHub</a> - Source code and issues</li>
+<li><a href="https://www.chartjs.org/docs/latest/charts/">Chart Types Guide</a> - Detailed chart type documentation</li>
+<li><a href="https://www.chartjs.org/docs/latest/developers/plugins.html">Chart.js Plugins</a> - Plugin development</li>
+<li><a href="https://www.storytellingwithdata.com/">Data Visualization Best Practices</a> - Design principles</li>
+</ul>
+<h2 id="quick-start-example">Quick Start Example</h2>
+<p>To generate a simple bar chart showing monthly sales:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>Input Requirements:
+- Chart Type: Bar Chart
+- Title: Monthly Sales 2024
+- Data:
+  * January: $12,000
+  * February: $15,000
+  * March: $18,000
+  * April: $14,000
+  * May: $20,000
+  * June: $22,000
+- Color Scheme: Blue
+- Axes: Months (X), Revenue (Y, starting at $0)
+</code></pre></div></td></tr></table></div>
+<p><strong>Output</strong>: Complete MicroSim package with:
+- Interactive bar chart with hover tooltips
+- Responsive design (desktop, tablet, mobile)
+- Clickable legend
+- Smooth animations
+- Documentation with customization guide
+- Educational metadata for MkDocs integration</p>
+<hr />
+<p><em>Generated charts seamlessly integrate into MkDocs Material textbooks as iframe-embedded MicroSims with professional styling and comprehensive customization options.</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../microsim-p5/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MicroSims p5 Generator">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                MicroSims p5 Generator
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../vis-network/" class="md-footer__link md-footer__link--next" aria-label="Next: Vis Network">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Vis Network
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

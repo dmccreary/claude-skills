@@ -1,0 +1,2741 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/map-generator/">
+      
+      
+        <link rel="prev" href="../timeline-generator/">
+      
+      
+        <link rel="next" href="../venn-diagram-generator/">
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Map - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HPLDD3D3K2"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HPLDD3D3K2",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HPLDD3D3K2",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Map - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  property="og:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/skill-descriptions/microsims/map-generator.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/map-generator/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Map - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  name="twitter:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/skill-descriptions/microsims/map-generator.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#map-generator" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Map
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../book/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Book Generation Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    MicroSim Generation Skills
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            MicroSim Generation Skills
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsim-p5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroSims p5 Generator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chartjs-generator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chart Generator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vis-network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vis Network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bubble-chart-generator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bubble Chart
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mermaid-generator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mermaid
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../timeline-generator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Map
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Map
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-this-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use This Skill
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimized-for-textbooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimized for Textbooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-types-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map Types Supported
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Interaction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Use Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-historical-events-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Historical Events Map
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-campus-facilities-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Campus Facilities Map
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-biodiversity-hotspots" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Biodiversity Hotspots
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-ancient-trade-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Ancient Trade Routes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-climate-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Climate Zones
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technology Stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iframe-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iframe Embedding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customization-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#educational-framework-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Framework Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Educational Framework Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blooms-taxonomy-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloom's Taxonomy Alignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iso-11179-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      ISO 11179 Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessibility-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility Considerations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Optimization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-marker-icons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Marker Icons
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geojson-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      GeoJSON Layers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer Controls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#marker-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Marker Clustering
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-with-other-microsim-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison with Other MicroSim Skills
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparison with Other MicroSim Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-mermaid-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. Mermaid Generator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-timeline-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. Timeline Generator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-chartjs-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. Chart.js Generator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#template-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template Files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-creating-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      When Creating Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Design
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#map-not-displaying" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map Not Displaying
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markers-not-appearing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markers Not Appearing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iframe-sizing-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iframe Sizing Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version History
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Skills
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Start Example
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../venn-diagram-generator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Venn Diagram
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stem-skills/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    STEM Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../intelligent-textbook-creator.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Outdated
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../details-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Details Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-this-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use This Skill
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimized-for-textbooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimized for Textbooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-types-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map Types Supported
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Interaction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Use Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-historical-events-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Historical Events Map
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-campus-facilities-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Campus Facilities Map
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-biodiversity-hotspots" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Biodiversity Hotspots
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-ancient-trade-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Ancient Trade Routes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-climate-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Climate Zones
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technology Stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iframe-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iframe Embedding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customization-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#educational-framework-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Framework Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Educational Framework Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blooms-taxonomy-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloom's Taxonomy Alignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iso-11179-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      ISO 11179 Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessibility-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility Considerations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Optimization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-marker-icons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Marker Icons
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geojson-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      GeoJSON Layers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer Controls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#marker-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Marker Clustering
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-with-other-microsim-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison with Other MicroSim Skills
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparison with Other MicroSim Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-mermaid-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. Mermaid Generator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-timeline-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. Timeline Generator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-chartjs-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. Chart.js Generator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#template-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template Files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-creating-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      When Creating Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Design
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#map-not-displaying" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map Not Displaying
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markers-not-appearing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markers Not Appearing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iframe-sizing-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iframe Sizing Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version History
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Skills
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Start Example
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/skill-descriptions/microsims/map-generator.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="map-generator">Map Generator</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>Map Generator</strong> skill creates interactive geographic maps using the Leaflet JavaScript library. This skill generates complete MicroSim packages optimized for iframe embedding in intelligent textbooks built with MkDocs Material theme.</p>
+<p>Maps are created with minimal padding and margins, specifically designed to fit within narrow page layouts where both a navigation sidebar (left) and table of contents (right) are present.</p>
+<h2 id="when-to-use-this-skill">When to Use This Skill</h2>
+<p>Use the Map Generator skill when you need to create:</p>
+<ul>
+<li><strong>Geographic Visualizations</strong> - Display regions, countries, cities, or custom geographic areas</li>
+<li><strong>Location-Based Data</strong> - Show points of interest, historical sites, landmarks, or facilities</li>
+<li><strong>Educational Maps</strong> - Campus maps, facility layouts, or geographic learning content</li>
+<li><strong>Route Visualizations</strong> - Display travel routes, migration patterns, or trade networks</li>
+<li><strong>Thematic Maps</strong> - Create maps with highlighted borders, regions, or custom overlays</li>
+<li><strong>Interactive Exploration</strong> - Allow students to explore geographic relationships through interactive markers and popups</li>
+</ul>
+<h2 id="key-features">Key Features</h2>
+<h3 id="interactive-elements">Interactive Elements</h3>
+<ul>
+<li><strong>Zoom and Pan Controls</strong> - Standard Leaflet controls for exploring the map</li>
+<li><strong>Marker Popups</strong> - Click markers to reveal detailed information, images, or links</li>
+<li><strong>Layer Controls</strong> - Toggle between different map types (street, satellite, terrain)</li>
+<li><strong>Custom Markers</strong> - Use custom icons to represent different categories or types</li>
+<li><strong>GeoJSON Support</strong> - Highlight borders, regions, or complex geographic shapes</li>
+<li><strong>Responsive Design</strong> - Maps adapt to desktop, tablet, and mobile screen sizes</li>
+</ul>
+<h3 id="optimized-for-textbooks">Optimized for Textbooks</h3>
+<ul>
+<li><strong>Minimal Margins</strong> - Body margin/padding set to 0 for perfect iframe embedding</li>
+<li><strong>Narrow Page Layout</strong> - Designed for pages with navbar (left) and TOC (right)</li>
+<li><strong>Fixed Height Options</strong> - Customizable map height (default 400px)</li>
+<li><strong>Educational Metadata</strong> - Dublin Core fields plus Bloom's taxonomy alignment</li>
+<li><strong>Accessibility</strong> - Keyboard navigation, descriptive popups, high-contrast colors</li>
+</ul>
+<h3 id="map-types-supported">Map Types Supported</h3>
+<ol>
+<li><strong>Simple Marker Maps</strong> - Display multiple locations with informative popups</li>
+<li><strong>Choropleth Maps</strong> - Color-coded regions based on data values (with GeoJSON)</li>
+<li><strong>Route Maps</strong> - Show paths, journeys, or connections between locations</li>
+<li><strong>Facility Maps</strong> - Campus buildings, museum layouts, park facilities</li>
+<li><strong>Multi-Layer Maps</strong> - Toggle between street, satellite, and terrain views</li>
+<li><strong>Clustered Maps</strong> - Handle large numbers of markers with automatic clustering</li>
+</ol>
+<h2 id="how-it-works">How It Works</h2>
+<h3 id="workflow">Workflow</h3>
+<p>The skill follows a 10-step process:</p>
+<ol>
+<li><strong>Gather Requirements</strong> - Prompts for geographic region, markers, layers, borders, zoom level</li>
+<li><strong>Create Directory</strong> - Sets up <code>docs/sims/[map-name]/</code> following MicroSim pattern</li>
+<li><strong>Generate Data File</strong> - Creates <code>map-data.json</code> with coordinates and marker information (optional)</li>
+<li><strong>Create HTML</strong> - Generates <code>main.html</code> with Leaflet CDN links and map container</li>
+<li><strong>Create CSS</strong> - Produces <code>style.css</code> with minimal margins for iframe embedding</li>
+<li><strong>Create JavaScript</strong> - Generates <code>script.js</code> with map initialization and marker data</li>
+<li><strong>Create Documentation</strong> - Produces <code>index.md</code> with iframe embed and customization guide</li>
+<li><strong>Create Metadata</strong> - Generates <code>metadata.json</code> with Dublin Core and educational fields</li>
+<li><strong>Update Navigation</strong> - Adds entry to <code>mkdocs.yml</code> for site navigation</li>
+<li><strong>Test and Validate</strong> - Verifies map functionality and responsive behavior</li>
+</ol>
+<h3 id="user-interaction">User Interaction</h3>
+<p>The skill prompts users for:</p>
+<ul>
+<li><strong>Map Purpose</strong> - What geographic data are we visualizing?</li>
+<li><strong>Geographic Region</strong> - Region name, coordinates, or bounding box</li>
+<li><strong>Markers</strong> - Location data (names, coordinates, descriptions, categories)</li>
+<li><strong>Map Type</strong> - Street map, satellite imagery, or terrain</li>
+<li><strong>Layers</strong> - Single layer or multiple toggleable layers?</li>
+<li><strong>Borders/Regions</strong> - Any areas that need highlighting (requires GeoJSON)?</li>
+<li><strong>Zoom Level</strong> - Initial zoom (1 = world view, 18 = building level)</li>
+<li><strong>Interactive Features</strong> - Custom markers, popups, controls?</li>
+<li><strong>Educational Context</strong> - Related concepts, Bloom's level, target audience</li>
+</ul>
+<h2 id="example-use-cases">Example Use Cases</h2>
+<h3 id="1-historical-events-map">1. Historical Events Map</h3>
+<p><strong>Scenario</strong>: A history textbook chapter on World War II needs a map showing major battle locations.</p>
+<p><strong>Output</strong>:
+- Interactive map centered on Europe
+- Markers for each major battle with dates and descriptions
+- Popup links to detailed battle information
+- Timeline showing chronological progression
+- Educational metadata: Bloom's level = "Understand", concepts = ["World War II", "Military History", "European Geography"]</p>
+<h3 id="2-campus-facilities-map">2. Campus Facilities Map</h3>
+<p><strong>Scenario</strong>: A university orientation guide needs a campus map showing buildings and facilities.</p>
+<p><strong>Output</strong>:
+- Detailed campus map with building markers
+- Color-coded icons (academic buildings, residence halls, dining, recreation)
+- Popups with building names, hours, and services
+- Search functionality for quick location finding
+- Links to building-specific information pages</p>
+<h3 id="3-biodiversity-hotspots">3. Biodiversity Hotspots</h3>
+<p><strong>Scenario</strong>: An ecology textbook chapter on biodiversity needs to show global biodiversity hotspots.</p>
+<p><strong>Output</strong>:
+- World map with highlighted regions (GeoJSON polygons)
+- Color-coded by biodiversity threat level
+- Markers for specific protected areas
+- Popups with species counts and conservation status
+- Layer toggle between satellite and terrain views</p>
+<h3 id="4-ancient-trade-routes">4. Ancient Trade Routes</h3>
+<p><strong>Scenario</strong>: A world history course needs to visualize the Silk Road trade network.</p>
+<p><strong>Output</strong>:
+- Map of Asia and Europe with route polylines
+- Markers for major trading cities
+- Popups with historical information and trade goods
+- Animated route visualization (optional advanced feature)
+- Timeline integration showing route development over centuries</p>
+<h3 id="5-climate-zones">5. Climate Zones</h3>
+<p><strong>Scenario</strong>: A geography textbook needs an interactive climate zone map.</p>
+<p><strong>Output</strong>:
+- World map with GeoJSON climate zone boundaries
+- Color-coded regions (tropical, arid, temperate, continental, polar)
+- Markers for representative cities in each zone
+- Popups with climate data (temperature, precipitation)
+- Educational metadata: Bloom's level = "Analyze", concepts = ["Climate Classification", "Geographic Patterns"]</p>
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="technology-stack">Technology Stack</h3>
+<ul>
+<li><strong>Library</strong>: Leaflet 1.9.4 (latest stable release)</li>
+<li><strong>CDN</strong>: unpkg.com with SRI integrity checks for security</li>
+<li><strong>Base Maps</strong>: OpenStreetMap (default), Esri satellite imagery, OpenTopoMap terrain</li>
+<li><strong>Format</strong>: HTML5, CSS3, ES6 JavaScript</li>
+<li><strong>Dependencies</strong>: Leaflet CSS and JavaScript (loaded from CDN, no local installation)</li>
+</ul>
+<h3 id="file-structure">File Structure</h3>
+<p>Each generated map creates:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>docs/sims/[map-name]/
+├── main.html           # Standalone HTML page with map
+├── style.css           # Minimal margin styling for iframe
+├── script.js           # Map initialization and data
+├── index.md            # Documentation with iframe embed
+└── metadata.json       # Dublin Core + educational metadata
+</code></pre></div></td></tr></table></div>
+<h3 id="iframe-embedding">Iframe Embedding</h3>
+<p>Maps are embedded in MkDocs pages using:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;iframe src=&quot;main.html&quot; width=&quot;100%&quot; height=&quot;700&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+
+[<span class="nt">View Fullscreen</span>](<span class="na">main.html</span>){:target=&quot;_blank&quot;}
+</code></pre></div></td></tr></table></div>
+<h3 id="customization-options">Customization Options</h3>
+<p>Generated maps can be customized by editing:</p>
+<ol>
+<li><strong>Markers</strong> - Edit the <code>markers</code> array in <code>script.js</code></li>
+<li><strong>Map Type</strong> - Change tile layer URL for different base maps</li>
+<li><strong>Map Height</strong> - Adjust <code>#map</code> height in <code>style.css</code></li>
+<li><strong>Custom Icons</strong> - Add custom marker icons in <code>script.js</code></li>
+<li><strong>GeoJSON Layers</strong> - Add highlighted regions or borders</li>
+<li><strong>Layer Controls</strong> - Enable toggling between map types</li>
+</ol>
+<h2 id="educational-framework-integration">Educational Framework Integration</h2>
+<h3 id="blooms-taxonomy-alignment">Bloom's Taxonomy Alignment</h3>
+<p>Maps support all six cognitive levels:</p>
+<ul>
+<li><strong>Remember</strong> - Identify and locate specific places on the map</li>
+<li><strong>Understand</strong> - Explain spatial relationships between locations</li>
+<li><strong>Apply</strong> - Use maps to solve problems (calculate distances, plan routes)</li>
+<li><strong>Analyze</strong> - Compare and contrast geographic patterns or distributions</li>
+<li><strong>Evaluate</strong> - Assess the significance or strategic value of locations</li>
+<li><strong>Create</strong> - Design custom maps for specific educational purposes</li>
+</ul>
+<h3 id="iso-11179-metadata">ISO 11179 Metadata</h3>
+<p>Map metadata follows ISO 11179 standards:</p>
+<ul>
+<li><strong>Precise</strong> - Exact geographic coordinates and zoom levels</li>
+<li><strong>Concise</strong> - Focused descriptions of map purpose and content</li>
+<li><strong>Distinct</strong> - Clear differentiation between map types and purposes</li>
+<li><strong>Non-circular</strong> - Independent definitions of geographic concepts</li>
+<li><strong>Free of business rules</strong> - Focus on educational value, not implementation</li>
+</ul>
+<h3 id="learning-objectives">Learning Objectives</h3>
+<p>Generated maps include explicit learning objectives such as:</p>
+<ul>
+<li>"Identify major cities and their locations on different continents"</li>
+<li>"Understand the global distribution of population centers"</li>
+<li>"Analyze spatial patterns in climate zone distribution"</li>
+<li>"Evaluate the strategic importance of geographic features"</li>
+</ul>
+<h2 id="accessibility-considerations">Accessibility Considerations</h2>
+<p>Maps are designed with accessibility in mind:</p>
+<ul>
+<li><strong>Keyboard Navigation</strong> - All Leaflet controls support keyboard input</li>
+<li><strong>Descriptive Text</strong> - Markers include detailed popup text</li>
+<li><strong>High Contrast</strong> - Default color schemes meet WCAG guidelines</li>
+<li><strong>Screen Reader Support</strong> - Semantic HTML and ARIA labels</li>
+<li><strong>Text Alternatives</strong> - Geographic information provided in documentation</li>
+</ul>
+<h2 id="performance-optimization">Performance Optimization</h2>
+<p>For optimal performance:</p>
+<ul>
+<li><strong>Marker Limit</strong> - Best performance with &lt;100 markers</li>
+<li><strong>Marker Clustering</strong> - Use clustering for maps with many markers (100+)</li>
+<li><strong>Lazy Loading</strong> - Maps only load when visible in viewport</li>
+<li><strong>CDN Usage</strong> - Leaflet served from fast, reliable CDN</li>
+<li><strong>Minimal Dependencies</strong> - No additional libraries required for basic maps</li>
+</ul>
+<h2 id="advanced-features">Advanced Features</h2>
+<p>The skill's templates include commented examples for:</p>
+<h3 id="custom-marker-icons">Custom Marker Icons</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">customIcon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">L</span><span class="p">.</span><span class="nx">icon</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">iconUrl</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;marker-icon.png&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">iconSize</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">32</span><span class="p">,</span><span class="w"> </span><span class="mf">32</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">iconAnchor</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="mf">32</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">popupAnchor</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">32</span><span class="p">]</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="geojson-layers">GeoJSON Layers</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">L</span><span class="p">.</span><span class="nx">geoJSON</span><span class="p">(</span><span class="nx">regionData</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">weight</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">fillOpacity</span><span class="o">:</span><span class="w"> </span><span class="mf">0.2</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">onEachFeature</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span><span class="w"> </span><span class="nx">layer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">layer</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="nx">feature</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="layer-controls">Layer Controls</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">baseMaps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;Street&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">streetLayer</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Satellite&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">satelliteLayer</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Terrain&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">terrainLayer</span>
+<span class="p">};</span>
+<span class="nx">L</span><span class="p">.</span><span class="nx">control</span><span class="p">.</span><span class="nx">layers</span><span class="p">(</span><span class="nx">baseMaps</span><span class="p">).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="marker-clustering">Marker Clustering</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">markers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">L</span><span class="p">.</span><span class="nx">markerClusterGroup</span><span class="p">();</span>
+<span class="nx">markers</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">L</span><span class="p">.</span><span class="nx">marker</span><span class="p">([</span><span class="nx">lat</span><span class="p">,</span><span class="w"> </span><span class="nx">lng</span><span class="p">]));</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">markers</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="comparison-with-other-microsim-skills">Comparison with Other MicroSim Skills</h2>
+<h3 id="vs-mermaid-generator">vs. Mermaid Generator</h3>
+<ul>
+<li><strong>Map Generator</strong>: Geographic data visualization with real-world coordinates</li>
+<li><strong>Mermaid Generator</strong>: Flowcharts, diagrams, and abstract visualizations</li>
+</ul>
+<h3 id="vs-timeline-generator">vs. Timeline Generator</h3>
+<ul>
+<li><strong>Map Generator</strong>: Spatial relationships and geographic patterns</li>
+<li><strong>Timeline Generator</strong>: Temporal relationships and chronological sequences</li>
+</ul>
+<h3 id="vs-chartjs-generator">vs. Chart.js Generator</h3>
+<ul>
+<li><strong>Map Generator</strong>: Geographic context with interactive exploration</li>
+<li><strong>Chart.js Generator</strong>: Statistical data visualization (bar, line, pie charts)</li>
+</ul>
+<p><strong>Complementary Use</strong>: Combine multiple MicroSim types for rich educational content. Example: A history chapter might include a timeline (when), a map (where), and charts (quantitative data).</p>
+<h2 id="template-files">Template Files</h2>
+<p>The skill includes 5 comprehensive template files:</p>
+<ol>
+<li><strong>template-iframe-main.html</strong> (35 lines)</li>
+<li>HTML5 structure with Leaflet CDN links</li>
+<li>Map container with fixed height requirement</li>
+<li>Optional controls section</li>
+<li>
+<p>Placeholders: <code>{{TITLE}}</code>, <code>{{SUBTITLE}}</code></p>
+</li>
+<li>
+<p><strong>template-iframe-style.css</strong> (180 lines)</p>
+</li>
+<li>Critical: <code>body { margin: 0; padding: 0; }</code></li>
+<li>Minimal margins throughout (2-5px max)</li>
+<li>Responsive breakpoints (768px, 480px)</li>
+<li>
+<p>aliceblue background (repository standard)</p>
+</li>
+<li>
+<p><strong>template-script.js</strong> (150 lines)</p>
+</li>
+<li>Map initialization with configuration object</li>
+<li>Tile layer setup with attribution</li>
+<li>Marker creation with popups</li>
+<li>
+<p>Commented examples for all advanced features</p>
+</li>
+<li>
+<p><strong>template-index.md</strong> (200+ lines)</p>
+</li>
+<li>Complete documentation structure</li>
+<li>iframe embed with fullscreen link</li>
+<li>Customization guide</li>
+<li>Educational applications</li>
+<li>
+<p>Technical details and references</p>
+</li>
+<li>
+<p><strong>template-metadata.json</strong> (30 lines)</p>
+</li>
+<li>Dublin Core standard fields</li>
+<li>Map-specific: center_lat, center_lng, zoom_level</li>
+<li>Educational: concepts, bloom_taxonomy, learning_objectives</li>
+</ol>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="when-creating-maps">When Creating Maps</h3>
+<ol>
+<li><strong>Start Simple</strong> - Begin with basic marker maps before adding complexity</li>
+<li><strong>Test Coordinates</strong> - Verify latitude/longitude values before generating</li>
+<li><strong>Limit Markers</strong> - Keep initial marker count under 50 for quick loading</li>
+<li><strong>Choose Appropriate Zoom</strong> - World = 2, Country = 5, City = 10, Street = 15</li>
+<li><strong>Provide Context</strong> - Include descriptive popups with links to more information</li>
+<li><strong>Consider Mobile</strong> - Test responsive behavior on different screen sizes</li>
+<li><strong>Add Metadata</strong> - Complete educational metadata for searchability</li>
+</ol>
+<h3 id="content-design">Content Design</h3>
+<ol>
+<li><strong>Clear Labels</strong> - Use concise, descriptive marker titles</li>
+<li><strong>Informative Popups</strong> - Provide context, not just names</li>
+<li><strong>Visual Hierarchy</strong> - Use custom icons to distinguish marker types</li>
+<li><strong>Color Coding</strong> - Apply consistent color schemes for categories</li>
+<li><strong>External Links</strong> - Link to additional resources (Wikipedia, course content)</li>
+<li><strong>Educational Value</strong> - Align with specific learning objectives</li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="map-not-displaying">Map Not Displaying</h3>
+<p><strong>Symptoms</strong>: Blank iframe or error message</p>
+<p><strong>Solutions</strong>:
+- Verify Leaflet CDN links are correct
+- Ensure <code>#map</code> div has fixed height in CSS
+- Check browser console for JavaScript errors
+- Confirm coordinates are in decimal format (not DMS)</p>
+<h3 id="markers-not-appearing">Markers Not Appearing</h3>
+<p><strong>Symptoms</strong>: Map displays but no markers visible</p>
+<p><strong>Solutions</strong>:
+- Verify latitude range: -90 to 90
+- Verify longitude range: -180 to 180
+- Check marker array syntax in <code>script.js</code>
+- Ensure markers added after map initialization
+- Zoom to marker locations to verify they're not out of view</p>
+<h3 id="iframe-sizing-issues">Iframe Sizing Issues</h3>
+<p><strong>Symptoms</strong>: Map has unwanted scrollbars or padding</p>
+<p><strong>Solutions</strong>:
+- Confirm <code>body { margin: 0; padding: 0; }</code> in CSS
+- Adjust iframe height in <code>index.md</code>
+- Check container margins are minimal (2-5px max)
+- Verify no conflicting CSS from parent page</p>
+<h2 id="version-history">Version History</h2>
+<ul>
+<li><strong>v1.0</strong> (2025-01-16): Initial release</li>
+<li>Basic marker maps with popups</li>
+<li>Multiple tile layer support (street, satellite, terrain)</li>
+<li>GeoJSON layer support for borders and regions</li>
+<li>Layer controls for toggling map types</li>
+<li>Marker clustering for large datasets</li>
+<li>Complete educational metadata integration</li>
+<li>Responsive design with three breakpoints</li>
+<li>Accessibility features (keyboard navigation, ARIA labels)</li>
+</ul>
+<h2 id="related-skills">Related Skills</h2>
+<ul>
+<li><strong>Timeline Generator</strong> - Create chronological visualizations (pairs well for historical maps)</li>
+<li><strong>Chart.js Generator</strong> - Create statistical charts (pairs well for demographic maps)</li>
+<li><strong>Mermaid Generator</strong> - Create flowcharts and diagrams (pairs well for process maps)</li>
+<li><strong>MicroSim P5</strong> - Create custom simulations (alternative for specialized visualizations)</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://leafletjs.com/reference.html">Leaflet Official Documentation</a> - Complete API reference</li>
+<li><a href="https://leafletjs.com/examples.html">Leaflet Tutorials</a> - Step-by-step guides and examples</li>
+<li><a href="https://www.openstreetmap.org/">OpenStreetMap</a> - Default map tile provider</li>
+<li><a href="https://geojson.org/">GeoJSON Format</a> - Standard for encoding geographic data structures</li>
+<li><a href="https://en.wikipedia.org/wiki/Map_projection">Map Projections</a> - Understanding coordinate systems</li>
+<li><a href="https://www.w3.org/WAI/WCAG21/quickref/">WCAG Guidelines</a> - Web accessibility standards</li>
+</ul>
+<h2 id="quick-start-example">Quick Start Example</h2>
+<p>To generate a simple map showing three universities:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>Input Requirements:
+- Map Purpose: Show major universities in California
+- Region: California, USA
+- Markers:
+  * Stanford University (37.4275, -122.1697)
+  * UC Berkeley (37.8719, -122.2585)
+  * UCLA (34.0689, -118.4452)
+- Zoom Level: 7 (state view)
+- Map Type: Street map (OpenStreetMap)
+</code></pre></div></td></tr></table></div>
+<p><strong>Output</strong>: Complete MicroSim package with:
+- Interactive map centered on California
+- Three markers with university information
+- Popups with descriptions and links
+- Documentation with customization guide
+- Educational metadata aligned to higher education geography</p>
+<hr />
+<p><em>Generated maps seamlessly integrate into MkDocs Material textbooks as iframe-embedded MicroSims with minimal margins and comprehensive educational metadata.</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../timeline-generator/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Timeline">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Timeline
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../venn-diagram-generator/" class="md-footer__link md-footer__link--next" aria-label="Next: Venn Diagram">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Venn Diagram
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
