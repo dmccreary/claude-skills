@@ -77,6 +77,8 @@ MicroSim directory.
   ```
 - If missing or incorrect: Add TODO to add/fix iframe embed
 
+Note: Do not add the frameborder attribute to the iframe.  The site-wide CSS is responsible for styling all iframes with the site.
+
 #### 5. Copy-Paste Iframe Example
 - Check for a second iframe in an HTML code block with label "Copy this iframe to your website:"
 - This allows users to embed the MicroSim in their own sites

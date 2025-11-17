@@ -2,22 +2,24 @@
 title: {{TITLE}}
 description: {{DESCRIPTION}}
 quality_score: 85
+image: /sims/{{MICROSIM_NAME}}/{{MICROSIM_NAME}}.png
+og:image: /sims/{{MICROSIM_NAME}}/{{MICROSIM_NAME}}.png
 ---
 
 # {{TITLE}}
 
 ## Interactive Visualization
 
-<iframe src="main.html" width="100%" height="500" frameborder="0"></iframe>
+<iframe src="main.html" width="100%" height="500px"></iframe>
 
-[View Fullscreen](main.html){:target="_blank" .md-button}
+[View the {{TITLE}} MicroSim Fullscreen](main.html){:target="_blank" .md-button}
 
 ## Copy-Paste Embed Code
 
 To embed this visualization in your own page, use the following HTML code:
 
 ```html
-<iframe src="https://{{GITHUB_USERNAME}}.github.io/{{REPO_NAME}}/sims/{{MICROSIM_NAME}}/main.html" width="100%" height="500" frameborder="0"></iframe>
+<iframe src="https://{{GITHUB_USERNAME}}.github.io/{{REPO_NAME}}/sims/{{MICROSIM_NAME}}/main.html" width="100%" height="500px"></iframe>
 ```
 
 ## Overview

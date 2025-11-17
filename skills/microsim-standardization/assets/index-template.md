@@ -1,24 +1,24 @@
 ---
-title: MicroSim Title
+title: {{TITLE}}
 description: Brief description of this MicroSim for SEO and social media previews
 quality_score: 50
-images:
-  - preview-image.png
+image: /sims/{{MICROSIM_NAME}}/{{MICROSIM_NAME}}.png
+og:image: /sims/{{MICROSIM_NAME}}/{{MICROSIM_NAME}}.png
 ---
 
-# MicroSim Title
+# {{TITLE}}
 
-<iframe src="main.html" width="100%" height="600px"></iframe>
+<iframe src="main.html" width="100%" height="500px"></iframe>
 
 **Copy this iframe to your website:**
 
 ```html
-<iframe src="https://YOURDOMAIN.github.io/path/to/sims/microsim-name/main.html" width="100%" height="600px"></iframe>
+<iframe src="https://{{GITHUB_USERNAME}}.github.io/{{REPO_NAME}}/sims/{{MICROSIM_NAME}}/main.html" width="100%" height="500px"></iframe>
 ```
 
 Note that the YOURDOMAIN.github.io can be found in the site_url property of the mkdocs.yml file.
 
-[Run MicroSim in fullscreen](main.html){ .md-button .md-button--primary }
+[Run the {{TITLE}} MicroSim in fullscreen](main.html){ .md-button .md-button--primary }
 
 <!-- For p5.js MicroSims ONLY, add: -->
 <!-- [Edit in the p5.js Editor](https://editor.p5js.org/username/sketches/SKETCH_ID){ .md-button } -->
