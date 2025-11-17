@@ -2132,6 +2132,13 @@ Color coding:
 
 Implementation: Mermaid diagram or similar flowchart tool
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>mermaid-generator (95/100) - Build pipeline workflow with sequential stages is ideal Mermaid flowchart</li>
+<li>microsim-p5 (70/100) - Custom workflow visualization requires manual stage layout and connections</li>
+<li>vis-network (65/100) - Can model pipeline as directed graph but less intuitive than flowchart</li>
+</ol>
 </details>
 <h2 id="mkdocs-material-theme">MkDocs Material Theme</h2>
 <p>Material for MkDocs is a professional theme built on Google's Material Design principles, transforming standard MkDocs sites into modern, responsive documentation portals. Developed and maintained by Martin Donath, the Material theme has become the most popular MkDocs theme due to its extensive feature set, exceptional documentation, and active development community. The theme provides features far beyond basic styling, including customizable color schemes, advanced search capabilities, tabbed content blocks, and responsive navigation that adapts seamlessly from desktop to mobile devices.</p>
@@ -2230,6 +2237,13 @@ Color scheme: Blue for standard theme, purple/pink for Material theme
 
 Implementation: HTML/CSS/JavaScript with responsive grid layout
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>markdown table (best) - Configuration reference doesn't require interactivity, markdown table is clearest</li>
+<li>microsim-p5 (88/100) - If searchable/filterable interface needed, p5.js with DOM controls works well</li>
+<li>chartjs-generator (30/100) - Not designed for configuration reference displays</li>
+</ol>
 </details>
 <h2 id="mkdocs-configuration-file-mkdocsyml">MkDocs Configuration File (mkdocs.yml)</h2>
 <p>The mkdocs.yml file serves as the central configuration document for your documentation site, written in YAML (YAML Ain't Markup Language) format. This human-readable data serialization format allows you to specify site metadata, theme configuration, navigation structure, plugin settings, and markdown extensions in a hierarchical structure that mirrors the logical organization of configuration settings. Understanding the mkdocs.yml file structure is essential for customizing documentation sites beyond default behaviors and integrating advanced features required for intelligent textbooks.</p>
@@ -2454,6 +2468,13 @@ Layout: 2x3 grid on desktop, single column on mobile
 
 Implementation: HTML/CSS/JavaScript with syntax highlighting and copy-to-clipboard functionality
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>markdown (best) - Side-by-side code blocks in markdown provide clearest comparison format</li>
+<li>microsim-p5 (90/100) - If interactive highlighting/toggling needed, p5.js with code display works</li>
+<li>chartjs-generator (15/100) - Not designed for code syntax comparison interfaces</li>
+</ol>
 </details>
 <h2 id="version-control-basics">Version Control Basics</h2>
 <p>Version control is a system for tracking changes to files over time, enabling multiple people to collaborate on content while preserving a complete history of modifications. Rather than managing files through naming conventions like "chapter-final.md", "chapter-final-revised.md", and "chapter-final-really-final.md", version control systems maintain a single authoritative file with a complete record of every change, who made it, when, and why. This fundamental shift in file management enables professional content development workflows that parallel software engineering practices while providing safety nets for experimentation and error recovery.</p>
@@ -2662,6 +2683,13 @@ Implementation notes:
 - Animate branch creation and merge operations
 - Use different colors for different branch types
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>microsim-p5 (94/100) - Interactive file tree with expand/collapse and tooltips is excellent p5.js use case</li>
+<li>vis-network (82/100) - Can display hierarchical file structure as network graph</li>
+<li>mermaid-generator (75/100) - Tree diagrams supported but limited interactivity compared to p5.js</li>
+</ol>
 </details>
 <h2 id="github-integration">GitHub Integration</h2>
 <p>GitHub is a web-based platform that hosts Git repositories while providing collaboration features, issue tracking, pull request workflows, and integrated continuous integration/deployment capabilities. Microsoft-owned GitHub has become the de facto standard for open-source software development and increasingly serves as infrastructure for documentation and educational content collaboration. The platform transforms Git from a local version control tool into a complete content development ecosystem with social features, permission management, and web-based editing interfaces.</p>
@@ -2828,6 +2856,13 @@ Annotations:
 
 Implementation: Mermaid diagram or Lucidchart-style workflow visualization
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>microsim-p5 (94/100) - Interactive file tree with expand/collapse and tooltips is excellent p5.js use case</li>
+<li>vis-network (82/100) - Can display hierarchical file structure as network graph</li>
+<li>mermaid-generator (75/100) - Tree diagrams supported but limited interactivity compared to p5.js</li>
+</ol>
 </details>
 <h2 id="integrating-the-mkdocs-ecosystem">Integrating the MkDocs Ecosystem</h2>
 <p>The true power of the MkDocs ecosystem emerges when you integrate all these components into a cohesive documentation development workflow. Markdown provides the readable source format, MkDocs transforms it into a professional site, the Material theme adds modern design and interactivity, Git tracks every change, GitHub enables collaboration, and GitHub Pages delivers content to learners. This stack represents a complete publishing platform that rivals traditional content management systems while remaining simple enough for individual authors to manage without specialized technical teams.</p>

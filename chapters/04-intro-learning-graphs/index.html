@@ -2099,6 +2099,13 @@ Visual styling:
 Implementation: vis-network JavaScript library
 Canvas size: 800x600px
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>vis-network (Score: 98/100) - Perfect for interactive network graph with nodes/edges, physics layout, hierarchical positioning, and hover tooltips - vis-network explicitly mentioned</li>
+<li>microsim-p5 (Score: 70/100) - Could create custom network visualization but vis-network already optimized for this</li>
+<li>mermaid-generator (Score: 50/100) - Could show flowchart but lacks physics-based layout and interactive graph features</li>
+</ol>
 </details>
 <h2 id="concept-nodes-in-learning-graphs">Concept Nodes in Learning Graphs</h2>
 <p>Concept nodes represent atomic knowledge units—discrete, well-defined ideas, procedures, or principles that learners must understand or demonstrate. Each node in the learning graph corresponds to a single concept with a unique identifier and human-readable label.</p>
@@ -2203,6 +2210,13 @@ Annotations:
 
 Implementation: SVG diagram with clear geometric layout
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>mermaid-generator (Score: 88/100) - Excellent for showing three common dependency patterns with clean arrow diagrams</li>
+<li>microsim-p5 (Score: 75/100) - Could create custom diagrams for each pattern with geometric layouts</li>
+<li>vis-network (Score: 60/100) - Could show as networks but simple pattern diagrams better served by Mermaid</li>
+</ol>
 </details>
 <h2 id="directed-acyclic-graph-dag-requirement">Directed Acyclic Graph (DAG) Requirement</h2>
 <p>A valid learning graph must be a Directed Acyclic Graph (DAG)—a directed graph containing no cycles. This mathematical constraint ensures a valid pedagogical ordering exists: there is some sequence in which concepts can be taught such that all prerequisites precede their dependents.</p>
@@ -2281,6 +2295,13 @@ Color scheme: Green for valid DAG, red for invalid cycle
 
 Implementation: SVG diagram showing both structures
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>mermaid-generator (Score: 90/100) - Great for side-by-side graph comparison showing valid DAG vs cyclic structure with clear annotations</li>
+<li>vis-network (Score: 80/100) - Could show both graphs interactively with cycle highlighted, good for demonstrating invalid structure</li>
+<li>microsim-p5 (Score: 70/100) - Could create custom comparison with animated cycle detection</li>
+</ol>
 </details>
 <h2 id="prerequisite-relationships-and-learning-pathways">Prerequisite Relationships and Learning Pathways</h2>
 <p>Prerequisite relationships define the pedagogical ordering constraints that shape content sequencing. Understanding how prerequisites propagate through the graph and define valid learning pathways is essential for chapter organization and adaptive content delivery.</p>
@@ -2438,6 +2459,13 @@ Color coding:
 
 Implementation: SVG decision tree with diamond decision nodes
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>mermaid-generator (Score: 95/100) - Perfect for decision tree with yes/no branches, terminal nodes, and color-coded outcomes</li>
+<li>microsim-p5 (Score: 70/100) - Could create custom interactive decision tree with color-coded paths</li>
+<li>vis-network (Score: 35/100) - Could show as network but decision tree needs specific branching structure</li>
+</ol>
 </details>
 <h2 id="optimizing-claude-usage-for-learning-graph-generation">Optimizing Claude Usage for Learning Graph Generation</h2>
 <p>Generating comprehensive learning graphs with 200+ concepts and their dependencies is one of the most token-intensive operations in intelligent textbook creation. Strategic Claude usage optimization ensures you remain within 4-hour window budgets while producing high-quality graphs.</p>
@@ -2607,6 +2635,13 @@ Interactive features:
 
 Implementation: HTML/CSS/JavaScript with Chart.js timeline and area chart
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>timeline-generator (Score: 95/100) - Perfect for project timeline with events over 20 days, includes timeline visualization with phase tracking</li>
+<li>chartjs-generator (Score: 90/100) - Excellent for area chart showing cumulative token consumption over time - Chart.js explicitly mentioned</li>
+<li>microsim-p5 (Score: 65/100) - Could create custom timeline with area chart but standard libraries already provide this</li>
+</ol>
 </details>
 <h2 id="summary_1">Summary</h2>
 <p>This chapter introduced learning graphs as formalized knowledge structures representing concepts as nodes and prerequisite dependencies as edges. You learned how learning graphs function as Directed Acyclic Graphs (DAGs) ensuring valid pedagogical orderings exist, and how prerequisite relationships define learning pathways through course content.</p>

@@ -2227,6 +2227,13 @@ Style: Network diagram with color-coded nodes and directional arrows
 
 Implementation: SVG diagram with color-coded circles and arrows
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>vis-network (98/100) - Network graph visualization ideal for displaying DAG validation algorithm with colored nodes</li>
+<li>mermaid-generator (85/100) - Flowchart capabilities support algorithm visualization with decision points</li>
+<li>microsim-p5 (75/100) - Custom interactive visualization possible but requires more development effort</li>
+</ol>
 </details>
 <h3 id="circular-dependency-detection">Circular Dependency Detection</h3>
 <p>Circular dependencies represent the most critical structural flaw in a learning graph. They create logical impossibilities in the learning sequence and must be identified and eliminated before proceeding with content generation.</p>
@@ -2345,6 +2352,13 @@ Legend: Position top-right with color coding explanation
 
 Implementation: Chart.js scatter plot with color-coded point categories
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>chartjs-generator (97/100) - Scatter plot chart type directly supports indegree vs outdegree visualization</li>
+<li>bubble-chart-generator (80/100) - Could add third dimension (concept importance) via bubble size</li>
+<li>microsim-p5 (72/100) - Custom scatter plot possible with manual axis and point rendering</li>
+</ol>
 </details>
 <h3 id="disconnected-subgraphs">Disconnected Subgraphs</h3>
 <p>A <strong>disconnected subgraph</strong> is a cluster of concepts isolated from the main learning graph—they have no dependency paths connecting them to foundational concepts. This indicates a serious structural problem: students cannot reach these concepts through the normal learning progression.</p>
@@ -2444,6 +2458,13 @@ Color scheme: Orange for linear, green/blue/purple gradient for network depth
 
 Implementation: SVG network diagram with positioned nodes and edges
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>vis-network (95/100) - Network visualization perfectly suited for comparing linear vs networked graph structures</li>
+<li>mermaid-generator (82/100) - Can create side-by-side graph diagrams with different layouts</li>
+<li>microsim-p5 (78/100) - Force-directed graph layout possible but requires physics simulation coding</li>
+</ol>
 </details>
 <h2 id="graph-analysis-metrics">Graph Analysis Metrics</h2>
 <p>Quantitative metrics provide objective measures of graph structure and complexity. These metrics help you understand your learning graph's characteristics and compare it to best practices for educational graph design.</p>
@@ -2578,6 +2599,13 @@ Color scheme: Gold bars with green shading for optimal range
 
 Implementation: Chart.js bar chart with annotations
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>chartjs-generator (98/100) - Histogram/bar chart with annotations and shaded regions natively supported</li>
+<li>microsim-p5 (70/100) - Custom bar chart rendering with manual annotation placement required</li>
+<li>mermaid-generator (25/100) - Limited chart capabilities, not ideal for detailed histograms</li>
+</ol>
 </details>
 <h3 id="maximum-dependency-chain-length">Maximum Dependency Chain Length</h3>
 <p>The <strong>maximum dependency chain length</strong> represents the longest sequence of prerequisite concepts from any foundational node to any terminal node. This metric indicates the depth of your curriculum and affects course duration planning.</p>
@@ -2775,6 +2803,13 @@ Implementation notes:
 
 Implementation: p5.js MicroSim with interactive controls
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>microsim-p5 (92/100) - Interactive gauge and sliders are core p5.js strengths with DOM controls</li>
+<li>chartjs-generator (65/100) - Can create gauge charts but limited interactivity compared to p5.js</li>
+<li>vis-network (20/100) - Not designed for gauge visualizations or quality scoring interfaces</li>
+</ol>
 </details>
 <h2 id="taxonomy-distribution-and-balance">Taxonomy Distribution and Balance</h2>
 <p>Beyond graph structure, the distribution of concepts across taxonomy categories affects curriculum balance and learning progression. A well-balanced taxonomy distribution ensures students encounter appropriate variety across knowledge domains without over-concentration in any single area.</p>
@@ -2929,6 +2964,13 @@ Color scheme: Rainbow gradient (red → orange → yellow → green → blue →
 
 Implementation: Chart.js pie chart with custom colors and labels
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>chartjs-generator (98/100) - Pie chart with percentage labels and color coding is primary Chart.js use case</li>
+<li>microsim-p5 (68/100) - Custom pie rendering possible but Chart.js provides better built-in features</li>
+<li>venn-diagram-generator (15/100) - Designed for overlapping sets, not category distribution</li>
+</ol>
 </details>
 <h3 id="avoiding-over-representation">Avoiding Over-Representation</h3>
 <p><strong>Over-representation</strong> occurs when a single taxonomy category dominates the learning graph, consuming more than 30% of total concepts. This imbalance can result from:</p>

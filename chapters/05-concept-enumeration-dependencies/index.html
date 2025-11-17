@@ -2233,6 +2233,13 @@ Color coding:
 
 Implementation: SVG hierarchical tree diagram
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>mermaid-generator (Score: 92/100) - Excellent for hierarchical tree showing topic expansion with branches for components, relationships, procedures</li>
+<li>vis-network (Score: 85/100) - Good for interactive tree with color-coded concept types and hierarchical layout</li>
+<li>microsim-p5 (Score: 75/100) - Could create custom tree visualization with color-coded branches</li>
+</ol>
 </details>
 <h2 id="generating-200-concepts">Generating 200 Concepts</h2>
 <p>The target of approximately 200 concepts for a semester-length course derives from pedagogical research on cognitive load, assessment scope, and knowledge retention. Courses with fewer than 100 concepts risk insufficient depth; courses with more than 300 concepts overwhelm learners and instructors alike.</p>
@@ -2306,6 +2313,13 @@ Color scheme: Blue bars, green shaded optimal region
 
 Implementation: Chart.js bar chart with range indicators
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>chartjs-generator (Score: 98/100) - Perfect for bar chart showing concept count by duration with range error bars - Chart.js explicitly mentioned</li>
+<li>microsim-p5 (Score: 55/100) - Could create custom bar chart but Chart.js already provides this well</li>
+<li>math-function-plotter-plotly (Score: 35/100) - Not plotting functions, this is discrete data</li>
+</ol>
 </details>
 <h2 id="concept-label-requirements">Concept Label Requirements</h2>
 <p>Concept labels serve as human-readable identifiers appearing in learning graphs, chapter headings, quiz questions, and glossary entries. Standardized labeling conventions ensure consistency across automated content generation and enable effective search and reference.</p>
@@ -2405,6 +2419,13 @@ Interactive features:
 
 Implementation: HTML/CSS with interactive JavaScript
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>microsim-p5 (Score: 90/100) - Excellent for interactive checklist with click/hover functionality and visual examples with checkmarks/X marks</li>
+<li>chartjs-generator (Score: 20/100) - Not a chart, this is an interactive checklist/infographic</li>
+<li>mermaid-generator (Score: 30/100) - Could show as diagram but lacks interactive checklist features</li>
+</ol>
 </details>
 <h3 id="title-case-convention">Title Case Convention</h3>
 <p>Title Case capitalization follows specific rules differentiating words that should be capitalized from those that remain lowercase:</p>
@@ -2469,6 +2490,13 @@ Purpose: Show before/after examples of optimizing overlength labels
 
 Note: Optimization preserves meaning while meeting length constraint
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>chartjs-generator (Score: 20/100) - This is a markdown table, not a chart - better as plain markdown</li>
+<li>microsim-p5 (Score: 50/100) - Could create interactive table showing before/after optimization but markdown suffices</li>
+<li>mermaid-generator (Score: 10/100) - Not designed for table representations</li>
+</ol>
 </details>
 <h2 id="concept-granularity">Concept Granularity</h2>
 <p>Concept granularity—the level of detail and scope at which concepts are defined—critically impacts learning graph quality, content generation effectiveness, and assessment design. Optimal granularity balances atomic precision with pedagogical coherence.</p>
@@ -2569,6 +2597,13 @@ Annotations:
 
 Implementation: SVG diagram with spectrum bar
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>microsim-p5 (Score: 88/100) - Excellent for custom spectrum visualization with positioned examples and color-coded zones</li>
+<li>chartjs-generator (Score: 45/100) - Could use horizontal bar but spectrum metaphor needs custom visualization</li>
+<li>mermaid-generator (Score: 40/100) - Could show as diagram but lacks spectrum-specific styling</li>
+</ol>
 </details>
 <h2 id="atomic-concepts">Atomic Concepts</h2>
 <p>An atomic concept represents the smallest meaningful knowledge unit suitable for independent instruction and assessment. Atomicity ensures concepts are neither so broad they encompass multiple distinct ideas nor so narrow they lack pedagogical substance.</p>
@@ -2738,6 +2773,13 @@ Color coding:
 
 Implementation: SVG flowchart
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>mermaid-generator (Score: 95/100) - Perfect for sequential workflow with decision points, loops, and color-coded phases</li>
+<li>microsim-p5 (Score: 65/100) - Could create custom flowchart but Mermaid already provides workflow patterns</li>
+<li>vis-network (Score: 30/100) - Could show as network but workflow needs sequential structure</li>
+</ol>
 </details>
 <h2 id="csv-file-format-for-learning-graphs">CSV File Format for Learning Graphs</h2>
 <p>Learning graphs are persisted in CSV (Comma-Separated Values) format, enabling both human readability for manual editing and programmatic processing by validation scripts and visualization tools. The CSV structure follows a standardized schema essential for downstream skill compatibility.</p>
@@ -2864,6 +2906,13 @@ Purpose: Show correct and incorrect CSV formatting
 ✗ Missing ConceptID 2 (gap in sequence)
 ✗ Row 4: Dependency on non-existent concept 5 when only 1-4 exist
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>chartjs-generator (Score: 15/100) - This is a markdown table with validation examples, not a chart</li>
+<li>microsim-p5 (Score: 55/100) - Could create interactive table highlighting errors but markdown tables work well</li>
+<li>mermaid-generator (Score: 10/100) - Not designed for table representations</li>
+</ol>
 </details>
 <h2 id="understanding-conceptid-conceptlabel-and-dependencies-fields">Understanding ConceptID, ConceptLabel, and Dependencies Fields</h2>
 <p>The three core CSV columns—ConceptID, ConceptLabel, and Dependencies—encode all information necessary for learning graph construction, validation, and content generation.</p>
@@ -2939,6 +2988,13 @@ Purpose: Contrast the roles and properties of ConceptID vs ConceptLabel
 
 Note: ConceptID enables robust dependency tracking; ConceptLabel provides clarity for human readers
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>chartjs-generator (Score: 15/100) - This is a comparison table, not a chart - better as markdown table</li>
+<li>microsim-p5 (Score: 50/100) - Could create interactive comparison table but markdown suffices</li>
+<li>mermaid-generator (Score: 10/100) - Not designed for comparison tables</li>
+</ol>
 </details>
 <h2 id="taxonomy-and-concept-categorization">Taxonomy and Concept Categorization</h2>
 <p>While not required for minimal learning graph functionality, taxonomy categorization organizes concepts into thematic groups enabling quality analysis, balanced chapter design, and navigation enhancement. Chapter 7 explores taxonomy in depth; this section introduces the concept.</p>
@@ -3080,6 +3136,13 @@ Color scheme: Heat map from red (foundational) through orange (prerequisite) to 
 
 Implementation: Chart.js stacked area chart with topological ordering on X-axis
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>chartjs-generator (Score: 95/100) - Perfect for stacked area chart showing concept depth progression - Chart.js explicitly mentioned</li>
+<li>microsim-p5 (Score: 70/100) - Could create custom area chart with heat map coloring but Chart.js already provides this</li>
+<li>math-function-plotter-plotly (Score: 40/100) - Not plotting functions, this is stacked categorical data</li>
+</ol>
 </details>
 <h2 id="summary_1">Summary</h2>
 <p>This chapter explored the mechanics of concept enumeration and dependency mapping that transform course descriptions into structured learning graphs. You learned the systematic workflow for generating ~200 atomic concepts, applying label conventions (Title Case, 32-character maximum, domain-standard terminology), and maintaining optimal granularity balancing pedagogical coherence with assessability.</p>

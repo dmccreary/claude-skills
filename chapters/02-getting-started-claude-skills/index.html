@@ -2407,6 +2407,13 @@ Color scheme: Yellow background for YAML section, white for markdown body, blue 
 
 Implementation: SVG diagram with code-style formatting
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>microsim-p5 (Score: 90/100) - Excellent for custom document mockup with syntax highlighting, colored regions for YAML vs markdown sections, and visual annotations</li>
+<li>mermaid-generator (Score: 45/100) - Could use block diagram but lacks code-style formatting and syntax highlighting capabilities</li>
+<li>chartjs-generator (Score: 10/100) - Not a data visualization, cannot effectively represent document structure</li>
+</ol>
 </details>
 <h3 id="yaml-frontmatter-in-skills">YAML Frontmatter in Skills</h3>
 <p>The YAML frontmatter section provides metadata that Claude Code uses for skill discovery, permission management, and user-facing documentation. All frontmatter fields use lowercase keys and follow YAML syntax conventions.</p>
@@ -2525,6 +2532,13 @@ Purpose: Show which tools different skill types typically require
 
 Note: ✓ indicates typically required tool
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>chartjs-generator (Score: 25/100) - This is actually a markdown table, not a chart - better implemented directly in markdown</li>
+<li>microsim-p5 (Score: 60/100) - Could create interactive table with checkmarks but markdown tables work well for static permission matrices</li>
+<li>mermaid-generator (Score: 15/100) - Not designed for table/matrix representations</li>
+</ol>
 </details>
 <h3 id="skill-workflow-instructions">Skill Workflow Instructions</h3>
 <p>The markdown body of a SKILL.md file contains detailed, step-by-step instructions that Claude Code executes autonomously. Well-designed workflow instructions exhibit several characteristics:</p>
@@ -2700,6 +2714,13 @@ Color scheme: Blue for global location, green for project-local, orange for prio
 
 Implementation: SVG diagram with tree structure
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>mermaid-generator (Score: 85/100) - Perfect for hierarchical tree structures showing directory relationships and priority rules</li>
+<li>microsim-p5 (Score: 70/100) - Could create custom directory tree with folder icons and priority indicators</li>
+<li>vis-network (Score: 55/100) - Could show as network graph but hierarchical tree is more natural for directory structures</li>
+</ol>
 </details>
 <h2 id="listing-available-skills">Listing Available Skills</h2>
 <p>Discovering which skills are installed and available is essential for workflow planning. Multiple methods exist for listing skills, each providing different levels of detail.</p>
@@ -2877,6 +2898,13 @@ Color coding:
 
 Implementation: SVG flowchart with decision diamonds and process rectangles
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>mermaid-generator (Score: 95/100) - Ideal for flowchart with swimlanes, decision diamonds, process rectangles, and sequential steps</li>
+<li>microsim-p5 (Score: 65/100) - Could build custom flowchart with interactivity but Mermaid provides standard flowchart patterns</li>
+<li>vis-network (Score: 30/100) - Could show as network but lacks flowchart-specific shapes and swimlane organization</li>
+</ol>
 </details>
 <h3 id="skill-execution-context">Skill Execution Context</h3>
 <p>Skills execute within a context that includes:</p>
@@ -3051,6 +3079,13 @@ Color coding:
 
 Implementation: SVG decision tree with diamond decision nodes
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>mermaid-generator (Score: 92/100) - Perfect for decision tree with yes/no branches, diamond decision nodes, and terminal outcomes</li>
+<li>microsim-p5 (Score: 70/100) - Could create custom interactive decision tree with color-coded paths</li>
+<li>vis-network (Score: 40/100) - Could show as network but decision trees need specific branching layout</li>
+</ol>
 </details>
 <h2 id="token-management-strategies">Token Management Strategies</h2>
 <p>Effective use of Claude requires understanding and managing token consumption. Claude Pro accounts provide generous but finite token budgets within 4-hour usage windows, making token management essential for sustained productivity on textbook projects.</p>
@@ -3154,6 +3189,13 @@ Interactive features:
 
 Implementation: HTML/CSS/JavaScript with Chart.js timeline
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>timeline-generator (Score: 92/100) - Excellent for temporal events with specific times showing token consumption/restoration over 12-hour period</li>
+<li>chartjs-generator (Score: 85/100) - Good for stacked bar chart showing available vs consumed tokens over time, Chart.js explicitly mentioned</li>
+<li>microsim-p5 (Score: 65/100) - Could create custom timeline with animated token restoration</li>
+</ol>
 </details>
 <h3 id="optimizing-claude-usage">Optimizing Claude Usage</h3>
 <p>Several strategies maximize productivity within token budgets:</p>
@@ -3274,6 +3316,13 @@ Color scheme: Blue line for quality score, green shaded region for acceptable zo
 
 Implementation: Chart.js line chart with annotations plugin
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>chartjs-generator (Score: 98/100) - Perfect for line chart showing progression across iterations with threshold line and annotations - Chart.js explicitly mentioned</li>
+<li>math-function-plotter-plotly (Score: 50/100) - Could plot discrete data points but not optimized for iteration-based metric tracking</li>
+<li>microsim-p5 (Score: 55/100) - Could create custom line chart but Chart.js provides professional charting</li>
+</ol>
 </details>
 <h2 id="summary_1">Summary</h2>
 <p>This chapter introduced the Claude Skills system as the foundation for automating intelligent textbook creation workflows. You learned the anatomy of skill definition files, including YAML frontmatter for metadata and markdown workflow instructions for autonomous execution. We explored how skills differ from simpler command-based prompt expansions and when each approach is appropriate.</p>

@@ -2163,6 +2163,13 @@ Color scheme: Blue for initialization, orange for main loop, purple for events, 
 
 Implementation: Flowchart diagram using Mermaid or similar tool
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>mermaid-generator (94/100) - p5.js execution model flowchart with loops is classic Mermaid use case</li>
+<li>microsim-p5 (85/100) - Interactive flowchart with highlighted current execution step possible</li>
+<li>vis-network (70/100) - Can show execution flow as directed graph but less clear</li>
+</ol>
 </details>
 <h2 id="microsim-directory-structure">MicroSim Directory Structure</h2>
 <p>Each MicroSim in an intelligent textbook follows a standardized directory structure that promotes consistency, maintainability, and ease of integration. This organizational pattern separates concerns between the interactive simulation itself, its documentation, and its metadata, following the architectural principle of loose coupling. Understanding this structure is essential for creating, modifying, and debugging MicroSims effectively.</p>
@@ -2265,6 +2272,13 @@ Color scheme: Blue for documentation, green for code, purple for metadata, orang
 
 Implementation: Block diagram with icons
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>mermaid-generator (93/100) - File relationship diagram with connections is Mermaid strength</li>
+<li>vis-network (75/100) - Can show files as network nodes with relationship edges</li>
+<li>microsim-p5 (72/100) - Custom block diagram with icons requires manual layout</li>
+</ol>
 </details>
 <h2 id="creating-the-mainhtml-file">Creating the main.html File</h2>
 <p>The <code>main.html</code> file serves as the executable heart of a MicroSim, packaging the p5.js sketch into a standalone web page that can be embedded anywhere via iframe. This file must be entirely self-contained, with all JavaScript code, CSS styling, and HTML structure included in a single document. The only external dependency permitted is the p5.js library itself, which is loaded from a content delivery network (CDN) to ensure reliability and leverage browser caching.</p>
@@ -2394,6 +2408,13 @@ Color coding:
 
 Implementation: Tree diagram or hierarchical block diagram
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>mermaid-generator (95/100) - HTML structure tree with nested elements is perfect Mermaid tree</li>
+<li>vis-network (65/100) - Hierarchical graph layout possible but less clear than tree</li>
+<li>microsim-p5 (68/100) - Custom tree rendering with recursive layout algorithms needed</li>
+</ol>
 </details>
 <h2 id="writing-the-indexmd-documentation">Writing the index.md Documentation</h2>
 <p>The <code>index.md</code> file serves as the pedagogical wrapper around the MicroSim, providing context, instructions, learning objectives, and reflective prompts that transform a standalone simulation into an integrated learning experience. This Markdown document becomes a page in the MkDocs navigation hierarchy, appearing alongside other chapter content while offering a dedicated space for interactive exploration. The quality of the <code>index.md</code> documentation directly impacts how effectively students engage with and learn from the MicroSim.</p>
@@ -2548,6 +2569,13 @@ Implementation notes:
 - Show overflow scenarios when responsive wrapper disabled
 - Include visual indicators for aspect ratio preservation
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>microsim-p5 (96/100) - Interactive iframe embedding demo with resize controls is p5.js + DOM strength</li>
+<li>chartjs-generator (15/100) - Not designed for iframe embedding demonstrations</li>
+<li>vis-network (15/100) - Not applicable to responsive iframe simulations</li>
+</ol>
 </details>
 <h2 id="interactive-controls-sliders">Interactive Controls: Sliders</h2>
 <p>Sliders represent one of the most effective interaction paradigms for educational simulations, providing continuous parameter adjustment with immediate visual feedback. In p5.js MicroSims, sliders allow students to explore parameter spaces intuitively, developing understanding of how quantitative changes affect system behavior. Unlike discrete controls such as buttons or dropdowns, sliders make the relationship between input and output visible through analog manipulation, supporting the development of quantitative intuition.</p>
@@ -2837,6 +2865,13 @@ Implementation notes:
 - Use seeded randomness for reproducible arrays
 - Include visual transitions for swaps (smooth animation)
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>microsim-p5 (95/100) - Interactive algorithm stepping with button controls is core p5.js use case</li>
+<li>chartjs-generator (25/100) - Not designed for algorithm visualization or step controls</li>
+<li>vis-network (15/100) - Not applicable to sorting algorithm visualizations</li>
+</ol>
 </details>
 <h2 id="ensuring-reproducibility-with-seeded-randomness">Ensuring Reproducibility with Seeded Randomness</h2>
 <p>Randomness plays a crucial role in educational simulations, introducing variability that helps students see patterns across different scenarios rather than memorizing a single example. However, pure randomness creates a pedagogical challenge: when every student sees different behavior, instruction becomes difficult, debugging is nearly impossible, and students cannot easily share or compare their explorations. Seeded randomness resolves this tension by making randomness reproducible—simulations generate different scenarios, but the same seed always produces the same sequence of random values.</p>
@@ -3270,6 +3305,13 @@ Visual style: Modern checklist interface with expandable sections
 Color scheme: Blue headers, green checkmarks, amber warnings
 Implementation: HTML/CSS/JavaScript with localStorage for persistence
 </code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>MicroSim Generator Recommendations:</strong></p>
+<ol>
+<li>microsim-p5 (96/100) - Interactive iframe embedding demo with resize controls is p5.js + DOM strength</li>
+<li>chartjs-generator (15/100) - Not designed for iframe embedding demonstrations</li>
+<li>vis-network (15/100) - Not applicable to responsive iframe simulations</li>
+</ol>
 </details>
 <h2 id="summary-and-key-takeaways">Summary and Key Takeaways</h2>
 <p>Interactive MicroSims transform intelligent textbooks from static information repositories into dynamic learning environments where students actively construct understanding through experimentation and exploration. Built with the p5.js JavaScript library, these focused simulations demonstrate single concepts through immediate visual feedback, adjustable parameters, and reproducible scenarios. The standardized MicroSim architecture—comprising <code>main.html</code> for the simulation, <code>index.md</code> for pedagogical context, and <code>metadata.json</code> for discovery and cataloging—ensures consistency while supporting integration with the broader MkDocs Material textbook framework.</p>
