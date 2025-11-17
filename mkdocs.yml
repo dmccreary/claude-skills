@@ -69,12 +69,14 @@ nav:
   
   - MicroSim Generation Skills:
     - List MicroSim Skills: skill-descriptions/microsims/index.md
+    # List in the order they are selected
     - MicroSims p5 Generator: skill-descriptions/microsims/microsim-p5.md
-    - Chart Generator: skill-descriptions/microsims/chartjs.md
+    - Chart Generator: skill-descriptions/microsims/chartjs-generator.md
     - Vis Network: skill-descriptions/microsims/vis-network.md
     - Bubble Chart: skill-descriptions/microsims/bubble-chart-generator.md
     - Mermaid: skill-descriptions/microsims/mermaid-generator.md
     - Timeline: skill-descriptions/microsims/timeline-generator.md
+    - Map: skill-descriptions/microsims/map-generator.md
     - Venn Diagram: skill-descriptions/microsims/venn-diagram-generator.md
   
   - STEM Skills:

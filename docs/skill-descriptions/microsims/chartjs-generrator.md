@@ -1,2 +1,0 @@
-# Chart Generator Using ChartJS
-
