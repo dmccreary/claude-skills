@@ -2,6 +2,8 @@
 title: Sine Function Visualization
 description: Interactive plot of the sine function with slider control to explore points along the curve
 quality_score: 85
+image: sims/sine-function-plot/sine-function-plot.png
+og:image: sims/sine-function-plot/sine-function-plot.png
 ---
 
 # Sine Function Visualization
