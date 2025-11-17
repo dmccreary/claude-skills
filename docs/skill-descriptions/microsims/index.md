@@ -1,7 +1,27 @@
 # Educational MicroSim Skills
 
 Educational MicroSims are lightweight, interactive educational simulations designed for browser-based learning. 
-MicroSims are designed to run in a rectangular iframe placed within the a page of a textbook.
+MicroSims are designed to run in a rectangular `iframe` placed within the a page of a textbook.
+The default height of a MicroSim is 500px and they are designed to be width-responsive so they
+will adapt to various screen sizes and window resize events.
+
+## MicroSim Generator List
+
+This list is ordered based on the most general purpose tools to the most case specific tool.
+
+1. **General MicroSim with p5:** - use for most general MicroSim used for interactive animations and simulations
+2. **General Chart Generation with ChartJS** - used for generating charts
+3. **Mermaid Generator**  - used for static workflow and flow chart diagrams
+4. **Vis Network Graph Generator** - used to generate interactive network graph diagrams
+5. **Math Function Plot Generator** - uses the powerful Plotly.js library for plotting math functions
+6. **Timeline Generator** - used to generate timelines from a list of events
+7. **Map Generator** - generates maps using the Leaflet library
+8. **Venn Diagram Generator** - generates Venn Diagrams
+9. **Bubble Chart Generator** - specialize to only generate bubble charts
+
+## Common Elements to All MicroSims
+
+All MicroSims are designed to run in a non-scrolling iframe that contains width-responsive drawing elements.
 
 Sample `iframe` 
 
@@ -29,6 +49,8 @@ This is a general skill that generates any p5.js application that can be tested 
 It is ideal for simulations and animations where the user control the behavior through a set of
 controls at the bottom of the drawing area.
 
+See the [Microsim-p5 Description](./microsim-p5.md)
+
 ## Chart Generator
 
 **Name:** chartjs-generator<br/>
@@ -46,6 +68,8 @@ This generator creates general charts such as:
 The default is 500px high and a width that fills 100% of the enclosing container.
 If the user does not provide the title, chart type and data, the skill will prompt
 them for the appropriate information.
+
+See the [ChartJS Generator](./chartjs-generator.md) skill description.
 
 ## Mermaid
 **Name:** timeline-generator<br/>
@@ -68,6 +92,21 @@ These diagrams model the structure and relationships between components or entit
 1. Entity Relationship (ER) Diagram - Database schemas showing entities, attributes, and relationships
 1. C4 Diagram - Software architecture context, containers, components, and code views
 1. Block Diagram - High-level system component diagrams showing functional blocks
+
+See the [Mermaid Generator](./mermaid-generator.md)
+
+## Vis-Network MicroSim
+
+**Name:** vis-network
+This skill will create a graph network diagram using the vis-network JavaScript library.
+The user should provide a list of nodes and edges as well as an optional list of groups.
+
+See the [Vis Network](./vis-network.md) skill description.
+
+## Math Function Plotter
+
+See the [Math Function Plotter Plotly](./math-function-plotter-plotly.md) skill description.
+
 
 ## Timeline Generator
 
@@ -97,8 +136,16 @@ The user must specify the following information and JSON is a good format:
 }
 ```
 
-## Vis-Network MicroSim
+See the [Timeline Generator](./timeline-generator.md) skill description.
 
-**Name:** vis-network
-This skill will create a graph network diagram using the vis-network JavaScript library.
-The user should provide a list of nodes and edges as well as an optional list of groups.
+## Venn Diagram
+
+This uses the Venn.js library which has not been maintained for several years.  Use with caution.
+
+See the [Venn Diagram Generator ](./venn-diagram-generator.md) skill description.
+
+## Bubble Chart
+
+This is a specialization of the ChartJS skill.  
+
+See the [Bubble Chart](./bubble-chart-generator.md) skill description.

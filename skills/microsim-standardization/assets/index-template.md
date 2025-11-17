@@ -8,12 +8,12 @@ og:image: /sims/{{MICROSIM_NAME}}/{{MICROSIM_NAME}}.png
 
 # {{TITLE}}
 
-<iframe src="main.html" width="100%" height="500px"></iframe>
+<iframe src="main.html" width="100%" height="500px" scrolling="no"></iframe>
 
 **Copy this iframe to your website:**
 
 ```html
-<iframe src="https://{{GITHUB_USERNAME}}.github.io/{{REPO_NAME}}/sims/{{MICROSIM_NAME}}/main.html" width="100%" height="500px"></iframe>
+<iframe src="https://{{GITHUB_USERNAME}}.github.io/{{REPO_NAME}}/sims/{{MICROSIM_NAME}}/main.html" width="100%" height="500px" scrolling="no"></iframe>
 ```
 
 Note that the YOURDOMAIN.github.io can be found in the site_url property of the mkdocs.yml file.
