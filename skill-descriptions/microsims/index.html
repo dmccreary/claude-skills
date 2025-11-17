@@ -1218,6 +1218,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#microsim-generator-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim Generator List
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-elements-to-all-microsims" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Elements to All MicroSims
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#microsim-p5-generator" class="md-nav__link">
     <span class="md-ellipsis">
       MicroSim P5 Generator
@@ -1263,6 +1281,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#vis-network-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vis-Network MicroSim
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#math-function-plotter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math Function Plotter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#timeline-generator" class="md-nav__link">
     <span class="md-ellipsis">
       Timeline Generator
@@ -1272,9 +1308,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vis-network-microsim" class="md-nav__link">
+  <a href="#venn-diagram" class="md-nav__link">
     <span class="md-ellipsis">
-      Vis-Network MicroSim
+      Venn Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bubble-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bubble Chart
     </span>
   </a>
   
@@ -1305,7 +1350,24 @@
 
 <h1 id="educational-microsim-skills">Educational MicroSim Skills</h1>
 <p>Educational MicroSims are lightweight, interactive educational simulations designed for browser-based learning. 
-MicroSims are designed to run in a rectangular iframe placed within the a page of a textbook.</p>
+MicroSims are designed to run in a rectangular <code>iframe</code> placed within the a page of a textbook.
+The default height of a MicroSim is 500px and they are designed to be width-responsive so they
+will adapt to various screen sizes and window resize events.</p>
+<h2 id="microsim-generator-list">MicroSim Generator List</h2>
+<p>This list is ordered based on the most general purpose tools to the most case specific tool.</p>
+<ol>
+<li><strong>General MicroSim with p5:</strong> - use for most general MicroSim used for interactive animations and simulations</li>
+<li><strong>General Chart Generation with ChartJS</strong> - used for generating charts</li>
+<li><strong>Mermaid Generator</strong>  - used for static workflow and flow chart diagrams</li>
+<li><strong>Vis Network Graph Generator</strong> - used to generate interactive network graph diagrams</li>
+<li><strong>Math Function Plot Generator</strong> - uses the powerful Plotly.js library for plotting math functions</li>
+<li><strong>Timeline Generator</strong> - used to generate timelines from a list of events</li>
+<li><strong>Map Generator</strong> - generates maps using the Leaflet library</li>
+<li><strong>Venn Diagram Generator</strong> - generates Venn Diagrams</li>
+<li><strong>Bubble Chart Generator</strong> - specialize to only generate bubble charts</li>
+</ol>
+<h2 id="common-elements-to-all-microsims">Common Elements to All MicroSims</h2>
+<p>All MicroSims are designed to run in a non-scrolling iframe that contains width-responsive drawing elements.</p>
 <p>Sample <code>iframe</code> </p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://example.com/microsims/my-microsim/main.html&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;500px&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
@@ -1325,6 +1387,7 @@ MicroSims are designed to run in a rectangular iframe placed within the a page o
 This is a general skill that generates any p5.js application that can be tested in the p5.js editor.
 It is ideal for simulations and animations where the user control the behavior through a set of
 controls at the bottom of the drawing area.</p>
+<p>See the <a href="microsim-p5/">Microsim-p5 Description</a></p>
 <h2 id="chart-generator">Chart Generator</h2>
 <p><strong>Name:</strong> chartjs-generator<br/>
 This generator creates general charts such as:</p>
@@ -1341,6 +1404,7 @@ This generator creates general charts such as:</p>
 <p>The default is 500px high and a width that fills 100% of the enclosing container.
 If the user does not provide the title, chart type and data, the skill will prompt
 them for the appropriate information.</p>
+<p>See the <a href="chartjs-generator/">ChartJS Generator</a> skill description.</p>
 <h2 id="mermaid">Mermaid</h2>
 <p><strong>Name:</strong> timeline-generator<br/>
 <strong>Width Responsive:</strong> Yes (with limitations in that the size of the shapes may not change, but they are re-centered)</p>
@@ -1361,6 +1425,14 @@ them for the appropriate information.</p>
 <li>C4 Diagram - Software architecture context, containers, components, and code views</li>
 <li>Block Diagram - High-level system component diagrams showing functional blocks</li>
 </ol>
+<p>See the <a href="mermaid-generator/">Mermaid Generator</a></p>
+<h2 id="vis-network-microsim">Vis-Network MicroSim</h2>
+<p><strong>Name:</strong> vis-network
+This skill will create a graph network diagram using the vis-network JavaScript library.
+The user should provide a list of nodes and edges as well as an optional list of groups.</p>
+<p>See the <a href="vis-network/">Vis Network</a> skill description.</p>
+<h2 id="math-function-plotter">Math Function Plotter</h2>
+<p>See the <a href="math-function-plotter-plotly/">Math Function Plotter Plotly</a> skill description.</p>
 <h2 id="timeline-generator">Timeline Generator</h2>
 <p><strong>Name:</strong> timeline-generator<br/>
 <strong>Width Responsive:</strong> Yes
@@ -1402,10 +1474,13 @@ The user must specify the following information and JSON is a good format:</p>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="vis-network-microsim">Vis-Network MicroSim</h2>
-<p><strong>Name:</strong> vis-network
-This skill will create a graph network diagram using the vis-network JavaScript library.
-The user should provide a list of nodes and edges as well as an optional list of groups.</p>
+<p>See the <a href="timeline-generator/">Timeline Generator</a> skill description.</p>
+<h2 id="venn-diagram">Venn Diagram</h2>
+<p>This uses the Venn.js library which has not been maintained for several years.  Use with caution.</p>
+<p>See the <a href="venn-diagram-generator/">Venn Diagram Generator </a> skill description.</p>
+<h2 id="bubble-chart">Bubble Chart</h2>
+<p>This is a specialization of the ChartJS skill.  </p>
+<p>See the <a href="bubble-chart-generator/">Bubble Chart</a> skill description.</p>
 
 
 

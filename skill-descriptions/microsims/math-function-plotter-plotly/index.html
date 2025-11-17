@@ -1,0 +1,2127 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/math-function-plotter-plotly/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Math Function Plotter with Plotly.js - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HPLDD3D3K2"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HPLDD3D3K2",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HPLDD3D3K2",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Math Function Plotter with Plotly.js - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  property="og:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/skill-descriptions/microsims/math-function-plotter-plotly.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/math-function-plotter-plotly/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Math Function Plotter with Plotly.js - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  name="twitter:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/skill-descriptions/microsims/math-function-plotter-plotly.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#math-function-plotter-with-plotlyjs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Math Function Plotter with Plotly.js
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../book/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Book Generation Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSim Generation Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stem-skills/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    STEM Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../intelligent-textbook-creator.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Outdated
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../details-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Details Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Purpose
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-trigger-phrases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Trigger Phrases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-gather-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Gather Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Create Directory Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-convert-function-expression-to-javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Convert Function Expression to JavaScript
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-generate-mainhtml-from-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Generate main.html from Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-generate-stylecss-with-minimal-margins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Generate style.css with Minimal Margins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-generate-scriptjs-with-plotly-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Generate script.js with Plotly Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-create-indexmd-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Create index.md Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-create-metadatajson-with-dublin-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8: Create metadata.json with Dublin Core
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-test-and-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 9: Test and Validate
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-function-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Function Configurations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Function Configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trigonometric-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trigonometric Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polynomial-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polynomial Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exponential-and-logarithmic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exponential and Logarithmic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physics-and-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physics and Engineering
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#educational-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#template-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Template Files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output Files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Details
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with MkDocs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Use Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#calculus-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculus Course
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#precalculus-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      Precalculus Course
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physics-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physics Course
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineering-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      Engineering Course
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-plot-appears-blank" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Plot appears blank
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-slider-doesnt-update-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Slider doesn't update point
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-layout-too-cramped" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Layout too cramped
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-function-looks-jagged" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Function looks jagged
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill Location
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/skill-descriptions/microsims/math-function-plotter-plotly.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="math-function-plotter-with-plotlyjs">Math Function Plotter with Plotly.js</h1>
+<h2 id="overview">Overview</h2>
+<p>The math-function-plotter-plots skill creates professional, interactive mathematical function plots using the Plotly.js JavaScript library. It generates complete MicroSim packages optimized for iframe embedding in narrow textbook layouts, featuring hover tooltips with precise coordinates, interactive sliders for exploring points along curves, responsive design with minimal margins, and comprehensive educational documentation including lesson plans and assessment questions.</p>
+<h2 id="purpose">Purpose</h2>
+<p>This skill automates the creation of interactive mathematical function visualizations for calculus, precalculus, physics, and engineering courses. It transforms mathematical expressions into engaging, explorable plots that help students understand function behavior, relationships between variables, and key mathematical concepts through interactive manipulation.</p>
+<h2 id="key-features">Key Features</h2>
+<ul>
+<li><strong>Interactive Sliders</strong>: Move a point along the function curve to explore (x, y) relationships</li>
+<li><strong>Hover Tooltips</strong>: Display precise coordinates with 3 decimal precision at any point on the curve</li>
+<li><strong>Smooth Curves</strong>: 500-point sampling for visually appealing function plots</li>
+<li><strong>Responsive Design</strong>: Optimized for narrow iframe widths (320px-1200px) with adaptive heights</li>
+<li><strong>Minimal Margins</strong>: 2-5px padding optimized for efficient screen real estate in textbooks</li>
+<li><strong>Export Functionality</strong>: Built-in PNG export via Plotly toolbar</li>
+<li><strong>Educational Documentation</strong>: Complete lesson plans, activities, and assessment questions</li>
+<li><strong>Dublin Core Metadata</strong>: Searchable, catalogable educational resources</li>
+<li><strong>Template-Based</strong>: Consistent structure across all function plots</li>
+<li><strong>500px Height Standard</strong>: Adjustable drawing region that scales responsively on mobile</li>
+</ul>
+<h2 id="when-to-use">When to Use</h2>
+<p>Use this skill when users request:</p>
+<ul>
+<li>Plotting mathematical functions (trigonometric, polynomial, exponential, logarithmic)</li>
+<li>Graphing equations for educational purposes</li>
+<li>Visualizing function behavior over specific domains</li>
+<li>Creating interactive function explorers for textbooks</li>
+<li>Demonstrating calculus concepts (continuity, limits, derivatives)</li>
+<li>Physics visualizations (wave functions, trajectories, harmonic motion)</li>
+<li>Engineering plots (signals, control systems, transfer functions)</li>
+<li>Interactive mathematical demonstrations with sliders</li>
+</ul>
+<h2 id="common-trigger-phrases">Common Trigger Phrases</h2>
+<ul>
+<li>"Plot a mathematical function"</li>
+<li>"Graph the equation y = ..."</li>
+<li>"Visualize f(x) = ..."</li>
+<li>"Create an interactive function plotter"</li>
+<li>"Show me a graph of [function]"</li>
+<li>"Plot sin(x) / cos(x) / tan(x)"</li>
+<li>"Generate a calculus visualization"</li>
+<li>"Make a plot I can embed in my textbook"</li>
+<li>"Create an interactive [function type] graph"</li>
+</ul>
+<h2 id="workflow-steps">Workflow Steps</h2>
+<h3 id="step-1-gather-requirements">Step 1: Gather Requirements</h3>
+<p>Collect information about the mathematical function and context:</p>
+<p><strong>Required:</strong>
+- <strong>Function expression</strong>: The mathematical function to plot (e.g., "sin(x)", "x²", "e^(-x²)")
+- <strong>Title</strong>: Descriptive name for the MicroSim (e.g., "Sine Function Visualization")
+- <strong>Domain</strong>: Range of x-values to plot [xMin, xMax]</p>
+<p><strong>Optional (with smart defaults):</strong>
+- <strong>Range</strong>: Y-axis limits [yMin, yMax] (auto-calculated if not provided)
+- <strong>Interactive point</strong>: Initial x-position for the slider (default: midpoint of domain)
+- <strong>Slider step</strong>: Increment for slider movement (default: (xMax - xMin) / 100)
+- <strong>Axis labels</strong>: Custom labels for x and y axes (default: "x" and "y")
+- <strong>Subtitle</strong>: Brief description (default: function expression)
+- <strong>Context</strong>: Course/chapter where this will be used (for educational content)</p>
+<p><strong>Example conversation:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>User: &quot;Create a plot for the sine function&quot;
+Assistant: &quot;I&#39;ll create an interactive sine function plot. Let me gather details:
+- Title: &#39;Sine Function Visualization&#39;
+- Function: sin(x)
+- Domain: -2π to 2π (approximately -6.28 to 6.28)?
+- Is this for a specific course or chapter?&quot;
+</code></pre></div></td></tr></table></div></p>
+<p>Provide sensible defaults based on common mathematical conventions:
+- Trigonometric functions: Domain [-2π, 2π], Range auto-calculated
+- Polynomial functions: Domain showing all real roots if possible
+- Exponential functions: Domain showing meaningful change (3-5 orders of magnitude)</p>
+<h3 id="step-2-create-directory-structure">Step 2: Create Directory Structure</h3>
+<p>Create the MicroSim directory following the standardized pattern:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>docs/sims/[microsim-name]/
+├── main.html         # Standalone Plotly.js visualization
+├── style.css         # Responsive styling with minimal margins
+├── script.js         # Interactive logic (sliders, tooltips)
+├── index.md          # MkDocs documentation page
+└── metadata.json     # Dublin Core metadata
+</code></pre></div></td></tr></table></div>
+<p><strong>Naming conventions:</strong>
+- Use kebab-case (lowercase with hyphens)
+- Be descriptive but concise
+- Examples: <code>sine-function</code>, <code>quadratic-parabola</code>, <code>exponential-decay</code>, <code>gaussian-bell-curve</code></p>
+<h3 id="step-3-convert-function-expression-to-javascript">Step 3: Convert Function Expression to JavaScript</h3>
+<p>Translate the mathematical expression to JavaScript Math functions:</p>
+<p><strong>Common conversions:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Math Notation</th>
+<th>JavaScript Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sin(x)</td>
+<td>Math.sin(x)</td>
+</tr>
+<tr>
+<td>cos(x)</td>
+<td>Math.cos(x)</td>
+</tr>
+<tr>
+<td>tan(x)</td>
+<td>Math.tan(x)</td>
+</tr>
+<tr>
+<td>e^x</td>
+<td>Math.exp(x)</td>
+</tr>
+<tr>
+<td>x²</td>
+<td>Math.pow(x, 2) or x**2</td>
+</tr>
+<tr>
+<td>√x</td>
+<td>Math.sqrt(x)</td>
+</tr>
+<tr>
+<td>ln(x)</td>
+<td>Math.log(x)</td>
+</tr>
+<tr>
+<td>log₁₀(x)</td>
+<td>Math.log10(x)</td>
+</tr>
+<tr>
+<td>|x|</td>
+<td>Math.abs(x)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example JavaScript function:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>For complex functions:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Damped oscillation</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">exp</span><span class="p">(</span><span class="o">-</span><span class="nx">x</span><span class="o">/</span><span class="mf">5</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Gaussian distribution</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">sigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">((</span><span class="nx">x</span><span class="o">-</span><span class="nx">mu</span><span class="p">)</span><span class="o">/</span><span class="nx">sigma</span><span class="p">)</span><span class="o">**</span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="nx">sigma</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mf">2</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="step-4-generate-mainhtml-from-template">Step 4: Generate main.html from Template</h3>
+<p>Use <code>assets/template-iframe-main.html</code> and replace placeholders:</p>
+<p><strong>Placeholder replacements:</strong>
+- <code>{{TITLE}}</code> → Full title (e.g., "Sine Function Visualization")
+- <code>{{SUBTITLE}}</code> → Function expression (e.g., "y = sin(x)")
+- <code>{{X_MIN}}</code> → Minimum x value (e.g., -6.28)
+- <code>{{X_MAX}}</code> → Maximum x value (e.g., 6.28)
+- <code>{{X_STEP}}</code> → Slider step size (e.g., 0.01)
+- <code>{{INITIAL_X}}</code> → Initial slider position (e.g., 0)</p>
+<p><strong>Critical features to preserve:</strong>
+- Plotly.js CDN link (v2.27.0 or latest stable)
+- Minimal body margins: <code>margin: 0; padding: 0;</code>
+- Links to external <code>style.css</code> and <code>script.js</code>
+- Semantic HTML5 structure</p>
+<h3 id="step-5-generate-stylecss-with-minimal-margins">Step 5: Generate style.css with Minimal Margins</h3>
+<p>Use <code>assets/template-iframe-style.css</code> without modifications.</p>
+<p><strong>Key styling requirements:</strong>
+- <strong>Body margins</strong>: MUST be <code>margin: 0; padding: 0;</code> for iframe embedding
+- <strong>Container padding</strong>: Maximum 5px (reduces to 3px tablet, 2px mobile)
+- <strong>Header margins</strong>: 5px top, 2px bottom (minimal spacing)
+- <strong>Background</strong>: <code>aliceblue</code> (repository standard)
+- <strong>Plot height</strong>: 400px desktop, 300px tablet, 250px mobile
+- <strong>Responsive breakpoints</strong>: 768px (tablet), 480px (mobile)</p>
+<p><strong>Testing</strong>: Ensure visualization looks good at widths from 320px to 1200px.</p>
+<h3 id="step-6-generate-scriptjs-with-plotly-configuration">Step 6: Generate script.js with Plotly Configuration</h3>
+<p>Use <code>assets/template-script.js</code> and replace placeholders:</p>
+<p><strong>Placeholder replacements:</strong>
+- <code>{{FUNCTION_JS}}</code> → JavaScript function definition (from Step 3)
+- <code>{{X_MIN}}</code>, <code>{{X_MAX}}</code> → Domain limits
+- <code>{{Y_MIN}}</code>, <code>{{Y_MAX}}</code> → Range limits (or auto-calculate)
+- <code>{{FUNCTION_LABEL}}</code> → Legend label (e.g., "y = sin(x)")
+- <code>{{X_LABEL}}</code> → X-axis label (default: "x")
+- <code>{{Y_LABEL}}</code> → Y-axis label (default: "y")
+- <code>{{FILENAME}}</code> → Export filename (e.g., "sine-function")</p>
+<p><strong>Auto-calculate range</strong> if not provided:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Sample the function to find y range</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">samplePoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yValues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">samplePoints</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">xMin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">xMax</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">xMin</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">samplePoints</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">yValues</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yMin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(...</span><span class="nx">yValues</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.1</span><span class="p">;</span><span class="w">  </span><span class="c1">// Add 10% padding</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">yMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">yValues</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.1</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Plotly configuration includes:</strong>
+- Function curve trace (blue line, width 2)
+- Interactive point trace (red marker, size 10)
+- Hover tooltips with 3 decimal precision
+- Responsive mode enabled
+- Export toolbar with PNG option
+- Grid lines and zero lines for reference</p>
+<h3 id="step-7-create-indexmd-documentation">Step 7: Create index.md Documentation</h3>
+<p>Use <code>assets/template-index.md</code> and customize:</p>
+<p><strong>Required sections:</strong></p>
+<ol>
+<li>
+<p><strong>YAML frontmatter</strong>
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nn">---</span>
+<span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sine Function Visualization</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Interactive plot of sine function with slider</span>
+<span class="nt">quality_score</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">85</span>
+<span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sims/sine-function/sine-function.png</span>
+<span class="nt">og:image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sims/sine-function/sine-function.png</span>
+<span class="nn">---</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>Level 1 header</strong> matching the title</p>
+</li>
+<li>
+<p><strong>Interactive visualization</strong> with iframe embed
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;main.html&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;500px&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>Fullscreen link button</strong></p>
+</li>
+<li>
+<p><strong>Copy-paste embed code</strong> in HTML code block</p>
+</li>
+<li>
+<p><strong>Overview</strong> - Purpose and features list</p>
+</li>
+<li>
+<p><strong>How to Use</strong> - Step-by-step user instructions</p>
+</li>
+<li>
+<p><strong>Educational Applications</strong> - Subject-specific use cases</p>
+</li>
+<li>
+<p><strong>Customization Guide</strong> - How to modify parameters</p>
+</li>
+<li>
+<p><strong>Technical Details</strong> - Library version, implementation</p>
+</li>
+<li>
+<p><strong>Lesson Plan Suggestions</strong> - Learning objectives, activities, assessments</p>
+</li>
+<li>
+<p><strong>References</strong> - Links to documentation</p>
+</li>
+</ol>
+<p><strong>Lesson plan quality</strong>: Provide specific, actionable activities using the slider interactivity:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gs">**Activity 1: Finding Special Values (10 minutes)**</span>
+
+<span class="k">1.</span> Use the slider to find f(π/2). What value do you observe?
+<span class="k">2.</span> At what x-value does f(x) = 0.5? (Approximate using the slider)
+<span class="k">3.</span> Challenge: Find all x-values where f(x) = 0 in the visible range.
+</code></pre></div></td></tr></table></div>
+<p><strong>Customize for function type:</strong>
+- <strong>Trigonometric</strong>: Mention periodicity, amplitude, phase shift
+- <strong>Polynomial</strong>: Discuss degree, roots, turning points
+- <strong>Exponential</strong>: Highlight growth/decay, asymptotes
+- <strong>Logarithmic</strong>: Note domain restrictions, inverse relationships</p>
+<h3 id="step-8-create-metadatajson-with-dublin-core">Step 8: Create metadata.json with Dublin Core</h3>
+<p>Use <code>assets/template-metadata.json</code> and replace:</p>
+<p><strong>Required Dublin Core fields:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sine Function Visualization&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Interactive plot of sine function...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;creator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Your Name or Organization&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-11-17&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;subject&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mathematics&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;trigonometry&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;calculus&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Interactive Simulation&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text/html&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en-US&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;rights&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CC BY 4.0&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Optional educational fields:</strong>
+- <code>audience</code> - "High school students", "College undergraduates"
+- <code>educationalLevel</code> - "Grade 11-12", "Undergraduate"
+- <code>learningResourceType</code> - "Interactive Plot"
+- <code>interactivityType</code> - "active"
+- <code>typicalLearningTime</code> - "PT10M" (ISO 8601 duration)</p>
+<p><strong>Subject keyword selection</strong> (choose 3-5 specific keywords):
+- Mathematics: algebra, geometry, trigonometry, calculus, statistics
+- Physics: kinematics, waves, thermodynamics
+- Engineering: signals, control-systems, circuits</p>
+<h3 id="step-9-test-and-validate">Step 9: Test and Validate</h3>
+<p>Perform comprehensive testing:</p>
+<p><strong>Visual Testing:</strong>
+1. Open <code>main.html</code> in a browser
+2. Verify plot renders correctly
+3. Check axes are labeled and readable
+4. Confirm tooltips appear on hover
+5. Test slider - point should move smoothly along curve
+6. Resize browser window - verify responsive behavior</p>
+<p><strong>Functional Testing:</strong>
+1. Slider range covers full x domain
+2. Point position matches slider value
+3. Tooltips show correct coordinates (3 decimal places)
+4. PNG export functionality works
+5. Mobile testing (320px width minimum)</p>
+<p><strong>Documentation Review:</strong>
+1. Verify iframe embed works in <code>index.md</code>
+2. Check all placeholders replaced
+3. Ensure lesson plan is function-specific
+4. Validate all markdown links work</p>
+<p><strong>Metadata Validation:</strong>
+1. Confirm <code>metadata.json</code> is valid JSON
+2. Check all required Dublin Core fields present
+3. Verify subject keywords are relevant</p>
+<h2 id="common-function-configurations">Common Function Configurations</h2>
+<h3 id="trigonometric-functions">Trigonometric Functions</h3>
+<p><strong>Sine Function:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="c1">// Domain: -2π to 2π (-6.28 to 6.28)</span>
+<span class="c1">// Range: -1.5 to 1.5</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Cosine Function:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="c1">// Domain: -2π to 2π</span>
+<span class="c1">// Range: -1.5 to 1.5</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Tangent Function (with discontinuities):</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">tan</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="c1">// Domain: -π to π (-3.14 to 3.14)</span>
+<span class="c1">// Range: -10 to 10 (limited for visibility)</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Damped Sine Wave:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">exp</span><span class="p">(</span><span class="o">-</span><span class="nx">x</span><span class="o">/</span><span class="mf">5</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="c1">// Domain: 0 to 20</span>
+<span class="c1">// Range: Auto-calculate</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="polynomial-functions">Polynomial Functions</h3>
+<p><strong>Quadratic:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">x</span><span class="o">**</span><span class="mf">2</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="c1">// Domain: -5 to 5</span>
+<span class="c1">// Range: 0 to 25</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Cubic:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">x</span><span class="o">**</span><span class="mf">3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">3</span><span class="o">*</span><span class="nx">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="c1">// Domain: -3 to 3</span>
+<span class="c1">// Range: Auto-calculate</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Quartic with Turning Points:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">x</span><span class="o">**</span><span class="mf">4</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">4</span><span class="o">*</span><span class="nx">x</span><span class="o">**</span><span class="mf">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="c1">// Domain: -3 to 3</span>
+<span class="c1">// Range: Auto-calculate</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="exponential-and-logarithmic">Exponential and Logarithmic</h3>
+<p><strong>Exponential Growth:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">exp</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="c1">// Domain: -2 to 2</span>
+<span class="c1">// Range: 0 to 10</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Exponential Decay:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">exp</span><span class="p">(</span><span class="o">-</span><span class="nx">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="c1">// Domain: 0 to 5</span>
+<span class="c1">// Range: 0 to 1.2</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Natural Logarithm:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="c1">// Domain: 0.1 to 10 (must be positive)</span>
+<span class="c1">// Range: Auto-calculate</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Gaussian (Normal Distribution):</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">sigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">((</span><span class="nx">x</span><span class="o">-</span><span class="nx">mu</span><span class="p">)</span><span class="o">/</span><span class="nx">sigma</span><span class="p">)</span><span class="o">**</span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="nx">sigma</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mf">2</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="c1">// Domain: -4 to 4</span>
+<span class="c1">// Range: 0 to 0.5</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="physics-and-engineering">Physics and Engineering</h3>
+<p><strong>Projectile Motion:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">v0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">45</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="o">/</span><span class="mf">180</span><span class="p">,</span><span class="w"> </span><span class="nx">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">9.8</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">tan</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="nx">g</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">x</span><span class="o">**</span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mf">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">v0</span><span class="o">**</span><span class="mf">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span><span class="o">**</span><span class="mf">2</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// Domain: 0 to 40</span>
+<span class="c1">// Range: Auto-calculate</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Simple Harmonic Motion:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">omega</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">phi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">A</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">omega</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">phi</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// Domain: 0 to 10</span>
+<span class="c1">// Range: -1.5 to 1.5</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="educational-design">Educational Design</h3>
+<ol>
+<li><strong>Slider Activities</strong>: Design questions that promote exploration</li>
+<li>"Find where f(x) = 0"</li>
+<li>"What happens as x approaches infinity?"</li>
+<li>
+<p>"Locate the maximum value"</p>
+</li>
+<li>
+<p><strong>Lesson Integration</strong>: Reference specific textbook concepts</p>
+</li>
+<li>Link to chapter sections</li>
+<li>Use consistent notation</li>
+<li>
+<p>Address common misconceptions</p>
+</li>
+<li>
+<p><strong>Assessment Quality</strong>: Provide measurable learning outcomes</p>
+</li>
+<li>Specific x-values to find</li>
+<li>Pattern recognition questions</li>
+<li>Prediction challenges</li>
+</ol>
+<h3 id="technical-design">Technical Design</h3>
+<ol>
+<li>
+<p><strong>Function Sampling</strong>: Use 500 points minimum for smooth curves</p>
+</li>
+<li>
+<p><strong>Domain Selection</strong>: Choose domains that show key features</p>
+</li>
+<li>Trigonometric: 1-3 complete periods</li>
+<li>Polynomial: All real roots if possible</li>
+<li>
+<p>Exponential: 3-5 orders of magnitude</p>
+</li>
+<li>
+<p><strong>Range Calculation</strong>: Add 10% padding above/below extrema</p>
+</li>
+<li>
+<p><strong>Responsive Testing</strong>: Test at 320px, 480px, 768px, 1024px, 1200px</p>
+</li>
+<li>
+<p><strong>Performance</strong>: Keep total points under 2000 for smooth rendering</p>
+</li>
+</ol>
+<h3 id="accessibility">Accessibility</h3>
+<ol>
+<li><strong>Color Contrast</strong>: WCAG AA minimum (blue #007bff, red #dc3545)</li>
+<li><strong>Font Sizes</strong>: Minimum 12px, scale up to 16px on desktop</li>
+<li><strong>Keyboard Navigation</strong>: Slider is keyboard-accessible (HTML range input)</li>
+<li><strong>Alt Text</strong>: Provide text descriptions of function behavior</li>
+</ol>
+<h2 id="template-files">Template Files</h2>
+<p>The skill includes five template files in <code>skills/math-function-plotter-plotly/assets/</code>:</p>
+<ol>
+<li><strong>template-iframe-main.html</strong> - HTML structure with Plotly.js CDN</li>
+<li><strong>template-iframe-style.css</strong> - Responsive CSS with minimal margins</li>
+<li><strong>template-script.js</strong> - Plotly configuration and slider interactivity</li>
+<li><strong>template-index.md</strong> - Documentation with lesson plans</li>
+<li><strong>template-metadata.json</strong> - Dublin Core metadata</li>
+</ol>
+<p>All templates use <code>{{PLACEHOLDER}}</code> format for easy find-and-replace.</p>
+<h2 id="output-files">Output Files</h2>
+<p>Each generated MicroSim includes:</p>
+<ul>
+<li><strong>main.html</strong> - Standalone visualization (can open directly in browser)</li>
+<li><strong>style.css</strong> - Responsive styling optimized for iframe embedding</li>
+<li><strong>script.js</strong> - Interactive JavaScript with Plotly configuration</li>
+<li><strong>index.md</strong> - Complete documentation with iframe embed</li>
+<li><strong>metadata.json</strong> - Dublin Core metadata for searchability</li>
+</ul>
+<h2 id="technical-details">Technical Details</h2>
+<ul>
+<li><strong>Library</strong>: Plotly.js v2.27.0 (or latest stable version)</li>
+<li><strong>CDN</strong>: https://cdn.plot.ly/plotly-2.27.0.min.js</li>
+<li><strong>Function Sampling</strong>: 500 evenly-spaced points by default</li>
+<li><strong>Responsive Mode</strong>: Plotly's built-in responsive layout</li>
+<li><strong>Interactivity</strong>: HTML5 range input with event listeners</li>
+<li><strong>Tooltips</strong>: Plotly hovertemplate with custom formatting</li>
+<li><strong>Export</strong>: Built-in PNG export via toolbar</li>
+<li><strong>Browser Support</strong>: All modern browsers (Chrome, Firefox, Safari, Edge)</li>
+</ul>
+<h2 id="integration-with-mkdocs">Integration with MkDocs</h2>
+<p>To add the MicroSim to your textbook navigation:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># mkdocs.yml</span>
+<span class="nt">nav</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">MicroSims</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Sine Function</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sims/sine-function-plot/index.md</span>
+</code></pre></div></td></tr></table></div>
+<p>The iframe will automatically embed within the page with proper responsive behavior.</p>
+<h2 id="example-use-cases">Example Use Cases</h2>
+<h3 id="calculus-course">Calculus Course</h3>
+<ul>
+<li>Visualizing limits and continuity</li>
+<li>Exploring derivatives graphically</li>
+<li>Understanding integral areas under curves</li>
+<li>Demonstrating Mean Value Theorem</li>
+</ul>
+<h3 id="precalculus-course">Precalculus Course</h3>
+<ul>
+<li>Exploring trigonometric functions</li>
+<li>Understanding polynomial behavior</li>
+<li>Analyzing exponential growth/decay</li>
+<li>Comparing function families</li>
+</ul>
+<h3 id="physics-course">Physics Course</h3>
+<ul>
+<li>Wave functions and interference</li>
+<li>Projectile motion trajectories</li>
+<li>Simple harmonic motion</li>
+<li>Damped oscillations</li>
+</ul>
+<h3 id="engineering-course">Engineering Course</h3>
+<ul>
+<li>Signal processing functions</li>
+<li>Transfer function responses</li>
+<li>Control system behaviors</li>
+<li>Frequency domain analysis</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-plot-appears-blank">Issue: Plot appears blank</h3>
+<p><strong>Solution</strong>: Check browser console for JavaScript errors. Verify function doesn't return NaN for any x-values in the domain.</p>
+<h3 id="issue-slider-doesnt-update-point">Issue: Slider doesn't update point</h3>
+<p><strong>Solution</strong>: Verify trace index is correct (curve=0, point=1) in <code>Plotly.restyle</code> call.</p>
+<h3 id="issue-layout-too-cramped">Issue: Layout too cramped</h3>
+<p><strong>Solution</strong>: Reduce container padding to 2-5px. Check margin settings in Plotly layout.</p>
+<h3 id="issue-function-looks-jagged">Issue: Function looks jagged</h3>
+<p><strong>Solution</strong>: Increase <code>numPoints</code> to 500-1000 for smoother curves.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://plotly.com/javascript/">Plotly.js Official Documentation</a></li>
+<li><a href="https://plotly.com/javascript/line-charts/">Plotly.js Line Charts</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math">MDN Math Object</a></li>
+<li><a href="../microsim-standardization/SKILL.md">MicroSim Standardization</a></li>
+<li><a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">Dublin Core Metadata</a></li>
+</ul>
+<h2 id="skill-location">Skill Location</h2>
+<p><code>skills/math-function-plotter-plotly/SKILL.md</code></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
