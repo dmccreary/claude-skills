@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Graph Taxonomy Distribution</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Learning Graph Taxonomy Distribution</h1>
+        <p class="subtitle">Distribution of 200 concepts across 8 taxonomy categories</p>
+
+        <div class="chart-container">
+            <canvas id="taxonomyChart"></canvas>
+        </div>
+
+        <div class="quality-panel">
+            <h2>Quality Indicators</h2>
+            <div class="indicator-grid">
+                <div class="indicator-item success">
+                    <span class="check-icon">✓</span>
+                    <span class="indicator-text">No category exceeds 30%</span>
+                </div>
+                <div class="indicator-item success">
+                    <span class="check-icon">✓</span>
+                    <span class="indicator-text">8 categories represented</span>
+                </div>
+                <div class="indicator-item success">
+                    <span class="check-icon">✓</span>
+                    <span class="indicator-text">Top 3 categories = 59%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-details">
+            <h2>Category Details</h2>
+            <div class="details-grid">
+                <div class="detail-card" style="border-left-color: #ef5350;">
+                    <div class="detail-header">
+                        <span class="detail-label">FOUND</span>
+                        <span class="detail-value">18 concepts (9%)</span>
+                    </div>
+                    <p class="detail-description">Foundational concepts that serve as entry points to the learning graph</p>
+                </div>
+                <div class="detail-card" style="border-left-color: #ff7043;">
+                    <div class="detail-header">
+                        <span class="detail-label">BASIC</span>
+                        <span class="detail-value">42 concepts (21%)</span>
+                    </div>
+                    <p class="detail-description">Basic principles and core concepts that build on foundations</p>
+                    <span class="badge largest">Largest category</span>
+                </div>
+                <div class="detail-card" style="border-left-color: #ffca28;">
+                    <div class="detail-header">
+                        <span class="detail-label">ARCH</span>
+                        <span class="detail-value">38 concepts (19%)</span>
+                    </div>
+                    <p class="detail-description">Architecture and structural design concepts</p>
+                </div>
+                <div class="detail-card" style="border-left-color: #9ccc65;">
+                    <div class="detail-header">
+                        <span class="detail-label">IMPL</span>
+                        <span class="detail-value">35 concepts (17.5%)</span>
+                    </div>
+                    <p class="detail-description">Implementation and practical application concepts</p>
+                </div>
+                <div class="detail-card" style="border-left-color: #66bb6a;">
+                    <div class="detail-header">
+                        <span class="detail-label">DATA</span>
+                        <span class="detail-value">28 concepts (14%)</span>
+                    </div>
+                    <p class="detail-description">Data management and data structure concepts</p>
+                </div>
+                <div class="detail-card" style="border-left-color: #26c6da;">
+                    <div class="detail-header">
+                        <span class="detail-label">TOOL</span>
+                        <span class="detail-value">22 concepts (11%)</span>
+                    </div>
+                    <p class="detail-description">Tools and software development utilities</p>
+                </div>
+                <div class="detail-card" style="border-left-color: #42a5f5;">
+                    <div class="detail-header">
+                        <span class="detail-label">QUAL</span>
+                        <span class="detail-value">12 concepts (6%)</span>
+                    </div>
+                    <p class="detail-description">Quality assurance and validation concepts</p>
+                </div>
+                <div class="detail-card" style="border-left-color: #7e57c2;">
+                    <div class="detail-header">
+                        <span class="detail-label">ADV</span>
+                        <span class="detail-value">5 concepts (2.5%)</span>
+                    </div>
+                    <p class="detail-description">Advanced topics and cutting-edge concepts</p>
+                    <span class="badge smallest">Smallest category</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="analysis">
+            <h2>Analysis</h2>
+            <p><strong>Balanced Distribution:</strong> The largest category (BASIC at 21%) is within healthy range, ensuring no single taxonomy dominates the learning graph.</p>
+            <p><strong>Comprehensive Coverage:</strong> All 8 taxonomy categories are represented, providing diverse learning pathways through foundational, intermediate, and advanced concepts.</p>
+            <p><strong>Appropriate Specialization:</strong> Advanced concepts comprise 2.5% of the graph, suggesting appropriate depth without overwhelming learners.</p>
+            <p><strong>Quality Assessment:</strong> The top 3 categories (BASIC, ARCH, IMPL) represent 59% of concepts, indicating strong focus on core curriculum while maintaining breadth.</p>
+        </div>
+    </div>
+
+    <script>
+        const data = {
+            labels: [
+                'FOUND: 18 concepts (9%)',
+                'BASIC: 42 concepts (21%)',
+                'ARCH: 38 concepts (19%)',
+                'IMPL: 35 concepts (17.5%)',
+                'DATA: 28 concepts (14%)',
+                'TOOL: 22 concepts (11%)',
+                'QUAL: 12 concepts (6%)',
+                'ADV: 5 concepts (2.5%)'
+            ],
+            datasets: [{
+                data: [18, 42, 38, 35, 28, 22, 12, 5],
+                backgroundColor: [
+                    'rgba(239, 83, 80, 0.9)',      // Red - FOUND
+                    'rgba(255, 112, 67, 0.9)',     // Orange - BASIC
+                    'rgba(255, 202, 40, 0.9)',     // Yellow - ARCH
+                    'rgba(156, 204, 101, 0.9)',    // Light Green - IMPL
+                    'rgba(102, 187, 106, 0.9)',    // Green - DATA
+                    'rgba(38, 198, 218, 0.9)',     // Light Blue - TOOL
+                    'rgba(66, 165, 245, 0.9)',     // Blue - QUAL
+                    'rgba(126, 87, 194, 0.9)'      // Purple - ADV
+                ],
+                borderColor: [
+                    'rgba(239, 83, 80, 1)',
+                    'rgba(255, 112, 67, 1)',
+                    'rgba(255, 202, 40, 1)',
+                    'rgba(156, 204, 101, 1)',
+                    'rgba(102, 187, 106, 1)',
+                    'rgba(38, 198, 218, 1)',
+                    'rgba(66, 165, 245, 1)',
+                    'rgba(126, 87, 194, 1)'
+                ],
+                borderWidth: 3,
+                hoverOffset: 15
+            }]
+        };
+
+        const config = {
+            type: 'pie',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                aspectRatio: 1.2,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Learning Graph Taxonomy Distribution (200 Concepts)',
+                        font: {
+                            size: 18,
+                            weight: 'bold'
+                        },
+                        padding: 20
+                    },
+                    legend: {
+                        display: true,
+                        position: 'right',
+                        labels: {
+                            padding: 15,
+                            font: {
+                                size: 12
+                            },
+                            generateLabels: function(chart) {
+                                const data = chart.data;
+                                if (data.labels.length && data.datasets.length) {
+                                    return data.labels.map((label, i) => {
+                                        const value = data.datasets[0].data[i];
+                                        const percentage = ((value / 200) * 100).toFixed(1);
+                                        return {
+                                            text: label,
+                                            fillStyle: data.datasets[0].backgroundColor[i],
+                                            strokeStyle: data.datasets[0].borderColor[i],
+                                            lineWidth: 2,
+                                            hidden: false,
+                                            index: i
+                                        };
+                                    });
+                                }
+                                return [];
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.label || '';
+                                const value = context.parsed;
+                                const percentage = ((value / 200) * 100).toFixed(1);
+                                return `${value} concepts (${percentage}%)`;
+                            },
+                            afterLabel: function(context) {
+                                const descriptions = [
+                                    'Foundational concepts',
+                                    'Basic principles',
+                                    'Architecture concepts',
+                                    'Implementation concepts',
+                                    'Data management',
+                                    'Tools and utilities',
+                                    'Quality assurance',
+                                    'Advanced topics'
+                                ];
+                                return descriptions[context.dataIndex];
+                            }
+                        }
+                    },
+                    datalabels: {
+                        color: '#fff',
+                        font: {
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        formatter: function(value, context) {
+                            const percentage = ((value / 200) * 100).toFixed(1);
+                            return percentage + '%';
+                        },
+                        anchor: 'center',
+                        align: 'center'
+                    }
+                },
+                animation: {
+                    animateRotate: true,
+                    animateScale: true,
+                    duration: 2000,
+                    easing: 'easeInOutQuart'
+                }
+            }
+        };
+
+        const ctx = document.getElementById('taxonomyChart').getContext('2d');
+        const chart = new Chart(ctx, config);
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+{
+  "title": "MicroSim File Relationship Diagram",
+  "description": "Block diagram showing how the three core MicroSim files (index.md, main.html, metadata.json) relate to each other and integrate into the MkDocs intelligent textbook architecture, including security boundaries and metadata flows",
+  "subject": "Educational Technology",
+  "creator": "Claude AI with Mermaid Generator Skill",
+  "date": "2025-11-17",
+  "type": "Interactive Workflow Diagram",
+  "format": "text/html",
+  "language": "en-US",
+  "coverage": "Introductory",
+  "rights": "Educational Use",
+  "audience": "Undergraduate",
+  "diagram_type": "block-diagram",
+  "direction": "TD",
+  "node_count": "7",
+  "edge_count": "6",
+  "concepts": [
+    "MkDocs Integration",
+    "MicroSim Architecture",
+    "iframe Security",
+    "Dublin Core Metadata",
+    "Document Object Model",
+    "Sandbox Isolation",
+    "p5.js Visualization",
+    "Learning Management Systems"
+  ],
+  "bloom_taxonomy": "Understand",
+  "version": "1.0",
+  "educational_context": "This diagram helps students and developers understand the technical architecture behind MicroSims in intelligent textbooks, including how files relate, security boundaries work, and external systems integrate.",
+  "prerequisites": [
+    "Basic understanding of HTML",
+    "Familiarity with file systems",
+    "Web browser concepts"
+  ],
+  "learning_objectives": [
+    "Understand the three-file structure of a MicroSim package",
+    "Recognize the role of iframes in providing security isolation",
+    "Explain how metadata enables discovery and LMS integration",
+    "Trace the flow from navigation to interactive simulation"
+  ],
+  "components": {
+    "documentation": ["index.md", "MkDocs Navigation"],
+    "integration": ["iframe element"],
+    "simulation": ["main.html", "p5.js rendering"],
+    "metadata": ["metadata.json"],
+    "external": ["Learning Management System"]
+  },
+  "color_scheme": {
+    "documentation": "#4dabf7",
+    "integration": "#ff922b",
+    "code": "#51cf66",
+    "simulation": "#ff6b6b",
+    "metadata": "#cc5de8",
+    "navigation": "#e9ecef"
+  },
+  "technical_specifications": {
+    "library": "Mermaid.js",
+    "version": "10.x",
+    "rendering_mode": "SVG",
+    "interactive_features": ["zoom", "pan", "export"],
+    "responsive": true
+  }
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MkDocs GitHub Pages Deployment Workflow</title>
+    <link rel="stylesheet" href="../adding-taxonomy-workflow/style.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                fontSize: '16px',
+                fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+            },
+            flowchart: {
+                curve: 'basis',
+                padding: 20,
+                nodeSpacing: 50,
+                rankSpacing: 60
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>MkDocs GitHub Pages Deployment Workflow</h1>
+        <p class="subtitle">Complete process from local markdown editing to published GitHub Pages site</p>
+
+        <div class="diagram-container">
+            <pre class="mermaid">
+flowchart TD
+    subgraph Local["💻 Local Development"]
+        Start["Edit Markdown Files"]:::startNode
+        Serve["mkdocs serve<br/>(Preview locally)"]:::processNode
+        Build["mkdocs build<br/>(Generate static site)"]:::buildNode
+        Decision{"Build<br/>Successful?"}:::decisionNode
+        Commit["git add & commit<br/>(Save changes)"]:::gitNode
+    end
+
+    subgraph GitHub["🔧 Git/GitHub"]
+        Push["git push origin main<br/>(Upload source)"]:::gitNode
+        Deploy["mkdocs gh-deploy<br/>(Build + push gh-pages)"]:::gitNode
+        Receive["GitHub receives<br/>gh-pages push"]:::githubNode
+    end
+
+    subgraph Pages["🌐 GitHub Pages Service"]
+        GHBuild["GitHub Pages Build<br/>(Copy to CDN)"]:::githubNode
+        CDN["Deploy to CDN<br/>(Global distribution)"]:::githubNode
+        Live["🎉 Site Live at<br/>username.github.io/repo/"]:::endNode
+    end
+
+    Start --> Serve
+    Serve --> Build
+    Build --> Decision
+    Decision -->|No<br/>Fix errors| Start
+    Decision -->|Yes| Commit
+    Commit --> Push
+    Push --> Deploy
+    Deploy --> Receive
+    Receive --> GHBuild
+    GHBuild --> CDN
+    CDN --> Live
+    Live -.->|Continue<br/>development| Start
+
+    classDef startNode fill:#43aa8b,stroke:#2d6a4f,stroke-width:3px,color:#fff
+    classDef processNode fill:#4facfe,stroke:#3498db,stroke-width:2px,color:#fff
+    classDef buildNode fill:#4facfe,stroke:#3498db,stroke-width:2px,color:#fff
+    classDef decisionNode fill:#ffd166,stroke:#f77f00,stroke-width:2px,color:#333
+    classDef gitNode fill:#f77f00,stroke:#d67000,stroke-width:2px,color:#fff
+    classDef githubNode fill:#9b59b6,stroke:#8e44ad,stroke-width:2px,color:#fff
+    classDef endNode fill:#43aa8b,stroke:#2d6a4f,stroke-width:3px,color:#fff
+            </pre>
+        </div>
+
+        <div class="legend">
+            <h3>Color Legend</h3>
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <div class="legend-box" style="background-color: #43aa8b;"></div>
+                    <span><strong>Green:</strong> Start and successful completion</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-box" style="background-color: #4facfe;"></div>
+                    <span><strong>Blue:</strong> Build and verification steps</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-box" style="background-color: #f77f00;"></div>
+                    <span><strong>Orange:</strong> Git operations</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-box" style="background-color: #9b59b6;"></div>
+                    <span><strong>Purple:</strong> GitHub automated processes</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-box" style="background-color: #ffd166;"></div>
+                    <span><strong>Yellow:</strong> Decision points</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h3>Workflow Details</h3>
+
+            <div class="step-section">
+                <h4>💻 Local Development (Steps 1-5)</h4>
+                <ol>
+                    <li><strong>Edit Markdown Files:</strong> Author writes content in /docs folder using text editor or IDE</li>
+                    <li><strong>mkdocs serve:</strong> Launch local development server on http://localhost:8000 to preview changes</li>
+                    <li><strong>mkdocs build:</strong> Generate static site in /site directory to verify build succeeds</li>
+                    <li><strong>Build Successful?:</strong> Check for errors in markdown parsing, missing files, or broken links</li>
+                    <li><strong>git add & commit:</strong> Stage markdown source files and commit with descriptive message</li>
+                </ol>
+            </div>
+
+            <div class="step-section">
+                <h4>🔧 Git/GitHub (Steps 6-8)</h4>
+                <ol start="6">
+                    <li><strong>git push origin main:</strong> Upload source commits to GitHub repository main branch</li>
+                    <li><strong>mkdocs gh-deploy:</strong> Build site and force-push to gh-pages branch automatically
+                        <div class="note">Note: gh-deploy handles build + push to gh-pages automatically</div>
+                    </li>
+                    <li><strong>GitHub receives gh-pages push:</strong> GitHub detects new commits to gh-pages branch</li>
+                </ol>
+            </div>
+
+            <div class="step-section">
+                <h4>🌐 GitHub Pages Service (Steps 9-11)</h4>
+                <ol start="9">
+                    <li><strong>GitHub Pages Build:</strong> GitHub copies files from gh-pages branch to CDN hosting infrastructure</li>
+                    <li><strong>Deploy to CDN:</strong> Site deployed to global CDN with HTTPS enabled</li>
+                    <li><strong>Site Live:</strong> Documentation accessible worldwide with custom domain option
+                        <div class="note">Typical deployment time: 1-2 minutes</div>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="key-concepts">
+                <h4>Key Concepts</h4>
+                <ul>
+                    <li><strong>Swimlanes:</strong> Three distinct areas of responsibility (Local, Git/GitHub, GitHub Pages)</li>
+                    <li><strong>Validation Loop:</strong> Build errors send you back to editing (step 4 → step 1)</li>
+                    <li><strong>Continuous Development:</strong> After deployment, cycle continues with new edits</li>
+                    <li><strong>Automation:</strong> gh-deploy command handles both building and deploying in one step</li>
+                    <li><strong>Dual Branches:</strong> main branch stores source, gh-pages branch stores built site</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

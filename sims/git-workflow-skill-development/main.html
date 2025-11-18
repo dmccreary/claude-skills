@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Workflow for Skill Development</title>
+    <link rel="stylesheet" href="../adding-taxonomy-workflow/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Git Workflow for Skill Development</h1>
+        <p class="subtitle">Version control workflow for developing and publishing Claude skills</p>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+flowchart TD
+    Start(("Clone Repository")):::startNode
+    Branch["Create Feature Branch<br/>(Optional)<br/><code>git checkout -b new-skill</code>"]:::gitNode
+    Develop["Develop Skill<br/>Write SKILL.md, scripts, tests"]:::devNode
+    Status["Check Status<br/><code>git status</code>"]:::gitNode
+    Stage["Stage Changes<br/><code>git add skills/new-skill/</code>"]:::gitNode
+    Commit["Commit Changes<br/><code>git commit -m 'message'</code>"]:::gitNode
+    Decision{"Ready to<br/>Publish?"}:::decisionNode
+    Push["Push to Remote<br/><code>git push origin main</code>"]:::gitNode
+    End(("Skill Published")):::endNode
+
+    Start --> Branch
+    Branch --> Develop
+    Develop --> Status
+    Status --> Stage
+    Stage --> Commit
+    Commit --> Decision
+    Decision -->|No| Develop
+    Decision -->|Yes| Push
+    Push --> End
+
+    classDef startNode fill:#667eea,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
+    classDef gitNode fill:#4facfe,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef devNode fill:#f77f00,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef decisionNode fill:#ffd166,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef endNode fill:#43aa8b,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
+
+    linkStyle default stroke:#999,stroke-width:2px,font-size:14px
+            </div>
+        </div>
+
+        <div class="description">
+            <h2>Git Workflow Overview</h2>
+            <p>This workflow illustrates the typical Git commands and process for developing a new Claude skill and publishing it to a GitHub repository.</p>
+
+            <h3>Workflow Steps</h3>
+            <ol>
+                <li><strong>Clone Repository</strong> - <code>git clone https://github.com/user/claude-skills</code> - Create local copy</li>
+                <li><strong>Create Feature Branch (Optional)</strong> - <code>git checkout -b new-skill-feature</code> - Isolate development work</li>
+                <li><strong>Develop Skill</strong> - Iterative cycle of writing SKILL.md, creating scripts, and testing thoroughly</li>
+                <li><strong>Check Status</strong> - <code>git status</code> - Review which files have been modified</li>
+                <li><strong>Stage Changes</strong> - <code>git add skills/new-skill/</code> - Prepare files for commit</li>
+                <li><strong>Commit Changes</strong> - <code>git commit -m "Add new-skill with Python validation"</code> - Create snapshot</li>
+                <li><strong>Ready to Publish?</strong> - Decision point: Has skill been tested? Documentation complete?</li>
+                <li><strong>Push to Remote</strong> - <code>git push origin main</code> - Upload commits to GitHub</li>
+            </ol>
+
+            <h3>Best Practices</h3>
+            <p><strong>Commit Messages:</strong> Use descriptive messages that explain what changed and why</p>
+            <p><strong>Testing:</strong> Always test skills thoroughly before publishing</p>
+            <p><strong>Documentation:</strong> Ensure SKILL.md is complete with examples and workflow instructions</p>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

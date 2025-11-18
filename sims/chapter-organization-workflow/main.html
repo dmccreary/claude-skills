@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter Organization Workflow</title>
+    <link rel="stylesheet" href="../adding-taxonomy-workflow/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Chapter Organization Workflow</h1>
+        <p class="subtitle">Decision-making process for organizing content within a chapter</p>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+flowchart TD
+    Start(("Chapter Planning<br/>Initiated")):::startNode
+    Review["Review Concept<br/>Dependencies"]:::processNode
+    Structure{"Linear or<br/>Branching?"}:::decisionNode
+    Linear["Create Linear<br/>Section Sequence"]:::linearNode
+    Branching["Create Parallel<br/>Section Tracks"]:::branchNode
+    Assign["Assign Concepts<br/>to Sections"]:::processNode
+    Plan["Plan Non-Text<br/>Elements"]:::processNode
+    Validate{"All Dependencies<br/>Satisfied?"}:::decisionNode
+    Reorganize["Reorganize<br/>Sections"]:::processNode
+    Finalize["Finalize Chapter<br/>Structure"]:::finalNode
+    End(("Structure Complete")):::endNode
+
+    Start --> Review
+    Review --> Structure
+    Structure -->|Linear| Linear
+    Structure -->|Branching| Branching
+    Linear --> Assign
+    Branching --> Assign
+    Assign --> Plan
+    Plan --> Validate
+    Validate -->|No| Reorganize
+    Reorganize --> Validate
+    Validate -->|Yes| Finalize
+    Finalize --> End
+
+    classDef startNode fill:#667eea,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
+    classDef processNode fill:#4facfe,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef decisionNode fill:#ffd166,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef linearNode fill:#43aa8b,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef branchNode fill:#06ffa5,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef finalNode fill:#f77f00,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef endNode fill:#43aa8b,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
+
+    linkStyle default stroke:#999,stroke-width:2px,font-size:14px
+            </div>
+        </div>
+
+        <div class="description">
+            <h2>Organization Process</h2>
+            <p>This workflow guides the decision-making process for organizing concepts within a chapter, ensuring prerequisite relationships are satisfied and content flows logically.</p>
+
+            <h3>Key Decision Points</h3>
+
+            <h4>Linear vs Branching Structure</h4>
+            <p><strong>Linear:</strong> Concepts build sequentially, each depending on the previous. Best for foundational material where order matters.</p>
+            <p><strong>Branching:</strong> Multiple parallel tracks that can be studied in flexible order. Best for topics with independent subtopics.</p>
+
+            <h3>Workflow Steps</h3>
+            <ol>
+                <li><strong>Review Concept Dependencies</strong> - Examine learning graph for prerequisite relationships</li>
+                <li><strong>Choose Structure</strong> - Determine if concepts build linearly or branch into parallel tracks</li>
+                <li><strong>Create Section Sequence</strong> - Order sections from foundational to advanced (linear) or group related concepts (branching)</li>
+                <li><strong>Assign Concepts to Sections</strong> - Map each concept from the concept list to specific sections</li>
+                <li><strong>Plan Non-Text Elements</strong> - Identify where diagrams, MicroSims, tables, and visuals enhance learning</li>
+                <li><strong>Validate Dependencies</strong> - Verify prerequisite concepts appear first</li>
+                <li><strong>Reorganize if Needed</strong> - Reorder sections to satisfy dependencies</li>
+                <li><strong>Finalize Structure</strong> - Lock in organization and proceed to content generation</li>
+            </ol>
+
+            <h3>Quality Checks</h3>
+            <p>Before finalizing, ensure:</p>
+            <ul>
+                <li>All prerequisite concepts are covered before they're needed</li>
+                <li>Section sizes are balanced (avoid one very long section)</li>
+                <li>Each section has clear learning objectives</li>
+                <li>Non-text elements are strategically placed</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

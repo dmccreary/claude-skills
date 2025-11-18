@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding Taxonomy to CSV Workflow</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Adding Taxonomy to CSV Workflow</h1>
+        <p class="subtitle">Step-by-step process for categorizing concepts in a learning graph</p>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+flowchart TD
+    Start("Learning Graph CSV<br/>without TaxonomyID"):::startNode
+    Step1["Identify Natural<br/>Categories"]:::processNode
+    Step2["Design TaxonomyID<br/>Abbreviations"]:::designNode
+    Decision1{"Use automated<br/>categorization?"}:::decisionNode
+    Auto["Run add-taxonomy.py"]:::autoNode
+    Manual["Manually add<br/>TaxonomyID column"]:::manualNode
+    Review["Review and adjust<br/>assignments"]:::reviewNode
+    Validate["Run taxonomy-<br/>distribution.py"]:::validationNode
+    Decision2{"Distribution<br/>balanced?"}:::decisionNode
+    Adjust["Adjust categories"]:::processNode
+    End("Learning Graph<br/>with Taxonomy"):::endNode
+
+    Start --> Step1
+    Step1 --> Step2
+    Step2 --> Decision1
+    Decision1 -->|Yes| Auto
+    Decision1 -->|No| Manual
+    Auto --> Review
+    Manual --> Review
+    Review --> Validate
+    Validate --> Decision2
+    Decision2 -->|No| Adjust
+    Adjust --> Review
+    Decision2 -->|Yes| End
+
+    classDef startNode fill:#667eea,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
+    classDef processNode fill:#4facfe,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef designNode fill:#00b4d8,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef decisionNode fill:#ffd166,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef autoNode fill:#06ffa5,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef manualNode fill:#ff6b9d,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef reviewNode fill:#f77f00,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef validationNode fill:#06ffa5,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef endNode fill:#43aa8b,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
+
+    linkStyle default stroke:#999,stroke-width:2px,font-size:14px
+            </div>
+        </div>
+
+        <div class="description">
+            <h2>Process Overview</h2>
+            <p>This workflow demonstrates how to add taxonomy categorization to an existing learning graph CSV file. The process supports both automated (script-based) and manual categorization approaches.</p>
+
+            <h3>Key Steps</h3>
+            <ol>
+                <li><strong>Identify Natural Categories</strong> - Review concept labels and group by topic, domain, or complexity level</li>
+                <li><strong>Design Taxonomy Abbreviations</strong> - Create 3-5 letter codes (FOUND, BASIC, ARCH, etc.)</li>
+                <li><strong>Choose Categorization Method</strong> - Select between automated (add-taxonomy.py) or manual assignment</li>
+                <li><strong>Review Assignments</strong> - Check that categorization makes logical sense</li>
+                <li><strong>Validate Distribution</strong> - Run taxonomy-distribution.py to ensure balance</li>
+                <li><strong>Adjust if Needed</strong> - Refine categories until distribution is balanced (no category > 30%)</li>
+            </ol>
+
+            <h3>Decision Points</h3>
+            <p><strong>Automated vs Manual:</strong> The add-taxonomy.py script uses keyword matching for initial suggestions, best for large graphs (150+ concepts). Manual assignment gives more control, recommended for smaller graphs or specialized domains.</p>
+            <p><strong>Distribution Check:</strong> A balanced distribution ensures no single taxonomy dominates. Target: no category exceeding 30% of total concepts.</p>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

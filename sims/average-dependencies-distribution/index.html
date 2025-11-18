@@ -1,0 +1,2450 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/sims/average-dependencies-distribution/">
+      
+      
+        <link rel="prev" href="../adding-taxonomy-workflow/">
+      
+      
+        <link rel="next" href="../chapter-index-structure/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Average Dependencies Distribution - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HPLDD3D3K2"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HPLDD3D3K2",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HPLDD3D3K2",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Average Dependencies Distribution - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  property="og:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/sims/average-dependencies-distribution/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/claude-skills/sims/average-dependencies-distribution/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Average Dependencies Distribution - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  name="twitter:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/sims/average-dependencies-distribution/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#average-dependencies-distribution-bar-chart" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Average Dependencies Distribution
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/book/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Book Generation Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/microsims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSim Generation Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/stem-skills/index.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    STEM Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/intelligent-textbook-creator.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Outdated
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            MicroSims
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adding-taxonomy-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adding Taxonomy Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Average Dependencies Distribution
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Average Dependencies Distribution
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Chart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Design
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretation-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretation Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interpretation Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-makes-a-healthy-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Makes a Healthy Distribution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#red-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Red Flags
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customization Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing the Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjusting-the-optimal-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjusting the Optimal Range
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-the-average-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moving the Average Line
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizing-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customizing Colors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Details
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculating-your-own-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculating Your Own Metrics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-index-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter Index Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-organization-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter Organization Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-timeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Claude Code Timeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-length-histogram/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Length Histogram
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-generation-process-timeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content Generation Timeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../course-description-quality-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description Quality Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dag-validation-algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DAG Validation Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq-pattern-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ Pattern Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-workflow-skill-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Workflow Skill Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-viewer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Viewer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-graph-json-schema/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Graph JSON Schema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linear-chain-vs-network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Chain vs Network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test-world-cities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Map Test World Cities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsim-file-relationship-diagram/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroSim File Relationship Diagram
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs-build-process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MkDocs Build Process
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs-github-pages-deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MkDocs GitHub Pages Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orphaned-nodes-identification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Orphaned Nodes Identification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p5js-architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    p5.js Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-zones-diagram/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security Zones Diagram
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sine-function-plot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sine Function Plot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skill-directory-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Skill Directory Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skill-impact-chart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Skill Impact Chart
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skill-installation-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Skill Installation Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../taxonomy-distribution-pie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taxonomy Distribution Pie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terminal-workflow-textbook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Terminal Workflow Textbook
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../details-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Details Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Chart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Design
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretation-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretation Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interpretation Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-makes-a-healthy-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Makes a Healthy Distribution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#red-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Red Flags
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customization Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing the Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjusting-the-optimal-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjusting the Optimal Range
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-the-average-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moving the Average Line
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizing-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customizing Colors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Details
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculating-your-own-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculating Your Own Metrics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/sims/average-dependencies-distribution/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="average-dependencies-distribution-bar-chart">Average Dependencies Distribution Bar Chart</h1>
+<p>An interactive histogram visualizing the distribution of prerequisite counts across all concepts in a learning graph, helping assess the quality and pedagogical structure of concept dependencies.</p>
+<h2 id="interactive-chart">Interactive Chart</h2>
+<iframe src="main.html" width="100%" height="800" frameborder="0"></iframe>
+
+<p><a href="main.html" target="_blank">View Fullscreen</a></p>
+<h2 id="overview">Overview</h2>
+<p>This bar chart displays how many concepts in a 200-concept learning graph have each number of prerequisites (0 through 8+). The visualization helps educators and instructional designers evaluate whether their learning graph has appropriate complexity distribution.</p>
+<p>The chart highlights the <strong>optimal range</strong> (2-4 prerequisites) where most well-structured concepts should fall, and shows the <strong>average</strong> prerequisite count across all concepts.</p>
+<h2 id="features">Features</h2>
+<h3 id="interactive-elements">Interactive Elements</h3>
+<ul>
+<li><strong>Hover tooltips</strong> - Display exact concept count and percentage for each bar</li>
+<li><strong>Smooth animations</strong> - Animated bars on page load</li>
+<li><strong>Color coding</strong> - Green bars indicate optimal range (2-4), gold bars show other ranges</li>
+<li><strong>Annotations</strong> - Visual indicators for optimal zone and average line</li>
+</ul>
+<h3 id="visual-design">Visual Design</h3>
+<ul>
+<li><strong>Optimal Range Shading</strong> - Light green background highlights the 2-4 prerequisite range</li>
+<li><strong>Average Line</strong> - Blue dashed vertical line at 3.1 shows the mean</li>
+<li><strong>Metrics Panel</strong> - Six key statistics displayed below the chart</li>
+<li><strong>Analysis Section</strong> - Interpretation guidance for understanding the distribution</li>
+</ul>
+<h2 id="interpretation-guide">Interpretation Guide</h2>
+<h3 id="key-metrics">Key Metrics</h3>
+<ol>
+<li><strong>Total Concepts (200)</strong> - The complete size of the learning graph</li>
+<li><strong>Total Dependencies (620)</strong> - Sum of all prerequisite relationships</li>
+<li><strong>Average Dependencies (3.1)</strong> - Mean number of prerequisites per concept</li>
+<li><strong>Median (2)</strong> - Middle value when concepts are sorted by prerequisite count</li>
+<li><strong>Mode (2)</strong> - Most common number of prerequisites</li>
+<li><strong>In Optimal Range (84%)</strong> - Percentage of concepts with 1-5 prerequisites</li>
+</ol>
+<h3 id="what-makes-a-healthy-distribution">What Makes a Healthy Distribution</h3>
+<p><strong>Bell-Curve Shape</strong>: The distribution should resemble a bell curve, with most concepts in the middle ranges (2-4 prerequisites) and fewer concepts at the extremes.</p>
+<p><strong>Foundational Layer</strong>: Having 5-10% of concepts with 0 prerequisites (foundational concepts) provides clear entry points.</p>
+<p><strong>Optimal Range</strong>: 70-90% of concepts should have 1-5 prerequisites, indicating appropriate granularity.</p>
+<p><strong>Few Complex Concepts</strong>: Less than 5% of concepts should have 6+ prerequisites to avoid overwhelming learners.</p>
+<h3 id="red-flags">Red Flags</h3>
+<ul>
+<li><strong>Flat distribution</strong>: Suggests inconsistent concept granularity</li>
+<li><strong>Too many foundational concepts</strong> (&gt;15%): May indicate concepts are too broad</li>
+<li><strong>Too many complex concepts</strong> (&gt;10% with 6+ prerequisites): Concepts may need to be broken down</li>
+<li><strong>Heavily skewed distribution</strong>: Indicates structural issues in the learning graph</li>
+</ul>
+<h2 id="customization-guide">Customization Guide</h2>
+<h3 id="changing-the-data">Changing the Data</h3>
+<p>To modify the chart data for your own learning graph, edit the <code>data</code> array in <code>main.html</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;4&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;5&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;6&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;7&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;8+&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">        </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Number of Concepts&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">12</span><span class="p">,</span><span class="w"> </span><span class="mf">45</span><span class="p">,</span><span class="w"> </span><span class="mf">58</span><span class="p">,</span><span class="w"> </span><span class="mf">42</span><span class="p">,</span><span class="w"> </span><span class="mf">25</span><span class="p">,</span><span class="w"> </span><span class="mf">12</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">],</span><span class="w"> </span><span class="c1">// Replace with your counts</span>
+<span class="w">        </span><span class="c1">// ... rest of configuration</span>
+<span class="w">    </span><span class="p">}]</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="updating-metrics">Updating Metrics</h3>
+<p>Update the calculated metrics in the HTML to match your data:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;metric-value&quot;</span><span class="p">&gt;</span>200<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>  <span class="cm">&lt;!-- Total concepts --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;metric-value&quot;</span><span class="p">&gt;</span>620<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>  <span class="cm">&lt;!-- Total dependencies --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;metric-value&quot;</span><span class="p">&gt;</span>3.1<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>  <span class="cm">&lt;!-- Average --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;metric-value&quot;</span><span class="p">&gt;</span>2<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>    <span class="cm">&lt;!-- Median --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;metric-value&quot;</span><span class="p">&gt;</span>2<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>    <span class="cm">&lt;!-- Mode --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;metric-value&quot;</span><span class="p">&gt;</span>84%<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>  <span class="cm">&lt;!-- Optimal range % --&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="adjusting-the-optimal-range">Adjusting the Optimal Range</h3>
+<p>To change the optimal range shading (currently 2-4), modify the annotation configuration:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">optimalZone</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;box&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">xMin</span><span class="o">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w">  </span><span class="c1">// Start at 2 (1.5 accounts for bar centering)</span>
+<span class="w">    </span><span class="nx">xMax</span><span class="o">:</span><span class="w"> </span><span class="mf">4.5</span><span class="p">,</span><span class="w">  </span><span class="c1">// End at 4</span>
+<span class="w">    </span><span class="c1">// ... styling</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="moving-the-average-line">Moving the Average Line</h3>
+<p>Update the average line position:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">averageLine</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;line&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">xMin</span><span class="o">:</span><span class="w"> </span><span class="mf">3.1</span><span class="p">,</span><span class="w">  </span><span class="c1">// Your calculated average</span>
+<span class="w">    </span><span class="nx">xMax</span><span class="o">:</span><span class="w"> </span><span class="mf">3.1</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Average: 3.1&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Update label text</span>
+<span class="w">        </span><span class="c1">// ... styling</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="customizing-colors">Customizing Colors</h3>
+<p>Modify the bar colors in the <code>backgroundColor</code> array:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s1">&#39;rgba(255, 193, 7, 0.8)&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Bar for 0 prerequisites</span>
+<span class="w">    </span><span class="s1">&#39;rgba(255, 193, 7, 0.8)&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Bar for 1 prerequisite</span>
+<span class="w">    </span><span class="s1">&#39;rgba(76, 175, 80, 0.6)&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Bar for 2 (optimal - green)</span>
+<span class="w">    </span><span class="s1">&#39;rgba(76, 175, 80, 0.6)&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Bar for 3 (optimal - green)</span>
+<span class="w">    </span><span class="s1">&#39;rgba(76, 175, 80, 0.6)&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Bar for 4 (optimal - green)</span>
+<span class="w">    </span><span class="s1">&#39;rgba(255, 193, 7, 0.8)&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Bar for 5</span>
+<span class="w">    </span><span class="s1">&#39;rgba(255, 193, 7, 0.8)&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Bar for 6</span>
+<span class="w">    </span><span class="s1">&#39;rgba(255, 193, 7, 0.8)&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Bar for 7</span>
+<span class="w">    </span><span class="s1">&#39;rgba(255, 193, 7, 0.8)&#39;</span><span class="w">   </span><span class="c1">// Bar for 8+</span>
+<span class="p">],</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="technical-details">Technical Details</h2>
+<ul>
+<li><strong>Library</strong>: Chart.js 4.4.0</li>
+<li><strong>Plugins</strong>: chartjs-plugin-annotation 3.0.1 (for shaded zones and lines)</li>
+<li><strong>Browser Compatibility</strong>: All modern browsers (Chrome, Firefox, Safari, Edge)</li>
+<li><strong>Dependencies</strong>: Chart.js and Annotation Plugin (both loaded from CDN)</li>
+<li><strong>Responsive</strong>: Yes, adapts to container width with 2:1 aspect ratio</li>
+</ul>
+<h2 id="calculating-your-own-metrics">Calculating Your Own Metrics</h2>
+<p>To generate these metrics from your learning graph CSV:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Load learning graph</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;learning-graph.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Count prerequisites per concept</span>
+<span class="n">prerequisite_counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Dependencies&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+<span class="n">prerequisite_counts</span> <span class="o">=</span> <span class="n">prerequisite_counts</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Foundational concepts</span>
+
+<span class="c1"># Calculate metrics</span>
+<span class="n">total_concepts</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">total_dependencies</span> <span class="o">=</span> <span class="n">prerequisite_counts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">average_dependencies</span> <span class="o">=</span> <span class="n">total_dependencies</span> <span class="o">/</span> <span class="n">total_concepts</span>
+<span class="n">median_dependencies</span> <span class="o">=</span> <span class="n">prerequisite_counts</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">mode_dependencies</span> <span class="o">=</span> <span class="n">prerequisite_counts</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Count concepts in optimal range (1-5)</span>
+<span class="n">optimal_count</span> <span class="o">=</span> <span class="p">((</span><span class="n">prerequisite_counts</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">prerequisite_counts</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">optimal_percentage</span> <span class="o">=</span> <span class="p">(</span><span class="n">optimal_count</span> <span class="o">/</span> <span class="n">total_concepts</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># Create distribution</span>
+<span class="n">distribution</span> <span class="o">=</span> <span class="n">prerequisite_counts</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="use-cases">Use Cases</h2>
+<p>This chart type is useful for:</p>
+<ul>
+<li><strong>Learning graph quality assessment</strong> - Evaluate structural balance</li>
+<li><strong>Curriculum design validation</strong> - Ensure appropriate complexity progression</li>
+<li><strong>Concept granularity analysis</strong> - Identify over- or under-divided concepts</li>
+<li><strong>Pedagogical planning</strong> - Plan teaching sequence based on dependency patterns</li>
+<li><strong>Comparative analysis</strong> - Compare multiple learning graphs</li>
+<li><strong>Documentation</strong> - Communicate graph structure to stakeholders</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.chartjs.org/docs/latest/">Chart.js Documentation</a></li>
+<li><a href="https://www.chartjs.org/docs/latest/charts/bar.html">Chart.js Bar Chart Guide</a></li>
+<li><a href="https://www.chartjs.org/chartjs-plugin-annotation/latest/">Chart.js Annotation Plugin</a></li>
+<li><a href="../../chapters/06-learning-graph-quality-validation/">Learning Graph Quality Metrics</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../adding-taxonomy-workflow/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Adding Taxonomy Workflow">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Adding Taxonomy Workflow
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../chapter-index-structure/" class="md-footer__link md-footer__link--next" aria-label="Next: Chapter Index Structure">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Chapter Index Structure
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

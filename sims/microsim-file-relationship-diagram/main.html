@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicroSim File Relationship Diagram</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                fontSize: '16px'
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MicroSim File Relationship Diagram</h1>
+            <p class="subtitle">How MicroSim Files Integrate into MkDocs Textbooks</p>
+        </header>
+
+        <div class="description">
+            <p>This diagram shows how the three core MicroSim files (index.md, main.html, metadata.json) relate to each other and integrate into the MkDocs intelligent textbook architecture. The diagram illustrates the flow from student navigation through the documentation to the interactive simulation, including security boundaries and metadata cataloging.</p>
+        </div>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+flowchart TD
+    MkDocs["MkDocs Navigation<br/><small>Site Navigation Structure</small>"]:::mkdocsNode
+    IndexMD["index.md<br/><small>📄 Documentation Page<br/>Student navigates here</small>"]:::docNode
+    IFrame["iframe element<br/><small>🔒 Security Boundary<br/>Sandbox isolation</small>"]:::iframeNode
+    MainHTML["main.html<br/><small>📝 Interactive HTML<br/>Self-contained, interactive<br/>Loads p5.js from CDN</small>"]:::codeNode
+    P5Sim["p5.js Simulation<br/><small>🎨 Canvas Rendering<br/>Interactive Visualization</small>"]:::simNode
+    Metadata["metadata.json<br/><small>📋 Dublin Core Metadata<br/>Discovery & cataloging</small>"]:::metadataNode
+    LMS["Learning Management System<br/><small>External Integration</small>"]:::lmsNode
+
+    MkDocs -->|includes| IndexMD
+    IndexMD -->|contains| IFrame
+    IFrame -->|embeds| MainHTML
+    MainHTML -->|renders| P5Sim
+    Metadata -.->|describes| IndexMD
+    Metadata -.->|can export to| LMS
+
+    classDef mkdocsNode fill:#e9ecef,stroke:#495057,stroke-width:3px,color:#212529,font-size:16px
+    classDef docNode fill:#4dabf7,stroke:#1864ab,stroke-width:3px,color:#fff,font-size:16px
+    classDef iframeNode fill:#ff922b,stroke:#d9480f,stroke-width:3px,color:#fff,font-size:16px
+    classDef codeNode fill:#51cf66,stroke:#2b8a3e,stroke-width:3px,color:#fff,font-size:16px
+    classDef simNode fill:#ff6b6b,stroke:#c92a2a,stroke-width:3px,color:#fff,font-size:16px
+    classDef metadataNode fill:#cc5de8,stroke:#862e9c,stroke-width:3px,color:#fff,font-size:16px
+    classDef lmsNode fill:#adb5bd,stroke:#495057,stroke-width:2px,stroke-dasharray: 5 5,color:#212529,font-size:16px
+
+    linkStyle 0,1,2,3 stroke:#495057,stroke-width:3px,font-size:16px
+    linkStyle 4,5 stroke:#868e96,stroke-width:2px,stroke-dasharray: 5 5,font-size:16px
+            </div>
+        </div>
+
+        <div class="controls">
+            <button onclick="zoomIn()">🔍 Zoom In</button>
+            <button onclick="zoomOut()">🔍 Zoom Out</button>
+            <button onclick="resetZoom()">↺ Reset</button>
+            <button onclick="exportSVG()">💾 Export SVG</button>
+        </div>
+
+        <div class="info-panel">
+            <h2>Component Descriptions</h2>
+
+            <div class="component-grid">
+                <div class="component-card doc-card">
+                    <h3>📄 index.md</h3>
+                    <p><strong>Type:</strong> Documentation Page</p>
+                    <p><strong>Purpose:</strong> Student-facing documentation that provides context, instructions, and learning objectives for the MicroSim.</p>
+                    <p><strong>Location:</strong> docs/sims/{name}/index.md</p>
+                    <p><strong>Contains:</strong> Description, iframe embed, usage instructions, educational context</p>
+                </div>
+
+                <div class="component-card iframe-card">
+                    <h3>🔒 iframe element</h3>
+                    <p><strong>Type:</strong> HTML Integration Point</p>
+                    <p><strong>Purpose:</strong> Provides security boundary and sandbox isolation for the interactive simulation.</p>
+                    <p><strong>Security:</strong> Prevents simulation from accessing parent page DOM</p>
+                    <p><strong>Note:</strong> Embedded within index.md using markdown/HTML</p>
+                </div>
+
+                <div class="component-card code-card">
+                    <h3>📝 main.html</h3>
+                    <p><strong>Type:</strong> Interactive HTML Page</p>
+                    <p><strong>Purpose:</strong> Self-contained interactive visualization using p5.js or other libraries.</p>
+                    <p><strong>Location:</strong> docs/sims/{name}/main.html</p>
+                    <p><strong>Dependencies:</strong> Loads p5.js from CDN, includes simulation code</p>
+                </div>
+
+                <div class="component-card sim-card">
+                    <h3>🎨 p5.js Simulation</h3>
+                    <p><strong>Type:</strong> Canvas Rendering</p>
+                    <p><strong>Purpose:</strong> Interactive educational visualization rendered on HTML5 canvas.</p>
+                    <p><strong>Features:</strong> Real-time interaction, dynamic updates, visual feedback</p>
+                    <p><strong>Library:</strong> p5.js loaded from CDN</p>
+                </div>
+
+                <div class="component-card metadata-card">
+                    <h3>📋 metadata.json</h3>
+                    <p><strong>Type:</strong> Dublin Core Metadata</p>
+                    <p><strong>Purpose:</strong> Provides structured metadata for discovery, cataloging, and LMS integration.</p>
+                    <p><strong>Location:</strong> docs/sims/{name}/metadata.json</p>
+                    <p><strong>Standards:</strong> Dublin Core, Bloom's Taxonomy</p>
+                </div>
+
+                <div class="component-card lms-card">
+                    <h3>🌐 Learning Management System</h3>
+                    <p><strong>Type:</strong> External Integration (Optional)</p>
+                    <p><strong>Purpose:</strong> Import MicroSim metadata into LMS for course organization and tracking.</p>
+                    <p><strong>Connection:</strong> Reads metadata.json for course integration</p>
+                    <p><strong>Examples:</strong> Canvas, Moodle, Blackboard</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="relationships">
+            <h2>Relationship Flows</h2>
+
+            <div class="flow-section">
+                <h3>Primary Navigation Flow (Student Experience)</h3>
+                <ol>
+                    <li><strong>MkDocs Navigation</strong> → Student browses textbook site navigation</li>
+                    <li><strong>index.md</strong> → Student clicks link and lands on documentation page</li>
+                    <li><strong>iframe element</strong> → Page displays embedded simulation via iframe</li>
+                    <li><strong>main.html</strong> → Simulation loads in isolated sandbox</li>
+                    <li><strong>p5.js Simulation</strong> → Student interacts with visual canvas</li>
+                </ol>
+            </div>
+
+            <div class="flow-section">
+                <h3>Metadata Flow (Discovery & Cataloging)</h3>
+                <ol>
+                    <li><strong>metadata.json</strong> → Contains Dublin Core metadata fields</li>
+                    <li><strong>index.md</strong> → Metadata describes the documentation page</li>
+                    <li><strong>LMS Integration</strong> → External systems can import metadata for course catalogs</li>
+                </ol>
+            </div>
+
+            <div class="flow-section">
+                <h3>Security Boundaries</h3>
+                <p><strong>iframe Sandbox:</strong> The iframe element creates a security boundary that prevents the simulation (main.html) from accessing the parent MkDocs page. This isolation ensures:</p>
+                <ul>
+                    <li>Simulation code cannot modify site navigation</li>
+                    <li>User data in the textbook remains protected</li>
+                    <li>Simulation errors don't crash the entire page</li>
+                    <li>Safe execution of untrusted or experimental code</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

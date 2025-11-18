@@ -1,0 +1,117 @@
+{
+  "title": "Content Generation Process Timeline",
+  "events": [
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "1",
+        "day": "1",
+        "display_date": "Stage 1"
+      },
+      "text": {
+        "headline": "File Validation",
+        "text": "Verify chapter index.md exists with required structure. This initial validation ensures all necessary files are in place before proceeding with content generation."
+      },
+      "group": "Validation",
+      "notes": "Duration: < 1 second. Checks for file existence, basic structure, and required frontmatter fields."
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "1",
+        "day": "2",
+        "display_date": "Stage 2"
+      },
+      "text": {
+        "headline": "Structure Check",
+        "text": "Parse and validate title, summary, concepts list, prerequisites. Ensures all structural elements meet requirements for automated content generation."
+      },
+      "group": "Validation",
+      "notes": "Duration: 1-2 seconds. Validates YAML frontmatter, concept list format, and dependency structure."
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "1",
+        "day": "3",
+        "display_date": "Stage 3"
+      },
+      "text": {
+        "headline": "Reading Level Analysis",
+        "text": "Extract target audience from course description and determine appropriate complexity. Analyzes course metadata to set appropriate vocabulary, sentence structure, and explanation depth."
+      },
+      "group": "Analysis",
+      "notes": "Duration: 2-3 seconds. Determines reading level (junior-high, senior-high, college, graduate) from course description and prerequisites."
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "1",
+        "day": "4",
+        "display_date": "Stage 4"
+      },
+      "text": {
+        "headline": "Reference Loading",
+        "text": "Load reading-level guidelines and content-element-types specifications. Retrieves template files, style guides, and educational frameworks to ensure content quality and consistency."
+      },
+      "group": "Analysis",
+      "notes": "Duration: 3-5 seconds. Loads Bloom's Taxonomy mappings, ISO 11179 standards, content templates, and MicroSim specifications."
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "1",
+        "day": "5",
+        "display_date": "Stage 5"
+      },
+      "text": {
+        "headline": "Content Generation",
+        "text": "Generate detailed educational content with examples, exercises, and non-text elements. This is the core phase where AI creates comprehensive chapter content including worked examples, practice exercises, diagrams, and MicroSim specifications."
+      },
+      "group": "Generation",
+      "notes": "Duration: 60-180 seconds (varies by chapter length). Token usage: 10,000-50,000 tokens depending on concept count and content depth."
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "1",
+        "day": "6",
+        "display_date": "Stage 6"
+      },
+      "text": {
+        "headline": "Concept Coverage Verification",
+        "text": "Cross-check generated content against concept list for completeness. Ensures every concept from the learning graph is adequately explained with examples and exercises."
+      },
+      "group": "Quality Assurance",
+      "notes": "Duration: 5-10 seconds. Scans generated content for mentions of each concept, verifies definitions, examples, and practice problems exist."
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "1",
+        "day": "7",
+        "display_date": "Stage 7"
+      },
+      "text": {
+        "headline": "File Update",
+        "text": "Replace TODO placeholder with generated content in index.md. Writes the final content to the chapter file, preserving frontmatter and structure."
+      },
+      "group": "Quality Assurance",
+      "notes": "Duration: 1-2 seconds. Uses atomic write operations to prevent data loss, maintains backups of previous versions."
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "1",
+        "day": "8",
+        "display_date": "Stage 8"
+      },
+      "text": {
+        "headline": "Reporting",
+        "text": "Generate summary statistics (word count, elements, concepts covered). Creates a comprehensive report showing content metrics, quality indicators, and completion status."
+      },
+      "group": "Completion",
+      "notes": "Duration: 2-3 seconds. Reports: word count, reading level metrics, diagram count, exercise count, concept coverage percentage, estimated reading time."
+    }
+  ]
+}

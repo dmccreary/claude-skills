@@ -1,0 +1,142 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #34495e;
+    font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 8px;
+}
+
+h3 {
+    color: #2c3e50;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Diagram container */
+.diagram-container {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 30px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+.mermaid {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Description section */
+.description {
+    margin-top: 30px;
+}
+
+.description p {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.description ol {
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+.description li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.description strong {
+    color: #2c3e50;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .diagram-container {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .container {
+        box-shadow: none;
+        padding: 20px;
+    }
+}

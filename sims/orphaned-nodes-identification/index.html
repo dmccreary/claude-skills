@@ -1,0 +1,2653 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/sims/orphaned-nodes-identification/">
+      
+      
+        <link rel="prev" href="../mkdocs-github-pages-deployment/">
+      
+      
+        <link rel="next" href="../p5js-architecture/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Orphaned Nodes Identification - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HPLDD3D3K2"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HPLDD3D3K2",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HPLDD3D3K2",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Orphaned Nodes Identification - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  property="og:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/sims/orphaned-nodes-identification/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/claude-skills/sims/orphaned-nodes-identification/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Orphaned Nodes Identification - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  name="twitter:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/sims/orphaned-nodes-identification/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#orphaned-nodes-identification-chart" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Orphaned Nodes Identification
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/book/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Book Generation Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/microsims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSim Generation Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/stem-skills/index.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    STEM Skills
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/intelligent-textbook-creator.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Outdated
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            MicroSims
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adding-taxonomy-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adding Taxonomy Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../average-dependencies-distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Average Dependencies Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-index-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter Index Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-organization-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter Organization Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-timeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Claude Code Timeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-length-histogram/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Length Histogram
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-generation-process-timeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content Generation Timeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../course-description-quality-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description Quality Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dag-validation-algorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DAG Validation Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq-pattern-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ Pattern Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-workflow-skill-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Workflow Skill Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-viewer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Viewer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-graph-json-schema/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Graph JSON Schema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linear-chain-vs-network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Chain vs Network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test-world-cities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Map Test World Cities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsim-file-relationship-diagram/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroSim File Relationship Diagram
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs-build-process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MkDocs Build Process
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs-github-pages-deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MkDocs GitHub Pages Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Orphaned Nodes Identification
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Orphaned Nodes Identification
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Chart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Design
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretation-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretation Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interpretation Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Categories
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health-indicators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Health Indicators
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customization Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-your-own-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Your Own Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extracting-data-from-learning-graph-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extracting Data from Learning Graph CSV
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjusting-axis-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjusting Axis Ranges
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizing-point-appearance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customizing Point Appearance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Details
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connectivity-analysis-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connectivity Analysis Metrics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connectivity Analysis Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#centrality-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Centrality Measures
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-health-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Health Metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-patterns-and-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Patterns and Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Patterns and Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#healthy-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Healthy Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warning-pattern-too-many-isolates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warning Pattern: Too Many Isolates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warning-pattern-hub-and-spoke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warning Pattern: Hub-and-Spoke
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warning-pattern-linear-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warning Pattern: Linear Chain
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p5js-architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    p5.js Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-zones-diagram/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security Zones Diagram
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sine-function-plot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sine Function Plot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skill-directory-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Skill Directory Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skill-impact-chart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Skill Impact Chart
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skill-installation-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Skill Installation Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../taxonomy-distribution-pie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taxonomy Distribution Pie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terminal-workflow-textbook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Terminal Workflow Textbook
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../details-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Details Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Chart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Design
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretation-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretation Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interpretation Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Categories
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health-indicators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Health Indicators
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customization Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-your-own-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Your Own Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extracting-data-from-learning-graph-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extracting Data from Learning Graph CSV
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjusting-axis-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjusting Axis Ranges
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizing-point-appearance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customizing Point Appearance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Details
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connectivity-analysis-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connectivity Analysis Metrics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connectivity Analysis Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#centrality-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Centrality Measures
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-health-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Health Metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-patterns-and-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Patterns and Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Patterns and Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#healthy-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Healthy Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warning-pattern-too-many-isolates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warning Pattern: Too Many Isolates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warning-pattern-hub-and-spoke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warning Pattern: Hub-and-Spoke
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warning-pattern-linear-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warning Pattern: Linear Chain
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/sims/orphaned-nodes-identification/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="orphaned-nodes-identification-chart">Orphaned Nodes Identification Chart</h1>
+<p>An interactive scatter plot visualizing concept connectivity patterns by showing indegree (prerequisites) vs outdegree (dependents), helping identify foundational, intermediate, and orphaned concepts in a learning graph.</p>
+<h2 id="interactive-chart">Interactive Chart</h2>
+<iframe src="main.html" width="100%" height="900" frameborder="0"></iframe>
+
+<p><a href="main.html" target="_blank">View Fullscreen</a></p>
+<h2 id="overview">Overview</h2>
+<p>This scatter plot maps all concepts in a 200-concept learning graph based on two dimensions:</p>
+<ul>
+<li><strong>X-axis (Indegree)</strong>: Number of prerequisites a concept has</li>
+<li><strong>Y-axis (Outdegree)</strong>: Number of other concepts that depend on this concept</li>
+</ul>
+<p>The visualization reveals three critical categories of concepts through color coding, helping assess the structural health and connectivity of the learning graph.</p>
+<h2 id="features">Features</h2>
+<h3 id="interactive-elements">Interactive Elements</h3>
+<ul>
+<li><strong>Hover tooltips</strong> - Display concept name and exact indegree/outdegree values</li>
+<li><strong>Color-coded categories</strong> - Green (foundational), Blue (intermediate), Red (orphaned)</li>
+<li><strong>Named concepts</strong> - Specific labels for foundational and orphaned concepts</li>
+<li><strong>Zone annotations</strong> - Visual indicators for foundation and orphaned zones</li>
+<li><strong>Smooth animations</strong> - Animated point rendering on page load</li>
+</ul>
+<h3 id="visual-design">Visual Design</h3>
+<ul>
+<li><strong>Foundation Zone</strong> - Green vertical line at indegree=0 marking foundational concepts</li>
+<li><strong>Orphaned Zone</strong> - Red horizontal line at outdegree=0 marking terminal concepts</li>
+<li><strong>Category legend</strong> - Top legend with point style indicators</li>
+<li><strong>Detailed descriptions</strong> - Expandable legend explaining each category</li>
+</ul>
+<h2 id="interpretation-guide">Interpretation Guide</h2>
+<h3 id="node-categories">Node Categories</h3>
+<p><strong>Foundational Concepts (Green)</strong>
+- <strong>Location</strong>: Left edge (indegree = 0)
+- <strong>Characteristics</strong>: No prerequisites, but other concepts depend on them
+- <strong>Examples</strong>: "Introduction to Learning Graphs", "Bloom's Taxonomy", "Graph Theory Basics"
+- <strong>Healthy range</strong>: 5-10% of total concepts
+- <strong>Purpose</strong>: Entry points for learners with no prior knowledge</p>
+<p><strong>Intermediate Concepts (Blue)</strong>
+- <strong>Location</strong>: Center cluster (indegree &gt; 0, outdegree &gt; 0)
+- <strong>Characteristics</strong>: Have both prerequisites and dependents
+- <strong>Healthy range</strong>: 75-90% of total concepts
+- <strong>Purpose</strong>: Core curriculum building blocks that connect foundational to advanced topics</p>
+<p><strong>Orphaned Concepts (Red)</strong>
+- <strong>Location</strong>: Bottom edge (outdegree = 0)
+- <strong>Characteristics</strong>: Have prerequisites but no other concepts depend on them
+- <strong>Examples</strong>: "Advanced Quality Metrics", "Future of Learning Graphs", "Machine Learning Integration"
+- <strong>Healthy range</strong>: 5-15% of total concepts
+- <strong>Purpose</strong>: Terminal/leaf nodes representing advanced topics, specializations, or applications</p>
+<h3 id="health-indicators">Health Indicators</h3>
+<p><strong>Healthy Graph Characteristics:</strong>
+- 5-10% foundational concepts (clear entry points)
+- 75-90% intermediate concepts (strong connectivity)
+- 5-15% orphaned concepts (appropriate depth)
+- Even distribution across indegree values (gradual complexity)
+- Higher outdegree for foundational concepts (many dependents)</p>
+<p><strong>Warning Signs:</strong>
+- Too few foundational concepts (&lt;5%): Unclear entry points
+- Too many foundational concepts (&gt;15%): Concepts may be too granular
+- Too few orphaned concepts (&lt;5%): Graph may lack depth or specialization
+- Too many orphaned concepts (&gt;20%): Poor connectivity, concepts may be isolated
+- Clusters with high indegree but low outdegree: Unnecessarily complex prerequisites</p>
+<h2 id="customization-guide">Customization Guide</h2>
+<h3 id="adding-your-own-data">Adding Your Own Data</h3>
+<p>Replace the data generation code in <code>main.html</code> with your actual learning graph data:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Foundational concepts (indegree=0, outdegree&gt;0)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">foundationalData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Your Foundational Concept 1&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Your Foundational Concept 2&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="c1">// ... add all foundational concepts</span>
+<span class="p">];</span>
+
+<span class="c1">// Intermediate concepts (indegree&gt;0, outdegree&gt;0)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">intermediateData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Your Intermediate Concept 1&#39;</span><span class="w"> </span><span class="p">},</span><span class="w">  </span><span class="c1">// Optional labels</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="p">},</span><span class="w">  </span><span class="c1">// Can omit labels for generic points</span>
+<span class="w">    </span><span class="c1">// ... add all intermediate concepts</span>
+<span class="p">];</span>
+
+<span class="c1">// Orphaned concepts (indegree&gt;0, outdegree=0)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">orphanedData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Your Orphaned Concept 1&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Your Orphaned Concept 2&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="c1">// ... add all orphaned concepts</span>
+<span class="p">];</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="extracting-data-from-learning-graph-csv">Extracting Data from Learning Graph CSV</h3>
+<p>Use this Python code to extract connectivity data:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="c1"># Load learning graph</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;learning-graph.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Calculate indegree (number of prerequisites)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;indegree&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Dependencies&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;\|&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Dependencies&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">(),</span> <span class="s1">&#39;indegree&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Calculate outdegree (number of dependents)</span>
+<span class="n">outdegree</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">concept_id</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;ConceptID&#39;</span><span class="p">]</span>
+    <span class="n">outdegree</span><span class="p">[</span><span class="n">concept_id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Dependencies&#39;</span><span class="p">]):</span>
+        <span class="n">deps</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Dependencies&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">dep</span> <span class="ow">in</span> <span class="n">deps</span><span class="p">:</span>
+            <span class="n">dep_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dep</span><span class="p">)</span>
+            <span class="n">outdegree</span><span class="p">[</span><span class="n">dep_id</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;outdegree&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ConceptID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">outdegree</span><span class="p">)</span>
+
+<span class="c1"># Categorize concepts</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;intermediate&#39;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;indegree&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;outdegree&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;foundational&#39;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;indegree&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;outdegree&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;orphaned&#39;</span>
+
+<span class="c1"># Export for JavaScript</span>
+<span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;foundational&#39;</span><span class="p">,</span> <span class="s1">&#39;intermediate&#39;</span><span class="p">,</span> <span class="s1">&#39;orphaned&#39;</span><span class="p">]:</span>
+    <span class="n">subset</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">category</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">// </span><span class="si">{</span><span class="n">category</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s2"> concepts&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;const </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">Data = [&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">subset</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="se">{{</span><span class="s2"> x: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;indegree&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">, y: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;outdegree&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">, label: &#39;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;ConceptLabel&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39; </span><span class="se">}}</span><span class="s2">,&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;];&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="adjusting-axis-ranges">Adjusting Axis Ranges</h3>
+<p>Modify the scale configuration to match your data range:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">scales</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">min</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">max</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w">  </span><span class="c1">// Adjust based on max indegree in your data</span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">min</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">max</span><span class="o">:</span><span class="w"> </span><span class="mf">12</span><span class="p">,</span><span class="w">  </span><span class="c1">// Adjust based on max outdegree in your data</span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="customizing-point-appearance">Customizing Point Appearance</h3>
+<p>Modify point sizes and colors:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Foundational Concepts&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;rgba(76, 175, 80, 0.7)&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Point fill color</span>
+<span class="w">    </span><span class="nx">borderColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;rgba(76, 175, 80, 1)&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Point border color</span>
+<span class="w">    </span><span class="nx">pointRadius</span><span class="o">:</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w">  </span><span class="c1">// Normal size</span>
+<span class="w">    </span><span class="nx">pointHoverRadius</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="w">  </span><span class="c1">// Hover size</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="technical-details">Technical Details</h2>
+<ul>
+<li><strong>Library</strong>: Chart.js 4.4.0</li>
+<li><strong>Plugins</strong>: chartjs-plugin-annotation 3.0.1 (for zone lines)</li>
+<li><strong>Browser Compatibility</strong>: All modern browsers (Chrome, Firefox, Safari, Edge)</li>
+<li><strong>Dependencies</strong>: Chart.js and Annotation Plugin (both loaded from CDN)</li>
+<li><strong>Responsive</strong>: Yes, with 1.3:1 aspect ratio</li>
+<li><strong>Data points</strong>: 200 concepts (12 foundational, 164 intermediate, 24 orphaned)</li>
+</ul>
+<h2 id="connectivity-analysis-metrics">Connectivity Analysis Metrics</h2>
+<h3 id="centrality-measures">Centrality Measures</h3>
+<p><strong>Indegree Centrality</strong>: Concepts with high indegree (many prerequisites) are advanced/complex concepts that require substantial prior knowledge.</p>
+<p><strong>Outdegree Centrality</strong>: Concepts with high outdegree (many dependents) are foundational/important concepts that support many other topics.</p>
+<p><strong>Combined Analysis</strong>: The ideal foundational concept has low indegree (easy to start with) and high outdegree (enables many other concepts).</p>
+<h3 id="graph-health-metrics">Graph Health Metrics</h3>
+<p>Calculate these metrics to assess graph quality:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">total_concepts</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">foundational_pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;foundational&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">total_concepts</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">intermediate_pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;intermediate&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">total_concepts</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">orphaned_pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;orphaned&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">total_concepts</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Foundational: </span><span class="si">{</span><span class="n">foundational_pct</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">% (target: 5-10%)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Intermediate: </span><span class="si">{</span><span class="n">intermediate_pct</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">% (target: 75-90%)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Orphaned: </span><span class="si">{</span><span class="n">orphaned_pct</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">% (target: 5-15%)&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="use-cases">Use Cases</h2>
+<p>This visualization is useful for:</p>
+<ul>
+<li><strong>Learning graph quality assessment</strong> - Identify connectivity issues</li>
+<li><strong>Curriculum gap analysis</strong> - Find missing connections or isolated concepts</li>
+<li><strong>Entry point identification</strong> - Locate foundational concepts for learners</li>
+<li><strong>Terminal concept review</strong> - Evaluate whether orphaned concepts are appropriate</li>
+<li><strong>Graph refactoring</strong> - Identify concepts that need to be split or merged</li>
+<li><strong>Pedagogical planning</strong> - Understand concept relationships and dependencies</li>
+<li><strong>Comparative analysis</strong> - Compare connectivity patterns across different graphs</li>
+</ul>
+<h2 id="common-patterns-and-issues">Common Patterns and Issues</h2>
+<h3 id="healthy-pattern">Healthy Pattern</h3>
+<ul>
+<li>Small cluster of green dots on left edge (foundational)</li>
+<li>Large blue cluster in center (well-connected)</li>
+<li>Scattered red dots on bottom edge (specializations)</li>
+</ul>
+<h3 id="warning-pattern-too-many-isolates">Warning Pattern: Too Many Isolates</h3>
+<ul>
+<li>Many single blue dots far from cluster</li>
+<li><strong>Fix</strong>: Review whether these concepts belong in the graph or need better connections</li>
+</ul>
+<h3 id="warning-pattern-hub-and-spoke">Warning Pattern: Hub-and-Spoke</h3>
+<ul>
+<li>One concept with very high outdegree, others with low</li>
+<li><strong>Fix</strong>: Consider breaking the hub concept into smaller components</li>
+</ul>
+<h3 id="warning-pattern-linear-chain">Warning Pattern: Linear Chain</h3>
+<ul>
+<li>Diagonal line pattern (each concept depends on exactly one previous)</li>
+<li><strong>Fix</strong>: Add lateral connections between concepts at similar levels</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.chartjs.org/docs/latest/">Chart.js Documentation</a></li>
+<li><a href="https://www.chartjs.org/docs/latest/charts/scatter.html">Chart.js Scatter Plot Guide</a></li>
+<li><a href="https://www.chartjs.org/chartjs-plugin-annotation/latest/">Chart.js Annotation Plugin</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Degree_centrality">Graph Theory: Degree Centrality</a></li>
+<li><a href="../../chapters/06-learning-graph-quality-validation/">Learning Graph Quality Metrics</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../mkdocs-github-pages-deployment/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MkDocs GitHub Pages Deployment">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                MkDocs GitHub Pages Deployment
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../p5js-architecture/" class="md-footer__link md-footer__link--next" aria-label="Next: p5.js Architecture">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                p5.js Architecture
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

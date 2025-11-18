@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MkDocs Build Process Workflow</title>
+    <link rel="stylesheet" href="../adding-taxonomy-workflow/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>MkDocs Build Process Workflow</h1>
+        <p class="subtitle">From markdown source to deployed HTML static site</p>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+flowchart TD
+    Start[("Markdown Source Files<br/>(*.md)")]:::inputNode
+    Config[("mkdocs.yml<br/>Configuration")]:::inputNode
+    Parser["MkDocs Parser"]:::processNode
+    Plugins["Plugin Pipeline"]:::processNode
+    Theme["Theme Template Engine<br/>(Jinja2)"]:::processNode
+    HTML["HTML Generation"]:::processNode
+    Assets[("Static Assets<br/>CSS, JS, Images")]:::inputNode
+    Output[("site/ Directory<br/>Complete Static Site")]:::outputNode
+
+    Start --> Parser
+    Config --> Parser
+    Parser --> Plugins
+    Plugins --> Theme
+    Theme --> HTML
+    Assets --> HTML
+    HTML --> Output
+
+    classDef inputNode fill:#4facfe,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
+    classDef processNode fill:#43aa8b,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef outputNode fill:#f77f00,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
+
+    linkStyle default stroke:#999,stroke-width:2px,font-size:14px
+            </div>
+        </div>
+
+        <div class="description">
+            <h2>Build Pipeline Overview</h2>
+            <p>MkDocs transforms markdown files into a complete static website through a multi-stage pipeline. This workflow shows the journey from source content to deployed HTML.</p>
+
+            <h3>Pipeline Stages</h3>
+            <ol>
+                <li><strong>Markdown Source Files</strong> - Chapter content written in .md format with frontmatter and extensions</li>
+                <li><strong>Configuration (mkdocs.yml)</strong> - Site settings including theme, navigation, plugins, and extensions</li>
+                <li><strong>MkDocs Parser</strong> - Reads markdown and parses into abstract syntax trees (AST)</li>
+                <li><strong>Plugin Pipeline</strong> - Transforms content through plugins (search index, macros, minification, etc.)</li>
+                <li><strong>Theme Template Engine</strong> - Applies Jinja2 templates from selected theme (Material, ReadTheDocs, etc.)</li>
+                <li><strong>HTML Generation</strong> - Converts markdown AST to semantic HTML5 with theme styling</li>
+                <li><strong>Static Assets</strong> - CSS, JavaScript, images, and fonts copied to build directory</li>
+                <li><strong>site/ Directory</strong> - Complete static website ready for deployment to web server or CDN</li>
+            </ol>
+
+            <h3>Build Commands</h3>
+            <p><code>mkdocs build</code> - Creates production build in site/ directory</p>
+            <p><code>mkdocs serve</code> - Starts development server with auto-reload on file changes</p>
+            <p><code>mkdocs gh-deploy</code> - Builds and deploys to GitHub Pages</p>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

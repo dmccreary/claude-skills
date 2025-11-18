@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept Connectivity Analysis: Indegree vs Outdegree</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Concept Connectivity Analysis: Indegree vs Outdegree</h1>
+        <p class="subtitle">Identifying orphaned nodes and connection patterns in a learning graph</p>
+
+        <div class="chart-container">
+            <canvas id="connectivityChart"></canvas>
+        </div>
+
+        <div class="legend-panel">
+            <h2>Node Categories</h2>
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <div class="legend-color foundational"></div>
+                    <div class="legend-text">
+                        <strong>Foundational Concepts</strong>
+                        <p>Green dots: No prerequisites, but other concepts depend on them (indegree=0, outdegree>0)</p>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color intermediate"></div>
+                    <div class="legend-text">
+                        <strong>Intermediate Concepts</strong>
+                        <p>Blue dots: Well-connected nodes with both prerequisites and dependents (indegree>0, outdegree>0)</p>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color orphaned"></div>
+                    <div class="legend-text">
+                        <strong>Orphaned Concepts</strong>
+                        <p>Red dots: Terminal nodes with prerequisites but no dependents (indegree>0, outdegree=0)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="metrics-panel">
+            <h2>Connectivity Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-card foundational-card">
+                    <div class="metric-value">12</div>
+                    <div class="metric-label">Foundational (6%)</div>
+                </div>
+                <div class="metric-card intermediate-card">
+                    <div class="metric-value">164</div>
+                    <div class="metric-label">Intermediate (82%)</div>
+                </div>
+                <div class="metric-card orphaned-card">
+                    <div class="metric-value">24</div>
+                    <div class="metric-label">Orphaned (12%)</div>
+                </div>
+            </div>
+            <div class="health-indicator">
+                <span class="indicator-icon">✓</span>
+                <span class="indicator-text">12% orphaned (healthy range: 5-15%)</span>
+            </div>
+        </div>
+
+        <div class="analysis">
+            <h2>Analysis</h2>
+            <p><strong>Foundational Zone (left edge):</strong> Concepts along the left edge (indegree=0) are foundational concepts that serve as entry points to the learning graph. A healthy graph should have 5-10% foundational concepts.</p>
+            <p><strong>Orphaned Zone (bottom edge):</strong> Concepts along the bottom edge (outdegree=0) are terminal or orphaned concepts. Having 5-15% orphaned concepts is healthy, as these represent advanced topics or specializations.</p>
+            <p><strong>Intermediate Concepts (bulk):</strong> The majority of concepts should cluster in the middle, representing well-connected nodes that both depend on and support other concepts.</p>
+            <p><strong>Quality Assessment:</strong> This graph shows a healthy distribution with strong connectivity patterns and appropriate orphan percentage.</p>
+        </div>
+    </div>
+
+    <script>
+        // Generate foundational concepts (indegree=0, outdegree>0)
+        const foundationalData = [
+            { x: 0, y: 8, label: 'Introduction to Learning Graphs' },
+            { x: 0, y: 6, label: 'What is a Concept?' },
+            { x: 0, y: 7, label: 'Graph Theory Basics' },
+            { x: 0, y: 5, label: 'Educational Frameworks' },
+            { x: 0, y: 9, label: 'Bloom\'s Taxonomy' },
+            { x: 0, y: 4, label: 'Curriculum Design' },
+            { x: 0, y: 6, label: 'Learning Objectives' },
+            { x: 0, y: 5, label: 'Knowledge Organization' },
+            { x: 0, y: 7, label: 'Concept Dependencies' },
+            { x: 0, y: 3, label: 'Prerequisite Relationships' },
+            { x: 0, y: 8, label: 'DAG Structure' },
+            { x: 0, y: 5, label: 'Instructional Design' }
+        ];
+
+        // Generate intermediate concepts (indegree>0, outdegree>0)
+        const intermediateData = [];
+        for (let i = 0; i < 164; i++) {
+            intermediateData.push({
+                x: Math.floor(Math.random() * 7) + 1,  // indegree 1-7
+                y: Math.floor(Math.random() * 11) + 1  // outdegree 1-11
+            });
+        }
+
+        // Generate orphaned concepts (indegree>0, outdegree=0)
+        const orphanedData = [
+            { x: 5, y: 0, label: 'Advanced Quality Metrics' },
+            { x: 3, y: 0, label: 'Future of Learning Graphs' },
+            { x: 4, y: 0, label: 'Research Applications' },
+            { x: 6, y: 0, label: 'Machine Learning Integration' },
+            { x: 2, y: 0, label: 'Case Studies' },
+            { x: 5, y: 0, label: 'Industry Best Practices' },
+            { x: 3, y: 0, label: 'Comparative Analysis' },
+            { x: 4, y: 0, label: 'Advanced Visualization' },
+            { x: 7, y: 0, label: 'Cutting-Edge Research' },
+            { x: 2, y: 0, label: 'Real-World Examples' },
+            { x: 5, y: 0, label: 'Specialized Tools' },
+            { x: 3, y: 0, label: 'Domain Applications' },
+            { x: 6, y: 0, label: 'Ethical Considerations' },
+            { x: 4, y: 0, label: 'Accessibility Standards' },
+            { x: 2, y: 0, label: 'Assessment Strategies' },
+            { x: 5, y: 0, label: 'Learning Analytics' },
+            { x: 3, y: 0, label: 'Personalization' },
+            { x: 4, y: 0, label: 'Adaptive Learning' },
+            { x: 6, y: 0, label: 'AI-Powered Tutoring' },
+            { x: 2, y: 0, label: 'Gamification' },
+            { x: 5, y: 0, label: 'Microlearning' },
+            { x: 3, y: 0, label: 'Social Learning' },
+            { x: 4, y: 0, label: 'Mobile Learning' },
+            { x: 7, y: 0, label: 'Emerging Technologies' }
+        ];
+
+        const data = {
+            datasets: [
+                {
+                    label: 'Foundational Concepts',
+                    data: foundationalData,
+                    backgroundColor: 'rgba(76, 175, 80, 0.7)',
+                    borderColor: 'rgba(76, 175, 80, 1)',
+                    borderWidth: 2,
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                },
+                {
+                    label: 'Intermediate Concepts',
+                    data: intermediateData,
+                    backgroundColor: 'rgba(33, 150, 243, 0.6)',
+                    borderColor: 'rgba(33, 150, 243, 1)',
+                    borderWidth: 1,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                },
+                {
+                    label: 'Orphaned Concepts',
+                    data: orphanedData,
+                    backgroundColor: 'rgba(244, 67, 54, 0.7)',
+                    borderColor: 'rgba(244, 67, 54, 1)',
+                    borderWidth: 2,
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }
+            ]
+        };
+
+        const config = {
+            type: 'scatter',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                aspectRatio: 1.3,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Concept Connectivity: Indegree vs Outdegree',
+                        font: {
+                            size: 18,
+                            weight: 'bold'
+                        },
+                        padding: 20
+                    },
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 15,
+                            font: {
+                                size: 13
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const point = context.raw;
+                                let label = context.dataset.label || '';
+                                if (point.label) {
+                                    label = point.label;
+                                }
+                                return `${label}: (${point.x} prerequisites, ${point.y} dependents)`;
+                            }
+                        }
+                    },
+                    annotation: {
+                        annotations: {
+                            orphanedZone: {
+                                type: 'line',
+                                yMin: 0,
+                                yMax: 0,
+                                borderColor: 'rgba(244, 67, 54, 0.5)',
+                                borderWidth: 3,
+                                borderDash: [5, 5],
+                                label: {
+                                    display: true,
+                                    content: 'Orphaned Zone (outdegree = 0)',
+                                    position: 'end',
+                                    backgroundColor: 'rgba(244, 67, 54, 0.8)',
+                                    color: 'white',
+                                    font: {
+                                        size: 11,
+                                        weight: 'bold'
+                                    }
+                                }
+                            },
+                            foundationZone: {
+                                type: 'line',
+                                xMin: 0,
+                                xMax: 0,
+                                borderColor: 'rgba(76, 175, 80, 0.5)',
+                                borderWidth: 3,
+                                borderDash: [5, 5],
+                                label: {
+                                    display: true,
+                                    content: 'Foundation Zone (indegree = 0)',
+                                    position: 'start',
+                                    backgroundColor: 'rgba(76, 175, 80, 0.8)',
+                                    color: 'white',
+                                    font: {
+                                        size: 11,
+                                        weight: 'bold'
+                                    },
+                                    rotation: 90
+                                }
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom',
+                        min: -0.5,
+                        max: 8,
+                        title: {
+                            display: true,
+                            text: 'Indegree (Number of Prerequisites)',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            stepSize: 1
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    y: {
+                        min: -0.5,
+                        max: 12,
+                        title: {
+                            display: true,
+                            text: 'Outdegree (Number of Dependents)',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            stepSize: 1
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    }
+                },
+                animation: {
+                    duration: 1500,
+                    easing: 'easeInOutQuart'
+                }
+            }
+        };
+
+        const ctx = document.getElementById('connectivityChart').getContext('2d');
+        const chart = new Chart(ctx, config);
+    </script>
+</body>
+</html>

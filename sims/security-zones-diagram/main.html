@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Zones Diagram</title>
+    <link rel="stylesheet" href="../adding-taxonomy-workflow/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Security Zones Diagram</h1>
+        <p class="subtitle">Security boundaries and permission levels for Claude skill execution</p>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+flowchart TB
+    subgraph Outer ["🔴 System Directories - NO ACCESS"]
+        Sys["/usr, /bin, /etc<br/>Permission Required"]:::blockedNode
+    end
+
+    subgraph Middle ["🟡 User Skills Directory - READ ONLY"]
+        Skills["~/.claude/skills/<br/>Read access only"]:::readNode
+    end
+
+    subgraph Inner ["🟢 Project Directory - FULL ACCESS"]
+        Exec["Skill Execution Sandbox<br/>Read/Write allowed"]:::allowedNode
+        Files["Project files<br/>/docs, /src, etc."]:::allowedNode
+    end
+
+    Exec -.->|Read| Skills
+    Exec -.->|Blocked| Sys
+    Exec -->|Read/Write| Files
+
+    classDef allowedNode fill:#43aa8b,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef readNode fill:#ffd166,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef blockedNode fill:#e63946,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+
+    linkStyle default stroke:#999,stroke-width:2px
+            </div>
+        </div>
+
+        <div class="description">
+            <h2>Security Model Overview</h2>
+            <p>Claude skills operate within a security sandbox that defines three zones of file system access, protecting system integrity while enabling productive development.</p>
+
+            <h3>Security Zones</h3>
+
+            <h4>🟢 Green Zone: Project Directory (Full Access)</h4>
+            <p><strong>Location:</strong> Current working directory (e.g., /Users/dan/Documents/project/)</p>
+            <p><strong>Permissions:</strong> Read and Write</p>
+            <p><strong>Purpose:</strong> Skills can freely read and modify files within the project scope</p>
+            <p><strong>Typical paths:</strong> /docs, /src, /tests, mkdocs.yml, etc.</p>
+
+            <h4>🟡 Yellow Zone: User Skills Directory (Read-Only)</h4>
+            <p><strong>Location:</strong> ~/.claude/skills/</p>
+            <p><strong>Permissions:</strong> Read only</p>
+            <p><strong>Purpose:</strong> Skills can read their own code, templates, and reference files but cannot modify them during execution</p>
+            <p><strong>Typical paths:</strong> ~/.claude/skills/skill-name/SKILL.md, scripts/, references/</p>
+
+            <h4>🔴 Red Zone: System Directories (Blocked)</h4>
+            <p><strong>Location:</strong> /usr, /bin, /etc, /System, etc.</p>
+            <p><strong>Permissions:</strong> Blocked (requires explicit user approval)</p>
+            <p><strong>Purpose:</strong> Protects system files from accidental or malicious modification</p>
+            <p><strong>Access:</strong> Skills attempting to access these areas will prompt for user permission</p>
+
+            <h3>Security Best Practices</h3>
+            <ul>
+                <li><strong>Scope operations to project:</strong> Always work within the current project directory</li>
+                <li><strong>Validate file paths:</strong> Check that paths resolve within allowed zones</li>
+                <li><strong>Never hardcode system paths:</strong> Use relative paths from project root</li>
+                <li><strong>Request permission when needed:</strong> If system access is genuinely required, explain why to the user</li>
+            </ul>
+
+            <h3>Permission Gates</h3>
+            <p>When a skill attempts to access restricted areas, Claude Code will:</p>
+            <ol>
+                <li>Pause execution</li>
+                <li>Show the user what file/directory is being accessed</li>
+                <li>Explain why the skill needs access</li>
+                <li>Request explicit approval to proceed</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            }
+        });
+    </script>
+</body>
+</html>

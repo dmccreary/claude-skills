@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p5.js Architecture and Execution Model</title>
+    <link rel="stylesheet" href="../adding-taxonomy-workflow/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>p5.js Architecture and Execution Model</h1>
+        <p class="subtitle">How setup, draw, and event handlers interact in a p5.js sketch</p>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+flowchart TD
+    Start(("Program Start")):::startNode
+    Setup["setup()<br/>Runs once"]:::setupNode
+    Draw["draw()<br/>Runs continuously<br/>60 FPS (default)"]:::drawNode
+    Canvas["Canvas Display<br/>Updates every frame"]:::canvasNode
+    Events["Event Handlers<br/>mousePressed()<br/>keyPressed()<br/>slider events"]:::eventNode
+
+    Start --> Setup
+    Setup --> Draw
+    Draw --> Canvas
+    Draw --> Draw
+    Events -.->|State changes| Draw
+    Draw -.->|Read state| Events
+
+    classDef startNode fill:#667eea,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
+    classDef setupNode fill:#4facfe,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef drawNode fill:#f77f00,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef canvasNode fill:#95a5a6,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef eventNode fill:#9b59b6,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+
+    linkStyle default stroke:#999,stroke-width:2px,font-size:14px
+    linkStyle 3 stroke:#e74c3c,stroke-width:3px,stroke-dasharray:5
+    linkStyle 4 stroke:#3498db,stroke-width:2px,stroke-dasharray:5
+    linkStyle 5 stroke:#3498db,stroke-width:2px,stroke-dasharray:5
+            </div>
+        </div>
+
+        <div class="description">
+            <h2>Execution Model</h2>
+            <p>p5.js sketches follow a specific execution pattern with two main functions (setup and draw) plus optional event handlers that respond to user input.</p>
+
+            <h3>Core Functions</h3>
+
+            <h4>setup() - Initialization</h4>
+            <p><strong>Runs:</strong> Once at program start</p>
+            <p><strong>Purpose:</strong> Initialize canvas, set initial variable values, load assets</p>
+            <p><strong>Example:</strong></p>
+            <pre><code>function setup() {
+  createCanvas(800, 600);
+  background(220);
+  frameRate(60);
+}</code></pre>
+
+            <h4>draw() - Main Loop</h4>
+            <p><strong>Runs:</strong> Continuously at 60 FPS by default</p>
+            <p><strong>Purpose:</strong> Render graphics, update animations, check game state</p>
+            <p><strong>Example:</strong></p>
+            <pre><code>function draw() {
+  background(220);
+  circle(mouseX, mouseY, 50);
+}</code></pre>
+
+            <h3>Event Handlers</h3>
+            <p><strong>Triggered by user input:</strong> Mouse clicks, key presses, slider changes</p>
+            <p><strong>Can modify state:</strong> Update global variables that draw() uses</p>
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li><code>mousePressed()</code> - Called when mouse button is clicked</li>
+                <li><code>keyPressed()</code> - Called when keyboard key is pressed</li>
+                <li><code>mouseDragged()</code> - Called when mouse is moved while button is down</li>
+            </ul>
+
+            <h3>Global Variables</h3>
+            <p>Variables declared outside functions are accessible throughout the sketch. Event handlers can modify these variables, and draw() can read them to update the display.</p>
+
+            <pre><code>let x = 0;  // Global variable
+
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  circle(x, 200, 50);
+  x += 1;  // Update position
+}
+
+function mousePressed() {
+  x = 0;  // Reset on click
+}</code></pre>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

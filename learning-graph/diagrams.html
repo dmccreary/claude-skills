@@ -1,0 +1,899 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagram and MicroSim Report</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1, h2, h3 { color: #2c3e50; }
+        .summary {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stat-card h3 { margin-top: 0; font-size: 1.1em; color: #7f8c8d; }
+        .stat-card .number { font-size: 2em; font-weight: bold; color: #3498db; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+        tr:hover { background: #f8f9fa; }
+        .difficulty-easy { color: #27ae60; font-weight: bold; }
+        .difficulty-medium { color: #f39c12; font-weight: bold; }
+        .difficulty-hard { color: #e74c3c; font-weight: bold; }
+        .difficulty-very-hard { color: #c0392b; font-weight: bold; }
+        .type-microsim { background: #e8f4fd; }
+        .type-diagram { background: #fff5e6; }
+        .filter-buttons {
+            margin: 20px 0;
+        }
+        .filter-buttons button {
+            padding: 8px 16px;
+            margin: 0 5px;
+            border: none;
+            background: #3498db;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .filter-buttons button:hover {
+            background: #2980b9;
+        }
+        .filter-buttons button.active {
+            background: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎨 Diagram and MicroSim Report</h1>
+
+    <div class="summary">
+        <h2>Overview</h2>
+        <div class="stats">
+
+            <div class="stat-card">
+                <h3>Total Elements</h3>
+                <div class="number">76</div>
+            </div>
+            <div class="stat-card">
+                <h3>Diagrams</h3>
+                <div class="number">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>MicroSims</h3>
+                <div class="number">76</div>
+            </div>
+            <div class="stat-card">
+                <h3>Easy</h3>
+                <div class="number difficulty-easy">11</div>
+            </div>
+            <div class="stat-card">
+                <h3>Medium</h3>
+                <div class="number difficulty-medium">47</div>
+            </div>
+            <div class="stat-card">
+                <h3>Hard</h3>
+                <div class="number difficulty-hard">15</div>
+            </div>
+            <div class="stat-card">
+                <h3>Very Hard</h3>
+                <div class="number difficulty-very-hard">3</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>All Visual Elements</h2>
+    <table id="elementsTable">
+        <thead>
+            <tr>
+                <th>Chapter</th>
+                <th>Element Title</th>
+                <th>Type</th>
+                <th>Bloom Levels</th>
+                <th>UI Elements</th>
+                <th>Difficulty</th>
+                <th>Recommended MicroSims</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr class="type-microsim">
+                <td><strong>1</strong></td>
+                <td>Claude Code Workflow Diagram</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>1</strong></td>
+                <td>Evolution of AI Approaches Timeline</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">2</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>1</strong></td>
+                <td>Five Levels of Textbook Intelligence Visual Model</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-easy">Easy</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>1</strong></td>
+                <td>Interactive Learning Element Types Comparison</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">1</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>1</strong></td>
+                <td>Prompt Engineering Iterative Refinement Workflow</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-easy">Easy</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>1</strong></td>
+                <td>Transformer Architecture Diagram</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">2</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>2</strong></td>
+                <td>4-Hour Token Window Visualization</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-easy">Easy</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>2</strong></td>
+                <td>Iterative Prompt Refinement Metrics</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>2</strong></td>
+                <td>Skill File Anatomy Diagram</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">1</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>2</strong></td>
+                <td>Skill Installation Locations and Priority</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>2</strong></td>
+                <td>Skill Invocation and Execution Lifecycle</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">1</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>2</strong></td>
+                <td>Skill Permission Matrix</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-easy">Easy</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>2</strong></td>
+                <td>Skills vs Commands Decision Tree</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-easy">Easy</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>3</strong></td>
+                <td>Bloom's Taxonomy 1956 vs 2001 Comparison</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>3</strong></td>
+                <td>Bloom's Taxonomy Application Distribution in Quality Courses</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-easy">Easy</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>3</strong></td>
+                <td>Course Description Quality Impact on Workflow</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>3</strong></td>
+                <td>Course Description Quality Rubric Visualization</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">1</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>3</strong></td>
+                <td>Lower-Order vs Higher-Order Thinking Skills</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-easy">Easy</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>3</strong></td>
+                <td>Topic-to-Concept Expansion Example</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>4</strong></td>
+                <td>DAG vs Cyclic Graph Comparison</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>4</strong></td>
+                <td>Dependency Mapping Decision Tree</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-easy">Easy</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>4</strong></td>
+                <td>Dependency Pattern Examples</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>4</strong></td>
+                <td>Learning Graph Structure Visualization</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">1</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>4</strong></td>
+                <td>Token Consumption Timeline for Complete Textbook Project</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>5</strong></td>
+                <td>CSV File Format Example with Validation</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>5</strong></td>
+                <td>Concept Count by Course Duration</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>5</strong></td>
+                <td>Concept Depth Distribution Analysis</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>5</strong></td>
+                <td>Concept Granularity Spectrum Visualization</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>5</strong></td>
+                <td>Concept Label Length Optimization</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>5</strong></td>
+                <td>Concept Label Quality Checklist</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>5</strong></td>
+                <td>ConceptID vs ConceptLabel Comparison</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>5</strong></td>
+                <td>Dependency Mapping Workflow</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-easy">Easy</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>5</strong></td>
+                <td>Topic-to-Concept Expansion Process</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small></small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>6</strong></td>
+                <td>Average Dependencies Distribution Bar Chart</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>chartjs-generator<br>(98)<br>microsim-p5<br>(70)<br>mermaid-generator<br>(25)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>6</strong></td>
+                <td>DAG Validation Algorithm Visualization</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>vis-network<br>(98)<br>mermaid-generator<br>(85)<br>microsim-p5<br>(75)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>6</strong></td>
+                <td>Learning Graph Quality Score Calculator MicroSim</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">21</td>
+                <td class="difficulty-very-hard">Very Hard</td>
+                <td><small>microsim-p5<br>(92)<br>chartjs-generator<br>(65)<br>vis-network<br>(20)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>6</strong></td>
+                <td>Linear Chain vs Network Structure Comparison</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>vis-network<br>(95)<br>mermaid-generator<br>(82)<br>microsim-p5<br>(78)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>6</strong></td>
+                <td>Orphaned Nodes Identification Chart</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>chartjs-generator<br>(97)<br>bubble-chart-generator<br>(80)<br>microsim-p5<br>(72)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>6</strong></td>
+                <td>Taxonomy Distribution Pie Chart</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>chartjs-generator<br>(98)<br>microsim-p5<br>(68)<br>venn-diagram-generator<br>(15)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>7</strong></td>
+                <td>Adding Taxonomy to CSV Workflow Diagram</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>mermaid-generator<br>(94)<br>microsim-p5<br>(75)<br>vis-network<br>(45)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>7</strong></td>
+                <td>CSV to JSON Conversion Mapping Diagram</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>mermaid-generator<br>(90)<br>microsim-p5<br>(78)<br>chartjs-generator<br>(20)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>7</strong></td>
+                <td>Color Accessibility Checker MicroSim</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">12</td>
+                <td class="difficulty-hard">Hard</td>
+                <td><small>microsim-p5<br>(95)<br>chartjs-generator<br>(25)<br>vis-network<br>(10)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>7</strong></td>
+                <td>Dublin Core Metadata Field Reference Card</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">1</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>microsim-p5<br>(85)<br>chartjs-generator<br>(15)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>7</strong></td>
+                <td>Learning Graph JSON Schema Diagram</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">1</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>mermaid-generator<br>(92)<br>microsim-p5<br>(70)<br>vis-network<br>(65)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>7</strong></td>
+                <td>Python Learning Graph Processing Pipeline</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">4</td>
+                <td class="difficulty-hard">Hard</td>
+                <td><small>mermaid-generator<br>(93)<br>vis-network<br>(70)<br>microsim-p5<br>(72)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>8</strong></td>
+                <td>Admonition Types Interactive Reference</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">5</td>
+                <td class="difficulty-hard">Hard</td>
+                <td><small>microsim-p5<br>(90)<br>chartjs-generator<br>(15)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>8</strong></td>
+                <td>Git Branching and Merging Visualization MicroSim</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">13</td>
+                <td class="difficulty-hard">Hard</td>
+                <td><small>microsim-p5<br>(94)<br>vis-network<br>(82)<br>mermaid-generator<br>(75)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>8</strong></td>
+                <td>Material Theme Features Interactive Comparison</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">5</td>
+                <td class="difficulty-hard">Hard</td>
+                <td><small>microsim-p5<br>(88)<br>chartjs-generator<br>(30)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>8</strong></td>
+                <td>MkDocs Build Process Workflow Diagram</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">1</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>mermaid-generator<br>(95)<br>microsim-p5<br>(70)<br>vis-network<br>(65)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>8</strong></td>
+                <td>MkDocs GitHub Pages Deployment Workflow</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">1</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>microsim-p5<br>(94)<br>vis-network<br>(82)<br>mermaid-generator<br>(75)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>9</strong></td>
+                <td>Git Workflow for Skill Development</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>mermaid-generator<br>(95)<br>microsim-p5<br>(72)<br>vis-network<br>(60)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>9</strong></td>
+                <td>Security Zones Diagram</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>mermaid-generator<br>(94)<br>microsim-p5<br>(75)<br>vis-network<br>(55)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>9</strong></td>
+                <td>Skill Directory Structure Diagram</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">1</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>mermaid-generator<br>(93)<br>vis-network<br>(70)<br>microsim-p5<br>(68)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>9</strong></td>
+                <td>Skill Package Contents Checklist</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">1</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>microsim-p5<br>(88)<br>mermaid-generator<br>(70)<br>venn-diagram-generator<br>(65)<br>microsim-p5<br>(88)<br>mermaid-generator<br>(70)<br>venn-diagram-generator<br>(65)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>9</strong></td>
+                <td>Skill Testing Workflow Diagram</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">2</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>microsim-p5<br>(85)<br>chartjs-generator<br>(15)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>10</strong></td>
+                <td>Chapter Index File Structure Diagram</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">1</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>mermaid-generator<br>(92)<br>microsim-p5<br>(75)<br>vis-network<br>(50)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>10</strong></td>
+                <td>Chapter Organization Workflow Diagram</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>mermaid-generator<br>(94)<br>microsim-p5<br>(73)<br>vis-network<br>(55)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>10</strong></td>
+                <td>Content Generation Process Timeline</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-easy">Easy</td>
+                <td><small>timeline-generator<br>(98)<br>chartjs-generator<br>(70)<br>microsim-p5<br>(75)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>10</strong></td>
+                <td>ISO 11179 Principles Comparison Table Infographic</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">5</td>
+                <td class="difficulty-hard">Hard</td>
+                <td><small>microsim-p5<br>(94)<br>chartjs-generator<br>(30)<br>vis-network<br>(15)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>10</strong></td>
+                <td>Interactive Exercise Generator MicroSim</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">21</td>
+                <td class="difficulty-hard">Hard</td>
+                <td><small>microsim-p5<br>(96)<br>chartjs-generator<br>(25)<br>vis-network<br>(15)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>10</strong></td>
+                <td>Worked Example: Determining Reading Level from Course Description</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">4</td>
+                <td class="difficulty-hard">Hard</td>
+                <td><small>microsim-p5<br>(90)<br>chartjs-generator<br>(20)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>11</strong></td>
+                <td>Bloom's Taxonomy Distribution Analyzer Chart</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">9</td>
+                <td class="difficulty-very-hard">Very Hard</td>
+                <td><small>chartjs-generator<br>(96)<br>microsim-p5<br>(75)<br>venn-diagram-generator<br>(25)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>11</strong></td>
+                <td>Command-Line Interface Basics Interactive Infographic</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">9</td>
+                <td class="difficulty-hard">Hard</td>
+                <td><small>chartjs-generator<br>(94)<br>microsim-p5<br>(88)<br>vis-network<br>(30)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>11</strong></td>
+                <td>FAQ Question Pattern Analysis Workflow</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>mermaid-generator<br>(95)<br>vis-network<br>(65)<br>microsim-p5<br>(70)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>11</strong></td>
+                <td>Interactive Quiz Question Constructor MicroSim</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">23</td>
+                <td class="difficulty-very-hard">Very Hard</td>
+                <td><small>microsim-p5<br>(97)<br>chartjs-generator<br>(20)<br>vis-network<br>(15)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>12</strong></td>
+                <td>Algorithm Visualization with Step Controls MicroSim</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">24</td>
+                <td class="difficulty-hard">Hard</td>
+                <td><small>microsim-p5<br>(95)<br>chartjs-generator<br>(25)<br>vis-network<br>(15)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>12</strong></td>
+                <td>Basic MicroSim Template Structure</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">8</td>
+                <td class="difficulty-hard">Hard</td>
+                <td><small>mermaid-generator<br>(95)<br>vis-network<br>(65)<br>microsim-p5<br>(68)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>12</strong></td>
+                <td>MicroSim Design Quality Checklist</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">10</td>
+                <td class="difficulty-hard">Hard</td>
+                <td><small>microsim-p5<br>(96)<br>chartjs-generator<br>(15)<br>vis-network<br>(15)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>12</strong></td>
+                <td>MicroSim File Relationship Diagram</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-easy">Easy</td>
+                <td><small>mermaid-generator<br>(93)<br>vis-network<br>(75)<br>microsim-p5<br>(72)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>12</strong></td>
+                <td>Responsive Iframe Embedding MicroSim</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">16</td>
+                <td class="difficulty-hard">Hard</td>
+                <td><small>microsim-p5<br>(96)<br>chartjs-generator<br>(15)<br>vis-network<br>(15)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>12</strong></td>
+                <td>p5.js Architecture and Execution Model</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">5</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>mermaid-generator<br>(94)<br>microsim-p5<br>(85)<br>vis-network<br>(70)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>13</strong></td>
+                <td>Interactive Directory Navigation Practice MicroSim</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">14</td>
+                <td class="difficulty-hard">Hard</td>
+                <td><small>microsim-p5<br>(94)<br>vis-network<br>(85)<br>mermaid-generator<br>(78)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>13</strong></td>
+                <td>Permission Bits Visual Infographic</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">4</td>
+                <td class="difficulty-hard">Hard</td>
+                <td><small>microsim-p5<br>(85)<br>chartjs-generator<br>(15)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>13</strong></td>
+                <td>Skill Installation Workflow Diagram</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>timeline-generator<br>(97)<br>mermaid-generator<br>(85)<br>chartjs-generator<br>(75)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>13</strong></td>
+                <td>Terminal Workflow for Textbook Development</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">0</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>mermaid-generator<br>(95)<br>microsim-p5<br>(73)<br>vis-network<br>(55)</small></td>
+            </tr>
+
+            <tr class="type-microsim">
+                <td><strong>13</strong></td>
+                <td>VS Code Interface Layout for Textbook Development</td>
+                <td><em>Microsim</em></td>
+                <td><small>Not specified</small></td>
+                <td style="text-align: center;">4</td>
+                <td class="difficulty-medium">Medium</td>
+                <td><small>microsim-p5<br>(80)<br>mermaid-generator<br>(50)</small></td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+</html>

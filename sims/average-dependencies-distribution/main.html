@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prerequisite Distribution Across Learning Graph</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Prerequisite Distribution Across Learning Graph</h1>
+        <p class="subtitle">Analysis of concept dependency patterns in a 200-concept learning graph</p>
+
+        <div class="chart-container">
+            <canvas id="dependenciesChart"></canvas>
+        </div>
+
+        <div class="metrics-panel">
+            <h2>Calculated Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">200</div>
+                    <div class="metric-label">Total Concepts</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">620</div>
+                    <div class="metric-label">Total Dependencies</div>
+                </div>
+                <div class="metric-card highlight">
+                    <div class="metric-value">3.1</div>
+                    <div class="metric-label">Average Dependencies</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">2</div>
+                    <div class="metric-label">Median</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">2</div>
+                    <div class="metric-label">Mode</div>
+                </div>
+                <div class="metric-card success">
+                    <div class="metric-value">84%</div>
+                    <div class="metric-label">In Optimal Range (1-5)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="analysis">
+            <h2>Analysis</h2>
+            <p><strong>Optimal Range (2-4 prerequisites):</strong> The green-shaded region represents the ideal complexity range for most concepts. Concepts in this range are neither too foundational nor too advanced.</p>
+            <p><strong>Distribution Shape:</strong> The bell-curve distribution indicates a healthy learning graph with appropriate concept granularity and progressive complexity.</p>
+            <p><strong>Foundational Concepts:</strong> The 12 concepts with 0 prerequisites serve as entry points to the learning graph.</p>
+            <p><strong>Quality Indicator:</strong> 84% of concepts fall within the optimal range (1-5 prerequisites), suggesting good pedagogical structure.</p>
+        </div>
+    </div>
+
+    <script>
+        // Data representing prerequisite counts
+        const data = {
+            labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8+'],
+            datasets: [{
+                label: 'Number of Concepts',
+                data: [12, 45, 58, 42, 25, 12, 4, 2, 0],
+                backgroundColor: [
+                    'rgba(255, 193, 7, 0.8)',  // 0 - Gold
+                    'rgba(255, 193, 7, 0.8)',  // 1 - Gold
+                    'rgba(76, 175, 80, 0.6)',  // 2 - Green (optimal)
+                    'rgba(76, 175, 80, 0.6)',  // 3 - Green (optimal)
+                    'rgba(76, 175, 80, 0.6)',  // 4 - Green (optimal)
+                    'rgba(255, 193, 7, 0.8)',  // 5 - Gold
+                    'rgba(255, 193, 7, 0.8)',  // 6 - Gold
+                    'rgba(255, 193, 7, 0.8)',  // 7 - Gold
+                    'rgba(255, 193, 7, 0.8)'   // 8+ - Gold
+                ],
+                borderColor: [
+                    'rgba(255, 193, 7, 1)',
+                    'rgba(255, 193, 7, 1)',
+                    'rgba(76, 175, 80, 1)',
+                    'rgba(76, 175, 80, 1)',
+                    'rgba(76, 175, 80, 1)',
+                    'rgba(255, 193, 7, 1)',
+                    'rgba(255, 193, 7, 1)',
+                    'rgba(255, 193, 7, 1)',
+                    'rgba(255, 193, 7, 1)'
+                ],
+                borderWidth: 2
+            }]
+        };
+
+        // Chart configuration
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                aspectRatio: 2,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Prerequisite Distribution Across Learning Graph',
+                        font: {
+                            size: 18,
+                            weight: 'bold'
+                        },
+                        padding: 20
+                    },
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const value = context.parsed.y;
+                                const total = 200;
+                                const percentage = ((value / total) * 100).toFixed(1);
+                                return `${value} concepts (${percentage}%)`;
+                            }
+                        }
+                    },
+                    annotation: {
+                        annotations: {
+                            optimalZone: {
+                                type: 'box',
+                                xMin: 1.5,
+                                xMax: 4.5,
+                                backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                                borderColor: 'rgba(76, 175, 80, 0.5)',
+                                borderWidth: 2,
+                                borderDash: [5, 5],
+                                label: {
+                                    display: true,
+                                    content: 'Optimal Range (2-4)',
+                                    position: 'start',
+                                    backgroundColor: 'rgba(76, 175, 80, 0.8)',
+                                    color: 'white',
+                                    font: {
+                                        size: 12,
+                                        weight: 'bold'
+                                    }
+                                }
+                            },
+                            averageLine: {
+                                type: 'line',
+                                xMin: 3.1,
+                                xMax: 3.1,
+                                borderColor: 'rgba(33, 150, 243, 0.8)',
+                                borderWidth: 3,
+                                borderDash: [10, 5],
+                                label: {
+                                    display: true,
+                                    content: 'Average: 3.1',
+                                    position: 'end',
+                                    backgroundColor: 'rgba(33, 150, 243, 0.9)',
+                                    color: 'white',
+                                    font: {
+                                        size: 12,
+                                        weight: 'bold'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Number of Prerequisites',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Concepts',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            stepSize: 10
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    }
+                },
+                animation: {
+                    duration: 1500,
+                    easing: 'easeInOutQuart'
+                }
+            }
+        };
+
+        // Create chart
+        const ctx = document.getElementById('dependenciesChart').getContext('2d');
+        const chart = new Chart(ctx, config);
+    </script>
+</body>
+</html>

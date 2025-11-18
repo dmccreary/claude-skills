@@ -1,0 +1,77 @@
+Chapter,Chapter Name,Element Title,Status,Type,Bloom Levels,UI Elements,Difficulty,Learning Objective,MicroSim Recommendations
+01,Intro Ai Intelligent Textbooks,Claude Code Workflow Diagram,,Microsim,Not specified,0,Medium,,
+01,Intro Ai Intelligent Textbooks,Evolution of AI Approaches Timeline,,Microsim,Not specified,2,Medium,,
+01,Intro Ai Intelligent Textbooks,Five Levels of Textbook Intelligence Visual Model,,Microsim,Not specified,0,Easy,,
+01,Intro Ai Intelligent Textbooks,Interactive Learning Element Types Comparison,,Microsim,Not specified,1,Medium,,
+01,Intro Ai Intelligent Textbooks,Prompt Engineering Iterative Refinement Workflow,,Microsim,Not specified,0,Easy,,
+01,Intro Ai Intelligent Textbooks,Transformer Architecture Diagram,,Microsim,Not specified,2,Medium,,
+02,Getting Started Claude Skills,4-Hour Token Window Visualization,,Microsim,Not specified,0,Easy,,
+02,Getting Started Claude Skills,Iterative Prompt Refinement Metrics,,Microsim,Not specified,0,Medium,,
+02,Getting Started Claude Skills,Skill File Anatomy Diagram,,Microsim,Not specified,1,Medium,,
+02,Getting Started Claude Skills,Skill Installation Locations and Priority,,Microsim,Not specified,0,Medium,,
+02,Getting Started Claude Skills,Skill Invocation and Execution Lifecycle,,Microsim,Not specified,1,Medium,,
+02,Getting Started Claude Skills,Skill Permission Matrix,,Microsim,Not specified,0,Easy,,
+02,Getting Started Claude Skills,Skills vs Commands Decision Tree,,Microsim,Not specified,0,Easy,,
+03,Course Design Educational Theory,Bloom's Taxonomy 1956 vs 2001 Comparison,,Microsim,Not specified,0,Medium,,
+03,Course Design Educational Theory,Bloom's Taxonomy Application Distribution in Quality Courses,,Microsim,Not specified,0,Easy,,
+03,Course Design Educational Theory,Course Description Quality Impact on Workflow,,Microsim,Not specified,0,Medium,,
+03,Course Design Educational Theory,Course Description Quality Rubric Visualization,,Microsim,Not specified,1,Medium,,
+03,Course Design Educational Theory,Lower-Order vs Higher-Order Thinking Skills,,Microsim,Not specified,0,Easy,,
+03,Course Design Educational Theory,Topic-to-Concept Expansion Example,,Microsim,Not specified,0,Medium,,
+04,Intro Learning Graphs,DAG vs Cyclic Graph Comparison,,Microsim,Not specified,0,Medium,,
+04,Intro Learning Graphs,Dependency Mapping Decision Tree,,Microsim,Not specified,0,Easy,,
+04,Intro Learning Graphs,Dependency Pattern Examples,,Microsim,Not specified,0,Medium,,
+04,Intro Learning Graphs,Learning Graph Structure Visualization,,Microsim,Not specified,1,Medium,,
+04,Intro Learning Graphs,Token Consumption Timeline for Complete Textbook Project,,Microsim,Not specified,0,Medium,,
+05,Concept Enumeration Dependencies,CSV File Format Example with Validation,,Microsim,Not specified,0,Medium,,
+05,Concept Enumeration Dependencies,Concept Count by Course Duration,,Microsim,Not specified,0,Medium,,
+05,Concept Enumeration Dependencies,Concept Depth Distribution Analysis,,Microsim,Not specified,0,Medium,,
+05,Concept Enumeration Dependencies,Concept Granularity Spectrum Visualization,,Microsim,Not specified,0,Medium,,
+05,Concept Enumeration Dependencies,Concept Label Length Optimization,,Microsim,Not specified,0,Medium,,
+05,Concept Enumeration Dependencies,Concept Label Quality Checklist,,Microsim,Not specified,0,Medium,,
+05,Concept Enumeration Dependencies,ConceptID vs ConceptLabel Comparison,,Microsim,Not specified,0,Medium,,
+05,Concept Enumeration Dependencies,Dependency Mapping Workflow,,Microsim,Not specified,0,Easy,,
+05,Concept Enumeration Dependencies,Topic-to-Concept Expansion Process,,Microsim,Not specified,0,Medium,,
+06,Learning Graph Quality Validation,Average Dependencies Distribution Bar Chart,,Microsim,Not specified,0,Medium,,chartjs-generator (98); microsim-p5 (70); mermaid-generator (25)
+06,Learning Graph Quality Validation,DAG Validation Algorithm Visualization,,Microsim,Not specified,0,Medium,,vis-network (98); mermaid-generator (85); microsim-p5 (75)
+06,Learning Graph Quality Validation,Learning Graph Quality Score Calculator MicroSim,,Microsim,Not specified,21,Very Hard,,microsim-p5 (92); chartjs-generator (65); vis-network (20)
+06,Learning Graph Quality Validation,Linear Chain vs Network Structure Comparison,,Microsim,Not specified,0,Medium,,vis-network (95); mermaid-generator (82); microsim-p5 (78)
+06,Learning Graph Quality Validation,Orphaned Nodes Identification Chart,,Microsim,Not specified,0,Medium,,chartjs-generator (97); bubble-chart-generator (80); microsim-p5 (72)
+06,Learning Graph Quality Validation,Taxonomy Distribution Pie Chart,,Microsim,Not specified,0,Medium,,chartjs-generator (98); microsim-p5 (68); venn-diagram-generator (15)
+07,Taxonomy Data Formats,Adding Taxonomy to CSV Workflow Diagram,,Microsim,Not specified,0,Medium,,mermaid-generator (94); microsim-p5 (75); vis-network (45)
+07,Taxonomy Data Formats,CSV to JSON Conversion Mapping Diagram,,Microsim,Not specified,0,Medium,,mermaid-generator (90); microsim-p5 (78); chartjs-generator (20)
+07,Taxonomy Data Formats,Color Accessibility Checker MicroSim,,Microsim,Not specified,12,Hard,,microsim-p5 (95); chartjs-generator (25); vis-network (10)
+07,Taxonomy Data Formats,Dublin Core Metadata Field Reference Card,,Microsim,Not specified,1,Medium,,microsim-p5 (85); chartjs-generator (15)
+07,Taxonomy Data Formats,Learning Graph JSON Schema Diagram,,Microsim,Not specified,1,Medium,,mermaid-generator (92); microsim-p5 (70); vis-network (65)
+07,Taxonomy Data Formats,Python Learning Graph Processing Pipeline,,Microsim,Not specified,4,Hard,,mermaid-generator (93); vis-network (70); microsim-p5 (72)
+08,Mkdocs Platform Documentation,Admonition Types Interactive Reference,,Microsim,Not specified,5,Hard,,microsim-p5 (90); chartjs-generator (15)
+08,Mkdocs Platform Documentation,Git Branching and Merging Visualization MicroSim,,Microsim,Not specified,13,Hard,,microsim-p5 (94); vis-network (82); mermaid-generator (75)
+08,Mkdocs Platform Documentation,Material Theme Features Interactive Comparison,,Microsim,Not specified,5,Hard,,microsim-p5 (88); chartjs-generator (30)
+08,Mkdocs Platform Documentation,MkDocs Build Process Workflow Diagram,,Microsim,Not specified,1,Medium,,mermaid-generator (95); microsim-p5 (70); vis-network (65)
+08,Mkdocs Platform Documentation,MkDocs GitHub Pages Deployment Workflow,,Microsim,Not specified,1,Medium,,microsim-p5 (94); vis-network (82); mermaid-generator (75)
+09,Claude Skills Architecture Development,Git Workflow for Skill Development,,Microsim,Not specified,0,Medium,,mermaid-generator (95); microsim-p5 (72); vis-network (60)
+09,Claude Skills Architecture Development,Security Zones Diagram,,Microsim,Not specified,0,Medium,,mermaid-generator (94); microsim-p5 (75); vis-network (55)
+09,Claude Skills Architecture Development,Skill Directory Structure Diagram,,Microsim,Not specified,1,Medium,,mermaid-generator (93); vis-network (70); microsim-p5 (68)
+09,Claude Skills Architecture Development,Skill Package Contents Checklist,,Microsim,Not specified,1,Medium,,microsim-p5 (88); mermaid-generator (70); venn-diagram-generator (65); microsim-p5 (88); mermaid-generator (70); venn-diagram-generator (65)
+09,Claude Skills Architecture Development,Skill Testing Workflow Diagram,,Microsim,Not specified,2,Medium,,microsim-p5 (85); chartjs-generator (15)
+10,Content Creation Workflows,Chapter Index File Structure Diagram,,Microsim,Not specified,1,Medium,,mermaid-generator (92); microsim-p5 (75); vis-network (50)
+10,Content Creation Workflows,Chapter Organization Workflow Diagram,,Microsim,Not specified,0,Medium,,mermaid-generator (94); microsim-p5 (73); vis-network (55)
+10,Content Creation Workflows,Content Generation Process Timeline,,Microsim,Not specified,0,Easy,,timeline-generator (98); chartjs-generator (70); microsim-p5 (75)
+10,Content Creation Workflows,ISO 11179 Principles Comparison Table Infographic,,Microsim,Not specified,5,Hard,,microsim-p5 (94); chartjs-generator (30); vis-network (15)
+10,Content Creation Workflows,Interactive Exercise Generator MicroSim,,Microsim,Not specified,21,Hard,,microsim-p5 (96); chartjs-generator (25); vis-network (15)
+10,Content Creation Workflows,Worked Example: Determining Reading Level from Course Description,,Microsim,Not specified,4,Hard,,microsim-p5 (90); chartjs-generator (20)
+11,Educational Resources Assessment,Bloom's Taxonomy Distribution Analyzer Chart,,Microsim,Not specified,9,Very Hard,,chartjs-generator (96); microsim-p5 (75); venn-diagram-generator (25)
+11,Educational Resources Assessment,Command-Line Interface Basics Interactive Infographic,,Microsim,Not specified,9,Hard,,chartjs-generator (94); microsim-p5 (88); vis-network (30)
+11,Educational Resources Assessment,FAQ Question Pattern Analysis Workflow,,Microsim,Not specified,0,Medium,,mermaid-generator (95); vis-network (65); microsim-p5 (70)
+11,Educational Resources Assessment,Interactive Quiz Question Constructor MicroSim,,Microsim,Not specified,23,Very Hard,,microsim-p5 (97); chartjs-generator (20); vis-network (15)
+12,Interactive Elements Microsims,Algorithm Visualization with Step Controls MicroSim,,Microsim,Not specified,24,Hard,,microsim-p5 (95); chartjs-generator (25); vis-network (15)
+12,Interactive Elements Microsims,Basic MicroSim Template Structure,,Microsim,Not specified,8,Hard,,mermaid-generator (95); vis-network (65); microsim-p5 (68)
+12,Interactive Elements Microsims,MicroSim Design Quality Checklist,,Microsim,Not specified,10,Hard,,microsim-p5 (96); chartjs-generator (15); vis-network (15)
+12,Interactive Elements Microsims,MicroSim File Relationship Diagram,,Microsim,Not specified,0,Easy,,mermaid-generator (93); vis-network (75); microsim-p5 (72)
+12,Interactive Elements Microsims,Responsive Iframe Embedding MicroSim,,Microsim,Not specified,16,Hard,,microsim-p5 (96); chartjs-generator (15); vis-network (15)
+12,Interactive Elements Microsims,p5.js Architecture and Execution Model,,Microsim,Not specified,5,Medium,,mermaid-generator (94); microsim-p5 (85); vis-network (70)
+13,Dev Tools Version Control Deployment,Interactive Directory Navigation Practice MicroSim,,Microsim,Not specified,14,Hard,,microsim-p5 (94); vis-network (85); mermaid-generator (78)
+13,Dev Tools Version Control Deployment,Permission Bits Visual Infographic,,Microsim,Not specified,4,Hard,,microsim-p5 (85); chartjs-generator (15)
+13,Dev Tools Version Control Deployment,Skill Installation Workflow Diagram,,Microsim,Not specified,0,Medium,,timeline-generator (97); mermaid-generator (85); chartjs-generator (75)
+13,Dev Tools Version Control Deployment,Terminal Workflow for Textbook Development,,Microsim,Not specified,0,Medium,,mermaid-generator (95); microsim-p5 (73); vis-network (55)
+13,Dev Tools Version Control Deployment,VS Code Interface Layout for Textbook Development,,Microsim,Not specified,4,Medium,,microsim-p5 (80); mermaid-generator (50)
