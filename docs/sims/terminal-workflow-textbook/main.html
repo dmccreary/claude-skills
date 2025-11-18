@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Workflow for Textbook Development</title>
+    <link rel="stylesheet" href="../adding-taxonomy-workflow/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Terminal Workflow for Textbook Development</h1>
+        <p class="subtitle">Complete development and deployment workflow using terminal commands</p>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+flowchart TD
+    Start(("Open VS Code")):::startNode
+    Terminal["Open Terminal<br/>(Ctrl+`)"]:::termNode
+    Serve["<code>mkdocs serve</code><br/>Start dev server"]:::mkdocsNode
+    NeedScripts{"Need to run<br/>Python scripts?"}:::decisionNode
+    NewTerm["Create new terminal<br/>(+)"]:::termNode
+    Edit["Edit markdown files<br/>Auto-reload in browser"]:::editNode
+    Script["<code>python docs/learning-graph/<br/>analyze-graph.py</code>"]:::scriptNode
+    Quality{"Quality check<br/>passed?"}:::decisionNode
+    Fix["Fix identified issues"]:::editNode
+    Commit["<code>git add . && git commit<br/>-m 'message'</code>"]:::gitNode
+    Push["<code>git push origin main</code>"]:::gitNode
+    Deploy["<code>mkdocs gh-deploy</code>"]:::deployNode
+    End(("Textbook Published")):::endNode
+
+    Start --> Terminal
+    Terminal --> Serve
+    Serve --> NeedScripts
+    NeedScripts -->|Yes| NewTerm
+    NeedScripts -->|No| Edit
+    NewTerm --> Edit
+    Edit --> Script
+    Script --> Quality
+    Quality -->|No| Fix
+    Fix --> Edit
+    Quality -->|Yes| Commit
+    Commit --> Push
+    Push --> Deploy
+    Deploy --> End
+
+    classDef startNode fill:#667eea,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
+    classDef termNode fill:#4facfe,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef mkdocsNode fill:#43aa8b,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef decisionNode fill:#ffd166,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef editNode fill:#f77f00,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef scriptNode fill:#06ffa5,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef gitNode fill:#764ba2,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef deployNode fill:#f093fb,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef endNode fill:#43aa8b,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
+
+    linkStyle default stroke:#999,stroke-width:2px,font-size:14px
+            </div>
+        </div>
+
+        <div class="description">
+            <h2>Development Workflow</h2>
+            <p>This workflow demonstrates the complete terminal command sequence for developing, validating, and deploying intelligent textbook content using MkDocs and Git.</p>
+
+            <h3>Terminal Setup</h3>
+            <p><strong>Terminal 1 (Development Server):</strong> Runs <code>mkdocs serve</code> continuously on localhost:8000</p>
+            <p><strong>Terminal 2 (Scripts):</strong> Execute Python scripts for analysis and validation</p>
+            <p><strong>Terminal 3 (Git):</strong> Version control operations and deployment</p>
+
+            <h3>Key Commands</h3>
+            <ol>
+                <li><strong>Start Development Server</strong> - <code>mkdocs serve</code> - Auto-reload on file changes</li>
+                <li><strong>Validate Learning Graph</strong> - <code>python docs/learning-graph/analyze-graph.py</code></li>
+                <li><strong>Stage and Commit</strong> - <code>git add . && git commit -m "Update chapter content"</code></li>
+                <li><strong>Push Changes</strong> - <code>git push origin main</code></li>
+                <li><strong>Deploy to GitHub Pages</strong> - <code>mkdocs gh-deploy</code></li>
+            </ol>
+
+            <h3>Quality Checks</h3>
+            <p>Always run validation scripts before committing to ensure:</p>
+            <ul>
+                <li>Learning graph is a valid DAG (no circular dependencies)</li>
+                <li>All concept references are valid</li>
+                <li>Taxonomy distribution is balanced</li>
+                <li>Markdown syntax is correct</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

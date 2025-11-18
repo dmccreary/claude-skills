@@ -1,0 +1,109 @@
+{
+  "title": "Skill Installation Workflow",
+  "events": [
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "1",
+        "display_date": "Step 1"
+      },
+      "text": {
+        "headline": "Create Skill in Project",
+        "text": "Develop skill in project repository at ~/Documents/textbook-project/skills/new-skill/ with SKILL.md and supporting files."
+      },
+      "group": "Development",
+      "notes": "Original files are version controlled in the project repository. This keeps skills organized with the project they support."
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "2",
+        "display_date": "Step 2"
+      },
+      "text": {
+        "headline": "Run Install Script",
+        "text": "Execute ./scripts/install-claude-skills.sh to create symlinks in global skills directory."
+      },
+      "group": "Installation",
+      "notes": "The install script automates symlink creation, eliminating manual file copying and ensuring changes stay synchronized."
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "3",
+        "display_date": "Step 3"
+      },
+      "text": {
+        "headline": "Symlinks Created",
+        "text": "Script creates symlinks at ~/.claude/skills/ pointing back to project skills directory."
+      },
+      "group": "Installation",
+      "notes": "Symlinks (symbolic links) point to original files without duplicating them. Changes to original files are immediately reflected."
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "4",
+        "display_date": "Step 4"
+      },
+      "text": {
+        "headline": "Claude Code Discovery",
+        "text": "Claude Code searches ~/.claude/skills/ directory and discovers the new skill via symlink."
+      },
+      "group": "Discovery",
+      "notes": "Claude Code automatically scans the global skills directory on startup and when skills are invoked. No manual registration required."
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "5",
+        "display_date": "Step 5"
+      },
+      "text": {
+        "headline": "Load SKILL.md",
+        "text": "Claude Code reads SKILL.md file to understand the skill's capabilities, workflow, and requirements."
+      },
+      "group": "Discovery",
+      "notes": "The SKILL.md file contains the skill definition with YAML frontmatter (name, description) and detailed workflow instructions."
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "6",
+        "display_date": "Step 6"
+      },
+      "text": {
+        "headline": "Skill Available for Use",
+        "text": "Skill is now registered and can be invoked with /skill command or Skill tool."
+      },
+      "group": "Usage",
+      "notes": "Once loaded, the skill can be invoked by name. Updates to the original files are immediately available without reinstallation."
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "7",
+        "display_date": "Step 7"
+      },
+      "text": {
+        "headline": "Update Skill (Optional)",
+        "text": "Edit files in project skills directory. Changes immediately available to Claude Code through symlink."
+      },
+      "group": "Development",
+      "notes": "This is the key benefit of symlinks: modify the original skill files and the changes are instantly available without running install script again."
+    },
+    {
+      "start_date": {
+        "year": "2024",
+        "month": "8",
+        "display_date": "Step 8"
+      },
+      "text": {
+        "headline": "Version Control (Optional)",
+        "text": "Commit skill changes to Git repository for version tracking and sharing."
+      },
+      "group": "Development",
+      "notes": "Skills in the project directory can be versioned with Git, pushed to GitHub, and shared with others. The ~/.claude/skills/ directory should not be version controlled."
+    }
+  ]
+}

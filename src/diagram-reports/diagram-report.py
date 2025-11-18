@@ -52,6 +52,8 @@ class VisualElement:
     status: str = ""  # Implementation status
     learning_objective: str = ""
     specifications: str = ""
+    microsim_recommendations: List[Tuple[str, int]] = field(default_factory=list)  # [(generator_name, score), ...]
+    microsim_recommendations_text: str = ""  # Full recommendation text
 
     def to_dict(self) -> Dict:
         """Convert to dictionary for CSV export"""
@@ -64,7 +66,8 @@ class VisualElement:
             'Bloom Levels': ', '.join(self.bloom_levels),
             'UI Elements': self.ui_elements_count,
             'Difficulty': self.estimated_difficulty,
-            'Learning Objective': self.learning_objective[:100] + '...' if len(self.learning_objective) > 100 else self.learning_objective
+            'Learning Objective': self.learning_objective[:100] + '...' if len(self.learning_objective) > 100 else self.learning_objective,
+            'MicroSim Recommendations': '; '.join([f"{name} ({score})" for name, score in self.microsim_recommendations])
         }
 
 
@@ -80,6 +83,8 @@ class DiagramAnalyzer:
     BLOOM_PATTERN = re.compile(r'Bloom\'?s Taxonomy[:\s]+(.*?)(?:\)|\.|\n|\r)', re.IGNORECASE)
     LEARNING_OBJ_PATTERN = re.compile(r'\*\*Learning Objective:\*\*\s*(.*?)(?:\n\*\*|\r\n\*\*|\n\n|\r\r)', re.DOTALL | re.IGNORECASE)
     STATUS_PATTERN = re.compile(r'\*\*Status:\*\*\s*(.*?)(?:\n\n|\r\n\r\n|\n\*\*|\r\*\*|\n|\r)', re.IGNORECASE)
+    MICROSIM_RECOMMENDATIONS_PATTERN = re.compile(r'\*\*MicroSim Generator Recommendations:\*\*\s*(.*?)(?=</details>|$)', re.DOTALL | re.IGNORECASE)
+    RECOMMENDATION_LINE_PATTERN = re.compile(r'\d+\.\s+([a-z0-9-]+)\s+\((\d+)/100\)', re.IGNORECASE)
 
     # UI element keywords to count
     UI_KEYWORDS = [
@@ -196,6 +201,9 @@ class DiagramAnalyzer:
         # Extract status
         status = self.extract_status(content)
 
+        # Extract MicroSim recommendations
+        microsim_recommendations, microsim_text = self.extract_microsim_recommendations(content)
+
         # Count UI elements
         ui_count = self.count_ui_elements(content)
 
@@ -213,7 +221,9 @@ class DiagramAnalyzer:
             estimated_difficulty=difficulty,
             status=status,
             learning_objective=learning_obj,
-            specifications=content[:500]  # Store first 500 chars of specs
+            specifications=content[:500],  # Store first 500 chars of specs
+            microsim_recommendations=microsim_recommendations,
+            microsim_recommendations_text=microsim_text
         )
 
     def extract_bloom_levels(self, content: str) -> List[str]:
@@ -254,6 +264,28 @@ class DiagramAnalyzer:
         if status_match:
             return status_match.group(1).strip()
         return ""
+
+    def extract_microsim_recommendations(self, content: str) -> Tuple[List[Tuple[str, int]], str]:
+        """Extract MicroSim recommendations from content
+
+        Returns:
+            Tuple of (list of (generator_name, score) tuples, full recommendation text)
+        """
+        recommendations_match = self.MICROSIM_RECOMMENDATIONS_PATTERN.search(content)
+        if not recommendations_match:
+            return ([], "")
+
+        recommendations_text = recommendations_match.group(1).strip()
+        full_text = f"**MicroSim Generator Recommendations:**\n{recommendations_text}"
+
+        # Parse individual recommendation lines
+        recommendations = []
+        for line_match in self.RECOMMENDATION_LINE_PATTERN.finditer(recommendations_text):
+            generator_name = line_match.group(1)
+            score = int(line_match.group(2))
+            recommendations.append((generator_name, score))
+
+        return (recommendations, full_text)
 
     def count_ui_elements(self, content: str) -> int:
         """Count the number of UI elements mentioned in specifications"""
@@ -354,8 +386,8 @@ class ReportGenerator:
             "",
             "## All Visual Elements",
             "",
-            "| Chapter | Element Title | Status | Type | Bloom Levels | UI Elements | Difficulty |",
-            "|---------|---------------|--------|------|--------------|-------------|------------|"
+            "| Chapter | Element Title | Status | Type | Bloom Levels | UI Elements | Difficulty | Recommended MicroSims |",
+            "|---------|---------------|--------|------|--------------|-------------|------------|-----------------------|"
         ])
 
         for element in sorted(self.elements, key=lambda e: (e.chapter_num, e.element_title)):
@@ -370,10 +402,17 @@ class ReportGenerator:
             chapter_link = f"../chapters/{element.chapter_dir}/index.md#{anchor}"
             element_link = f"[{element.element_title}]({chapter_link})"
             status_display = element.status if element.status else ""
+
+            # Format MicroSim recommendations with generator name and score on different lines
+            if element.microsim_recommendations:
+                microsim_str = '<br>'.join([f"{name}<br>({score})" for name, score in element.microsim_recommendations])
+            else:
+                microsim_str = ""
+
             lines.append(
                 f"| {int(element.chapter_num)} | {element_link} | "
                 f"{status_display} | {element.element_type.title()} | {bloom_str} | "
-                f"{element.ui_elements_count} | {element.estimated_difficulty} |"
+                f"{element.ui_elements_count} | {element.estimated_difficulty} | {microsim_str} |"
             )
 
         return '\n'.join(lines)
@@ -427,6 +466,10 @@ class ReportGenerator:
                 lines.append(f"- **Difficulty:** {element.estimated_difficulty}")
                 if element.learning_objective:
                     lines.append(f"- **Learning Objective:** {element.learning_objective[:150]}...")
+                # Add MicroSim recommendations if present
+                if element.microsim_recommendations_text:
+                    lines.append("")
+                    lines.append(element.microsim_recommendations_text)
                 lines.append("")
 
         return '\n'.join(lines)
@@ -434,8 +477,9 @@ class ReportGenerator:
     def generate_csv(self, output_file: str):
         """Generate CSV format report"""
         with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ['Chapter', 'Chapter Name', 'Element Title', 'Type',
-                         'Bloom Levels', 'UI Elements', 'Difficulty', 'Learning Objective']
+            fieldnames = ['Chapter', 'Chapter Name', 'Element Title', 'Status', 'Type',
+                         'Bloom Levels', 'UI Elements', 'Difficulty', 'Learning Objective',
+                         'MicroSim Recommendations']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
             writer.writeheader()
@@ -585,6 +629,7 @@ class ReportGenerator:
                 <th>Bloom Levels</th>
                 <th>UI Elements</th>
                 <th>Difficulty</th>
+                <th>Recommended MicroSims</th>
             </tr>
         </thead>
         <tbody>
@@ -595,6 +640,12 @@ class ReportGenerator:
             difficulty_class = f"difficulty-{element.estimated_difficulty.lower().replace(' ', '-')}"
             type_class = f"type-{element.element_type}"
 
+            # Format MicroSim recommendations for HTML
+            if element.microsim_recommendations:
+                microsim_html = '<br>'.join([f"{name}<br>({score})" for name, score in element.microsim_recommendations])
+            else:
+                microsim_html = ""
+
             html += f"""
             <tr class="{type_class}">
                 <td><strong>{int(element.chapter_num)}</strong></td>
@@ -603,6 +654,7 @@ class ReportGenerator:
                 <td><small>{bloom_str}</small></td>
                 <td style="text-align: center;">{element.ui_elements_count}</td>
                 <td class="{difficulty_class}">{element.estimated_difficulty}</td>
+                <td><small>{microsim_html}</small></td>
             </tr>
 """
 

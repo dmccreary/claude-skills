@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Question Pattern Analysis Workflow</title>
+    <link rel="stylesheet" href="../adding-taxonomy-workflow/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>FAQ Question Pattern Analysis Workflow</h1>
+        <p class="subtitle">Systematic process for generating and validating FAQ content from course materials</p>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+flowchart TD
+    Start(("Course Materials<br/>Assembled")):::startNode
+    Extract["Extract Concept List<br/>from Learning Graph"]:::autoNode
+    Analyze["Analyze Concept<br/>Dependencies"]:::autoNode
+    Search["Search for<br/>Question Patterns"]:::autoNode
+    Generate["Generate Candidate<br/>Questions (5-10 per concept)"]:::autoNode
+    QualityCheck{"Quality<br/>Threshold Met?"}:::decisionNode
+    Flag["Flag for<br/>Human Review"]:::reviewNode
+    AddDB["Add to FAQ<br/>Database"]:::autoNode
+    Review["Educator Review<br/>& Edit"]:::reviewNode
+    GenAnswers["Generate Answers<br/>from Corpus"]:::autoNode
+    Validate["Validate Answer<br/>Completeness"]:::validNode
+    Complete{"Answer<br/>Complete?"}:::decisionNode
+    Revise["Revise Answer"]:::reviewNode
+    Approve["Approve FAQ Entry"]:::validNode
+    Update["Update FAQ Index"]:::autoNode
+    End(("FAQ Published")):::endNode
+
+    Start --> Extract
+    Extract --> Analyze
+    Analyze --> Search
+    Search --> Generate
+    Generate --> QualityCheck
+    QualityCheck -->|No| Flag
+    QualityCheck -->|Yes| AddDB
+    Flag --> Review
+    Review --> AddDB
+    AddDB --> GenAnswers
+    GenAnswers --> Validate
+    Validate --> Complete
+    Complete -->|No| Revise
+    Revise --> GenAnswers
+    Complete -->|Yes| Approve
+    Approve --> Update
+    Update --> End
+
+    classDef startNode fill:#667eea,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
+    classDef autoNode fill:#4facfe,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef decisionNode fill:#ffd166,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef reviewNode fill:#f77f00,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef validNode fill:#43aa8b,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef endNode fill:#9b59b6,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
+
+    linkStyle default stroke:#999,stroke-width:2px,font-size:14px
+            </div>
+        </div>
+
+        <div class="description">
+            <h2>Workflow Overview</h2>
+            <p>This systematic workflow uses both automated analysis and human review to generate high-quality FAQ content from course materials including learning graphs, glossaries, and chapter content.</p>
+
+            <h3>Workflow Phases</h3>
+
+            <h4>Phase 1: Automated Analysis</h4>
+            <ol>
+                <li><strong>Extract Concept List</strong> - Parse learning graph to enumerate all concepts</li>
+                <li><strong>Analyze Dependencies</strong> - Identify complex concepts (high in-degree) and foundational concepts (zero dependencies)</li>
+                <li><strong>Search Patterns</strong> - Scan corpus for existing questions and common interrogative structures</li>
+                <li><strong>Generate Questions</strong> - Use Claude API to create 5-10 questions per concept across categories:
+                    <ul>
+                        <li>Definitional: "What is..."</li>
+                        <li>Procedural: "How do I..."</li>
+                        <li>Troubleshooting: "Why doesn't..."</li>
+                        <li>Comparative: "What's the difference between..."</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h4>Phase 2: Quality Check</h4>
+            <p>Questions must meet criteria:</p>
+            <ul>
+                <li>✓ Non-redundant (unique from existing FAQs)</li>
+                <li>✓ Answerable from course content (no external knowledge required)</li>
+                <li>✓ Aligned with reading level</li>
+                <li>✓ Diverse across question categories</li>
+            </ul>
+            <p><strong>Passing rate:</strong> Typically 60-70% of auto-generated questions pass quality check</p>
+
+            <h4>Phase 3: Human Review</h4>
+            <p>Subject matter expert reviews flagged questions and:</p>
+            <ul>
+                <li>Edits for clarity and accuracy</li>
+                <li>Ensures pedagogical appropriateness</li>
+                <li>Removes questions outside course scope</li>
+                <li>Adds domain-specific nuance</li>
+            </ul>
+
+            <h4>Phase 4: Answer Generation & Validation</h4>
+            <ol>
+                <li><strong>Generate Answers</strong> - Claude retrieves relevant passages from course content and synthesizes comprehensive answers with chapter citations</li>
+                <li><strong>Validate Completeness</strong> - Check that answers directly address questions, stay within course scope, and match reading level</li>
+                <li><strong>Revise if Needed</strong> - Educator supplements or rewrites answers; may identify content gaps requiring new chapter sections</li>
+                <li><strong>Approve Entry</strong> - Finalized FAQ question-answer pair added to /docs/faq.md</li>
+            </ol>
+
+            <h4>Phase 5: Publication</h4>
+            <p><strong>Update FAQ Index</strong> - Add search keywords, concept tags, and navigation links; integrate into MkDocs site</p>
+            <p><strong>Analytics Tracking</strong> - Monitor which questions receive most views to identify student needs</p>
+
+            <h3>Quality Metrics</h3>
+            <p><strong>Target:</strong> 100-200 FAQ entries for a complete course</p>
+            <p><strong>Coverage:</strong> Every concept should have at least 1 FAQ question</p>
+            <p><strong>Human intervention:</strong> 30-40% of questions require educator review</p>
+            <p><strong>Answer completeness:</strong> 95%+ of answers should be self-contained (no external resources needed)</p>
+
+            <h3>Integration Benefits</h3>
+            <ul>
+                <li><strong>Chatbot Ready:</strong> Structured FAQ database enables AI chatbot integration</li>
+                <li><strong>Search Optimized:</strong> FAQ content improves site search results</li>
+                <li><strong>Student Support:</strong> Reduces instructor questions by addressing common issues proactively</li>
+                <li><strong>Content Validation:</strong> FAQ generation process often reveals gaps in course content</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Graph JSON Schema</title>
+    <link rel="stylesheet" href="../adding-taxonomy-workflow/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Learning Graph JSON Schema</h1>
+        <p class="subtitle">Hierarchical structure of the learning graph JSON format for vis-network</p>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+graph TD
+    Root["learning-graph.json"]:::rootNode
+    Meta["metadata"]:::metaNode
+    Groups["groups"]:::groupNode
+    Nodes["nodes (array)"]:::nodeNode
+    Edges["edges (array)"]:::edgeNode
+
+    Root --> Meta
+    Root --> Groups
+    Root --> Nodes
+    Root --> Edges
+
+    Meta --> M1["title: string"]:::fieldNode
+    Meta --> M2["description: string"]:::fieldNode
+    Meta --> M3["creator: string"]:::fieldNode
+    Meta --> M4["date: ISO 8601"]:::fieldNode
+    Meta --> M5["version: string"]:::fieldNode
+
+    Groups --> G1["FOUND: {color, font, shape}"]:::fieldNode
+    Groups --> G2["BASIC: {color, font, shape}"]:::fieldNode
+    Groups --> G3["... (other taxonomies)"]:::fieldNode
+
+    Nodes --> N1["[0]: {id, label, group}"]:::fieldNode
+    Nodes --> N2["[1]: {id, label, group}"]:::fieldNode
+    Nodes --> N3["... (~200 objects)"]:::fieldNode
+
+    Edges --> E1["[0]: {from, to}"]:::fieldNode
+    Edges --> E2["[1]: {from, to}"]:::fieldNode
+    Edges --> E3["... (~600 objects)"]:::fieldNode
+
+    classDef rootNode fill:#ffd700,stroke:#333,stroke-width:3px,color:#333,font-size:16px
+    classDef metaNode fill:#4facfe,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef groupNode fill:#43aa8b,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef nodeNode fill:#9b59b6,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef edgeNode fill:#f77f00,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef fieldNode fill:#ecf0f1,stroke:#333,stroke-width:1px,color:#333,font-size:14px
+
+    linkStyle default stroke:#999,stroke-width:2px
+            </div>
+        </div>
+
+        <div class="description">
+            <h2>JSON Structure Overview</h2>
+            <p>The learning graph JSON format is designed for vis-network visualization and contains four main sections: metadata, groups, nodes, and edges.</p>
+
+            <h3>Main Sections</h3>
+
+            <h4>1. metadata (Dublin Core)</h4>
+            <p>Descriptive information about the learning graph following Dublin Core standards.</p>
+
+            <h4>2. groups (Visual Styling)</h4>
+            <p>Defines colors, fonts, and shapes for each taxonomy category (FOUND, BASIC, ARCH, etc.).</p>
+
+            <h4>3. nodes (~200 objects)</h4>
+            <p>Array of concept objects, each with:</p>
+            <ul>
+                <li><strong>id:</strong> Unique integer identifier</li>
+                <li><strong>label:</strong> Concept name (max 32 characters)</li>
+                <li><strong>group:</strong> Taxonomy category code</li>
+            </ul>
+
+            <h4>4. edges (~600 objects)</h4>
+            <p>Array of dependency relationships, each with:</p>
+            <ul>
+                <li><strong>from:</strong> Prerequisite concept ID</li>
+                <li><strong>to:</strong> Dependent concept ID</li>
+            </ul>
+            <p>For a 200-concept graph with average 3 dependencies per concept, expect ~600 edges.</p>
+
+            <h3>Example JSON</h3>
+            <pre><code>{
+  "metadata": {
+    "title": "Introduction to Learning Graphs",
+    "creator": "Claude AI",
+    "date": "2025-11-17"
+  },
+  "groups": {
+    "FOUND": {"color": "#ef5350", "font": {"color": "#fff"}},
+    "BASIC": {"color": "#ff7043", "font": {"color": "#fff"}}
+  },
+  "nodes": [
+    {"id": 1, "label": "Graph Theory", "group": "FOUND"},
+    {"id": 2, "label": "Dependencies", "group": "BASIC"}
+  ],
+  "edges": [
+    {"from": 1, "to": 2}
+  ]
+}</code></pre>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            }
+        });
+    </script>
+</body>
+</html>

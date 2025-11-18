@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Installation Workflow Timeline</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.7.3/vis-timeline-graph2d.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .filter-btn.active {
+            background: #43aa8b;
+        }
+
+        #timeline {
+            height: 500px;
+            border: 2px solid #ecf0f1;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 2px solid #333;
+        }
+
+        .event-details {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 20px;
+            min-height: 200px;
+        }
+
+        .event-details h2 {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .event-details .category {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .event-details .description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .event-details .notes {
+            background: #fff;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            font-style: italic;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            #timeline {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Skill Installation Workflow</h1>
+        <p class="subtitle">Step-by-step process for installing Claude skills using symlinks</p>
+
+        <div class="controls">
+            <button class="filter-btn active" onclick="filterCategory('all')">All Steps</button>
+            <button class="filter-btn" onclick="filterCategory('Development')">Development</button>
+            <button class="filter-btn" onclick="filterCategory('Installation')">Installation</button>
+            <button class="filter-btn" onclick="filterCategory('Discovery')">Discovery</button>
+            <button class="filter-btn" onclick="filterCategory('Usage')">Usage</button>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #4facfe;"></div>
+                <span>Development</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #f77f00;"></div>
+                <span>Installation</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #43aa8b;"></div>
+                <span>Discovery</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #9b59b6;"></div>
+                <span>Usage</span>
+            </div>
+        </div>
+
+        <div id="timeline"></div>
+
+        <div class="event-details" id="event-details">
+            <p style="text-align: center; color: #7f8c8d; padding: 60px 0;">Click on any event in the timeline to see details</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.7.3/vis-timeline-graph2d.min.js"></script>
+    <script>
+        const categoryColors = {
+            'Development': '#4facfe',
+            'Installation': '#f77f00',
+            'Discovery': '#43aa8b',
+            'Usage': '#9b59b6'
+        };
+
+        let timeline, timelineData, allItems;
+
+        fetch('timeline.json')
+            .then(response => response.json())
+            .then(data => {
+                // Convert events to vis-timeline format
+                allItems = data.events.map((event, index) => {
+                    const year = parseInt(event.start_date.year);
+                    const month = parseInt(event.start_date.month || 1);
+                    const startDate = new Date(year, month - 1, 1);
+
+                    return {
+                        id: `event-${index}`,
+                        content: event.text.headline,
+                        start: startDate,
+                        title: event.notes || event.text.headline,
+                        className: event.group.replace(/\s+/g, '-').toLowerCase(),
+                        style: `background-color: ${categoryColors[event.group]}; color: white; border-color: ${categoryColors[event.group]};`,
+                        category: event.group,
+                        eventData: event
+                    };
+                });
+
+                // Create timeline
+                const container = document.getElementById('timeline');
+                timelineData = new vis.DataSet(allItems);
+
+                const options = {
+                    width: '100%',
+                    height: '500px',
+                    margin: { item: 30, axis: 50 },
+                    orientation: 'top',
+                    zoomMin: 1000 * 60 * 60 * 24 * 30,  // 1 month
+                    zoomMax: 1000 * 60 * 60 * 24 * 365 * 2,  // 2 years
+                    stack: true,
+                    selectable: true,
+                    horizontalScroll: true,
+                    verticalScroll: false,
+                    zoomKey: 'ctrlKey'
+                };
+
+                timeline = new vis.Timeline(container, timelineData, options);
+
+                // Handle event selection
+                timeline.on('select', function(properties) {
+                    if (properties.items.length > 0) {
+                        const itemId = properties.items[0];
+                        const item = allItems.find(i => i.id === itemId);
+                        showEventDetails(item);
+                    }
+                });
+
+                // Fit timeline to show all events
+                timeline.fit();
+            })
+            .catch(error => {
+                console.error('Error loading timeline data:', error);
+                document.getElementById('timeline').innerHTML =
+                    '<p style="text-align: center; padding: 200px 0; color: #e74c3c;">Error loading timeline data. Please check the console.</p>';
+            });
+
+        function filterCategory(category) {
+            // Update button states
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Filter timeline
+            if (category === 'all') {
+                timelineData.clear();
+                timelineData.add(allItems);
+            } else {
+                const filtered = allItems.filter(item => item.category === category);
+                timelineData.clear();
+                timelineData.add(filtered);
+            }
+
+            timeline.fit();
+        }
+
+        function showEventDetails(item) {
+            const event = item.eventData;
+            const detailsDiv = document.getElementById('event-details');
+
+            const categoryColor = categoryColors[event.group];
+
+            detailsDiv.innerHTML = `
+                <h2>${event.text.headline}</h2>
+                <div class="category" style="background-color: ${categoryColor}; color: white;">
+                    ${event.group}
+                </div>
+                <div class="description">
+                    ${event.text.text}
+                </div>
+                ${event.notes ? `
+                <div class="notes">
+                    <strong>Note:</strong> ${event.notes}
+                </div>
+                ` : ''}
+            `;
+        }
+    </script>
+</body>
+</html>

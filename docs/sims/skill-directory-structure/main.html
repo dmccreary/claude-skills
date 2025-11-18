@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Directory Structure</title>
+    <link rel="stylesheet" href="../adding-taxonomy-workflow/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Skill Directory Structure</h1>
+        <p class="subtitle">Standard organization for a Claude skill package</p>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+graph TD
+    Root["skill-name/"]:::rootNode
+    Skill["SKILL.md<br/>Entry point & workflow"]:::skillNode
+
+    Scripts["scripts/"]:::dirNode
+    Templates["templates/"]:::dirNode
+    Refs["references/"]:::dirNode
+    Examples["examples/"]:::dirNode
+
+    Root --> Skill
+    Root --> Scripts
+    Root --> Templates
+    Root --> Refs
+    Root --> Examples
+
+    Scripts --> S1["analyze-graph.py"]:::scriptNode
+    Scripts --> S2["csv-to-json.py"]:::scriptNode
+    Scripts --> S3["validate.py"]:::scriptNode
+
+    Templates --> T1["report-template.md"]:::templateNode
+    Templates --> T2["output-format.json"]:::templateNode
+
+    Refs --> R1["reading-levels.md"]:::refNode
+    Refs --> R2["taxonomy-guide.md"]:::refNode
+
+    Examples --> E1["sample-input.csv"]:::exampleNode
+    Examples --> E2["sample-output.json"]:::exampleNode
+
+    Skill -.->|Executes| Scripts
+    Skill -.->|Uses| Templates
+    Skill -.->|Loads| Refs
+    Skill -.->|References| Examples
+
+    classDef rootNode fill:#4facfe,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
+    classDef skillNode fill:#ffd700,stroke:#333,stroke-width:3px,color:#333,font-size:16px
+    classDef dirNode fill:#667eea,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef scriptNode fill:#43aa8b,stroke:#333,stroke-width:1px,color:#fff,font-size:14px
+    classDef templateNode fill:#9b59b6,stroke:#333,stroke-width:1px,color:#fff,font-size:14px
+    classDef refNode fill:#f77f00,stroke:#333,stroke-width:1px,color:#fff,font-size:14px
+    classDef exampleNode fill:#e74c3c,stroke:#333,stroke-width:1px,color:#fff,font-size:14px
+
+    linkStyle 9,10,11,12 stroke:#999,stroke-width:1px,stroke-dasharray:5
+            </div>
+        </div>
+
+        <div class="description">
+            <h2>Directory Structure</h2>
+            <p>A well-organized Claude skill follows a standard directory structure that separates workflow definition, executable code, templates, documentation, and examples.</p>
+
+            <h3>Core Components</h3>
+
+            <h4>SKILL.md (Required)</h4>
+            <p><strong>Purpose:</strong> Entry point defining the skill's workflow, capabilities, and usage</p>
+            <p><strong>Contains:</strong> YAML frontmatter (name, description), workflow steps, tool usage, examples</p>
+            <p><strong>Color:</strong> Gold (primary importance)</p>
+
+            <h3>Subdirectories</h3>
+
+            <h4>scripts/ (Optional)</h4>
+            <p><strong>Purpose:</strong> Executable automation code (Python, Bash, etc.)</p>
+            <p><strong>Examples:</strong> Data processing, validation, conversion utilities</p>
+            <p><strong>Best practice:</strong> Make scripts executable and include shebang lines</p>
+
+            <h4>templates/ (Optional)</h4>
+            <p><strong>Purpose:</strong> Reusable content patterns and output formats</p>
+            <p><strong>Examples:</strong> Markdown templates, JSON schemas, HTML boilerplates</p>
+            <p><strong>Usage:</strong> SKILL.md loads and populates templates with actual content</p>
+
+            <h4>references/ (Optional)</h4>
+            <p><strong>Purpose:</strong> Context documents that inform skill behavior</p>
+            <p><strong>Examples:</strong> Style guides, taxonomy definitions, standard requirements</p>
+            <p><strong>Usage:</strong> Skill reads these to understand domain-specific rules</p>
+
+            <h4>examples/ (Optional)</h4>
+            <p><strong>Purpose:</strong> Sample inputs and outputs for testing and documentation</p>
+            <p><strong>Examples:</strong> Sample CSV input, expected JSON output, test cases</p>
+            <p><strong>Usage:</strong> Demonstrates skill capabilities and validates correctness</p>
+
+            <h3>File Relationships</h3>
+            <p><strong>Executes:</strong> SKILL.md runs Python scripts from scripts/ directory</p>
+            <p><strong>Uses:</strong> SKILL.md populates templates from templates/ directory</p>
+            <p><strong>Loads:</strong> SKILL.md reads reference documents for context</p>
+            <p><strong>References:</strong> SKILL.md points users to examples for guidance</p>
+
+            <h3>Minimal Skill Structure</h3>
+            <p>At minimum, a skill needs only SKILL.md. Add subdirectories as complexity grows:</p>
+            <pre><code>simple-skill/
+└── SKILL.md    # Self-contained workflow
+
+complex-skill/
+├── SKILL.md
+├── scripts/
+│   ├── process.py
+│   └── validate.py
+├── templates/
+│   └── output.md
+└── references/
+    └── standards.md</code></pre>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            }
+        });
+    </script>
+</body>
+</html>

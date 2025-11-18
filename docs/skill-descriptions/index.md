@@ -1,114 +1,12 @@
 # Skill Descriptions
 
-This page provides an overview of all available Claude skills for generating intelligent, interactive educational textbooks.
+This page provides an overview of all available Claude skills is
+three categories:
 
-## Complete Workflow Skills
+1. Skills for [generating intelligent textbooks](./book/index.md) from a course description
+2. Skills for [converting a description of a diagram into MicroSim](./microsims/index.md).
+3. Skills that are [specific]() to one type of textbook such as a circuit diagram generator for a electrical engineering department
 
-### Intelligent Textbook
-A comprehensive 12-step workflow for generating complete intelligent, interactive textbooks from course description through concept mapping, dependency graphs, taxonomies, and interactive content creation.
-[Read full description](./intelligent-textbook.md)
-
-### Intelligent Textbook Creator
-Guide the creation of intelligent textbooks using MkDocs with Material theme, learning graphs, MicroSims, and AI-assisted content generation workflows supporting Level 2-5 intelligence frameworks.
-[Read full description](./intelligent-textbook-creator.md)
-
-## Course Foundation Skills
-
-
-
-## Visualization Skills
-
-### MicroSim P5
-Create interactive educational MicroSims using the p5.js JavaScript library with distinct drawing and control regions for browser-based learning simulations.
-[Read full description](./microsim-p5.md)
-
-### Mermaid Diagram Generator
-Generate interactive workflow diagrams using Mermaid.js for flowcharts, process diagrams, decision trees, and algorithm visualizations with colorful backgrounds and 16-point fonts.
-[Read full description](./mermaid-generator.md)
-
-### Bubble Chart Generator
-Create interactive bubble chart visualizations using Chart.js for priority matrices (Impact vs Effort, Risk vs Value) and multi-dimensional data analysis.
-[Read full description](./bubble-chart-generator.md)
-
-### Timeline Generator
-Generate interactive timeline visualizations using vis-timeline.js for historical timelines, project schedules, event sequences, and chronological data with category filtering.
-[Read full description](./timeline-generator.md)
-
-### Venn Diagram Generator
-Create interactive Venn diagram visualizations using venn.js with educational tooltips (not size values) that integrate with glossary definitions for consistent learning experiences.
-[Read full description](./venn-diagram-generator.md)
-
-### Vis-Network MicroSim Generator
-Create educational MicroSims using vis-network.js for interactive network and graph visualizations including learning graphs, concept dependencies, and relationship-based data.
-[Read full description](./vis-network.md)
-
-## Utility Skills
-
-### Install Learning Graph Viewer
-Install an interactive learning graph viewer application into intelligent textbook projects with search, filtering, and statistics capabilities for exploring concept dependencies.
-[Read full description](./install-learning-graph-viewer.md)
-
-## Hardware/Physical Computing Skills
-
-### Moving Rainbow
-Generate MicroPython programs for the Moving Rainbow educational project using Raspberry Pi Pico with NeoPixel LED strips and button controls for hands-on learning.
-[Read full description](./moving-rainbow.md)
-
-## Educational Framework
-
-All skills follow these educational principles:
-
-- **Bloom's Taxonomy (2001)**: Six cognitive levels (Remember, Understand, Apply, Analyze, Evaluate, Create)
-- **ISO 11179 Standards**: Metadata registry standards for glossary definitions
-- **Learning Graphs**: Directed acyclic graphs (DAGs) showing concept prerequisites
-- **Five Intelligence Levels**: From static text (L1) to AI-powered personalization (L5)
-- **MicroSim Pattern**: Standardized interactive simulations for educational content
-- **Accessibility**: WCAG-compliant design with keyboard navigation and screen reader support
-
-## Technology Stack
-
-These skills leverage modern web technologies:
-
-- **MkDocs with Material Theme**: Static site generation and documentation
-- **p5.js**: Interactive educational simulations
-- **vis-network.js, vis-timeline.js**: Network and timeline visualizations
-- **Chart.js**: Data visualization and charts
-- **Mermaid.js**: Workflow and process diagrams
-- **venn.js & D3.js**: Set theory visualizations
-- **Python**: Data processing and validation scripts
-- **GitHub Pages**: Free hosting and deployment
-
-## Getting Started
-
-To use these skills with Claude Code:
-
-1. Install skills globally or per-project using `/scripts/install-claude-skills.sh`
-2. View available skills with `/skills` command
-3. Invoke skills by name when working on educational content
-4. Skills coordinate automatically - e.g., glossary-generator creates definitions that venn-diagram-generator uses
-
-## Skill Dependencies
-
-Some skills build on others:
-
-```
-intelligent-textbook (orchestrator)
-  ├─ course-description-analyzer
-  ├─ learning-graph-generator
-  │    ├─ glossary-generator
-  │    └─ install-learning-graph-viewer
-  ├─ book-chapter-generator
-  ├─ chapter-content-generator
-  │    ├─ microsim-p5
-  │    ├─ mermaid-generator
-  │    ├─ bubble-chart-generator
-  │    ├─ timeline-generator
-  │    ├─ venn-diagram-generator
-  │    └─ vis-network
-  ├─ quiz-generator
-  ├─ faq-generator
-  └─ reference-generator
-```
 
 ## Quality Standards
 
