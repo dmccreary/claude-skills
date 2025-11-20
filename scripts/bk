@@ -2,11 +2,13 @@
 #
 # bk - Build/Book utilities menu
 # Lists all available scripts and programs for managing the claude-skills repository
+# Usage: bk [number] - runs the corresponding script/program
 
 # Color codes for better visibility
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[1;33m'
+RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
@@ -64,6 +66,39 @@ done
 
 echo ""
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
-echo -e "Usage: Run scripts from repository root or install with ${GREEN}install-scripts${NC}"
-echo -e "       Python programs typically run from repo root: ${GREEN}python3 src/...${NC}"
+echo -e "Usage: ${GREEN}bk${NC} - show this menu"
+echo -e "       ${GREEN}bk [number]${NC} - run the corresponding script/program"
+echo -e "       Run scripts from repository root or install with ${GREEN}install-scripts${NC}"
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
+
+# If a number argument is provided, execute that script/program
+if [ $# -eq 1 ]; then
+    choice="$1"
+
+    # Define the execution paths for each item
+    case "$choice" in
+        1) scripts/bk-resize-images ;;
+        2) scripts/book-status ;;
+        3) python3 scripts/fix-prompt-urls.py ;;
+        4) scripts/install-claude-skills.sh ;;
+        5) scripts/install-scripts ;;
+        6) scripts/install-skills-command.sh ;;
+        7) scripts/install-social-override.sh ;;
+        8) scripts/list-skills-format.sh ;;
+        9) scripts/list-skills.sh ;;
+        10) python3 src/diagram-reports/add-diagram-headers.py ;;
+        11) python3 src/diagram-reports/diagram-report.py ;;
+        12) python3 src/diagram-reports/generate-easy-diagrams.py ;;
+        13) python3 src/diagram-reports/generate-medium-diagrams.py ;;
+        14) python3 src/resize-images/cleanup_backups.py ;;
+        15) python3 src/resize-images/compress_images.py ;;
+        16) python3 src/resize-images/run_optimization.py ;;
+        17) python3 src/resize-images/social-media.py ;;
+        18) python3 src/resize-images/update_image_references.py ;;
+        19) python3 src/site-analytics/analyze-details-content.py ;;
+        *)
+            echo -e "${RED}Error: Invalid choice '$choice'. Please select a number between 1 and 19.${NC}"
+            exit 1
+            ;;
+    esac
+fi
