@@ -173,6 +173,9 @@ nav:
     - prompts/microsim-matcher-skill-creation.md
     - prompts/missing-microsim-generators.md
 
+  - Workshops:
+    - List of Workshops: workshops/index.md
+    - Two Hour Workshop: workshops/intelligent-textbook-workshop-outline.md
   
   - Details Analysis: details-analysis.md
   - Glossary: glossary.md
