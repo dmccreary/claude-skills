@@ -110,6 +110,7 @@ nav:
     - Orphaned Nodes Identification: sims/orphaned-nodes-identification/index.md
     - p5.js Architecture: sims/p5js-architecture/index.md
     - Security Zones Diagram: sims/security-zones-diagram/index.md
+    - Skill Context Window: sims/skill-context-window/index.md
     - Sine Function Plot: sims/sine-function-plot/index.md
     - Skill Directory Structure: sims/skill-directory-structure/index.md
     - Skill Impact Chart: sims/skill-impact-chart/index.md

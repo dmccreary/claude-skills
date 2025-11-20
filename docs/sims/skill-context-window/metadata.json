@@ -1,0 +1,65 @@
+{
+  "title": "Skill Context Window",
+  "description": "Interactive visualization demonstrating the progressive disclosure principle for Claude Skills. Shows how skill components (frontmatter, SKILL.md file, and bundled resources) are loaded into context at different times to manage token efficiency.",
+  "creator": "Dan McCreary",
+  "date": "2025-01-19",
+  "subject": [
+    "AI architecture",
+    "context window management",
+    "progressive disclosure",
+    "Claude skills",
+    "modular design",
+    "software architecture",
+    "prompt engineering"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "audience": "Developers, AI Engineers, Prompt Engineers",
+  "educationalLevel": "Advanced/Professional",
+  "bloomsLevel": ["Understanding", "Applying", "Analyzing"],
+  "prerequisites": [
+    "Basic understanding of AI language models",
+    "Familiarity with context windows and token limits",
+    "Knowledge of modular software design"
+  ],
+  "concepts": [
+    "progressive disclosure",
+    "context window management",
+    "layered architecture",
+    "token efficiency",
+    "on-demand loading",
+    "modular design",
+    "Claude skills"
+  ],
+  "library": "p5.js",
+  "framework": "p5.js 1.11.10",
+  "canvasDimensions": "600×550 (responsive width)",
+  "responsive": "Width-responsive",
+  "interactionType": "Hover exploration",
+  "modelType": "Conceptual visualization",
+  "variables": [
+    "frontmatterLayerTop",
+    "skillFileLayerTop",
+    "assetsLayerTop",
+    "hoveredLayer"
+  ],
+  "controls": [
+    {
+      "type": "hover",
+      "description": "Hover over each layer to see loading details"
+    }
+  ],
+  "assumptions": [
+    "Claude uses a three-level progressive disclosure system",
+    "Scripts can execute without loading into context",
+    "Frontmatter is always ~100 words",
+    "SKILL.md files are <5k words"
+  ],
+  "limitations": [
+    "Simplified representation of context management",
+    "Actual token counts may vary",
+    "Does not show runtime context changes"
+  ]
+}
