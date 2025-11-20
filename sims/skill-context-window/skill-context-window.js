@@ -59,7 +59,10 @@ function draw() {
   textSize(32);
   textAlign(CENTER, BOTTOM);
   noStroke();
-  text('Skill Context Window', canvasWidth/2, margin*2);
+  text('Skill Context Window', canvasWidth/2, margin*2-10);
+  textSize(20);
+  textStyle(ITALIC); 
+  text('The context window is a public good', canvasWidth/2, margin*2+ 10);
 
   // Reset text settings
   textAlign(LEFT, CENTER);
