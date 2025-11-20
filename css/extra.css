@@ -18,3 +18,44 @@ Hex: #DA7857
     --md-primary-fg-color--light: rgb(228, 140, 107);
     --md-primary-fg-color--dark: rgb(198, 100, 67);
 }
+
+* Container to control the iframe size and scaling */
+.iframe-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Iframe styles */
+  iframe {
+    width: 100%;
+    border: solid 2px blue;
+  }
+
+  /* if a div with <div class="upper-alpha"> wraps a list, then number A.B.C.D etc */
+  /* this requires that the markdown extension md_in_html is enabled in the mkdocs.yml file */
+  .upper-alpha ol {
+    list-style-type: upper-alpha;
+  }
+
+/* Styling for the Copy Button */
+.admonition.prompt {
+  position: relative;
+}
+
+.admonition.prompt .copy-button {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  background-color: #0056d6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.3rem 0.3rem;
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+
+.admonition.prompt .copy-button:hover {
+  background-color: #0041a4; /* Darker blue on hover */
+}
