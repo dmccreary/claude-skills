@@ -136,8 +136,8 @@ class BookMetricsGenerator:
         try:
             with open(self.faq_file, 'r', encoding='utf-8') as f:
                 content = f.read()
-                # Count H2 headers as FAQ questions
-                return len(re.findall(r'^##\s+', content, re.MULTILINE))
+                # Count H3 headers as FAQ questions
+                return len(re.findall(r'^###\s+', content, re.MULTILINE))
         except Exception as e:
             print(f"Warning: Could not read FAQ: {e}")
             return 0
@@ -214,6 +214,7 @@ class BookMetricsGenerator:
 
         return total
 
+    # TODO: Fix bug in equation counting to avoid double counting dollar amounts in numbers
     def count_equations_in_file(self, markdown_file: Path) -> int:
         """Count LaTeX equations in a single markdown file.
 
@@ -235,6 +236,7 @@ class BookMetricsGenerator:
             print(f"Warning: Could not read {markdown_file}: {e}")
             return 0
 
+    # TODO: Fix bug in equation counting to avoid double counting dollar amounts in numbers
     def count_all_equations(self) -> int:
         """Count all equations in all markdown files.
 
@@ -450,7 +452,7 @@ class BookMetricsGenerator:
         md += "- **Chapters**: Count of chapter directories containing index.md files\n"
         md += "- **Concepts**: Number of rows in learning-graph.csv\n"
         md += "- **Glossary Terms**: H4 headers in glossary.md\n"
-        md += "- **FAQs**: H2 headers in faq.md\n"
+        md += "- **FAQs**: H3 headers in faq.md\n"
         md += "- **Quiz Questions**: H4 headers with numbered questions (e.g., '#### 1.') or H2 headers in quiz.md files\n"
         md += "- **Diagrams**: H4 headers starting with '#### Diagram:'\n"
         md += "- **Equations**: LaTeX expressions using $ and $$ delimiters\n"
