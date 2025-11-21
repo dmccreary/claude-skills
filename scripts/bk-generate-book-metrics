@@ -1,0 +1,66 @@
+#!/bin/bash
+# bk-generate-book-metrics
+#
+# Generates comprehensive metrics reports for intelligent textbooks
+# Analyzes chapters, concepts, glossary, FAQs, quiz questions, diagrams, and more
+
+# Colors for output
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+# Check if BK_HOME is set
+if [ -z "$BK_HOME" ]; then
+    echo -e "${RED}Error: BK_HOME environment variable is not set.${NC}"
+    echo "Please set BK_HOME to the root directory of your claude-skills repository."
+    echo "Example: export BK_HOME=/Users/dan/Documents/ws/claude-skills"
+    exit 1
+fi
+
+# Check if BK_HOME directory exists
+if [ ! -d "$BK_HOME" ]; then
+    echo -e "${RED}Error: BK_HOME directory does not exist: $BK_HOME${NC}"
+    exit 1
+fi
+
+# Check if src directory exists
+if [ ! -d "$BK_HOME/src" ]; then
+    echo -e "${RED}Error: $BK_HOME/src directory does not exist${NC}"
+    echo "The source code directory is required for this script."
+    exit 1
+fi
+
+# Path to the Python script
+PYTHON_SCRIPT="$BK_HOME/src/book-metrics/generate-metrics.py"
+
+# Check if Python script exists
+if [ ! -f "$PYTHON_SCRIPT" ]; then
+    echo -e "${RED}Error: Python script not found${NC}"
+    echo "Expected location: $PYTHON_SCRIPT"
+    echo ""
+    echo -e "${YELLOW}Suggestions:${NC}"
+    echo "  1. Verify BK_HOME is set correctly: echo \$BK_HOME"
+    echo "  2. Check if the script exists in $BK_HOME/src/book-metrics/"
+    echo "  3. Ensure you have the complete claude-skills repository"
+    echo "  4. Create the Python program if it doesn't exist yet"
+    exit 1
+fi
+
+# Check if Python 3 is available
+if ! command -v python3 &> /dev/null; then
+    echo -e "${RED}Error: python3 is not installed or not in PATH${NC}"
+    echo "Please install Python 3 to use this script."
+    exit 1
+fi
+
+# Run the Python script
+echo -e "${BLUE}Generating book metrics...${NC}"
+echo -e "BK_HOME: ${YELLOW}$BK_HOME${NC}"
+echo ""
+
+cd "$BK_HOME" || exit 1
+python3 "$PYTHON_SCRIPT" "$@"
+
+exit $?
