@@ -86,10 +86,6 @@ nav:
     - Specialized Skills:
       - skill-descriptions/specialized-skills/index.md
       - skill-descriptions/specialized-skills/moving-rainbow.md
-
-  - Outdated:
-    - skill-descriptions/intelligent-textbook-creator.md
-    - skill-descriptions/intelligent-textbook.md
   
   - MicroSims:
     - List of MicroSims: sims/index.md

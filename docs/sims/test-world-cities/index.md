@@ -9,24 +9,16 @@ quality_score: 100
 
 # Major World Cities
 
+<iframe src="main.html" width="100%" height="360px"></iframe>
+[Run Major World Cities in Fullscreen](main.html){ .md-button .md-button--primary }
 
 **Copy this iframe to your website:**
 
 ```html
-<iframe src="https://dmccreary.github.io/claude-skills/sims/test-world-cities/main.html" width="100%" height="600px"></iframe>
+<iframe src="https://dmccreary.github.io/claude-skills/sims/test-world-cities/main.html" width="100%" height="360px"></iframe>
 ```
 
-
-[Run Major World Cities in Fullscreen](main.html){ .md-button .md-button--primary }
-
-
-An interactive map showcasing ten major cities across different continents, demonstrating the geographic distribution of global population centers.
-
-## Interactive Map
-
-
-
-[View Fullscreen](main.html){:target="_blank"}
+An interactive map showcasing ten major cities across different continents, demonstrating the geographic distribution of global population centers.  Click on any marker to see the details of the city.
 
 ## Overview
 

@@ -16,7 +16,7 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 # Default delay in seconds (time to wait for JavaScript to load)
-DELAY_SECONDS=2
+DELAY_SECONDS=3
 
 # Parse arguments
 if [ $# -eq 0 ]; then
