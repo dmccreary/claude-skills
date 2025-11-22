@@ -6,13 +6,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+        <meta name="description" content="Interactive process timeline visualization showing the 8 sequential stages of the chapter-content-generator skill workflow, from initial file validation through final reporting. Total duration 2 minutes 24 seconds with proportional stage widths.">
       
       
         <meta name="author" content="Dan McCreary">
       
       
-        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/sims/content-generation-process-timeline/">
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/sims/chapter-content-generation-timeline/">
       
       
         <link rel="prev" href="../concept-length-histogram/">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Content Generation Timeline - Claude Skills for Intelligent Textbooks</title>
+        <title>Chapter Content Generation Workflow Timeline - Claude Skills for Intelligent Textbooks</title>
       
     
     
@@ -73,11 +73,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Content Generation Timeline - Claude Skills for Intelligent Textbooks" >
+        <meta  property="og:title"  content="Chapter Content Generation Workflow Timeline - Claude Skills for Intelligent Textbooks" >
       
-        <meta  property="og:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+        <meta  property="og:description"  content="Interactive process timeline visualization showing the 8 sequential stages of the chapter-content-generator skill workflow, from initial file validation through final reporting. Total duration 2 minutes 24 seconds with proportional stage widths." >
       
-        <meta  property="og:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/sims/content-generation-process-timeline/index.png" >
+        <meta property="og:image" content="https://dmccreary.github.io/claude-skills/sims/chapter-content-generation-timeline/chapter-content-generation-timeline.png">
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -85,15 +85,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://dmccreary.github.io/claude-skills/sims/content-generation-process-timeline/" >
+        <meta  property="og:url"  content="https://dmccreary.github.io/claude-skills/sims/chapter-content-generation-timeline/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Content Generation Timeline - Claude Skills for Intelligent Textbooks" >
+        <meta  name="twitter:title"  content="Chapter Content Generation Workflow Timeline - Claude Skills for Intelligent Textbooks" >
       
-        <meta  name="twitter:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+        <meta  name="twitter:description"  content="Interactive process timeline visualization showing the 8 sequential stages of the chapter-content-generator skill workflow, from initial file validation through final reporting. Total duration 2 minutes 24 seconds with proportional stage widths." >
       
-        <meta  name="twitter:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/sims/content-generation-process-timeline/index.png" >
+        <meta name="twitter:image" content="https://dmccreary.github.io/claude-skills/sims/chapter-content-generation-timeline/chapter-content-generation-timeline.png">
       
     
     
@@ -114,7 +114,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#content-generation-process-timeline" class="md-skip">
+        <a href="#chapter-content-generation-workflow-timeline" class="md-skip">
           Skip to content
         </a>
       
@@ -149,7 +149,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Content Generation Timeline
+              Chapter Content Generation Workflow Timeline
             
           </span>
         </div>
@@ -818,7 +818,7 @@
           
   
   <span class="md-ellipsis">
-    Content Generation Timeline
+    Chapter Content Generation Timeline
   </span>
   
 
@@ -829,7 +829,7 @@
         
   
   <span class="md-ellipsis">
-    Content Generation Timeline
+    Chapter Content Generation Timeline
   </span>
   
 
@@ -887,19 +887,14 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#process-stages" class="md-nav__link">
+          <li class="md-nav__item">
+  <a href="#workflow-stages" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Stages
+      Workflow Stages
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Process Stages">
+    <nav class="md-nav" aria-label="Workflow Stages">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -978,6 +973,11 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#data-structure" class="md-nav__link">
@@ -985,6 +985,39 @@
       Data Structure
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Instructions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#viewing-the-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing the Timeline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding the Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -999,9 +1032,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changing-stage-colors" class="md-nav__link">
+  <a href="#modifying-stage-durations" class="md-nav__link">
     <span class="md-ellipsis">
-      Changing Stage Colors
+      Modifying Stage Durations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing Colors
     </span>
   </a>
   
@@ -1011,15 +1053,6 @@
   <a href="#adding-new-stages" class="md-nav__link">
     <span class="md-ellipsis">
       Adding New Stages
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adjusting-timeline-zoom" class="md-nav__link">
-    <span class="md-ellipsis">
-      Adjusting Timeline Zoom
     </span>
   </a>
   
@@ -1037,39 +1070,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Technical Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timeline-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeline Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
+  <a href="#educational-applications" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Cases
+      Educational Applications
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#educational-context" class="md-nav__link">
+  <a href="#related-resources" class="md-nav__link">
     <span class="md-ellipsis">
-      Educational Context
+      Related Resources
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-microsims" class="md-nav__link">
+  <a href="#license" class="md-nav__link">
     <span class="md-ellipsis">
-      Related MicroSims
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
+      License
     </span>
   </a>
   
@@ -1950,19 +1989,14 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#process-stages" class="md-nav__link">
+          <li class="md-nav__item">
+  <a href="#workflow-stages" class="md-nav__link">
     <span class="md-ellipsis">
-      Process Stages
+      Workflow Stages
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Process Stages">
+    <nav class="md-nav" aria-label="Workflow Stages">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2041,6 +2075,11 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#data-structure" class="md-nav__link">
@@ -2048,6 +2087,39 @@
       Data Structure
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Instructions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#viewing-the-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing the Timeline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding the Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2062,9 +2134,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changing-stage-colors" class="md-nav__link">
+  <a href="#modifying-stage-durations" class="md-nav__link">
     <span class="md-ellipsis">
-      Changing Stage Colors
+      Modifying Stage Durations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing Colors
     </span>
   </a>
   
@@ -2074,15 +2155,6 @@
   <a href="#adding-new-stages" class="md-nav__link">
     <span class="md-ellipsis">
       Adding New Stages
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adjusting-timeline-zoom" class="md-nav__link">
-    <span class="md-ellipsis">
-      Adjusting Timeline Zoom
     </span>
   </a>
   
@@ -2100,39 +2172,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Technical Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timeline-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeline Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
+  <a href="#educational-applications" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Cases
+      Educational Applications
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#educational-context" class="md-nav__link">
+  <a href="#related-resources" class="md-nav__link">
     <span class="md-ellipsis">
-      Educational Context
+      Related Resources
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-microsims" class="md-nav__link">
+  <a href="#license" class="md-nav__link">
     <span class="md-ellipsis">
-      Related MicroSims
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
+      License
     </span>
   </a>
   
@@ -2153,7 +2231,7 @@
                   
 
   
-    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/sims/content-generation-process-timeline/index.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/sims/chapter-content-generation-timeline/index.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2161,96 +2239,124 @@
   
 
 
-<h1 id="content-generation-process-timeline">Content Generation Process Timeline</h1>
-<p>An interactive timeline visualization showing the 8 stages of automated educational content creation in the intelligent textbook workflow.</p>
-<p><a class="md-button md-button--primary" href="main.html">Run the Content Generation Process Timeline</a></p>
-<p><a class="md-button" href="timeline.json">View the Raw Timeline Data</a></p>
+<h1 id="chapter-content-generation-workflow-timeline">Chapter Content Generation Workflow Timeline</h1>
+<p>An interactive process timeline visualization showing the 8 sequential stages of the chapter-content-generator skill workflow, from initial file validation through final reporting.</p>
+<p><a class="md-button md-button--primary" href="main.html">Run the Chapter Content Generation Timeline</a></p>
+<p><a class="md-button" href="timeline.json">View the Timeline Data</a></p>
 <h2 id="overview">Overview</h2>
-<p>This timeline visualizes the complete workflow of the chapter content generation process, from initial file validation through final reporting. Each stage represents a critical step in transforming a chapter template with concept lists into comprehensive educational content complete with examples, exercises, and interactive elements.</p>
-<p>The process covers:</p>
+<p>This timeline visualizes the complete workflow used by the <code>chapter-content-generator</code> skill to create comprehensive educational chapter content for intelligent textbooks. The process includes validation, analysis, content generation, quality assurance, and reporting stages, typically completing in 2-4 minutes depending on chapter complexity.</p>
+<p>The timeline uses a horizontal layout with color-coded stages representing different workflow phases:</p>
 <ul>
-<li><strong>Validation stages</strong> (1-2): File and structure verification</li>
-<li><strong>Analysis stages</strong> (3-4): Reading level determination and reference loading</li>
-<li><strong>Generation stage</strong> (5): Core content creation with AI</li>
-<li><strong>Quality assurance stages</strong> (6-7): Verification and file updates</li>
-<li><strong>Completion stage</strong> (8): Final reporting and metrics</li>
+<li><strong>Validation</strong> (Blue) - File and structure verification</li>
+<li><strong>Analysis</strong> (Green) - Reading level determination and reference loading</li>
+<li><strong>Generation</strong> (Orange) - Core content creation phase</li>
+<li><strong>Quality Assurance</strong> (Purple) - Verification and file updates</li>
+<li><strong>Completion</strong> (Gold) - Final statistics and reporting</li>
 </ul>
-<p>Total process time ranges from approximately 75-200 seconds depending on chapter length and complexity.</p>
 <h2 id="features">Features</h2>
 <h3 id="interactive-elements">Interactive Elements</h3>
 <ul>
-<li><strong>Zoom and Pan</strong>: Click and drag to pan across the timeline, scroll to zoom in/out on specific stages</li>
-<li><strong>Stage Details</strong>: Click any stage to see full details including duration, description, and process specifics</li>
-<li><strong>Hover Tooltips</strong>: Hover over stages to see quick process details</li>
-<li><strong>Category Filtering</strong>: Use filter buttons to view specific stage types (Validation, Analysis, Generation, etc.)</li>
+<li><strong>Zoom and Pan</strong>: Click and drag to pan horizontally, scroll to zoom in/out on specific stages</li>
+<li><strong>Stage Details</strong>: Click any stage to see expanded information including substeps and token usage</li>
+<li><strong>Hover Information</strong>: Hover over timeline items for quick stage summaries</li>
+<li><strong>Category Filtering</strong>: Use filter buttons to view specific workflow phases</li>
+<li><strong>Progress Bar</strong>: Visual representation showing relative time distribution across stages</li>
 </ul>
 <h3 id="visual-design">Visual Design</h3>
 <ul>
-<li><strong>Color-coded stages</strong>: Each stage category has a distinct color for easy identification</li>
-<li>Blue: Validation stages</li>
-<li>Green: Analysis stages</li>
-<li>Orange: Generation stage</li>
-<li>Purple: Quality assurance stages</li>
-<li>Gold: Completion stage</li>
-<li><strong>Responsive layout</strong>: Works on desktop, tablet, and mobile devices</li>
-<li><strong>Legend</strong>: Visual guide showing stage categories and their meanings</li>
+<li><strong>Color-coded stages</strong>: Each workflow phase has a distinct color for easy identification</li>
+<li><strong>Minimal borders</strong>: Optimized for iframe embedding without scrolling</li>
+<li><strong>Responsive layout</strong>: Adapts to different screen sizes and container widths</li>
+<li><strong>Time-scaled display</strong>: Stage widths reflect actual relative durations</li>
 </ul>
-<h2 id="process-stages">Process Stages</h2>
-<h3 id="stage-1-file-validation-1-second">Stage 1: File Validation (&lt; 1 second)</h3>
-<p>Verifies that the chapter's <code>index.md</code> file exists with the required structure. This includes checking for:
-- File existence in the correct location
-- Basic markdown structure
-- Required frontmatter fields</p>
-<h3 id="stage-2-structure-check-1-2-seconds">Stage 2: Structure Check (1-2 seconds)</h3>
-<p>Parses and validates the chapter structure including:
-- Title and summary
-- Concepts list format and syntax
-- Prerequisites and dependencies
-- YAML frontmatter completeness</p>
-<h3 id="stage-3-reading-level-analysis-2-3-seconds">Stage 3: Reading Level Analysis (2-3 seconds)</h3>
-<p>Extracts target audience from course description to determine:
-- Appropriate vocabulary complexity
-- Sentence structure patterns
-- Explanation depth and detail level
-- Reading level classification (junior-high, senior-high, college, graduate)</p>
-<h3 id="stage-4-reference-loading-3-5-seconds">Stage 4: Reference Loading (3-5 seconds)</h3>
-<p>Loads essential reference materials and guidelines:
-- Bloom's Taxonomy mappings for learning objectives
-- ISO 11179 metadata standards for glossary definitions
-- Content element type specifications
-- Reading level style guidelines
-- MicroSim specification templates</p>
-<h3 id="stage-5-content-generation-60-180-seconds">Stage 5: Content Generation (60-180 seconds)</h3>
-<p>The core AI-powered content creation phase that generates:
-- Detailed concept explanations aligned to reading level
-- Worked examples demonstrating key principles
-- Practice exercises with varying difficulty
-- Diagram and infographic specifications
-- MicroSim specifications for interactive elements
-- Cross-references to related concepts</p>
-<p>Token usage: 10,000-50,000 tokens depending on chapter scope and concept count.</p>
-<h3 id="stage-6-concept-coverage-verification-5-10-seconds">Stage 6: Concept Coverage Verification (5-10 seconds)</h3>
-<p>Quality check ensuring every concept from the learning graph appears in generated content:
-- Scans for concept mentions and definitions
-- Verifies worked examples exist for key concepts
-- Confirms practice exercises cover all learning objectives
-- Checks cross-reference completeness</p>
-<h3 id="stage-7-file-update-1-2-seconds">Stage 7: File Update (1-2 seconds)</h3>
-<p>Writes the generated content to the chapter file:
-- Replaces the TODO placeholder with actual content
-- Preserves frontmatter and structural elements
-- Uses atomic write operations to prevent data loss
-- Maintains backup of previous version</p>
-<h3 id="stage-8-reporting-2-3-seconds">Stage 8: Reporting (2-3 seconds)</h3>
-<p>Generates comprehensive metrics and completion summary:
-- Word count and estimated reading time
-- Number of diagrams and MicroSim specifications
-- Exercise and example counts
-- Concept coverage percentage
-- Bloom's Taxonomy distribution
-- Quality indicators</p>
+<h3 id="workflow-stages">Workflow Stages</h3>
+<h4 id="stage-1-file-validation-1-second">Stage 1: File Validation (&lt; 1 second)</h4>
+<p>Verifies that the chapter's <code>index.md</code> file exists with the required structure before proceeding.</p>
+<p><strong>Substeps:</strong></p>
+<ul>
+<li>Check file existence</li>
+<li>Verify file permissions</li>
+<li>Validate basic markdown structure</li>
+</ul>
+<h4 id="stage-2-structure-check-1-2-seconds">Stage 2: Structure Check (1-2 seconds)</h4>
+<p>Parses and validates all required frontmatter elements including title, summary, concepts list, and prerequisites.</p>
+<p><strong>Substeps:</strong></p>
+<ul>
+<li>Parse YAML frontmatter</li>
+<li>Validate title format</li>
+<li>Check summary content</li>
+<li>Verify concepts list</li>
+<li>Validate prerequisites</li>
+</ul>
+<h4 id="stage-3-reading-level-analysis-2-3-seconds">Stage 3: Reading Level Analysis (2-3 seconds)</h4>
+<p>Extracts target audience information from the course description to determine appropriate vocabulary and complexity.</p>
+<p><strong>Substeps:</strong></p>
+<ul>
+<li>Load course description</li>
+<li>Extract target audience</li>
+<li>Determine reading level (junior-high, senior-high, college, graduate)</li>
+<li>Set complexity parameters</li>
+<li>Configure vocabulary guidelines</li>
+</ul>
+<h4 id="stage-4-reference-loading-3-5-seconds">Stage 4: Reference Loading (3-5 seconds)</h4>
+<p>Loads reading-level guidelines and content-element-types specifications that guide the generation process.</p>
+<p><strong>Substeps:</strong></p>
+<ul>
+<li>Load reading level guidelines</li>
+<li>Import content element specifications</li>
+<li>Load Bloom's Taxonomy mappings</li>
+<li>Retrieve example templates</li>
+<li>Configure generation parameters</li>
+</ul>
+<h4 id="stage-5-content-generation-60-180-seconds">Stage 5: Content Generation (60-180 seconds)</h4>
+<p>The core phase where detailed educational content is created with examples, exercises, and non-text elements.</p>
+<p><strong>Token Usage:</strong> 15,000-50,000 tokens (varies by chapter complexity)</p>
+<p><strong>Generated Elements:</strong></p>
+<ul>
+<li>Concept explanations aligned with learning objectives</li>
+<li>Worked examples (2-3 per section)</li>
+<li>Practice exercises (5-8 per section)</li>
+<li>Diagram and infographic specifications</li>
+<li>MicroSim recommendations</li>
+<li>Admonitions and callouts</li>
+<li>Cross-references to related concepts</li>
+</ul>
+<h4 id="stage-6-concept-coverage-verification-5-10-seconds">Stage 6: Concept Coverage Verification (5-10 seconds)</h4>
+<p>Cross-checks the generated content against the chapter's concept list to ensure completeness.</p>
+<p><strong>Verification Steps:</strong></p>
+<ul>
+<li>Parse generated content</li>
+<li>Extract concept mentions</li>
+<li>Cross-reference with concept list</li>
+<li>Identify gaps or omissions</li>
+<li>Verify prerequisite coverage</li>
+<li>Check Bloom's Taxonomy distribution</li>
+</ul>
+<h4 id="stage-7-file-update-1-2-seconds">Stage 7: File Update (1-2 seconds)</h4>
+<p>Replaces the TODO placeholder in the chapter's <code>index.md</code> with the newly generated content.</p>
+<p><strong>Update Steps:</strong></p>
+<ul>
+<li>Backup original file</li>
+<li>Preserve frontmatter</li>
+<li>Replace TODO placeholder</li>
+<li>Maintain markdown formatting</li>
+<li>Verify file integrity</li>
+</ul>
+<h4 id="stage-8-reporting-2-3-seconds">Stage 8: Reporting (2-3 seconds)</h4>
+<p>Generates comprehensive summary statistics about the generated content for quality assessment.</p>
+<p><strong>Reported Metrics:</strong></p>
+<ul>
+<li>Total word count</li>
+<li>Number of sections</li>
+<li>Examples generated</li>
+<li>Exercises created</li>
+<li>Non-text elements (diagrams, MicroSims)</li>
+<li>Concepts covered</li>
+<li>Bloom's Taxonomy distribution</li>
+<li>Token usage statistics</li>
+</ul>
 <h2 id="data-structure">Data Structure</h2>
-<p>The timeline data is stored in <code>timeline.json</code> following the TimelineJS-compatible format:</p>
+<p>The timeline data is stored in <code>timeline.json</code> following the vis-timeline format with time-based events:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2269,36 +2375,92 @@
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Content Generation Process Timeline&quot;</span><span class="p">,</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Chapter Content Generation Workflow Timeline&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;start_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;year&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">&quot;month&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">&quot;day&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;display_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Stage 1&quot;</span>
+<span class="w">        </span><span class="nt">&quot;hour&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;minute&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;second&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;end_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;year&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;month&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;day&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hour&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;minute&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;second&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
 <span class="w">      </span><span class="p">},</span>
 <span class="w">      </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;headline&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;File Validation&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Verify chapter index.md exists with required structure...&quot;</span>
+<span class="w">        </span><span class="nt">&quot;headline&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Stage 1: File Validation&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Description of the stage...&quot;</span>
 <span class="w">      </span><span class="p">},</span>
 <span class="w">      </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Validation&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Duration: &lt; 1 second. Checks for file existence...&quot;</span>
+<span class="w">      </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Detailed substeps and timing information&quot;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>Each event contains:
-- <strong>start_date</strong>: Date information (used for timeline positioning)
-- <strong>display_date</strong>: Custom label shown on timeline (stage number)
-- <strong>text.headline</strong>: Stage name
-- <strong>text.text</strong>: Detailed description
-- <strong>group</strong>: Category for filtering and color coding
-- <strong>notes</strong>: Additional process details shown in tooltips</p>
+<p>Each event includes:</p>
+<ul>
+<li><code>start_date</code> and <code>end_date</code> with precise timestamps</li>
+<li><code>headline</code> - Stage name and number</li>
+<li><code>text</code> - Detailed description</li>
+<li><code>group</code> - Workflow phase category</li>
+<li><code>notes</code> - Substeps and additional context (displayed in tooltips and detail panel)</li>
+</ul>
+<h2 id="usage-instructions">Usage Instructions</h2>
+<h3 id="viewing-the-timeline">Viewing the Timeline</h3>
+<ol>
+<li><strong>Load the timeline</strong> - The visualization loads automatically with all 8 stages visible</li>
+<li><strong>Explore stages</strong> - Click and drag to pan, scroll to zoom</li>
+<li><strong>Select a stage</strong> - Click any stage to see detailed information in the panel below</li>
+<li><strong>Filter by category</strong> - Use the filter buttons to focus on specific workflow phases</li>
+<li><strong>Check progress distribution</strong> - The progress bar shows relative time allocation</li>
+</ol>
+<h3 id="understanding-the-workflow">Understanding the Workflow</h3>
+<p>The timeline demonstrates that:</p>
+<ul>
+<li><strong>Validation and Analysis</strong> (Stages 1-4) complete quickly (~10 seconds total)</li>
+<li><strong>Content Generation</strong> (Stage 5) is the longest phase (1-3 minutes)</li>
+<li><strong>Quality Assurance</strong> (Stages 6-7) ensures content completeness (~10 seconds)</li>
+<li><strong>Reporting</strong> (Stage 8) provides final metrics (~3 seconds)</li>
+</ul>
+<p>Total typical workflow time: <strong>2-4 minutes</strong> depending on:</p>
+<ul>
+<li>Chapter length and complexity</li>
+<li>Number of concepts to cover</li>
+<li>Reading level requirements</li>
+<li>Number of examples and exercises to generate</li>
+</ul>
 <h2 id="customization-guide">Customization Guide</h2>
-<h3 id="changing-stage-colors">Changing Stage Colors</h3>
-<p>To modify category colors, edit the <code>categoryColors</code> object in <code>main.html</code>:</p>
+<h3 id="modifying-stage-durations">Modifying Stage Durations</h3>
+<p>To adjust the timeline for different workflows, edit <code>timeline.json</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;start_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;year&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;month&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;day&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;hour&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;minute&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;second&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;end_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;year&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;month&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;day&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;hour&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;minute&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;second&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The duration is determined by the difference between <code>start_date</code> and <code>end_date</code>.</p>
+<h3 id="changing-colors">Changing Colors</h3>
+<p>To modify the color scheme, edit the <code>categoryColors</code> object in <code>main.html</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2306,73 +2468,75 @@
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">categoryColors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s1">&#39;Validation&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#2196F3&#39;</span><span class="p">,</span><span class="w">     </span><span class="c1">// Blue</span>
-<span class="w">    </span><span class="s1">&#39;Analysis&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#4CAF50&#39;</span><span class="p">,</span><span class="w">       </span><span class="c1">// Green</span>
-<span class="w">    </span><span class="s1">&#39;Generation&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#FF9800&#39;</span><span class="p">,</span><span class="w">     </span><span class="c1">// Orange</span>
-<span class="w">    </span><span class="s1">&#39;Quality Assurance&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#9C27B0&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Purple</span>
-<span class="w">    </span><span class="s1">&#39;Completion&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#FFD700&#39;</span><span class="w">      </span><span class="c1">// Gold</span>
+<span class="w">    </span><span class="s1">&#39;Validation&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#3b82f6&#39;</span><span class="p">,</span><span class="w">      </span><span class="c1">// Blue</span>
+<span class="w">    </span><span class="s1">&#39;Analysis&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#10b981&#39;</span><span class="p">,</span><span class="w">        </span><span class="c1">// Green</span>
+<span class="w">    </span><span class="s1">&#39;Generation&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#f97316&#39;</span><span class="p">,</span><span class="w">      </span><span class="c1">// Orange</span>
+<span class="w">    </span><span class="s1">&#39;Quality Assurance&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#a855f7&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Purple</span>
+<span class="w">    </span><span class="s1">&#39;Completion&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#f59e0b&#39;</span><span class="w">       </span><span class="c1">// Gold</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="adding-new-stages">Adding New Stages</h3>
-<p>To add additional stages to the process:</p>
+<p>To add additional workflow stages:</p>
 <ol>
-<li>Open <code>timeline.json</code></li>
-<li>Add a new event object to the <code>events</code> array</li>
-<li>Set appropriate <code>group</code> value for color coding</li>
-<li>Increment the <code>day</code> value to maintain chronological order</li>
-<li>Reload the page to see the new stage</li>
+<li>Add a new event to <code>timeline.json</code> with proper start/end dates</li>
+<li>Assign it to an existing category or create a new one</li>
+<li>If creating a new category, add the color to <code>categoryColors</code> in <code>main.html</code></li>
+<li>Add a filter button in the HTML if needed</li>
 </ol>
-<h3 id="adjusting-timeline-zoom">Adjusting Timeline Zoom</h3>
-<p>To change the zoom limits, modify the <code>zoomMin</code> and <code>zoomMax</code> options in <code>main.html</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">zoomMin</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">24</span><span class="p">,</span><span class="w">      </span><span class="c1">// 1 day minimum</span>
-<span class="w">    </span><span class="nx">zoomMax</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">30</span><span class="w">  </span><span class="c1">// 30 days maximum</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
 <h2 id="technical-details">Technical Details</h2>
 <ul>
 <li><strong>Timeline Library</strong>: vis-timeline 7.7.3</li>
-<li><strong>Data Format</strong>: TimelineJS-compatible JSON</li>
+<li><strong>Data Format</strong>: Custom JSON structure compatible with vis-timeline ranges</li>
 <li><strong>Browser Compatibility</strong>: Modern browsers (Chrome, Firefox, Safari, Edge)</li>
-<li><strong>Dependencies</strong>: vis-timeline.js (loaded from CDN)</li>
-<li><strong>Responsive</strong>: Works on screens from 320px to 2560px width</li>
+<li><strong>Dependencies</strong>: vis-timeline.js and vis-timeline.css (loaded from CDN)</li>
+<li><strong>Responsive</strong>: Adapts to container width, optimized for iframe embedding</li>
+<li><strong>Performance</strong>: Lightweight, loads in &lt; 1 second</li>
 </ul>
-<h2 id="use-cases">Use Cases</h2>
-<p>This timeline pattern can be adapted for visualizing:</p>
+<h3 id="timeline-configuration">Timeline Configuration</h3>
+<p>The timeline uses these key options:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;100%&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;400px&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">margin</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">item</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">horizontal</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">vertical</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">axis</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">orientation</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;top&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">stack</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">selectable</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">zoomMin</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w">  </span><span class="c1">// 10 seconds</span>
+<span class="w">    </span><span class="nx">zoomMax</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">10</span><span class="w">  </span><span class="c1">// 10 minutes</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="educational-applications">Educational Applications</h2>
+<p>This timeline pattern can be adapted for:</p>
 <ul>
-<li>Software development workflows and pipelines</li>
-<li>Data processing stages and ETL processes</li>
-<li>Project management phases</li>
-<li>Educational content creation workflows</li>
-<li>Research methodology stages</li>
-<li>Quality assurance processes</li>
-<li>Multi-stage automation workflows</li>
+<li><strong>Process workflows</strong> - Software development, data pipelines, build processes</li>
+<li><strong>Algorithm visualizations</strong> - Step-by-step algorithm execution stages</li>
+<li><strong>Project management</strong> - Task sequences and dependencies</li>
+<li><strong>Course schedules</strong> - Lesson progression and timing</li>
+<li><strong>Research workflows</strong> - Experimental procedure stages</li>
 </ul>
-<h2 id="educational-context">Educational Context</h2>
-<p>Understanding the content generation process helps:</p>
+<h2 id="related-resources">Related Resources</h2>
 <ul>
-<li><strong>Textbook authors</strong> appreciate the automation behind intelligent textbook creation</li>
-<li><strong>Instructional designers</strong> understand AI-assisted content development</li>
-<li><strong>Students</strong> see how educational materials are produced systematically</li>
-<li><strong>Developers</strong> visualize workflow optimization opportunities</li>
+<li><a href="../../skills/chapter-content-generator/">chapter-content-generator skill</a> - The skill this timeline documents</li>
+<li><a href="https://visjs.github.io/vis-timeline/docs/timeline/">vis-timeline Documentation</a> - Timeline library reference</li>
+<li><a href="../../skills/intelligent-textbook/">Intelligent Textbook Workflow</a> - Complete textbook creation process</li>
 </ul>
-<p>This timeline demonstrates how AI can augment human expertise in creating high-quality, structured educational content at scale while maintaining consistency with educational frameworks like Bloom's Taxonomy and metadata standards like ISO 11179.</p>
-<h2 id="related-microsims">Related MicroSims</h2>
-<ul>
-<li><strong>Learning Graph Structure Visualization</strong>: Shows concept dependencies that guide content organization</li>
-<li><strong>Bloom's Taxonomy Distribution</strong>: Visualizes cognitive levels in generated content</li>
-<li><strong>Chapter Organization Workflow</strong>: Broader view of textbook creation process</li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://visjs.github.io/vis-timeline/docs/timeline/">vis-timeline Documentation</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Bloom%27s_taxonomy">Bloom's Taxonomy (2001 Revision)</a></li>
-<li><a href="https://en.wikipedia.org/wiki/ISO/IEC_11179">ISO 11179 Metadata Registry</a></li>
-<li><a href="../../">Intelligent Textbook Framework</a></li>
-</ul>
+<h2 id="license">License</h2>
+<p>This visualization is part of the claude-skills repository and follows the same license. The vis-timeline library is licensed under Apache-2.0/MIT dual license.</p>
 
 
 

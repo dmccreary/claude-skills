@@ -1,0 +1,147 @@
+{
+  "title": "Chapter Content Generation Workflow Timeline",
+  "description": "8-stage process for generating educational chapter content (total: 144 seconds)",
+  "items": [
+    {
+      "id": 1,
+      "content": "Stage 1: File Validation",
+      "start": "2024-01-01T00:00:00",
+      "end": "2024-01-01T00:00:01",
+      "group": "Validation",
+      "title": "Verify chapter index.md exists with required structure",
+      "description": "This initial validation ensures the chapter file is present and follows the expected format before proceeding with content generation.",
+      "duration": "1 second",
+      "substeps": [
+        "Check file existence",
+        "Verify file permissions",
+        "Validate basic markdown structure"
+      ]
+    },
+    {
+      "id": 2,
+      "content": "Stage 2: Structure Check",
+      "start": "2024-01-01T00:00:01",
+      "end": "2024-01-01T00:00:03",
+      "group": "Validation",
+      "title": "Parse and validate title, summary, concepts list, prerequisites",
+      "description": "Ensures all required frontmatter and structural elements are present and properly formatted.",
+      "duration": "2 seconds",
+      "substeps": [
+        "Parse YAML frontmatter",
+        "Validate title format",
+        "Check summary content",
+        "Verify concepts list",
+        "Validate prerequisites"
+      ]
+    },
+    {
+      "id": 3,
+      "content": "Stage 3: Reading Level Analysis",
+      "start": "2024-01-01T00:00:03",
+      "end": "2024-01-01T00:00:06",
+      "group": "Analysis",
+      "title": "Extract target audience from course description and determine appropriate complexity",
+      "description": "Analyzes the intended audience to set vocabulary, sentence structure, and conceptual complexity.",
+      "duration": "3 seconds",
+      "substeps": [
+        "Load course description",
+        "Extract target audience",
+        "Determine reading level",
+        "Set complexity parameters",
+        "Configure vocabulary guidelines"
+      ]
+    },
+    {
+      "id": 4,
+      "content": "Stage 4: Reference Loading",
+      "start": "2024-01-01T00:00:06",
+      "end": "2024-01-01T00:00:11",
+      "group": "Analysis",
+      "title": "Load reading-level guidelines and content-element-types specifications",
+      "description": "Retrieves templates and standards that guide content structure and educational elements.",
+      "duration": "5 seconds",
+      "substeps": [
+        "Load reading level guidelines",
+        "Import content element specifications",
+        "Load Bloom's Taxonomy mappings",
+        "Retrieve example templates",
+        "Configure generation parameters"
+      ]
+    },
+    {
+      "id": 5,
+      "content": "Stage 5: Content Generation",
+      "start": "2024-01-01T00:00:11",
+      "end": "2024-01-01T00:02:11",
+      "group": "Generation",
+      "title": "Generate detailed educational content with examples, exercises, and non-text elements",
+      "description": "The core generation phase creates comprehensive chapter content aligned with concepts and learning objectives. Duration varies by chapter length (60-180 seconds).",
+      "duration": "120 seconds (2 minutes)",
+      "tokenUsage": "15,000-50,000 tokens",
+      "substeps": [
+        "Generate concept explanations",
+        "Create worked examples (2-3 per section)",
+        "Design practice exercises (5-8 per section)",
+        "Specify diagrams and infographics",
+        "Recommend MicroSims",
+        "Add admonitions and callouts",
+        "Insert cross-references"
+      ]
+    },
+    {
+      "id": 6,
+      "content": "Stage 6: Concept Coverage Verification",
+      "start": "2024-01-01T00:02:11",
+      "end": "2024-01-01T00:02:19",
+      "group": "Quality Assurance",
+      "title": "Cross-check generated content against concept list for completeness",
+      "description": "Ensures every concept from the chapter's concept list is adequately covered in the generated content.",
+      "duration": "8 seconds",
+      "substeps": [
+        "Parse generated content",
+        "Extract concept mentions",
+        "Cross-reference with concept list",
+        "Identify gaps or omissions",
+        "Verify prerequisite coverage",
+        "Check Bloom's Taxonomy distribution"
+      ]
+    },
+    {
+      "id": 7,
+      "content": "Stage 7: File Update",
+      "start": "2024-01-01T00:02:19",
+      "end": "2024-01-01T00:02:21",
+      "group": "Quality Assurance",
+      "title": "Replace TODO placeholder with generated content in index.md",
+      "description": "Updates the chapter file with the newly generated educational content while preserving frontmatter and structure.",
+      "duration": "2 seconds",
+      "substeps": [
+        "Backup original file",
+        "Preserve frontmatter",
+        "Replace TODO placeholder",
+        "Maintain markdown formatting",
+        "Verify file integrity"
+      ]
+    },
+    {
+      "id": 8,
+      "content": "Stage 8: Reporting",
+      "start": "2024-01-01T00:02:21",
+      "end": "2024-01-01T00:02:24",
+      "group": "Completion",
+      "title": "Generate summary statistics (word count, elements, concepts covered)",
+      "description": "Provides detailed metrics about the generated content for quality assessment.",
+      "duration": "3 seconds",
+      "metrics": [
+        "Total word count",
+        "Number of sections",
+        "Examples generated",
+        "Exercises created",
+        "Non-text elements (diagrams, MicroSims)",
+        "Concepts covered",
+        "Bloom's Taxonomy distribution",
+        "Token usage statistics"
+      ]
+    }
+  ]
+}
