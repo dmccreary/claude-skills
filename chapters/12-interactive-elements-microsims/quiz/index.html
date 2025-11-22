@@ -1981,7 +1981,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. MicroSims are deliberately constrained in scope to demonstrate a single concept or principle, allowing learners to develop intuition about specific phenomena without cognitive overload. Unlike traditional simulations that may attempt to model entire systems comprehensively, MicroSims provide focused, explorable experiences. Option A is incorrect as MicroSims use accessible libraries like p5.js, option C confuses scope with performance, and option D misrepresents platform compatibility.</p>
 <p><strong>Concept Tested:</strong> MicroSim</p>
-<p><strong>See:</strong> <a href="../#introduction-to-microsims">Introduction to MicroSims</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#microsim">Introduction to MicroSims</a></p>
 </details>
 <hr />
 <h4 id="2-what-is-the-primary-advantage-of-using-p5js-for-educational-microsim-development">2. What is the primary advantage of using p5.js for educational MicroSim development?</h4>
@@ -1997,7 +1997,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. The p5.js library excels in educational contexts because it uses an intuitive immediate-mode graphics paradigm where you simply call functions to draw shapes, and provides built-in animation loops through the <code>draw()</code> function that executes continuously. This eliminates complex retained-mode graphics APIs and makes creating dynamic visualizations straightforward. Option A contradicts p5.js's accessibility focus, option C focuses on irrelevant performance comparisons, and option D misrepresents p5.js's platform independence.</p>
 <p><strong>Concept Tested:</strong> p5.js JavaScript Library</p>
-<p><strong>See:</strong> <a href="../#the-p5js-foundation">The p5.js Foundation</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#p5js-javascript-library">The p5.js Foundation</a></p>
 </details>
 <hr />
 <h4 id="3-according-to-the-table-comparing-content-types-what-learning-analytics-potential-do-microsims-provide-compared-to-static-text-or-images">3. According to the table comparing content types, what learning analytics potential do MicroSims provide compared to static text or images?</h4>
@@ -2013,7 +2013,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>D</strong>. MicroSims provide excellent learning analytics potential through interaction pattern tracking, far exceeding static text (minimal time-on-page data) or images. Interactive simulations capture how students manipulate parameters, which scenarios they explore, and where they spend time, creating rich data about learning behaviors. Option A mischaracterizes MicroSim capabilities, option B describes video analytics, and option C describes quiz analytics rather than simulation analytics.</p>
 <p><strong>Concept Tested:</strong> Interactive Simulations</p>
-<p><strong>See:</strong> <a href="../#introduction-to-microsims">Introduction to MicroSims</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#microsim">Introduction to MicroSims</a></p>
 </details>
 <hr />
 <h4 id="4-what-are-the-three-mandatory-files-in-every-microsim-directory">4. What are the three mandatory files in every MicroSim directory?</h4>
@@ -2029,7 +2029,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. Each MicroSim follows a standardized structure with three essential files: main.html (self-contained p5.js simulation), index.md (documentation and embedding page), and metadata.json (Dublin Core metadata). This organizational pattern separates concerns between the interactive simulation, its documentation, and its metadata. Options A, C, and D use different naming conventions that don't match the intelligent textbook framework standards.</p>
 <p><strong>Concept Tested:</strong> MicroSim Directory Structure</p>
-<p><strong>See:</strong> <a href="../#microsim-directory-structure">MicroSim Directory Structure</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#microsim-directory-structure">MicroSim Directory Structure</a></p>
 </details>
 <hr />
 <h4 id="5-why-must-the-mainhtml-file-be-entirely-self-contained-except-for-the-p5js-library">5. Why must the main.html file be entirely self-contained except for the p5.js library?</h4>
@@ -2045,7 +2045,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. The main.html file must be fully self-contained so it can be embedded via iframe without external dependencies beyond the p5.js library itself (loaded from CDN). This ensures the simulation works reliably when sandboxed in an iframe without broken references to external CSS or JavaScript files. Option A confuses self-containment with optimization, option C misidentifies the primary purpose, and option D invokes irrelevant validation concerns.</p>
 <p><strong>Concept Tested:</strong> main.html in MicroSims</p>
-<p><strong>See:</strong> <a href="../#creating-the-mainhtml-file">Creating the main.html File</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#mainhtml-in-microsims">Creating the main.html File</a></p>
 </details>
 <hr />
 <h4 id="6-you-are-embedding-a-microsim-that-has-an-800x600-canvas-and-a-200-pixel-control-panel-the-simulation-is-in-the-same-directory-as-your-indexmd-file-which-iframe-code-is-correct">6. You are embedding a MicroSim that has an 800x600 canvas and a 200-pixel control panel. The simulation is in the same directory as your index.md file. Which iframe code is correct?</h4>
@@ -2061,7 +2061,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. The correct iframe uses <code>src="./main.html"</code> (relative path in same directory), width of 1000 (800 canvas + 200 controls), height of 600, and <code>frameborder="0"</code> for clean integration. Option A doesn't account for the control panel width, option C uses incorrect parent directory path, and option D uses <code>href</code> instead of <code>src</code> which is invalid for iframes.</p>
 <p><strong>Concept Tested:</strong> Iframe Embedding</p>
-<p><strong>See:</strong> <a href="../#iframe-embedding-techniques">Iframe Embedding Techniques</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#iframe-embedding">Iframe Embedding Techniques</a></p>
 </details>
 <hr />
 <h4 id="7-what-is-the-primary-pedagogical-benefit-of-implementing-seeded-randomness-in-educational-microsims">7. What is the primary pedagogical benefit of implementing seeded randomness in educational MicroSims?</h4>
@@ -2077,7 +2077,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. Seeded randomness resolves the tension between variability (students see different scenarios) and reproducibility (same seed always produces same sequence). This enables debugging, instruction referencing specific scenarios, student comparison of approaches, and consistent documentation while maintaining the engagement value of randomness. Option A confuses seeding with performance, option C mischaracterizes the purpose, and option D is factually incorrect about control requirements.</p>
 <p><strong>Concept Tested:</strong> Seeded Randomness</p>
-<p><strong>See:</strong> <a href="../#ensuring-reproducibility-with-seeded-randomness">Ensuring Reproducibility with Seeded Randomness</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#seeded-randomness">Ensuring Reproducibility with Seeded Randomness</a></p>
 </details>
 <hr />
 <h4 id="8-you-are-creating-a-physics-simulation-where-students-should-be-able-to-adjust-gravity-continuously-and-observe-immediate-effects-on-falling-objects-which-interactive-control-is-most-appropriate">8. You are creating a physics simulation where students should be able to adjust gravity continuously and observe immediate effects on falling objects. Which interactive control is most appropriate?</h4>
@@ -2093,7 +2093,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. Sliders provide continuous parameter adjustment with immediate visual feedback, making them ideal for exploring continuous phenomena like physical constants. A slider makes the relationship between input and output visible through analog manipulation, supporting development of quantitative intuition. Option A provides discrete rather than continuous control, option B limits exploration to presets, and option D requires explicit submission rather than immediate reactivity.</p>
 <p><strong>Concept Tested:</strong> Interactive Controls (Sliders)</p>
-<p><strong>See:</strong> <a href="../#interactive-controls-sliders">Interactive Controls: Sliders</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#interactive-controls-sliders">Interactive Controls: Sliders</a></p>
 </details>
 <hr />
 <h4 id="9-when-designing-a-microsim-you-notice-that-adding-multiple-visualization-modes-parameter-controls-and-algorithm-options-has-made-the-interface-complex-and-confusing-according-to-educational-simulation-design-principles-what-should-you-do">9. When designing a MicroSim, you notice that adding multiple visualization modes, parameter controls, and algorithm options has made the interface complex and confusing. According to educational simulation design principles, what should you do?</h4>
@@ -2109,7 +2109,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. The "Micro" in MicroSim is deliberate—simulations work best when demonstrating one concept clearly rather than modeling complex systems comprehensively. If you're adding many controls or modes, consider splitting into multiple MicroSims, each addressing a different facet of the broader topic. This prevents cognitive overload from extraneous details. Option A addresses symptoms rather than causes, option B may remove important features, and option D hides complexity rather than eliminating it.</p>
 <p><strong>Concept Tested:</strong> Educational Simulation Design</p>
-<p><strong>See:</strong> <a href="../#principles-of-educational-simulation-design">Principles of Educational Simulation Design</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#educational-simulation-design">Principles of Educational Simulation Design</a></p>
 </details>
 <hr />
 <h4 id="10-what-information-should-be-included-in-the-educational-section-of-a-microsims-metadatajson-file">10. What information should be included in the educational section of a MicroSim's metadata.json file?</h4>
@@ -2125,7 +2125,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. The educational section of metadata.json extends Dublin Core for learning-specific purposes, including learning objectives (specific outcomes students should achieve), Bloom's levels addressed, prerequisites (required prior knowledge), estimated time (expected interaction duration), difficulty level, and keywords. This metadata supports discovery, LMS integration, and assessment alignment. Option A describes technical file metadata, option B describes the technical section, and option D confuses metadata with analytics data.</p>
 <p><strong>Concept Tested:</strong> MicroSim Metadata</p>
-<p><strong>See:</strong> <a href="../#microsim-metadata-standards">MicroSim Metadata Standards</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#microsim-metadata-standards">MicroSim Metadata Standards</a></p>
 </details>
 <hr />
 

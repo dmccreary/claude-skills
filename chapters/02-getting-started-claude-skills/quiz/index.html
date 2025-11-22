@@ -1999,7 +1999,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. Claude Skills represent autonomous agents designed to execute complex, multi-step workflows without continuous human intervention. Unlike simple prompts that request a single output, skills encapsulate comprehensive procedures including context gathering, quality validation, iterative refinement, and structured deliverable generation. Option A describes basic prompts, option C describes hotkeys, and option D mischaracterizes skills as a programming language.</p>
 <p><strong>Concept Tested:</strong> Claude Skill</p>
-<p><strong>See:</strong> <a href="../#understanding-claude-skills">Understanding Claude Skills</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#claude-skill">Understanding Claude Skills</a></p>
 </details>
 <hr />
 <h4 id="2-which-file-defines-a-claude-skill">2. Which file defines a Claude Skill?</h4>
@@ -2015,7 +2015,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. Every Claude Skill is defined by a <code>SKILL.md</code> file containing both metadata (YAML frontmatter) and workflow instructions (markdown content). This standardized structure enables Claude Code to discover, load, and execute skills consistently across projects. Options A, B, and D reference files that are not used in the Claude Skills system.</p>
 <p><strong>Concept Tested:</strong> Skill Definition File Structure</p>
-<p><strong>See:</strong> <a href="../#skill-definition-file-structure">Skill Definition File Structure</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#skill-definition-file-structure">Skill Definition File Structure</a></p>
 </details>
 <hr />
 <h4 id="3-what-information-is-included-in-the-yaml-frontmatter-of-a-skill-file">3. What information is included in the YAML frontmatter of a skill file?</h4>
@@ -2031,7 +2031,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. The YAML frontmatter section provides metadata that Claude Code uses for skill discovery, permission management, and user-facing documentation. Required fields include name, description, and license, while the optional allowed-tools field specifies which tools the skill can use. Option A describes the markdown body (not frontmatter), option B describes supporting resources, and option D is not part of skill files.</p>
 <p><strong>Concept Tested:</strong> YAML Frontmatter in Skills</p>
-<p><strong>See:</strong> <a href="../#yaml-frontmatter-in-skills">YAML Frontmatter in Skills</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#yaml-frontmatter-in-skills">YAML Frontmatter in Skills</a></p>
 </details>
 <hr />
 <h4 id="4-what-is-the-purpose-of-the-allowed-tools-field-in-skill-frontmatter">4. What is the purpose of the <code>allowed-tools</code> field in skill frontmatter?</h4>
@@ -2047,7 +2047,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>D</strong>. The <code>allowed-tools</code> frontmatter field provides fine-grained permission control, limiting skills to specific Claude Code tools. This security and safety mechanism prevents skills from performing unintended operations by following the principle of least privilege—granting only the tools necessary for the skill's function. Options A, B, and C mischaracterize the purpose of this field.</p>
 <p><strong>Concept Tested:</strong> Allowed Tools in Skills</p>
-<p><strong>See:</strong> <a href="../#allowed-tools-in-skills">Allowed Tools in Skills</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#allowed-tools-in-skills">Allowed Tools in Skills</a></p>
 </details>
 <hr />
 <h4 id="5-what-is-the-difference-between-a-claude-skill-and-a-claude-command">5. What is the difference between a Claude Skill and a Claude Command?</h4>
@@ -2063,7 +2063,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. Skills are autonomous agents that execute complex, multi-step workflows with context gathering, quality validation, and structured outputs. Commands, by contrast, are simpler mechanisms that expand text prompts—when a user types a slash command like <code>/commit</code>, it expands to a predefined prompt. Skills are more sophisticated workflow automation tools, while commands are text expansion shortcuts. The other options describe incorrect distinctions.</p>
 <p><strong>Concept Tested:</strong> Difference Between Skills &amp; Commands</p>
-<p><strong>See:</strong> <a href="../#claude-command">Claude Command</a> and <a href="../#difference-between-skills-commands">Difference Between Skills &amp; Commands</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#claude-command">Claude Command</a> and <a href="../../../glossary/#difference-between-skills-commands">Difference Between Skills &amp; Commands</a></p>
 </details>
 <hr />
 <h4 id="6-where-should-skills-be-installed-for-global-availability-across-all-projects">6. Where should skills be installed for global availability across all projects?</h4>
@@ -2079,7 +2079,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. Global installation makes skills available in all Claude Code sessions regardless of current working directory by storing them in <code>~/.claude/skills/</code> in the user's home directory. Project-local skills can be installed in <code>.claude/skills/</code> within a specific project directory, but these are not globally available. Options A, B, and D describe incorrect installation locations.</p>
 <p><strong>Concept Tested:</strong> Installing a Claude Skill</p>
-<p><strong>See:</strong> <a href="../#installing-a-claude-skill">Installing a Claude Skill</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#installing-a-claude-skill">Installing a Claude Skill</a></p>
 </details>
 <hr />
 <h4 id="7-how-does-claude-code-determine-which-workflow-steps-to-execute-when-a-skill-is-invoked">7. How does Claude Code determine which workflow steps to execute when a skill is invoked?</h4>
@@ -2095,7 +2095,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. The markdown body of a SKILL.md file contains detailed, step-by-step instructions (typically under a "## Workflow" section with numbered steps like "Step 1", "Step 2") that Claude Code executes autonomously. These instructions are explicitly written and sequenced, providing clear guidance for execution. Options A, C, and D describe incorrect mechanisms for determining workflow execution.</p>
 <p><strong>Concept Tested:</strong> Skill Workflow Instructions</p>
-<p><strong>See:</strong> <a href="../#skill-workflow-instructions">Skill Workflow Instructions</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#skill-workflow-instructions">Skill Workflow Instructions</a></p>
 </details>
 <hr />
 <h4 id="8-a-developer-creates-a-new-skill-that-needs-to-analyze-existing-files-but-should-never-modify-them-or-access-the-internet-which-allowed-tools-configuration-is-most-appropriate">8. A developer creates a new skill that needs to analyze existing files but should never modify them or access the internet. Which <code>allowed-tools</code> configuration is most appropriate?</h4>
@@ -2111,7 +2111,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>A</strong>. For a skill that only analyzes existing files without modification, read-only tools are appropriate: Read (access file contents), Grep (search file contents), and Glob (find files matching patterns). This follows the principle of least privilege by granting only necessary tools. Option B includes write tools, option C includes web access tools, and option D grants excessive permissions. Using [Read, Grep, Glob] ensures the skill cannot accidentally modify files or access external resources.</p>
 <p><strong>Concept Tested:</strong> Allowed Tools in Skills</p>
-<p><strong>See:</strong> <a href="../#allowed-tools-in-skills">Allowed Tools in Skills</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#allowed-tools-in-skills">Allowed Tools in Skills</a></p>
 </details>
 <hr />
 <h4 id="9-why-do-well-designed-skill-workflow-instructions-include-verification-checkpoints-and-error-handling-guidance">9. Why do well-designed skill workflow instructions include verification checkpoints and error handling guidance?</h4>
@@ -2127,7 +2127,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. Verification checkpoints (confirming expected files exist and meet quality standards) and error handling guidance (instructions for when expected conditions aren't met) enable skills to execute autonomously even when project structures vary or unexpected conditions occur. This makes skills robust and adaptable rather than brittle. Options A, B, and D misunderstand the purpose of these workflow elements.</p>
 <p><strong>Concept Tested:</strong> Skill Workflow Instructions</p>
-<p><strong>See:</strong> <a href="../#skill-workflow-instructions">Skill Workflow Instructions</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#skill-workflow-instructions">Skill Workflow Instructions</a></p>
 </details>
 <hr />
 <h4 id="10-what-does-invoking-a-skill-with-a-slash-command-like-quiz-generator-accomplish">10. What does invoking a skill with a slash command like <code>/quiz-generator</code> accomplish?</h4>
@@ -2143,7 +2143,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>D</strong>. When you invoke a skill using a slash command (like <code>/quiz-generator</code>), Claude Code loads the corresponding SKILL.md file, reads the YAML frontmatter for metadata and permissions, and then executes the step-by-step workflow instructions in the markdown body. The skill must already be installed; invocation doesn't download (A), create (B), or compile (C) anything—it executes an existing installed skill.</p>
 <p><strong>Concept Tested:</strong> Invoking Skills with Slash Commands</p>
-<p><strong>See:</strong> <a href="../#invoking-skills-with-slash-commands">Invoking Skills with Slash Commands</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#invoking-skills-with-slash-commands">Invoking Skills with Slash Commands</a></p>
 </details>
 <hr />
 <h2 id="quiz-statistics">Quiz Statistics</h2>

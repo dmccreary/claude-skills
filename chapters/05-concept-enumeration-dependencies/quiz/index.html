@@ -1999,7 +1999,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. A semester-length course typically targets approximately 200 concepts (range 180-220), which aligns with cognitive load principles, provides adequate assessment coverage, and fits semester pacing of 45 contact hours. This yields about 13 minutes per concept for instruction. Option A would lack depth, option B would be appropriate for shorter courses, and option D would overwhelm learners and instructors.</p>
 <p><strong>Concept Tested:</strong> Generating 200 Concepts</p>
-<p><strong>See:</strong> <a href="../#generating-200-concepts">Generating 200 Concepts</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#generating-200-concepts">Generating 200 Concepts</a></p>
 </details>
 <hr />
 <h4 id="2-which-of-the-following-concept-labels-correctly-follows-title-case-convention">2. Which of the following concept labels correctly follows Title Case convention?</h4>
@@ -2015,7 +2015,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. Title Case capitalizes the first letter of major words while keeping articles, conjunctions, and short prepositions lowercase. "Learning Graph Generation" correctly capitalizes all three major words. Option A uses sentence case (incorrect), option C uses all caps (incorrect), and option D incorrectly keeps "graph" and "generation" lowercase.</p>
 <p><strong>Concept Tested:</strong> Title Case Convention</p>
-<p><strong>See:</strong> <a href="../#title-case-convention">Title Case Convention</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#title-case-convention">Title Case Convention</a></p>
 </details>
 <hr />
 <h4 id="3-what-is-the-maximum-character-length-permitted-for-a-concept-label-including-spaces">3. What is the maximum character length permitted for a concept label, including spaces?</h4>
@@ -2031,7 +2031,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. Concept labels must not exceed 32 characters including spaces. This constraint ensures labels fit in UI elements like navigation menus, graph node displays, and table columns without truncation. Options A and B are too restrictive and would prevent descriptive labels, while option D would allow overlength labels that break visual layouts.</p>
 <p><strong>Concept Tested:</strong> Maximum Character Length</p>
-<p><strong>See:</strong> <a href="../#maximum-character-length">Maximum Character Length</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#maximum-character-length">Maximum Character Length</a></p>
 </details>
 <hr />
 <h4 id="4-a-proposed-concept-is-titled-complete-overview-of-all-machine-learning-algorithms-and-their-applications-what-is-the-primary-problem-with-this-concept">4. A proposed concept is titled "Complete Overview of All Machine Learning Algorithms and Their Applications." What is the primary problem with this concept?</h4>
@@ -2047,7 +2047,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. This concept is far too coarse, encompassing multiple distinct ideas that should be separate atomic concepts. It cannot be assessed specifically, has unclear dependencies, and would generate overly general content. While it also exceeds 32 characters (option C is partially true), the fundamental issue is granularity—even if shortened, it remains too broad. Options A and D are not the main problems.</p>
 <p><strong>Concept Tested:</strong> Concept Granularity</p>
-<p><strong>See:</strong> <a href="../#concept-granularity">Concept Granularity</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#concept-granularity">Concept Granularity</a></p>
 </details>
 <hr />
 <h4 id="5-in-the-csv-format-for-learning-graphs-how-are-multiple-dependencies-represented-in-the-dependencies-field">5. In the CSV format for learning graphs, how are multiple dependencies represented in the Dependencies field?</h4>
@@ -2063,7 +2063,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. The Dependencies column uses pipe (|) delimiters to separate multiple prerequisite ConceptIDs, enabling compact representation like "5|7|8" for a concept depending on concepts 5, 7, and 8. Comma delimiters (option A) would conflict with CSV field separators, while semicolons and spaces (options C and D) are not the standard format and may cause parsing errors.</p>
 <p><strong>Concept Tested:</strong> Pipe-Delimited Dependencies</p>
-<p><strong>See:</strong> <a href="../#pipe-delimited-dependencies">Pipe-Delimited Dependencies</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#pipe-delimited-dependencies">Pipe-Delimited Dependencies</a></p>
 </details>
 <hr />
 <h4 id="6-if-a-learning-graph-csv-contains-the-row-5directed-acyclic-graph34core-what-does-this-indicate">6. If a learning graph CSV contains the row "5,Directed Acyclic Graph,3|4,CORE", what does this indicate?</h4>
@@ -2079,7 +2079,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. The Dependencies field "3|4" indicates that concept 5 depends on both concepts 3 and 4 as prerequisites. This creates edges 3 → 5 and 4 → 5 in the learning graph. Option A misreads the non-empty Dependencies field, option C reverses the dependency direction, and option D incorrectly suggests multiple dependencies are invalid.</p>
 <p><strong>Concept Tested:</strong> Dependencies Field</p>
-<p><strong>See:</strong> <a href="../#dependencies-field">Dependencies Field</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#dependencies-field">Dependencies Field</a></p>
 </details>
 <hr />
 <h4 id="7-you-are-creating-a-learning-graph-and-want-to-add-a-new-concept-about-python-list-comprehensions-you-determine-it-requires-understanding-of-both-python-lists-concept-12-and-for-loops-concept-15-how-should-you-represent-this-in-the-csv">7. You are creating a learning graph and want to add a new concept about "Python list comprehensions." You determine it requires understanding of both "Python lists" (concept 12) and "For loops" (concept 15). How should you represent this in the CSV?</h4>
@@ -2095,7 +2095,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. You create a single row for the new concept with the Dependencies field containing "12|15" (or "15|12"—order doesn't matter within the pipe-delimited list). This single compact representation creates both prerequisite relationships. Option A would create duplicate concept entries (invalid), option C is equivalent to B (either order is fine), and option D describes a different data model not used in the CSV format.</p>
 <p><strong>Concept Tested:</strong> Dependency Mapping Process</p>
-<p><strong>See:</strong> <a href="../#dependency-mapping-process">Dependency Mapping Process</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#dependency-mapping-process">Dependency Mapping Process</a></p>
 </details>
 <hr />
 <h4 id="8-what-percentage-of-concepts-in-a-well-balanced-learning-graph-should-typically-be-foundational-concepts-with-zero-dependencies">8. What percentage of concepts in a well-balanced learning graph should typically be foundational concepts with zero dependencies?</h4>
@@ -2111,7 +2111,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. Foundational concepts with zero dependencies should represent 5-10% of total concepts (about 10-20 concepts in a 200-concept graph), serving as entry points. Too few (option A) suggests missing entry points or circular dependencies, while too many (options C and D) suggests the course lacks depth or includes unnecessary prerequisites.</p>
 <p><strong>Concept Tested:</strong> Foundational Concepts</p>
-<p><strong>See:</strong> <a href="../#foundational-prerequisite-and-advanced-concepts">Foundational, Prerequisite, and Advanced Concepts</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#foundational-concepts">Foundational, Prerequisite, and Advanced Concepts</a></p>
 </details>
 <hr />
 <h4 id="9-in-a-200-concept-learning-graph-approximately-how-many-concepts-should-be-advancedintegrative-concepts-with-4-or-more-dependencies">9. In a 200-concept learning graph, approximately how many concepts should be advanced/integrative concepts with 4 or more dependencies?</h4>
@@ -2127,7 +2127,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. Advanced concepts with 4+ dependencies should represent 20-30% of the graph (40-60 concepts in a 200-concept graph), representing learning culmination and integration. Option A suggests insufficient advanced content, while options C and D indicate over-specification of prerequisites or insufficiently atomic concepts that should be split.</p>
 <p><strong>Concept Tested:</strong> Advanced Concepts</p>
-<p><strong>See:</strong> <a href="../#foundational-prerequisite-and-advanced-concepts">Foundational, Prerequisite, and Advanced Concepts</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#foundational-concepts">Foundational, Prerequisite, and Advanced Concepts</a></p>
 </details>
 <hr />
 <h4 id="10-what-is-the-primary-purpose-of-the-taxonomyid-field-in-the-learning-graph-csv">10. What is the primary purpose of the TaxonomyID field in the learning graph CSV?</h4>
@@ -2143,7 +2143,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. The TaxonomyID field categorizes concepts into thematic groups (like FOUND, BASIC, ARCH, IMPL), enabling quality assessment (balanced coverage), chapter organization (grouping related concepts), and navigation enhancement (filtering by category). Option A confuses it with ConceptID, option C confuses it with dependency ordering, and option D confuses it with Bloom's Taxonomy cognitive levels (a different framework).</p>
 <p><strong>Concept Tested:</strong> Taxonomy</p>
-<p><strong>See:</strong> <a href="../#taxonomy-and-concept-categorization">Taxonomy and Concept Categorization</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#concept-categorization">Taxonomy and Concept Categorization</a></p>
 </details>
 <hr />
 <h2 id="quiz-statistics">Quiz Statistics</h2>

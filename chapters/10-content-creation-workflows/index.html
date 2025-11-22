@@ -2417,117 +2417,68 @@ Implementation: SVG diagram with clean technical documentation style
 <h3 id="content-generation-parameters">Content Generation Parameters</h3>
 <p>Several key parameters influence how content is generated, ensuring it aligns with course objectives and audience needs. The reading level, determined from the course description file, affects sentence complexity, vocabulary choices, explanation depth, and example sophistication. The concept list defines the precise scope of coverage, while concept dependencies from the learning graph determine the optimal presentation order.</p>
 <h4 id="diagram-content-generation-process-timeline">Diagram: Content Generation Process Timeline</h4>
+<iframe src="../../sims/chapter-content-generation-timeline/main.html" width="100%" height="720px" scrolling="no"></iframe>
+<p><a class="md-button md-button--primary" href="../../sims/chapter-content-generation-timeline/main.html">Run the Chapter Content Generation Timeline MicroSim Fullscreen</a></p>
 <details>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Content Generation Process Timeline&lt;/summary&gt;
-Type: timeline
-
-Time period: Content generation workflow stages (sequential process)
-
-Orientation: Horizontal
-
-Events:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Content Generation Process Timeline&lt;/summary&gt;
+</code></pre></div></td></tr></table></div>
+<p>Type: timeline
+Status: Done</p>
+<p>Time period: Content generation workflow stages (sequential process)</p>
+<p>Orientation: Horizontal</p>
+<p>Events:
 - Stage 1: File Validation
   Description: Verify chapter index.md exists with required structure
-  Duration: &lt; 1 second
-
-- Stage 2: Structure Check
+  Duration: &lt; 1 second</p>
+<ul>
+<li>
+<p>Stage 2: Structure Check
   Description: Parse and validate title, summary, concepts list, prerequisites
-  Duration: 1-2 seconds
-
-- Stage 3: Reading Level Analysis
+  Duration: 1-2 seconds</p>
+</li>
+<li>
+<p>Stage 3: Reading Level Analysis
   Description: Extract target audience from course description and determine appropriate complexity
-  Duration: 2-3 seconds
-
-- Stage 4: Reference Loading
+  Duration: 2-3 seconds</p>
+</li>
+<li>
+<p>Stage 4: Reference Loading
   Description: Load reading-level guidelines and content-element-types specifications
-  Duration: 3-5 seconds
-
-- Stage 5: Content Generation
+  Duration: 3-5 seconds</p>
+</li>
+<li>
+<p>Stage 5: Content Generation
   Description: Generate detailed educational content with examples, exercises, and non-text elements
-  Duration: 60-180 seconds (varies by chapter length)
-
-- Stage 6: Concept Coverage Verification
+  Duration: 60-180 seconds (varies by chapter length)</p>
+</li>
+<li>
+<p>Stage 6: Concept Coverage Verification
   Description: Cross-check generated content against concept list for completeness
-  Duration: 5-10 seconds
-
-- Stage 7: File Update
+  Duration: 5-10 seconds</p>
+</li>
+<li>
+<p>Stage 7: File Update
   Description: Replace TODO placeholder with generated content in index.md
-  Duration: 1-2 seconds
-
-- Stage 8: Reporting
+  Duration: 1-2 seconds</p>
+</li>
+<li>
+<p>Stage 8: Reporting
   Description: Generate summary statistics (word count, elements, concepts covered)
-  Duration: 2-3 seconds
-
-Visual style: Horizontal timeline with process boxes connected by arrows
-
-Color coding:
+  Duration: 2-3 seconds</p>
+</li>
+</ul>
+<p>Visual style: Horizontal timeline with process boxes connected by arrows</p>
+<p>Color coding:
 - Blue: Validation stages (1-2)
 - Green: Analysis stages (3-4)
 - Orange: Generation stage (5)
 - Purple: Quality assurance stages (6-7)
-- Gold: Completion stage (8)
-
-Interactive features:
+- Gold: Completion stage (8)</p>
+<p>Interactive features:
 - Hover to see detailed substeps for each stage
 - Click to expand with typical token usage statistics
-- Progress bar showing relative time distribution
-
-Implementation: CSS/JavaScript timeline with SVG elements
-</code></pre></div></td></tr></table></div>
+- Progress bar showing relative time distribution</p>
+<p>Implementation: CSS/JavaScript timeline with SVG elements</p>
 <hr />
 <p><strong>MicroSim Generator Recommendations:</strong></p>
 <ol>

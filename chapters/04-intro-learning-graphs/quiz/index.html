@@ -1999,7 +1999,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. A learning graph is a directed graph data structure that maps the conceptual landscape of a course domain, explicitly representing concepts as nodes and prerequisite dependencies as edges. This formalization enables systematic curriculum design, optimal content sequencing, and adaptive learning pathways. Option A confuses visual design with conceptual structure, option C describes a learning management system feature rather than a learning graph's design purpose, and option D describes bibliography organization, not concept dependency mapping.</p>
 <p><strong>Concept Tested:</strong> Learning Graph</p>
-<p><strong>See:</strong> <a href="../#what-is-a-learning-graph">What is a Learning Graph?</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#learning-graph">What is a Learning Graph?</a></p>
 </details>
 <hr />
 <h4 id="2-what-distinguishes-concept-nodes-from-general-graph-vertices-in-a-learning-graph">2. What distinguishes concept nodes from general graph vertices in a learning graph?</h4>
@@ -2015,7 +2015,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>A</strong>. Concept nodes represent atomic knowledge units—discrete, well-defined ideas, procedures, or principles that learners must understand. Each node has a unique ConceptID and human-readable ConceptLabel, making them distinct from generic graph vertices. Option B is false as concept nodes require text labels, option C incorrectly describes visualization conventions, and option D states an arbitrary constraint that doesn't exist.</p>
 <p><strong>Concept Tested:</strong> Concept Nodes in Learning Graphs</p>
-<p><strong>See:</strong> <a href="../#concept-nodes-in-learning-graphs">Concept Nodes in Learning Graphs</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#concept-nodes-in-learning-graphs">Concept Nodes in Learning Graphs</a></p>
 </details>
 <hr />
 <h4 id="3-in-a-learning-graph-what-does-a-directed-edge-from-concept-a-to-concept-b-indicate">3. In a learning graph, what does a directed edge from concept A to concept B indicate?</h4>
@@ -2031,7 +2031,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. A directed edge A → B means A is a prerequisite for B, B depends on A, A should be taught before B, and learners must master A to understand B fully. This encodes the pedagogical ordering constraint. Option A contradicts the purpose of edges (showing relationships), option C reverses the dependency direction, and option D describes chapter organization which is influenced by but not directly determined by single edges.</p>
 <p><strong>Concept Tested:</strong> Dependency Edges in Learning Graphs</p>
-<p><strong>See:</strong> <a href="../#dependency-edges-in-learning-graphs">Dependency Edges in Learning Graphs</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#dependency-edges-in-learning-graphs">Dependency Edges in Learning Graphs</a></p>
 </details>
 <hr />
 <h4 id="4-why-must-a-valid-learning-graph-be-a-directed-acyclic-graph-dag">4. Why must a valid learning graph be a Directed Acyclic Graph (DAG)?</h4>
@@ -2047,7 +2047,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. A DAG constraint ensures no cycles exist, which means there is some valid sequence in which concepts can be taught such that all prerequisites precede their dependents. If a cycle existed (A → B → C → A), it would create a logical impossibility where A must be learned before itself. Option A trivializes a fundamental mathematical requirement, option B is unrelated to the DAG property, and option D confuses DAG requirements with concept count recommendations.</p>
 <p><strong>Concept Tested:</strong> Directed Acyclic Graph (DAG)</p>
-<p><strong>See:</strong> <a href="../#directed-acyclic-graph-dag-requirement">Directed Acyclic Graph (DAG) Requirement</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#directed-acyclic-graph-dag">Directed Acyclic Graph (DAG) Requirement</a></p>
 </details>
 <hr />
 <h4 id="5-a-learning-graph-contains-concepts-x-y-and-z-with-dependencies-x-y-z-what-type-of-prerequisite-relationship-exists-between-x-and-z">5. A learning graph contains concepts X, Y, and Z with dependencies X → Y → Z. What type of prerequisite relationship exists between X and Z?</h4>
@@ -2063,7 +2063,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. X is a transitive prerequisite to Z because there exists a path X → Y → Z even without a direct edge X → Z. Transitive dependencies are implied by paths through the graph and don't require explicit edges, keeping the graph sparse and maintainable. Option A would require adding a redundant direct edge, option C is false as the relationship clearly exists via the path, and option D describes cycles which violate the DAG constraint.</p>
 <p><strong>Concept Tested:</strong> Prerequisite Relationships</p>
-<p><strong>See:</strong> <a href="../#prerequisite-relationships-and-learning-pathways">Prerequisite Relationships and Learning Pathways</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#prerequisite-relationships">Prerequisite Relationships and Learning Pathways</a></p>
 </details>
 <hr />
 <h4 id="6-if-your-learning-graph-generation-consumes-40000-tokens-approximately-how-long-must-you-wait-before-those-tokens-become-available-again-in-your-claude-pro-account">6. If your learning graph generation consumes 40,000 tokens, approximately how long must you wait before those tokens become available again in your Claude Pro account?</h4>
@@ -2079,7 +2079,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. Claude Pro accounts operate on rolling 4-hour usage windows. Token consumption from any operation remains unavailable for 4 hours after that operation. This means tokens used for learning graph generation become available again 4 hours later, not immediately, after 1 hour, or after a full day. Understanding this window helps plan multi-stage textbook generation workflows.</p>
 <p><strong>Concept Tested:</strong> 4-Hour Usage Windows</p>
-<p><strong>See:</strong> <a href="../#understanding-4-hour-usage-windows">Understanding 4-Hour Usage Windows</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#4-hour-usage-windows">Understanding 4-Hour Usage Windows</a></p>
 </details>
 <hr />
 <h4 id="7-what-is-the-recommended-approach-for-managing-claude-pro-token-budgets-when-generating-a-complete-intelligent-textbook">7. What is the recommended approach for managing Claude Pro token budgets when generating a complete intelligent textbook?</h4>
@@ -2095,7 +2095,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. Effective token management involves front-loading high-token operations (learning graph generation, chapter content) early in sessions to maximize productive token use, then interleaving with low-token tasks (file organization, manual review, formatting) while waiting for token restoration. Option A ignores token limits, option C contradicts the premise of using AI for textbook generation, and option D defeats the purpose of AI-assisted content creation.</p>
 <p><strong>Concept Tested:</strong> Optimizing Claude Usage</p>
-<p><strong>See:</strong> <a href="../#optimizing-claude-usage-for-learning-graph-generation">Optimizing Claude Usage for Learning Graph Generation</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#optimizing-claude-usage">Optimizing Claude Usage for Learning Graph Generation</a></p>
 </details>
 <hr />
 <h4 id="8-given-a-learning-graph-fragment-where-programming-basics-has-no-incoming-edges-and-enables-both-variables-and-functions-which-pattern-does-this-illustrate">8. Given a learning graph fragment where "Programming Basics" has no incoming edges and enables both "Variables" and "Functions," which pattern does this illustrate?</h4>
@@ -2111,7 +2111,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. Fan-out (divergence) occurs when a foundational concept enables multiple dependent concepts. "Programming Basics" with no incoming edges (foundational) pointing to both "Variables" and "Functions" exemplifies this pattern. Option A would require multiple concepts pointing to one advanced concept, option C would require a linear A → B → C sequence, and option D describes an invalid cycle.</p>
 <p><strong>Concept Tested:</strong> Concept Dependencies</p>
-<p><strong>See:</strong> <a href="../#dependency-edges-in-learning-graphs">Dependency Edges in Learning Graphs</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#dependency-edges-in-learning-graphs">Dependency Edges in Learning Graphs</a></p>
 </details>
 <hr />
 <h4 id="9-for-a-13-chapter-textbook-with-balanced-concept-distribution-approximately-how-many-concepts-should-each-chapter-contain">9. For a 13-chapter textbook with balanced concept distribution, approximately how many concepts should each chapter contain?</h4>
@@ -2127,7 +2127,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. With a target of approximately 200 concepts for a semester-length course and 13 chapters, balanced distribution yields 12-18 concepts per chapter (200 ÷ 13 ≈ 15). This produces manageable chapters of 3,500-5,000 words that respect cognitive load principles. Option A would create overly shallow chapters, while options C and D would overwhelm learners with excessive concepts per chapter.</p>
 <p><strong>Concept Tested:</strong> Chapter Structure</p>
-<p><strong>See:</strong> <a href="../#chapter-structure-and-token-budgeting">Chapter Structure and Token Budgeting</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#chapter-structure-and-token-budgeting">Chapter Structure and Token Budgeting</a></p>
 </details>
 <hr />
 <h4 id="10-which-statement-best-describes-the-relationship-between-concept-depth-and-chapter-placement-in-a-well-structured-textbook">10. Which statement best describes the relationship between concept depth and chapter placement in a well-structured textbook?</h4>
@@ -2143,7 +2143,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. Topological ordering of the learning graph ensures foundational concepts with zero incoming edges (no dependencies) appear in early chapters, while concepts with many incoming edges (advanced, integrative) appear in later chapters. This respects prerequisite relationships and creates natural learning progression. Option A ignores dependency structure, option C reverses the logical ordering, and option D contradicts systematic curriculum design principles.</p>
 <p><strong>Concept Tested:</strong> Learning Pathways</p>
-<p><strong>See:</strong> <a href="../#prerequisite-relationships-and-learning-pathways">Prerequisite Relationships and Learning Pathways</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#prerequisite-relationships">Prerequisite Relationships and Learning Pathways</a></p>
 </details>
 <hr />
 <h2 id="quiz-statistics">Quiz Statistics</h2>

@@ -1999,7 +1999,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. TaxonomyID abbreviations should be 3-5 letters, balancing compactness in CSV files and visualizations with sufficient distinctiveness and mnemonics. Option A is too short to be distinctive, while options C and D defeat the purpose of abbreviation and would clutter visualizations.</p>
 <p><strong>Concept Tested:</strong> TaxonomyID Abbreviations</p>
-<p><strong>See:</strong> <a href="../#taxonomyid-abbreviations">TaxonomyID Abbreviations</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#taxonomyid-abbreviations">TaxonomyID Abbreviations</a></p>
 </details>
 <hr />
 <h4 id="2-in-the-vis-network-json-format-which-section-defines-visual-styling-like-background-color-and-node-shape-for-each-taxonomy-category">2. In the vis-network JSON format, which section defines visual styling like background color and node shape for each taxonomy category?</h4>
@@ -2015,7 +2015,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. The groups section defines visual styling (color, font, shape) for each TaxonomyID category, enabling consistent color-coded visualization. The metadata section (option A) contains descriptive information about the graph, the nodes section (option C) contains concept objects, and the edges section (option D) contains dependency relationships.</p>
 <p><strong>Concept Tested:</strong> Groups Section in JSON</p>
-<p><strong>See:</strong> <a href="../#groups-section-in-json">Groups Section in JSON</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#groups-section-in-json">Groups Section in JSON</a></p>
 </details>
 <hr />
 <h4 id="3-what-are-the-four-primary-sections-of-the-vis-network-json-format-for-learning-graphs">3. What are the four primary sections of the vis-network JSON format for learning graphs?</h4>
@@ -2031,7 +2031,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. The vis-network JSON format organizes learning graph data into four sections: metadata (information about the graph), groups (visual styling), nodes (concept objects), and edges (dependency relationships). Options A, C, and D use incorrect terminology that doesn't match the vis-network specification.</p>
 <p><strong>Concept Tested:</strong> vis-network JSON Format</p>
-<p><strong>See:</strong> <a href="../#vis-network-json-format">vis-network JSON Format</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#vis-network-json-format">vis-network JSON Format</a></p>
 </details>
 <hr />
 <h4 id="4-in-the-nodes-section-of-vis-network-json-what-three-required-properties-must-each-node-object-contain">4. In the nodes section of vis-network JSON, what three required properties must each node object contain?</h4>
@@ -2047,7 +2047,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. Each node object requires three properties: id (numeric identifier matching ConceptID), label (human-readable concept name), and group (TaxonomyID category for styling). Options A, C, and D use incorrect property names that don't conform to the vis-network schema.</p>
 <p><strong>Concept Tested:</strong> Nodes Section in JSON</p>
-<p><strong>See:</strong> <a href="../#nodes-section-in-json">Nodes Section in JSON</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#nodes-section-in-json">Nodes Section in JSON</a></p>
 </details>
 <hr />
 <h4 id="5-you-are-converting-a-learning-graph-csv-row-with-conceptid10-and-dependencies379-how-many-edge-objects-will-be-created-in-the-vis-network-json">5. You are converting a learning graph CSV row with ConceptID=10 and Dependencies="3|7|9". How many edge objects will be created in the vis-network JSON?</h4>
@@ -2063,7 +2063,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. The Dependencies field "3|7|9" indicates three prerequisites, so three edge objects must be created: {from: 3, to: 10}, {from: 7, to: 10}, and {from: 9, to: 10}. Each dependency creates one edge pointing from the prerequisite to the dependent concept. Options A, B, and D misunderstand the one-to-one mapping of dependencies to edges.</p>
 <p><strong>Concept Tested:</strong> Edges Section in JSON</p>
-<p><strong>See:</strong> <a href="../#edges-section-in-json">Edges Section in JSON</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#edges-section-in-json">Edges Section in JSON</a></p>
 </details>
 <hr />
 <h4 id="6-which-dublin-core-metadata-field-should-use-iso-8601-format-yyyy-mm-dd">6. Which Dublin Core metadata field should use ISO 8601 format (YYYY-MM-DD)?</h4>
@@ -2079,7 +2079,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. The Date metadata field should use ISO 8601 format (YYYY-MM-DD) for unambiguous, machine-parseable dates like "2024-09-15". Title (option A) is a descriptive string, Creator (option B) contains author information, and License (option D) uses license identifiers like "CC-BY-4.0".</p>
 <p><strong>Concept Tested:</strong> Date Metadata Field</p>
-<p><strong>See:</strong> <a href="../#date-metadata-field">Date Metadata Field</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#date-metadata-field">Date Metadata Field</a></p>
 </details>
 <hr />
 <h4 id="7-in-semantic-versioning-for-learning-graphs-what-does-incrementing-the-minor-version-number-indicate">7. In semantic versioning for learning graphs, what does incrementing the MINOR version number indicate?</h4>
@@ -2095,7 +2095,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. In semantic versioning (MAJOR.MINOR.PATCH), incrementing MINOR indicates backwards-compatible additions such as adding new concepts or refining dependencies. MAJOR increments (option A) indicate breaking changes, PATCH increments (option C) indicate corrections, and option D would be a MAJOR version change, not MINOR.</p>
 <p><strong>Concept Tested:</strong> Version Metadata Field</p>
-<p><strong>See:</strong> <a href="../#version-metadata-field">Version Metadata Field</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#version-metadata-field">Version Metadata Field</a></p>
 </details>
 <hr />
 <h4 id="8-according-to-wcag-accessibility-guidelines-what-is-the-minimum-contrast-ratio-required-for-normal-text">8. According to WCAG accessibility guidelines, what is the minimum contrast ratio required for normal text?</h4>
@@ -2111,7 +2111,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. WCAG AA level requires a minimum 4.5:1 contrast ratio for normal text to ensure readability for users with visual impairments. Option B (3:1) is the requirement for large text, option A is insufficient, and option D (7:1) is the enhanced AAA level for normal text, exceeding the minimum.</p>
 <p><strong>Concept Tested:</strong> Font Colors for Readability</p>
-<p><strong>See:</strong> <a href="../#font-colors-for-readability">Font Colors for Readability</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#font-colors-for-readability">Font Colors for Readability</a></p>
 </details>
 <hr />
 <h4 id="9-what-is-the-recommended-approach-when-a-single-taxonomy-category-contains-35-of-all-concepts-in-your-learning-graph">9. What is the recommended approach when a single taxonomy category contains 35% of all concepts in your learning graph?</h4>
@@ -2127,7 +2127,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. When a category exceeds 30% (the over-representation threshold), you should review it to identify concepts that could be consolidated, expand under-represented categories, or reclassify borderline concepts to achieve better balance. Option A ignores a quality issue, option C is unnecessarily destructive, and option D would eliminate the benefits of categorization.</p>
 <p><strong>Concept Tested:</strong> Category Distribution</p>
-<p><strong>See:</strong> <a href="../#category-distribution-analysis">Category Distribution Analysis</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#category-distribution">Category Distribution Analysis</a></p>
 </details>
 <hr />
 <h4 id="10-which-script-should-you-run-to-analyze-whether-your-learning-graph-has-balanced-representation-across-taxonomy-categories">10. Which script should you run to analyze whether your learning graph has balanced representation across taxonomy categories?</h4>
@@ -2143,7 +2143,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. The taxonomy-distribution.py script analyzes the distribution of concepts across taxonomy categories, calculating percentages and identifying over- or under-represented categories. The analyze-graph.py script (option A) performs structural validation and quality scoring, csv-to-json.py (option B) converts formats, and option D is not a real script in the toolkit.</p>
 <p><strong>Concept Tested:</strong> Python Scripts for Processing</p>
-<p><strong>See:</strong> <a href="../#python-scripts-for-processing">Python Scripts for Processing</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#python-scripts-for-processing">Python Scripts for Processing</a></p>
 </details>
 <hr />
 <h2 id="quiz-statistics">Quiz Statistics</h2>
