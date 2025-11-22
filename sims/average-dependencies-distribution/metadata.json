@@ -1,0 +1,20 @@
+{
+  "title": "Average Dependencies Distribution Bar Chart",
+  "description": "Interactive Chart.js visualization for average dependencies distribution bar chart",
+  "creator": "Dan McCreary",
+  "date": "2025-11-22",
+  "subject": [
+    "educational technology",
+    "data visualization",
+    "chart.js"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "publisher": "Claude Skills Repository",
+  "learningResourceType": "simulation",
+  "audience": "Educators, Developers",
+  "version": "1.0.0",
+  "library": "Chart.js"
+}

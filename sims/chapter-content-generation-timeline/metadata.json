@@ -1,0 +1,20 @@
+{
+  "title": "Chapter Content Generation Workflow Timeline",
+  "description": "Interactive HTML/CSS/JavaScript visualization for chapter content generation workflow timeline",
+  "creator": "Dan McCreary",
+  "date": "2025-11-22",
+  "subject": [
+    "educational technology",
+    "data visualization",
+    "html/css/javascript"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "publisher": "Claude Skills Repository",
+  "learningResourceType": "simulation",
+  "audience": "Educators, Developers",
+  "version": "1.0.0",
+  "library": "HTML/CSS/JavaScript"
+}
