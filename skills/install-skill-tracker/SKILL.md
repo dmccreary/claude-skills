@@ -1,6 +1,6 @@
 ---
 name: install-skill-tracker
-description: This skill installs a complete Claude Code skill tracking system using hooks to automatically log skill usage, execution duration, and user prompts for later analysis. Use this skill when setting up activity tracking in a Claude Code project to identify patterns and opportunities for new skills.
+description: This skill installs a complete Claude Code skill tracking system using hooks to automatically log skill usage, execution duration, token usage, and user prompts for later analysis. Use this skill when setting up activity tracking in a Claude Code project to identify patterns, monitor costs, and discover opportunities for new skills.
 ---
 
 # Install Skill Tracker
@@ -14,9 +14,11 @@ This skill automates the installation of a skill tracking system for Claude Code
 Use this skill when:
 - Setting up skill usage tracking in a new or existing Claude Code project
 - Wanting to analyze which skills are used most frequently
+- Monitoring API costs and token usage across skill executions
 - Identifying time-consuming skills that may need optimization
 - Discovering patterns in work that could be automated with new skills
-- Tracking productivity gains from skill automation
+- Tracking productivity gains and cost efficiency from skill automation
+- Understanding prompt cache effectiveness and optimization opportunities
 
 ## Installation Workflow
 
@@ -96,20 +98,41 @@ cat .claude/settings.json
 
 After installation, the tracking system operates automatically:
 1. Use skills normally through Claude Code
-2. Each skill invocation is logged with timestamp, duration, and triggering prompt
+2. Each skill invocation is logged with timestamp, duration, token usage, and triggering prompt
 3. Logs accumulate in `.claude/activity-logs/` as JSONL files
+
+**What Gets Tracked (v1.2):**
+- Skill name and invocation time
+- Execution duration (in seconds)
+- Token usage metrics:
+  - Input tokens (new content)
+  - Output tokens (generated response)
+  - Cache read tokens (from prompt cache)
+  - Cache creation tokens (creating cache entries)
+  - Total tokens (sum of all above)
+- User prompt that triggered the skill
+- Session ID for correlation
 
 ### Analyzing Usage Data
 
-Run the analysis script to generate insights:
+Run the analysis scripts to generate insights:
 
+**Pattern and Performance Analysis:**
 ```bash
 .claude/scripts/analyze-skills.py
 ```
 
-The analysis report includes:
+**Token Usage and Cost Analysis (v1.2):**
+```bash
+.claude/scripts/show-skill-tokens.sh
+```
+
+The analysis reports include:
 - **Skill frequency** - Most commonly used skills
 - **Performance metrics** - Average and total duration per skill
+- **Token usage metrics** - Input/output/cache tokens per skill (NEW)
+- **Cost estimation** - Calculate API costs based on token usage (NEW)
+- **Cache efficiency** - Identify cache hit rates and optimization opportunities (NEW)
 - **Prompt patterns** - Common prompts that trigger skills
 - **Usage history** - Recent skill invocations with details
 - **Insights** - Suggestions for optimization and new skill opportunities
@@ -154,10 +177,10 @@ Logs user prompts with session correlation:
 ```
 
 ### skill-usage.jsonl
-Logs skill start/end events with duration:
+Logs skill start/end events with duration and token usage:
 ```json
 {"timestamp": "2025-11-22 14:23:46", "epoch": "1732299826", "session": "abc123", "skill": "learning-graph-generator", "event": "start"}
-{"timestamp": "2025-11-22 14:26:20", "epoch": "1732299980", "session": "abc123", "skill": "learning-graph-generator", "event": "end", "duration_seconds": "154"}
+{"timestamp": "2025-11-22 14:26:20", "epoch": "1732299980", "session": "abc123", "skill": "learning-graph-generator", "event": "end", "duration_seconds": "154", "input_tokens": 12000, "output_tokens": 8500, "total_tokens": 84200, "cache_read_tokens": 62400, "cache_creation_tokens": 1300}
 ```
 
 ## Customization Options
@@ -253,8 +276,9 @@ This skill includes:
 ### scripts/
 - **track-prompts.sh** - Bash hook to log user prompts
 - **track-skill-start.sh** - Bash hook to log skill start times
-- **track-skill-end.sh** - Bash hook to log skill completion and duration
+- **track-skill-end.sh** - Bash hook to log skill completion, duration, and tokens (v1.2)
 - **analyze-skills.py** - Python script to analyze logs and generate reports
+- **show-skill-tokens.sh** - Bash script to display token usage and cost metrics (v1.2)
 
 ### assets/
 - **settings.json** - Hook configuration template for `.claude/settings.json`

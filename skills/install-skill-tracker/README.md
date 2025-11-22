@@ -28,6 +28,7 @@ The Skill Tracker system uses Claude Code's hooks mechanism to automatically col
 - **Zero-overhead tracking** - Uses lightweight hooks that don't impact performance
 - **Automatic correlation** - Links prompts to skill invocations via session IDs
 - **Duration measurement** - Calculates precise execution time for each skill
+- **Token usage tracking** - Captures input, output, and cache token metrics for cost analysis
 - **Rich analytics** - Generates comprehensive reports with insights and suggestions
 - **Privacy-first** - All data stored locally, never transmitted externally
 - **JSONL format** - Industry-standard format for easy parsing and analysis
@@ -262,9 +263,21 @@ jq -nc \
   "session": "9ff87af7-...",
   "skill": "book-metrics-generator",
   "event": "end",
-  "duration_seconds": "9"
+  "duration_seconds": "9",
+  "input_tokens": 8,
+  "output_tokens": 244,
+  "total_tokens": 65971,
+  "cache_read_tokens": 65327,
+  "cache_creation_tokens": 392
 }
 ```
+
+**Token Fields (added in v1.2):**
+- `input_tokens` - Direct API input tokens
+- `output_tokens` - Generated response tokens
+- `total_tokens` - Sum of all token types (input + output + cache)
+- `cache_read_tokens` - Tokens read from prompt cache
+- `cache_creation_tokens` - Tokens used to create cache entries
 
 ## Analysis & Reporting
 
@@ -277,6 +290,54 @@ python .claude/scripts/analyze-skills.py
 # Analyze logs from a different directory
 python .claude/scripts/analyze-skills.py /path/to/logs
 ```
+
+### Token Usage Analysis (NEW in v1.2)
+
+View token usage for all skill executions:
+
+```bash
+# Display recent skill token usage
+bash .claude/scripts/show-skill-tokens.sh
+
+# Or make it executable and run directly
+chmod +x .claude/scripts/show-skill-tokens.sh
+.claude/scripts/show-skill-tokens.sh
+```
+
+**Sample Output:**
+```
+Skill Usage with Token Tracking
+================================
+
+2025-11-22 07:36:42  book-metrics-generator
+  Duration: 0s
+  Tokens: input=8, output=244, total=65971
+
+2025-11-22 07:40:15  learning-graph-generator
+  Duration: 134s
+  Tokens: input=12000, output=8500, total=84200
+
+Summary Statistics
+==================
+Total skill executions: 5
+Total tokens used: 328,456
+  Input: 60,024
+  Output: 42,150
+Average tokens per skill: 65,691
+```
+
+**Token Cost Estimation:**
+
+Using this data, you can estimate API costs:
+- Sonnet 4.5: $3 per million input tokens, $15 per million output tokens
+- Example: 60K input + 42K output = $0.18 + $0.63 = $0.81 total
+
+**Understanding Cache Tokens:**
+
+Cache tokens significantly reduce costs:
+- `cache_read_tokens` are charged at 10% of normal input rate ($0.30/M vs $3/M)
+- `cache_creation_tokens` are charged at normal input rate
+- High cache read counts indicate effective prompt caching
 
 ### Sample Report Output
 
@@ -569,6 +630,13 @@ jq -r '.prompt' .claude/activity-logs/prompts.jsonl | sort -u
 
 ## Version History
 
+**v1.2** (2025-11-22)
+- **NEW:** Added token usage tracking (input, output, cache metrics)
+- **NEW:** Added `show-skill-tokens.sh` script for token analysis
+- Extracts token data from Claude Code transcript files
+- Tracks prompt cache efficiency with cache_read and cache_creation tokens
+- Enables cost estimation and optimization insights
+
 **v1.1** (2025-11-22)
 - Fixed JSONL format bug by adding `-c` flag to all `jq` commands
 - Added comprehensive troubleshooting section
@@ -589,8 +657,9 @@ install-skill-tracker/
 ├── scripts/
 │   ├── track-prompts.sh        # Hook: Capture user prompts
 │   ├── track-skill-start.sh    # Hook: Log skill start times
-│   ├── track-skill-end.sh      # Hook: Log skill completion and duration
-│   └── analyze-skills.py       # Analysis script
+│   ├── track-skill-end.sh      # Hook: Log skill completion, duration, and tokens (v1.2)
+│   ├── analyze-skills.py       # Analysis script for patterns and insights
+│   └── show-skill-tokens.sh    # NEW v1.2: Display token usage and cost metrics
 └── assets/
     ├── settings.json            # Template for .claude/settings.json
     └── README.md                # Documentation to copy to .claude/README.md
