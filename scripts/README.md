@@ -77,6 +77,25 @@ set -gx PATH $HOME/.local/bin $PATH
 
 All `bk*` scripts require `$BK_HOME` to be set and provide consistent colored output with comprehensive error checking.
 
+**Skill Management:**
+- `bk-list-skills` - List available Claude skills
+- `bk-analyze-skill-usage` - Generate skill usage analysis report
+- `bk-install-skills` - Install skills to ~/.claude/skills
+
+**Script Management:**
+- `bk-install-scripts` - Install bk* scripts to ~/.local/bin
+- `bk` - Main menu for all utilities
+
+**Textbook Building:**
+- `bk-book-status` - Display textbook workflow status
+- `bk-generate-book-metrics` - Generate book metrics report
+
+**Image Processing:**
+- `bk-resize-images` - Compress images for web
+
+**Plugin Installation:**
+- `bk-install-social-override-plugin` - Install MkDocs social override plugin
+
 ### bk
 
 Main menu script that lists all available `bk*` utilities with descriptions and allows running them by number.
@@ -165,6 +184,33 @@ Skill locations:
   global  - Installed skills in ~/.claude/skills
   project - Project-specific skills in .claude/skills
 ```
+
+### bk-analyze-skill-usage
+
+Generates a comprehensive skill usage analysis report from activity logs. Analyzes skill invocations, performance metrics, and usage patterns to help understand which skills are most used and how they perform.
+
+**Requirements:** `$BK_HOME` must be set, Python 3 installed, activity logging enabled
+
+**Usage:**
+```bash
+bk-analyze-skill-usage                    # Use default log directory
+bk-analyze-skill-usage /path/to/logs      # Use custom log directory
+```
+
+**Features:**
+- Analyzes skill usage frequency and patterns
+- Calculates average and total duration for each skill
+- Correlates prompts with skill invocations
+- Shows recent skill usage history
+- Provides insights and optimization suggestions
+- Reports total time automated by skills
+
+**Output includes:**
+- Most used skills ranking
+- Performance metrics (average/total duration)
+- Common prompts that trigger skills
+- Recent skill usage table (last 20 invocations)
+- Insights about frequently used and slowest skills
 
 ### bk-book-status
 

@@ -1,0 +1,65 @@
+#!/bin/bash
+# bk-analyze-skill-usage
+#
+# Generate a comprehensive skill usage analysis report from activity logs
+# Analyzes skill invocations, performance metrics, and usage patterns
+# Usage: bk-analyze-skill-usage [log-directory]
+
+# Colors for output
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+# Check if BK_HOME is set
+if [ -z "$BK_HOME" ]; then
+    echo -e "${RED}Error: BK_HOME environment variable is not set.${NC}"
+    echo "Please set BK_HOME to the root directory of your claude-skills repository."
+    echo "Example: export BK_HOME=/Users/dan/Documents/ws/claude-skills"
+    exit 1
+fi
+
+# Check if BK_HOME directory exists
+if [ ! -d "$BK_HOME" ]; then
+    echo -e "${RED}Error: BK_HOME directory does not exist: $BK_HOME${NC}"
+    exit 1
+fi
+
+# Default log directory
+LOG_DIR="$BK_HOME/.claude/activity-logs"
+
+# Allow override from command line
+if [ -n "$1" ]; then
+    LOG_DIR="$1"
+fi
+
+# Path to the analyze-skills.py script
+ANALYZE_SCRIPT="$BK_HOME/.claude/scripts/analyze-skills.py"
+
+# Check if the analyze script exists
+if [ ! -f "$ANALYZE_SCRIPT" ]; then
+    echo -e "${RED}Error: analyze-skills.py script not found at: $ANALYZE_SCRIPT${NC}"
+    exit 1
+fi
+
+# Check if log directory exists
+if [ ! -d "$LOG_DIR" ]; then
+    echo -e "${YELLOW}Warning: Log directory not found: $LOG_DIR${NC}"
+    echo "Hooks will create this directory on first skill usage."
+    echo ""
+    echo "To enable skill tracking, ensure you have the skill-usage hook configured."
+    exit 0
+fi
+
+# Display header
+echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
+echo -e "${GREEN}Skill Usage Analysis Report${NC}"
+echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
+echo ""
+
+# Run the Python analysis script
+python3 "$ANALYZE_SCRIPT" "$LOG_DIR"
+
+echo ""
+echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
