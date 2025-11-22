@@ -31,25 +31,25 @@ Sonnet 4.5 · Claude Pro
 ⏺ Read(docs/learning-graph/learning-graph.json)
   ⎿  Read 100 lines
 
-⏺ Bash(wc -w /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/01-intro-ai-intelligent-textbooks/index.md
-      /Users/danmccreary/Documents/ws/claude-skills/docs/…)
-  ⎿      3888 /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/01-intro-ai-intelligent-textbooks/index.md  
-         5251 /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/02-getting-started-claude-skills/index.md
-         4772 /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/03-course-design-educational-theory/index.md
+⏺ Bash(wc -w $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/01-intro-ai-intelligent-textbooks/index.md
+      $HOMEmccreary/Documents/ws/claude-skills/docs/…)
+  ⎿      3888 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/01-intro-ai-intelligent-textbooks/index.md  
+         5251 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/02-getting-started-claude-skills/index.md
+         4772 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/03-course-design-educational-theory/index.md
      … +3 lines (ctrl+o to expand)
 
-⏺ Bash(wc -w /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/06-learning-graph-quality-validation/index.md
-      /Users/danmccreary/Documents/ws/claude-skills/do…)
-  ⎿      4325 /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/06-learning-graph-quality-validation/index.md
-         4985 /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/07-taxonomy-data-formats/index.md
-         5069 /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/08-mkdocs-platform-documentation/index.md
+⏺ Bash(wc -w $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/06-learning-graph-quality-validation/index.md
+      $HOMEmccreary/Documents/ws/claude-skills/do…)
+  ⎿      4325 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/06-learning-graph-quality-validation/index.md
+         4985 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/07-taxonomy-data-formats/index.md
+         5069 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/08-mkdocs-platform-documentation/index.md
      … +3 lines (ctrl+o to expand)
 
-⏺ Bash(wc -w /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md
-      /Users/danmccreary/Documents/ws/claude-skills/doc…)
-  ⎿      9725 /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md    
-         7113 /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/12-interactive-elements-microsims/index.md
-         7667 /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/13-dev-tools-version-control-deployment/index.md
+⏺ Bash(wc -w $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md
+      $HOMEmccreary/Documents/ws/claude-skills/doc…)
+  ⎿      9725 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md    
+         7113 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/12-interactive-elements-microsims/index.md
+         7667 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/13-dev-tools-version-control-deployment/index.md
         24505 total
 
 ⏺ Read(docs/chapters/01-intro-ai-intelligent-textbooks/index.md)
@@ -61,7 +61,7 @@ Sonnet 4.5 · Claude Pro
 ⏺ Search(pattern: "docs/learning-graph/quizzes/*.json")
   ⎿  Found 0 files 
 
-⏺ Bash(test -d /Users/danmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes && echo "Directory exists" || echo "Directory
+⏺ Bash(test -d $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes && echo "Directory exists" || echo "Directory
        does not exist")
   ⎿  Directory does not exist
 
@@ -101,7 +101,7 @@ Sonnet 4.5 · Claude Pro
 ⏺ Excellent! I'll generate quizzes for all 13 chapters. Let me set up the directory structure and begin the quiz generation
   process.
 
-⏺ Bash(mkdir -p /Users/danmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes)
+⏺ Bash(mkdir -p $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes)
   ⎿  (No content)
 
 ⏺ Read(docs/chapters/01-intro-ai-intelligent-textbooks/index.md)
@@ -146,7 +146,7 @@ Sonnet 4.5 · Claude Pro
 
 ⏺ Let me continue reading Chapter 2 to fully understand the concepts before generating the quiz.
 
-⏺ Bash(tail -n +201 /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/02-getting-started-claude-skills/index.md | head -n
+⏺ Bash(tail -n +201 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/02-getting-started-claude-skills/index.md | head -n
       200)
   ⎿ The `allowed-tools` frontmatter field provides fine-grained permission control, limiting skills to specific Claude Code tools
     . This security and safety mechanism prevents skills from performing unintended operations.
@@ -224,21 +224,21 @@ Sonnet 4.5 · Claude Pro
        "questions": [
      … +161 lines (ctrl+o to expand)
 
-⏺ Bash(ls /Users/danmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-*-quiz-metadata.json | sort)
-  ⎿  /Users/danmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-01-quiz-metadata.json
-     /Users/danmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-02-quiz-metadata.json
-     /Users/danmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-03-quiz-metadata.json
+⏺ Bash(ls $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-*-quiz-metadata.json | sort)
+  ⎿  $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-01-quiz-metadata.json
+     $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-02-quiz-metadata.json
+     $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-03-quiz-metadata.json
      … +10 lines (ctrl+o to expand)
 
-⏺ Bash(cat /Users/danmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-*-quiz-metadata.json | python3 -c "
+⏺ Bash(cat $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-*-quiz-metadata.json | python3 -c "
       import json…)
   ⎿  Error: Exit code 1
      Traceback (most recent call last):
        File "<string>", line 11, in <module>
-       File "/Users/danmccreary/miniconda3/envs/mkdocs/lib/python3.11/json/__init__.py", line 346, in loads
+       File "$HOMEmccreary/miniconda3/envs/mkdocs/lib/python3.11/json/__init__.py", line 346, in loads
          return _default_decoder.decode(s)
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-       File "/Users/danmccreary/miniconda3/envs/mkdocs/lib/python3.11/json/decoder.py", line 340, in decode
+       File "$HOMEmccreary/miniconda3/envs/mkdocs/lib/python3.11/json/decoder.py", line 340, in decode
          raise JSONDecodeError("Extra data", s, end)
      json.decoder.JSONDecodeError: Extra data: line 170 column 1 (char 6085)
 
@@ -254,7 +254,7 @@ Sonnet 4.5 · Claude Pro
 ⏺ Bash(python3 << 'PYEOF'
       import json…)
   ⎿  Quiz bank created with 130 questions from 13 chapters                                     
-     Saved to: /Users/danmccreary/Documents/ws/claude-skills/docs/learning-graph/quiz-bank.json
+     Saved to: $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quiz-bank.json
 
 ⏺ Write(docs/learning-graph/quiz-generation-report.md)
   ⎿  Wrote 249 lines to docs/learning-graph/quiz-generation-report.md
@@ -341,8 +341,8 @@ Sonnet 4.5 · Claude Pro
        83        - Usage Limits: claude-usage-limits.md
        84    
 
-⏺ Bash(ls -lh /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/*/quiz.md | wc -l && ls -lh
-      /Users/danmccreary/Documents/ws/claude-skills/docs/learning-graph…)
+⏺ Bash(ls -lh $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/*/quiz.md | wc -l && ls -lh
+      $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph…)
   ⎿  13
      13
 

@@ -25,24 +25,24 @@ No "fallback" message, no Bash command shown, instant results.
 
 ```bash
 # Project-specific config
-ls -la /Users/dan/Documents/ws/claude-skills/.claude/mcp.json
+ls -la $HOME/Documents/ws/claude-skills/.claude/mcp.json
 
 # Global config
 ls -la ~/.claude/mcp.json
 ```
 
 **Your Status:**
-- ✅ Project config exists: `/Users/dan/Documents/ws/claude-skills/.claude/mcp.json`
+- ✅ Project config exists: `$HOME/Documents/ws/claude-skills/.claude/mcp.json`
 - ❌ Global config: Not found (not needed if project config exists)
 
 ### Method 3: Validate Configuration
 
 ```bash
 # Check JSON is valid
-python3 -c "import json; json.load(open('/Users/dan/Documents/ws/claude-skills/.claude/mcp.json'))"
+python3 -c "import json; json.load(open('$HOME/Documents/ws/claude-skills/.claude/mcp.json'))"
 
 # View configuration
-cat /Users/dan/Documents/ws/claude-skills/.claude/mcp.json
+cat $HOME/Documents/ws/claude-skills/.claude/mcp.json
 ```
 
 **Your Config Status:**
@@ -52,7 +52,7 @@ cat /Users/dan/Documents/ws/claude-skills/.claude/mcp.json
     "skills-lister": {
       "command": "python3",
       "args": [
-        "/Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py"
+        "$HOME/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py"
       ]
     }
   }
@@ -72,7 +72,7 @@ python3 --version
 python3 -c "import mcp; print('✅ MCP SDK installed')"
 
 # Check server file exists and is executable
-ls -lh /Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py
+ls -lh $HOME/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py
 
 # Check shell script exists
 ls -lh ~/bin/list-skills.sh
@@ -87,7 +87,7 @@ ls -lh ~/bin/list-skills.sh
 ### Method 5: Test Server Manually
 
 ```bash
-cd /Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister
+cd $HOME/Documents/ws/claude-skills/mcp-servers/skills-lister
 python3 server.py
 ```
 
@@ -121,9 +121,9 @@ echo "=== MCP Server Status Check ==="
 echo ""
 
 echo "1. Configuration file:"
-if [ -f "/Users/dan/Documents/ws/claude-skills/.claude/mcp.json" ]; then
-    echo "   ✅ Found at: /Users/dan/Documents/ws/claude-skills/.claude/mcp.json"
-    if python3 -c "import json; json.load(open('/Users/dan/Documents/ws/claude-skills/.claude/mcp.json'))" 2>/dev/null; then
+if [ -f "$HOME/Documents/ws/claude-skills/.claude/mcp.json" ]; then
+    echo "   ✅ Found at: $HOME/Documents/ws/claude-skills/.claude/mcp.json"
+    if python3 -c "import json; json.load(open('$HOME/Documents/ws/claude-skills/.claude/mcp.json'))" 2>/dev/null; then
         echo "   ✅ Valid JSON"
     else
         echo "   ❌ Invalid JSON"
@@ -142,9 +142,9 @@ fi
 echo ""
 
 echo "3. Server file:"
-if [ -f "/Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py" ]; then
+if [ -f "$HOME/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py" ]; then
     echo "   ✅ Found"
-    if [ -x "/Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py" ]; then
+    if [ -x "$HOME/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py" ]; then
         echo "   ✅ Executable"
     else
         echo "   ⚠️  Not executable (run: chmod +x server.py)"
@@ -163,7 +163,7 @@ fi
 echo ""
 
 echo "5. Test import server module:"
-if python3 -c "import sys; sys.path.insert(0, '/Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister'); import server" 2>/dev/null; then
+if python3 -c "import sys; sys.path.insert(0, '$HOME/Documents/ws/claude-skills/mcp-servers/skills-lister'); import server" 2>/dev/null; then
     echo "   ✅ Server module imports successfully"
 else
     echo "   ❌ Import error"
@@ -183,7 +183,7 @@ echo ""
 Save this as `check-mcp-status.sh` and run it:
 
 ```bash
-cd /Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister
+cd $HOME/Documents/ws/claude-skills/mcp-servers/skills-lister
 chmod +x check-mcp-status.sh
 ./check-mcp-status.sh
 ```
@@ -213,7 +213,7 @@ If you're still seeing the "fallback" message, it means:
    - Solution: Restart Claude Code completely
 
 2. **You're in a different session/project**
-   - Solution: Make sure you're in the `/Users/dan/Documents/ws/claude-skills` directory
+   - Solution: Make sure you're in the `$HOME/Documents/ws/claude-skills` directory
 
 3. **Claude Code is caching the old state**
    - Solution: Exit completely and start fresh
@@ -229,7 +229,7 @@ If you're still seeing the "fallback" message, it means:
 
 2. **Restart Claude Code in this project**
    ```bash
-   cd /Users/dan/Documents/ws/claude-skills
+   cd $HOME/Documents/ws/claude-skills
    # Start Claude Code here
    ```
 

@@ -249,14 +249,14 @@ cd $BK_HOME/scripts
 You will see a log of all the skills that were correctly installed:
 
 ```
-Created symlink: ~/.claude/skills/faq-generator -> /Users/dan/Documents/ws/claude-skills/skills/faq-generator
-Created symlink: ~/.claude/skills/glossary-generator -> /Users/dan/Documents/ws/claude-skills/skills/glossary-generator
-Created symlink: ~/.claude/skills/intelligent-textbook -> /Users/dan/Documents/ws/claude-skills/skills/intelligent-textbook
-Created symlink: ~/.claude/skills/intelligent-textbook-creator -> /Users/dan/Documents/ws/claude-skills/skills/intelligent-textbook-creator
-Created symlink: ~/.claude/skills/learning-graph-generator -> /Users/dan/Documents/ws/claude-skills/skills/learning-graph-generator
-Created symlink: ~/.claude/skills/microsim-p5 -> /Users/dan/Documents/ws/claude-skills/skills/microsim-p5
-Created symlink: ~/.claude/skills/moving-rainbow -> /Users/dan/Documents/ws/claude-skills/skills/moving-rainbow
-Created symlink: ~/.claude/skills/quiz-generator -> /Users/dan/Documents/ws/claude-skills/skills/quiz-generator
+Created symlink: ~/.claude/skills/faq-generator -> $HOME/Documents/ws/claude-skills/skills/faq-generator
+Created symlink: ~/.claude/skills/glossary-generator -> $HOME/Documents/ws/claude-skills/skills/glossary-generator
+Created symlink: ~/.claude/skills/intelligent-textbook -> $HOME/Documents/ws/claude-skills/skills/intelligent-textbook
+Created symlink: ~/.claude/skills/intelligent-textbook-creator -> $HOME/Documents/ws/claude-skills/skills/intelligent-textbook-creator
+Created symlink: ~/.claude/skills/learning-graph-generator -> $HOME/Documents/ws/claude-skills/skills/learning-graph-generator
+Created symlink: ~/.claude/skills/microsim-p5 -> $HOME/Documents/ws/claude-skills/skills/microsim-p5
+Created symlink: ~/.claude/skills/moving-rainbow -> $HOME/Documents/ws/claude-skills/skills/moving-rainbow
+Created symlink: ~/.claude/skills/quiz-generator -> $HOME/Documents/ws/claude-skills/skills/quiz-generator
 ```
 
 ## Getting Updates

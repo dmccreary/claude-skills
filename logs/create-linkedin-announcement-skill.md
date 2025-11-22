@@ -265,7 +265,7 @@ cd scripts
 This creates a symlink:
 ```
 ~/.claude/skills/linkedin-announcement-generator/
-  → /Users/dan/Documents/ws/claude-skills/skills/linkedin-announcement-generator/
+  → $HOME/Documents/ws/claude-skills/skills/linkedin-announcement-generator/
 ```
 
 ## Usage

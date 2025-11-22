@@ -1,7 +1,7 @@
 
 ▗ ▗   ▖ ▖  Claude Code v2.0.36
            Sonnet 4.5 · Claude Pro
-  ▘▘ ▝▝    /Users/dan/Documents/ws/claude-skills
+  ▘▘ ▝▝    $HOME/Documents/ws/claude-skills
 
 > run the book-chapter-generator skill 
 
@@ -168,10 +168,10 @@
 
   Creating Directory Structure
 
-⏺ Bash(mkdir -p /Users/dan/Documents/ws/claude-skills/docs/chapters)
+⏺ Bash(mkdir -p $HOME/Documents/ws/claude-skills/docs/chapters)
   ⎿  (No content)
 
-⏺ Bash(cd /Users/dan/Documents/ws/claude-skills/docs/chapters && mkdir -p
+⏺ Bash(cd $HOME/Documents/ws/claude-skills/docs/chapters && mkdir -p
       01-intro-ai-intelligent-textbooks 02-getting-started-claude-skills
       03-course-design-education…)
   ⎿  (No content)

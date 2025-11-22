@@ -44,7 +44,7 @@ bash scripts/capture-screenshot.sh <microsim-directory-path>
 
 **Example:**
 ```bash
-bash scripts/capture-screenshot.sh /Users/dan/Documents/ws/intro-to-graph/docs/sims/org-chart
+bash scripts/capture-screenshot.sh $HOME/Documents/ws/intro-to-graph/docs/sims/org-chart
 ```
 
 The script will:

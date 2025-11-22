@@ -7,7 +7,7 @@ echo "║   skills-lister diagnostic                 ║"
 echo "╚════════════════════════════════════════════╝"
 echo ""
 
-PROJECT_DIR="/Users/dan/Documents/ws/claude-skills"
+PROJECT_DIR="$HOME/Documents/ws/claude-skills"
 CONFIG_FILE="$PROJECT_DIR/.claude/mcp.json"
 SERVER_FILE="$PROJECT_DIR/mcp-servers/skills-lister/server.py"
 SHELL_SCRIPT="$HOME/bin/list-skills.sh"

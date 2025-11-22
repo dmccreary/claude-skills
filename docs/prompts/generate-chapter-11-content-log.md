@@ -31,12 +31,12 @@ Successfully generated comprehensive educational content for Chapter 11: "Educat
 
 **Actions taken:**
 1. Used Glob tool to search for chapter 11 directory
-2. Found chapter at `/Users/dan/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/`
+2. Found chapter at `$HOME/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/`
 3. Read chapter index.md file to confirm existence and structure
 
 **File located:**
 ```
-/Users/dan/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md
+$HOME/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md
 ```
 
 **Status:** ✅ Chapter file exists and is accessible
@@ -103,7 +103,7 @@ Bloom's Taxonomy integration in assessments.
 **Delta:** +14,971 tokens
 
 **Actions taken:**
-1. Read `/Users/dan/Documents/ws/claude-skills/docs/course-description.md`
+1. Read `$HOME/Documents/ws/claude-skills/docs/course-description.md`
 2. Analyzed target audience and learning outcomes
 3. Determined appropriate reading level
 
@@ -147,13 +147,13 @@ The course description indicates:
 
 **4a. Load Reference Materials:**
 
-1. Read `/Users/dan/.claude/skills/chapter-content-generator/references/reading-levels.md`
+1. Read `$HOME/.claude/skills/chapter-content-generator/references/reading-levels.md`
    - Extracted graduate-level writing guidelines
    - Noted sentence complexity requirements (20-30+ words)
    - Identified vocabulary expectations (full technical terminology)
    - Reviewed example text for graduate level
 
-2. Read `/Users/dan/.claude/skills/chapter-content-generator/references/content-element-types.md`
+2. Read `$HOME/.claude/skills/chapter-content-generator/references/content-element-types.md`
    - Reviewed all 10 non-text element types
    - Studied `<details markdown="1">` block specification format
    - Noted requirements for each element type
@@ -338,7 +338,7 @@ Pedagogical ordering (simple to complex):
 
 **File modified:**
 ```
-/Users/dan/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md
+$HOME/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md
 ```
 
 **Changes made:**
@@ -715,7 +715,7 @@ The generated content is ready for human review and integration into the intelli
 
 ### Primary File Modified:
 ```
-/Users/dan/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md
+$HOME/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md
 ```
 
 **Changes:**
@@ -725,7 +725,7 @@ The generated content is ready for human review and integration into the intelli
 
 ### Log File Created:
 ```
-/Users/dan/Documents/ws/claude-skills/docs/prompts/generate-chapter-11-content-log.md
+$HOME/Documents/ws/claude-skills/docs/prompts/generate-chapter-11-content-log.md
 ```
 
 **Purpose:** Detailed documentation of content generation process with token tracking

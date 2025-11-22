@@ -169,7 +169,7 @@ All 18 Medium difficulty diagrams with match scores > 90 have been successfully 
 ## Testing Completed Diagrams
 
 ```bash
-cd /Users/dan/Documents/ws/claude-skills
+cd $HOME/Documents/ws/claude-skills
 mkdocs serve
 ```
 

@@ -44,17 +44,17 @@
 
   Let me create this skill following the skill creation process.
 
-⏺ Bash(python3 /Users/dan/.claude/skills/skill-creator/scripts/init_skill.py mermaid-generator --path
-      /Users/dan/Documents/ws/claude-skills/skills)
+⏺ Bash(python3 $HOME/.claude/skills/skill-creator/scripts/init_skill.py mermaid-generator --path
+      $HOME/Documents/ws/claude-skills/skills)
   ⎿  🚀 Initializing skill: mermaid-generator                 
-        Location: /Users/dan/Documents/ws/claude-skills/skills
+        Location: $HOME/Documents/ws/claude-skills/skills
      … +13 lines (ctrl+o to expand)
 
 ⏺ Read(skills/mermaid-generator/SKILL.md)
   ⎿  Read 86 lines
 
-⏺ Bash(rm /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator/scripts/example.py
-      /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator/references/a…)
+⏺ Bash(rm $HOME/Documents/ws/claude-skills/skills/mermaid-generator/scripts/example.py
+      $HOME/Documents/ws/claude-skills/skills/mermaid-generator/references/a…)
   ⎿  (No content)
 
 ⏺ Fetch(`https://mermaid.js.org/syntax/flowchart.html`)
@@ -73,7 +73,7 @@
      flowchart TD
      … +261 lines (ctrl+o to expand)
 
-⏺ Bash(mkdir -p /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator/assets/template)
+⏺ Bash(mkdir -p $HOME/Documents/ws/claude-skills/skills/mermaid-generator/assets/template)
   ⎿  (No content)
 
 ⏺ Write(skills/mermaid-generator/assets/template/main.html)
@@ -777,9 +777,9 @@
        514 +  - Top-down rendering default
        515 +  - Dublin Core metadata support
 
-⏺ Bash(python3 /Users/dan/.claude/skills/skill-creator/scripts/package_skill.py
-      /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator)
-  ⎿  📦 Packaging skill: /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator
+⏺ Bash(python3 $HOME/.claude/skills/skill-creator/scripts/package_skill.py
+      $HOME/Documents/ws/claude-skills/skills/mermaid-generator)
+  ⎿  📦 Packaging skill: $HOME/Documents/ws/claude-skills/skills/mermaid-generator
 
      🔍 Validating skill...
      … +11 lines (ctrl+o to expand)
@@ -788,7 +788,7 @@
 
   Created Skill: mermaid-generator
 
-  Location: /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator/
+  Location: $HOME/Documents/ws/claude-skills/skills/mermaid-generator/
 
   Packaged file: mermaid-generator.zip (ready for distribution)
 

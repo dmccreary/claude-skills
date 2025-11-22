@@ -344,7 +344,7 @@ Cache tokens significantly reduce costs:
 ```markdown
 # Skill Usage Analysis Report
 
-**Log directory:** `/Users/dan/project/.claude/activity-logs`
+**Log directory:** `$HOME/project/.claude/activity-logs`
 **Total skill invocations:** 15
 **Analysis date:** 2025-11-22 14:30:00
 

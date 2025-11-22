@@ -440,7 +440,7 @@ cat docs/learning-graph/medium-diagrams/execution-plan.md
 ### Test Completed Diagrams
 ```bash
 # Serve documentation
-cd /Users/dan/Documents/ws/claude-skills
+cd $HOME/Documents/ws/claude-skills
 mkdocs serve
 
 # Navigate to:

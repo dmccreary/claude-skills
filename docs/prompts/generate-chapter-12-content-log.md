@@ -32,7 +32,7 @@ Successfully generated comprehensive educational content for Chapter 12 "Interac
 **Actions taken:**
 1. Read the user request to run chapter-content-generator on chapter 12
 2. Created initial todo list with 4 items
-3. Read chapter 12 index.md file at `/Users/dan/Documents/ws/claude-skills/docs/chapters/12-interactive-elements-microsims/index.md`
+3. Read chapter 12 index.md file at `$HOME/Documents/ws/claude-skills/docs/chapters/12-interactive-elements-microsims/index.md`
 
 **Chapter file verification results:**
 - ✅ Title present: "# Interactive Elements and MicroSims"
@@ -87,9 +87,9 @@ Successfully generated comprehensive educational content for Chapter 12 "Interac
 **Actions taken:**
 1. Updated todo list with expanded items (9 total)
 2. Read three critical reference files in parallel:
-   - `/Users/dan/.claude/skills/chapter-content-generator/references/reading-levels.md` (245 lines)
-   - `/Users/dan/.claude/skills/chapter-content-generator/references/content-element-types.md` (595 lines)
-   - `/Users/dan/Documents/ws/claude-skills/docs/course-description.md` (121 lines)
+   - `$HOME/.claude/skills/chapter-content-generator/references/reading-levels.md` (245 lines)
+   - `$HOME/.claude/skills/chapter-content-generator/references/content-element-types.md` (595 lines)
+   - `$HOME/Documents/ws/claude-skills/docs/course-description.md` (121 lines)
 
 **Reference files loaded:**
 
@@ -370,7 +370,7 @@ Successfully generated comprehensive educational content for Chapter 12 "Interac
 2. File was already updated during Step 5 using Edit tool
 
 **File updated:**
-- Path: `/Users/dan/Documents/ws/claude-skills/docs/chapters/12-interactive-elements-microsims/index.md`
+- Path: `$HOME/Documents/ws/claude-skills/docs/chapters/12-interactive-elements-microsims/index.md`
 - Old content: "TODO: Generate Chapter Content"
 - New content: ~6,700 words of comprehensive chapter content
 - Preserved sections: Title, Summary, Concepts Covered, Prerequisites

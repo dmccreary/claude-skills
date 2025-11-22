@@ -15,11 +15,11 @@
 ⏺ Search(pattern: "**/learning-graph.json")
   ⎿  Found 0 files 
 
-⏺ Bash(find /Users/dan/Documents/ws/claude-skills/docs -type f -name "*.md" | grep -E
+⏺ Bash(find $HOME/Documents/ws/claude-skills/docs -type f -name "*.md" | grep -E
       "(learning-graph|glossary)" | head -20)
-  ⎿  /Users/dan/Documents/ws/claude-skills/docs/glossary.md                                   
-     /Users/dan/Documents/ws/claude-skills/docs/skill-descriptions/learning-graph-generator.md
-     /Users/dan/Documents/ws/claude-skills/docs/skill-descriptions/glossary-generator.md
+  ⎿  $HOME/Documents/ws/claude-skills/docs/glossary.md                                   
+     $HOME/Documents/ws/claude-skills/docs/skill-descriptions/learning-graph-generator.md
+     $HOME/Documents/ws/claude-skills/docs/skill-descriptions/glossary-generator.md
      … +2 lines (ctrl+o to expand)
 
 ⏺ Read(docs/course-description.md)
@@ -28,13 +28,13 @@
 ⏺ Read(docs/glossary.md)
   ⎿  Read 21 lines
 
-⏺ Bash(find /Users/dan/Documents/ws/claude-skills/docs -type f -name "*.md" | wc -l)
+⏺ Bash(find $HOME/Documents/ws/claude-skills/docs -type f -name "*.md" | wc -l)
   ⎿  24
 
-⏺ Bash(find /Users/dan/Documents/ws/claude-skills/docs -name "*.md" -type f | head -15)
-  ⎿  /Users/dan/Documents/ws/claude-skills/docs/license.md 
-     /Users/dan/Documents/ws/claude-skills/docs/glossary.md
-     /Users/dan/Documents/ws/claude-skills/docs/contact.md
+⏺ Bash(find $HOME/Documents/ws/claude-skills/docs -name "*.md" -type f | head -15)
+  ⎿  $HOME/Documents/ws/claude-skills/docs/license.md 
+     $HOME/Documents/ws/claude-skills/docs/glossary.md
+     $HOME/Documents/ws/claude-skills/docs/contact.md
      … +12 lines (ctrl+o to expand)
 
 ⏺ Read(docs/index.md)
@@ -445,7 +445,7 @@
 
 ⏺ Now I'll create a quality report for the glossary:
 
-⏺ Bash(mkdir -p /Users/dan/Documents/ws/claude-skills/docs/learning-graph)
+⏺ Bash(mkdir -p $HOME/Documents/ws/claude-skills/docs/learning-graph)
   ⎿  (No content)
 
 ⏺ Write(docs/learning-graph/glossary-quality-report.md)
@@ -468,10 +468,10 @@
 ⏺ Perfect! The glossary is already in the navigation. Let me verify the glossary is properly
   formatted:
 
-⏺ Bash(grep "^#### " /Users/dan/Documents/ws/claude-skills/docs/glossary.md | wc -l)
+⏺ Bash(grep "^#### " $HOME/Documents/ws/claude-skills/docs/glossary.md | wc -l)
   ⎿  29
 
-⏺ Bash(grep "^#### " /Users/dan/Documents/ws/claude-skills/docs/glossary.md)
+⏺ Bash(grep "^#### " $HOME/Documents/ws/claude-skills/docs/glossary.md)
   ⎿  #### Bloom's Taxonomy         
      #### Claude Skills
      #### Concept Dependency

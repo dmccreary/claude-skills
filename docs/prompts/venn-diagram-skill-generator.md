@@ -31,8 +31,8 @@ Sonnet 4.5 · Claude Pro
 ⏺ Search(pattern: "**/microsim-p5/assets/template/**")
   ⎿  Found 0 files 
 
-⏺ Bash(find /Users/dan/Documents/ws/claude-skills/docs/sims -type d -maxdepth 1)
-  ⎿  find: /Users/dan/Documents/ws/claude-skills/docs/sims: No such file or directory
+⏺ Bash(find $HOME/Documents/ws/claude-skills/docs/sims -type d -maxdepth 1)
+  ⎿  find: $HOME/Documents/ws/claude-skills/docs/sims: No such file or directory
 
 ⏺ Read(skills/microsim-p5/SKILL.md)
   ⎿  Read 667 lines
@@ -45,12 +45,12 @@ Sonnet 4.5 · Claude Pro
 
 ⏺ Now let me also check the mermaid-generator's template files to understand the structure better:
 
-⏺ Bash(find /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator -type f -name "*.html" -o
+⏺ Bash(find $HOME/Documents/ws/claude-skills/skills/mermaid-generator -type f -name "*.html" -o
       -name "*.css" -o -name "*.js" -o -name "*.json" | head -10)
-  ⎿  /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator/assets/template/metadata.json
-     /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator/assets/template/script.js
-     /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator/assets/template/main.html
-     /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator/assets/template/style.css
+  ⎿  $HOME/Documents/ws/claude-skills/skills/mermaid-generator/assets/template/metadata.json
+     $HOME/Documents/ws/claude-skills/skills/mermaid-generator/assets/template/script.js
+     $HOME/Documents/ws/claude-skills/skills/mermaid-generator/assets/template/main.html
+     $HOME/Documents/ws/claude-skills/skills/mermaid-generator/assets/template/style.css
 
 ⏺ Read(skills/mermaid-generator/assets/template/main.html)
   ⎿  Read 47 lines
@@ -63,7 +63,7 @@ Sonnet 4.5 · Claude Pro
 ⏺ Search(pattern: "**/init_skill.py")
   ⎿  Found 0 files 
 
-⏺ Bash(ls -la /Users/dan/Documents/ws/claude-skills/scripts/)
+⏺ Bash(ls -la $HOME/Documents/ws/claude-skills/scripts/)
   ⎿  total 56                                       
      drwxr-xr-x   7 dan  staff   224 Nov  3 10:14 .
      drwxr-xr-x@ 21 dan  staff   672 Nov  6 21:27 ..
@@ -72,8 +72,8 @@ Sonnet 4.5 · Claude Pro
 ⏺ The init_skill.py script isn't available in this repository, so I'll manually create the skill
   directory structure. Let me create the venn-diagram-generator skill directory:
 
-⏺ Bash(mkdir -p /Users/dan/Documents/ws/claude-skills/skills/venn-diagram-generator/assets/template &&
-      mkdir -p /Users/dan/Documents/ws/claude-skills/skills/venn-diagr…)
+⏺ Bash(mkdir -p $HOME/Documents/ws/claude-skills/skills/venn-diagram-generator/assets/template &&
+      mkdir -p $HOME/Documents/ws/claude-skills/skills/venn-diagr…)
   ⎿  (No content)
 
 ⏺ Now let me research the venn.js library from its GitHub repository:
@@ -190,22 +190,22 @@ Sonnet 4.5 · Claude Pro
 
 ⏺ Since there's no packaging script, let me create the zip file manually:
 
-⏺ Bash(cd /Users/dan/Documents/ws/claude-skills/skills && zip -r venn-diagram-generator.zip
+⏺ Bash(cd $HOME/Documents/ws/claude-skills/skills && zip -r venn-diagram-generator.zip
       venn-diagram-generator/)
   ⎿    adding: venn-diagram-generator/ (stored 0%)                                  
        adding: venn-diagram-generator/references/ (stored 0%)
        adding: venn-diagram-generator/references/venn-js-reference.md (deflated 64%)
      … +8 lines (ctrl+o to expand)
 
-⏺ Bash(mv /Users/dan/Documents/ws/claude-skills/skills/venn-diagram-generator.zip
-      /Users/dan/Documents/ws/claude-skills/)
+⏺ Bash(mv $HOME/Documents/ws/claude-skills/skills/venn-diagram-generator.zip
+      $HOME/Documents/ws/claude-skills/)
   ⎿  (No content)
 
 ⏺ Perfect! I've successfully created the venn-diagram-generator skill. Here's what was created:
 
   Skill Created: venn-diagram-generator
 
-  Location: /Users/dan/Documents/ws/claude-skills/skills/venn-diagram-generator/
+  Location: $HOME/Documents/ws/claude-skills/skills/venn-diagram-generator/
 
   Package: venn-diagram-generator.zip (in project root)
 
@@ -261,7 +261,7 @@ Sonnet 4.5 · Claude Pro
   To use this skill globally:
 
   # Create symlink to make skill available system-wide
-  ln -s /Users/dan/Documents/ws/claude-skills/skills/venn-diagram-generator
+  ln -s $HOME/Documents/ws/claude-skills/skills/venn-diagram-generator
   ~/.claude/skills/venn-diagram-generator
 
   Or for project-specific use, the skill is ready to use from the current location.

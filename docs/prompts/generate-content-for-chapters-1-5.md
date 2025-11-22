@@ -1,7 +1,7 @@
 
 ▗ ▗   ▖ ▖  Claude Code v2.0.36
            Sonnet 4.5 · Claude Pro
-  ▘▘ ▝▝    /Users/dan/Documents/ws/claude-skills
+  ▘▘ ▝▝    $HOME/Documents/ws/claude-skills
 
 > use the chapter-content-generator skill to generate the content for the first five 
 chapters 

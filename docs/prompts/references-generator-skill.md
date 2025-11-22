@@ -30,9 +30,9 @@
 
 ⏺ Now let me initialize the skill:
 
-⏺ Bash(python3 /Users/dan/.claude/skills/skill-creator/scripts/init_skill.py reference-generator --path /Users/dan/.claude/skills/)
+⏺ Bash(python3 $HOME/.claude/skills/skill-creator/scripts/init_skill.py reference-generator --path $HOME/.claude/skills/)
   ⎿  🚀 Initializing skill: reference-generator
-        Location: /Users/dan/.claude/skills/
+        Location: $HOME/.claude/skills/
      … +12 lines (ctrl+o to expand)
 
 ⏺ Now let me read the generated SKILL.md and update it:
@@ -323,14 +323,14 @@
 
 ⏺ Now let me clean up the example files that aren't needed:
 
-⏺ Bash(rm -rf /Users/dan/.claude/skills/reference-generator/scripts /Users/dan/.claude/skills/reference-generator/references
-      /Users/dan/.claude/skills/reference-genera…)
+⏺ Bash(rm -rf $HOME/.claude/skills/reference-generator/scripts $HOME/.claude/skills/reference-generator/references
+      $HOME/.claude/skills/reference-genera…)
   ⎿  (No content)
 
 ⏺ Now let me package the skill:
 
-⏺ Bash(python3 /Users/dan/.claude/skills/skill-creator/scripts/package_skill.py /Users/dan/.claude/skills/reference-generator)
-  ⎿  📦 Packaging skill: /Users/dan/.claude/skills/reference-generator
+⏺ Bash(python3 $HOME/.claude/skills/skill-creator/scripts/package_skill.py $HOME/.claude/skills/reference-generator)
+  ⎿  📦 Packaging skill: $HOME/.claude/skills/reference-generator
 
      🔍 Validating skill...
      … +5 lines (ctrl+o to expand)
@@ -378,7 +378,7 @@
   Package Location
 
   The skill has been packaged and saved to:
-  /Users/dan/Documents/ws/claude-skills/reference-generator.zip
+  $HOME/Documents/ws/claude-skills/reference-generator.zip
 
   The skill is also installed in your skills directory at:
   ~/.claude/skills/reference-generator/

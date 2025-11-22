@@ -32,7 +32,7 @@ python3 -c "import mcp; print('✅ MCP SDK installed!')"
 ### Step 2: Run Automated Setup
 
 ```bash
-cd /Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister
+cd $HOME/Documents/ws/claude-skills/mcp-servers/skills-lister
 ./setup.sh
 ```
 
@@ -49,7 +49,7 @@ The setup script will generate the configuration. You need to add it to one of:
 
 **Option A: Project-specific** (recommended for testing)
 ```
-/Users/dan/Documents/ws/claude-skills/.claude/mcp.json
+$HOME/Documents/ws/claude-skills/.claude/mcp.json
 ```
 
 **Option B: Global** (all projects)
@@ -64,7 +64,7 @@ The configuration looks like:
     "skills-lister": {
       "command": "python3",
       "args": [
-        "/Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py"
+        "$HOME/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py"
       ]
     }
   }
@@ -132,7 +132,7 @@ pip install mcp
 ```bash
 ls -l ~/bin/list-skills.sh
 # If missing:
-cp /Users/dan/Documents/ws/claude-skills/scripts/list-skills.sh ~/bin/
+cp $HOME/Documents/ws/claude-skills/scripts/list-skills.sh ~/bin/
 chmod +x ~/bin/list-skills.sh
 ```
 
@@ -141,7 +141,7 @@ chmod +x ~/bin/list-skills.sh
 Check your configuration file:
 ```bash
 # For project-specific
-cat /Users/dan/Documents/ws/claude-skills/.claude/mcp.json
+cat $HOME/Documents/ws/claude-skills/.claude/mcp.json
 
 # For global
 cat ~/.claude/mcp.json
@@ -156,7 +156,7 @@ Verify the path to `server.py` is absolute (no `~`, starts with `/`).
 3. Check Claude Code logs for MCP initialization errors
 4. Try running the server manually to test:
    ```bash
-   cd /Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister
+   cd $HOME/Documents/ws/claude-skills/mcp-servers/skills-lister
    python3 server.py
    # Should wait for input (press Ctrl+D to exit)
    ```
@@ -183,17 +183,17 @@ If you run `/skills` 10 times per day:
 pip install mcp
 
 # Run setup
-cd /Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister
+cd $HOME/Documents/ws/claude-skills/mcp-servers/skills-lister
 ./setup.sh
 
 # Test shell script
 ~/bin/list-skills.sh --names-only
 
 # Test MCP server manually
-python3 /Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py
+python3 $HOME/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py
 
 # Check configuration
-cat /Users/dan/Documents/ws/claude-skills/.claude/mcp.json
+cat $HOME/Documents/ws/claude-skills/.claude/mcp.json
 ```
 
 ## Next Steps After Setup

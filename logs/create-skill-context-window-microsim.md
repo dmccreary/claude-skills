@@ -192,8 +192,8 @@ Dublin Core compliant metadata:
 
 Used the microsim-screen-capture skill:
 ```bash
-bash /Users/dan/.claude/skills/microsim-screen-capture/scripts/capture_screenshot.sh \
-  /Users/dan/Documents/ws/intro-to-graph/docs/sims/skill-context-window
+bash $HOME/.claude/skills/microsim-screen-capture/scripts/capture_screenshot.sh \
+  $HOME/Documents/ws/intro-to-graph/docs/sims/skill-context-window
 ```
 
 **Result:**

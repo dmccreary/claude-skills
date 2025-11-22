@@ -18,7 +18,7 @@ export BK_HOME=/path/to/your/claude-skills
 
 **Example:**
 ```bash
-export BK_HOME=/Users/dan/Documents/ws/claude-skills
+export BK_HOME=$HOME/Documents/ws/claude-skills
 ```
 
 After adding the line, reload your shell configuration:
@@ -112,7 +112,7 @@ bk 1         # Run the first utility
 ════════════════════════════════════════════════════════════════
 Build/Book Utilities
 ════════════════════════════════════════════════════════════════
-BK_HOME: /Users/dan/Documents/ws/claude-skills
+BK_HOME: $HOME/Documents/ws/claude-skills
 
   1. bk-resize-images              Compress large images to ~300KB PNG format
   2. bk-book-status                Display intelligent textbook building workflow status
@@ -181,7 +181,7 @@ glossary-generator (source, global)
 learning-graph-generator (source, global)
 
 Skill locations:
-  source  - Skills from /Users/dan/Documents/ws/claude-skills/skills
+  source  - Skills from $HOME/Documents/ws/claude-skills/skills
   global  - Installed skills in ~/.claude/skills
   project - Project-specific skills in .claude/skills
 ```

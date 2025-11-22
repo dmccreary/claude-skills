@@ -62,7 +62,7 @@ Time:    <1 second ⚡
 pip install mcp
 
 # 2. Run setup script (30 seconds)
-cd /Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister
+cd $HOME/Documents/ws/claude-skills/mcp-servers/skills-lister
 ./setup.sh
 
 # 3. Restart Claude Code
@@ -106,7 +106,7 @@ Skills Lister MCP Server Setup
        "skills-lister": {
          "command": "python3",
          "args": [
-           "/Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py"
+           "$HOME/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py"
          ]
        }
      }
@@ -234,7 +234,7 @@ Run these three commands:
 pip install mcp
 
 # 2. Setup
-cd /Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister
+cd $HOME/Documents/ws/claude-skills/mcp-servers/skills-lister
 ./setup.sh
 
 # 3. Restart Claude Code and test /skills
@@ -245,7 +245,7 @@ cd /Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister
 ## Questions?
 
 - **Where's the config file?**
-  - Project: `/Users/dan/Documents/ws/claude-skills/.claude/mcp.json`
+  - Project: `$HOME/Documents/ws/claude-skills/.claude/mcp.json`
   - Global: `~/.claude/mcp.json`
 
 - **How do I know it's working?**

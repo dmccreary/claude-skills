@@ -79,7 +79,7 @@ Example for macOS:
     "skills-lister": {
       "command": "python3",
       "args": [
-        "/Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py"
+        "$HOME/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py"
       ]
     }
   }

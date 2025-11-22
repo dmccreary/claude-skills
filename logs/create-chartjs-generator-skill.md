@@ -27,7 +27,7 @@ Created a task list with 5 main tasks:
 
 #### Directory Structure
 ```bash
-mkdir -p /Users/danmccreary/Documents/ws/claude-skills/skills/chartjs-generator/assets
+mkdir -p $HOMEmccreary/Documents/ws/claude-skills/skills/chartjs-generator/assets
 ```
 
 #### Created SKILL.md (20KB)

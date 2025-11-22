@@ -60,7 +60,7 @@ mcp-servers/
 
 **Project** (recommended):
 ```
-/Users/dan/Documents/ws/claude-skills/.claude/mcp.json
+$HOME/Documents/ws/claude-skills/.claude/mcp.json
 ```
 
 **Global** (all projects):
@@ -76,7 +76,7 @@ mcp-servers/
     "skills-lister": {
       "command": "python3",
       "args": [
-        "/Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py"
+        "$HOME/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py"
       ]
     }
   }
@@ -141,7 +141,7 @@ cat .claude/mcp.json
 ## One-Liner Setup
 
 ```bash
-pip install mcp && cd /Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister && ./setup.sh
+pip install mcp && cd $HOME/Documents/ws/claude-skills/mcp-servers/skills-lister && ./setup.sh
 ```
 
 Then restart Claude Code.
@@ -159,10 +159,10 @@ python3 -c "import mcp; print('✅ MCP OK')"
 ls -l ~/bin/list-skills.sh
 
 # Config exists?
-cat /Users/dan/Documents/ws/claude-skills/.claude/mcp.json
+cat $HOME/Documents/ws/claude-skills/.claude/mcp.json
 
 # Server can run?
-python3 /Users/dan/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py
+python3 $HOME/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py
 ```
 
 ## Key Concepts

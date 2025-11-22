@@ -17,7 +17,7 @@ Just pass the file name as the first parameter to the `validate-learning-graph.s
 ```
 Validating learning graph...
 Input file: ../../docs/vis/combined-viewer/learning-graph.json
-Schema file: /Users/dan/Documents/ws/learning-graphs/src/schema/learning-graph-schema.json
+Schema file: $HOME/Documents/ws/learning-graphs/src/schema/learning-graph-schema.json
 
 ✓ Validation successful!
 

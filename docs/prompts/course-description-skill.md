@@ -10,7 +10,7 @@
 │                       ▘▘ ▝▝                       │                          │
 │                                                   │                          │
 │              Sonnet 4.5 · Claude Pro              │                          │
-│   /Users/danmccreary/Documents/ws/claude-skills   │                          │
+│   $HOMEmccreary/Documents/ws/claude-skills   │                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 
 > /skills is running… 

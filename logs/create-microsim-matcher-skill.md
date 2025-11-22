@@ -419,7 +419,7 @@ For each `<details markdown="1">` block in the `docs/chapters` area:
 **Files with details blocks:** 13 chapter index.md files
 
 ```bash
-grep -r '<details markdown="1">' /Users/dan/Documents/ws/claude-skills/docs/chapters --include="*.md" -l
+grep -r '<details markdown="1">' $HOME/Documents/ws/claude-skills/docs/chapters --include="*.md" -l
 ```
 
 **Total blocks found:** 77 blocks across 13 chapters

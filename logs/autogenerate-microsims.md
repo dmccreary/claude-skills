@@ -41,7 +41,7 @@ This session focused on automating the generation of Easy difficulty diagrams th
 
 ### Script Creation
 
-Created `/Users/dan/Documents/ws/claude-skills/src/diagram-reports/generate-easy-diagrams.py`
+Created `$HOME/Documents/ws/claude-skills/src/diagram-reports/generate-easy-diagrams.py`
 
 **Script Capabilities**:
 
@@ -131,7 +131,7 @@ docs/learning-graph/easy-diagrams/
 
 ### Documentation
 
-Created `/Users/dan/Documents/ws/claude-skills/src/diagram-reports/README-generate-easy-diagrams.md`
+Created `$HOME/Documents/ws/claude-skills/src/diagram-reports/README-generate-easy-diagrams.md`
 
 Comprehensive documentation including:
 - Overview and quick start
@@ -768,7 +768,7 @@ open docs/sims/content-generation-process-timeline/main.html
 open docs/sims/microsim-file-relationship-diagram/main.html
 
 # Run MkDocs server
-cd /Users/dan/Documents/ws/claude-skills
+cd $HOME/Documents/ws/claude-skills
 mkdocs serve
 ```
 

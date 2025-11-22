@@ -38,19 +38,19 @@ Sonnet 4.5 · Claude Pro
 ⏺ Read(skills/bubble-chart-generator/SKILL.md)
   ⎿  Read 362 lines
 
-⏺ Bash(ls -la /Users/dan/Documents/ws/claude-skills/skills/bubble-chart-generator/)
+⏺ Bash(ls -la $HOME/Documents/ws/claude-skills/skills/bubble-chart-generator/)
   ⎿  total 24                                        
      drwxr-xr-x   4 dan  staff    128 Nov  6 06:10 .
      drwxr-xr-x  20 dan  staff    640 Nov  9 07:42 ..
      … +2 lines (ctrl+o to expand)
 
-⏺ Bash(ls -la /Users/dan/Documents/ws/claude-skills/skills/bubble-chart-generator/assets/)
+⏺ Bash(ls -la $HOME/Documents/ws/claude-skills/skills/bubble-chart-generator/assets/)
   ⎿  total 48                                      
      drwxr-xr-x  6 dan  staff   192 Nov  6 07:32 .
      drwxr-xr-x  4 dan  staff   128 Nov  6 06:10 ..
      … +4 lines (ctrl+o to expand)
 
-⏺ Bash(mkdir -p /Users/dan/Documents/ws/claude-skills/skills/timeline-generator/resources)
+⏺ Bash(mkdir -p $HOME/Documents/ws/claude-skills/skills/timeline-generator/resources)
   ⎿  (No content)
 
 ⏺ Write(skills/timeline-generator/SKILL.md)
@@ -124,10 +124,10 @@ Sonnet 4.5 · Claude Pro
      - 4 categories (Planning, Development, Launch, Maintenance)
      … +148 lines (ctrl+o to expand)
 
-⏺ Bash(find /Users/dan/Documents/ws/claude-skills/skills/timeline-generator -type f)
-  ⎿ /Users/dan/Documents/ws/claude-skills/skills/timeline-generator/resources/template-t
+⏺ Bash(find $HOME/Documents/ws/claude-skills/skills/timeline-generator -type f)
+  ⎿ $HOME/Documents/ws/claude-skills/skills/timeline-generator/resources/template-t
     imeline.json
-    /Users/dan/Documents/ws/claude-skills/skills/timeline-generator/resources/template-m
+    $HOME/Documents/ws/claude-skills/skills/timeline-generator/resources/template-m
     … +5 lines (ctrl+o to expand)
 
 
@@ -135,16 +135,16 @@ Sonnet 4.5 · Claude Pro
 ⏺ Read(mkdocs.yml)
   ⎿  Read 158 lines
 
-⏺ Bash(tree /Users/dan/Documents/ws/claude-skills/skills/timeline-generator)
+⏺ Bash(tree $HOME/Documents/ws/claude-skills/skills/timeline-generator)
   ⎿  Error: Exit code 127
      (eval):1: command not found: tree
 
-⏺ Bash(ls -R /Users/dan/Documents/ws/claude-skills/skills/timeline-generator)
+⏺ Bash(ls -R $HOME/Documents/ws/claude-skills/skills/timeline-generator)
   ⎿  resources                    
      SKILL.md
      … +5 lines (ctrl+o to expand)
 
-⏺ Bash(head -5 /Users/dan/Documents/ws/claude-skills/skills/timeline-generator/SKILL.md)
+⏺ Bash(head -5 $HOME/Documents/ws/claude-skills/skills/timeline-generator/SKILL.md)
   ⎿ ---                                                                                 
     name: timeline-generator
     description: This skill generates interactive timeline visualizations using the vis-

@@ -1,7 +1,7 @@
 
 ▗ ▗   ▖ ▖  Claude Code v2.0.36
            Sonnet 4.5 · Claude Pro
-  ▘▘ ▝▝    /Users/dan/Documents/ws/claude-skills
+  ▘▘ ▝▝    $HOME/Documents/ws/claude-skills
 
 > run the chapter-content-generator skill on chapters 6 and 7 
 
@@ -14,7 +14,7 @@
 ⏺ I'll generate content for chapters 6 and 7. Let me start by finding and verifying these
    chapter files.
 
-⏺ Bash(ls -la /Users/dan/Documents/ws/claude-skills/docs/chapters/ | grep -E "^d.*0[67]-")
+⏺ Bash(ls -la $HOME/Documents/ws/claude-skills/docs/chapters/ | grep -E "^d.*0[67]-")
   ⎿  drwxr-xr-x   3 dan  staff    96 Nov  8 12:07 06-learning-graph-quality-validation
      drwxr-xr-x   3 dan  staff    96 Nov  8 12:07 07-taxonomy-data-formats
 

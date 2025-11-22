@@ -17,7 +17,7 @@ NC='\033[0m' # No Color
 if [ -z "$BK_HOME" ]; then
     echo -e "${RED}Error: BK_HOME environment variable is not set.${NC}"
     echo "Please set BK_HOME to the root directory of your claude-skills repository."
-    echo "Example: export BK_HOME=/Users/dan/Documents/ws/claude-skills"
+    echo "Example: export BK_HOME=$HOME/Documents/ws/claude-skills"
     exit 1
 fi
 
