@@ -1049,7 +1049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../details-analysis/" class="md-nav__link">
+      <a href="../details-analysis.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1331,17 +1331,24 @@
 <p>This course provides comprehensive training on leveraging Claude Skills to create intelligent, interactive textbooks that enhance learning through AI-assisted content generation. Participants will learn the complete workflow from course conception through deployment, including creating learning graphs, generating glossaries, building interactive simulations, and publishing professional educational materials.</p>
 <p>The course emphasizes practical, hands-on skills for educators, instructional designers, and content creators who want to harness the power of AI to produce high-quality educational materials efficiently. By mastering Claude Skills and the intelligent textbook creation workflow, participants will be able to transform their subject matter expertise into engaging, pedagogically sound learning resources that adapt to modern educational needs.</p>
 <p>Through this professional development opportunity, learners will gain expertise in both the technical aspects of working with Claude Skills and the educational design principles that make intelligent textbooks effective learning tools.</p>
+<p>We place an emphasis on being frugal with using tokens in textbook generation.  We realize that
+most teachers can't afford to pay for the Claude Code Max ($100/month) and want to built their
+textbooks using the lower-cost Claude Pro ($20/month) account.  So we show how each
+skill can be monitored for time and token usage and we present ideas to lower the cost of generating
+textbooks and MicroSims.</p>
 <h2 id="main-topics-covered">Main Topics Covered</h2>
 <ul>
 <li>Prompt engineering for educational content</li>
 <li>Claude Skills architecture and components</li>
 <li>Skill packaging and distribution</li>
+<li>Monitoring Skill resource utilization</li>
 <li>Intelligent textbook workflows</li>
 <li>Learning graphs and concept mapping</li>
 <li>Graph databases and algorithms</li>
 <li>Educational book structure and organization</li>
 <li>Git and revision control for content management</li>
 <li>Visual Studio Code for content development</li>
+<li>Integrating Claude Code into your IDE</li>
 <li>Installing, generating, and publishing skills</li>
 <li>Testing and debugging skills</li>
 <li>Security and permission management</li>
@@ -1358,7 +1365,7 @@
 <p>While this course provides comprehensive coverage of Claude Skills for intelligent textbook creation, the following topics are explicitly out of scope:</p>
 <ul>
 <li>Advanced machine learning theory or model training</li>
-<li>General web development beyond MkDocs</li>
+<li>General web development beyond MkDocs and some simple CSS</li>
 <li>Database administration beyond graph database basics</li>
 <li>Advanced Git workflows for large development teams</li>
 <li>General Python programming (only specific scripts used in the workflow)</li>
@@ -1376,6 +1383,7 @@
 <li>Remember the steps in creating an intelligent textbook</li>
 <li>Remember what a learning graph is</li>
 <li>Remember what a Claude skill is</li>
+<li>Remember that skill resource utilization can be monitored</li>
 <li>Remember the steps to install a Claude skill</li>
 <li>Remember the steps to install a Claude command</li>
 <li>Remember how to list Claude skills</li>
@@ -1385,6 +1393,7 @@
 <ul>
 <li>Understand how skills are used</li>
 <li>Understand how skills are created</li>
+<li>Understand how hooks can be used to monitor skill elapsed time and token usage</li>
 <li>Understand what skills intelligent textbooks need</li>
 <li>Understand how a learning graph is used as a roadmap for guiding students on their learning journey</li>
 <li>Understand the order skills should be run</li>
@@ -1392,9 +1401,10 @@
 <h3 id="apply">Apply</h3>
 <p><em>Carrying out or using a procedure in a given situation.</em></p>
 <ul>
-<li>Apply prompt engineering to create a skill</li>
+<li>Apply prompt engineering to create a skill using the skill-creator skill</li>
 <li>Apply the skill creator skill to create a new skill</li>
 <li>Apply the command creation steps to create new commands</li>
+<li>Apply skill usage log files to analyze time and token consumption for each skill</li>
 </ul>
 <h3 id="analyze">Analyze</h3>
 <p><em>Breaking material into constituent parts and determining how the parts relate to one another and to an overall structure or purpose.</em></p>
@@ -1405,12 +1415,14 @@
 <li>Analyze if a skill needs to be improved</li>
 <li>Analyze why skills do not install correctly</li>
 <li>Analyze if quality reports are working</li>
+<li>Analyze skill usage log files and dashboard reports</li>
 </ul>
 <h3 id="evaluate">Evaluate</h3>
 <p><em>Making judgments based on criteria and standards through checking and critiquing.</em></p>
 <ul>
 <li>Evaluate the quality of a course description</li>
 <li>Evaluate the quality of a skill</li>
+<li>Evaluate if quality tests are a good use of tokens</li>
 <li>Evaluate the quality of a book</li>
 <li>Evaluate the quality of a book announcement</li>
 <li>Evaluate the quality of preview images for social media posts</li>
@@ -1421,6 +1433,7 @@
 <li>Create new skills from scratch</li>
 <li>Create new intelligent textbooks for various subjects</li>
 <li>Create new commands for Claude workflows</li>
+<li>Create new dashboards for monitoring skill resource utilization</li>
 <li>Design and implement a complete intelligent textbook project (capstone)</li>
 </ul>
 
