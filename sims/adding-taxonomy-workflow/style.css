@@ -9,8 +9,8 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background: aliceblue;
     min-height: 100vh;
-    padding: 20px;
-    color: #333;
+    padding: 0px;
+    color: aliceblue;
 }
 
 .container {
