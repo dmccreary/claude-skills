@@ -16,7 +16,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    background: white;
+    background: aliceblue;
     padding: 0px;
 }
 
@@ -31,16 +31,14 @@ h1 {
     text-align: center;
     color: #7f8c8d;
     font-size: 16px;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 }
 
 h2 {
     color: #34495e;
     font-size: 22px;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    border-bottom: 3px solid #667eea;
-    padding-bottom: 8px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 h3 {
@@ -53,8 +51,8 @@ h3 {
 /* Diagram container */
 .diagram-container {
     background: aliceblue;
-    padding: 30px;
-    margin: 30px 0;
+    padding: 0px;
+    margin: 0px;
     overflow-x: auto;
 }
 

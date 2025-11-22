@@ -689,11 +689,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#process-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Process Overview
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Process Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decision-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision Points
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1673,11 +1697,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#process-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Process Overview
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Process Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decision-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision Points
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1705,7 +1753,7 @@
 
 
 <h1 id="adding-taxonomy-to-csv-workflow">Adding Taxonomy to CSV Workflow</h1>
-<iframe src="main.html" width="100%" height="600px"></iframe>
+<iframe src="main.html" width="100%" height="1200px"></iframe>
 
 <p><strong>Copy this iframe to your website:</strong></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/claude-skills/sims/adding-taxonomy-workflow/main.html&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;600px&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
@@ -1713,8 +1761,20 @@
 <p><a class="md-button md-button--primary" href="main.html">Run Adding Taxonomy to CSV Workflow in Fullscreen</a></p>
 <p>This interactive Mermaid diagram shows the complete workflow for adding taxonomy categorization to a learning graph CSV file.</p>
 <h2 id="interactive-diagram">Interactive Diagram</h2>
-<h2 id="overview">Overview</h2>
-<p>The workflow includes decision points for automated vs manual categorization, validation steps, and quality checks to ensure proper taxonomy assignment across all concepts.</p>
+<h2 id="process-overview">Process Overview</h2>
+<p>This workflow demonstrates how to add taxonomy categorization to an existing learning graph CSV file. The process supports both automated (script-based) and manual categorization approaches.</p>
+<h3 id="key-steps">Key Steps</h3>
+<ol>
+<li><strong>Identify Natural Categories</strong> - Review concept labels and group by topic, domain, or complexity level</li>
+<li><strong>Design Taxonomy Abbreviations</strong> - Create 3-5 letter codes (FOUND, BASIC, ARCH, etc.)</li>
+<li><strong>Choose Categorization Method</strong> - Select between automated (add-taxonomy.py) or manual assignment</li>
+<li><strong>Review Assignments</strong> - Check that categorization makes logical sense</li>
+<li><strong>Validate Distribution</strong> - Run taxonomy-distribution.py to ensure balance</li>
+<li><strong>Adjust if Needed</strong> - Refine categories until distribution is balanced (no category &gt; 30%)</li>
+</ol>
+<h3 id="decision-points">Decision Points</h3>
+<p><strong>Automated vs Manual:</strong> The add-taxonomy.py script uses keyword matching for initial suggestions, best for large graphs (150+ concepts). Manual assignment gives more control, recommended for smaller graphs or specialized domains.</p>
+<p><strong>Distribution Check:</strong> A balanced distribution ensures no single taxonomy dominates. Target: no category exceeding 30% of total concepts.</p>
 
 
 
