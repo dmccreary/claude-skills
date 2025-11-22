@@ -18,7 +18,7 @@ Test your understanding of course descriptions, Bloom's Taxonomy, and educationa
 
     **Concept Tested:** Course Description
 
-    **See:** [Crafting Effective Course Descriptions](index.md#crafting-effective-course-descriptions)
+    **See:** [Crafting Effective Course Descriptions](../../glossary.md#course-description)
 
 ---
 
@@ -36,7 +36,7 @@ Test your understanding of course descriptions, Bloom's Taxonomy, and educationa
 
     **Concept Tested:** Bloom's Taxonomy
 
-    **See:** [Bloom's Taxonomy](index.md#blooms-taxonomy)
+    **See:** [Bloom's Taxonomy](../../glossary.md#blooms-taxonomy)
 
 ---
 
@@ -54,7 +54,7 @@ Test your understanding of course descriptions, Bloom's Taxonomy, and educationa
 
     **Concept Tested:** Bloom's 2001 Revision
 
-    **See:** [Bloom's 2001 Revision](index.md#blooms-2001-revision)
+    **See:** [Bloom's 2001 Revision](../../glossary.md#blooms-2001-revision)
 
 ---
 
@@ -72,7 +72,7 @@ Test your understanding of course descriptions, Bloom's Taxonomy, and educationa
 
     **Concept Tested:** Remember (Cognitive Level 1)
 
-    **See:** [Remember (Cognitive Level 1)](index.md#remember-cognitive-level-1)
+    **See:** [Remember (Cognitive Level 1)](../../glossary.md#remember-cognitive-level-1)
 
 ---
 
@@ -90,7 +90,7 @@ Test your understanding of course descriptions, Bloom's Taxonomy, and educationa
 
     **Concept Tested:** Understand (Cognitive Level 2)
 
-    **See:** [Understand (Cognitive Level 2)](index.md#understand-cognitive-level-2)
+    **See:** [Understand (Cognitive Level 2)](../../glossary.md#understand-cognitive-level-2)
 
 ---
 
@@ -108,7 +108,7 @@ Test your understanding of course descriptions, Bloom's Taxonomy, and educationa
 
     **Concept Tested:** Apply (Cognitive Level 3)
 
-    **See:** [Apply (Cognitive Level 3)](index.md#apply-cognitive-level-3)
+    **See:** [Apply (Cognitive Level 3)](../../glossary.md#apply-cognitive-level-3)
 
 ---
 
@@ -126,7 +126,7 @@ Test your understanding of course descriptions, Bloom's Taxonomy, and educationa
 
     **Concept Tested:** Action Verbs for Learning Outcomes
 
-    **See:** [Action Verbs for Learning Outcomes](index.md#action-verbs-for-learning-outcomes)
+    **See:** [Action Verbs for Learning Outcomes](../../glossary.md#action-verbs-for-learning-outcomes)
 
 ---
 
@@ -144,7 +144,7 @@ Test your understanding of course descriptions, Bloom's Taxonomy, and educationa
 
     **Concept Tested:** Course Description Quality Score
 
-    **See:** [Course Description Quality Score](index.md#course-description-quality-score)
+    **See:** [Course Description Quality Score](../../glossary.md#course-description-quality-score)
 
 ---
 
@@ -162,7 +162,7 @@ Test your understanding of course descriptions, Bloom's Taxonomy, and educationa
 
     **Concept Tested:** Target Audience Definition
 
-    **See:** [Target Audience Definition](index.md#target-audience-definition)
+    **See:** [Target Audience Definition](../../glossary.md#target-audience-definition)
 
 ---
 
@@ -180,7 +180,7 @@ Test your understanding of course descriptions, Bloom's Taxonomy, and educationa
 
     **Concept Tested:** Analyze (Cognitive Level 4)
 
-    **See:** [Analyze (Cognitive Level 4)](index.md#analyze-cognitive-level-4)
+    **See:** [Analyze (Cognitive Level 4)](../../glossary.md#analyze-cognitive-level-4)
 
 ---
 

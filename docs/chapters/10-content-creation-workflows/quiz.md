@@ -18,7 +18,7 @@ Test your understanding of chapter structure, content generation, reading levels
 
     **Concept Tested:** Chapter Structure
 
-    **See:** [Chapter Structure and Organization](index.md#chapter-structure-and-organization)
+    **See:** [Chapter Structure and Organization](../../glossary.md#chapter-structure)
 
 ---
 
@@ -36,7 +36,7 @@ Test your understanding of chapter structure, content generation, reading levels
 
     **Concept Tested:** Chapter Index Files
 
-    **See:** [Chapter Index Files and Concept Lists](index.md#chapter-index-files-and-concept-lists)
+    **See:** [Chapter Index Files and Concept Lists](../../glossary.md#chapter-index-files)
 
 ---
 
@@ -54,7 +54,7 @@ Test your understanding of chapter structure, content generation, reading levels
 
     **Concept Tested:** Reading Level Appropriateness
 
-    **See:** [Reading Level Appropriateness](index.md#reading-level-appropriateness)
+    **See:** [Reading Level Appropriateness](../../glossary.md#reading-level-appropriateness)
 
 ---
 
@@ -72,7 +72,7 @@ Test your understanding of chapter structure, content generation, reading levels
 
     **Concept Tested:** Reading Level Appropriateness
 
-    **See:** [Reading Level Categories](index.md#reading-level-categories)
+    **See:** [Reading Level Categories](../../glossary.md#reading-level-categories)
 
 ---
 
@@ -90,7 +90,7 @@ Test your understanding of chapter structure, content generation, reading levels
 
     **Concept Tested:** Worked Examples in Content
 
-    **See:** [Worked Examples in Content](index.md#worked-examples-in-content)
+    **See:** [Worked Examples in Content](../../glossary.md#worked-examples-in-content)
 
 ---
 
@@ -108,7 +108,7 @@ Test your understanding of chapter structure, content generation, reading levels
 
     **Concept Tested:** Worked Examples in Content
 
-    **See:** [Worked Examples in Content](index.md#worked-examples-in-content)
+    **See:** [Worked Examples in Content](../../glossary.md#worked-examples-in-content)
 
 ---
 
@@ -126,7 +126,7 @@ Test your understanding of chapter structure, content generation, reading levels
 
     **Concept Tested:** Practice Exercises
 
-    **See:** [Types of Practice Exercises](index.md#types-of-practice-exercises)
+    **See:** [Types of Practice Exercises](../../glossary.md#practice-exercises)
 
 ---
 
@@ -144,7 +144,7 @@ Test your understanding of chapter structure, content generation, reading levels
 
     **Concept Tested:** Non-Circular Definitions
 
-    **See:** [ISO 11179 Standards for Definitions](index.md#iso-11179-standards-for-definitions)
+    **See:** [ISO 11179 Standards for Definitions](../../glossary.md#iso-11179-standards)
 
 ---
 
@@ -162,7 +162,7 @@ Test your understanding of chapter structure, content generation, reading levels
 
     **Concept Tested:** Definitions Without Business Rules
 
-    **See:** [ISO 11179 Standards for Definitions](index.md#iso-11179-standards-for-definitions)
+    **See:** [ISO 11179 Standards for Definitions](../../glossary.md#iso-11179-standards)
 
 ---
 
@@ -180,7 +180,7 @@ Test your understanding of chapter structure, content generation, reading levels
 
     **Concept Tested:** Chapter Concept Lists
 
-    **See:** [Working with Chapter Concept Lists](index.md#working-with-chapter-concept-lists)
+    **See:** [Working with Chapter Concept Lists](../../glossary.md#chapter-concept-lists)
 
 ---
 

@@ -18,7 +18,7 @@ Test your understanding of skill directory structure, supporting assets, testing
 
     **Concept Tested:** Skill Directory Structure
 
-    **See:** [Skill Directory Structure](index.md#skill-directory-structure)
+    **See:** [Skill Directory Structure](../../glossary.md#skill-directory-structure)
 
 ---
 
@@ -36,7 +36,7 @@ Test your understanding of skill directory structure, supporting assets, testing
 
     **Concept Tested:** Python Scripts in Skills
 
-    **See:** [Python Scripts in Skills](index.md#python-scripts-in-skills)
+    **See:** [Python Scripts in Skills](../../glossary.md#python-scripts-in-skills)
 
 ---
 
@@ -54,7 +54,7 @@ Test your understanding of skill directory structure, supporting assets, testing
 
     **Concept Tested:** Reference Documentation in Skills
 
-    **See:** [Reference Documentation in Skills](index.md#reference-documentation-in-skills)
+    **See:** [Reference Documentation in Skills](../../glossary.md#reference-documentation-in-skills)
 
 ---
 
@@ -72,7 +72,7 @@ Test your understanding of skill directory structure, supporting assets, testing
 
     **Concept Tested:** Skill Testing and Debugging
 
-    **See:** [Skill Testing and Debugging](index.md#skill-testing-and-debugging)
+    **See:** [Skill Testing and Debugging](../../glossary.md#skill-testing-and-debugging)
 
 ---
 
@@ -90,7 +90,7 @@ Test your understanding of skill directory structure, supporting assets, testing
 
     **Concept Tested:** Security in Skill Execution
 
-    **See:** [Security in Skill Execution](index.md#security-in-skill-execution)
+    **See:** [Security in Skill Execution](../../glossary.md#security-in-skill-execution)
 
 ---
 
@@ -108,7 +108,7 @@ Test your understanding of skill directory structure, supporting assets, testing
 
     **Concept Tested:** Installing Skills Globally
 
-    **See:** [Installing Skills Globally](index.md#installing-skills-globally-vs-project-specific)
+    **See:** [Installing Skills Globally](../../glossary.md#installing-skills-globally)
 
 ---
 
@@ -126,7 +126,7 @@ Test your understanding of skill directory structure, supporting assets, testing
 
     **Concept Tested:** Installing Skills Globally
 
-    **See:** [Installing Skills Globally vs Project-Specific](index.md#installing-skills-globally-vs-project-specific)
+    **See:** [Installing Skills Globally vs Project-Specific](../../glossary.md#installing-skills-globally)
 
 ---
 
@@ -144,7 +144,7 @@ Test your understanding of skill directory structure, supporting assets, testing
 
     **Concept Tested:** Git Status Command
 
-    **See:** [Git Status Command](index.md#git-status-command)
+    **See:** [Git Status Command](../../glossary.md#git-status-command)
 
 ---
 
@@ -162,7 +162,7 @@ Test your understanding of skill directory structure, supporting assets, testing
 
     **Concept Tested:** pip Package Management
 
-    **See:** [Installing Python Packages](index.md#installing-python-packages)
+    **See:** [Installing Python Packages](../../glossary.md#installing-python-packages)
 
 ---
 
@@ -180,7 +180,7 @@ Test your understanding of skill directory structure, supporting assets, testing
 
     **Concept Tested:** Skill Distribution Methods
 
-    **See:** [Skill Distribution Methods](index.md#skill-distribution-methods)
+    **See:** [Skill Distribution Methods](../../glossary.md#skill-distribution-methods)
 
 ---
 

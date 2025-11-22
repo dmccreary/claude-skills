@@ -76,6 +76,12 @@ Methods for evaluating whether learners have mastered concepts through quizzes, 
 
 **Example:** Multiple-choice quizzes aligned to Bloom's Taxonomy levels assess student understanding across cognitive domains.
 
+#### Assessing Student Understanding Through Quiz Analytics
+
+Evaluation of learner comprehension by analyzing quiz performance patterns across cognitive levels and concept areas to identify knowledge gaps.
+
+**Example:** Analyzing quiz results shows students score well on Remember questions but struggle with Analyze questions, indicating need for more worked examples.
+
 #### Atomic Concepts
 
 Single, indivisible ideas that cannot be meaningfully broken into smaller learning components.
@@ -151,6 +157,12 @@ Markdown files named `index.md` that serve as the main content page for each cha
 The organizational framework defining how textbook content is divided into major sections with logical progression.
 
 **Example:** A 200-concept course might be organized into 12 chapters with 15-20 concepts per chapter.
+
+#### Chapter Structure and Token Budgeting
+
+The dual consideration of logical content organization and AI token limit management when designing textbook chapters.
+
+**Example:** Balancing pedagogical needs (15-20 concepts per chapter) with practical constraints (staying under Claude's token limits per generation).
 
 #### Circular Dependency Detection
 
@@ -810,6 +822,12 @@ Dublin Core fields stored in `metadata.json` describing a simulation's title, cr
 
 **Example:** Metadata records the concept being taught, target audience, and date created.
 
+#### MicroSim Metadata Standards
+
+The Dublin Core specification requirements for documenting simulations including required fields (title, creator, date) and recommended fields (description, version, license).
+
+**Example:** MicroSim Metadata Standards ensure all simulations include consistent documentation for discovery, attribution, and educational context.
+
 #### MkDocs
 
 A static site generator that creates documentation websites from markdown files, designed for project documentation.
@@ -994,6 +1012,12 @@ Ensuring textbook language complexity matches the target audience's comprehensio
 
 **Example:** Professional development content uses more technical vocabulary than high school materials.
 
+#### Reading Level Categories
+
+Standard classifications of target audiences based on educational development stage: junior-high, senior-high, college, and graduate levels.
+
+**Example:** Reading Level Categories determine vocabulary complexity, sentence structure, and conceptual depth for generated textbook content.
+
 #### Reference Documentation in Skills
 
 Supporting files in skill directories providing examples, specifications, or guidance for skill execution.
@@ -1165,6 +1189,12 @@ Text-based instructions entered in a command-line interface to execute programs,
 An integrated command-line interface within Visual Studio Code for running commands without leaving the editor.
 
 **Example:** Open the VS Code terminal with Ctrl+` to run `mkdocs serve` while editing content.
+
+#### The Role of FAQs in Intelligent Textbooks
+
+The function of Frequently Asked Questions as supplementary resources providing quick answers to common learner queries and clarifying potentially confusing concepts.
+
+**Example:** FAQs bridge gaps between formal content and student questions, offering conversational explanations that complement technical definitions in the glossary.
 
 #### Title Case Convention
 

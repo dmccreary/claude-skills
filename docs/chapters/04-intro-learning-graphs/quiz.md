@@ -18,7 +18,7 @@ Test your understanding of learning graphs, concept nodes, dependency edges, and
 
     **Concept Tested:** Learning Graph
 
-    **See:** [What is a Learning Graph?](index.md#what-is-a-learning-graph)
+    **See:** [What is a Learning Graph?](../../glossary.md#learning-graph)
 
 ---
 
@@ -36,7 +36,7 @@ Test your understanding of learning graphs, concept nodes, dependency edges, and
 
     **Concept Tested:** Concept Nodes in Learning Graphs
 
-    **See:** [Concept Nodes in Learning Graphs](index.md#concept-nodes-in-learning-graphs)
+    **See:** [Concept Nodes in Learning Graphs](../../glossary.md#concept-nodes-in-learning-graphs)
 
 ---
 
@@ -54,7 +54,7 @@ Test your understanding of learning graphs, concept nodes, dependency edges, and
 
     **Concept Tested:** Dependency Edges in Learning Graphs
 
-    **See:** [Dependency Edges in Learning Graphs](index.md#dependency-edges-in-learning-graphs)
+    **See:** [Dependency Edges in Learning Graphs](../../glossary.md#dependency-edges-in-learning-graphs)
 
 ---
 
@@ -72,7 +72,7 @@ Test your understanding of learning graphs, concept nodes, dependency edges, and
 
     **Concept Tested:** Directed Acyclic Graph (DAG)
 
-    **See:** [Directed Acyclic Graph (DAG) Requirement](index.md#directed-acyclic-graph-dag-requirement)
+    **See:** [Directed Acyclic Graph (DAG) Requirement](../../glossary.md#directed-acyclic-graph-dag)
 
 ---
 
@@ -90,7 +90,7 @@ Test your understanding of learning graphs, concept nodes, dependency edges, and
 
     **Concept Tested:** Prerequisite Relationships
 
-    **See:** [Prerequisite Relationships and Learning Pathways](index.md#prerequisite-relationships-and-learning-pathways)
+    **See:** [Prerequisite Relationships and Learning Pathways](../../glossary.md#prerequisite-relationships)
 
 ---
 
@@ -108,7 +108,7 @@ Test your understanding of learning graphs, concept nodes, dependency edges, and
 
     **Concept Tested:** 4-Hour Usage Windows
 
-    **See:** [Understanding 4-Hour Usage Windows](index.md#understanding-4-hour-usage-windows)
+    **See:** [Understanding 4-Hour Usage Windows](../../glossary.md#4-hour-usage-windows)
 
 ---
 
@@ -126,7 +126,7 @@ Test your understanding of learning graphs, concept nodes, dependency edges, and
 
     **Concept Tested:** Optimizing Claude Usage
 
-    **See:** [Optimizing Claude Usage for Learning Graph Generation](index.md#optimizing-claude-usage-for-learning-graph-generation)
+    **See:** [Optimizing Claude Usage for Learning Graph Generation](../../glossary.md#optimizing-claude-usage)
 
 ---
 
@@ -144,7 +144,7 @@ Test your understanding of learning graphs, concept nodes, dependency edges, and
 
     **Concept Tested:** Concept Dependencies
 
-    **See:** [Dependency Edges in Learning Graphs](index.md#dependency-edges-in-learning-graphs)
+    **See:** [Dependency Edges in Learning Graphs](../../glossary.md#dependency-edges-in-learning-graphs)
 
 ---
 
@@ -162,7 +162,7 @@ Test your understanding of learning graphs, concept nodes, dependency edges, and
 
     **Concept Tested:** Chapter Structure
 
-    **See:** [Chapter Structure and Token Budgeting](index.md#chapter-structure-and-token-budgeting)
+    **See:** [Chapter Structure and Token Budgeting](../../glossary.md#chapter-structure-and-token-budgeting)
 
 ---
 
@@ -180,7 +180,7 @@ Test your understanding of learning graphs, concept nodes, dependency edges, and
 
     **Concept Tested:** Learning Pathways
 
-    **See:** [Prerequisite Relationships and Learning Pathways](index.md#prerequisite-relationships-and-learning-pathways)
+    **See:** [Prerequisite Relationships and Learning Pathways](../../glossary.md#prerequisite-relationships)
 
 ---
 

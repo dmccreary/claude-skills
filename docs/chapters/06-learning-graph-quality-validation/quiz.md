@@ -18,7 +18,7 @@ Test your understanding of DAG validation, quality metrics, circular dependency 
 
     **Concept Tested:** DAG Validation
 
-    **See:** [DAG Validation](index.md#dag-validation)
+    **See:** [DAG Validation](../../glossary.md#dag-validation)
 
 ---
 
@@ -36,7 +36,7 @@ Test your understanding of DAG validation, quality metrics, circular dependency 
 
     **Concept Tested:** Circular Dependency Detection
 
-    **See:** [Circular Dependency Detection](index.md#circular-dependency-detection)
+    **See:** [Circular Dependency Detection](../../glossary.md#circular-dependency-detection)
 
 ---
 
@@ -54,7 +54,7 @@ Test your understanding of DAG validation, quality metrics, circular dependency 
 
     **Concept Tested:** Orphaned Nodes
 
-    **See:** [Orphaned Nodes](index.md#orphaned-nodes)
+    **See:** [Orphaned Nodes](../../glossary.md#orphaned-nodes)
 
 ---
 
@@ -72,7 +72,7 @@ Test your understanding of DAG validation, quality metrics, circular dependency 
 
     **Concept Tested:** Quality Metrics for Graphs
 
-    **See:** [Orphaned Nodes](index.md#orphaned-nodes)
+    **See:** [Orphaned Nodes](../../glossary.md#orphaned-nodes)
 
 ---
 
@@ -90,7 +90,7 @@ Test your understanding of DAG validation, quality metrics, circular dependency 
 
     **Concept Tested:** Circular Dependency Detection
 
-    **See:** [Circular Dependency Detection](index.md#circular-dependency-detection)
+    **See:** [Circular Dependency Detection](../../glossary.md#circular-dependency-detection)
 
 ---
 
@@ -108,7 +108,7 @@ Test your understanding of DAG validation, quality metrics, circular dependency 
 
     **Concept Tested:** Average Dependencies Per Concept
 
-    **See:** [Average Dependencies Per Concept](index.md#average-dependencies-per-concept)
+    **See:** [Average Dependencies Per Concept](../../glossary.md#average-dependencies-per-concept)
 
 ---
 
@@ -126,7 +126,7 @@ Test your understanding of DAG validation, quality metrics, circular dependency 
 
     **Concept Tested:** Average Dependencies Per Concept
 
-    **See:** [Average Dependencies Per Concept](index.md#average-dependencies-per-concept)
+    **See:** [Average Dependencies Per Concept](../../glossary.md#average-dependencies-per-concept)
 
 ---
 
@@ -144,7 +144,7 @@ Test your understanding of DAG validation, quality metrics, circular dependency 
 
     **Concept Tested:** Learning Graph Quality Score
 
-    **See:** [Learning Graph Quality Score](index.md#learning-graph-quality-score)
+    **See:** [Learning Graph Quality Score](../../glossary.md#learning-graph-quality-score)
 
 ---
 
@@ -162,7 +162,7 @@ Test your understanding of DAG validation, quality metrics, circular dependency 
 
     **Concept Tested:** Avoiding Over-Representation
 
-    **See:** [Avoiding Over-Representation](index.md#avoiding-over-representation)
+    **See:** [Avoiding Over-Representation](../../glossary.md#avoiding-over-representation)
 
 ---
 
@@ -180,7 +180,7 @@ Test your understanding of DAG validation, quality metrics, circular dependency 
 
     **Concept Tested:** csv-to-json.py Script
 
-    **See:** [csv-to-json.py Script](index.md#csv-to-json.py-script)
+    **See:** [csv-to-json.py Script](../../glossary.md#csv-to-jsonpy-script)
 
 ---
 

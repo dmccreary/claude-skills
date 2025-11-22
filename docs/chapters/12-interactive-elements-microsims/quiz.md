@@ -18,7 +18,7 @@ Test your understanding of MicroSims, p5.js, interactive simulations, directory 
 
     **Concept Tested:** MicroSim
 
-    **See:** [Introduction to MicroSims](index.md#introduction-to-microsims)
+    **See:** [Introduction to MicroSims](../../glossary.md#microsim)
 
 ---
 
@@ -36,7 +36,7 @@ Test your understanding of MicroSims, p5.js, interactive simulations, directory 
 
     **Concept Tested:** p5.js JavaScript Library
 
-    **See:** [The p5.js Foundation](index.md#the-p5js-foundation)
+    **See:** [The p5.js Foundation](../../glossary.md#p5js-javascript-library)
 
 ---
 
@@ -54,7 +54,7 @@ Test your understanding of MicroSims, p5.js, interactive simulations, directory 
 
     **Concept Tested:** Interactive Simulations
 
-    **See:** [Introduction to MicroSims](index.md#introduction-to-microsims)
+    **See:** [Introduction to MicroSims](../../glossary.md#microsim)
 
 ---
 
@@ -72,7 +72,7 @@ Test your understanding of MicroSims, p5.js, interactive simulations, directory 
 
     **Concept Tested:** MicroSim Directory Structure
 
-    **See:** [MicroSim Directory Structure](index.md#microsim-directory-structure)
+    **See:** [MicroSim Directory Structure](../../glossary.md#microsim-directory-structure)
 
 ---
 
@@ -90,7 +90,7 @@ Test your understanding of MicroSims, p5.js, interactive simulations, directory 
 
     **Concept Tested:** main.html in MicroSims
 
-    **See:** [Creating the main.html File](index.md#creating-the-mainhtml-file)
+    **See:** [Creating the main.html File](../../glossary.md#mainhtml-in-microsims)
 
 ---
 
@@ -108,7 +108,7 @@ Test your understanding of MicroSims, p5.js, interactive simulations, directory 
 
     **Concept Tested:** Iframe Embedding
 
-    **See:** [Iframe Embedding Techniques](index.md#iframe-embedding-techniques)
+    **See:** [Iframe Embedding Techniques](../../glossary.md#iframe-embedding)
 
 ---
 
@@ -126,7 +126,7 @@ Test your understanding of MicroSims, p5.js, interactive simulations, directory 
 
     **Concept Tested:** Seeded Randomness
 
-    **See:** [Ensuring Reproducibility with Seeded Randomness](index.md#ensuring-reproducibility-with-seeded-randomness)
+    **See:** [Ensuring Reproducibility with Seeded Randomness](../../glossary.md#seeded-randomness)
 
 ---
 
@@ -144,7 +144,7 @@ Test your understanding of MicroSims, p5.js, interactive simulations, directory 
 
     **Concept Tested:** Interactive Controls (Sliders)
 
-    **See:** [Interactive Controls: Sliders](index.md#interactive-controls-sliders)
+    **See:** [Interactive Controls: Sliders](../../glossary.md#interactive-controls-sliders)
 
 ---
 
@@ -162,7 +162,7 @@ Test your understanding of MicroSims, p5.js, interactive simulations, directory 
 
     **Concept Tested:** Educational Simulation Design
 
-    **See:** [Principles of Educational Simulation Design](index.md#principles-of-educational-simulation-design)
+    **See:** [Principles of Educational Simulation Design](../../glossary.md#educational-simulation-design)
 
 ---
 
@@ -180,6 +180,6 @@ Test your understanding of MicroSims, p5.js, interactive simulations, directory 
 
     **Concept Tested:** MicroSim Metadata
 
-    **See:** [MicroSim Metadata Standards](index.md#microsim-metadata-standards)
+    **See:** [MicroSim Metadata Standards](../../glossary.md#microsim-metadata-standards)
 
 ---

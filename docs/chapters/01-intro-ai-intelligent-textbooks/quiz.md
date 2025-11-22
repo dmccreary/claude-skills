@@ -18,7 +18,7 @@ Test your understanding of artificial intelligence, large language models, Claud
 
     **Concept Tested:** Artificial Intelligence
 
-    **See:** [What is Artificial Intelligence?](index.md#what-is-artificial-intelligence)
+    **See:** [What is Artificial Intelligence?](../../glossary.md#artificial-intelligence)
 
 ---
 
@@ -36,7 +36,7 @@ Test your understanding of artificial intelligence, large language models, Claud
 
     **Concept Tested:** Large Language Models Overview
 
-    **See:** [Large Language Models Overview](index.md#large-language-models-overview)
+    **See:** [Large Language Models Overview](../../glossary.md#large-language-models-overview)
 
 ---
 
@@ -54,7 +54,7 @@ Test your understanding of artificial intelligence, large language models, Claud
 
     **Concept Tested:** Claude AI
 
-    **See:** [Claude AI and Anthropic](index.md#claude-ai-and-anthropic)
+    **See:** [Claude AI and Anthropic](../../glossary.md#claude-ai)
 
 ---
 
@@ -72,7 +72,7 @@ Test your understanding of artificial intelligence, large language models, Claud
 
     **Concept Tested:** Five Levels of Textbook Intelligence
 
-    **See:** [Five Levels of Textbook Intelligence](index.md#five-levels-of-textbook-intelligence)
+    **See:** [Five Levels of Textbook Intelligence](../../glossary.md#five-levels-of-textbook-intelligence)
 
 ---
 
@@ -90,7 +90,7 @@ Test your understanding of artificial intelligence, large language models, Claud
 
     **Concept Tested:** Level 2: Hyperlinked Navigation
 
-    **See:** [Level 2: Hyperlinked Navigation](index.md#level-2-hyperlinked-navigation)
+    **See:** [Level 2: Hyperlinked Navigation](../../glossary.md#level-2-hyperlinked-navigation)
 
 ---
 
@@ -108,7 +108,7 @@ Test your understanding of artificial intelligence, large language models, Claud
 
     **Concept Tested:** Claude Code Interface
 
-    **See:** [Accessing Claude: The Claude Code Interface](index.md#accessing-claude-the-claude-code-interface)
+    **See:** [Accessing Claude: The Claude Code Interface](../../glossary.md#claude-code-interface)
 
 ---
 
@@ -126,7 +126,7 @@ Test your understanding of artificial intelligence, large language models, Claud
 
     **Concept Tested:** Prompt Design Principles
 
-    **See:** [Prompt Design Principles](index.md#prompt-design-principles)
+    **See:** [Prompt Design Principles](../../glossary.md#prompt-design-principles)
 
 ---
 
@@ -144,7 +144,7 @@ Test your understanding of artificial intelligence, large language models, Claud
 
     **Concept Tested:** Level 3: Interactive Elements
 
-    **See:** [Level 3: Interactive Elements](index.md#level-3-interactive-elements)
+    **See:** [Level 3: Interactive Elements](../../glossary.md#level-3-interactive-elements)
 
 ---
 
@@ -162,7 +162,7 @@ Test your understanding of artificial intelligence, large language models, Claud
 
     **Concept Tested:** Large Language Models Overview
 
-    **See:** [Large Language Models Overview](index.md#large-language-models-overview)
+    **See:** [Large Language Models Overview](../../glossary.md#large-language-models-overview)
 
 ---
 
@@ -180,7 +180,7 @@ Test your understanding of artificial intelligence, large language models, Claud
 
     **Concept Tested:** Educational Content Prompts
 
-    **See:** [Educational Content Prompts](index.md#educational-content-prompts)
+    **See:** [Educational Content Prompts](../../glossary.md#educational-content-prompts)
 
 ---
 

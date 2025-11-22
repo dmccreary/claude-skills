@@ -18,7 +18,7 @@ Test your understanding of MkDocs, Material theme, configuration, navigation, ve
 
     **Concept Tested:** MkDocs
 
-    **See:** [MkDocs: The Documentation Platform](index.md#mkdocs-the-documentation-platform)
+    **See:** [MkDocs: The Documentation Platform](../../glossary.md#mkdocs)
 
 ---
 
@@ -36,7 +36,7 @@ Test your understanding of MkDocs, Material theme, configuration, navigation, ve
 
     **Concept Tested:** MkDocs Configuration File
 
-    **See:** [MkDocs Configuration File (mkdocs.yml)](index.md#mkdocs-configuration-file-mkdocsyml)
+    **See:** [MkDocs Configuration File (mkdocs.yml)](../../glossary.md#mkdocs-configuration-file)
 
 ---
 
@@ -54,7 +54,7 @@ Test your understanding of MkDocs, Material theme, configuration, navigation, ve
 
     **Concept Tested:** MkDocs Material Theme
 
-    **See:** [MkDocs Material Theme](index.md#mkdocs-material-theme)
+    **See:** [MkDocs Material Theme](../../glossary.md#mkdocs-material-theme)
 
 ---
 
@@ -72,7 +72,7 @@ Test your understanding of MkDocs, Material theme, configuration, navigation, ve
 
     **Concept Tested:** Admonitions in MkDocs
 
-    **See:** [Admonitions in MkDocs](index.md#admonitions-in-mkdocs)
+    **See:** [Admonitions in MkDocs](../../glossary.md#admonitions-in-mkdocs)
 
 ---
 
@@ -90,7 +90,7 @@ Test your understanding of MkDocs, Material theme, configuration, navigation, ve
 
     **Concept Tested:** Version Control Basics
 
-    **See:** [Version Control Basics](index.md#version-control-basics)
+    **See:** [Version Control Basics](../../glossary.md#version-control-basics)
 
 ---
 
@@ -108,7 +108,7 @@ Test your understanding of MkDocs, Material theme, configuration, navigation, ve
 
     **Concept Tested:** Git Push Command
 
-    **See:** [Git Push Command](index.md#git-push-command)
+    **See:** [Git Push Command](../../glossary.md#git-push-command)
 
 ---
 
@@ -126,7 +126,7 @@ Test your understanding of MkDocs, Material theme, configuration, navigation, ve
 
     **Concept Tested:** Markdown Formatting Basics
 
-    **See:** [Markdown Formatting Basics](index.md#markdown-formatting-basics)
+    **See:** [Markdown Formatting Basics](../../glossary.md#markdown-formatting-basics)
 
 ---
 
@@ -144,7 +144,7 @@ Test your understanding of MkDocs, Material theme, configuration, navigation, ve
 
     **Concept Tested:** MkDocs
 
-    **See:** [MkDocs: The Documentation Platform](index.md#mkdocs-the-documentation-platform)
+    **See:** [MkDocs: The Documentation Platform](../../glossary.md#mkdocs)
 
 ---
 
@@ -162,7 +162,7 @@ Test your understanding of MkDocs, Material theme, configuration, navigation, ve
 
     **Concept Tested:** Navigation Structure in MkDocs
 
-    **See:** [Navigation Structure in MkDocs](index.md#navigation-structure-in-mkdocs)
+    **See:** [Navigation Structure in MkDocs](../../glossary.md#navigation-structure-in-mkdocs)
 
 ---
 
@@ -180,7 +180,7 @@ Test your understanding of MkDocs, Material theme, configuration, navigation, ve
 
     **Concept Tested:** GitHub Pages Deployment
 
-    **See:** [GitHub Pages Deployment](index.md#github-pages-deployment)
+    **See:** [GitHub Pages Deployment](../../glossary.md#github-pages-deployment)
 
 ---
 

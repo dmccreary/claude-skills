@@ -18,7 +18,7 @@ Test your understanding of concept enumeration, dependency mapping, CSV file for
 
     **Concept Tested:** Generating 200 Concepts
 
-    **See:** [Generating 200 Concepts](index.md#generating-200-concepts)
+    **See:** [Generating 200 Concepts](../../glossary.md#generating-200-concepts)
 
 ---
 
@@ -36,7 +36,7 @@ Test your understanding of concept enumeration, dependency mapping, CSV file for
 
     **Concept Tested:** Title Case Convention
 
-    **See:** [Title Case Convention](index.md#title-case-convention)
+    **See:** [Title Case Convention](../../glossary.md#title-case-convention)
 
 ---
 
@@ -54,7 +54,7 @@ Test your understanding of concept enumeration, dependency mapping, CSV file for
 
     **Concept Tested:** Maximum Character Length
 
-    **See:** [Maximum Character Length](index.md#maximum-character-length)
+    **See:** [Maximum Character Length](../../glossary.md#maximum-character-length)
 
 ---
 
@@ -72,7 +72,7 @@ Test your understanding of concept enumeration, dependency mapping, CSV file for
 
     **Concept Tested:** Concept Granularity
 
-    **See:** [Concept Granularity](index.md#concept-granularity)
+    **See:** [Concept Granularity](../../glossary.md#concept-granularity)
 
 ---
 
@@ -90,7 +90,7 @@ Test your understanding of concept enumeration, dependency mapping, CSV file for
 
     **Concept Tested:** Pipe-Delimited Dependencies
 
-    **See:** [Pipe-Delimited Dependencies](index.md#pipe-delimited-dependencies)
+    **See:** [Pipe-Delimited Dependencies](../../glossary.md#pipe-delimited-dependencies)
 
 ---
 
@@ -108,7 +108,7 @@ Test your understanding of concept enumeration, dependency mapping, CSV file for
 
     **Concept Tested:** Dependencies Field
 
-    **See:** [Dependencies Field](index.md#dependencies-field)
+    **See:** [Dependencies Field](../../glossary.md#dependencies-field)
 
 ---
 
@@ -126,7 +126,7 @@ Test your understanding of concept enumeration, dependency mapping, CSV file for
 
     **Concept Tested:** Dependency Mapping Process
 
-    **See:** [Dependency Mapping Process](index.md#dependency-mapping-process)
+    **See:** [Dependency Mapping Process](../../glossary.md#dependency-mapping-process)
 
 ---
 
@@ -144,7 +144,7 @@ Test your understanding of concept enumeration, dependency mapping, CSV file for
 
     **Concept Tested:** Foundational Concepts
 
-    **See:** [Foundational, Prerequisite, and Advanced Concepts](index.md#foundational-prerequisite-and-advanced-concepts)
+    **See:** [Foundational, Prerequisite, and Advanced Concepts](../../glossary.md#foundational-concepts)
 
 ---
 
@@ -162,7 +162,7 @@ Test your understanding of concept enumeration, dependency mapping, CSV file for
 
     **Concept Tested:** Advanced Concepts
 
-    **See:** [Foundational, Prerequisite, and Advanced Concepts](index.md#foundational-prerequisite-and-advanced-concepts)
+    **See:** [Foundational, Prerequisite, and Advanced Concepts](../../glossary.md#foundational-concepts)
 
 ---
 
@@ -180,7 +180,7 @@ Test your understanding of concept enumeration, dependency mapping, CSV file for
 
     **Concept Tested:** Taxonomy
 
-    **See:** [Taxonomy and Concept Categorization](index.md#taxonomy-and-concept-categorization)
+    **See:** [Taxonomy and Concept Categorization](../../glossary.md#concept-categorization)
 
 ---
 

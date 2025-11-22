@@ -18,7 +18,7 @@ Test your understanding of Claude Skills, skill definition files, installation, 
 
     **Concept Tested:** Claude Skill
 
-    **See:** [Understanding Claude Skills](index.md#understanding-claude-skills)
+    **See:** [Understanding Claude Skills](../../glossary.md#claude-skill)
 
 ---
 
@@ -36,7 +36,7 @@ Test your understanding of Claude Skills, skill definition files, installation, 
 
     **Concept Tested:** Skill Definition File Structure
 
-    **See:** [Skill Definition File Structure](index.md#skill-definition-file-structure)
+    **See:** [Skill Definition File Structure](../../glossary.md#skill-definition-file-structure)
 
 ---
 
@@ -54,7 +54,7 @@ Test your understanding of Claude Skills, skill definition files, installation, 
 
     **Concept Tested:** YAML Frontmatter in Skills
 
-    **See:** [YAML Frontmatter in Skills](index.md#yaml-frontmatter-in-skills)
+    **See:** [YAML Frontmatter in Skills](../../glossary.md#yaml-frontmatter-in-skills)
 
 ---
 
@@ -72,7 +72,7 @@ Test your understanding of Claude Skills, skill definition files, installation, 
 
     **Concept Tested:** Allowed Tools in Skills
 
-    **See:** [Allowed Tools in Skills](index.md#allowed-tools-in-skills)
+    **See:** [Allowed Tools in Skills](../../glossary.md#allowed-tools-in-skills)
 
 ---
 
@@ -90,7 +90,7 @@ Test your understanding of Claude Skills, skill definition files, installation, 
 
     **Concept Tested:** Difference Between Skills & Commands
 
-    **See:** [Claude Command](index.md#claude-command) and [Difference Between Skills & Commands](index.md#difference-between-skills-commands)
+    **See:** [Claude Command](../../glossary.md#claude-command) and [Difference Between Skills & Commands](../../glossary.md#difference-between-skills-commands)
 
 ---
 
@@ -108,7 +108,7 @@ Test your understanding of Claude Skills, skill definition files, installation, 
 
     **Concept Tested:** Installing a Claude Skill
 
-    **See:** [Installing a Claude Skill](index.md#installing-a-claude-skill)
+    **See:** [Installing a Claude Skill](../../glossary.md#installing-a-claude-skill)
 
 ---
 
@@ -126,7 +126,7 @@ Test your understanding of Claude Skills, skill definition files, installation, 
 
     **Concept Tested:** Skill Workflow Instructions
 
-    **See:** [Skill Workflow Instructions](index.md#skill-workflow-instructions)
+    **See:** [Skill Workflow Instructions](../../glossary.md#skill-workflow-instructions)
 
 ---
 
@@ -144,7 +144,7 @@ Test your understanding of Claude Skills, skill definition files, installation, 
 
     **Concept Tested:** Allowed Tools in Skills
 
-    **See:** [Allowed Tools in Skills](index.md#allowed-tools-in-skills)
+    **See:** [Allowed Tools in Skills](../../glossary.md#allowed-tools-in-skills)
 
 ---
 
@@ -162,7 +162,7 @@ Test your understanding of Claude Skills, skill definition files, installation, 
 
     **Concept Tested:** Skill Workflow Instructions
 
-    **See:** [Skill Workflow Instructions](index.md#skill-workflow-instructions)
+    **See:** [Skill Workflow Instructions](../../glossary.md#skill-workflow-instructions)
 
 ---
 
@@ -180,7 +180,7 @@ Test your understanding of Claude Skills, skill definition files, installation, 
 
     **Concept Tested:** Invoking Skills with Slash Commands
 
-    **See:** [Invoking Skills with Slash Commands](index.md#invoking-skills-with-slash-commands)
+    **See:** [Invoking Skills with Slash Commands](../../glossary.md#invoking-skills-with-slash-commands)
 
 ---
 

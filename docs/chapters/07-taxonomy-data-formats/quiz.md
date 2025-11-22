@@ -18,7 +18,7 @@ Test your understanding of taxonomy categorization, vis-network JSON format, Dub
 
     **Concept Tested:** TaxonomyID Abbreviations
 
-    **See:** [TaxonomyID Abbreviations](index.md#taxonomyid-abbreviations)
+    **See:** [TaxonomyID Abbreviations](../../glossary.md#taxonomyid-abbreviations)
 
 ---
 
@@ -36,7 +36,7 @@ Test your understanding of taxonomy categorization, vis-network JSON format, Dub
 
     **Concept Tested:** Groups Section in JSON
 
-    **See:** [Groups Section in JSON](index.md#groups-section-in-json)
+    **See:** [Groups Section in JSON](../../glossary.md#groups-section-in-json)
 
 ---
 
@@ -54,7 +54,7 @@ Test your understanding of taxonomy categorization, vis-network JSON format, Dub
 
     **Concept Tested:** vis-network JSON Format
 
-    **See:** [vis-network JSON Format](index.md#vis-network-json-format)
+    **See:** [vis-network JSON Format](../../glossary.md#vis-network-json-format)
 
 ---
 
@@ -72,7 +72,7 @@ Test your understanding of taxonomy categorization, vis-network JSON format, Dub
 
     **Concept Tested:** Nodes Section in JSON
 
-    **See:** [Nodes Section in JSON](index.md#nodes-section-in-json)
+    **See:** [Nodes Section in JSON](../../glossary.md#nodes-section-in-json)
 
 ---
 
@@ -90,7 +90,7 @@ Test your understanding of taxonomy categorization, vis-network JSON format, Dub
 
     **Concept Tested:** Edges Section in JSON
 
-    **See:** [Edges Section in JSON](index.md#edges-section-in-json)
+    **See:** [Edges Section in JSON](../../glossary.md#edges-section-in-json)
 
 ---
 
@@ -108,7 +108,7 @@ Test your understanding of taxonomy categorization, vis-network JSON format, Dub
 
     **Concept Tested:** Date Metadata Field
 
-    **See:** [Date Metadata Field](index.md#date-metadata-field)
+    **See:** [Date Metadata Field](../../glossary.md#date-metadata-field)
 
 ---
 
@@ -126,7 +126,7 @@ Test your understanding of taxonomy categorization, vis-network JSON format, Dub
 
     **Concept Tested:** Version Metadata Field
 
-    **See:** [Version Metadata Field](index.md#version-metadata-field)
+    **See:** [Version Metadata Field](../../glossary.md#version-metadata-field)
 
 ---
 
@@ -144,7 +144,7 @@ Test your understanding of taxonomy categorization, vis-network JSON format, Dub
 
     **Concept Tested:** Font Colors for Readability
 
-    **See:** [Font Colors for Readability](index.md#font-colors-for-readability)
+    **See:** [Font Colors for Readability](../../glossary.md#font-colors-for-readability)
 
 ---
 
@@ -162,7 +162,7 @@ Test your understanding of taxonomy categorization, vis-network JSON format, Dub
 
     **Concept Tested:** Category Distribution
 
-    **See:** [Category Distribution Analysis](index.md#category-distribution-analysis)
+    **See:** [Category Distribution Analysis](../../glossary.md#category-distribution)
 
 ---
 
@@ -180,7 +180,7 @@ Test your understanding of taxonomy categorization, vis-network JSON format, Dub
 
     **Concept Tested:** Python Scripts for Processing
 
-    **See:** [Python Scripts for Processing](index.md#python-scripts-for-processing)
+    **See:** [Python Scripts for Processing](../../glossary.md#python-scripts-for-processing)
 
 ---
 

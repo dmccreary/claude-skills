@@ -18,7 +18,7 @@ Test your understanding of FAQ generation, quiz creation, Bloom's Taxonomy in as
 
     **Concept Tested:** FAQ
 
-    **See:** [The Role of FAQs in Intelligent Textbooks](index.md#the-role-of-faqs-in-intelligent-textbooks)
+    **See:** [The Role of FAQs in Intelligent Textbooks](../../glossary.md#the-role-of-faqs-in-intelligent-textbooks)
 
 ---
 
@@ -36,7 +36,7 @@ Test your understanding of FAQ generation, quiz creation, Bloom's Taxonomy in as
 
     **Concept Tested:** Common Student Questions
 
-    **See:** [Identifying Common Student Questions](index.md#identifying-common-student-questions)
+    **See:** [Identifying Common Student Questions](../../glossary.md#common-student-questions)
 
 ---
 
@@ -54,7 +54,7 @@ Test your understanding of FAQ generation, quiz creation, Bloom's Taxonomy in as
 
     **Concept Tested:** FAQ Generation Process
 
-    **See:** [The FAQ Generation Process](index.md#the-faq-generation-process)
+    **See:** [The FAQ Generation Process](../../glossary.md#faq-generation-process)
 
 ---
 
@@ -72,7 +72,7 @@ Test your understanding of FAQ generation, quiz creation, Bloom's Taxonomy in as
 
     **Concept Tested:** Bloom's Taxonomy in Quizzes
 
-    **See:** [Bloom's Taxonomy in Quiz Design](index.md#blooms-taxonomy-in-quiz-design)
+    **See:** [Bloom's Taxonomy in Quiz Design](../../glossary.md#blooms-taxonomy-in-quizzes)
 
 ---
 
@@ -90,7 +90,7 @@ Test your understanding of FAQ generation, quiz creation, Bloom's Taxonomy in as
 
     **Concept Tested:** Multiple-Choice Questions
 
-    **See:** [Multiple-Choice Question Design Principles](index.md#multiple-choice-question-design-principles)
+    **See:** [Multiple-Choice Question Design Principles](../../glossary.md#multiple-choice-questions)
 
 ---
 
@@ -108,7 +108,7 @@ Test your understanding of FAQ generation, quiz creation, Bloom's Taxonomy in as
 
     **Concept Tested:** Quiz Alignment with Concepts
 
-    **See:** [Aligning Quizzes with Learning Graph Concepts](index.md#aligning-quizzes-with-learning-graph-concepts)
+    **See:** [Aligning Quizzes with Learning Graph Concepts](../../glossary.md#quiz-alignment-with-concepts)
 
 ---
 
@@ -126,7 +126,7 @@ Test your understanding of FAQ generation, quiz creation, Bloom's Taxonomy in as
 
     **Concept Tested:** Quiz Distribution Across Levels
 
-    **See:** [Distributing Questions Across Cognitive Levels](index.md#distributing-questions-across-cognitive-levels)
+    **See:** [Distributing Questions Across Cognitive Levels](../../glossary.md#quiz-distribution-across-levels)
 
 ---
 
@@ -144,7 +144,7 @@ Test your understanding of FAQ generation, quiz creation, Bloom's Taxonomy in as
 
     **Concept Tested:** Assessing Student Understanding
 
-    **See:** [Assessing Student Understanding Through Quiz Analytics](index.md#assessing-student-understanding-through-quiz-analytics)
+    **See:** [Assessing Student Understanding Through Quiz Analytics](../../glossary.md#assessing-student-understanding-through-quiz-analytics)
 
 ---
 
@@ -162,7 +162,7 @@ Test your understanding of FAQ generation, quiz creation, Bloom's Taxonomy in as
 
     **Concept Tested:** add-taxonomy.py Script
 
-    **See:** [The add-taxonomy.py Script](index.md#the-add-taxonomypy-script)
+    **See:** [The add-taxonomy.py Script](../../glossary.md#add-taxonomypy-script)
 
 ---
 
@@ -180,6 +180,6 @@ Test your understanding of FAQ generation, quiz creation, Bloom's Taxonomy in as
 
     **Concept Tested:** taxonomy-distribution.py Script
 
-    **See:** [The taxonomy-distribution.py Script](index.md#the-taxonomy-distributionpy-script)
+    **See:** [The taxonomy-distribution.py Script](../../glossary.md#taxonomy-distributionpy-script)
 
 ---

@@ -97,9 +97,9 @@ nav:
     - Average Dependencies Distribution: sims/average-dependencies-distribution/index.md
     - Chapter Index Structure: sims/chapter-index-structure/index.md
     - Chapter Organization Workflow: sims/chapter-organization-workflow/index.md
+    - Chapter Content Generation Timeline: sims/chapter-content-generation-timeline/index.md
     - Claude Code Timeline: sims/claude-code-timeline/index.md
     - Concept Length Histogram: sims/concept-length-histogram/index.md
-    - Chapter Content Generation Timeline: sims/chapter-content-generation-timeline/index.md
     - Course Description Quality Workflow: sims/course-description-quality-workflow/index.md
     - DAG Validation Algorithm: sims/dag-validation-algorithm/index.md
     - FAQ Pattern Analysis: sims/faq-pattern-analysis/index.md

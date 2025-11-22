@@ -18,7 +18,7 @@ Test your understanding of Visual Studio Code, command-line interfaces, Bash she
 
     **Concept Tested:** Visual Studio Code
 
-    **See:** [Visual Studio Code](index.md#visual-studio-code)
+    **See:** [Visual Studio Code](../../glossary.md#visual-studio-code)
 
 ---
 
@@ -36,7 +36,7 @@ Test your understanding of Visual Studio Code, command-line interfaces, Bash she
 
     **Concept Tested:** VS Code for Content Development
 
-    **See:** [VS Code for Content Development](index.md#vs-code-for-content-development)
+    **See:** [VS Code for Content Development](../../glossary.md#vs-code-for-content-development)
 
 ---
 
@@ -54,7 +54,7 @@ Test your understanding of Visual Studio Code, command-line interfaces, Bash she
 
     **Concept Tested:** Terminal in VS Code
 
-    **See:** [Terminal in VS Code](index.md#terminal-in-vs-code)
+    **See:** [Terminal in VS Code](../../glossary.md#terminal-in-vs-code)
 
 ---
 
@@ -72,7 +72,7 @@ Test your understanding of Visual Studio Code, command-line interfaces, Bash she
 
     **Concept Tested:** Bash
 
-    **See:** [Bash](index.md#bash)
+    **See:** [Bash](../../glossary.md#bash)
 
 ---
 
@@ -90,7 +90,7 @@ Test your understanding of Visual Studio Code, command-line interfaces, Bash she
 
     **Concept Tested:** Bash
 
-    **See:** [Bash Command Structure](index.md#bash-command-structure)
+    **See:** [Bash Command Structure](../../glossary.md#bash)
 
 ---
 
@@ -108,7 +108,7 @@ Test your understanding of Visual Studio Code, command-line interfaces, Bash she
 
     **Concept Tested:** Directory Navigation
 
-    **See:** [Directory Navigation](index.md#directory-navigation)
+    **See:** [Directory Navigation](../../glossary.md#directory-navigation)
 
 ---
 
@@ -126,7 +126,7 @@ Test your understanding of Visual Studio Code, command-line interfaces, Bash she
 
     **Concept Tested:** File Creation and Editing
 
-    **See:** [File Creation and Editing](index.md#file-creation-and-editing)
+    **See:** [File Creation and Editing](../../glossary.md#file-creation-and-editing)
 
 ---
 
@@ -144,7 +144,7 @@ Test your understanding of Visual Studio Code, command-line interfaces, Bash she
 
     **Concept Tested:** Script Execution Permissions
 
-    **See:** [Script Execution Permissions](index.md#script-execution-permissions)
+    **See:** [Script Execution Permissions](../../glossary.md#script-execution-permissions)
 
 ---
 
@@ -162,7 +162,7 @@ Test your understanding of Visual Studio Code, command-line interfaces, Bash she
 
     **Concept Tested:** Symlink Creation
 
-    **See:** [Symlink Creation](index.md#symlink-creation)
+    **See:** [Symlink Creation](../../glossary.md#symlink-creation)
 
 ---
 
@@ -180,6 +180,6 @@ Test your understanding of Visual Studio Code, command-line interfaces, Bash she
 
     **Concept Tested:** Capstone: Complete Textbook Project
 
-    **See:** [Capstone: Complete Textbook Project](index.md#capstone-complete-textbook-project)
+    **See:** [Capstone: Complete Textbook Project](../../glossary.md#capstone-complete-textbook-project)
 
 ---
