@@ -6,6 +6,7 @@
 # Usage:
 #   cd /path/to/microsim && bk-capture-screenshot
 #   bk-capture-screenshot /path/to/microsim
+#   bk-capture-screenshot /path/to/microsim 5  # 5 second delay
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -14,14 +15,24 @@ BLUE='\033[0;34m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-# Determine MicroSim directory
+# Default delay in seconds (time to wait for JavaScript to load)
+DELAY_SECONDS=2
+
+# Parse arguments
 if [ $# -eq 0 ]; then
     # No argument provided - use current directory
     MICROSIM_DIR="$(pwd)"
-else
-    # Argument provided - use it
+elif [ $# -eq 1 ]; then
+    # One argument - use it as directory
     MICROSIM_DIR="$1"
+else
+    # Two arguments - directory and delay
+    MICROSIM_DIR="$1"
+    DELAY_SECONDS="$2"
 fi
+
+# Convert delay to milliseconds for Chrome
+DELAY_MS=$((DELAY_SECONDS * 1000))
 
 # Validate directory exists
 if [ ! -d "$MICROSIM_DIR" ]; then
@@ -82,6 +93,7 @@ echo ""
 echo -e "📸 Capturing screenshot of MicroSim: ${YELLOW}$MICROSIM_NAME${NC}"
 echo -e "   Source: ${BLUE}$ABSOLUTE_PATH${NC}"
 echo -e "   Output: ${BLUE}$OUTPUT_IMAGE${NC}"
+echo -e "   Delay:  ${YELLOW}${DELAY_SECONDS} seconds${NC} (waiting for JavaScript to load)"
 echo ""
 
 # Capture screenshot using Chrome headless mode
@@ -93,7 +105,7 @@ echo ""
 #   --hide-scrollbars: Remove scrollbars from capture
 #   --disable-web-security: Allow loading external resources (CDNs)
 #   --allow-file-access-from-files: Allow file:// URLs to load resources
-#   --timeout: Give JavaScript time to load and render
+#   --virtual-time-budget: Give JavaScript time to load and render (in milliseconds)
 
 "$CHROME_BIN" \
     --headless=new \
@@ -103,7 +115,7 @@ echo ""
     --hide-scrollbars \
     --disable-web-security \
     --allow-file-access-from-files \
-    --timeout=5000 \
+    --virtual-time-budget=$DELAY_MS \
     "file://$ABSOLUTE_PATH" \
     2>&1 | grep -v "CVDisplayLink" | grep -v "SharedImageManager" || true
 

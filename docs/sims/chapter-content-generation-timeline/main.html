@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter Content Generation Workflow Timeline</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.7.3/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            color: #333;
+            padding: 10px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        header h1 {
+            font-size: 1.8em;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 1em;
+            opacity: 0.95;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: all 0.2s;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .filter-btn.active {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .all { background: #6c757d; }
+        .validation { background: #3b82f6; }
+        .analysis { background: #10b981; }
+        .generation { background: #f97316; }
+        .quality-assurance { background: #a855f7; }
+        .completion { background: #f59e0b; }
+
+        #timeline {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .info-panel {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-color {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+        }
+
+        .stats {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .stats h3 {
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .event-details {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            display: none;
+        }
+
+        .event-details.visible {
+            display: block;
+        }
+
+        .event-details h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .event-details .substeps {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .event-details .substeps ul {
+            margin-left: 20px;
+        }
+
+        .event-details .substeps li {
+            margin: 5px 0;
+        }
+
+        /* vis-timeline customizations */
+        .vis-item.vis-range {
+            border-width: 0;
+            border-radius: 4px;
+        }
+
+        .vis-item.vis-selected {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .vis-item.validation { background-color: #3b82f6; color: white; }
+        .vis-item.analysis { background-color: #10b981; color: white; }
+        .vis-item.generation { background-color: #f97316; color: white; }
+        .vis-item.quality-assurance { background-color: #a855f7; color: white; }
+        .vis-item.completion { background-color: #f59e0b; color: white; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chapter Content Generation Workflow</h1>
+        <p>Sequential process timeline showing 8 stages (Total: 2 minutes 24 seconds)</p>
+    </header>
+
+    <div class="controls">
+        <button class="filter-btn all active" onclick="filterCategory('all')">All Stages</button>
+        <button class="filter-btn validation" onclick="filterCategory('Validation')">Validation</button>
+        <button class="filter-btn analysis" onclick="filterCategory('Analysis')">Analysis</button>
+        <button class="filter-btn generation" onclick="filterCategory('Generation')">Generation</button>
+        <button class="filter-btn quality-assurance" onclick="filterCategory('Quality Assurance')">Quality Assurance</button>
+        <button class="filter-btn completion" onclick="filterCategory('Completion')">Completion</button>
+    </div>
+
+    <div id="timeline"></div>
+
+    <div class="info-panel">
+        <h3 style="color: #667eea; margin-bottom: 15px;">Stage Categories</h3>
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color validation"></div>
+                <span><strong>Validation</strong> (3s total) - File and structure checks</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color analysis"></div>
+                <span><strong>Analysis</strong> (8s total) - Reading level and references</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color generation"></div>
+                <span><strong>Generation</strong> (120s total) - Content creation</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color quality-assurance"></div>
+                <span><strong>Quality Assurance</strong> (10s total) - Verification</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color completion"></div>
+                <span><strong>Completion</strong> (3s total) - Final reporting</span>
+            </div>
+        </div>
+
+        <div class="stats">
+            <h3>Duration Breakdown</h3>
+            <ul>
+                <li><strong>Stages 1-4:</strong> 11 seconds (8%) - Setup and preparation</li>
+                <li><strong>Stage 5:</strong> 120 seconds (83%) - Core content generation</li>
+                <li><strong>Stages 6-8:</strong> 13 seconds (9%) - Quality assurance and completion</li>
+            </ul>
+        </div>
+
+        <div class="event-details" id="eventDetails">
+            <h3 id="detailTitle">Select a stage to see details</h3>
+            <p id="detailDescription"></p>
+            <div class="substeps" id="detailSubsteps"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.7.3/vis-timeline-graph2d.min.js"></script>
+    <script>
+        let timeline;
+        let allItems = [];
+
+        // Load timeline data
+        fetch('timeline.json')
+            .then(response => response.json())
+            .then(data => {
+                // Convert JSON items to vis-timeline DataSet
+                allItems = data.items.map(item => ({
+                    id: item.id,
+                    content: item.content,
+                    start: item.start,
+                    end: item.end,
+                    type: 'range',
+                    className: item.group.toLowerCase().replace(/\s+/g, '-'),
+                    title: item.title,
+                    group: item.group,
+                    itemData: item
+                }));
+
+                initializeTimeline();
+            })
+            .catch(error => {
+                console.error('Error loading timeline:', error);
+                document.getElementById('timeline').innerHTML =
+                    '<div style="padding: 40px; text-align: center; color: red;">Error loading timeline data</div>';
+            });
+
+        function initializeTimeline() {
+            const container = document.getElementById('timeline');
+            const items = new vis.DataSet(allItems);
+
+            const options = {
+                width: '100%',
+                height: '150px',
+                start: '2024-01-01T00:00:00',
+                end: '2024-01-01T00:03:00',
+                type: 'range',
+                stack: true,
+                showCurrentTime: false,
+                zoomMin: 1000 * 5,        // 5 seconds minimum
+                zoomMax: 1000 * 60 * 5,   // 5 minutes maximum
+                margin: {
+                    item: 10
+                },
+                format: {
+                    minorLabels: {
+                        second: 's',
+                        minute: 'm:ss',
+                        hour: 'HH:mm'
+                    },
+                    majorLabels: {
+                        second: 'HH:mm:ss',
+                        minute: 'HH:mm',
+                        hour: 'HH:mm'
+                    }
+                }
+            };
+
+            timeline = new vis.Timeline(container, items, options);
+
+            // Handle selection
+            timeline.on('select', function(properties) {
+                if (properties.items.length > 0) {
+                    const item = allItems.find(i => i.id === properties.items[0]);
+                    if (item) showEventDetails(item);
+                }
+            });
+        }
+
+        function filterCategory(category) {
+            // Update button states
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+
+            let filtered;
+            if (category === 'all') {
+                document.querySelector('.filter-btn.all').classList.add('active');
+                filtered = allItems;
+            } else {
+                const btnClass = category.toLowerCase().replace(/\s+/g, '-');
+                document.querySelector(`.filter-btn.${btnClass}`).classList.add('active');
+                filtered = allItems.filter(item => item.group === category);
+            }
+
+            timeline.setItems(new vis.DataSet(filtered));
+            timeline.setWindow('2024-01-01T00:00:00', '2024-01-01T00:03:00');
+        }
+
+        function showEventDetails(item) {
+            const details = item.itemData;
+            const panel = document.getElementById('eventDetails');
+
+            document.getElementById('detailTitle').textContent = details.content;
+            document.getElementById('detailDescription').textContent = details.description;
+
+            let substepsHTML = '<h4>Duration: ' + details.duration + '</h4>';
+
+            if (details.tokenUsage) {
+                substepsHTML += '<p><strong>Token Usage:</strong> ' + details.tokenUsage + '</p>';
+            }
+
+            if (details.substeps && details.substeps.length > 0) {
+                substepsHTML += '<h4 style="margin-top: 10px;">Substeps:</h4><ul>';
+                details.substeps.forEach(step => {
+                    substepsHTML += '<li>' + step + '</li>';
+                });
+                substepsHTML += '</ul>';
+            }
+
+            if (details.metrics && details.metrics.length > 0) {
+                substepsHTML += '<h4 style="margin-top: 10px;">Reported Metrics:</h4><ul>';
+                details.metrics.forEach(metric => {
+                    substepsHTML += '<li>' + metric + '</li>';
+                });
+                substepsHTML += '</ul>';
+            }
+
+            document.getElementById('detailSubsteps').innerHTML = substepsHTML;
+            panel.classList.add('visible');
+        }
+    </script>
+</body>
+</html>

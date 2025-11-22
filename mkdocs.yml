@@ -99,7 +99,7 @@ nav:
     - Chapter Organization Workflow: sims/chapter-organization-workflow/index.md
     - Claude Code Timeline: sims/claude-code-timeline/index.md
     - Concept Length Histogram: sims/concept-length-histogram/index.md
-    - Content Generation Timeline: sims/content-generation-process-timeline/index.md
+    - Chapter Content Generation Timeline: sims/chapter-content-generation-timeline/index.md
     - Course Description Quality Workflow: sims/course-description-quality-workflow/index.md
     - DAG Validation Algorithm: sims/dag-validation-algorithm/index.md
     - FAQ Pattern Analysis: sims/faq-pattern-analysis/index.md
