@@ -1881,8 +1881,8 @@ Sonnet 4.5 · Claude Pro</p>
   template.</p>
 <p>⏺ Search(pattern: "<strong>/microsim-p5/assets/template/</strong>")
   ⎿  Found 0 files </p>
-<p>⏺ Bash(find /Users/dan/Documents/ws/claude-skills/docs/sims -type d -maxdepth 1)
-  ⎿  find: /Users/dan/Documents/ws/claude-skills/docs/sims: No such file or directory</p>
+<p>⏺ Bash(find $HOME/Documents/ws/claude-skills/docs/sims -type d -maxdepth 1)
+  ⎿  find: $HOME/Documents/ws/claude-skills/docs/sims: No such file or directory</p>
 <p>⏺ Read(skills/microsim-p5/SKILL.md)
   ⎿  Read 667 lines</p>
 <p>⏺ Read(skills/mermaid-generator/assets/template/index.md)
@@ -1890,12 +1890,12 @@ Sonnet 4.5 · Claude Pro</p>
 <p>⏺ Read(skills/mermaid-generator/SKILL.md)
   ⎿  Read 517 lines</p>
 <p>⏺ Now let me also check the mermaid-generator's template files to understand the structure better:</p>
-<p>⏺ Bash(find /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator -type f -name "<em>.html" -o
+<p>⏺ Bash(find $HOME/Documents/ws/claude-skills/skills/mermaid-generator -type f -name "<em>.html" -o
       -name "</em>.css" -o -name "<em>.js" -o -name "</em>.json" | head -10)
-  ⎿  /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator/assets/template/metadata.json
-     /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator/assets/template/script.js
-     /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator/assets/template/main.html
-     /Users/dan/Documents/ws/claude-skills/skills/mermaid-generator/assets/template/style.css</p>
+  ⎿  $HOME/Documents/ws/claude-skills/skills/mermaid-generator/assets/template/metadata.json
+     $HOME/Documents/ws/claude-skills/skills/mermaid-generator/assets/template/script.js
+     $HOME/Documents/ws/claude-skills/skills/mermaid-generator/assets/template/main.html
+     $HOME/Documents/ws/claude-skills/skills/mermaid-generator/assets/template/style.css</p>
 <p>⏺ Read(skills/mermaid-generator/assets/template/main.html)
   ⎿  Read 47 lines</p>
 <p>⏺ Read(skills/mermaid-generator/assets/template/metadata.json)
@@ -1903,15 +1903,15 @@ Sonnet 4.5 · Claude Pro</p>
 <p>⏺ Now let me check where the init_skill.py script is located:</p>
 <p>⏺ Search(pattern: "**/init_skill.py")
   ⎿  Found 0 files </p>
-<p>⏺ Bash(ls -la /Users/dan/Documents/ws/claude-skills/scripts/)
+<p>⏺ Bash(ls -la $HOME/Documents/ws/claude-skills/scripts/)
   ⎿  total 56                                     <br />
      drwxr-xr-x   7 dan  staff   224 Nov  3 10:14 .
      drwxr-xr-x@ 21 dan  staff   672 Nov  6 21:27 ..
      … +5 lines (ctrl+o to expand)</p>
 <p>⏺ The init_skill.py script isn't available in this repository, so I'll manually create the skill
   directory structure. Let me create the venn-diagram-generator skill directory:</p>
-<p>⏺ Bash(mkdir -p /Users/dan/Documents/ws/claude-skills/skills/venn-diagram-generator/assets/template &amp;&amp;
-      mkdir -p /Users/dan/Documents/ws/claude-skills/skills/venn-diagr…)
+<p>⏺ Bash(mkdir -p $HOME/Documents/ws/claude-skills/skills/venn-diagram-generator/assets/template &amp;&amp;
+      mkdir -p $HOME/Documents/ws/claude-skills/skills/venn-diagr…)
   ⎿  (No content)</p>
 <p>⏺ Now let me research the venn.js library from its GitHub repository:</p>
 <p>⏺ Fetch(<code>https://github.com/benfred/venn.js/</code>)
@@ -2011,18 +2011,18 @@ Sonnet 4.5 · Claude Pro</p>
 <p>⏺ Search(pattern: "**/package_skill.py")
   ⎿  Found 0 files </p>
 <p>⏺ Since there's no packaging script, let me create the zip file manually:</p>
-<p>⏺ Bash(cd /Users/dan/Documents/ws/claude-skills/skills &amp;&amp; zip -r venn-diagram-generator.zip
+<p>⏺ Bash(cd $HOME/Documents/ws/claude-skills/skills &amp;&amp; zip -r venn-diagram-generator.zip
       venn-diagram-generator/)
   ⎿    adding: venn-diagram-generator/ (stored 0%)                                <br />
        adding: venn-diagram-generator/references/ (stored 0%)
        adding: venn-diagram-generator/references/venn-js-reference.md (deflated 64%)
      … +8 lines (ctrl+o to expand)</p>
-<p>⏺ Bash(mv /Users/dan/Documents/ws/claude-skills/skills/venn-diagram-generator.zip
-      /Users/dan/Documents/ws/claude-skills/)
+<p>⏺ Bash(mv $HOME/Documents/ws/claude-skills/skills/venn-diagram-generator.zip
+      $HOME/Documents/ws/claude-skills/)
   ⎿  (No content)</p>
 <p>⏺ Perfect! I've successfully created the venn-diagram-generator skill. Here's what was created:</p>
 <p>Skill Created: venn-diagram-generator</p>
-<p>Location: /Users/dan/Documents/ws/claude-skills/skills/venn-diagram-generator/</p>
+<p>Location: $HOME/Documents/ws/claude-skills/skills/venn-diagram-generator/</p>
 <p>Package: venn-diagram-generator.zip (in project root)</p>
 <p>Files Generated</p>
 <p>Core Skill File</p>
@@ -2074,7 +2074,7 @@ Sonnet 4.5 · Claude Pro</p>
 <p>Installation</p>
 <p>To use this skill globally:</p>
 <p># Create symlink to make skill available system-wide
-  ln -s /Users/dan/Documents/ws/claude-skills/skills/venn-diagram-generator
+  ln -s $HOME/Documents/ws/claude-skills/skills/venn-diagram-generator
   ~/.claude/skills/venn-diagram-generator</p>
 <p>Or for project-specific use, the skill is ready to use from the current location.</p>
 <p>Example Usage</p>

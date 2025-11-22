@@ -1806,20 +1806,20 @@ Sonnet 4.5 · Claude Pro</p>
    checking the textbook structure.</p>
 <p>⏺ Read(docs/course-description.md)
   ⎿  Read 121 lines</p>
-<p>⏺ Bash(find /Users/danmccreary/Documents/ws/claude-skills/docs -type f -name "*.md" | grep -E "(chapter|Chapter)" | head -20)
-  ⎿  /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/09-claude-skills-architecture-development/index.md
-     /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/09-claude-skills-architecture-development/quiz.md
-     /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/03-course-design-educational-theory/index.md
+<p>⏺ Bash(find $HOMEmccreary/Documents/ws/claude-skills/docs -type f -name "*.md" | grep -E "(chapter|Chapter)" | head -20)
+  ⎿  $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/09-claude-skills-architecture-development/index.md
+     $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/09-claude-skills-architecture-development/quiz.md
+     $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/03-course-design-educational-theory/index.md
      … +17 lines (ctrl+o to expand)</p>
 <p>⏺ User answered Claude's questions:
   ⎿  · Your textbook is targeted at professional development (college reading level), which means I'll generate 30 high-quality 
      references. I found that your textbook has multiple chapters already. Would you like book-level references or chapter-level 
      references? → Chapter-level references</p>
-<p>⏺ Bash(find /Users/danmccreary/Documents/ws/claude-skills/docs/chapters -type f -name "index.md" | grep -v "/chapters/index.md" |
+<p>⏺ Bash(find $HOMEmccreary/Documents/ws/claude-skills/docs/chapters -type f -name "index.md" | grep -v "/chapters/index.md" |
       sort)
-  ⎿  /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/01-intro-ai-intelligent-textbooks/index.md<br />
-     /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/02-getting-started-claude-skills/index.md
-     /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/03-course-design-educational-theory/index.md
+  ⎿  $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/01-intro-ai-intelligent-textbooks/index.md<br />
+     $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/02-getting-started-claude-skills/index.md
+     $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/03-course-design-educational-theory/index.md
      … +10 lines (ctrl+o to expand)</p>
 <p>⏺ I'll now read each chapter to understand the topics so I can generate relevant references. Let me start by reading the chapters
   in batches.</p>
@@ -2237,12 +2237,12 @@ Sonnet 4.5 · Claude Pro</p>
             + Practical guide to creating Bash automation scripts with real-world examples including user management, backup 
             + automation, and system administration tasks, demonstrating automation principles applicable to textbook 
             + development workflows and skill installation.</p>
-<p>⏺ Bash(find /Users/danmccreary/Documents/ws/claude-skills/docs/chapters -type f -name "index.md" | grep -v "/chapters/index.md" | wc
+<p>⏺ Bash(find $HOMEmccreary/Documents/ws/claude-skills/docs/chapters -type f -name "index.md" | grep -v "/chapters/index.md" | wc
       -l)
   ⎿  13</p>
-<p>⏺ Bash(grep -r "^## References$" /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/*/index.md | wc -l)
+<p>⏺ Bash(grep -r "^## References$" $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/*/index.md | wc -l)
   ⎿  13</p>
-<p>⏺ Bash(grep -r "^[" /Users/danmccreary/Documents/ws/claude-skills/docs/chapters/*/index.md | grep -E "^[^:]+:1. [" | wc -l)
+<p>⏺ Bash(grep -r "^[" $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/*/index.md | grep -E "^[^:]+:1. [" | wc -l)
   ⎿  0</p>
 <p>⏺ Perfect! I've successfully generated chapter-level references for your intelligent textbook on "Using Claude Skills to Create
   Intelligent Textbooks." Here's the summary:</p>

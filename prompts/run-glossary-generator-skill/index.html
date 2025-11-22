@@ -1807,22 +1807,22 @@
   ⎿  Found 0 files </p>
 <p>⏺ Search(pattern: "**/learning-graph.json")
   ⎿  Found 0 files </p>
-<p>⏺ Bash(find /Users/dan/Documents/ws/claude-skills/docs -type f -name "*.md" | grep -E
+<p>⏺ Bash(find $HOME/Documents/ws/claude-skills/docs -type f -name "*.md" | grep -E
       "(learning-graph|glossary)" | head -20)
-  ⎿  /Users/dan/Documents/ws/claude-skills/docs/glossary.md                                 <br />
-     /Users/dan/Documents/ws/claude-skills/docs/skill-descriptions/learning-graph-generator.md
-     /Users/dan/Documents/ws/claude-skills/docs/skill-descriptions/glossary-generator.md
+  ⎿  $HOME/Documents/ws/claude-skills/docs/glossary.md                                 <br />
+     $HOME/Documents/ws/claude-skills/docs/skill-descriptions/learning-graph-generator.md
+     $HOME/Documents/ws/claude-skills/docs/skill-descriptions/glossary-generator.md
      … +2 lines (ctrl+o to expand)</p>
 <p>⏺ Read(docs/course-description.md)
   ⎿  Read 116 lines</p>
 <p>⏺ Read(docs/glossary.md)
   ⎿  Read 21 lines</p>
-<p>⏺ Bash(find /Users/dan/Documents/ws/claude-skills/docs -type f -name "*.md" | wc -l)
+<p>⏺ Bash(find $HOME/Documents/ws/claude-skills/docs -type f -name "*.md" | wc -l)
   ⎿  24</p>
-<p>⏺ Bash(find /Users/dan/Documents/ws/claude-skills/docs -name "*.md" -type f | head -15)
-  ⎿  /Users/dan/Documents/ws/claude-skills/docs/license.md 
-     /Users/dan/Documents/ws/claude-skills/docs/glossary.md
-     /Users/dan/Documents/ws/claude-skills/docs/contact.md
+<p>⏺ Bash(find $HOME/Documents/ws/claude-skills/docs -name "*.md" -type f | head -15)
+  ⎿  $HOME/Documents/ws/claude-skills/docs/license.md 
+     $HOME/Documents/ws/claude-skills/docs/glossary.md
+     $HOME/Documents/ws/claude-skills/docs/contact.md
      … +12 lines (ctrl+o to expand)</p>
 <p>⏺ Read(docs/index.md)
   ⎿  Read 36 lines</p>
@@ -2227,7 +2227,7 @@
            + "object": "Chapter 3 Quiz", "result": {"score": {"scaled": 0.85}}}</code> records quiz 
            + completion with an 85% score.</p>
 <p>⏺ Now I'll create a quality report for the glossary:</p>
-<p>⏺ Bash(mkdir -p /Users/dan/Documents/ws/claude-skills/docs/learning-graph)
+<p>⏺ Bash(mkdir -p $HOME/Documents/ws/claude-skills/docs/learning-graph)
   ⎿  (No content)</p>
 <p>⏺ Write(docs/learning-graph/glossary-quality-report.md)
   ⎿  Wrote 260 lines to docs/learning-graph/glossary-quality-report.md                          <br />
@@ -2245,9 +2245,9 @@
   ⎿  Read 80 lines</p>
 <p>⏺ Perfect! The glossary is already in the navigation. Let me verify the glossary is properly
   formatted:</p>
-<p>⏺ Bash(grep "^#### " /Users/dan/Documents/ws/claude-skills/docs/glossary.md | wc -l)
+<p>⏺ Bash(grep "^#### " $HOME/Documents/ws/claude-skills/docs/glossary.md | wc -l)
   ⎿  29</p>
-<p>⏺ Bash(grep "^#### " /Users/dan/Documents/ws/claude-skills/docs/glossary.md)
+<p>⏺ Bash(grep "^#### " $HOME/Documents/ws/claude-skills/docs/glossary.md)
   ⎿  #### Bloom's Taxonomy       <br />
      #### Claude Skills
      #### Concept Dependency
