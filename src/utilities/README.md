@@ -114,6 +114,52 @@ To add more lesson plans, edit the `LESSON_PLANS` dictionary in the script.
 
 ---
 
+### 5. iframe-border-cleanup.py
+
+Automatically cleans up CSS files to create borderless designs optimized for iframe embedding.
+
+**What it does:**
+- Sets `background: aliceblue` for body, container, and diagram-container
+- Removes all `padding` and `margin` (sets to 0px)
+- Removes decorative `border-radius` and `box-shadow` properties
+- Maintains other styling (fonts, colors, responsive design)
+
+**Usage:**
+```bash
+# Process a single CSS file
+python src/utilities/iframe-border-cleanup.py docs/sims/my-sim/style.css
+
+# Process all MicroSim CSS files
+python src/utilities/iframe-border-cleanup.py --all
+
+# Preview changes without modifying files
+python src/utilities/iframe-border-cleanup.py --dry-run docs/sims/my-sim/style.css
+```
+
+**Modified CSS Selectors:**
+- **body**: `background: aliceblue`, `padding: 0px`
+- **.container**: `background: aliceblue`, `padding: 0px`, `margin: 0 auto`, removes `border-radius` and `box-shadow`
+- **.diagram-container**: `background: aliceblue`, `padding: 0px`, `margin: 0px`, removes `border-radius` and `box-shadow`
+
+**When to Use:**
+- Creating new MicroSims that need clean iframe embedding
+- Converting existing MicroSims to borderless design
+- Standardizing CSS across multiple MicroSims
+- Removing decorative elements for embedded content
+
+**Output Example:**
+```
+Processing: docs/sims/terminal-workflow-textbook/style.css
+  ✓ Successfully cleaned up docs/sims/terminal-workflow-textbook/style.css
+
+Processing: docs/sims/adding-taxonomy-workflow/style.css
+  No changes needed - file already clean
+```
+
+**Note:** The script is idempotent - safe to run multiple times on the same file.
+
+---
+
 ## Typical Workflow
 
 ### Initial Standardization (for new MicroSims)

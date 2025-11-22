@@ -5,8 +5,9 @@ image: /sims/chapter-content-generation-timeline/chapter-content-generation-time
 og:image: /sims/chapter-content-generation-timeline/chapter-content-generation-timeline.png
 quality_score: 100
 ---
-
 # Chapter Content Generation Workflow Timeline
+
+<iframe src="main.html" height="600px"></iframe>
 
 An interactive process timeline visualization showing the 8 sequential stages of the chapter-content-generator skill workflow, from initial file validation through final reporting.
 
