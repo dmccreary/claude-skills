@@ -48,8 +48,6 @@ h1 {
     height: 400px;
     width: 100%;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Controls section (for layer toggles, buttons, etc.) */

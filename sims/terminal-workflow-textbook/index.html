@@ -1256,11 +1256,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#development-workflow" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Development Workflow
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Development Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminal-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminal Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Commands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Checks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1673,11 +1706,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#development-workflow" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Development Workflow
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Development Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminal-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminal Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Commands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Checks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1705,16 +1771,35 @@
 
 
 <h1 id="terminal-workflow-for-textbook-development">Terminal Workflow for Textbook Development</h1>
-<iframe src="main.html" width="100%" height="600px"></iframe>
-
-<p><strong>Copy this iframe to your website:</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/claude-skills/sims/terminal-workflow-textbook/main.html&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;600px&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
-</code></pre></div></td></tr></table></div>
+<iframe src="main.html" width="100%" height="1750px" scrolling="no"></iframe>
 <p><a class="md-button md-button--primary" href="main.html">Run Terminal Workflow for Textbook Development in Fullscreen</a></p>
-<p>This Mermaid diagram shows the multi-terminal workflow for developing intelligent textbooks.</p>
+<p><strong>Copy this iframe to your website:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/claude-skills/sims/terminal-workflow-textbook/main.html&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;1750px&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>This workflow demonstrates the complete terminal command sequence for developing, validating, and deploying intelligent textbook content using MkDocs and Git.</p>
 <h2 id="interactive-diagram">Interactive Diagram</h2>
-<h2 id="overview">Overview</h2>
-<p>Illustrates parallel terminal operations: mkdocs serve for preview, Python scripts for data processing, and git operations for version control.</p>
+<h2 id="development-workflow">Development Workflow</h2>
+<p>This workflow demonstrates the complete terminal command sequence for developing, validating, and deploying intelligent textbook content using MkDocs and Git.</p>
+<h3 id="terminal-setup">Terminal Setup</h3>
+<p><strong>Terminal 1 (Development Server):</strong> Runs <code>mkdocs serve</code> continuously on localhost:8000</p>
+<p><strong>Terminal 2 (Scripts):</strong> Execute Python scripts for analysis and validation</p>
+<p><strong>Terminal 3 (Git):</strong> Version control operations and deployment</p>
+<h3 id="key-commands">Key Commands</h3>
+<ol>
+<li><strong>Start Development Server</strong> - <code>mkdocs serve</code> - Auto-reload on file changes</li>
+<li><strong>Validate Learning Graph</strong> - <code>python docs/learning-graph/analyze-graph.py</code></li>
+<li><strong>Stage and Commit</strong> - <code>git add . &amp;&amp; git commit -m "Update chapter content"</code></li>
+<li><strong>Push Changes</strong> - <code>git push origin main</code></li>
+<li><strong>Deploy to GitHub Pages</strong> - <code>mkdocs gh-deploy</code></li>
+</ol>
+<h3 id="quality-checks">Quality Checks</h3>
+<p>Always run validation scripts before committing to ensure:</p>
+<ul>
+<li>Learning graph is a valid DAG (no circular dependencies)</li>
+<li>All concept references are valid</li>
+<li>Taxonomy distribution is balanced</li>
+<li>Markdown syntax is correct</li>
+</ul>
 
 
 

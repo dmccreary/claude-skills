@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terminal Workflow for Textbook Development</title>
-    <link rel="stylesheet" href="../adding-taxonomy-workflow/style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 </head>
 <body>
@@ -56,34 +56,6 @@ flowchart TD
 
     linkStyle default stroke:#999,stroke-width:2px,font-size:14px
             </div>
-        </div>
-
-        <div class="description">
-            <h2>Development Workflow</h2>
-            <p>This workflow demonstrates the complete terminal command sequence for developing, validating, and deploying intelligent textbook content using MkDocs and Git.</p>
-
-            <h3>Terminal Setup</h3>
-            <p><strong>Terminal 1 (Development Server):</strong> Runs <code>mkdocs serve</code> continuously on localhost:8000</p>
-            <p><strong>Terminal 2 (Scripts):</strong> Execute Python scripts for analysis and validation</p>
-            <p><strong>Terminal 3 (Git):</strong> Version control operations and deployment</p>
-
-            <h3>Key Commands</h3>
-            <ol>
-                <li><strong>Start Development Server</strong> - <code>mkdocs serve</code> - Auto-reload on file changes</li>
-                <li><strong>Validate Learning Graph</strong> - <code>python docs/learning-graph/analyze-graph.py</code></li>
-                <li><strong>Stage and Commit</strong> - <code>git add . && git commit -m "Update chapter content"</code></li>
-                <li><strong>Push Changes</strong> - <code>git push origin main</code></li>
-                <li><strong>Deploy to GitHub Pages</strong> - <code>mkdocs gh-deploy</code></li>
-            </ol>
-
-            <h3>Quality Checks</h3>
-            <p>Always run validation scripts before committing to ensure:</p>
-            <ul>
-                <li>Learning graph is a valid DAG (no circular dependencies)</li>
-                <li>All concept references are valid</li>
-                <li>Taxonomy distribution is balanced</li>
-                <li>Markdown syntax is correct</li>
-            </ul>
         </div>
     </div>
 
