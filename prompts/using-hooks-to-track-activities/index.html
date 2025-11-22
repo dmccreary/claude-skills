@@ -1876,46 +1876,6 @@
     How can I use claude hooks to track my activity within Claude to help it suggest new skills? </p>
 <p>## 1. Hook Configuration</p>
 <p>Create .claude/settings.json in your project (or ~/.claude/settings.json for global tracking):</p>
-<p><code>json
-  {
-    "hooks": {
-      "PostToolUse": [
-        {
-          "hooks": [
-            {
-              "type": "command",
-              "command": ".claude/hooks/track-activity.sh",
-              "description": "Log all tool usage for pattern analysis"
-            }
-          ]
-        }
-      ],
-      "UserPromptSubmit": [
-        {
-          "hooks": [
-            {
-              "type": "command",
-              "command": ".claude/hooks/track-prompts.sh",
-              "description": "Log user prompts for task analysis"
-            }
-          ]
-        }
-      ],
-      "SessionStart": [
-        {
-          "hooks": [
-            {
-              "type": "command",
-              "command": ".claude/hooks/session-start.sh",
-              "description": "Initialize activity tracking for session"
-            }
-          ]
-        }
-      ]
-    }
-  }</code></p>
-<p>## 2. Activity Tracking Scripts</p>
-<p>.claude/hooks/track-activity.sh (logs tool usage):</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1932,23 +1892,111 @@
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>  #!/bin/bash
-  HOOK_INPUT=$(cat)
-  TOOL_NAME=$(echo &quot;$HOOK_INPUT&quot; | jq -r &#39;.tool_name&#39;)
-  SESSION_ID=$(echo &quot;$HOOK_INPUT&quot; | jq -r &#39;.session_id&#39;)
-  CWD=$(echo &quot;$HOOK_INPUT&quot; | jq -r &#39;.cwd&#39;)
-  TIMESTAMP=$(date &#39;+%Y-%m-%d %H:%M:%S&#39;)
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;PostToolUse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.claude/hooks/track-activity.sh&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Log all tool usage for pattern analysis&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;UserPromptSubmit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.claude/hooks/track-prompts.sh&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Log user prompts for task analysis&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;SessionStart&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.claude/hooks/session-start.sh&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Initialize activity tracking for session&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="err">```</span>
 
-  # Create log directory
-  mkdir -p ~/.claude/activity-logs
+<span class="w"> </span><span class="err">##</span><span class="w"> </span><span class="mf">2.</span><span class="w"> </span><span class="err">Ac</span><span class="kc">t</span><span class="err">ivi</span><span class="kc">t</span><span class="err">y</span><span class="w"> </span><span class="err">Tracki</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">Scrip</span><span class="kc">ts</span>
 
-  # Log as JSONL for easy processing
-  LOG_FILE=~/.claude/activity-logs/tool-usage.jsonl
-  echo
-  &quot;{\&quot;timestamp\&quot;:\&quot;$TIMESTAMP\&quot;,\&quot;tool\&quot;:\&quot;$TOOL_NAME\&quot;,\&quot;session\&quot;:\&quot;$SESSION_ID\&quot;,\&quot;project\&quot;:\&quot;$CWD\&quot;}&quot; &gt;&gt;
-  &quot;$LOG_FILE&quot;
+<span class="w">  </span><span class="err">.claude/hooks/</span><span class="kc">tra</span><span class="err">ck</span><span class="mi">-</span><span class="err">ac</span><span class="kc">t</span><span class="err">ivi</span><span class="kc">t</span><span class="err">y.sh</span><span class="w"> </span><span class="err">(logs</span><span class="w"> </span><span class="kc">t</span><span class="err">ool</span><span class="w"> </span><span class="err">usage)</span><span class="p">:</span>
 
-  exit 0
+<span class="err">```sh</span>
+<span class="err">#!/bi</span><span class="kc">n</span><span class="err">/bash</span>
+<span class="err">HOOK_INPUT=$(ca</span><span class="kc">t</span><span class="err">)</span>
+<span class="err">TOOL_NAME=$(echo</span><span class="w"> </span><span class="s2">&quot;$HOOK_INPUT&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">jq</span><span class="w"> </span><span class="mi">-</span><span class="err">r</span><span class="w"> </span><span class="err">&#39;.</span><span class="kc">t</span><span class="err">ool_</span><span class="kc">na</span><span class="err">me&#39;)</span>
+<span class="err">SESSION_ID=$(echo</span><span class="w"> </span><span class="s2">&quot;$HOOK_INPUT&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">jq</span><span class="w"> </span><span class="mi">-</span><span class="err">r</span><span class="w"> </span><span class="err">&#39;.sessio</span><span class="kc">n</span><span class="err">_id&#39;)</span>
+<span class="err">CWD=$(echo</span><span class="w"> </span><span class="s2">&quot;$HOOK_INPUT&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">jq</span><span class="w"> </span><span class="mi">-</span><span class="err">r</span><span class="w"> </span><span class="err">&#39;.cwd&#39;)</span>
+<span class="err">TIMESTAMP=$(da</span><span class="kc">te</span><span class="w"> </span><span class="err">&#39;+%Y</span><span class="mi">-</span><span class="err">%m</span><span class="mi">-</span><span class="err">%d</span><span class="w"> </span><span class="err">%H</span><span class="p">:</span><span class="err">%M</span><span class="p">:</span><span class="err">%S&#39;)</span>
+
+<span class="err">#</span><span class="w"> </span><span class="err">Crea</span><span class="kc">te</span><span class="w"> </span><span class="err">log</span><span class="w"> </span><span class="err">direc</span><span class="kc">t</span><span class="err">ory</span>
+<span class="err">mkdir</span><span class="w"> </span><span class="mi">-</span><span class="err">p</span><span class="w"> </span><span class="err">~/.claude/ac</span><span class="kc">t</span><span class="err">ivi</span><span class="kc">t</span><span class="err">y</span><span class="mi">-</span><span class="err">logs</span>
+
+<span class="err">#</span><span class="w"> </span><span class="err">Log</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">JSONL</span><span class="w"> </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="err">easy</span><span class="w"> </span><span class="err">processi</span><span class="kc">n</span><span class="err">g</span>
+<span class="err">LOG_FILE=~/.claude/ac</span><span class="kc">t</span><span class="err">ivi</span><span class="kc">t</span><span class="err">y</span><span class="mi">-</span><span class="err">logs/</span><span class="kc">t</span><span class="err">ool</span><span class="mi">-</span><span class="err">usage.jso</span><span class="kc">nl</span>
+<span class="err">echo</span>
+<span class="s2">&quot;{\&quot;timestamp\&quot;:\&quot;$TIMESTAMP\&quot;,\&quot;tool\&quot;:\&quot;$TOOL_NAME\&quot;,\&quot;session\&quot;:\&quot;$SESSION_ID\&quot;,\&quot;project\&quot;:\&quot;$CWD\&quot;}&quot;</span><span class="w"> </span><span class="err">&gt;&gt;</span>
+<span class="s2">&quot;$LOG_FILE&quot;</span>
+
+<span class="err">exi</span><span class="kc">t</span><span class="w"> </span><span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
 <p>.claude/hooks/track-prompts.sh (logs user requests):</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1972,24 +2020,24 @@
 <span class="normal">19</span>
 <span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
-<span class="w">  </span><span class="nv">HOOK_INPUT</span><span class="o">=</span><span class="k">$(</span>cat<span class="k">)</span>
-<span class="w">  </span><span class="nv">PROMPT</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOOK_INPUT</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.prompt&#39;</span><span class="k">)</span>
-<span class="w">  </span><span class="nv">SESSION_ID</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOOK_INPUT</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.session_id&#39;</span><span class="k">)</span>
-<span class="w">  </span><span class="nv">TIMESTAMP</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span><span class="s1">&#39;+%Y-%m-%d %H:%M:%S&#39;</span><span class="k">)</span>
+<span class="nv">HOOK_INPUT</span><span class="o">=</span><span class="k">$(</span>cat<span class="k">)</span>
+<span class="nv">PROMPT</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOOK_INPUT</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.prompt&#39;</span><span class="k">)</span>
+<span class="nv">SESSION_ID</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOOK_INPUT</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.session_id&#39;</span><span class="k">)</span>
+<span class="nv">TIMESTAMP</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span><span class="s1">&#39;+%Y-%m-%d %H:%M:%S&#39;</span><span class="k">)</span>
 
-<span class="w">  </span><span class="c1"># Create log directory</span>
-<span class="w">  </span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude/activity-logs
+<span class="c1"># Create log directory</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude/activity-logs
 
-<span class="w">  </span><span class="c1"># Log prompt with metadata</span>
-<span class="w">  </span><span class="nv">LOG_FILE</span><span class="o">=</span>~/.claude/activity-logs/prompts.jsonl
-<span class="w">  </span>jq<span class="w"> </span>-n<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--arg<span class="w"> </span>ts<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TIMESTAMP</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--arg<span class="w"> </span>sid<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SESSION_ID</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--arg<span class="w"> </span>p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PROMPT</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="s1">&#39;{timestamp: $ts, session: $sid, prompt: $p}&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOG_FILE</span><span class="s2">&quot;</span>
+<span class="c1"># Log prompt with metadata</span>
+<span class="nv">LOG_FILE</span><span class="o">=</span>~/.claude/activity-logs/prompts.jsonl
+jq<span class="w"> </span>-n<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--arg<span class="w"> </span>ts<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TIMESTAMP</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--arg<span class="w"> </span>sid<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SESSION_ID</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--arg<span class="w"> </span>p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PROMPT</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;{timestamp: $ts, session: $sid, prompt: $p}&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOG_FILE</span><span class="s2">&quot;</span>
 
-<span class="w">  </span><span class="c1"># Allow the prompt to continue</span>
-<span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+<span class="c1"># Allow the prompt to continue</span>
+<span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
 </code></pre></div></td></tr></table></div>
 <p>.claude/hooks/session-start.sh (session initialization):</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2003,18 +2051,18 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="c1">#!/bin/bash</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
-<span class="w">  </span><span class="nv">HOOK_INPUT</span><span class="o">=</span><span class="k">$(</span>cat<span class="k">)</span>
-<span class="w">  </span><span class="nv">SESSION_ID</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOOK_INPUT</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.session_id&#39;</span><span class="k">)</span>
-<span class="w">  </span><span class="nv">TIMESTAMP</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span><span class="s1">&#39;+%Y-%m-%d %H:%M:%S&#39;</span><span class="k">)</span>
+<span class="nv">HOOK_INPUT</span><span class="o">=</span><span class="k">$(</span>cat<span class="k">)</span>
+<span class="nv">SESSION_ID</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOOK_INPUT</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.session_id&#39;</span><span class="k">)</span>
+<span class="nv">TIMESTAMP</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span><span class="s1">&#39;+%Y-%m-%d %H:%M:%S&#39;</span><span class="k">)</span>
 
-<span class="w">  </span><span class="c1"># Log session start</span>
-<span class="w">  </span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude/activity-logs
-<span class="w">  </span><span class="nv">LOG_FILE</span><span class="o">=</span>~/.claude/activity-logs/sessions.jsonl
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;{\&quot;timestamp\&quot;:\&quot;</span><span class="nv">$TIMESTAMP</span><span class="s2">\&quot;,\&quot;session\&quot;:\&quot;</span><span class="nv">$SESSION_ID</span><span class="s2">\&quot;,\&quot;event\&quot;:\&quot;start\&quot;}&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOG_FILE</span><span class="s2">&quot;</span>
+<span class="c1"># Log session start</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude/activity-logs
+<span class="nv">LOG_FILE</span><span class="o">=</span>~/.claude/activity-logs/sessions.jsonl
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;{\&quot;timestamp\&quot;:\&quot;</span><span class="nv">$TIMESTAMP</span><span class="s2">\&quot;,\&quot;session\&quot;:\&quot;</span><span class="nv">$SESSION_ID</span><span class="s2">\&quot;,\&quot;event\&quot;:\&quot;start\&quot;}&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOG_FILE</span><span class="s2">&quot;</span>
 
-<span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+<span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="3-analysis-script">3. Analysis Script</h3>
 <p>.claude/scripts/analyze-activity.py (identifies patterns):</p>
