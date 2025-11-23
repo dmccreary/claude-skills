@@ -18,7 +18,7 @@ RGB: 218, 120, 87 Hex: #DA7857
     --md-primary-fg-color--dark: rgb(198, 100, 67);
 }
 
-* Container to control the iframe size and scaling */
+/* Container to control the iframe size and scaling */
 .iframe-container {
     width: 100%;
     position: relative;
