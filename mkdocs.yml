@@ -92,7 +92,7 @@ nav:
     - Adding Taxonomy Workflow: sims/adding-taxonomy-workflow/index.md
     - Average Dependencies Distribution: sims/average-dependencies-distribution/index.md
     - Chapter Index Structure: sims/chapter-index-structure/index.md
-    - Book Builder Workflow: sims/book-builder-workflow/index.md
+    - Book Build Workflow: sims/book-build-workflow/index.md
     - Chapter Organization Workflow: sims/chapter-organization-workflow/index.md
     - Chapter Content Generation Timeline: sims/chapter-content-generation-timeline/index.md
     - Claude Code Timeline: sims/claude-code-timeline/index.md
