@@ -1,0 +1,188 @@
+/* Book Build Workflow - Minimal Styling for iframe Embedding */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: aliceblue;
+    color: #333;
+    line-height: 1.6;
+    padding: 0px;
+}
+
+.container {
+    max-width: 100%;
+    background-color: aliceblue;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.controls {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 6px 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.diagram-container {
+    background-color: aliceblue;
+    border: none;
+    overflow: auto;
+    transform-origin: top left;
+    transition: transform 0.3s ease;
+}
+
+.mermaid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 400px;
+}
+
+/* Ensure Mermaid diagram elements have correct font size */
+.mermaid .node text,
+.mermaid .edgeLabel {
+    font-size: 16px !important;
+}
+
+.description {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
+    border-left: 4px solid #3498db;
+}
+
+.description h2 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.description p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 3px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .controls {
+        gap: 3px;
+    }
+
+    button {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .diagram-container {
+        padding: 5px;
+    }
+}
+
+/* Custom Tooltip Styles */
+.custom-tooltip {
+    position: fixed;
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    max-width: 250px;
+    min-width: 200px;
+    z-index: 10000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    line-height: 1.5;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.custom-tooltip.visible {
+    opacity: 1;
+}
+
+/* Arrow pointing left (tooltip is to the right of node) */
+.custom-tooltip::before {
+    content: '';
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 8px solid transparent;
+    border-right-color: #2c3e50;
+}
+
+/* Arrow pointing right (tooltip is to the left of node) */
+.custom-tooltip.flipped::before {
+    right: auto;
+    left: 100%;
+    border-right-color: transparent;
+    border-left-color: #2c3e50;
+}
+
+/* Print Styles */
+@media print {
+    .controls {
+        display: none;
+    }
+
+    .diagram-container {
+        border: none;
+        padding: 0;
+    }
+
+    body {
+        padding: 0;
+    }
+
+    .custom-tooltip {
+        display: none;
+    }
+}
