@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Build Workflow</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Build Workflow</h1>
+        <p class="subtitle">Interactive Workflow Diagram</p>
+
+        <div class="diagram-container" id="diagram-container">
+            <div class="mermaid">
+flowchart TD
+    CD["Course Description"]:::color1
+    LG["Learning Graph"]:::color2
+    CS["Chapter Structure"]:::color3
+    C1["Chapter 1"]:::color4
+    C2["Chapter 2"]:::color5
+    CC["Content Complete"]:::color6
+    GL["Glossary"]:::color7
+    FAQ["FAQ"]:::color8
+    QZ["Quizzes"]:::color9
+    REF["References"]:::color10
+    DG["Diagrams"]:::color11
+    BM["Book Metrics"]:::color12
+
+    CD --> LG
+    LG --> CS
+    CS --> C1
+    CS --> C2
+    C1 --> CC
+    C2 --> CC
+    CC --> GL
+    GL --> FAQ
+    FAQ --> QZ
+    QZ --> REF
+    CC --> DG
+    DG --> BM
+    REF --> BM
+
+    classDef color1 fill:#ffcccb,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef color2 fill:#ffd9b3,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef color3 fill:#ffffcc,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef color4 fill:#d4f1d4,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef color5 fill:#b3e5e5,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef color6 fill:#cce5ff,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef color7 fill:#e6ccff,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef color8 fill:#ffcce6,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef color9 fill:#ffe6cc,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef color10 fill:#ccffdd,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef color11 fill:#ffb3b3,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef color12 fill:#dab3ff,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    linkStyle default stroke:#999,stroke-width:2px,font-size:16px
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
