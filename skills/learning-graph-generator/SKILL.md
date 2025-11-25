@@ -5,7 +5,7 @@ description: Generates a comprehensive learning graph from a course description,
 
 # Learning Graph Generator
 
-**Version:** 0.02
+**Version:** 0.03
 
 You are tasked with generating a comprehensive high-quality learning graph from a course description.
 A learning graph is the foundational data structure for intelligent textbooks that can recommend learning paths.

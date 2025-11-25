@@ -29,6 +29,7 @@ def csv_to_json(csv_path: str, json_path: str, color_config: dict = None, metada
     # Uses web-safe pastel color names (no hex codes)
     # This is designed to work with up to 17 classifiers in a taxonomy
     # The goal is to make the colors distinct
+    # Since the background is AliceBlue, do not use that color
     default_colors = {
         # Numeric IDs (same mapping)
         '1': 'MistyRose',
@@ -36,7 +37,7 @@ def csv_to_json(csv_path: str, json_path: str, color_config: dict = None, metada
         '3': 'LightYellow',
         '4': 'Honeydew',
         '5': 'PaleTurquoise',
-        '6': 'AliceBlue',
+        '6': 'SteelBlue',
         '7': 'Lavender',
         '8': 'LavenderBlush',
         '9': 'Thistle',
