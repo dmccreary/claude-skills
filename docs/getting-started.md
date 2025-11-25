@@ -7,7 +7,7 @@ started build you should be
 able to run all the skills and book-building utilities in this project.
 
 !!! Note
-  Claude does not currently run on the Windows PowerShell.  See details below.
+   Claude does not currently run on the Windows PowerShell.  See details below.
 
 ## Quick Start Summary
 
