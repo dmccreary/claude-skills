@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code T-Shirt Design - Workflow</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                fontSize: '20px'
+            }
+        });
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 10px 0;
+            font-size: 1.8rem;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin: 5px 0 20px 0;
+            font-size: 1rem;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-width: 1000px;
+            width: 100%;
+        }
+        .mermaid {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .description {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #DA7857;
+            border-radius: 4px;
+        }
+        .description h2 {
+            margin-top: 0;
+            color: #DA7857;
+        }
+        .print-note {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e3f2fd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .download-btn {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 12px 24px;
+            background-color: #DA7857;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        .download-btn:hover {
+            background-color: #c56847;
+        }
+    </style>
+</head>
+<body>
+    <h1>Claude Code T-Shirt Design</h1>
+    <p class="subtitle">From Course Description to Complete Textbook</p>
+
+    <div class="container">
+        <div class="mermaid">
+flowchart LR
+    A["Course<br/>Description"]:::inputNode
+    B["Claude Code<br/>Skills"]:::processNode
+    C["500 Page<br/>Textbook"]:::outputNode
+
+    A -->|Transform| B
+    B -->|Generate| C
+
+    classDef inputNode fill:#4ECDC4,stroke:#333,stroke-width:3px,color:#fff,font-size:20px,font-weight:bold
+    classDef processNode fill:#DA7857,stroke:#333,stroke-width:3px,color:#fff,font-size:20px,font-weight:bold
+    classDef outputNode fill:#6C5CE7,stroke:#333,stroke-width:3px,color:#fff,font-size:20px,font-weight:bold
+
+    linkStyle default stroke:#333,stroke-width:3px,font-size:18px,font-weight:bold
+        </div>
+
+        <div class="description">
+            <h2>T-Shirt Design Concept</h2>
+            <p>
+                This simple, bold workflow diagram captures the essence of Claude Code Skills for intelligent textbooks.
+                Starting with just a course description, Claude Code Skills transforms it into a comprehensive 500-page textbook.
+            </p>
+            <p><strong>Design Features:</strong></p>
+            <ul>
+                <li><strong>Three vibrant boxes:</strong> Turquoise (input) → Anthropic Brown (process) → Purple (output)</li>
+                <li><strong>Bold text:</strong> 20px font size for maximum readability on fabric</li>
+                <li><strong>Simple flow:</strong> Left-to-right progression perfect for t-shirt placement</li>
+                <li><strong>Professional colors:</strong> Matches Anthropic branding with the signature brown</li>
+            </ul>
+        </div>
+
+        <div class="print-note">
+            <strong>💡 For T-Shirt Printing:</strong> Take a screenshot of the diagram above or export as SVG.
+            Works best on white, light gray, or cream colored t-shirts. Recommended placement: Center chest or across upper back.
+        </div>
+
+        <div style="text-align: center;">
+            <button class="download-btn" onclick="downloadSVG()">Download as SVG</button>
+        </div>
+    </div>
+
+    <script>
+        function downloadSVG() {
+            const svg = document.querySelector('.mermaid svg');
+            if (svg) {
+                const svgData = new XMLSerializer().serializeToString(svg);
+                const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+                const svgUrl = URL.createObjectURL(svgBlob);
+                const downloadLink = document.createElement('a');
+                downloadLink.href = svgUrl;
+                downloadLink.download = 'claude-code-tshirt-design.svg';
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            }
+        }
+    </script>
+</body>
+</html>

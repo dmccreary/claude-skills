@@ -1,0 +1,40 @@
+{
+  "title": "Claude Code T-Shirt Design - Workflow Diagram",
+  "description": "Simple three-box workflow diagram showing the transformation from course description to 500-page textbook using Claude Code Skills, designed for custom t-shirt printing",
+  "subject": "AI-Powered Education, Merchandise Design",
+  "creator": "Claude AI with Mermaid Generator Skill",
+  "date": "2025-11-23",
+  "type": "Interactive Workflow Diagram",
+  "format": "text/html",
+  "language": "en-US",
+  "coverage": "Promotional Design",
+  "rights": "CC BY 4.0 - Attribution required",
+  "audience": "Developers, Educators, AI Enthusiasts",
+  "diagram_type": "flowchart",
+  "direction": "LR",
+  "node_count": "3",
+  "edge_count": "2",
+  "concepts": [
+    "Course Description",
+    "Claude Code Skills",
+    "Intelligent Textbook Generation",
+    "AI-Powered Workflows",
+    "Educational Technology"
+  ],
+  "bloom_taxonomy": "Understand",
+  "version": "1.0",
+  "design_purpose": "T-shirt merchandise",
+  "color_palette": [
+    "#4ECDC4 - Turquoise (Input)",
+    "#DA7857 - Anthropic Brown (Process)",
+    "#6C5CE7 - Purple (Output)"
+  ],
+  "recommended_fabric_colors": [
+    "White",
+    "Light Gray",
+    "Cream",
+    "Light Blue"
+  ],
+  "print_format": "SVG or high-resolution PNG",
+  "optimal_width_inches": "10-12"
+}
