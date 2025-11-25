@@ -5,6 +5,8 @@ description: This skill generates comprehensive chapter content for intelligent 
 
 # Chapter Content Generator
 
+**Version:** 0.03
+
 ## Overview
 
 This skill generates detailed educational content for individual textbook chapters, transforming chapter outlines (title, summary, concept list) into comprehensive learning material with appropriate reading level, rich visual elements, and interactive components. The skill is designed to run after the `book-chapter-generator` skill has created the chapter structure.
@@ -97,7 +99,22 @@ Extract the grade reading level from the `/docs/course-description.md` file.
 
 See `references/reading-levels.md` for detailed guidelines on adapting content for each level.
 
-### Step 4: Generate Detailed Chapter Content
+### Step 4a: Generate Detailed Chapter Content
+
+Add metadata to the top of the index file that indicates that a DRAFT of this
+chapter was created by this skill, the name of the skill, the date it was generated and the version of this skill.
+
+```markdown
+---
+title: Chapter Title
+description: Short description of title
+generated_by: claude skill generate-chapter-content
+date: YYYY-MM-DD HH-MM-SS
+version: 0.03
+---
+```
+
+### Step 4b: Generate Detailed Chapter Content
 
 Generate comprehensive educational content based on the chapter outline, concept list, and reading level.
 
