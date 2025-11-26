@@ -88,18 +88,21 @@ if [ ! -f "$SKILL_LOG" ] && [ ! -f "$PROMPT_LOG" ]; then
     exit 0
 fi
 
+# Determine project directory (parent of .claude/activity-logs)
+PROJECT_DIR=$(dirname $(dirname "$LOG_DIR"))
+
 # Display header with directory info
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
 echo -e "${GREEN}Skill Usage Analysis Report${NC}"
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
 echo ""
 echo -e "${CYAN}Log directory:${NC} $LOG_DIR"
+echo -e "${CYAN}Project:${NC} $PROJECT_DIR"
 echo -e "${CYAN}Source:${NC} $LOG_SOURCE"
-echo -e "${CYAN}Working directory:${NC} $(pwd)"
 echo ""
 
-# Run the Python analysis script
-python3 "$ANALYZE_SCRIPT" "$LOG_DIR"
+# Run the Python analysis script with project directory
+python3 "$ANALYZE_SCRIPT" "$LOG_DIR" --project "$PROJECT_DIR"
 
 echo ""
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
