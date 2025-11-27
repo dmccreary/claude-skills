@@ -1,0 +1,1975 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/causal-loop-microsim-generator/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Causal Loop MicroSim Generator - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HPLDD3D3K2"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HPLDD3D3K2",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HPLDD3D3K2",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Causal Loop MicroSim Generator - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  property="og:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/skill-descriptions/microsims/causal-loop-microsim-generator.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/causal-loop-microsim-generator/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Causal Loop MicroSim Generator - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  name="twitter:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/skill-descriptions/microsims/causal-loop-microsim-generator.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#causal-loop-microsim-generator" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Causal Loop MicroSim Generator
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Skill Descriptions
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../workshops/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Workshops
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../details-analysis.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Details Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Purpose
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-trigger-phrases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Trigger Phrases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsim-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#folder-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Folder Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#educational-requirements-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Requirements Specification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cld-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLD Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CLD Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#causal-relationships-edges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Causal Relationships (Edges)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback-loop-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback Loop Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-determination-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Determination Rules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systems-thinking-archetypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Systems Thinking Archetypes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json-data-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Data Schema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JSON Data Schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Types
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-positioning-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Positioning Guidelines
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Node Positioning Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canvas-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canvas Dimensions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout Patterns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visual Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polarity-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polarity Colors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-indicators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Indicators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-curves" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edge Curves
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interactive Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#click-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Click Events
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      URL Parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#educational-content-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Content Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Educational Content Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives-blooms-taxonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives (Bloom's Taxonomy)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discussion-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discussion Questions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Insights
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#educational-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output Files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-generation-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Post-Generation Actions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-other-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Other Skills
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-loops-not-displaying-correctly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Loops not displaying correctly
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-edges-overlapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Edges overlapping
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-nodes-too-close-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Nodes too close together
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-details-panel-not-updating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Details panel not updating
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/skill-descriptions/microsims/causal-loop-microsim-generator.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="causal-loop-microsim-generator">Causal Loop MicroSim Generator</h1>
+<h2 id="overview">Overview</h2>
+<p>The causal-loop-microsim-generator skill creates interactive Causal Loop Diagram (CLD) MicroSims using the vis-network JavaScript library for systems thinking education. Each MicroSim visualizes cause-and-effect relationships, feedback loops, and system dynamics through an interactive node-edge diagram that can be embedded via iframe in educational content.</p>
+<h2 id="purpose">Purpose</h2>
+<p>This skill transforms complex system dynamics into interactive, explorable visualizations that enable students to understand feedback loops, reinforcing and balancing dynamics, and cause-and-effect relationships. CLDs are fundamental tools in systems thinking, helping learners recognize patterns in complex systems and identify intervention points.</p>
+<h2 id="key-features">Key Features</h2>
+<ul>
+<li><strong>Interactive Causal Diagrams</strong>: Node-link diagrams showing causal relationships with polarity indicators</li>
+<li><strong>Feedback Loop Visualization</strong>: Reinforcing (R) and Balancing (B) loop indicators with automatic placement</li>
+<li><strong>Polarity Indicators</strong>: Green (+) for positive relationships, Red (-) for negative relationships</li>
+<li><strong>Click-to-Detail</strong>: Interactive panels showing node, edge, and loop descriptions</li>
+<li><strong>Systems Archetypes</strong>: Support for common patterns like "limits to growth", "fixes that fail", "shifting the burden"</li>
+<li><strong>Educational Content</strong>: Built-in discussion questions, key insights, and learning objectives</li>
+<li><strong>MicroSim Architecture</strong>: Standardized patterns for iframe embedding at 500px height</li>
+<li><strong>Width Responsive</strong>: Adapts to container width with re-centering</li>
+</ul>
+<h2 id="when-to-use">When to Use</h2>
+<p>Use this skill when users need to:</p>
+<ul>
+<li>Create causal loop diagrams for systems thinking courses</li>
+<li>Visualize feedback loops in business, ecology, or social systems</li>
+<li>Explain reinforcing and balancing dynamics</li>
+<li>Demonstrate systems archetypes (limits to growth, tragedy of the commons, etc.)</li>
+<li>Build interactive cause-and-effect visualizations</li>
+<li>Teach system dynamics concepts</li>
+</ul>
+<h2 id="common-trigger-phrases">Common Trigger Phrases</h2>
+<ul>
+<li>"Create a CLD showing..."</li>
+<li>"Visualize the feedback loops in..."</li>
+<li>"Build a causal loop diagram for..."</li>
+<li>"Show the reinforcing loop between..."</li>
+<li>"Create a systems thinking diagram of..."</li>
+<li>"Generate a causal diagram showing..."</li>
+</ul>
+<h2 id="microsim-architecture">MicroSim Architecture</h2>
+<p>Educational MicroSims occupy the intersection of:</p>
+<ol>
+<li><strong>Simplicity</strong>: Focused scope, transparent code</li>
+<li><strong>Accessibility</strong>: Browser-native, universal embedding</li>
+<li><strong>AI Generation</strong>: Standardized patterns, prompt-compatible design</li>
+</ol>
+<h2 id="folder-structure">Folder Structure</h2>
+<p>Each causal loop MicroSim contains:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>/docs/sims/$MICROSIM_NAME/
+├── index.md               # Main documentation with iframe
+├── main.html              # HTML container with vis-network CDN
+├── $MICROSIM_NAME.js      # JavaScript code for CLD rendering
+├── data.json              # Node, edge, and loop definitions
+└── style.css              # Custom CSS for layout and legend
+</code></pre></div></td></tr></table></div>
+<h2 id="educational-requirements-specification">Educational Requirements Specification</h2>
+<p>Before generating, the skill gathers:</p>
+<ol>
+<li><strong>MicroSim Name</strong>: kebab-case identifier (e.g., <code>ai-flywheel</code>, <code>climate-feedback</code>)</li>
+<li><strong>Title</strong>: Display title for the diagram</li>
+<li><strong>Description</strong>: What system is being modeled</li>
+<li><strong>Nodes</strong>: Variables in the system with descriptions</li>
+<li><strong>Edges</strong>: Causal relationships with polarity (positive/negative)</li>
+<li><strong>Loops</strong>: Feedback loop identification (reinforcing R or balancing B)</li>
+</ol>
+<h2 id="cld-concepts">CLD Concepts</h2>
+<h3 id="causal-relationships-edges">Causal Relationships (Edges)</h3>
+<ul>
+<li><strong>Positive Polarity (+)</strong>: "More of A leads to more of B" (same direction change)</li>
+<li><strong>Negative Polarity (-)</strong>: "More of A leads to less of B" (opposite direction change)</li>
+</ul>
+<h3 id="feedback-loop-types">Feedback Loop Types</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Symbol</th>
+<th>Behavior</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reinforcing</td>
+<td>R</td>
+<td>Exponential growth or collapse</td>
+<td>Viral adoption, compound interest</td>
+</tr>
+<tr>
+<td>Balancing</td>
+<td>B</td>
+<td>Goal-seeking, stability</td>
+<td>Thermostat, predator-prey equilibrium</td>
+</tr>
+</tbody>
+</table>
+<h3 id="loop-determination-rules">Loop Determination Rules</h3>
+<ul>
+<li><strong>Reinforcing Loop</strong>: All edges same polarity OR even number of negative edges</li>
+<li><strong>Balancing Loop</strong>: Odd number of negative edges in the loop</li>
+</ul>
+<h2 id="systems-thinking-archetypes">Systems Thinking Archetypes</h2>
+<p>The skill recognizes and can generate common systems archetypes:</p>
+<table>
+<thead>
+<tr>
+<th>Archetype</th>
+<th>Loops</th>
+<th>Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>limits-to-growth</code></td>
+<td>R + B</td>
+<td>Growth eventually limited by constraint</td>
+</tr>
+<tr>
+<td><code>fixes-that-fail</code></td>
+<td>B + R</td>
+<td>Quick fix creates side effects</td>
+</tr>
+<tr>
+<td><code>shifting-the-burden</code></td>
+<td>2B + R</td>
+<td>Symptomatic vs fundamental solution</td>
+</tr>
+<tr>
+<td><code>success-to-the-successful</code></td>
+<td>2R</td>
+<td>Winner-take-all dynamics</td>
+</tr>
+<tr>
+<td><code>tragedy-of-the-commons</code></td>
+<td>Multiple R + B</td>
+<td>Shared resource depletion</td>
+</tr>
+<tr>
+<td><code>escalation</code></td>
+<td>2R</td>
+<td>Arms race pattern</td>
+</tr>
+<tr>
+<td><code>drifting-goals</code></td>
+<td>B + R</td>
+<td>Standards erosion over time</td>
+</tr>
+</tbody>
+</table>
+<h2 id="json-data-schema">JSON Data Schema</h2>
+<p>The <code>data.json</code> file follows a comprehensive schema:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example-cld&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example System&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;archetype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;limits-to-growth&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Description of the system&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;learning_objectives&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node_1&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Variable Name&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;variable&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;What this variable represents&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;edges&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node_1_to_node_2&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node_1&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node_2&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;polarity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;positive&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;How these relate&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;loops&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;main_loop&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;reinforcing&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node_1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;node_2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;node_1&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Growth Cycle&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;educational_content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;discussion_questions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;key_insights&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="node-types">Node Types</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>stock</code></td>
+<td>Accumulation variable</td>
+<td>Resources, inventory, population</td>
+</tr>
+<tr>
+<td><code>variable</code></td>
+<td>Flow or rate variable</td>
+<td>Rates, decisions, activities</td>
+</tr>
+<tr>
+<td><code>parameter</code></td>
+<td>External constant</td>
+<td>Policies, fixed factors</td>
+</tr>
+</tbody>
+</table>
+<h2 id="node-positioning-guidelines">Node Positioning Guidelines</h2>
+<p>The skill uses these positioning patterns for clean layouts:</p>
+<h3 id="canvas-dimensions">Canvas Dimensions</h3>
+<ul>
+<li>Standard canvas: 600x600 pixels</li>
+<li>Center point: (300, 300)</li>
+<li>Margin: 100px from edges</li>
+</ul>
+<h3 id="layout-patterns">Layout Patterns</h3>
+<p><strong>3-Node Triangle:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Node 1: (300, 100)  - Top
+Node 2: (450, 400)  - Bottom Right
+Node 3: (150, 400)  - Bottom Left
+</code></pre></div></td></tr></table></div></p>
+<p><strong>4-Node Diamond:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>Node 1: (300, 150)  - Top
+Node 2: (450, 300)  - Right
+Node 3: (300, 450)  - Bottom
+Node 4: (150, 300)  - Left
+</code></pre></div></td></tr></table></div></p>
+<p><strong>5-Node Pentagon:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>Node 1: (300, 100)  - Top
+Node 2: (470, 220)  - Top Right
+Node 3: (410, 420)  - Bottom Right
+Node 4: (190, 420)  - Bottom Left
+Node 5: (130, 220)  - Top Left
+</code></pre></div></td></tr></table></div></p>
+<h2 id="visual-configuration">Visual Configuration</h2>
+<h3 id="polarity-colors">Polarity Colors</h3>
+<ul>
+<li><strong>Positive (+)</strong>: Green <code>#28a745</code></li>
+<li><strong>Negative (-)</strong>: Red <code>#dc3545</code></li>
+</ul>
+<h3 id="loop-indicators">Loop Indicators</h3>
+<ul>
+<li><strong>Reinforcing (R)</strong>: Red ellipse background <code>#dc3545</code></li>
+<li><strong>Balancing (B)</strong>: Green ellipse background <code>#28a745</code></li>
+</ul>
+<h3 id="edge-curves">Edge Curves</h3>
+<p>Curves prevent edge overlap:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;curve&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;curvedCW&quot;</span><span class="p">,</span><span class="w">    </span><span class="c1">// or &quot;curvedCCW&quot;</span>
+<span class="w">    </span><span class="s2">&quot;roundness&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.4</span><span class="w">       </span><span class="c1">// 0.1 to 0.5</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="interactive-features">Interactive Features</h2>
+<h3 id="click-events">Click Events</h3>
+<ul>
+<li><strong>Node Click</strong>: Shows variable details (type, description, examples)</li>
+<li><strong>Edge Click</strong>: Shows relationship details (polarity, strength, delay)</li>
+<li><strong>Loop Click</strong>: Shows loop information (type, path, behavior pattern)</li>
+</ul>
+<h3 id="url-parameters">URL Parameters</h3>
+<ul>
+<li><code>menu=true</code>: Show header and details panel (default hidden for iframe)</li>
+<li><code>file=filename</code>: Load a specific JSON file</li>
+</ul>
+<h2 id="educational-content-features">Educational Content Features</h2>
+<p>The skill generates:</p>
+<h3 id="learning-objectives-blooms-taxonomy">Learning Objectives (Bloom's Taxonomy)</h3>
+<ul>
+<li><strong>Remember</strong>: Identify loop types and polarity</li>
+<li><strong>Understand</strong>: Explain causal relationships</li>
+<li><strong>Apply</strong>: Predict system behavior</li>
+<li><strong>Analyze</strong>: Identify leverage points</li>
+<li><strong>Evaluate</strong>: Assess intervention strategies</li>
+<li><strong>Create</strong>: Design system modifications</li>
+</ul>
+<h3 id="discussion-questions">Discussion Questions</h3>
+<p>Generated questions explore "what if" scenarios, challenge assumptions, and connect to real-world examples.</p>
+<h3 id="key-insights">Key Insights</h3>
+<p>Highlights non-obvious relationships, counterintuitive behaviors, delay effects, and unintended consequences.</p>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="diagram-design">Diagram Design</h3>
+<ol>
+<li><strong>Start Simple</strong>: Begin with core feedback loop, add complexity gradually</li>
+<li><strong>Clear Labels</strong>: Use concise, descriptive variable names (max 20 characters)</li>
+<li><strong>Meaningful Relationships</strong>: Include only significant causal links</li>
+<li><strong>Loop Labels</strong>: Name loops descriptively (e.g., "Growth Engine", "Quality Control")</li>
+</ol>
+<h3 id="educational-value">Educational Value</h3>
+<ol>
+<li><strong>Context</strong>: Explain what real-world system the CLD represents</li>
+<li><strong>Guided Exploration</strong>: Provide questions to focus investigation</li>
+<li><strong>Intervention Points</strong>: Identify where to apply leverage</li>
+<li><strong>Assessment</strong>: Include comprehension questions</li>
+</ol>
+<h3 id="accessibility">Accessibility</h3>
+<ol>
+<li><strong>Color and Symbol</strong>: Use both color and +/- symbols for polarity</li>
+<li><strong>Click Details</strong>: Provide text descriptions for all elements</li>
+<li><strong>Legend</strong>: Include legend explaining visual conventions</li>
+<li><strong>Alternative Text</strong>: Document provides text-based alternative</li>
+</ol>
+<h2 id="output-files">Output Files</h2>
+<ol>
+<li><strong>index.md</strong>: Documentation with iframe embed, learning objectives, and explanation</li>
+<li><strong>main.html</strong>: HTML container with vis-network CDN and layout structure</li>
+<li><strong>[sim-name].js</strong>: JavaScript code for loading data and rendering the CLD</li>
+<li><strong>data.json</strong>: Complete CLD data with nodes, edges, loops, and educational content</li>
+<li><strong>style.css</strong>: CSS for layout, legend, and details panel styling</li>
+</ol>
+<h2 id="post-generation-actions">Post-Generation Actions</h2>
+<p>After generating files, the skill reminds users to:</p>
+<ol>
+<li>Take a screenshot and save as <code>[sim-name].png</code> in the MicroSim directory</li>
+<li>Update <code>mkdocs.yml</code> navigation (entries should be alphabetically ordered)</li>
+<li>Test the iframe embed in the documentation page</li>
+</ol>
+<h2 id="integration-with-other-skills">Integration with Other Skills</h2>
+<p><strong>Primary Integrations:</strong></p>
+<ul>
+<li><strong>microsim-p5</strong>: For more complex dynamic simulations with animation</li>
+<li><strong>vis-network</strong>: Base library for network visualization</li>
+<li><strong>learning-graph-generator</strong>: Can visualize concept dependencies as CLD</li>
+</ul>
+<p><strong>Content Integrations:</strong></p>
+<ul>
+<li><strong>chapter-content-generator</strong>: Embed CLDs in systems thinking chapters</li>
+<li><strong>quiz-generator</strong>: Create questions about system dynamics</li>
+<li><strong>glossary-generator</strong>: Link CLD terms to glossary definitions</li>
+</ul>
+<h2 id="technical-requirements">Technical Requirements</h2>
+<ul>
+<li><strong>vis-network.js</strong>: Loaded from CDN (unpkg.com)</li>
+<li><strong>Modern Browser</strong>: Chrome, Firefox, Safari, Edge</li>
+<li><strong>No Server</strong>: Runs entirely client-side</li>
+<li><strong>Responsive</strong>: Container-based sizing</li>
+</ul>
+<h2 id="example-use-cases">Example Use Cases</h2>
+<ol>
+<li><strong>AI Adoption Flywheel</strong>: Reinforcing loop of AI usage → data → accuracy → adoption</li>
+<li><strong>Climate Feedback</strong>: Multiple loops showing warming → ice melt → albedo effects</li>
+<li><strong>Technical Debt</strong>: Balancing pressures of speed vs. quality in software development</li>
+<li><strong>Market Dynamics</strong>: Supply and demand with price equilibration</li>
+<li><strong>Learning Curve</strong>: Skill → productivity → practice time feedback</li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-loops-not-displaying-correctly">Issue: Loops not displaying correctly</h3>
+<p><strong>Solution</strong>: Verify loop paths form complete cycles, check polarity count for loop type</p>
+<h3 id="issue-edges-overlapping">Issue: Edges overlapping</h3>
+<p><strong>Solution</strong>: Use opposite curve directions (curvedCW/curvedCCW) for parallel edges</p>
+<h3 id="issue-nodes-too-close-together">Issue: Nodes too close together</h3>
+<p><strong>Solution</strong>: Adjust position coordinates, maintain 150px minimum spacing</p>
+<h3 id="issue-details-panel-not-updating">Issue: Details panel not updating</h3>
+<p><strong>Solution</strong>: Verify click handlers in JavaScript, check element IDs match</p>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>vis-network Documentation</strong>: https://visjs.github.io/vis-network/docs/network/</li>
+<li><strong>Systems Thinking Archetypes</strong>: Senge, P. (1990) <em>The Fifth Discipline</em></li>
+<li><strong>Causal Loop Diagrams</strong>: Sterman, J. (2000) <em>Business Dynamics</em></li>
+<li><strong>System Dynamics Society</strong>: https://systemdynamics.org/</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
