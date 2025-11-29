@@ -1,0 +1,61 @@
+{
+    "title": "Color Wheel with Named Colors",
+    "description": "An interactive color wheel displaying web-safe named colors. Hover over any color dot to see the color name, RGB values, hex code, and hue angle.",
+    "creator": "Dan McCreary",
+    "subject": ["Web Development", "Color Theory", "CSS", "Design"],
+    "date": "2025-11-28",
+    "type": "Interactive Simulation",
+    "format": "text/html",
+    "language": "en",
+    "rights": "CC BY 4.0",
+    "educational": {
+        "gradeLevel": "6-12",
+        "subjectArea": "Computer Science",
+        "topic": "Web Colors and CSS",
+        "learningObjectives": [
+            "Identify web-safe named colors on a color wheel",
+            "Understand the relationship between hue and position on a color wheel",
+            "Compare RGB values of similar colors",
+            "Apply named colors in web design contexts"
+        ],
+        "bloomsLevels": ["Remember", "Understand", "Apply", "Analyze"],
+        "duration": "15-20 minutes",
+        "prerequisites": ["Basic understanding of HTML/CSS", "Familiarity with RGB color model"]
+    },
+    "technical": {
+        "framework": "p5.js",
+        "version": "1.11.10",
+        "canvasDimensions": "400x460",
+        "responsive": true,
+        "dependencies": ["p5.js CDN"],
+        "accessibility": ["Screen reader description via describe() function"]
+    },
+    "userInterface": {
+        "controls": [
+            {
+                "type": "hover",
+                "description": "Hover over color dots to display color information"
+            }
+        ],
+        "displayElements": [
+            {
+                "name": "Color Wheel",
+                "description": "HSB color wheel background showing full spectrum"
+            },
+            {
+                "name": "Color Dots",
+                "description": "82 dots representing web-safe named colors positioned by hue and saturation"
+            },
+            {
+                "name": "Info Panel",
+                "description": "Shows color name, RGB values, hex code, and hue when hovering"
+            }
+        ]
+    },
+    "simulationModel": {
+        "modelType": "Visualization",
+        "variables": ["hue", "saturation", "RGB values"],
+        "assumptions": ["Colors positioned by HSL hue value", "Saturation determines radial distance from center"],
+        "limitations": ["Does not show all 140+ CSS named colors", "Grayscale colors not included as they lack hue"]
+    }
+}
