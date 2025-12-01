@@ -1,0 +1,237 @@
+#!/bin/bash
+# bk-install-mkdocs - Install MkDocs environment with Conda
+#
+# Downloads and installs Miniconda if not present, creates a Python 3 virtual
+# environment called 'mkdocs', installs mkdocs and mkdocs-material, and
+# verifies the installation by printing versions.
+
+set -e  # Exit on error
+
+# Colors for output
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
+echo -e "${GREEN}MkDocs Environment Installer${NC}"
+echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
+echo ""
+
+# Detect OS and architecture
+OS="$(uname -s)"
+ARCH="$(uname -m)"
+
+echo -e "${BLUE}Detected OS:${NC} $OS"
+echo -e "${BLUE}Detected Architecture:${NC} $ARCH"
+echo ""
+
+# Set Miniconda download URL based on OS and architecture
+case "$OS" in
+    Linux)
+        if [ "$ARCH" = "x86_64" ]; then
+            MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
+        elif [ "$ARCH" = "aarch64" ]; then
+            MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh"
+        else
+            echo -e "${RED}Error: Unsupported Linux architecture: $ARCH${NC}"
+            exit 1
+        fi
+        CONDA_PATH="$HOME/miniconda3/bin/conda"
+        ;;
+    Darwin)
+        if [ "$ARCH" = "x86_64" ]; then
+            MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
+        elif [ "$ARCH" = "arm64" ]; then
+            MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh"
+        else
+            echo -e "${RED}Error: Unsupported macOS architecture: $ARCH${NC}"
+            exit 1
+        fi
+        CONDA_PATH="$HOME/miniconda3/bin/conda"
+        ;;
+    *)
+        echo -e "${RED}Error: Unsupported operating system: $OS${NC}"
+        exit 1
+        ;;
+esac
+
+# ════════════════════════════════════════════════════════════════
+# Step 1: Check for Conda
+# ════════════════════════════════════════════════════════════════
+
+echo -e "${BLUE}Step 1: Checking for Conda installation...${NC}"
+
+# Check if conda is available in PATH or common locations
+if command -v conda &> /dev/null; then
+    CONDA_CMD="conda"
+    echo -e "${GREEN}✓${NC} Conda found in PATH"
+elif [ -f "$CONDA_PATH" ]; then
+    CONDA_CMD="$CONDA_PATH"
+    echo -e "${GREEN}✓${NC} Conda found at $CONDA_PATH"
+elif [ -f "$HOME/anaconda3/bin/conda" ]; then
+    CONDA_CMD="$HOME/anaconda3/bin/conda"
+    echo -e "${GREEN}✓${NC} Anaconda found at $CONDA_CMD"
+elif [ -f "/opt/homebrew/Caskroom/miniconda/base/bin/conda" ]; then
+    CONDA_CMD="/opt/homebrew/Caskroom/miniconda/base/bin/conda"
+    echo -e "${GREEN}✓${NC} Conda found at $CONDA_CMD (Homebrew)"
+else
+    echo -e "${YELLOW}Conda not found. Installing Miniconda...${NC}"
+
+    # Download Miniconda
+    INSTALLER="/tmp/miniconda_installer.sh"
+    echo -e "${BLUE}Downloading Miniconda from:${NC}"
+    echo "  $MINICONDA_URL"
+
+    if command -v curl &> /dev/null; then
+        curl -fsSL "$MINICONDA_URL" -o "$INSTALLER"
+    elif command -v wget &> /dev/null; then
+        wget -q "$MINICONDA_URL" -O "$INSTALLER"
+    else
+        echo -e "${RED}Error: Neither curl nor wget is available. Please install one.${NC}"
+        exit 1
+    fi
+
+    # Install Miniconda
+    echo -e "${BLUE}Installing Miniconda...${NC}"
+    bash "$INSTALLER" -b -p "$HOME/miniconda3"
+    rm "$INSTALLER"
+
+    CONDA_CMD="$HOME/miniconda3/bin/conda"
+
+    # Initialize conda for the current shell
+    echo -e "${BLUE}Initializing Conda...${NC}"
+    "$CONDA_CMD" init bash 2>/dev/null || true
+    "$CONDA_CMD" init zsh 2>/dev/null || true
+
+    echo -e "${GREEN}✓${NC} Miniconda installed successfully"
+    echo -e "${YELLOW}Note: You may need to restart your terminal or run 'source ~/.bashrc' (or ~/.zshrc)${NC}"
+fi
+
+# Print conda version
+CONDA_VERSION=$("$CONDA_CMD" --version 2>/dev/null || echo "unknown")
+echo -e "${BLUE}Conda version:${NC} $CONDA_VERSION"
+echo ""
+
+# ════════════════════════════════════════════════════════════════
+# Step 2: Create mkdocs environment
+# ════════════════════════════════════════════════════════════════
+
+echo -e "${BLUE}Step 2: Creating 'mkdocs' Conda environment...${NC}"
+
+# Check if environment already exists
+if "$CONDA_CMD" env list | grep -q "^mkdocs "; then
+    echo -e "${YELLOW}Environment 'mkdocs' already exists.${NC}"
+    read -p "Do you want to remove and recreate it? (y/N) " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        echo -e "${BLUE}Removing existing environment...${NC}"
+        "$CONDA_CMD" env remove -n mkdocs -y
+        echo -e "${GREEN}✓${NC} Environment removed"
+    else
+        echo -e "${BLUE}Keeping existing environment. Proceeding to package installation...${NC}"
+    fi
+fi
+
+# Create environment if it doesn't exist
+if ! "$CONDA_CMD" env list | grep -q "^mkdocs "; then
+    echo -e "${BLUE}Creating new 'mkdocs' environment with Python 3.11...${NC}"
+    "$CONDA_CMD" create -n mkdocs python=3.11 -y
+    echo -e "${GREEN}✓${NC} Environment 'mkdocs' created"
+fi
+
+echo ""
+
+# ════════════════════════════════════════════════════════════════
+# Step 3: Install MkDocs packages
+# ════════════════════════════════════════════════════════════════
+
+echo -e "${BLUE}Step 3: Installing MkDocs packages...${NC}"
+
+# Get the path to the environment's pip
+MKDOCS_ENV_PATH=$("$CONDA_CMD" env list | grep "^mkdocs " | awk '{print $2}')
+if [ -z "$MKDOCS_ENV_PATH" ]; then
+    # Try alternate format (when env is active, path is shown differently)
+    MKDOCS_ENV_PATH=$("$CONDA_CMD" env list | grep "mkdocs" | awk '{print $NF}')
+fi
+
+PIP_CMD="$MKDOCS_ENV_PATH/bin/pip"
+
+if [ ! -f "$PIP_CMD" ]; then
+    echo -e "${RED}Error: Could not find pip in mkdocs environment${NC}"
+    echo "Expected path: $PIP_CMD"
+    exit 1
+fi
+
+echo -e "${BLUE}Installing packages with pip...${NC}"
+"$PIP_CMD" install --upgrade pip
+"$PIP_CMD" install \
+    mkdocs \
+    mkdocs-material \
+    mkdocs-material-extensions \
+    pillow \
+    cairosvg
+
+echo -e "${GREEN}✓${NC} All packages installed"
+echo ""
+
+# ════════════════════════════════════════════════════════════════
+# Step 4: Verify installation
+# ════════════════════════════════════════════════════════════════
+
+echo -e "${BLUE}Step 4: Verifying installation...${NC}"
+echo ""
+
+MKDOCS_CMD="$MKDOCS_ENV_PATH/bin/mkdocs"
+PYTHON_CMD="$MKDOCS_ENV_PATH/bin/python"
+
+echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
+echo -e "${GREEN}Installed Versions:${NC}"
+echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
+
+# Python version
+PYTHON_VERSION=$("$PYTHON_CMD" --version 2>&1)
+echo -e "  Python:              ${GREEN}$PYTHON_VERSION${NC}"
+
+# MkDocs version
+MKDOCS_VERSION=$("$MKDOCS_CMD" --version 2>&1)
+echo -e "  MkDocs:              ${GREEN}$MKDOCS_VERSION${NC}"
+
+# Material theme version
+MATERIAL_VERSION=$("$PIP_CMD" show mkdocs-material 2>/dev/null | grep "^Version:" | awk '{print $2}')
+echo -e "  MkDocs Material:     ${GREEN}$MATERIAL_VERSION${NC}"
+
+# Pillow version
+PILLOW_VERSION=$("$PIP_CMD" show pillow 2>/dev/null | grep "^Version:" | awk '{print $2}')
+echo -e "  Pillow:              ${GREEN}$PILLOW_VERSION${NC}"
+
+# CairoSVG version
+CAIROSVG_VERSION=$("$PIP_CMD" show cairosvg 2>/dev/null | grep "^Version:" | awk '{print $2}')
+echo -e "  CairoSVG:            ${GREEN}$CAIROSVG_VERSION${NC}"
+
+echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
+echo ""
+
+# ════════════════════════════════════════════════════════════════
+# Step 5: Print usage instructions
+# ════════════════════════════════════════════════════════════════
+
+echo -e "${GREEN}Installation complete!${NC}"
+echo ""
+echo -e "${BLUE}To activate the mkdocs environment:${NC}"
+echo ""
+echo -e "  ${GREEN}conda activate mkdocs${NC}"
+echo ""
+echo -e "${BLUE}To create a new MkDocs project:${NC}"
+echo ""
+echo -e "  ${GREEN}mkdocs new my-project${NC}"
+echo -e "  ${GREEN}cd my-project${NC}"
+echo -e "  ${GREEN}mkdocs serve${NC}"
+echo ""
+echo -e "${BLUE}To build and deploy to GitHub Pages:${NC}"
+echo ""
+echo -e "  ${GREEN}mkdocs build${NC}"
+echo -e "  ${GREEN}mkdocs gh-deploy${NC}"
+echo ""
+echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
