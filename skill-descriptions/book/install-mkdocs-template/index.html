@@ -693,9 +693,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#post-installation-steps" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Post-Installation Steps
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      After Deployment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reactivating-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reactivating the Environment
     </span>
   </a>
   
@@ -1779,9 +1806,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#post-installation-steps" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Post-Installation Steps
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      After Deployment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reactivating-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reactivating the Environment
     </span>
   </a>
   
@@ -1821,16 +1875,18 @@
 
 <h1 id="install-mkdocs-template">Install MkDocs Template</h1>
 <p>The install-mkdocs-template skill creates a complete MkDocs Material project
-structure optimized for intelligent textbooks. It generates all configuration
-files, custom styling, and the social_override plugin for custom social media
-cards.</p>
+structure optimized for intelligent textbooks. It sets up a Conda virtual
+environment, installs dependencies, generates all configuration files, and
+deploys to GitHub Pages.</p>
 <h2 id="key-capabilities">Key Capabilities</h2>
-<p>This skill sets up a fully-configured MkDocs Material project with:</p>
+<p>This skill provides end-to-end project setup:</p>
 <ol>
+<li><strong>Conda Environment</strong> - Creates <code>mkdocs</code> virtual environment with Python 3.11</li>
+<li><strong>Dependencies</strong> - Installs MkDocs, Material theme, and required packages</li>
 <li><strong>Complete mkdocs.yml</strong> - All Material theme options pre-configured</li>
 <li><strong>Custom CSS</strong> - Brand color customization with CSS variables</li>
 <li><strong>Social Override Plugin</strong> - Per-page custom social media card images</li>
-<li><strong>Directory Structure</strong> - Standard intelligent textbook layout</li>
+<li><strong>Build &amp; Deploy</strong> - Builds site and deploys to GitHub Pages</li>
 </ol>
 <h2 id="what-gets-created">What Gets Created</h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1908,14 +1964,37 @@ title: My Page Title
 <span class="gu">---</span>
 </code></pre></div></td></tr></table></div>
 <p>This overrides the auto-generated social card for that specific page.</p>
-<h2 id="post-installation-steps">Post-Installation Steps</h2>
-<p>After the skill creates all files:</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Conda (Miniconda or Anaconda) installed</li>
+<li>Git repository initialized with remote origin configured</li>
+<li>GitHub repository created</li>
+</ul>
+<h2 id="workflow-summary">Workflow Summary</h2>
+<p>The skill executes these steps:</p>
 <ol>
-<li>Run <code>pip install -e .</code> to install the social_override plugin</li>
-<li>Add your logo to <code>docs/img/logo.png</code> (50x50px recommended)</li>
-<li>Add your favicon to <code>docs/img/favicon.ico</code></li>
-<li>Run <code>mkdocs serve</code> to verify the installation</li>
+<li>Create Conda environment: <code>conda create -n mkdocs python=3.11 -y</code></li>
+<li>Activate and install: <code>conda activate mkdocs &amp;&amp; pip install mkdocs mkdocs-material ...</code></li>
+<li>Create all project files (mkdocs.yml, CSS, plugins, starter content)</li>
+<li>Install social_override plugin: <code>pip install -e .</code></li>
+<li>Build site: <code>mkdocs build</code></li>
+<li>Deploy to GitHub Pages: <code>mkdocs gh-deploy</code></li>
+<li>Provide the live site URL</li>
 </ol>
+<h2 id="after-deployment">After Deployment</h2>
+<p>The skill provides the GitHub Pages URL for testing:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>https://&lt;username&gt;.github.io/&lt;repo-name&gt;/
+</code></pre></div></td></tr></table></div>
+<p>User should:</p>
+<ol>
+<li>Add logo to <code>docs/img/logo.png</code> (50x50px recommended)</li>
+<li>Add favicon to <code>docs/img/favicon.ico</code></li>
+<li>Verify the live site loads correctly</li>
+</ol>
+<h2 id="reactivating-the-environment">Reactivating the Environment</h2>
+<p>When returning to work on the textbook:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>mkdocs
+</code></pre></div></td></tr></table></div>
 <h2 id="integration">Integration</h2>
 <p>This skill is typically the <strong>first step</strong> in the intelligent textbook creation
 workflow. After setting up the MkDocs structure, proceed with:</p>
