@@ -601,11 +601,19 @@
          <lastmod>2025-12-01</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/book/book-metrics-generator/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/book/chapter-content-generator/</loc>
          <lastmod>2025-12-01</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/book/course-description-analyzer/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/book/diagram-reports-generator/</loc>
          <lastmod>2025-12-01</lastmod>
     </url>
     <url>
@@ -629,7 +637,15 @@
          <lastmod>2025-12-01</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/book/linkedin-announcement-generator/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/book/quiz-generator/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/book/readme-generator/</loc>
          <lastmod>2025-12-01</lastmod>
     </url>
     <url>
@@ -665,11 +681,23 @@
          <lastmod>2025-12-01</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/microsim-add-icons/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/microsim-matcher/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/microsim-p5/</loc>
          <lastmod>2025-12-01</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/microsim-standarization/</loc>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/microsim-screen-capture/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/microsim-standardization/</loc>
          <lastmod>2025-12-01</lastmod>
     </url>
     <url>
@@ -686,6 +714,10 @@
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/specialized-skills/</loc>
+         <lastmod>2025-12-01</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/skill-descriptions/specialized-skills/install-skill-tracker/</loc>
          <lastmod>2025-12-01</lastmod>
     </url>
     <url>
