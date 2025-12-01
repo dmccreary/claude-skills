@@ -12,84 +12,84 @@
   "groups": {
     "AIFND": {
       "classifierName": "AI Foundations",
-      "color": "#FF6B6B",
+      "color": "salmon",
       "font": {
         "color": "black"
       }
     },
     "SKILL": {
       "classifierName": "Claude Skills System",
-      "color": "#4ECDC4",
+      "color": "mediumturquoise",
       "font": {
         "color": "black"
       }
     },
     "IBOOK": {
       "classifierName": "Intelligent Textbooks",
-      "color": "#45B7D1",
+      "color": "steelblue",
       "font": {
-        "color": "black"
+        "color": "white"
       }
     },
     "MKDOC": {
       "classifierName": "MkDocs Platform",
-      "color": "#96CEB4",
+      "color": "darkseagreen",
       "font": {
         "color": "black"
       }
     },
     "GRAPH": {
       "classifierName": "Learning Graphs",
-      "color": "#FFEAA7",
+      "color": "khaki",
       "font": {
         "color": "black"
       }
     },
     "EDTHY": {
       "classifierName": "Educational Theory",
-      "color": "#DDA15E",
+      "color": "sandybrown",
       "font": {
         "color": "black"
       }
     },
     "CONTE": {
       "classifierName": "Content Creation",
-      "color": "#BC6C25",
+      "color": "chocolate",
       "font": {
-        "color": "black"
+        "color": "white"
       }
     },
     "RSRCE": {
       "classifierName": "Educational Resources",
-      "color": "#9B59B6",
+      "color": "mediumpurple",
       "font": {
-        "color": "black"
+        "color": "white"
       }
     },
     "INTER": {
       "classifierName": "Interactive Elements",
-      "color": "#E17055",
+      "color": "coral",
       "font": {
         "color": "black"
       }
     },
     "VERCT": {
       "classifierName": "Version Control",
-      "color": "#74B9FF",
+      "color": "cornflowerblue",
       "font": {
         "color": "black"
       }
     },
     "TOOLS": {
       "classifierName": "Development Tools",
-      "color": "#A29BFE",
+      "color": "plum",
       "font": {
         "color": "black"
       }
     },
     "DATAS": {
       "classifierName": "Data & Scripting",
-      "color": "#FD79A8",
+      "color": "hotpink",
       "font": {
         "color": "black"
       }
