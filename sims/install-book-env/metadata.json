@@ -1,0 +1,40 @@
+{
+    "title": "Install Book Environment Dependencies",
+    "description": "An interactive dependency graph visualization showing all software components required to set up an intelligent textbook development environment using MkDocs Material and Claude Skills.",
+    "creator": "Claude AI",
+    "date": "2025-12-01",
+    "subject": "Software Installation, Dependency Management, Development Environment",
+    "type": "Interactive Simulation",
+    "format": "text/html",
+    "language": "en",
+    "rights": "MIT License",
+    "audience": "Developers, Technical Writers, Educators",
+    "educationLevel": "Intermediate",
+    "keywords": [
+        "dependency graph",
+        "installation",
+        "MkDocs",
+        "Claude Code",
+        "intelligent textbook",
+        "vis-network",
+        "development environment"
+    ],
+    "library": "vis-network",
+    "libraryVersion": "9.x",
+    "controls": {
+        "navigation": "Built-in vis-network navigation buttons for zoom and pan",
+        "hover": "Hover over nodes to see component descriptions",
+        "select": "Click nodes to highlight connected dependencies"
+    },
+    "nodes": 15,
+    "edges": 20,
+    "categories": [
+        "Foundation",
+        "System",
+        "Runtime",
+        "Package Manager",
+        "Python Packages",
+        "Claude Tools",
+        "Goal"
+    ]
+}
