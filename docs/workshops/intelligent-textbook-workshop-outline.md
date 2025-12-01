@@ -2,20 +2,21 @@
 
 **Duration:** 2 hours
 
-!!! note Update
-   We are hosting one at [The Thinking Spot](https://www.thethinkingspot.us/) on Monday Dec. 1st from 6:30 pm to 8:30 pm.  Please let Dan know if you can attend.
+!!! note "Update"
+    We are hosting one at [The Thinking Spot](https://www.thethinkingspot.us/) on Monday Dec. 1st from 6:30 pm to 8:30 pm. Please let Dan know if you can attend.
 
 [Cheat Sheet (PDF)](https://github.com/dmccreary/claude-skills/blob/main/slides/Workshop-Cheat-Sheet.pdf)
 
-**Prerequisites:**
-- Please come with a detailed course description prepared
+## Prerequisites
+
+- Please come with a detailed course description prepared and ask your AI to classify learning objectives using the 2001 Bloom Taxonomy
 - Please make sure that Claude Code installed with all skills loaded and usage visible
-   Test: "`> What skills do you know?`
+   Test: `> What skills do you know?`
 - Users know how to check and extend their own token usage: [https://claude.ai/settings/usage](https://claude.ai/settings/usage)
 - Basic familiarity with markdown and command-line tools
 
 **Workshop Goal:** By the end of this workshop, participants will understand the intelligent textbook 
-creation workflow and have generated core components for their own textbook using Claude skills.
+creation workflow and have generated core components for their own textbook using Claude Code skills.
 
 ## Workshop Outline
 
@@ -24,7 +25,9 @@ creation workflow and have generated core components for their own textbook usin
 #### 1.1 Welcome & Overview
 
 - What are intelligent textbooks? (5 levels of intelligence)
-- Why use Claude skills for textbook creation?
+- What is Claude Code?  How is it different that just using the web-based Claude or ChatGPT?
+- Can I use Cursor or Windsurf
+- Why use Claude Code Skills for textbook creation?
 - Workshop structure and expected outcomes
 
 #### 1.2 Environment Setup
