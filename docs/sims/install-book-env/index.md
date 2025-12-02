@@ -92,4 +92,6 @@ To set up the environment, install components in this order:
 
 ## Developer Notes
 
+**Operating system dependencies not shown:** This diagram does not include all dependencies for every operating system. For example, on macOS, Claude Code is typically installed via Homebrew, which requires Xcode Command Line Tools to be installed first. This additional installation step can take approximately 15 minutes.
+
 **vis-network edge label bug:** vis-network has a rendering bug with edge labels on perfectly horizontal edges (where both nodes share the same y-coordinate). The label may not appear on initial load but becomes visible after any node interaction. The workaround is to apply a slight y-offset between connected nodes to give the edge enough angle for the label to render correctly on initial load.

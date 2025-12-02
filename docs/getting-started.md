@@ -17,6 +17,13 @@ able to run all the skills and book-building utilities in this project.
 
 ## Quick Start Summary
 
+#### Diagram: Install Book Building Environment
+
+<!-- Such a wild bug.  A top level document like /docs/getting-started.md can't use a relative path like "./sims" ! -->
+<iframe src="/claude-skills/sims/install-book-env/main.html" width="100%" height="400px" scrolling="no"></iframe>
+[View the Install Book Building Environment Fullscreen](sims/install-book-env/main.html)
+
+
 Here's a quick overview of the five main steps of the installation process.
 These steps assume you are familiar with using the UNIX Terminal or shell.
 You can find details on teach step later in the document in the [Detailed Installation Options for New Users](#detailed-installation-options-for-new-users).

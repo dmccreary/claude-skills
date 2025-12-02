@@ -192,7 +192,7 @@ setTimeout(function() {
     // Get current view position and shift up by 40 pixels
     var viewPosition = network.getViewPosition();
     network.moveTo({
-        position: { x: viewPosition.x, y: viewPosition.y + 40 },
+        position: { x: viewPosition.x, y: viewPosition.y + 20 },
         animation: false
     });
 }, 100);
