@@ -5,47 +5,47 @@
 // X ranges from 100 (left - Permissions) to 1100 (right - Build Book)
 const nodes = new vis.DataSet([
     // Foundation Layer (far left) - x: 100
-    { id: 1, label: 'Permissions', x: 100, y: 300, fixed: true,
+    { id: 1, label: 'Permissions', x: 100, y: 280, fixed: true,
       group: 'foundation', title: 'User permissions to install software and create directories' },
 
     // System Layer - x: 200
-    { id: 2, label: 'Unix Shell', x: 200, y: 200,
+    { id: 2, label: 'Unix Shell', x: 200, y: 180,
       group: 'system', title: 'Bash or Zsh terminal for running commands' },
-    { id: 3, label: 'File System', x: 200, y: 400,
+    { id: 3, label: 'File System', x: 200, y: 380,
       group: 'system', title: 'Access to create and modify files' },
 
     // Runtime Layer - x: 350
-    { id: 4, label: 'Python 3.10+', x: 350, y: 200,
+    { id: 4, label: 'Python 3.10+', x: 350, y: 180,
       group: 'runtime', title: 'Python interpreter version 3.10 or higher' },
-    { id: 5, label: 'Node.js', x: 350, y: 350,
+    { id: 5, label: 'Node.js', x: 350, y: 330,
       group: 'runtime', title: 'Node.js runtime for Claude Code CLI' },
-    { id: 6, label: 'Git', x: 350, y: 500,
+    { id: 6, label: 'Git', x: 350, y: 480,
       group: 'runtime', title: 'Version control system' },
 
     // Package Manager Layer - x: 500
-    { id: 7, label: 'pip', x: 500, y: 200,
+    { id: 7, label: 'pip', x: 500, y: 180,
       group: 'package_manager', title: 'Python package installer' },
 
     // Python Packages Layer - x: 650
-    { id: 9, label: 'MkDocs', x: 650, y: 150,
+    { id: 9, label: 'MkDocs', x: 650, y: 130,
       group: 'python_pkg', title: 'Static site generator for documentation' },
-    { id: 10, label: 'MkDocs Material', x: 650, y: 250,
+    { id: 10, label: 'MkDocs Material', x: 650, y: 230,
       group: 'python_pkg', title: 'Material design theme for MkDocs' },
-    { id: 11, label: 'PyMdown\nExtensions', x: 650, y: 350,
+    { id: 11, label: 'PyMdown\nExtensions', x: 650, y: 330,
       group: 'python_pkg', title: 'Markdown extensions for admonitions, tabs, etc.' },
 
     // Claude Tools Layer - x: 700
-    { id: 12, label: 'Claude Code', x: 650, y: 425,
+    { id: 12, label: 'Claude Code', x: 650, y: 405,
       group: 'claude', title: 'Claude AI coding assistant CLI' },
-    { id: 13, label: 'GitHub Repo', x: 800, y: 500,
+    { id: 13, label: 'GitHub Repo', x: 670, y: 490,
       group: 'claude', title: 'GitHub repository for textbook project' },
 
     // Skills Layer - x: 900
-    { id: 14, label: 'Claude Skills', x: 900, y: 400,
+    { id: 14, label: 'Claude Skills', x: 900, y: 380,
       group: 'claude', title: 'Skill definitions for textbook generation' },
 
     // Goal (far right) - x: 1050
-    { id: 15, label: 'Build Book', x: 1050, y: 300, fixed: true,
+    { id: 15, label: 'Build Book', x: 1050, y: 280, fixed: true,
       group: 'goal', title: 'Generate and deploy intelligent textbook' }
 ]);
 
@@ -167,7 +167,7 @@ const options = {
             hover: '#3498db'
         },
         font: {
-            size: 10,
+            size: 14,
             color: '#666',
             strokeWidth: 3,
             strokeColor: '#fff',
@@ -186,7 +186,13 @@ const container = document.getElementById('network');
 const data = { nodes: nodes, edges: edges };
 const network = new vis.Network(container, data, options);
 
-// Fit the network once after initial render
+// Fit the network once after initial render, then shift view up
 setTimeout(function() {
     network.fit();
+    // Get current view position and shift up by 40 pixels
+    var viewPosition = network.getViewPosition();
+    network.moveTo({
+        position: { x: viewPosition.x, y: viewPosition.y + 40 },
+        animation: false
+    });
 }, 100);
