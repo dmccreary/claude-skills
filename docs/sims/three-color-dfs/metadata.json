@@ -1,0 +1,29 @@
+{
+  "title": "Three-Color DFS Cycle Detection",
+  "description": "Interactive vis-network visualization demonstrating the three-color DFS algorithm for detecting cycles in directed graphs, specifically for validating learning graph DAG structure",
+  "creator": "Dan McCreary",
+  "date": "2025-12-02",
+  "subject": [
+    "algorithms",
+    "graph theory",
+    "cycle detection",
+    "depth-first search",
+    "learning graphs",
+    "DAG validation"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "publisher": "Claude Skills Repository",
+  "learningResourceType": "simulation",
+  "audience": "Educators, Developers, Computer Science Students",
+  "version": "1.0.0",
+  "library": "vis-network.js",
+  "controls": {
+    "navigation_buttons": "Zoom and pan the network view",
+    "legend": "Shows the three colors (White, Gray, Black) and their meanings",
+    "stack_display": "Shows the current DFS traversal stack",
+    "cycle_alert": "Highlights when a cycle is detected with explanation"
+  }
+}
