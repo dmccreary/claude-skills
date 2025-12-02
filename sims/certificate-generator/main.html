@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate of Completion Generator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        /* Form Styles */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.3em;
+        }
+
+        .form-row {
+            margin-bottom: 15px;
+        }
+
+        .form-row label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+            font-family: Arial, sans-serif;
+            font-size: 0.9em;
+        }
+
+        .form-row input,
+        .form-row select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-row input:focus,
+        .form-row select:focus {
+            outline: none;
+            border-color: #4a90d9;
+        }
+
+        .btn-print {
+            background-color: #2c5aa0;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn-print:hover {
+            background-color: #1e4080;
+        }
+
+        /* Certificate Container */
+        .certificate-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        /* Certificate Styles - 11" x 8.5" landscape at 96dpi = 1056px x 816px */
+        .certificate {
+            width: 1056px;
+            height: 816px;
+            background: #fffef8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Simple Border */
+        .certificate.border-simple {
+            border: 8px solid #2c5aa0;
+            box-shadow: inset 0 0 0 4px #fffef8, inset 0 0 0 6px #2c5aa0;
+        }
+
+        /* Ornate Border */
+        .certificate.border-ornate {
+            border: 3px solid #8b7355;
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cpath d='M0,50 Q25,25 50,50 T100,50' fill='none' stroke='%23c9a962' stroke-width='1' opacity='0.3'/%3E%3C/svg%3E");
+        }
+
+        .certificate.border-ornate::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px solid #c9a962;
+            pointer-events: none;
+        }
+
+        .certificate.border-ornate::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid #8b7355;
+            pointer-events: none;
+        }
+
+        /* Modern Border */
+        .certificate.border-modern {
+            border: 12px solid transparent;
+            background:
+                linear-gradient(#fffef8, #fffef8) padding-box,
+                linear-gradient(135deg, #c9a962 0%, #f4e4ba 25%, #c9a962 50%, #f4e4ba 75%, #c9a962 100%) border-box;
+        }
+
+        .certificate.border-modern::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 2px solid #c9a962;
+            pointer-events: none;
+        }
+
+        /* Certificate Content */
+        .certificate-content {
+            position: absolute;
+            top: 60px;
+            left: 60px;
+            right: 60px;
+            bottom: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .certificate-header {
+            margin-top: 20px;
+        }
+
+        .certificate-title {
+            font-size: 3em;
+            color: #2c5aa0;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .certificate-subtitle {
+            font-size: 1.5em;
+            color: #666;
+            letter-spacing: 2px;
+        }
+
+        .certificate-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .presented-to {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .student-name {
+            font-size: 2.8em;
+            color: #333;
+            font-style: italic;
+            border-bottom: 2px solid #c9a962;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            min-width: 400px;
+        }
+
+        .completion-text {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+            max-width: 700px;
+        }
+
+        .course-name {
+            font-size: 1.4em;
+            color: #2c5aa0;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .certificate-footer {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 40px;
+            margin-bottom: 20px;
+        }
+
+        .signature-block {
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .signature-image {
+            height: 60px;
+            margin-bottom: 5px;
+        }
+
+        .signature-line {
+            border-top: 1px solid #333;
+            padding-top: 8px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .signature-name {
+            font-style: italic;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .date-block {
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .date-value {
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 40px;
+        }
+
+        .date-label {
+            border-top: 1px solid #333;
+            padding-top: 8px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        /* Decorative elements for ornate style */
+        .ornament {
+            display: none;
+            font-size: 2em;
+            color: #c9a962;
+            margin: 10px 0;
+        }
+
+        .border-ornate .ornament {
+            display: block;
+        }
+
+        /* Print Styles */
+        @media print {
+            @page {
+                size: 11in 8.5in landscape;
+                margin: 0;
+            }
+
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .form-container {
+                display: none !important;
+            }
+
+            .certificate-wrapper {
+                margin: 0;
+            }
+
+            .certificate {
+                width: 11in;
+                height: 8.5in;
+                box-shadow: none;
+            }
+        }
+
+        /* Responsive scaling for screen preview */
+        @media screen and (max-width: 1100px) {
+            .certificate {
+                transform: scale(0.8);
+                transform-origin: top center;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            .certificate {
+                transform: scale(0.6);
+                transform-origin: top center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Certificate of Completion Generator</h2>
+        <div class="form-row">
+            <label for="studentName">Student Full Name</label>
+            <input type="text" id="studentName" placeholder="Enter student's full name">
+        </div>
+        <div class="form-row">
+            <label for="courseName">Course Name</label>
+            <input type="text" id="courseName" value="Building Intelligent Textbooks">
+        </div>
+        <div class="form-row">
+            <label for="instructorName">Instructor Name</label>
+            <input type="text" id="instructorName" value="Dan McCreary">
+        </div>
+        <div class="form-row">
+            <label for="completionDate">Completion Date</label>
+            <input type="date" id="completionDate">
+        </div>
+        <div class="form-row">
+            <label for="borderStyle">Border Style</label>
+            <select id="borderStyle">
+                <option value="simple">Simple (Clean & Professional)</option>
+                <option value="ornate">Ornate (Classic Scrollwork)</option>
+                <option value="modern" selected>Modern (Gold Gradient)</option>
+            </select>
+        </div>
+        <button class="btn-print" onclick="window.print()">Print Certificate</button>
+    </div>
+
+    <div class="certificate-wrapper">
+        <div class="certificate border-modern" id="certificate">
+            <div class="certificate-content">
+                <div class="certificate-header">
+                    <div class="ornament">&#10053; &#10053; &#10053;</div>
+                    <div class="certificate-title">Certificate</div>
+                    <div class="certificate-subtitle">of Completion</div>
+                    <div class="ornament">&#10053;</div>
+                </div>
+
+                <div class="certificate-body">
+                    <div class="presented-to">This certificate is proudly presented to</div>
+                    <div class="student-name" id="displayName">Student Name</div>
+                    <div class="completion-text">
+                        for successfully completing the course
+                        <div class="course-name" id="displayCourse">Building Intelligent Textbooks</div>
+                        demonstrating dedication to learning and professional development.
+                    </div>
+                </div>
+
+                <div class="certificate-footer">
+                    <div class="signature-block">
+                        <img src="dan-mccreary-signature.png" alt="Signature" class="signature-image">
+                        <div class="signature-name" id="displayInstructor">Dan McCreary</div>
+                        <div class="signature-line">Instructor</div>
+                    </div>
+                    <div class="date-block">
+                        <div class="date-value" id="displayDate"></div>
+                        <div class="date-label">Date</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set default date to today
+        const today = new Date();
+        const dateInput = document.getElementById('completionDate');
+        dateInput.value = today.toISOString().split('T')[0];
+
+        // Format and display the date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return date.toLocaleDateString('en-US', options);
+        }
+
+        // Update certificate preview
+        function updateCertificate() {
+            const studentName = document.getElementById('studentName').value || 'Student Name';
+            const courseName = document.getElementById('courseName').value || 'Course Name';
+            const instructorName = document.getElementById('instructorName').value || 'Instructor';
+            const completionDate = document.getElementById('completionDate').value;
+            const borderStyle = document.getElementById('borderStyle').value;
+
+            document.getElementById('displayName').textContent = studentName;
+            document.getElementById('displayCourse').textContent = courseName;
+            document.getElementById('displayInstructor').textContent = instructorName;
+            document.getElementById('displayDate').textContent = formatDate(completionDate);
+
+            // Update border style
+            const certificate = document.getElementById('certificate');
+            certificate.className = 'certificate border-' + borderStyle;
+        }
+
+        // Add event listeners
+        document.getElementById('studentName').addEventListener('input', updateCertificate);
+        document.getElementById('courseName').addEventListener('input', updateCertificate);
+        document.getElementById('instructorName').addEventListener('input', updateCertificate);
+        document.getElementById('completionDate').addEventListener('change', updateCertificate);
+        document.getElementById('borderStyle').addEventListener('change', updateCertificate);
+
+        // Initial update
+        updateCertificate();
+    </script>
+</body>
+</html>
