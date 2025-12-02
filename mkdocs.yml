@@ -114,7 +114,7 @@ nav:
     - Git Workflow Skill Development: sims/git-workflow-skill-development/index.md
     - Graph Color Test: sims/graph-color-test/index.md
     - Graph Viewer: sims/graph-viewer/index.md
-    - Install Book Env: sims/install-book-env/index.md
+    - Install Book Enviroment: sims/install-book-env/index.md
     - Learning Graph JSON Schema: sims/learning-graph-json-schema/index.md
     - Linear Chain vs Network: sims/linear-chain-vs-network/index.md
     - Map Test World Cities: sims/test-world-cities/index.md

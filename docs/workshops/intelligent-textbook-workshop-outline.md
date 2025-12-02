@@ -3,13 +3,14 @@
 **Duration:** 2 hours
 
 !!! note "Update"
-    We are hosting one at [The Thinking Spot](https://www.thethinkingspot.us/) on Monday Dec. 1st from 6:30 pm to 8:30 pm. Please let Dan know if you can attend.
+    We are hosting one at [The Thinking Spot](https://www.thethinkingspot.us/) on Monday Dec. 1st 2025 from 6:30 pm to 8:30 pm. Please let Dan know if you can attend.
 
 [Cheat Sheet (PDF)](https://github.com/dmccreary/claude-skills/blob/main/slides/Workshop-Cheat-Sheet.pdf)
 
 ## Prerequisites
 
-- **Cluade Code Account:** - All users need to have the $20/month Claude Code account.  We do not use ChatGPT.
+- **Cluade Code Account:** - All users **must** to have the $20/month Claude Code account.  We do not use ChatGPT.
+Visitors are welcome to watch others, but to leave with a working textbooks Claude Code is required.
 - **Background:** Users should know how to use a computer keyboard (including copy and paste), the computer mouse and have basic familiarity with tools like GitHub, markdown and command-line tools in the Terminal or Shell.
 - **Course Description:** Please come with a detailed course description prepared and ask your AI to classify learning objectives using the 2001 Bloom Taxonomy.
 - **GitHub Account:** Users should have created and tested a GitHub account before they arrive at class.
@@ -23,6 +24,11 @@ This should return a list of about 30 Skills
 
 - **Claude Code Account Monitoring:** Users should know how to check and extend their own token usage: [https://claude.ai/settings/usage](https://claude.ai/settings/usage)
 
+
+!!! Warning
+    You **must** have administrative rights on your computer.  Computers managed by an institution must have their institution install a developer environment and test the Claude Code Skills before those computers can be used.
+    It is critical that the gaols of the institution are aligned with the generation of free open-source textbooks
+    before institutional resources are used in this course.
 
 ## Workshop Goal
 
@@ -55,7 +61,7 @@ The following shows how these tools also depend on other systems.
 - Review course description format
 - Clone starter template or create new MkDocs project
 
-**Hands-on:** Each participant runs `./scripts/list-skills.sh` and verifies their course description file exists.
+**Hands-on:** Each participant runs `./scripts/bk-list-skills` and verifies their course description file exists.
 
 ---
 

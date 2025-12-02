@@ -8,7 +8,7 @@ quality_score: 90
 
 This MicroSim visualizes the dependency graph for setting up an intelligent textbook development environment. It shows all the software components required to build a book using MkDocs Material and Claude Skills.
 
-<iframe src="main.html" width="100%" height="500px"></iframe>
+<iframe src="main.html" width="100%" height="400px"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 

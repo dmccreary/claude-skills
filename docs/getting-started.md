@@ -1,13 +1,19 @@
 # Getting Started Guide for Installing Textbook Generation Skills in Claude Code
 
 This document guides you through the steps to install a set of Claude Code Skills
-used to generate intelligent textbook skills on your 
-local computer so they are accessible to Claude Code. At the end of this getting
-started build you should be 
+used to generate intelligent textbook on your local computer so they are accessible to Claude Code.
+
+This Document has two sections:
+
+1. A [Quick Start Summary](#quick-start-summary) for experienced users that understand UNIX shell command
+2. A [Detailed Installations Options](#detailed-installation-options-for-new-users) for users that have never use the UNIX shell
+
+At the end of this getting started guild you should be 
 able to run all the skills and book-building utilities in this project.
 
 !!! Note
-   Claude does not currently run on the Windows PowerShell.  See details below.
+    Claude Code does not currently run on the Windows PowerShell.  See details below
+    on how to install Claude Code on the MicroSoft Windows System for Linus (WSL).
 
 ## Quick Start Summary
 
@@ -75,11 +81,11 @@ Here is a sample response:
 ```
 
 !!! Warning
-  The installation process only installs **symbolic links** in your ~./local/bin and your ~/.claude/skills.
-  This allows you to just do a `git pull` to get new updates to existing skills.
-  You must not delete the claude-skills or the skills will stop working.
-  When new skills or scripts are added you MUST reinstall them to get the new symbolic links installed.
-  When in doubt do a git pull and rerun the installers for both scripts and skills.
+    The installation process only installs **symbolic links** in your ~./local/bin and your ~/.claude/skills.
+    This allows you to just do a `git pull` on the claudes-skill repo to get new updates to existing skills.
+    You must not delete the claude-skills repo or the skills will stop working.
+    When new skills or scripts are added you MUST reinstall them to get the new symbolic links installed.
+    When in doubt do a git pull and rerun the installers for both scripts and skills.
 
 Detailed instructions for each step are provided below.
 
@@ -87,7 +93,7 @@ Detailed instructions for each step are provided below.
 
 This section of the Getting Started Guide walks new users through some of the 
 detailed step-by-step guide for getting the Claude skills loaded into
-your local computer.
+your local computer.  It is intended for users that are new to the UNIX shell.
 
 
 There are two installation options for Claude skills:
@@ -109,8 +115,10 @@ Git comes install on many operating systems including
 4. Windows Subsystem for Linux (WSL)
 
 !!! note
-  Although git can be installed on Windows, you can't run Claude with PowerShell.
-  You must run the Windows Subsystem for Linux (WSL) or the git bash shell
+    Although git can be installed on Windows, you can't run Claude with PowerShell.
+    You must run the Windows Subsystem for Linux (WSL) or the git bash shell.
+    When you use Visual Studio Code, it must be configured to use these shells
+    in the Terminal View.
 
 You can test that git is installed by running:
 
