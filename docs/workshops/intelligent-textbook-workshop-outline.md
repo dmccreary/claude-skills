@@ -9,14 +9,26 @@
 
 ## Prerequisites
 
-- Please come with a detailed course description prepared and ask your AI to classify learning objectives using the 2001 Bloom Taxonomy
-- Please make sure that Claude Code installed with all skills loaded and usage visible
-   Test: `> What skills do you know?`
-- Users know how to check and extend their own token usage: [https://claude.ai/settings/usage](https://claude.ai/settings/usage)
-- Basic familiarity with markdown and command-line tools
+- **Cluade Code Account:** - All users need to have the $20/month Claude Code account.  We do not use ChatGPT.
+- **Background:** Users should know how to use a computer keyboard (including copy and paste), the computer mouse and have basic familiarity with tools like GitHub, markdown and command-line tools in the Terminal or Shell.
+- **Course Description:** Please come with a detailed course description prepared and ask your AI to classify learning objectives using the 2001 Bloom Taxonomy.
+- **GitHub Account:** Users should have created and tested a GitHub account before they arrive at class.
+- **Claude Code Skills Installed:** Please make sure that Claude Code installed with all skills loaded and usage visible
 
-**Workshop Goal:** By the end of this workshop, participants will understand the intelligent textbook 
-creation workflow and have generated core components for their own textbook using Claude Code skills.
+```sh
+> What skills do you know about?
+```
+
+This should return a list of about 30 Skills
+
+- **Claude Code Account Monitoring:** Users should know how to check and extend their own token usage: [https://claude.ai/settings/usage](https://claude.ai/settings/usage)
+
+
+## Workshop Goal
+
+By the end of this workshop, participants will understand the steps to create an intelligent textbook using
+Claude Code Skills. 
+Students will learn the steps in the creation of intelligent textbooks and the MicroSims within them.
 
 ## Workshop Outline
 
