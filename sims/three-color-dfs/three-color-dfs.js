@@ -20,16 +20,16 @@ const colors = {
     }
 };
 
-// Node definitions with labels
+// Node definitions with labels - positioned on left half of canvas
 const nodeData = [
-    { id: 1, label: 'Variables', x: -200, y: -150 },
-    { id: 2, label: 'Functions', x: 50, y: -150 },
-    { id: 3, label: 'Loops', x: -200, y: 10 },
-    { id: 4, label: 'Recursion', x: 50, y: 10 },
-    { id: 5, label: 'Data Structures', x: -200, y: 150 },
-    { id: 6, label: 'Algorithms', x: 50, y: 150 },
-    { id: 7, label: 'Arrays', x: -75, y: 250 },
-    { id: 8, label: 'Sorting', x: -75, y: 350 }
+    { id: 1, label: 'Variables', x: -350, y: -150 },
+    { id: 2, label: 'Functions', x: -100, y: -150 },
+    { id: 3, label: 'Loops', x: -350, y: 10 },
+    { id: 4, label: 'Recursion', x: -100, y: 10 },
+    { id: 5, label: 'Data Structures', x: -350, y: 150 },
+    { id: 6, label: 'Algorithms', x: -100, y: 150 },
+    { id: 7, label: 'Arrays', x: -225, y: 250 },
+    { id: 8, label: 'Sorting', x: -225, y: 350 }
 ];
 
 // Edge definitions (adjacency list style)
@@ -80,6 +80,19 @@ const steps = [
 
 // Create vis.js DataSets
 let nodes, edges, network;
+
+// Position the view to show nodes on the left side of canvas
+function positionView() {
+    if (network) {
+        network.moveTo({
+            // lower X to move nodes and arcs initial position further to the right
+            // increase y to move nodes and arcs up
+            position: { x: -90, y: 60 },
+            scale: 1,
+            animation: false
+        });
+    }
+}
 
 function initializeNetwork() {
     // Reset state
@@ -164,10 +177,8 @@ function initializeNetwork() {
     const data = { nodes: nodes, edges: edges };
     network = new vis.Network(container, data, options);
 
-    // Fit the network
-    network.once('stabilized', function() {
-        network.fit({ padding: 50 });
-    });
+    // Position the view to show nodes on the left side of canvas
+    setTimeout(positionView, 200);
 
     // Update UI
     updateUI();
@@ -307,10 +318,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('next-btn').addEventListener('click', executeStep);
     document.getElementById('reset-btn').addEventListener('click', reset);
 
-    // Handle window resize
-    window.addEventListener('resize', function() {
-        if (network) {
-            network.fit({ padding: 50 });
-        }
-    });
+    // Handle window resize - maintain left-side positioning
+    window.addEventListener('resize', positionView);
 });

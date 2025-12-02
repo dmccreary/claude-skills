@@ -14,49 +14,196 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            background-color: aliceblue;
         }
 
         .container {
-            display: flex;
+            position: relative;
             width: 100%;
             height: 100vh;
-        }
-
-        .network-panel {
-            width: 70%;
-            height: 100%;
-            position: relative;
         }
 
         #network {
             width: 100%;
             height: 100%;
-            border-right: 2px solid #ccc;
             background-color: aliceblue;
         }
 
-        .stack-panel {
-            width: 30%;
-            height: 100%;
-            padding: 20px;
-            background-color: #fff;
-            overflow-y: auto;
-        }
-
-        .panel-title {
-            font-size: 18px;
+        /* Title at top center */
+        .title {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
             font-weight: bold;
-            margin-bottom: 15px;
-            color: #333;
-            text-align: center;
+            color: black;
+            background-color: aliceblue;
+            z-index: 10;
         }
 
+        /* Legend in upper left */
+        .legend {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 6px 8px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 3px 0;
+            font-size: 12px;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin-right: 4px;
+            border: 2px solid #333;
+        }
+
+        .color-white {
+            background-color: #e0e0e0;
+        }
+
+        .color-gray {
+            background-color: #ffd700;
+        }
+
+        .color-black {
+            background-color: #4caf50;
+        }
+
+        /* Right panel with controls, stack, and status */
+        .right-panel {
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .stack-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .stack-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .stack {
+            display: flex;
+            flex-direction: column-reverse;
+            border: 2px solid #333;
+            border-radius: 4px;
+            min-height: 60px;
+            max-height: 120px;
+            overflow-y: auto;
+            background-color: #fafafa;
+        }
+
+        .stack-empty {
+            padding: 15px;
+            text-align: center;
+            color: #999;
+            font-style: italic;
+            font-size: 12px;
+        }
+
+        .stack-item {
+            padding: 8px;
+            text-align: center;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+            font-size: 12px;
+            background-color: #ffd700;
+        }
+
+        .stack-item:first-child {
+            border-top: none;
+        }
+
+        .stack-label {
+            text-align: center;
+            font-size: 11px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .status-info {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .status-title {
+            font-weight: bold;
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+
+        .status-text {
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .cycle-alert {
+            background-color: rgba(255, 235, 238, 0.95);
+            border: 2px solid #f44336;
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .cycle-alert.visible {
+            display: block;
+        }
+
+        .cycle-alert-title {
+            color: #c62828;
+            font-weight: bold;
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+
+        .cycle-alert-text {
+            color: #c62828;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        /* Controls */
         .controls {
             display: flex;
             gap: 10px;
-            margin-bottom: 15px;
-            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 10px 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .step-counter {
+            font-size: 14px;
+            color: #666;
+            margin-right: 10px;
         }
 
         .btn {
@@ -92,237 +239,99 @@
             background-color: #616161;
         }
 
-        .step-counter {
-            text-align: center;
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .legend {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-        }
-
-        .legend-title {
-            font-weight: bold;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            margin: 8px 0;
-            font-size: 13px;
-        }
-
-        .legend-color {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            margin-right: 10px;
-            border: 2px solid #333;
-        }
-
-        .color-white {
-            background-color: #e0e0e0;
-        }
-
-        .color-gray {
-            background-color: #ffd700;
-        }
-
-        .color-black {
-            background-color: #4caf50;
-        }
-
-        .stack-container {
-            margin-top: 20px;
-        }
-
-        .stack-title {
-            font-weight: bold;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .stack {
-            display: flex;
-            flex-direction: column-reverse;
-            border: 2px solid #333;
-            border-radius: 4px;
-            min-height: 100px;
-            background-color: #fafafa;
-        }
-
-        .stack-empty {
-            padding: 20px;
-            text-align: center;
-            color: #999;
-            font-style: italic;
-        }
-
-        .stack-item {
-            padding: 12px;
-            text-align: center;
-            border-top: 1px solid #ccc;
-            font-weight: bold;
-            background-color: #ffd700;
-        }
-
-        .stack-item:first-child {
-            border-top: none;
-        }
-
-        .stack-label {
-            text-align: center;
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
-        }
-
-        .cycle-alert {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #ffebee;
-            border: 2px solid #f44336;
-            border-radius: 8px;
-            display: none;
-        }
-
-        .cycle-alert.visible {
-            display: block;
-        }
-
-        .cycle-alert-title {
-            color: #c62828;
-            font-weight: bold;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-        .cycle-alert-text {
-            color: #c62828;
-            font-size: 13px;
-            line-height: 1.4;
-        }
-
-        .status-info {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #e3f2fd;
-            border-radius: 8px;
-        }
-
-        .status-info.complete {
-            background-color: #e8f5e9;
-        }
-
-        .status-title {
-            font-weight: bold;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .status-text {
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        .node-status {
-            margin: 4px 0;
-        }
-
-        .node-status.white {
-            color: #757575;
-        }
-
-        .node-status.gray {
-            color: #f9a825;
-            font-weight: bold;
-        }
-
-        .node-status.black {
-            color: #2e7d32;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
+        @media (max-width: 600px) {
+            .title {
+                font-size: 16px;
+                padding: 6px 12px;
             }
 
-            .network-panel {
-                width: 100%;
-                height: 60vh;
+            .legend {
+                padding: 8px 10px;
             }
 
-            .stack-panel {
-                width: 100%;
-                height: 40vh;
+            .legend-title {
+                font-size: 11px;
             }
 
-            #network {
-                border-right: none;
-                border-bottom: 2px solid #ccc;
+            .legend-item {
+                font-size: 10px;
+            }
+
+            .legend-color {
+                width: 16px;
+                height: 16px;
+            }
+
+            .info-panel {
+                width: 200px;
+            }
+
+            .controls {
+                padding: 8px 12px;
+            }
+
+            .btn {
+                padding: 8px 14px;
+                font-size: 12px;
+            }
+
+            .step-counter {
+                font-size: 12px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="network-panel">
-            <div id="network"></div>
-        </div>
-        <div class="stack-panel">
-            <div class="panel-title">Three-Color DFS Algorithm</div>
+        <div id="network"></div>
 
+        <!-- Title at top center -->
+        <div class="title">Three-Color DFS Algorithm</div>
+
+        <!-- Legend in upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-white"></div>
+                <span><strong>Gray</strong> - Unvisited</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-gray"></div>
+                <span><strong>Yellow</strong> - In Progress</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-black"></div>
+                <span><strong>Green</strong> - Completed</span>
+            </div>
+        </div>
+
+        <!-- Right panel with controls, stack, and status -->
+        <div class="right-panel">
             <div class="controls">
+                <div class="step-counter" id="step-counter">Step 0 / 19</div>
                 <button class="btn btn-primary" id="next-btn">Next Step</button>
                 <button class="btn btn-secondary" id="reset-btn">Reset</button>
             </div>
 
-            <div class="step-counter" id="step-counter">Step 0 of 14</div>
-
-            <div class="legend">
-                <div class="legend-title">Node Colors:</div>
-                <div class="legend-item">
-                    <div class="legend-color color-white"></div>
-                    <span><strong>Gray</strong> - Unvisited</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color color-gray"></div>
-                    <span><strong>Yellow</strong> - In Progress</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color color-black"></div>
-                    <span><strong>Green</strong> - Completed</span>
-                </div>
-            </div>
-
             <div class="stack-container">
-                <div class="stack-title">DFS Traversal Stack:</div>
+                <div class="stack-title">DFS Stack:</div>
                 <div class="stack" id="dfs-stack">
-                    <div class="stack-empty">Empty - Click "Next Step" to begin</div>
+                    <div class="stack-empty">Empty - Click "Next Step"</div>
                 </div>
                 <div class="stack-label">Top of Stack</div>
-            </div>
-
-            <div class="cycle-alert" id="cycle-alert">
-                <div class="cycle-alert-title">Cycle Detected!</div>
-                <div class="cycle-alert-text">
-                    Back edge found: <strong>Recursion → Loops</strong><br><br>
-                    When visiting "Recursion", we found an edge pointing to "Loops" which is already Gray (in progress on the stack).<br><br>
-                    This creates a cycle: <strong>Loops → Recursion → Loops</strong>
-                </div>
             </div>
 
             <div class="status-info" id="status-info">
                 <div class="status-title">Current Action:</div>
                 <div class="status-text" id="status-text">
-                    Click "Next Step" to begin DFS traversal from node 1 (Variables).
+                    Click "Next Step" to begin DFS traversal.
+                </div>
+            </div>
+
+            <div class="cycle-alert" id="cycle-alert">
+                <div class="cycle-alert-title">Cycle Detected!</div>
+                <div class="cycle-alert-text">
+                    Back edge: <strong>Recursion → Loops</strong><br>
+                    Cycle: <strong>Loops → Recursion → Loops</strong>
                 </div>
             </div>
         </div>
