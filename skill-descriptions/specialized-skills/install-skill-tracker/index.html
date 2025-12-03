@@ -114,7 +114,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#install-skill-tracker" class="md-skip">
+        <a href="#install-skill-tracker-global" class="md-skip">
           Skip to content
         </a>
       
@@ -813,6 +813,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1468,6 +1477,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1491,78 +1509,93 @@
   
 
 
-<h1 id="install-skill-tracker">Install Skill Tracker</h1>
-<p>The install-skill-tracker skill automates the installation of a skill tracking
-system for Claude Code projects. The system uses hooks to automatically log all
-skill invocations, duration, token usage, and user prompts for later analysis.</p>
+<h1 id="install-skill-tracker-global">Install Skill Tracker (Global)</h1>
+<p>The install-skill-tracker skill automates the installation of a <strong>global</strong> skill tracking
+system for Claude Code. The system uses hooks installed in <code>~/.claude/</code> to automatically
+log all skill invocations across <strong>all projects</strong>, including duration, token usage, and
+user prompts for later analysis.</p>
 <h2 id="key-capabilities">Key Capabilities</h2>
-<p>This skill installs tracking for:</p>
+<p>This skill installs global tracking for:</p>
 <ul>
-<li><strong>Skill Usage</strong>: Which skills are invoked and how often</li>
+<li><strong>Skill Usage</strong>: Which skills are invoked and how often across all projects</li>
 <li><strong>Execution Duration</strong>: Time spent in each skill</li>
 <li><strong>Token Usage</strong>: API costs and efficiency metrics</li>
 <li><strong>User Prompts</strong>: What triggers skill invocations</li>
 <li><strong>Session Tracking</strong>: Group activities by session</li>
+<li><strong>Project Tracking</strong>: Identify which project triggered each skill</li>
 </ul>
 <h2 id="when-to-use">When to Use</h2>
 <p>Use this skill when:</p>
 <ul>
-<li>Setting up skill usage tracking in a new or existing project</li>
-<li>Wanting to analyze which skills are used most frequently</li>
-<li>Monitoring API costs and token usage</li>
+<li>Setting up skill usage tracking that works across all your Claude Code projects</li>
+<li>Wanting to analyze which skills are used most frequently in your entire workflow</li>
+<li>Monitoring API costs and token usage across all skill executions</li>
 <li>Identifying time-consuming skills needing optimization</li>
 <li>Discovering patterns that could become new skills</li>
 <li>Tracking productivity gains from skill automation</li>
-<li>Understanding prompt cache effectiveness</li>
+<li>Understanding prompt cache effectiveness and optimization opportunities</li>
 </ul>
 <h2 id="what-gets-installed">What Gets Installed</h2>
-<p>The skill creates this directory structure:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>.claude/
+<p>The skill creates this <strong>global</strong> directory structure in your home directory:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>~/.claude/
+├── settings.json             # Hook configuration (global)
 ├── hooks/
-│   ├── track-prompts.sh      # Logs user prompts
+│   ├── track-prompts.sh      # Logs user prompts with project info
 │   ├── track-skill-start.sh  # Logs skill start events
-│   └── track-skill-end.sh    # Logs skill completion
+│   └── track-skill-end.sh    # Logs skill completion and tokens
 ├── scripts/
-│   └── analyze-usage.py      # Analysis script
+│   ├── analyze-skills.py     # Analysis script
+│   └── show-skill-tokens.sh  # Token usage display
 └── activity-logs/
-    └── (log files generated here)
+    ├── prompts.jsonl         # All prompts across all projects
+    └── skill-usage.jsonl     # All skill events across all projects
 </code></pre></div></td></tr></table></div>
 <h2 id="hook-scripts">Hook Scripts</h2>
 <ul>
-<li><strong>track-prompts.sh</strong>: Logs user prompts with timestamps and session IDs</li>
-<li><strong>track-skill-start.sh</strong>: Logs when skills begin execution</li>
-<li><strong>track-skill-end.sh</strong>: Logs skill completion and calculates duration</li>
+<li><strong>track-prompts.sh</strong>: Logs user prompts with timestamps, session IDs, and project directory</li>
+<li><strong>track-skill-start.sh</strong>: Logs when skills begin execution with project context</li>
+<li><strong>track-skill-end.sh</strong>: Logs skill completion, duration, and token usage</li>
 </ul>
 <h2 id="analysis-capabilities">Analysis Capabilities</h2>
-<p>The analysis script provides:</p>
+<p>The analysis scripts provide:</p>
 <ul>
-<li>Most frequently used skills</li>
+<li>Most frequently used skills (across all projects)</li>
 <li>Average execution time per skill</li>
-<li>Token usage breakdown</li>
-<li>Peak usage times</li>
+<li>Token usage breakdown (input, output, cache read, cache creation)</li>
 <li>Common prompt patterns</li>
 <li>Cost estimation</li>
+<li>Filter by project using the <code>project</code> field in logs</li>
 </ul>
 <h2 id="workflow">Workflow</h2>
 <ol>
-<li>Create directory structure (<code>.claude/hooks</code>, <code>.claude/scripts</code>, <code>.claude/activity-logs</code>)</li>
+<li>Create global directory structure (<code>~/.claude/hooks</code>, <code>~/.claude/scripts</code>, <code>~/.claude/activity-logs</code>)</li>
 <li>Install hook scripts with proper permissions</li>
-<li>Install analysis script</li>
-<li>Configure hooks in settings.json</li>
+<li>Install analysis scripts</li>
+<li>Configure hooks in <code>~/.claude/settings.json</code></li>
 <li>Verify installation</li>
 </ol>
 <h2 id="integration">Integration</h2>
-<p>This skill is typically used at project initialization to enable
-ongoing tracking. The analysis data helps identify opportunities
-for new skills and optimization of existing workflows.</p>
+<p>This skill is typically run once to enable global tracking across all projects.
+The centralized analysis data helps identify opportunities for new skills and
+optimization of existing workflows. Since all logs include the project directory,
+you can filter analysis by project when needed:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># View skills used in a specific project</span>
+jq<span class="w"> </span><span class="s1">&#39;select(.project | contains(&quot;my-project&quot;))&#39;</span><span class="w"> </span>~/.claude/activity-logs/skill-usage.jsonl
+</code></pre></div></td></tr></table></div>
+<h2 id="version">Version</h2>
+<p><strong>v2.0</strong> - Global-only installation (December 2025)</p>
 
 
 
