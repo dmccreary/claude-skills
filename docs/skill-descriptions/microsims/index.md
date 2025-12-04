@@ -11,18 +11,19 @@ This list is ordered based on the most general purpose tools to the most case sp
 
 1. **General MicroSim with p5** - use for most general MicroSim used for interactive animations and simulations
 2. **General Chart Generation with ChartJS** - used for generating charts
-3. **Mermaid Generator** - used for static workflow and flow chart diagrams
-4. **Vis Network Graph Generator** - used to generate interactive network graph diagrams
-5. **Causal Loop Diagram Generator** - creates interactive causal loop diagrams for systems thinking education
-6. **Math Function Plot Generator** - uses the powerful Plotly.js library for plotting math functions
-7. **Timeline Generator** - used to generate timelines from a list of events
-8. **Map Generator** - generates maps using the Leaflet library
-9. **Venn Diagram Generator** - generates Venn Diagrams
-10. **Bubble Chart Generator** - specialized to only generate bubble charts
-11. **MicroSim Matcher** - helps select the right generator for a specification
-12. **MicroSim Screen Capture** - captures screenshots using Chrome headless
-13. **MicroSim Add Icons** - adds CC and fullscreen icons to MicroSims
-14. **MicroSim Standardization** - validates MicroSim quality and structure
+3. **Concept Classifier Quiz** - interactive classification quizzes where students identify categories from scenarios
+4. **Mermaid Generator** - used for static workflow and flow chart diagrams
+5. **Vis Network Graph Generator** - used to generate interactive network graph diagrams
+6. **Causal Loop Diagram Generator** - creates interactive causal loop diagrams for systems thinking education
+7. **Math Function Plot Generator** - uses the powerful Plotly.js library for plotting math functions
+8. **Timeline Generator** - used to generate timelines from a list of events
+9. **Map Generator** - generates maps using the Leaflet library
+10. **Venn Diagram Generator** - generates Venn Diagrams
+11. **Bubble Chart Generator** - specialized to only generate bubble charts
+12. **MicroSim Matcher** - helps select the right generator for a specification
+13. **MicroSim Screen Capture** - captures screenshots using Chrome headless
+14. **MicroSim Add Icons** - adds CC and fullscreen icons to MicroSims
+15. **MicroSim Standardization** - validates MicroSim quality and structure
 
 ## Common Elements to All MicroSims
 
@@ -75,6 +76,24 @@ If the user does not provide the title, chart type and data, the skill will prom
 them for the appropriate information.
 
 See the [ChartJS Generator](./chartjs-generator.md) skill description.
+
+## Concept Classifier Quiz
+
+**Name:** concept-classifier<br/>
+**Width Responsive:** Yes
+
+This skill creates interactive classification quiz MicroSims where students read scenarios and must identify the correct category from multiple choice options. All quiz content is stored in a separate `data.json` file, making it easy to create new quizzes without modifying code.
+
+Ideal for:
+
+- Identifying cognitive biases, logical fallacies, or literary devices
+- Classifying examples into taxonomic groups or categories
+- Recognizing patterns (design patterns, musical forms, art movements)
+- Matching scenarios to concepts or theories
+
+Features include hint system, automatic explanations, score tracking, animated mascot, and customizable feedback messages.
+
+See the [Concept Classifier](./concept-classifier.md) skill description.
 
 ## Mermaid
 **Name:** timeline-generator<br/>

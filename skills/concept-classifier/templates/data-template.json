@@ -1,0 +1,92 @@
+{
+  "title": "$QUIZ_TITLE",
+  "description": "$QUIZ_DESCRIPTION",
+  "config": {
+    "questionsPerQuiz": 10,
+    "pointsCorrect": 10,
+    "pointsWithHint": 5,
+    "scenarioLabel": "SCENARIO",
+    "instructionText": "Select the correct $CATEGORY_TYPE for this scenario",
+    "correctAnswerField": "correctAnswer"
+  },
+  "scenarios": [
+    {
+      "id": 1,
+      "scenario": "First example scenario that demonstrates one of your categories. Make it specific and clear enough that there is one obviously correct answer.",
+      "correctAnswer": "Category A",
+      "options": ["Category A", "Category B", "Category C", "Category D"],
+      "explanation": "This is Category A because [explain the key characteristics that make it fit this category]. The distinguishing feature is [specific detail].",
+      "hint": "Look for [key characteristic] that indicates this category."
+    },
+    {
+      "id": 2,
+      "scenario": "Second example scenario demonstrating a different category. Include enough detail for students to make an informed choice.",
+      "correctAnswer": "Category B",
+      "options": ["Category A", "Category B", "Category C", "Category D"],
+      "explanation": "This demonstrates Category B because [reasoning]. Unlike Category A which [contrast], Category B [distinguishing feature].",
+      "hint": "Consider what makes this different from [similar category]."
+    },
+    {
+      "id": 3,
+      "scenario": "Third scenario - continue adding scenarios until you have 15-30 total for good variety.",
+      "correctAnswer": "Category C",
+      "options": ["Category A", "Category B", "Category C", "Category D"],
+      "explanation": "Category C is correct here because [explanation of why this fits].",
+      "hint": "Think about [guiding question]."
+    }
+  ],
+  "encouragingMessages": {
+    "correct": [
+      "Excellent!",
+      "Well done!",
+      "Great job!",
+      "You got it!",
+      "Perfect!",
+      "Spot on!"
+    ],
+    "incorrect": [
+      "Not quite—now you know for next time!",
+      "Good try! This one is tricky.",
+      "Learning from mistakes makes us better!",
+      "Keep practicing!",
+      "Almost! Now you'll remember it.",
+      "A common confusion—now you know the difference!"
+    ]
+  },
+  "categoryDescriptions": {
+    "Category A": "Brief description of what defines Category A",
+    "Category B": "Brief description of what defines Category B",
+    "Category C": "Brief description of what defines Category C",
+    "Category D": "Brief description of what defines Category D"
+  },
+  "endScreen": {
+    "tipsTitle": "Tips for Better Classification:",
+    "tips": [
+      "First tip relevant to your subject domain...",
+      "Second tip for recognizing categories...",
+      "Third tip for avoiding common mistakes..."
+    ],
+    "performanceMessages": {
+      "excellent": {
+        "threshold": 90,
+        "message": "Outstanding!",
+        "subMessage": "You have excellent classification skills."
+      },
+      "good": {
+        "threshold": 70,
+        "message": "Great Job!",
+        "subMessage": "You classified most items correctly."
+      },
+      "fair": {
+        "threshold": 50,
+        "message": "Good Progress!",
+        "subMessage": "Keep practicing to improve your skills."
+      },
+      "needsWork": {
+        "threshold": 0,
+        "message": "Keep Learning!",
+        "subMessage": "Practice makes perfect."
+      }
+    }
+  }
+}
