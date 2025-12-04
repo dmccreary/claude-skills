@@ -70,6 +70,7 @@ Create a new directory for the MicroSim following this pattern:
 ```
 docs/sims/<timeline-name>/
 ├── main.html         # Main visualization file
+├── style.css         # External stylesheet
 ├── timeline.json     # Event data in TimelineJS format
 └── index.md          # Documentation (if part of MkDocs)
 ```
@@ -117,71 +118,95 @@ Generate a JSON file following this structure:
 4. Provide substantive descriptions (2-4 sentences)
 5. Add historical context in notes for educational value
 
-### Step 4: Create main.html with vis-timeline
+### Step 4: Create style.css External Stylesheet
 
-Generate the main HTML file with the following structure:
+Create an external CSS file for styling. Use the template at `resources/template-style.css` as the base.
 
+**Key CSS features**:
+- Clean, minimal design with `aliceblue` background
+- Responsive layout with grid-based info panel
+- Category filter buttons with distinct colors
+- Properly styled vis-timeline tooltips with text wrapping
+- Event details panel with context highlighting
+
+**Template placeholders in style.css**:
+- `{{FILTER_BUTTON_STYLES}}`: CSS rules for category-specific filter button colors
+
+**Critical tooltip styling** (ensures text wraps properly):
+
+```css
+.vis-tooltip {
+    background: #2c3e50 !important;
+    color: white !important;
+    padding: 10px 15px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    max-width: 300px !important;
+    line-height: 1.4 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    box-sizing: border-box !important;
+}
+
+.vis-tooltip div {
+    max-width: 280px !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+}
+```
+
+### Step 5: Create main.html with vis-timeline
+
+Generate the main HTML file using the template at `resources/template-main.html`.
+
+**Key structure**:
 1. **HTML boilerplate** with proper meta tags
-2. **vis-timeline CDN imports**:
-   - JS: `https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.7.3/vis-timeline-graph2d.min.js`
-   - CSS: `https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.7.3/vis-timeline-graph2d.min.css`
+2. **vis-timeline CDN imports** and external style.css link
 3. **Styled header** with timeline title and subtitle
 4. **Category filter controls** (if requested)
 5. **Timeline container** div
-6. **Info panel** with legend and event details
-7. **JavaScript implementation**:
-   - Load timeline.json data
-   - Convert to vis-timeline format
-   - Create color scheme for categories
-   - Initialize timeline with options
-   - Implement category filtering
-   - Handle event selection for detail display
+6. **Instructions text** for user guidance
+7. **Info panel** with legend and event details
+8. **JavaScript implementation**
 
-**Key vis-timeline configuration elements**:
+**Template placeholders in main.html**:
+- `{{TIMELINE_TITLE}}`: The main title of the timeline
+- `{{TIMELINE_SUBTITLE}}`: Descriptive subtitle with date range
+- `{{FILTER_BUTTONS}}`: HTML for category filter buttons
+- `{{LEGEND_ITEMS}}`: HTML for legend color/label pairs
+- `{{CATEGORY_COLORS}}`: JavaScript object mapping categories to colors
+- `{{ZOOM_MIN_YEARS}}`: Minimum zoom level in years (e.g., 10)
+- `{{ZOOM_MAX_YEARS}}`: Maximum zoom level in years (e.g., 1000)
+- `{{MIN_YEAR}}`: Earliest year the timeline can pan to
+- `{{MAX_YEAR}}`: Latest year the timeline can pan to
+
+**Key vis-timeline configuration**:
 
 ```javascript
-// Color scheme for categories
-const categoryColors = {
-    'Category 1': '#color1',
-    'Category 2': '#color2',
-    // ... more categories
-};
-
-// Convert JSON events to vis-timeline format
-allItems = data.events.map((event, index) => {
-    const year = event.start_date.year;
-    const month = event.start_date.month || 1;
-    const day = event.start_date.day || 1;
-    const startDate = new Date(parseInt(year), month - 1, day);
-
-    return {
-        id: `event-${index}`,
-        content: event.text.headline,
-        start: startDate,
-        title: event.notes || event.text.headline,
-        className: event.group.replace(/\s+/g, '-').toLowerCase(),
-        style: `background-color: ${categoryColors[event.group]}; color: white;`,
-        category: event.group,
-        eventData: event
-    };
-});
-
-// Timeline options
+// Timeline options - important settings
 const options = {
     width: '100%',
-    height: '600px',
+    height: '400px',
     margin: { item: 20, axis: 40 },
     orientation: 'top',
-    zoomMin: 1000 * 60 * 60 * 24 * 365 * 10,  // 10 years
-    zoomMax: 1000 * 60 * 60 * 24 * 365 * 1200, // 1200 years
+    zoomMin: 1000 * 60 * 60 * 24 * 365 * 50,   // 50 years
+    zoomMax: 1000 * 60 * 60 * 24 * 365 * 1000, // 1000 years
+    min: new Date(1500, 0, 1),  // Earliest panning limit
+    max: new Date(2030, 0, 1),  // Latest panning limit
     tooltip: {
         followMouse: true,
-        template: function(item) {
-            return item.notes || '';
+        template: function(originalItemData, parsedItemData) {
+            // Inline styles ensure tooltip text wraps
+            return `<div style="max-width: 280px; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;">${originalItemData.title}</div>`;
         }
     },
     stack: true,
-    selectable: true
+    selectable: true,
+    showCurrentTime: false,
+    moveable: true,   // Enable click-and-drag panning
+    zoomable: true    // Enable scroll-to-zoom
 };
 ```
 
@@ -222,7 +247,7 @@ const options = {
 - Include hover effects for interactivity
 - Make the layout responsive for different screen sizes
 
-### Step 5: Create index.md Documentation
+### Step 6: Create index.md Documentation
 
 If the timeline is part of a MkDocs site, create comprehensive documentation:
 
@@ -302,7 +327,7 @@ This timeline pattern can be adapted for:
 4. Link to external resources (vis-timeline docs)
 5. Suggest related use cases
 
-### Step 6: Integrate into Navigation (MkDocs)
+### Step 7: Integrate into Navigation (MkDocs)
 
 If using MkDocs, add the timeline to the navigation in `mkdocs.yml`:
 
@@ -319,7 +344,7 @@ Place the entry in a logical position based on:
 - Alphabetical order
 - Chronological order of creation
 
-### Step 7: Test and Validate
+### Step 8: Test and Validate
 
 Before considering the timeline complete:
 

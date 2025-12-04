@@ -1,0 +1,240 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: aliceblue;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 0px;
+    padding: 0px;
+    background: aliceblue;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: black;
+    margin: 0 0 10px 0;
+    font-size: 2em;
+}
+
+.subtitle {
+    color: black;
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+    padding: 3px;
+    background: aliceblue;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.filter-btn.active {
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.filter-btn.all {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Category button colors - customize per timeline */
+{{FILTER_BUTTON_STYLES}}
+
+#timeline {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.info-panel {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .info-panel {
+        grid-template-columns: 1fr;
+    }
+}
+
+.legend {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.legend h3 {
+    margin: 0 0 15px 0;
+    color: #2c3e50;
+    font-size: 1.1em;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 12px;
+}
+
+.legend-text {
+    font-size: 14px;
+    color: #34495e;
+}
+
+.legend-period {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-left: auto;
+}
+
+.event-details {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.event-details h3 {
+    margin: 0 0 15px 0;
+    color: #2c3e50;
+    font-size: 1.1em;
+}
+
+.event-details .placeholder {
+    color: #95a5a6;
+    font-style: italic;
+}
+
+.event-title {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.event-date {
+    font-size: 0.95em;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.event-category {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    color: white;
+    font-weight: 500;
+}
+
+.event-description {
+    color: #34495e;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.event-context {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+.event-context-label {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.event-context-text {
+    color: #5d6d7e;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+/* vis-timeline customizations */
+.vis-item {
+    border-radius: 4px;
+    border: none;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.vis-item.vis-selected {
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.vis-item .vis-item-content {
+    padding: 5px 10px;
+}
+
+.vis-tooltip {
+    background: #2c3e50 !important;
+    color: white !important;
+    padding: 10px 15px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    max-width: 300px !important;
+    line-height: 1.4 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    box-sizing: border-box !important;
+}
+
+.vis-tooltip div {
+    max-width: 280px !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+}
+
+.instructions {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 0.9em;
+    margin-top: 15px;
+}
