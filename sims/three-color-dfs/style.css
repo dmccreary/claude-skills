@@ -1,0 +1,334 @@
+/* Three-Color DFS Cycle Detection - Stylesheet
+ * =============================================
+ *
+ * GRAPH POSITIONING NOTES:
+ * ------------------------
+ * The graph network position is controlled by TWO areas in three-color-dfs.js:
+ *
+ * 1. NODE POSITIONS (lines 24-33 in JS file):
+ *    Each node has x, y coordinates that determine its position relative to
+ *    the canvas center (0,0). Negative x values move nodes left, negative y
+ *    values move nodes up.
+ *
+ *    Example: { id: 1, label: 'Variables', x: -350, y: -150 }
+ *
+ * 2. CAMERA/VIEW POSITION (line 90 in JS file, positionView function):
+ *    The moveTo() call sets where the camera looks at the graph:
+ *
+ *    position: { x: -90, y: 60 }
+ *
+ *    - Lower x value = moves the view RIGHT (shows more of left side of graph)
+ *    - Higher y value = moves the view UP (shows more of bottom of graph)
+ *    - scale: 1 = default zoom level
+ *
+ *    Adjust these values if the graph appears cut off or poorly centered.
+ */
+
+/* ===========================================
+   RESET & BASE STYLES
+   =========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   MAIN CONTAINER & NETWORK CANVAS
+   =========================================== */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/* The vis-network canvas container
+ * This fills the entire viewport - the graph is positioned within it
+ * using the JS positionView() function */
+#network {
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   TITLE (Top Center)
+   =========================================== */
+.title {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    background-color: aliceblue;
+    z-index: 10;
+}
+
+/* ===========================================
+   LEGEND (Upper Left)
+   =========================================== */
+.legend {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 6px 8px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 3px 0;
+    font-size: 12px;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 4px;
+    border: 2px solid #333;
+}
+
+/* Legend color swatches - these should match the colors object in JS:
+ * colors.white.background = #e0e0e0
+ * colors.gray.background  = #ffd700 (yellow for "in progress")
+ * colors.black.background = #4caf50 (green for "completed") */
+.color-white {
+    background-color: #e0e0e0;
+}
+
+.color-gray {
+    background-color: #ffd700;
+}
+
+.color-black {
+    background-color: #4caf50;
+}
+
+/* ===========================================
+   RIGHT PANEL (Controls, Stack, Status)
+   =========================================== */
+.right-panel {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+}
+
+/* ===========================================
+   DFS STACK VISUALIZATION
+   =========================================== */
+.stack-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stack-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+/* Stack display - column-reverse makes newest items appear at top */
+.stack {
+    display: flex;
+    flex-direction: column-reverse;
+    border: 2px solid #333;
+    border-radius: 4px;
+    min-height: 60px;
+    max-height: 120px;
+    overflow-y: auto;
+    background-color: #fafafa;
+}
+
+.stack-empty {
+    padding: 15px;
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    font-size: 12px;
+}
+
+/* Stack items use the same yellow as "in progress" nodes */
+.stack-item {
+    padding: 8px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    font-weight: bold;
+    font-size: 12px;
+    background-color: #ffd700;
+}
+
+.stack-item:first-child {
+    border-top: none;
+}
+
+.stack-label {
+    text-align: center;
+    font-size: 11px;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* ===========================================
+   STATUS INFO PANEL
+   =========================================== */
+.status-info {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.status-title {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+
+.status-text {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* ===========================================
+   CYCLE ALERT (Red Warning Box)
+   =========================================== */
+.cycle-alert {
+    background-color: rgba(255, 235, 238, 0.95);
+    border: 2px solid #f44336;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: none;
+}
+
+.cycle-alert.visible {
+    display: block;
+}
+
+.cycle-alert-title {
+    color: #c62828;
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+
+.cycle-alert-text {
+    color: #c62828;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* ===========================================
+   CONTROL BUTTONS
+   =========================================== */
+.controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 10px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.step-counter {
+    font-size: 14px;
+    color: #666;
+    margin-right: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: #2196f3;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1976d2;
+}
+
+.btn-primary:disabled {
+    background-color: #90caf9;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background-color: #757575;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #616161;
+}
+
+/* ===========================================
+   RESPONSIVE STYLES
+   =========================================== */
+@media (max-width: 600px) {
+    .title {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+
+    .legend {
+        padding: 8px 10px;
+    }
+
+    .legend-title {
+        font-size: 11px;
+    }
+
+    .legend-item {
+        font-size: 10px;
+    }
+
+    .legend-color {
+        width: 16px;
+        height: 16px;
+    }
+
+    .info-panel {
+        width: 200px;
+    }
+
+    .controls {
+        padding: 8px 12px;
+    }
+
+    .btn {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+
+    .step-counter {
+        font-size: 12px;
+    }
+}
