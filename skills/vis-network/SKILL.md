@@ -229,7 +229,7 @@ function saveNodePositions() {
 | Context | dragView | zoomView | dragNodes | Use Case |
 |---------|----------|----------|-----------|----------|
 | Iframe (default) | `false` | `false` | `false` | Normal textbook embedding |
-| Fullscreen/Standalone | `true` | `true` | `false` | User opened main.html directly |
+| Fullscreen/Standalone | `true` | `true` | `true` | User opened main.html directly |
 | Editor Mode | `true` | `true` | `true` | Developer positioning nodes |
 
 ### Step 4: Standard vis-network Options Template
