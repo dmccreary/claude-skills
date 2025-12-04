@@ -5,7 +5,7 @@ description: Interactive vis-network visualization demonstrating the three-color
 
 # Three-Color DFS Cycle Detection
 
-<iframe src="main.html" width="100%" height="550px" scrolling="no"></iframe>
+<iframe src="main.html" width="100%" height="650px" scrolling="no"></iframe>
 
 [Run Three-Color DFS MicroSim](main.html){ .md-button .md-button--primary }
 
