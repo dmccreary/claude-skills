@@ -170,8 +170,10 @@ const options = {
             size: 14,
             color: '#666',
             strokeWidth: 3,
-            strokeColor: '#fff',
-            align: 'middle'
+            strokeColor: '#fff'
+            // if you remove the align middle you avoid the bug
+            // https://github.com/visjs/vis-network/issues/2278 reported by me on sept 9th 2025
+            // align: 'middle'
         },
         smooth: {
             type: 'curvedCW',
