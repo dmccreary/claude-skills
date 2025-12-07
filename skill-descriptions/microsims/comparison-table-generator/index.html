@@ -1,0 +1,1868 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/comparison-table-generator/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Comparison Table Generator - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HPLDD3D3K2"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HPLDD3D3K2",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HPLDD3D3K2",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Comparison Table Generator - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  property="og:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/skill-descriptions/microsims/comparison-table-generator.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/comparison-table-generator/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Comparison Table Generator - Claude Skills for Intelligent Textbooks" >
+      
+        <meta  name="twitter:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/skill-descriptions/microsims/comparison-table-generator.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#comparison-table-generator" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Comparison Table Generator
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Skill Descriptions
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../workshops/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Workshops
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-this-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use This Skill
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#star-ratings-1-5-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Star Ratings (1-5 Scale)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#difficultycategory-badges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Difficulty/Category Badges
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hover-tooltips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hover Tooltips
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsive-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Responsive Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logo-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logo Support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Use Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-linux-distribution-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Linux Distribution Comparison
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-programming-language-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Programming Language Comparison
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-database-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Database Comparison
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-cloud-provider-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Cloud Provider Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#html-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTML Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#star-rating-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Star Rating Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#difficulty-badge-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Difficulty Badge Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-row-tooltip-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      First Row Tooltip Fix
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-badge-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Badge Categories
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-star-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Star Colors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iframe-height-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iframe Height Calculation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#educational-framework-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Framework Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Educational Framework Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blooms-taxonomy-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloom's Taxonomy Alignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives Template
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Guidelines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logo-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logo Guidelines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessibility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-with-other-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison with Other Skills
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparison with Other Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-chartjs-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. ChartJS Generator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-radar-chart-chartjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. Radar Chart (ChartJS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-vis-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      vs. Vis-Network
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tooltip-hidden-behind-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tooltip Hidden Behind Header
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#row-heights-misaligned" class="md-nav__link">
+    <span class="md-ellipsis">
+      Row Heights Misaligned
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stars-not-colored" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stars Not Colored
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#badges-not-styled" class="md-nav__link">
+    <span class="md-ellipsis">
+      Badges Not Styled
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Skills
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Start Example
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/skill-descriptions/microsims/comparison-table-generator.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="comparison-table-generator">Comparison Table Generator</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>Comparison Table Generator</strong> skill creates interactive comparison table MicroSims for educational content. These tables allow students to compare multiple items across several criteria using color-coded star ratings, difficulty badges, logos, and hover tooltips. The skill generates complete MicroSim packages following all microsim-standardization rules, including proper documentation and mkdocs.yml navigation updates.</p>
+<p>This skill uses pure CSS (no JavaScript library required) for lightweight, fast-loading interactive tables.</p>
+<h2 id="when-to-use-this-skill">When to Use This Skill</h2>
+<p>Use the Comparison Table Generator when you need to create:</p>
+<ul>
+<li><strong>Educational Comparisons</strong> - Linux distributions, programming languages, frameworks, tools</li>
+<li><strong>Decision-Making Aids</strong> - Help students choose between multiple options with clear criteria</li>
+<li><strong>Multi-Criteria Analysis</strong> - Compare items across 2-4 rating dimensions</li>
+<li><strong>Visual Summaries</strong> - Quick-reference tables with ratings and categories</li>
+<li><strong>Interactive Learning</strong> - Tables with hover tooltips for deeper explanations</li>
+</ul>
+<h2 id="key-features">Key Features</h2>
+<h3 id="star-ratings-1-5-scale">Star Ratings (1-5 Scale)</h3>
+<p>Color-coded ratings using Unicode stars:</p>
+<ul>
+<li><strong>5 stars</strong> (Green #22c55e) - Excellent</li>
+<li><strong>4 stars</strong> (Yellow-green #84cc16) - Very Good</li>
+<li><strong>3 stars</strong> (Orange #f59e0b) - Good/Average</li>
+<li><strong>2 stars</strong> (Red-orange #f97316) - Below Average</li>
+<li><strong>1 star</strong> (Red #ef4444) - Poor</li>
+</ul>
+<h3 id="difficultycategory-badges">Difficulty/Category Badges</h3>
+<p>Pill-shaped badges with semantic colors:</p>
+<ul>
+<li><strong>Easy</strong> - Green background, dark green text</li>
+<li><strong>Medium</strong> - Yellow background, dark orange text</li>
+<li><strong>Hard</strong> - Red background, dark red text</li>
+</ul>
+<p>Custom categories can be added following the same pattern.</p>
+<h3 id="hover-tooltips">Hover Tooltips</h3>
+<p>Pure CSS tooltips that appear on row hover:</p>
+<ul>
+<li>Smooth fade transitions</li>
+<li>First row tooltip appears BELOW to avoid header overlap</li>
+<li>Maximum 400px width for readability</li>
+<li>Prefixed with item name for context</li>
+</ul>
+<h3 id="responsive-design">Responsive Design</h3>
+<ul>
+<li>Mobile breakpoint at 700px</li>
+<li>Horizontal scrolling for narrow screens</li>
+<li>Adjusted font sizes and logo dimensions</li>
+</ul>
+<h3 id="logo-support">Logo Support</h3>
+<ul>
+<li>SVG format recommended (32x32px)</li>
+<li>Consistent row heights with flexbox alignment</li>
+<li>Stored in <code>logos/</code> subdirectory</li>
+</ul>
+<h2 id="workflow">Workflow</h2>
+<p>The skill follows a 9-step process:</p>
+<ol>
+<li><strong>Gather Requirements</strong> - Table title, items, ratings, logos, badges</li>
+<li><strong>Create Directory Structure</strong> - <code>docs/sims/[microsim-name]/</code></li>
+<li><strong>Generate main.html</strong> - From template with star ratings and tooltips</li>
+<li><strong>Generate style.css</strong> - Copy template CSS with all patterns</li>
+<li><strong>Create index.md</strong> - Documentation with YAML frontmatter</li>
+<li><strong>Create metadata.json</strong> - Dublin Core metadata</li>
+<li><strong>Add Logo Files</strong> - SVG files in logos/ subdirectory</li>
+<li><strong>Update mkdocs.yml Navigation</strong> - Add entry to nav section</li>
+<li><strong>Validate and Report</strong> - Verify files and suggest preview</li>
+</ol>
+<h2 id="file-structure">File Structure</h2>
+<p>Each generated comparison table creates:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>docs/sims/[table-name]/
+├── index.md          # Documentation with iframe embed
+├── main.html         # Interactive comparison table
+├── style.css         # Styling (star colors, badges, tooltips)
+├── metadata.json     # Dublin Core metadata
+└── logos/            # SVG logo files
+    ├── item1.svg
+    ├── item2.svg
+    └── ...
+</code></pre></div></td></tr></table></div>
+<h2 id="example-use-cases">Example Use Cases</h2>
+<h3 id="1-linux-distribution-comparison">1. Linux Distribution Comparison</h3>
+<p><strong>Scenario</strong>: Help students choose the right Linux distribution.</p>
+<p><strong>Columns</strong>:
+- Distribution (logo + name)
+- User Friendly (1-5 stars)
+- Stability (1-5 stars)
+- Fresh Software (1-5 stars)
+- Learning Curve (Easy/Medium/Hard badge)
+- Best For (text description)</p>
+<p><strong>Items</strong>: Debian, Ubuntu, Fedora, Arch Linux, Linux Mint</p>
+<h3 id="2-programming-language-comparison">2. Programming Language Comparison</h3>
+<p><strong>Scenario</strong>: Compare languages for a beginner's course.</p>
+<p><strong>Columns</strong>:
+- Language (logo + name)
+- Ease of Learning (1-5 stars)
+- Job Market (1-5 stars)
+- Performance (1-5 stars)
+- Difficulty (Easy/Medium/Hard)
+- Best For (text)</p>
+<p><strong>Items</strong>: Python, JavaScript, Java, C++, Go</p>
+<h3 id="3-database-comparison">3. Database Comparison</h3>
+<p><strong>Scenario</strong>: Help students choose a database technology.</p>
+<p><strong>Columns</strong>:
+- Database (logo + name)
+- Query Flexibility (1-5 stars)
+- Scalability (1-5 stars)
+- Learning Curve (Easy/Medium/Hard)
+- Best For (text)</p>
+<p><strong>Items</strong>: PostgreSQL, MySQL, MongoDB, Redis, SQLite</p>
+<h3 id="4-cloud-provider-comparison">4. Cloud Provider Comparison</h3>
+<p><strong>Scenario</strong>: Compare major cloud platforms.</p>
+<p><strong>Columns</strong>:
+- Provider (logo + name)
+- Ease of Use (1-5 stars)
+- Feature Breadth (1-5 stars)
+- Documentation (1-5 stars)
+- Cost (Low/Medium/High)
+- Best For (text)</p>
+<p><strong>Items</strong>: AWS, Google Cloud, Azure, DigitalOcean</p>
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="html-structure">HTML Structure</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">tr</span> <span class="na">data-tooltip</span><span class="o">=</span><span class="s">&quot;Item Name: Description for tooltip&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;distro-cell&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;logos/item.svg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Item&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;distro-logo&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;distro-name&quot;</span><span class="p">&gt;</span>Item Name<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;rating&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;stars stars-4&quot;</span><span class="p">&gt;</span>★★★★<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;stars-empty&quot;</span><span class="p">&gt;</span>★<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;difficulty medium&quot;</span><span class="p">&gt;</span>Medium<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;best-for&quot;</span><span class="p">&gt;</span>Description text<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="star-rating-pattern">Star Rating Pattern</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">&lt;!-- 4 out of 5 stars --&gt;</span>
+<span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;rating&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;stars stars-4&quot;</span><span class="p">&gt;</span>★★★★<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;stars-empty&quot;</span><span class="p">&gt;</span>★<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="difficulty-badge-pattern">Difficulty Badge Pattern</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;difficulty easy&quot;</span><span class="p">&gt;</span>Easy<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;difficulty medium&quot;</span><span class="p">&gt;</span>Medium<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;difficulty hard&quot;</span><span class="p">&gt;</span>Hard<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="first-row-tooltip-fix">First Row Tooltip Fix</h3>
+<p>The CSS automatically positions the first row's tooltip below (instead of above) to avoid being hidden by the table header:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">.</span><span class="nc">comparison-table</span><span class="w"> </span><span class="nt">tbody</span><span class="w"> </span><span class="nt">tr</span><span class="p">:</span><span class="nd">first-child</span><span class="o">[</span><span class="nt">data-tooltip</span><span class="o">]</span><span class="p">::</span><span class="nd">after</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">bottom</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">    </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="nb">calc</span><span class="p">(</span><span class="mi">100</span><span class="kt">%</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="customization">Customization</h2>
+<h3 id="custom-badge-categories">Custom Badge Categories</h3>
+<p>To add categories beyond Easy/Medium/Hard:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">.</span><span class="nc">difficulty</span><span class="p">.</span><span class="nc">beginner</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#dbeafe</span><span class="p">;</span><span class="w">  </span><span class="c">/* Light blue */</span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#1e40af</span><span class="p">;</span><span class="w">             </span><span class="c">/* Dark blue */</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">difficulty</span><span class="p">.</span><span class="nc">advanced</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fae8ff</span><span class="p">;</span><span class="w">  </span><span class="c">/* Light purple */</span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#86198f</span><span class="p">;</span><span class="w">             </span><span class="c">/* Dark purple */</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="custom-star-colors">Custom Star Colors</h3>
+<p>Modify in style.css:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">.</span><span class="nc">stars-5</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#22c55e</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c">/* Green */</span>
+<span class="p">.</span><span class="nc">stars-4</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#84cc16</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c">/* Yellow-green */</span>
+<span class="p">.</span><span class="nc">stars-3</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f59e0b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c">/* Orange */</span>
+<span class="p">.</span><span class="nc">stars-2</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f97316</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c">/* Red-orange */</span>
+<span class="p">.</span><span class="nc">stars-1</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ef4444</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c">/* Red */</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="iframe-height-calculation">Iframe Height Calculation</h3>
+<p>Approximately 60px per row + 150px for header/legend:</p>
+<ul>
+<li>3 rows: ~330px</li>
+<li>5 rows: ~450px (default 470px)</li>
+<li>8 rows: ~630px</li>
+<li>10 rows: ~750px</li>
+</ul>
+<h2 id="educational-framework-integration">Educational Framework Integration</h2>
+<h3 id="blooms-taxonomy-alignment">Bloom's Taxonomy Alignment</h3>
+<p>Comparison tables support multiple cognitive levels:</p>
+<ul>
+<li><strong>Remember</strong> - Identify items and their characteristics</li>
+<li><strong>Understand</strong> - Interpret rating scales and categories</li>
+<li><strong>Apply</strong> - Use comparisons to make decisions</li>
+<li><strong>Analyze</strong> - Compare trade-offs between options</li>
+<li><strong>Evaluate</strong> - Assess which option best fits specific needs</li>
+</ul>
+<h3 id="learning-objectives-template">Learning Objectives Template</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>After reviewing this comparison, students should be able to:
+
+<span class="k">1.</span> <span class="gs">**Identify**</span> the major [items] and their characteristics
+<span class="k">2.</span> <span class="gs">**Compare**</span> [items] based on different criteria
+<span class="k">3.</span> <span class="gs">**Evaluate**</span> which [item] is best for specific use cases
+<span class="k">4.</span> <span class="gs">**Analyze**</span> the trade-offs between [criteria]
+</code></pre></div></td></tr></table></div>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="content-guidelines">Content Guidelines</h3>
+<ol>
+<li><strong>Limit items</strong> - 3-8 items per table for readability</li>
+<li><strong>Limit rating columns</strong> - 2-4 rating criteria maximum</li>
+<li><strong>Consistent tooltips</strong> - Always prefix with item name</li>
+<li><strong>Clear badges</strong> - Use semantic colors (green=easy, red=hard)</li>
+<li><strong>Meaningful descriptions</strong> - "Best For" column should be actionable</li>
+</ol>
+<h3 id="logo-guidelines">Logo Guidelines</h3>
+<ol>
+<li><strong>SVG format</strong> - Scalable, small file size</li>
+<li><strong>32x32px</strong> - Consistent dimensions</li>
+<li><strong>Simple designs</strong> - Clear at small sizes</li>
+<li><strong>Official sources</strong> - Check brand guidelines or vectorlogo.zone</li>
+</ol>
+<h3 id="accessibility">Accessibility</h3>
+<ol>
+<li><strong>Semantic colors</strong> - Green=positive, Red=challenging</li>
+<li><strong>Sufficient contrast</strong> - WCAG AA compliant</li>
+<li><strong>Clear labels</strong> - Descriptive column headers</li>
+<li><strong>Text alternatives</strong> - Logo alt text, tooltip descriptions</li>
+</ol>
+<h2 id="comparison-with-other-skills">Comparison with Other Skills</h2>
+<h3 id="vs-chartjs-generator">vs. ChartJS Generator</h3>
+<ul>
+<li><strong>Comparison Table</strong>: Categorical comparisons with ratings</li>
+<li><strong>ChartJS</strong>: Numerical data visualization (bar, line, pie charts)</li>
+</ul>
+<p><strong>Use Comparison Table for</strong>: Side-by-side feature comparisons
+<strong>Use ChartJS for</strong>: Quantitative data trends and distributions</p>
+<h3 id="vs-radar-chart-chartjs">vs. Radar Chart (ChartJS)</h3>
+<ul>
+<li><strong>Comparison Table</strong>: Multiple items, multiple criteria, badges</li>
+<li><strong>Radar Chart</strong>: Multi-dimensional profile visualization</li>
+</ul>
+<p><strong>Use Comparison Table for</strong>: Discrete ratings with categories
+<strong>Use Radar for</strong>: Continuous metrics with overlapping profiles</p>
+<h3 id="vs-vis-network">vs. Vis-Network</h3>
+<ul>
+<li><strong>Comparison Table</strong>: Static comparisons in table format</li>
+<li><strong>Vis-Network</strong>: Interactive network graph diagrams</li>
+</ul>
+<p><strong>Use Comparison Table for</strong>: Linear comparisons
+<strong>Use Vis-Network for</strong>: Relationship networks and dependencies</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="tooltip-hidden-behind-header">Tooltip Hidden Behind Header</h3>
+<p><strong>Cause</strong>: First row tooltip positioned above table header
+<strong>Solution</strong>: CSS automatically handles this - verify <code>tr:first-child</code> rules are present</p>
+<h3 id="row-heights-misaligned">Row Heights Misaligned</h3>
+<p><strong>Cause</strong>: Logos with different aspect ratios
+<strong>Solution</strong>: Set explicit height on <code>.distro-cell</code> (default 60px)</p>
+<h3 id="stars-not-colored">Stars Not Colored</h3>
+<p><strong>Cause</strong>: Missing star color classes
+<strong>Solution</strong>: Ensure <code>stars-N</code> class matches the rating value (1-5)</p>
+<h3 id="badges-not-styled">Badges Not Styled</h3>
+<p><strong>Cause</strong>: Class name doesn't match CSS
+<strong>Solution</strong>: Use lowercase class names: <code>easy</code>, <code>medium</code>, <code>hard</code></p>
+<h2 id="related-skills">Related Skills</h2>
+<ul>
+<li><strong>ChartJS Generator</strong> - Data visualization charts</li>
+<li><strong>Microsim-P5</strong> - Custom interactive simulations</li>
+<li><strong>MicroSim Standardization</strong> - Quality validation for MicroSims</li>
+<li><strong>MicroSim Matcher</strong> - Select the right generator for specifications</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS Flexbox Guide</a> - Layout for logo cells</li>
+<li><a href="https://css-tricks.com/a-complete-guide-to-tooltip-patterns/">Pure CSS Tooltips</a> - Tooltip implementation</li>
+<li><a href="https://www.vectorlogo.zone/">Vector Logo Zone</a> - Source for SVG logos</li>
+<li><a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">Dublin Core Metadata</a> - Metadata standards</li>
+</ul>
+<h2 id="quick-start-example">Quick Start Example</h2>
+<p>To generate a comparison table:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>Input Requirements:
+- Title: Linux Distribution Comparison
+- MicroSim Name: linux-distro-comparison
+- Items: Debian, Ubuntu, Fedora, Arch, Mint (with logos and tooltips)
+- Rating Columns: User Friendly, Stability, Fresh Software
+- Badge Column: Learning Curve (Easy/Medium/Hard)
+- Description Column: Best For
+</code></pre></div></td></tr></table></div>
+<p><strong>Output</strong>: Complete MicroSim package with:
+- Interactive table with hover tooltips
+- Color-coded star ratings
+- Difficulty badges with legend
+- Responsive design
+- Documentation with learning objectives
+- Dublin Core metadata
+- mkdocs.yml navigation entry</p>
+<hr />
+<p><em>Comparison tables integrate seamlessly into MkDocs Material textbooks as iframe-embedded MicroSims with professional styling and educational metadata.</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
