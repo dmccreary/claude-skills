@@ -70,11 +70,80 @@ h1 {
 /* Category button colors - customize per timeline */
 {{FILTER_BUTTON_STYLES}}
 
+/* Zoom Controls */
+.zoom-controls {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.zoom-btn {
+    padding: 3px 12px;
+    margin: 0 3px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: #2c3e50;
+    transition: all 0.2s ease;
+}
+
+.zoom-btn:hover {
+    background: #ecf0f1;
+    border-color: #3498db;
+}
+
+.zoom-btn:active {
+    background: #3498db;
+    color: white;
+}
+
+.zoom-btn.fit-btn {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+/* =============================================================================
+   EDGE CLIPPING PREVENTION - CSS Solutions
+   =============================================================================
+   Problem: vis-timeline clips event boxes when they extend beyond the visible
+   date range. This happens because:
+   1. The timeline container has overflow:hidden by default
+   2. Internal vis-timeline panels clip content at their boundaries
+   3. Event boxes near edges get cut off
+
+   Solution: A three-part approach combining CSS container padding and
+   overflow overrides with JavaScript window padding (see main.html).
+   ============================================================================= */
+
 #timeline {
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    overflow: hidden;
+    /* EDGE CLIPPING FIX: Add internal padding so event boxes near the edges
+       have room to render without being clipped by the container boundary.
+       This works together with the 2-year window padding in JavaScript. */
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+/* EDGE CLIPPING FIX: Override vis-timeline's default overflow:hidden behavior.
+   By default, vis-timeline clips content that extends beyond its boundaries.
+   These overrides allow event boxes to visually extend beyond the timeline's
+   calculated edges while still being contained within our padded #timeline div. */
+.vis-timeline {
+    overflow: visible !important;
+}
+
+.vis-panel.vis-center {
+    overflow: visible !important;
+}
+
+.vis-item .vis-item-overflow {
+    overflow: visible !important;
 }
 
 .info-panel {

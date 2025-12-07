@@ -186,29 +186,35 @@ Generate the main HTML file using the template at `resources/template-main.html`
 
 ```javascript
 // Timeline options - important settings
+// Note: See "Event Text Clipped at Edges" in Troubleshooting for edge clipping fixes
 const options = {
     width: '100%',
     height: '400px',
-    margin: { item: 20, axis: 40 },
+    margin: {
+        item: { horizontal: 50, vertical: 10 },  // Explicit horizontal margin for edge padding
+        axis: 40
+    },
     orientation: 'top',
-    zoomMin: 1000 * 60 * 60 * 24 * 365 * 50,   // 50 years
-    zoomMax: 1000 * 60 * 60 * 24 * 365 * 1000, // 1000 years
+    zoomMin: 1000 * 60 * 60 * 24 * 365 * 5,    // 5 years minimum zoom
+    zoomMax: 1000 * 60 * 60 * 24 * 365 * 50,   // 50 years maximum zoom
     min: new Date(1500, 0, 1),  // Earliest panning limit
     max: new Date(2030, 0, 1),  // Latest panning limit
     tooltip: {
-        followMouse: true,
-        template: function(originalItemData, parsedItemData) {
-            // Inline styles ensure tooltip text wraps
-            return `<div style="max-width: 280px; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;">${originalItemData.title}</div>`;
-        }
+        followMouse: true
     },
     stack: true,
     selectable: true,
     showCurrentTime: false,
     moveable: true,   // Enable click-and-drag panning
-    zoomable: true    // Enable scroll-to-zoom
+    zoomable: false,  // Disable scroll-wheel zoom (use buttons instead to avoid page scroll interference)
+    align: 'center'   // Center items on their date point to reduce edge overflow
 };
 ```
+
+**Navigation controls**: Since scroll-wheel zoom is disabled to prevent interference with page scrolling, the template includes explicit zoom/pan buttons:
+- **◀ / ▶**: Pan left/right by 30% of visible range
+- **+ / −**: Zoom in/out by 50%/200%
+- **Fit All**: Reset to show all events with 2-year padding
 
 **Important implementation features**:
 
@@ -476,14 +482,77 @@ Add images or videos to events (requires additional configuration).
 ### Dates Parsing Incorrectly
 **Solution**: Ensure month values are 1-12, not 0-11. The conversion to JavaScript Date handles this in the code.
 
+### Event Text Clipped at Edges (IMPORTANT)
+
+**Problem**: vis-timeline clips event boxes when they extend beyond the visible date range. Events near the left or right edges appear cut off, especially when using `timeline.fit()`.
+
+**Root Cause**: vis-timeline's default `overflow: hidden` behavior clips content at container boundaries.
+
+**Solution**: Apply a three-part fix combining CSS and JavaScript:
+
+**Part 1 - CSS Container Padding and Overflow (in style.css)**:
+```css
+/* Timeline Container - add padding for edge events */
+#timeline {
+    padding-left: 80px;
+    padding-right: 80px;
+    overflow: hidden;
+}
+
+/* Override vis-timeline's default clipping behavior */
+.vis-timeline {
+    overflow: visible !important;
+}
+
+.vis-panel.vis-center {
+    overflow: visible !important;
+}
+
+.vis-item .vis-item-overflow {
+    overflow: visible !important;
+}
+```
+
+**Part 2 - JavaScript Options (in main.html)**:
+```javascript
+const options = {
+    // ... other options ...
+    margin: {
+        item: { horizontal: 50, vertical: 10 },  // Explicit horizontal margin
+        axis: 40
+    },
+    align: 'center',        // Center items on their date point
+    zoomable: false         // Disable scroll-wheel zoom (use buttons instead)
+};
+```
+
+**Part 3 - Window Padding Instead of fit() (in main.html)**:
+```javascript
+// DON'T use: timeline.fit();
+// INSTEAD, calculate padded window manually:
+const dates = allItems.map(item => item.start.getTime());
+const minDate = Math.min(...dates);
+const maxDate = Math.max(...dates);
+
+// Add 2 years padding on each side
+const twoYears = 2 * 365 * 24 * 60 * 60 * 1000;
+timeline.setWindow(
+    new Date(minDate - twoYears),
+    new Date(maxDate + twoYears),
+    { animation: false }
+);
+```
+
+**Note**: The same padding logic must be applied in the `filterCategory()` and `fitAll()` functions to maintain consistency when filtering or resetting the view.
+
 ## References
 
 This skill uses the following assets and references:
 
 ### Assets
-- **vis-timeline CDN**:
-  - JS: `https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.7.3/vis-timeline-graph2d.min.js`
-  - CSS: `https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.7.3/vis-timeline-graph2d.min.css`
+- **vis-timeline CDN** (standalone build - the old graph2d build is deprecated):
+  - JS: `https://unpkg.com/vis-timeline/standalone/umd/vis-timeline-graph2d.min.js`
+  - CSS: `https://unpkg.com/vis-timeline/standalone/umd/vis-timeline-graph2d.min.css`
 - No local assets required (vis-timeline loaded from CDN)
 
 ### References

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{TIMELINE_TITLE}}</title>
 
-    <!-- vis-timeline CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.7.3/vis-timeline-graph2d.min.css" rel="stylesheet">
+    <!-- vis-timeline CSS (standalone build - the old graph2d build is deprecated) -->
+    <link href="https://unpkg.com/vis-timeline/standalone/umd/vis-timeline-graph2d.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,9 +20,18 @@
             {{FILTER_BUTTONS}}
         </div>
 
+        <!-- Navigation Controls -->
+        <div class="zoom-controls">
+            <button class="zoom-btn" onclick="panLeft()" title="Pan Left">◀</button>
+            <button class="zoom-btn" onclick="zoomOut()" title="Zoom Out">−</button>
+            <button class="zoom-btn fit-btn" onclick="fitAll()" title="Fit All">Fit All</button>
+            <button class="zoom-btn" onclick="zoomIn()" title="Zoom In">+</button>
+            <button class="zoom-btn" onclick="panRight()" title="Pan Right">▶</button>
+        </div>
+
         <div id="timeline"></div>
 
-        <p class="instructions">Click and drag to pan | Scroll to zoom | Click an event for details</p>
+        <p class="instructions">Use ◀ ▶ buttons to pan | Use + − buttons to zoom | Click an event for details</p>
 
         <div class="info-panel">
             <div class="legend">
@@ -39,8 +48,8 @@
         </div>
     </div>
 
-    <!-- vis-timeline JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.7.3/vis-timeline-graph2d.min.js"></script>
+    <!-- vis-timeline JavaScript (standalone build - the old graph2d build is deprecated) -->
+    <script src="https://unpkg.com/vis-timeline/standalone/umd/vis-timeline-graph2d.min.js"></script>
 
     <script>
         // Color scheme for categories
@@ -67,30 +76,46 @@
             // Convert JSON events to vis-timeline format
             allItems = data.events.map((event, index) => {
                 const year = parseInt(event.start_date.year);
-                // Handle BCE dates (negative years)
-                const startDate = new Date(year < 0 ? year : year, 0, 1);
+                const month = parseInt(event.start_date.month || 1) - 1;
+                const day = parseInt(event.start_date.day || 1);
 
                 return {
                     id: `event-${index}`,
                     content: event.text.headline,
-                    start: startDate,
-                    title: event.notes || event.text.headline,
+                    start: new Date(year, month, day),
+                    title: `<div style="max-width: 280px; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;">${event.notes || event.text.text}</div>`,
                     className: event.group.replace(/\s+/g, '-').toLowerCase(),
                     style: `background-color: ${categoryColors[event.group]}; color: white; border-color: ${categoryColors[event.group]};`,
                     category: event.group,
+                    displayDate: event.start_date.display_date || `${year}`,
                     eventData: event
                 };
             });
 
+            // Calculate min/max dates for initial window
+            const dates = allItems.map(item => item.start.getTime());
+            const minDate = Math.min(...dates);
+            const maxDate = Math.max(...dates);
+
             // Create a DataSet
             timelineData = new vis.DataSet(allItems);
 
-            // Timeline options
+            // =========================================================================
+            // EDGE CLIPPING PREVENTION - JavaScript Configuration
+            // =========================================================================
+            // Problem: vis-timeline clips event boxes when they extend beyond the
+            // visible date range, especially for events near the left/right edges.
+            //
+            // Solution (Part 1 of 3): Configure margins and alignment options
+            // - margin.item.horizontal: Adds 50px buffer around each item
+            // - align: 'center': Centers items on their date point so text extends
+            //   equally in both directions, reducing edge overflow
+            // =========================================================================
             const options = {
                 width: '100%',
                 height: '400px',
                 margin: {
-                    item: 20,
+                    item: { horizontal: 50, vertical: 10 },  // Explicit horizontal margin for edge padding
                     axis: 40
                 },
                 orientation: 'top',
@@ -99,16 +124,14 @@
                 min: new Date({{MIN_YEAR}}, 0, 1),
                 max: new Date({{MAX_YEAR}}, 0, 1),
                 tooltip: {
-                    followMouse: true,
-                    template: function(originalItemData, parsedItemData) {
-                        return `<div style="max-width: 280px; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;">${originalItemData.title}</div>`;
-                    }
+                    followMouse: true
                 },
                 stack: true,
                 selectable: true,
                 showCurrentTime: false,
                 moveable: true,
-                zoomable: true
+                zoomable: false,             // Disable scroll-wheel zoom to not interfere with page scrolling
+                align: 'center'              // Center items on their date point
             };
 
             // Create timeline
@@ -126,8 +149,23 @@
                 }
             });
 
-            // Fit timeline to show all events
-            timeline.fit();
+            // =========================================================================
+            // EDGE CLIPPING PREVENTION - Window Padding (Part 2 of 3)
+            // =========================================================================
+            // Problem: Using timeline.fit() sets the window exactly to the data range,
+            // causing the first and last events to be positioned at the very edge
+            // where their text boxes get clipped.
+            //
+            // Solution: Manually set the visible window with 2-year padding on each
+            // side instead of using fit(). This ensures edge events have room to
+            // render their full text boxes without clipping.
+            // =========================================================================
+            const twoYears = 2 * 365 * 24 * 60 * 60 * 1000;
+            timeline.setWindow(
+                new Date(minDate - twoYears),
+                new Date(maxDate + twoYears),
+                { animation: false }
+            );
         }
 
         function filterCategory(category) {
@@ -138,21 +176,39 @@
                 btn.classList.remove('active');
             });
 
+            let itemsToShow;
             if (category === 'all') {
                 document.querySelector('.filter-btn.all').classList.add('active');
-                timelineData.clear();
-                timelineData.add(allItems);
+                itemsToShow = [...allItems];
             } else {
                 // Find the button with matching data-category
                 const btn = document.querySelector(`.filter-btn[data-category="${category}"]`);
                 if (btn) btn.classList.add('active');
-
-                const filtered = allItems.filter(item => item.category === category);
-                timelineData.clear();
-                timelineData.add(filtered);
+                itemsToShow = allItems.filter(item => item.category === category);
             }
 
-            timeline.fit();
+            timelineData.clear();
+            timelineData.add(itemsToShow);
+
+            // =========================================================================
+            // EDGE CLIPPING PREVENTION - Filter Window Padding
+            // =========================================================================
+            // When filtering by category, we must also apply the 2-year padding
+            // to prevent edge clipping on the filtered subset of events.
+            // =========================================================================
+            if (itemsToShow.length > 0) {
+                const dates = itemsToShow.map(item => item.start.getTime());
+                const minDate = Math.min(...dates);
+                const maxDate = Math.max(...dates);
+
+                // Add 2 years padding on each side
+                const twoYears = 2 * 365 * 24 * 60 * 60 * 1000;
+                timeline.setWindow(
+                    new Date(minDate - twoYears),
+                    new Date(maxDate + twoYears),
+                    { animation: false }
+                );
+            }
         }
 
         function showEventDetails(event) {
@@ -175,6 +231,81 @@
             `;
 
             document.getElementById('details-content').innerHTML = html;
+        }
+
+        // =========================================================================
+        // Navigation Control Functions
+        // =========================================================================
+        // These provide explicit zoom/pan controls since scroll-wheel zoom is
+        // disabled to avoid interfering with page scrolling.
+        // =========================================================================
+        function zoomIn() {
+            if (timeline) {
+                const range = timeline.getWindow();
+                const interval = range.end - range.start;
+                const newInterval = interval * 0.5; // Zoom in by 50%
+                const center = new Date((range.start.getTime() + range.end.getTime()) / 2);
+                timeline.setWindow(
+                    new Date(center.getTime() - newInterval / 2),
+                    new Date(center.getTime() + newInterval / 2)
+                );
+            }
+        }
+
+        function zoomOut() {
+            if (timeline) {
+                const range = timeline.getWindow();
+                const interval = range.end - range.start;
+                const newInterval = interval * 2; // Zoom out by 200%
+                const center = new Date((range.start.getTime() + range.end.getTime()) / 2);
+                timeline.setWindow(
+                    new Date(center.getTime() - newInterval / 2),
+                    new Date(center.getTime() + newInterval / 2)
+                );
+            }
+        }
+
+        function fitAll() {
+            if (timeline) {
+                // Get visible items and manually set window with padding
+                const visibleItems = timelineData.get();
+                if (visibleItems.length > 0) {
+                    const dates = visibleItems.map(item => item.start.getTime());
+                    const minDate = Math.min(...dates);
+                    const maxDate = Math.max(...dates);
+
+                    const twoYears = 2 * 365 * 24 * 60 * 60 * 1000;
+                    timeline.setWindow(
+                        new Date(minDate - twoYears),
+                        new Date(maxDate + twoYears),
+                        { animation: false }
+                    );
+                }
+            }
+        }
+
+        function panLeft() {
+            if (timeline) {
+                const range = timeline.getWindow();
+                const interval = range.end - range.start;
+                const shift = interval * 0.3; // Pan by 30% of visible range
+                timeline.setWindow(
+                    new Date(range.start.getTime() - shift),
+                    new Date(range.end.getTime() - shift)
+                );
+            }
+        }
+
+        function panRight() {
+            if (timeline) {
+                const range = timeline.getWindow();
+                const interval = range.end - range.start;
+                const shift = interval * 0.3; // Pan by 30% of visible range
+                timeline.setWindow(
+                    new Date(range.start.getTime() + shift),
+                    new Date(range.end.getTime() + shift)
+                );
+            }
         }
     </script>
 </body>
