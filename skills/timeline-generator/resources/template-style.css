@@ -1,3 +1,6 @@
+/* This CSS should focus on the efficient use of space for placement of a timeline in the narrow column of mkdocs central column.
+Our goal is to remove any unneeded margins, padding and decoration.
+*/
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     margin: 0px;
@@ -16,7 +19,6 @@ header {
     margin-bottom: 0px;
     padding: 0px;
     background: aliceblue;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -31,6 +33,7 @@ h1 {
     margin: 0;
 }
 
+/* a think row of filter controls with any excessive vertical margin and padding */
 .filter-controls {
     display: flex;
     justify-content: center;
@@ -39,14 +42,14 @@ h1 {
     margin-bottom: 3px;
     padding: 3px;
     background: aliceblue;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 .filter-btn {
-    padding: 10px 20px;
+    padding: 3px 6px;
     border: none;
-    border-radius: 25px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
@@ -64,7 +67,7 @@ h1 {
 }
 
 .filter-btn.all {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: aliceblue;
 }
 
 /* Category button colors - customize per timeline */
@@ -77,7 +80,7 @@ h1 {
 }
 
 .zoom-btn {
-    padding: 3px 12px;
+    padding: 3px 6px;
     margin: 0 3px;
     border: 1px solid #bdc3c7;
     border-radius: 4px;
@@ -149,7 +152,7 @@ h1 {
 .info-panel {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 20px;
+    gap: 10px;
 }
 
 @media (max-width: 768px) {
@@ -160,33 +163,33 @@ h1 {
 
 .legend {
     background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .legend h3 {
     margin: 0 0 15px 0;
-    color: #2c3e50;
+    color: black;
     font-size: 1.1em;
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
 }
 
 .legend-color {
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-    margin-right: 12px;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    margin-right: 6px;
 }
 
 .legend-text {
     font-size: 14px;
-    color: #34495e;
+    color: black;
 }
 
 .legend-period {
@@ -197,9 +200,9 @@ h1 {
 
 .event-details {
     background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .event-details h3 {
@@ -232,7 +235,7 @@ h1 {
 .event-category {
     display: inline-block;
     padding: 4px 12px;
-    border-radius: 15px;
+    border-radius: 6px;
     font-size: 12px;
     color: white;
     font-weight: 500;
@@ -241,13 +244,13 @@ h1 {
 .event-description {
     color: #34495e;
     line-height: 1.6;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .event-context {
     background: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 5px;
+    border-radius: 4px;
     border-left: 4px solid #3498db;
 }
 

@@ -2,7 +2,10 @@
 
 {{TIMELINE_OVERVIEW_TEXT}}
 
-[Run the {{TIMELINE_TITLE}}](./main.html)
+<!-- This is use to give the users a small view of the timeline within the center column of a textbook.  -->
+<iframe src="main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+[Run the {{TIMELINE_TITLE}} Fullscreen](./main.html)
 
 [View the Raw Timeline Data](timeline.json)
 

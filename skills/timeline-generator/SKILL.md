@@ -386,6 +386,34 @@ Before considering the timeline complete:
    - Verify CDN resources load correctly
    - Check console for JavaScript errors
 
+### Step 9: Get a Screen Image
+
+Use the shell script bk-capture-screenshot
+To use this you must pass a path to the microsim directory as the parameter:
+Example `bk-capture-screenshot docs/sims/[timeline-name]`
+This will create a png file in that directory with the file name of the directory:
+
+`docs/sims/[timeline-name]/[timeline-name].png`
+
+This is what will be references in the YML metadata in the index.md file
+
+### Step 9: Update the Social Image Preview Metadata in the index.md
+
+In the main microsim index.md file we will insert metadata required
+for social media preview images.
+
+docs/sims/[timeline-name]/index.md
+
+```markdown
+---
+title: [Timeline Name]
+description: [Timeline Description]
+image: /sims/[timeline-name]/[timeline-name].png
+og:image: /sims/[timeline-name]/[timeline-name].png
+---
+# [Timeline Name]:
+```
+
 ## Best Practices
 
 ### Data Preparation
