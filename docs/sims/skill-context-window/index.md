@@ -8,15 +8,19 @@ quality_score: 100
 
 # Skill Context Window
 
+<iframe src="main.html" width="100%" height="545px" scrolling="no" style="overflow: hidden;"></iframe>
+
+[Run the Skill Context Window MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
+
+[Edit the Skill Context Window MicroSim using the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/xg5bZmxLC)
+
 ## How to Embed This MicroSim
 
 You can include this MicroSim on your website using the following `iframe`:
 
 ```html
-
+<iframe src="https://dmccreary.github.io/claude-skills/sims/skill-context-window/main.html" width="100%" height="545px" scrolling="no" style="overflow: hidden;"></iframe>
 ```
-
-[Run the Skill Context Window MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
 ## Description
 

@@ -5,7 +5,7 @@
 // Canvas dimensions - REQUIRED structure
 let canvasWidth = 600;
 let drawHeight = 500;
-let controlHeight = 50;
+let controlHeight = 25;
 let canvasHeight = drawHeight + controlHeight;
 let margin = 25;
 let defaultTextSize = 16;
@@ -59,6 +59,7 @@ function draw() {
   textSize(32);
   textAlign(CENTER, BOTTOM);
   noStroke();
+  textStyle(NORMAL);
   text('Skill Context Window', canvasWidth/2, margin*2-10);
   textSize(20);
   textStyle(ITALIC); 
@@ -71,6 +72,9 @@ function draw() {
   // Check for hover and draw infobox
   checkHover();
   drawInfoBox();
+
+  // Draw hint text in control area when not hovering
+  drawControlAreaHint();
 }
 
 function calculateTriangle() {
@@ -348,6 +352,17 @@ function drawInfoBox() {
   textSize(12);
   textStyle(ITALIC);
   text(sizeInfo, boxX + 12, yPos);
+}
+
+function drawControlAreaHint() {
+  if (hoveredLayer === null) {
+    fill('#666');
+    textSize(14);
+    textAlign(CENTER, CENTER);
+    textStyle(ITALIC);
+    noStroke();
+    text('Hover over region to see details', canvasWidth / 2, drawHeight + controlHeight / 2);
+  }
 }
 
 function windowResized() {
