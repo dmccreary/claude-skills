@@ -266,12 +266,12 @@ function drawInfoBox() {
 
   if (hoveredLayer === 'frontmatter') {
     title = 'SKILL.md Frontmatter';
-    content = 'Name and description metadata (~100 words). Always loaded into context when Claude starts. This allows Claude to decide when to invoke the skill based on user requests.';
-    sizeInfo = 'Size: ~100 words | Loading: At startup';
+    content = 'Name and description metadata (~100 words / ~130 tokens). Always loaded into context when Claude starts. This allows Claude to decide when to invoke the skill based on user requests.';
+    sizeInfo = 'Size: ~100 words (~130 tokens) | Loading: At startup';
   } else if (hoveredLayer === 'skillfile') {
     title = 'SKILL.md File';
-    content = 'Complete skill instructions and workflows (<5k words). Loaded when the skill is triggered or invoked. Contains detailed procedural knowledge, step-by-step instructions, and usage examples.';
-    sizeInfo = 'Size: <5k words | Loading: When triggered';
+    content = 'Complete skill instructions and workflows (<5k words / ~6.5k tokens). Loaded when the skill is triggered or invoked. Contains detailed procedural knowledge, step-by-step instructions, and usage examples.';
+    sizeInfo = 'Size: <5k words (~6.5k tokens) | Loading: When triggered';
   } else if (hoveredLayer === 'assets') {
     title = 'Assets, References, Templates & Scripts';
     content = 'Bundled resources loaded as needed. Scripts can be executed without loading into context. References and templates are loaded when Claude determines they are needed for the task. This provides unlimited extensibility.';

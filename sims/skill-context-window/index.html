@@ -1299,6 +1299,33 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#skillmd-frontmatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      SKILL.md Frontmatter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skillmd-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      SKILL.md File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assets-references-templates-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assets, References, Templates &amp; Scripts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#progressive-disclosure-benefits" class="md-nav__link">
     <span class="md-ellipsis">
       Progressive Disclosure Benefits
@@ -1318,6 +1345,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#30-skill-hard-coded-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      30-Skill Hard Coded Limit
+    </span>
+  </a>
   
 </li>
       
@@ -1946,6 +1982,33 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#skillmd-frontmatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      SKILL.md Frontmatter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skillmd-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      SKILL.md File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assets-references-templates-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assets, References, Templates &amp; Scripts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#progressive-disclosure-benefits" class="md-nav__link">
     <span class="md-ellipsis">
       Progressive Disclosure Benefits
@@ -1965,6 +2028,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#30-skill-hard-coded-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      30-Skill Hard Coded Limit
+    </span>
+  </a>
   
 </li>
       
@@ -2071,41 +2143,33 @@
 </code></pre></div></td></tr></table></div>
 <h2 id="description">Description</h2>
 <p>This MicroSim visualizes the <strong>progressive disclosure</strong> design principle used in Claude Skills. Skills use a three-level loading system to manage context efficiently and avoid overwhelming Claude's context window.</p>
+<p>As of Claude Code 2.0.20 skill were added.</p>
 <h3 id="the-three-layers">The Three Layers</h3>
 <p><strong>Hover over each layer</strong> to see detailed information about when and how it's loaded:</p>
-<ol>
-<li>
-<p><strong>SKILL.md Frontmatter</strong> (Top - Always Loaded ~100 words)</p>
-</li>
-<li>
-<p>Contains skill name and description</p>
-</li>
+<h3 id="skillmd-frontmatter">SKILL.md Frontmatter</h3>
+<p>Top Layer of MicroSim - Always Loaded into the Context ~100 tokens - 30 Skill hard coded maximum (not configurable by the user)</p>
+<ul>
+<li>Contains skill name and description</li>
 <li>Always in context when Claude starts</li>
 <li>Allows Claude to decide when to invoke the skill</li>
-<li>
-<p>Minimal token usage</p>
-</li>
-<li>
-<p><strong>SKILL.md File</strong> (Middle - When Triggered &lt;5k words)</p>
-</li>
-<li>
-<p>Complete skill instructions and workflows</p>
-</li>
+<li>Minimal token usage</li>
+</ul>
+<h3 id="skillmd-file">SKILL.md File</h3>
+<p>Middle Layer of MicroSim - When Triggered &lt;5k tokens</p>
+<ul>
+<li>Complete skill instructions and workflows</li>
 <li>Loaded when the skill is triggered/invoked</li>
 <li>Contains procedural knowledge and examples</li>
-<li>
-<p>Moderate token usage</p>
-</li>
-<li>
-<p><strong>Assets, References, Templates &amp; Scripts</strong> (Base - As Needed, Unlimited)</p>
-</li>
-<li>
-<p>Scripts can be executed without loading into context</p>
-</li>
+<li>Moderate token usage</li>
+</ul>
+<h3 id="assets-references-templates-scripts">Assets, References, Templates &amp; Scripts</h3>
+<p>Base layer of MicroSim - As Needed, Unlimited</p>
+<ul>
+<li>Scripts can be executed without loading into context</li>
 <li>References loaded when Claude determines they're needed</li>
 <li>Templates and assets used in output</li>
 <li>Provides unlimited extensibility</li>
-</ol>
+</ul>
 <h3 id="progressive-disclosure-benefits">Progressive Disclosure Benefits</h3>
 <p>This layered approach provides several key advantages:</p>
 <ul>
@@ -2115,14 +2179,34 @@
 <li><strong>Flexibility</strong>: Claude intelligently loads additional resources on demand</li>
 </ul>
 <h3 id="visual-design">Visual Design</h3>
-<p>The triangle shape represents the progressive expansion of context:
-- <strong>Narrow top</strong>: Minimal frontmatter (always present)
-- <strong>Medium middle</strong>: Full skill file (when active)
-- <strong>Wide base</strong>: Extensive resources (loaded selectively)</p>
-<p>The color coding indicates loading behavior:
-- <strong>Yellow</strong>: Always in context (startup)
-- <strong>Blue</strong>: Loaded when skill triggers (on-demand)
-- <strong>Green</strong>: Loaded as needed (selective)</p>
+<p>The triangle shape represents the progressive expansion of context:</p>
+<ul>
+<li><strong>Narrow top</strong>: Minimal frontmatter (always present)</li>
+<li><strong>Medium middle</strong>: Full skill file (when active)</li>
+<li><strong>Wide base</strong>: Extensive resources (loaded selectively)</li>
+</ul>
+<p>The color coding indicates loading behavior:</p>
+<ul>
+<li><strong>Yellow</strong>: Always in context (startup)</li>
+<li><strong>Blue</strong>: Loaded when skill triggers (on-demand)</li>
+<li><strong>Green</strong>: Loaded as needed (selective)</li>
+</ul>
+<h2 id="30-skill-hard-coded-limit">30-Skill Hard Coded Limit</h2>
+<p>As of December of 2025, Claude Code 2.0.60 has a hard-coded maximum of 30 skills that can be loaded into a session.</p>
+<ul>
+<li>Hard limit: Maximum 30 skills total (combining personal ~/.claude/skills/, project .claude/skills/, and plugin skills)</li>
+<li>Silent failure: Skills beyond this limit are silently ignored with no error message</li>
+<li>Non-deterministic: Which skills get dropped is unpredictable</li>
+</ul>
+<p>However, skills use progressive disclosure to minimize context usage:</p>
+<ol>
+<li>Frontmatter only (~100 words / ~130 tokens per skill) - always in context so Claude knows what skills are available</li>
+<li>Full SKILL.md (&lt;5k words / ~6.5k tokens) - loaded only when the skill is invoked</li>
+<li>Assets/references - loaded on-demand as needed</li>
+</ol>
+<p>So even with 30 skills, only the frontmatter metadata is initially consuming context tokens. The full skill content loads when Claude actually uses that skill.</p>
+<p>Claude has also shown the ability to refactor a large number of skills into a smaller set using
+a process of <code>skill consolidation</code>.</p>
 <h2 id="lesson-plan">Lesson Plan</h2>
 <p><strong>Target Audience</strong>: Developers creating Claude Skills, AI prompt engineers, educational technologists</p>
 <p><strong>Learning Objectives:</strong></p>
@@ -2153,7 +2237,7 @@
 <p><strong>Exploration Activity (7 minutes)</strong></p>
 </li>
 <li>Students hover over each layer to read the details</li>
-<li>Discuss the size differences (~100 words vs &lt;5k words vs unlimited)</li>
+<li>Discuss the size differences (~100 words / ~130 tokens vs &lt;5k words / ~6.5k tokens vs unlimited)</li>
 <li>
 <p>Compare loading strategies (always vs triggered vs as-needed)</p>
 </li>
@@ -2188,10 +2272,12 @@
 <p>This MicroSim illustrates key principles from the skill-creator documentation:</p>
 <h3 id="progressive-disclosure">Progressive Disclosure</h3>
 <p><strong>Definition</strong>: A three-level loading system that manages what information is in Claude's context at different stages.</p>
-<p><strong>Levels</strong>:
-1. Metadata (name + description) - Always in context (~100 words)
-2. SKILL.md body - When skill triggers (&lt;5k words)
-3. Bundled resources - As needed by Claude (unlimited*)</p>
+<p><strong>Levels</strong>:</p>
+<ol>
+<li>Metadata (name + description) - Always in context (~100 words / ~130 tokens)</li>
+<li>SKILL.md body - When skill triggers (&lt;5k words / ~6.5k tokens)</li>
+<li>Bundled resources - As needed by Claude (unlimited*)</li>
+</ol>
 <p>*Unlimited because scripts can be executed without reading into context window.</p>
 <h3 id="context-efficiency">Context Efficiency</h3>
 <p><strong>Why it matters</strong>: Claude's context window is finite. Loading everything upfront would:
@@ -2235,8 +2321,10 @@
 - Responsive canvas sizing</p>
 <h2 id="references">References</h2>
 <ol>
-<li><a href="https://code.claude.com/docs/">Claude Skills Documentation</a> - Official documentation for Claude Code skills</li>
-<li><a href="https://github.com/dmccreary/intro-to-graph">Skill Creator Skill</a> - The skill that creates other skills, demonstrates progressive disclosure</li>
+<li><a href="https://code.claude.com/docs/en/skills">Claude Code Skills Documentation</a> - Official documentation for Claude Code skills</li>
+<li><a href="https://github.com/anthropics/claude-code/issues/13343">GitHub Issue #13343: Skills truncated at 30 makes remaining skills undiscoverable</a> - Bug report documenting the 30-skill hard limit</li>
+<li><a href="https://github.com/anthropics/claude-code/issues/13344">GitHub Issue #13344: Plugin enable/disable ignored - all skills loaded regardless of settings</a> - Related bug that can cause unexpected skill accumulation</li>
+<li><a href="https://github.com/dmccreary/claude-skills">Skill Creator Skill</a> - The skill that creates other skills, demonstrates progressive disclosure</li>
 <li><a href="https://www.nngroup.com/articles/progressive-disclosure/">Progressive Disclosure (Nielsen Norman Group)</a> - 2006 - UX design pattern for managing complexity</li>
 <li><a href="https://www.anthropic.com/index/100k-context-windows">Context Window Management in LLMs</a> - 2023 - Anthropic - Technical background on context windows</li>
 <li><a href="https://en.wikipedia.org/wiki/Modular_programming">Modular Design Patterns</a> - Wikipedia - Software architecture patterns for managing complexity</li>
