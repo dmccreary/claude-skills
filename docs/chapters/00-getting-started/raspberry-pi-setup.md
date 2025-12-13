@@ -99,3 +99,24 @@ lxterminal -e "htop" &
 git config --global user.email "suejohnson@example.com"
 git config --global user.name "Sue Johnson"
 ```
+
+## Screen Capture Tool
+
+```sh
+sudo apt install grim slurp
+```
+
+```sh
+grim -g "$(slurp)" screenshot.png
+```
+
+## Open
+
+```sh
+which open
+/usr/bin/open
+(base) dan@raspberrypi:~ $ ls -l /usr/bin/open
+lrwxrwxrwx 1 root root 22 Apr 25  2021 /usr/bin/open -> /etc/alternatives/open
+(base) dan@raspberrypi:~ $ ls -l /etc/alternatives/open
+lrwxrwxrwx 1 root root 17 Apr 25  2021 /etc/alternatives/open -> /usr/bin/xdg-open
+```
