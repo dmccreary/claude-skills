@@ -132,6 +132,7 @@ nav:
     - Taxonomy Distribution Pie: sims/taxonomy-distribution-pie/index.md
     - Terminal Workflow Textbook: sims/terminal-workflow-textbook/index.md
     - Three Color DFS: sims/three-color-dfs/index.md
+    - Claude Code Memory Layers: sims/claude-code-memory-layers/index.md
 
   - Learning Graph:
     - Introduction: learning-graph/index.md

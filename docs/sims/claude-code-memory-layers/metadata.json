@@ -1,0 +1,66 @@
+{
+  "title": "Claude Code Memory Layers",
+  "creator": "Dan McCreary",
+  "subject": ["Claude Code", "Memory Management", "Configuration", "AI Tools"],
+  "description": "An interactive infographic showing the five memory layers in Claude Code, demonstrating how rules are loaded from Enterprise Policy, Project Memory, Project Rules, User Memory, and Project Local layers with animated loading sequence and hover interactions.",
+  "date": "2025-12-11",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY 4.0",
+  "educational": {
+    "gradeLevel": "Professional/Developer",
+    "subjectArea": "Software Development",
+    "topic": "Claude Code Configuration",
+    "learningObjectives": [
+      "Understand the five memory layers in Claude Code",
+      "Learn the priority order of rule loading",
+      "Understand how higher-priority rules override lower-priority ones",
+      "Identify appropriate use cases for each memory layer"
+    ],
+    "bloomsTaxonomyLevels": ["Remember", "Understand", "Apply", "Analyze"],
+    "duration": "5-10 minutes",
+    "prerequisites": ["Basic understanding of file systems", "Familiarity with Claude Code"]
+  },
+  "technical": {
+    "framework": "p5.js",
+    "canvasDimensions": "800x600",
+    "responsive": "Width-responsive",
+    "dependencies": ["p5.js CDN"],
+    "accessibility": ["describe() function included", "High contrast colors"]
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "button",
+        "label": "Play Animation",
+        "description": "Starts or pauses the loading animation"
+      },
+      {
+        "type": "button",
+        "label": "Reset",
+        "description": "Resets the animation to the beginning"
+      },
+      {
+        "type": "slider",
+        "label": "Speed",
+        "min": 0.5,
+        "max": 5,
+        "default": 2,
+        "step": 0.5,
+        "description": "Controls the animation speed"
+      }
+    ],
+    "interactions": [
+      {
+        "type": "hover",
+        "description": "Hover over any memory layer to see detailed information"
+      }
+    ]
+  },
+  "simulationModel": {
+    "modelType": "Information Visualization",
+    "variables": ["animationPhase", "animationProgress", "hoveredLayer"],
+    "assumptions": ["Priority order is fixed", "Override behavior is absolute"]
+  }
+}

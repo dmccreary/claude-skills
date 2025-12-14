@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Image Compression Script for GenAI Architecture Patterns Website
-Compresses large images to approximately 300KB in PNG format for web optimization
+Image Compression Script for Web Optimization
+Compresses large images to approximately 300KB while preserving original format.
+JPEGs stay as JPEGs (better for photos), PNGs stay as PNGs (better for graphics).
 """
 
 import os
@@ -16,39 +17,48 @@ def get_file_size_kb(filepath):
 
 def compress_image(input_path, target_size_kb=300, min_compression=0, max_compression=9):
     """
-    Compress an image to approximately the target size in KB using PNG format
+    Compress an image to approximately the target size in KB.
+    Keeps JPEGs as JPEGs and PNGs as PNGs for optimal compression.
 
     Args:
         input_path: Path to input image
         target_size_kb: Target size in KB (default 300)
-        min_compression: Minimum PNG compression level (0=fastest)
-        max_compression: Maximum PNG compression level (9=best compression)
+        min_compression: Minimum compression level (0=fastest)
+        max_compression: Maximum compression level (9=best for PNG, 95 quality for JPEG)
     """
     try:
+        # Determine if this is a JPEG or PNG
+        is_jpeg = input_path.suffix.lower() in ['.jpg', '.jpeg']
+
         # Create backup
         backup_path = str(input_path) + ".backup"
         if not os.path.exists(backup_path):
             shutil.copy2(input_path, backup_path)
             print(f"  Backup created: {backup_path}")
-        
+
         # Open and optimize image
         with Image.open(input_path) as img:
-            # Preserve transparency for PNG format
-            if img.mode in ('RGBA', 'LA'):
-                # Keep RGBA mode for PNG with transparency
-                pass
-            elif img.mode == 'P':
-                # Convert palette mode to RGBA to preserve any transparency
-                img = img.convert('RGBA')
-            elif img.mode not in ('RGB', 'RGBA'):
-                # Convert other modes to RGB
-                img = img.convert('RGB')
-            
             # Apply auto-orientation based on EXIF data
             img = ImageOps.exif_transpose(img)
-            
+
+            # Handle color modes
+            if is_jpeg:
+                # JPEG doesn't support transparency, convert to RGB
+                if img.mode in ('RGBA', 'LA', 'P'):
+                    img = img.convert('RGB')
+                elif img.mode not in ('RGB',):
+                    img = img.convert('RGB')
+            else:
+                # PNG: preserve transparency
+                if img.mode in ('RGBA', 'LA'):
+                    pass  # Keep as-is
+                elif img.mode == 'P':
+                    img = img.convert('RGBA')
+                elif img.mode not in ('RGB', 'RGBA'):
+                    img = img.convert('RGB')
+
             original_size = get_file_size_kb(input_path)
-            
+
             # If already small enough, skip
             if original_size <= target_size_kb:
                 print(f"  Already optimized: {original_size:.1f}KB")
@@ -57,9 +67,8 @@ def compress_image(input_path, target_size_kb=300, min_compression=0, max_compre
             # Get original dimensions
             original_width, original_height = img.size
             print(f"  Original dimensions: {original_width}x{original_height}")
+            print(f"  Format: {'JPEG' if is_jpeg else 'PNG'}")
 
-            # Try compression first with maximum setting
-            best_compression = 9
             best_size = float('inf')
             best_img = img.copy()
 
@@ -70,6 +79,9 @@ def compress_image(input_path, target_size_kb=300, min_compression=0, max_compre
                 resize_factors = [0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.25, 0.2]
             else:  # Smaller files, try compression first
                 resize_factors = [1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.25, 0.2]
+
+            # For JPEG, also try different quality levels
+            jpeg_qualities = [85, 75, 65, 55, 45] if is_jpeg else [None]
 
             for resize_factor in resize_factors:
                 # Resize image if needed
@@ -82,51 +94,64 @@ def compress_image(input_path, target_size_kb=300, min_compression=0, max_compre
                     resized_img = img
                     print(f"  Trying original size with max compression")
 
-                # Try with maximum PNG compression
                 temp_path = str(input_path) + ".temp"
-                resized_img.save(temp_path, "PNG", compress_level=9, optimize=True)
-                temp_size = get_file_size_kb(temp_path)
 
-                print(f"    Result: {temp_size:.1f}KB")
+                if is_jpeg:
+                    # Try different JPEG quality levels at this size
+                    for quality in jpeg_qualities:
+                        resized_img.save(temp_path, "JPEG", quality=quality, optimize=True)
+                        temp_size = get_file_size_kb(temp_path)
 
-                # If we found a size that works, save it
-                if temp_size <= target_size_kb:
-                    best_size = temp_size
-                    best_img = resized_img.copy()
-                    final_width, final_height = resized_img.size
-                    print(f"  ✓ Found suitable size: {temp_size:.1f}KB at {final_width}x{final_height}")
+                        if resize_factor == 1.0 or quality == jpeg_qualities[0]:
+                            print(f"    Quality {quality}: {temp_size:.1f}KB")
+
+                        if temp_size <= target_size_kb:
+                            best_size = temp_size
+                            best_img = resized_img.copy()
+                            final_width, final_height = resized_img.size
+                            print(f"  ✓ Found suitable size: {temp_size:.1f}KB at {final_width}x{final_height} (quality={quality})")
+                            os.remove(temp_path)
+                            break
+
+                    if best_size <= target_size_kb:
+                        break
+                else:
+                    # PNG compression
+                    resized_img.save(temp_path, "PNG", compress_level=9, optimize=True)
+                    temp_size = get_file_size_kb(temp_path)
+                    print(f"    Result: {temp_size:.1f}KB")
+
+                    if temp_size <= target_size_kb:
+                        best_size = temp_size
+                        best_img = resized_img.copy()
+                        final_width, final_height = resized_img.size
+                        print(f"  ✓ Found suitable size: {temp_size:.1f}KB at {final_width}x{final_height}")
+                        os.remove(temp_path)
+                        break
+
+                if os.path.exists(temp_path):
                     os.remove(temp_path)
-                    break
-
-                os.remove(temp_path)
 
             # If we couldn't get under target size, use the smallest we achieved
             if best_size == float('inf'):
                 print(f"  Warning: Could not reach target size, using smallest achieved")
                 best_img = img.resize((int(original_width * 0.2), int(original_height * 0.2)), Image.Resampling.LANCZOS)
-            
-            # Save with best image found
-            # Convert .jpg/.jpeg to .png format
-            output_path = input_path
-            if input_path.suffix.lower() in ['.jpg', '.jpeg']:
-                output_path = input_path.with_suffix('.png')
 
-            best_img.save(output_path, "PNG", compress_level=9, optimize=True)
+            # Save with best image found - keep original format
+            if is_jpeg:
+                best_img.save(input_path, "JPEG", quality=45, optimize=True)
+            else:
+                best_img.save(input_path, "PNG", compress_level=9, optimize=True)
 
-            final_size = get_file_size_kb(output_path)
+            final_size = get_file_size_kb(input_path)
             compression_ratio = (1 - final_size / original_size) * 100
             final_width, final_height = best_img.size
 
             print(f"  Final result: {original_size:.1f}KB → {final_size:.1f}KB ({compression_ratio:.1f}% reduction)")
             print(f"  Dimensions: {original_width}x{original_height} → {final_width}x{final_height}")
 
-            # If we converted JPG to PNG, remove the original JPG
-            if output_path != input_path:
-                os.remove(input_path)
-                print(f"  Converted JPG to PNG: {input_path} → {output_path}")
-            
             return True
-            
+
     except Exception as e:
         print(f"  ERROR: {e}")
         return False
@@ -206,15 +231,7 @@ def main():
         
         if compress_image(filepath, target_size_kb=300):
             successful += 1
-            # Get new size (handle JPG->PNG conversion)
-            if filepath.suffix.lower() in ['.jpg', '.jpeg']:
-                new_path = filepath.with_suffix('.png')
-                if new_path.exists():
-                    total_final_size += get_file_size_kb(new_path)
-                else:
-                    total_final_size += get_file_size_kb(filepath)
-            else:
-                total_final_size += get_file_size_kb(filepath)
+            total_final_size += get_file_size_kb(filepath)
         else:
             failed += 1
             total_final_size += original_size  # Keep original size if failed
@@ -233,7 +250,6 @@ def main():
         print(f"  • Saved: {savings:.1f}KB ({savings/1024:.1f}MB, {savings_percent:.1f}%)")
     
     print(f"\n💡 Backup files (.backup) created for safety")
-    print(f"🔗 Update any markdown files that reference converted JPG→PNG files")
 
 if __name__ == "__main__":
     main()

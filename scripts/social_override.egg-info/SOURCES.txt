@@ -1,0 +1,9 @@
+README.md
+setup.py
+plugins/__init__.py
+plugins/social_override.py
+social_override.egg-info/PKG-INFO
+social_override.egg-info/SOURCES.txt
+social_override.egg-info/dependency_links.txt
+social_override.egg-info/entry_points.txt
+social_override.egg-info/top_level.txt

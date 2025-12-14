@@ -1,0 +1,2 @@
+[mkdocs.plugins]
+social_override = plugins.social_override:SocialOverridePlugin
