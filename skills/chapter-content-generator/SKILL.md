@@ -162,14 +162,17 @@ For each `<details markdown="1">` block element, use this structure:
 #### Diagram: [Brief descriptive title]
 
 <details markdown="1">
-    <summary>[Brief descriptive title]</summary>
-    Type: [element-type]
+<summary>[Brief descriptive title]</summary>
+Type: [element-type]
 
-    [Detailed specification following guidelines in references/content-element-types.md]
+[Detailed specification following guidelines in references/content-element-types.md]
 
-    Implementation: [Technology/approach]
+Implementation: [Technology/approach]
 </details>
 ```
+
+Do not indent any text within a `<details markdown="1">` block.  Do not put
+any leading spaces or tabs on newlines within a `<details markdown="1">` block.
 
 Make SURE to put the level 4 header with the prefix `#### Diagram:` before the details.  This is REQUIRED!
 
@@ -177,6 +180,7 @@ Make SURE to put the level 4 header with the prefix `#### Diagram:` before the d
 - Detailed enough that another skill or developer can implement without additional context
 - Include all visual elements, data, labels, colors, interactions
 - Specify canvas sizes, layout, default parameters
+- Specify that the visual elements must have a responsive design that must respond to window resize events
 - For MicroSims: describe learning objective, controls, visual elements, behavior
 - See `references/content-element-types.md` for complete specification guidelines for each element type
 
