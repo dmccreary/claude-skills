@@ -122,40 +122,37 @@ function getTextColorForBackground(backgroundColor, groupStyle) {
   return darkColors.includes(backgroundColor.toLowerCase()) ? 'white' : 'black';
 }
 
-// Function to generate legend table from groups data
+// Function to generate legend from groups data
 function generateLegend(groups) {
-  const legendTable = document.getElementById('legend-table');
-  legendTable.innerHTML = ''; // Clear existing content
+  const legendContainer = document.getElementById('legend');
+  legendContainer.innerHTML = ''; // Clear existing content
 
-  // Iterate through groups and create table rows
+  // Iterate through groups and create legend items
   for (const [groupName, groupStyle] of Object.entries(groups)) {
-    const row = document.createElement('tr');
+    const item = document.createElement('div');
+    item.className = 'legend-item';
 
-    // Create checkbox cell
-    const checkboxCell = document.createElement('td');
+    // Create checkbox
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.id = `group${groupName}`;
     checkbox.checked = true;
-    checkbox.onchange = function() { toggleGroup(groupName); };
+    checkbox.addEventListener('change', function() { toggleGroup(groupName); });
 
-    // Get the label from the classifierName in the groups of the learning-graph.json file
-    const label = document.createTextNode(' ' + (groupStyle.classifierName || groupName));
-    checkboxCell.appendChild(checkbox);
-    checkboxCell.appendChild(label);
+    // Create color swatch box
+    const colorBox = document.createElement('span');
+    colorBox.className = 'color-box';
+    colorBox.style.backgroundColor = groupStyle.color || 'lightgray';
 
-    // Create color indicator cell
-    const colorCell = document.createElement('td');
-    colorCell.className = 'color-indicator';
-    const bgColor = groupStyle.color;
-    const textColor = getTextColorForBackground(bgColor, groupStyle);
-    colorCell.style.backgroundColor = bgColor;
-    colorCell.style.color = textColor;
-    colorCell.textContent = getColorName(bgColor);
+    // Create label
+    const label = document.createElement('label');
+    label.htmlFor = `group${groupName}`;
+    label.textContent = groupStyle.classifierName || groupName;
 
-    row.appendChild(checkboxCell);
-    row.appendChild(colorCell);
-    legendTable.appendChild(row);
+    item.appendChild(checkbox);
+    item.appendChild(colorBox);
+    item.appendChild(label);
+    legendContainer.appendChild(item);
   }
 }
 
