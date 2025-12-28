@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -22,7 +19,7 @@
       
       
       <link rel="icon" href="../../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
     
     
       
@@ -30,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -47,7 +44,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -71,33 +68,43 @@
     
     
       
-        <meta  property="og:type"  content="website" >
+        <meta property="og:type" content="website">
       
-        <meta  property="og:title"  content="Quiz - Claude Skills for Intelligent Textbooks" >
+        <meta property="og:title" content="Quiz - Claude Skills for Intelligent Textbooks">
       
-        <meta  property="og:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+        <meta property="og:description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
       
-        <meta  property="og:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/chapters/13-dev-tools-version-control-deployment/quiz.png" >
+        <meta property="og:image" content="https://dmccreary.github.io/claude-skills/assets/images/social/chapters/13-dev-tools-version-control-deployment/quiz.png">
       
-        <meta  property="og:image:type"  content="image/png" >
+        <meta property="og:image:type" content="image/png">
       
-        <meta  property="og:image:width"  content="1200" >
+        <meta property="og:image:width" content="1200">
       
-        <meta  property="og:image:height"  content="630" >
+        <meta property="og:image:height" content="630">
       
-        <meta  property="og:url"  content="https://dmccreary.github.io/claude-skills/chapters/13-dev-tools-version-control-deployment/quiz/" >
+        <meta property="og:url" content="https://dmccreary.github.io/claude-skills/chapters/13-dev-tools-version-control-deployment/quiz/">
       
-        <meta  name="twitter:card"  content="summary_large_image" >
+        <meta name="twitter:card" content="summary_large_image">
       
-        <meta  name="twitter:title"  content="Quiz - Claude Skills for Intelligent Textbooks" >
+        <meta name="twitter:title" content="Quiz - Claude Skills for Intelligent Textbooks">
       
-        <meta  name="twitter:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+        <meta name="twitter:description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
       
-        <meta  name="twitter:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/chapters/13-dev-tools-version-control-deployment/quiz.png" >
+        <meta name="twitter:image" content="https://dmccreary.github.io/claude-skills/assets/images/social/chapters/13-dev-tools-version-control-deployment/quiz.png">
       
     
     
-  </head>
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -137,7 +144,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -161,28 +168,26 @@
     
     
     
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -199,14 +204,13 @@
     </div>
   </div>
 </div>
-      
     
     
       <div class="md-header__source">
         <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -230,7 +234,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -251,7 +255,7 @@
       <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -271,10 +275,8 @@
       <a href="../../.." class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Home
-    
   </span>
   
 
@@ -293,10 +295,8 @@
       <a href="../../../about/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     About
-    
   </span>
   
 
@@ -315,10 +315,8 @@
       <a href="../../../course-description/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Course Description
-    
   </span>
   
 
@@ -337,10 +335,8 @@
       <a href="../../../getting-started/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Getting Started
-    
   </span>
   
 
@@ -393,7 +389,6 @@
     
     
     
-    
       
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
@@ -403,14 +398,13 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
+          
           <div class="md-nav__link md-nav__container">
             <a href="../../" class="md-nav__link ">
               
   
-  
   <span class="md-ellipsis">
     Chapters
-    
   </span>
   
 
@@ -450,7 +444,6 @@
     
     
     
-    
       
         
         
@@ -459,16 +452,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../01-intro-ai-intelligent-textbooks/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 1 - Introduction to AI and Intelligent Textbooks
-    
   </span>
   
 
@@ -502,7 +492,6 @@
     
     
     
-    
       
         
         
@@ -511,16 +500,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../02-getting-started-claude-skills/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 2 - Getting Started with Claude and Skills
-    
   </span>
   
 
@@ -554,7 +540,6 @@
     
     
     
-    
       
         
         
@@ -563,16 +548,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../03-course-design-educational-theory/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 3 - Course Design and Educational Theory
-    
   </span>
   
 
@@ -606,7 +588,6 @@
     
     
     
-    
       
         
         
@@ -615,16 +596,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../04-intro-learning-graphs/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 4 - Introduction to Learning Graphs
-    
   </span>
   
 
@@ -658,7 +636,6 @@
     
     
     
-    
       
         
         
@@ -667,16 +644,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../05-concept-enumeration-dependencies/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 5 - Concept Enumeration and Dependencies
-    
   </span>
   
 
@@ -710,7 +684,6 @@
     
     
     
-    
       
         
         
@@ -719,16 +692,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../06-learning-graph-quality-validation/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 6 - Learning Graph Quality and Validation
-    
   </span>
   
 
@@ -762,7 +732,6 @@
     
     
     
-    
       
         
         
@@ -771,16 +740,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../07-taxonomy-data-formats/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 7 - Taxonomy and Data Formats
-    
   </span>
   
 
@@ -814,7 +780,6 @@
     
     
     
-    
       
         
         
@@ -823,16 +788,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../08-mkdocs-platform-documentation/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 8 - MkDocs Platform and Documentation
-    
   </span>
   
 
@@ -866,7 +828,6 @@
     
     
     
-    
       
         
         
@@ -875,16 +836,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../09-claude-skills-architecture-development/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 9 - Claude Skills Architecture and Development
-    
   </span>
   
 
@@ -918,7 +876,6 @@
     
     
     
-    
       
         
         
@@ -927,16 +884,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../10-content-creation-workflows/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 10 - Content Creation Workflows
-    
   </span>
   
 
@@ -970,7 +924,6 @@
     
     
     
-    
       
         
         
@@ -979,16 +932,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../11-educational-resources-assessment/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 11 - Educational Resources and Assessment
-    
   </span>
   
 
@@ -1019,7 +969,6 @@
       
         
       
-    
     
     
     
@@ -1033,14 +982,11 @@
         
   
   
-  
     <a href="../../12-interactive-elements-microsims/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 12 - Interactive Elements and MicroSims
-    
   </span>
   
 
@@ -1073,7 +1019,6 @@
       
         
       
-    
     
     
     
@@ -1086,14 +1031,13 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_14" checked>
         
           
+          
           <div class="md-nav__link md-nav__container">
             <a href="../" class="md-nav__link ">
               
   
-  
   <span class="md-ellipsis">
     Chapter 13 - Development Tools, Version Control, and Deployment
-    
   </span>
   
 
@@ -1134,10 +1078,8 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
-  
   <span class="md-ellipsis">
     Quiz
-    
   </span>
   
 
@@ -1147,10 +1089,8 @@
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
-  
   <span class="md-ellipsis">
     Quiz
-    
   </span>
   
 
@@ -1307,7 +1247,6 @@
     
     
     
-    
       
         
         
@@ -1316,16 +1255,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../../skill-descriptions/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Skill Descriptions
-    
   </span>
   
 
@@ -1354,76 +1290,145 @@
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
+          
+        
       
-    
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
     
     
     
@@ -1435,16 +1440,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../../sims/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     MicroSims
-    
   </span>
   
 
@@ -1507,7 +1509,6 @@
     
     
     
-    
       
         
         
@@ -1516,16 +1517,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../../learning-graph/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Learning Graph
-    
   </span>
   
 
@@ -1624,7 +1622,6 @@
     
     
     
-    
       
         
         
@@ -1633,16 +1630,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../../prompts/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Prompts
-    
   </span>
   
 
@@ -1677,7 +1671,6 @@
     
     
     
-    
       
         
         
@@ -1688,14 +1681,11 @@
         
   
   
-  
     <a href="../../../workshops/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Workshops
-    
   </span>
   
 
@@ -1720,10 +1710,8 @@
       <a href="../../../consolidation-plan/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Consolidation Plan
-    
   </span>
   
 
@@ -1742,10 +1730,8 @@
       <a href="../../../glossary/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Glossary
-    
   </span>
   
 
@@ -1764,10 +1750,8 @@
       <a href="../../../faq/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     FAQ
-    
   </span>
   
 
@@ -1786,10 +1770,8 @@
       <a href="../../../references/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     References
-    
   </span>
   
 
@@ -1808,10 +1790,8 @@
       <a href="../../../license/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     License
-    
   </span>
   
 
@@ -1830,10 +1810,8 @@
       <a href="../../../contact/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Contact
-    
   </span>
   
 
@@ -1850,7 +1828,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1972,11 +1950,10 @@
                 
                   
 
-
   
     <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/chapters/13-dev-tools-version-control-deployment/quiz.md" title="Edit this page" class="md-content__button md-icon">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
   
   
@@ -1984,7 +1961,7 @@
 
 <h1 id="quiz-development-tools-version-control-and-deployment">Quiz: Development Tools, Version Control, and Deployment</h1>
 <p>Test your understanding of Visual Studio Code, command-line interfaces, Bash shell scripting, file operations, script permissions, symlinks, and the complete textbook development workflow with these questions.</p>
-<hr />
+<hr>
 <h4 id="1-why-is-visual-studio-code-preferred-over-traditional-word-processors-like-microsoft-word-for-intelligent-textbook-development">1. Why is Visual Studio Code preferred over traditional word processors like Microsoft Word for intelligent textbook development?</h4>
 <div class="upper-alpha">
 <ol>
@@ -2000,7 +1977,7 @@
 <p><strong>Concept Tested:</strong> Visual Studio Code</p>
 <p><strong>See:</strong> <a href="../../../glossary/#visual-studio-code">Visual Studio Code</a></p>
 </details>
-<hr />
+<hr>
 <h4 id="2-what-is-the-recommended-workflow-for-efficient-content-development-in-vs-code">2. What is the recommended workflow for efficient content development in VS Code?</h4>
 <div class="upper-alpha">
 <ol>
@@ -2016,7 +1993,7 @@
 <p><strong>Concept Tested:</strong> VS Code for Content Development</p>
 <p><strong>See:</strong> <a href="../../../glossary/#vs-code-for-content-development">VS Code for Content Development</a></p>
 </details>
-<hr />
+<hr>
 <h4 id="3-what-is-a-key-advantage-of-using-the-integrated-terminal-in-vs-code-instead-of-a-separate-terminal-application">3. What is a key advantage of using the integrated terminal in VS Code instead of a separate terminal application?</h4>
 <div class="upper-alpha">
 <ol>
@@ -2032,7 +2009,7 @@
 <p><strong>Concept Tested:</strong> Terminal in VS Code</p>
 <p><strong>See:</strong> <a href="../../../glossary/#terminal-in-vs-code">Terminal in VS Code</a></p>
 </details>
-<hr />
+<hr>
 <h4 id="4-what-is-the-distinction-between-a-terminal-a-shell-and-bash">4. What is the distinction between a terminal, a shell, and Bash?</h4>
 <div class="upper-alpha">
 <ol>
@@ -2048,7 +2025,7 @@
 <p><strong>Concept Tested:</strong> Bash</p>
 <p><strong>See:</strong> <a href="../../../glossary/#bash">Bash</a></p>
 </details>
-<hr />
+<hr>
 <h4 id="5-you-need-to-execute-a-python-script-located-at-docslearning-graphanalyze-graphpy-with-two-arguments-learning-graphcsv-and-quality-metricsmd-what-is-the-correct-command-structure">5. You need to execute a Python script located at <code>docs/learning-graph/analyze-graph.py</code> with two arguments: <code>learning-graph.csv</code> and <code>quality-metrics.md</code>. What is the correct command structure?</h4>
 <div class="upper-alpha">
 <ol>
@@ -2064,7 +2041,7 @@
 <p><strong>Concept Tested:</strong> Bash</p>
 <p><strong>See:</strong> <a href="../../../glossary/#bash">Bash Command Structure</a></p>
 </details>
-<hr />
+<hr>
 <h4 id="6-what-does-the-command-cd-do">6. What does the command <code>cd ../..</code> do?</h4>
 <div class="upper-alpha">
 <ol>
@@ -2080,7 +2057,7 @@
 <p><strong>Concept Tested:</strong> Directory Navigation</p>
 <p><strong>See:</strong> <a href="../../../glossary/#directory-navigation">Directory Navigation</a></p>
 </details>
-<hr />
+<hr>
 <h4 id="7-you-need-to-create-a-new-chapter-directory-structure-at-docschapters14-future-directions-which-command-accomplishes-this-most-efficiently">7. You need to create a new chapter directory structure at <code>docs/chapters/14-future-directions/</code>. Which command accomplishes this most efficiently?</h4>
 <div class="upper-alpha">
 <ol>
@@ -2096,7 +2073,7 @@
 <p><strong>Concept Tested:</strong> File Creation and Editing</p>
 <p><strong>See:</strong> <a href="../../../glossary/#file-creation-and-editing">File Creation and Editing</a></p>
 </details>
-<hr />
+<hr>
 <h4 id="8-your-shell-script-install-claude-skillssh-gives-a-permission-denied-error-when-you-try-to-run-it-with-install-claude-skillssh-what-is-the-most-likely-cause-and-solution">8. Your shell script <code>install-claude-skills.sh</code> gives a "Permission denied" error when you try to run it with <code>./install-claude-skills.sh</code>. What is the most likely cause and solution?</h4>
 <div class="upper-alpha">
 <ol>
@@ -2112,7 +2089,7 @@
 <p><strong>Concept Tested:</strong> Script Execution Permissions</p>
 <p><strong>See:</strong> <a href="../../../glossary/#script-execution-permissions">Script Execution Permissions</a></p>
 </details>
-<hr />
+<hr>
 <h4 id="9-what-is-the-primary-advantage-of-using-symbolic-links-symlinks-for-claude-skill-installation-rather-than-copying-files">9. What is the primary advantage of using symbolic links (symlinks) for Claude skill installation rather than copying files?</h4>
 <div class="upper-alpha">
 <ol>
@@ -2128,7 +2105,7 @@
 <p><strong>Concept Tested:</strong> Symlink Creation</p>
 <p><strong>See:</strong> <a href="../../../glossary/#symlink-creation">Symlink Creation</a></p>
 </details>
-<hr />
+<hr>
 <h4 id="10-in-the-capstone-project-workflow-what-is-the-correct-sequence-of-major-phases">10. In the capstone project workflow, what is the correct sequence of major phases?</h4>
 <div class="upper-alpha">
 <ol>
@@ -2144,7 +2121,7 @@
 <p><strong>Concept Tested:</strong> Capstone: Complete Textbook Project</p>
 <p><strong>See:</strong> <a href="../../../glossary/#capstone-complete-textbook-project">Capstone: Complete Textbook Project</a></p>
 </details>
-<hr />
+<hr>
 
 
 
@@ -2172,7 +2149,7 @@
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
         
@@ -2182,13 +2159,13 @@
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
           <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Content">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -2213,7 +2190,7 @@
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
             </div>
           </a>
         
@@ -2225,7 +2202,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+      Copyright © 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
     </div>
   
   
@@ -2241,15 +2218,15 @@
     </div>
     
     
-    
-      
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
         <script src="../../../js/extra.js"></script>
       
     
-  </body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

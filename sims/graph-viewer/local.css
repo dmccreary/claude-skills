@@ -36,7 +36,7 @@ body {
 
 #search-container {
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   position: relative;
 }
 
@@ -95,26 +95,39 @@ body {
   background-color: #e0e0e0;
 }
 
-.legend-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+/* Legend item (checkbox + color swatch + label) */
+.legend-item {
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+  gap: 8px;
 }
 
-.legend-table td {
-  padding: 5px;
-  font-size: 16px;
+.legend-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
 
-.legend-table input[type="checkbox"] {
-  margin-right: 5px;
+/* Color swatch box */
+.color-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.1);
+  flex-shrink: 0;
 }
 
-.color-indicator {
-  padding: 3px 8px;
-  text-align: center;
-  border-radius: 3px;
-  font-size: 11px;
+.legend-item label {
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+  flex: 1;
+}
+
+#legend {
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 .control-buttons {

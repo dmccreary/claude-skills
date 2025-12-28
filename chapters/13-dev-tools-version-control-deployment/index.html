@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -22,7 +19,7 @@
       
       
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
     
     
       
@@ -30,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -47,7 +44,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -71,33 +68,43 @@
     
     
       
-        <meta  property="og:type"  content="website" >
+        <meta property="og:type" content="website">
       
-        <meta  property="og:title"  content="Content - Claude Skills for Intelligent Textbooks" >
+        <meta property="og:title" content="Content - Claude Skills for Intelligent Textbooks">
       
-        <meta  property="og:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+        <meta property="og:description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
       
-        <meta  property="og:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/chapters/13-dev-tools-version-control-deployment/index.png" >
+        <meta property="og:image" content="https://dmccreary.github.io/claude-skills/assets/images/social/chapters/13-dev-tools-version-control-deployment/index.png">
       
-        <meta  property="og:image:type"  content="image/png" >
+        <meta property="og:image:type" content="image/png">
       
-        <meta  property="og:image:width"  content="1200" >
+        <meta property="og:image:width" content="1200">
       
-        <meta  property="og:image:height"  content="630" >
+        <meta property="og:image:height" content="630">
       
-        <meta  property="og:url"  content="https://dmccreary.github.io/claude-skills/chapters/13-dev-tools-version-control-deployment/" >
+        <meta property="og:url" content="https://dmccreary.github.io/claude-skills/chapters/13-dev-tools-version-control-deployment/">
       
-        <meta  name="twitter:card"  content="summary_large_image" >
+        <meta name="twitter:card" content="summary_large_image">
       
-        <meta  name="twitter:title"  content="Content - Claude Skills for Intelligent Textbooks" >
+        <meta name="twitter:title" content="Content - Claude Skills for Intelligent Textbooks">
       
-        <meta  name="twitter:description"  content="A collection of skills and techniques for building intelligent textbooks using Claude AI." >
+        <meta name="twitter:description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
       
-        <meta  name="twitter:image"  content="https://dmccreary.github.io/claude-skills/assets/images/social/chapters/13-dev-tools-version-control-deployment/index.png" >
+        <meta name="twitter:image" content="https://dmccreary.github.io/claude-skills/assets/images/social/chapters/13-dev-tools-version-control-deployment/index.png">
       
     
     
-  </head>
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -137,7 +144,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -161,28 +168,26 @@
     
     
     
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -199,14 +204,13 @@
     </div>
   </div>
 </div>
-      
     
     
       <div class="md-header__source">
         <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -230,7 +234,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -251,7 +255,7 @@
       <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
   </div>
   <div class="md-source__repository">
     GitHub Repo
@@ -271,10 +275,8 @@
       <a href="../.." class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Home
-    
   </span>
   
 
@@ -293,10 +295,8 @@
       <a href="../../about/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     About
-    
   </span>
   
 
@@ -315,10 +315,8 @@
       <a href="../../course-description/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Course Description
-    
   </span>
   
 
@@ -337,10 +335,8 @@
       <a href="../../getting-started/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Getting Started
-    
   </span>
   
 
@@ -393,7 +389,6 @@
     
     
     
-    
       
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
@@ -403,14 +398,13 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
+          
           <div class="md-nav__link md-nav__container">
             <a href="../" class="md-nav__link ">
               
   
-  
   <span class="md-ellipsis">
     Chapters
-    
   </span>
   
 
@@ -450,7 +444,6 @@
     
     
     
-    
       
         
         
@@ -459,16 +452,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../01-intro-ai-intelligent-textbooks/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 1 - Introduction to AI and Intelligent Textbooks
-    
   </span>
   
 
@@ -502,7 +492,6 @@
     
     
     
-    
       
         
         
@@ -511,16 +500,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../02-getting-started-claude-skills/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 2 - Getting Started with Claude and Skills
-    
   </span>
   
 
@@ -554,7 +540,6 @@
     
     
     
-    
       
         
         
@@ -563,16 +548,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../03-course-design-educational-theory/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 3 - Course Design and Educational Theory
-    
   </span>
   
 
@@ -606,7 +588,6 @@
     
     
     
-    
       
         
         
@@ -615,16 +596,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../04-intro-learning-graphs/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 4 - Introduction to Learning Graphs
-    
   </span>
   
 
@@ -658,7 +636,6 @@
     
     
     
-    
       
         
         
@@ -667,16 +644,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../05-concept-enumeration-dependencies/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 5 - Concept Enumeration and Dependencies
-    
   </span>
   
 
@@ -710,7 +684,6 @@
     
     
     
-    
       
         
         
@@ -719,16 +692,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../06-learning-graph-quality-validation/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 6 - Learning Graph Quality and Validation
-    
   </span>
   
 
@@ -762,7 +732,6 @@
     
     
     
-    
       
         
         
@@ -771,16 +740,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../07-taxonomy-data-formats/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 7 - Taxonomy and Data Formats
-    
   </span>
   
 
@@ -814,7 +780,6 @@
     
     
     
-    
       
         
         
@@ -823,16 +788,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../08-mkdocs-platform-documentation/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 8 - MkDocs Platform and Documentation
-    
   </span>
   
 
@@ -866,7 +828,6 @@
     
     
     
-    
       
         
         
@@ -875,16 +836,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../09-claude-skills-architecture-development/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 9 - Claude Skills Architecture and Development
-    
   </span>
   
 
@@ -918,7 +876,6 @@
     
     
     
-    
       
         
         
@@ -927,16 +884,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../10-content-creation-workflows/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 10 - Content Creation Workflows
-    
   </span>
   
 
@@ -970,7 +924,6 @@
     
     
     
-    
       
         
         
@@ -979,16 +932,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../11-educational-resources-assessment/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 11 - Educational Resources and Assessment
-    
   </span>
   
 
@@ -1019,7 +969,6 @@
       
         
       
-    
     
     
     
@@ -1033,14 +982,11 @@
         
   
   
-  
     <a href="../12-interactive-elements-microsims/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Chapter 12 - Interactive Elements and MicroSims
-    
   </span>
   
 
@@ -1073,7 +1019,6 @@
       
         
       
-    
     
     
     
@@ -1086,14 +1031,13 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_14" checked>
         
           
+          
           <div class="md-nav__link md-nav__container">
             <a href="./" class="md-nav__link md-nav__link--active">
               
   
-  
   <span class="md-ellipsis">
     Chapter 13 - Development Tools, Version Control, and Deployment
-    
   </span>
   
 
@@ -1125,10 +1069,8 @@
       <a href="quiz/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Quiz
-    
   </span>
   
 
@@ -1175,7 +1117,6 @@
     
     
     
-    
       
         
         
@@ -1184,16 +1125,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../skill-descriptions/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Skill Descriptions
-    
   </span>
   
 
@@ -1222,76 +1160,145 @@
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
+          
+        
       
-    
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
     
     
     
@@ -1303,16 +1310,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../sims/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     MicroSims
-    
   </span>
   
 
@@ -1375,7 +1379,6 @@
     
     
     
-    
       
         
         
@@ -1384,16 +1387,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../learning-graph/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Learning Graph
-    
   </span>
   
 
@@ -1492,7 +1492,6 @@
     
     
     
-    
       
         
         
@@ -1501,16 +1500,13 @@
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-  
   
   
     <a href="../../prompts/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Prompts
-    
   </span>
   
 
@@ -1545,7 +1541,6 @@
     
     
     
-    
       
         
         
@@ -1556,14 +1551,11 @@
         
   
   
-  
     <a href="../../workshops/" class="md-nav__link">
       
   
-  
   <span class="md-ellipsis">
     Workshops
-    
   </span>
   
 
@@ -1588,10 +1580,8 @@
       <a href="../../consolidation-plan/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Consolidation Plan
-    
   </span>
   
 
@@ -1610,10 +1600,8 @@
       <a href="../../glossary/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Glossary
-    
   </span>
   
 
@@ -1632,10 +1620,8 @@
       <a href="../../faq/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     FAQ
-    
   </span>
   
 
@@ -1654,10 +1640,8 @@
       <a href="../../references/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     References
-    
   </span>
   
 
@@ -1676,10 +1660,8 @@
       <a href="../../license/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     License
-    
   </span>
   
 
@@ -1698,10 +1680,8 @@
       <a href="../../contact/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Contact
-    
   </span>
   
 
@@ -1718,7 +1698,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -2485,11 +2465,10 @@
                 
                   
 
-
   
     <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/chapters/13-dev-tools-version-control-deployment/index.md" title="Edit this page" class="md-content__button md-icon">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
   
   
@@ -2523,7 +2502,7 @@
 <li><a href="../11-educational-resources-assessment/">Chapter 11: Educational Resources and Assessment</a></li>
 <li><a href="../12-interactive-elements-microsims/">Chapter 12: Interactive Elements and MicroSims</a></li>
 </ul>
-<hr />
+<hr>
 <h2 id="introduction">Introduction</h2>
 <p>Creating intelligent textbooks requires mastery of professional development tools and workflows that streamline content creation, version control, and deployment. This chapter introduces the essential development environment used throughout the intelligent textbook creation process, focusing on Visual Studio Code as the primary content authoring platform and Bash shell scripting for automation.</p>
 <p>Unlike traditional textbook authoring tools like Microsoft Word or Google Docs, intelligent textbook development leverages software engineering practices including version control with Git, command-line workflows, and automated deployment pipelines. These practices enable collaborative content development, reproducible builds, and seamless publication to web platforms like GitHub Pages.</p>
@@ -2552,7 +2531,7 @@
 </ul>
 <h4 id="diagram-vs-code-interface-layout-for-textbook-development">Diagram: VS Code Interface Layout for Textbook Development</h4>
 <details>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2602,21 +2581,21 @@ Components to show:
 - Editor Group (center): Split view showing:
   - Left pane: index.md file in edit mode with markdown content
   - Right pane: Markdown preview pane showing rendered content
-- Panel (bottom): Integrated terminal showing &quot;mkdocs serve&quot; command running
+- Panel (bottom): Integrated terminal showing "mkdocs serve" command running
 - Status Bar (bottom): Git branch indicator, file type, cursor position
 
 Annotations:
-- Arrow pointing to Explorer: &quot;Navigate textbook structure&quot;
-- Arrow pointing to Split editor: &quot;Edit and preview simultaneously&quot;
-- Arrow pointing to Terminal: &quot;Run MkDocs and Python scripts&quot;
-- Arrow pointing to Source Control icon: &quot;Track changes with Git&quot;
+- Arrow pointing to Explorer: "Navigate textbook structure"
+- Arrow pointing to Split editor: "Edit and preview simultaneously"
+- Arrow pointing to Terminal: "Run MkDocs and Python scripts"
+- Arrow pointing to Source Control icon: "Track changes with Git"
 
 Visual style: Modern interface mockup with realistic VS Code color scheme (dark theme)
 Color scheme: VS Code Dark+ theme colors (dark gray background, syntax highlighting)
 
 Implementation: SVG diagram or annotated screenshot
-</code></pre></div></td></tr></table></div>
-<hr />
+</code></pre></div></td></tr></tbody></table></div>
+<hr>
 <p><strong>MicroSim Generator Recommendations:</strong></p>
 <ol>
 <li>markdown/screenshot (best) - VS Code interface doesn't benefit from interactivity, annotated image clearest</li>
@@ -2658,18 +2637,18 @@ Implementation: SVG diagram or annotated screenshot
 </tbody>
 </table>
 <p>After installation, configure VS Code for optimal markdown editing by adding these settings to your user settings (Cmd/Ctrl+,):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;editor.wordWrap&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;markdown.preview.breaks&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;files.trimTrailingWhitespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="nt">"editor.wordWrap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"on"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"editor.formatOnSave"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"markdown.preview.breaks"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"files.trimTrailingWhitespace"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="p">}</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <h2 id="vs-code-for-content-development">VS Code for Content Development</h2>
 <p>While VS Code is a powerful general-purpose editor, intelligent textbook content development requires specific workflows and practices that differ from traditional software development. This section covers techniques for efficiently authoring markdown content, managing chapter files, and integrating with the MkDocs build system.</p>
 <h3 id="content-authoring-workflow">Content Authoring Workflow</h3>
@@ -2795,7 +2774,7 @@ Implementation: SVG diagram or annotated screenshot
 </ol>
 <h4 id="diagram-terminal-workflow-for-textbook-development">Diagram: Terminal Workflow for Textbook Development</h4>
 <details>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2866,49 +2845,49 @@ Purpose: Illustrate the typical terminal command sequence for developing and dep
 Visual style: Flowchart with terminal command boxes and decision points
 
 Steps:
-1. Start: &quot;Open project in VS Code&quot;
-   Hover text: &quot;File → Open Folder, select textbook repository&quot;
+1. Start: "Open project in VS Code"
+   Hover text: "File → Open Folder, select textbook repository"
 
-2. Process: &quot;Open integrated terminal (Ctrl+`)&quot;
-   Hover text: &quot;Terminal opens in project root directory&quot;
+2. Process: "Open integrated terminal (Ctrl+`)"
+   Hover text: "Terminal opens in project root directory"
 
-3. Process: &quot;mkdocs serve&quot;
-   Hover text: &quot;Starts development server on localhost:8000&quot;
+3. Process: "mkdocs serve"
+   Hover text: "Starts development server on localhost:8000"
 
-4. Decision: &quot;Need to run Python scripts?&quot;
-   Hover text: &quot;Learning graph analysis, content generation, etc.&quot;
+4. Decision: "Need to run Python scripts?"
+   Hover text: "Learning graph analysis, content generation, etc."
 
-5a. Process: &quot;Create new terminal (+)&quot;
-    Hover text: &quot;Keep mkdocs serve running in first terminal&quot;
+5a. Process: "Create new terminal (+)"
+    Hover text: "Keep mkdocs serve running in first terminal"
 
 5b. Continue to step 6
 
-6. Process: &quot;Edit markdown files&quot;
-   Hover text: &quot;Changes auto-reload in browser within 1-2 seconds&quot;
+6. Process: "Edit markdown files"
+   Hover text: "Changes auto-reload in browser within 1-2 seconds"
 
-7. Process: &quot;python docs/learning-graph/analyze-graph.py&quot;
-   Hover text: &quot;Validate learning graph quality and structure&quot;
+7. Process: "python docs/learning-graph/analyze-graph.py"
+   Hover text: "Validate learning graph quality and structure"
 
-8. Decision: &quot;Quality check passed?&quot;
-   Hover text: &quot;Review quality-metrics.md for issues&quot;
+8. Decision: "Quality check passed?"
+   Hover text: "Review quality-metrics.md for issues"
 
-9a. Process: &quot;Fix identified issues&quot;
-    Hover text: &quot;Edit learning-graph.csv, re-run analysis&quot;
+9a. Process: "Fix identified issues"
+    Hover text: "Edit learning-graph.csv, re-run analysis"
     Returns to step 6
 
 9b. Continue to step 10
 
-10. Process: &quot;git add . &amp;&amp; git commit -m &#39;message&#39;&quot;
-    Hover text: &quot;Stage all changes and create commit&quot;
+10. Process: "git add . &amp;&amp; git commit -m 'message'"
+    Hover text: "Stage all changes and create commit"
 
-11. Process: &quot;git push origin main&quot;
-    Hover text: &quot;Push commits to GitHub repository&quot;
+11. Process: "git push origin main"
+    Hover text: "Push commits to GitHub repository"
 
-12. Process: &quot;mkdocs gh-deploy&quot;
-    Hover text: &quot;Build site and deploy to GitHub Pages&quot;
+12. Process: "mkdocs gh-deploy"
+    Hover text: "Build site and deploy to GitHub Pages"
 
-13. End: &quot;Textbook published&quot;
-    Hover text: &quot;Changes live at https://username.github.io/textbook-name&quot;
+13. End: "Textbook published"
+    Hover text: "Changes live at https://username.github.io/textbook-name"
 
 Color coding:
 - Blue: Terminal commands
@@ -2922,8 +2901,8 @@ Swimlanes:
 - Terminal 3 (Git Operations)
 
 Implementation: SVG flowchart with interactive hover states (HTML/CSS/JavaScript)
-</code></pre></div></td></tr></table></div>
-<hr />
+</code></pre></div></td></tr></tbody></table></div>
+<hr>
 <p><strong>MicroSim Generator Recommendations:</strong></p>
 <ol>
 <li>mermaid-generator (95/100) - Terminal command workflow with sequential steps is ideal flowchart</li>
@@ -2944,8 +2923,8 @@ Implementation: SVG flowchart with interactive hover states (HTML/CSS/JavaScript
 <p>When you open the integrated terminal in VS Code, you're opening a terminal application that runs a shell (typically Bash or Zsh on macOS/Linux, PowerShell on Windows).</p>
 <h3 id="bash-command-structure">Bash Command Structure</h3>
 <p>Bash commands follow a consistent structure:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">command</span><span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span><span class="o">[</span>arguments<span class="o">]</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">command</span><span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span><span class="o">[</span>arguments<span class="o">]</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>For example, the command <code>ls -la /docs/chapters</code> breaks down as:</p>
 <ul>
 <li><strong>Command:</strong> <code>ls</code> (list directory contents)</li>
@@ -3035,39 +3014,39 @@ Implementation: SVG flowchart with interactive hover states (HTML/CSS/JavaScript
 <li><code>$USER</code>: Current username</li>
 </ul>
 <p>You can display variable values using <code>echo</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$HOME</span><span class="w">      </span><span class="c1"># /Users/username</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span><span class="w">      </span><span class="c1"># /usr/local/bin:/usr/bin:/bin</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$PWD</span><span class="w">       </span><span class="c1"># /Users/username/textbook-project</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="command-chaining-and-redirection">Command Chaining and Redirection</h3>
 <p>Bash allows combining multiple commands using operators:</p>
 <ul>
 <li>
 <p><strong>Sequential execution (<code>;</code>):</strong> Run commands one after another regardless of success
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>docs/learning-graph<span class="p">;</span><span class="w"> </span>python<span class="w"> </span>analyze-graph.py<span class="w"> </span>learning-graph.csv<span class="w"> </span>quality-metrics.md
-</code></pre></div></td></tr></table></div></p>
+  </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>docs/learning-graph<span class="p">;</span><span class="w"> </span>python<span class="w"> </span>analyze-graph.py<span class="w"> </span>learning-graph.csv<span class="w"> </span>quality-metrics.md
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 <li>
 <p><strong>Conditional execution (<code>&amp;&amp;</code>):</strong> Run second command only if first succeeds
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdocs<span class="w"> </span>build<span class="w"> </span>--strict<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdocs<span class="w"> </span>gh-deploy
-</code></pre></div></td></tr></table></div></p>
+  </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdocs<span class="w"> </span>build<span class="w"> </span>--strict<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdocs<span class="w"> </span>gh-deploy
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 <li>
 <p><strong>Output redirection (<code>&gt;</code>):</strong> Save command output to file
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python<span class="w"> </span>analyze-graph.py<span class="w"> </span>learning-graph.csv<span class="w"> </span>&gt;<span class="w"> </span>quality-report.txt
-</code></pre></div></td></tr></table></div></p>
+  </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python<span class="w"> </span>analyze-graph.py<span class="w"> </span>learning-graph.csv<span class="w"> </span>&gt;<span class="w"> </span>quality-report.txt
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 <li>
 <p><strong>Append to file (<code>&gt;&gt;</code>):</strong> Add command output to end of existing file
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Quality check completed&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>build-log.txt
-</code></pre></div></td></tr></table></div></p>
+  </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"Quality check completed"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>build-log.txt
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 <li>
 <p><strong>Pipe (<code>|</code>):</strong> Send output of one command as input to another
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span>-la<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;.md&quot;</span><span class="w">     </span><span class="c1"># List only markdown files</span>
-</code></pre></div></td></tr></table></div></p>
+  </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span>-la<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">".md"</span><span class="w">     </span><span class="c1"># List only markdown files</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 </ul>
 <h2 id="directory-navigation">Directory Navigation</h2>
@@ -3077,15 +3056,15 @@ Implementation: SVG flowchart with interactive hover states (HTML/CSS/JavaScript
 <ul>
 <li>
 <p><strong>Absolute paths:</strong> Start from the root directory (<code>/</code> on Unix, <code>C:\</code> on Windows)
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/Users/username/Documents/textbook-project/docs/chapters/01-intro/index.md
-</code></pre></div></td></tr></table></div></p>
+  </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/Users/username/Documents/textbook-project/docs/chapters/01-intro/index.md
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 <li>
 <p><strong>Relative paths:</strong> Start from the current working directory
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+  </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># If current directory is /Users/username/Documents/textbook-project</span>
 docs/chapters/01-intro/index.md
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 </ul>
 <p>Special directory references:</p>
@@ -3097,7 +3076,7 @@ docs/chapters/01-intro/index.md
 </ul>
 <h3 id="navigating-the-filesystem">Navigating the Filesystem</h3>
 <p>The <code>cd</code> (change directory) command moves between directories:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3136,10 +3115,10 @@ docs/chapters/01-intro/index.md
 
 <span class="c1"># Navigate to root directory</span>
 <span class="nb">cd</span><span class="w"> </span>/
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="intelligent-textbook-directory-structure">Intelligent Textbook Directory Structure</h3>
 <p>A typical intelligent textbook project has this structure:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3198,40 +3177,40 @@ docs/chapters/01-intro/index.md
 ├── mkdocs.yml
 ├── README.md
 └── requirements.txt
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="navigation-best-practices">Navigation Best Practices</h3>
 <p>Efficient navigation requires understanding project structure and using shortcuts:</p>
 <ul>
 <li>
 <p><strong>Use tab completion:</strong> Type first few characters and press Tab to autocomplete
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>docs/ch&lt;Tab&gt;<span class="w">     </span><span class="c1"># Autocompletes to docs/chapters/</span>
-</code></pre></div></td></tr></table></div></p>
+  </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>docs/ch&lt;Tab&gt;<span class="w">     </span><span class="c1"># Autocompletes to docs/chapters/</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 <li>
 <p><strong>Use wildcards for pattern matching:</strong>
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span>docs/chapters/*/index.md<span class="w">     </span><span class="c1"># List all chapter index files</span>
-</code></pre></div></td></tr></table></div></p>
+  </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span>docs/chapters/*/index.md<span class="w">     </span><span class="c1"># List all chapter index files</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 <li>
 <p><strong>Create shell aliases for frequent destinations:</strong>
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">chapters</span><span class="o">=</span><span class="s2">&quot;cd ~/Documents/textbook-project/docs/chapters&quot;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">sims</span><span class="o">=</span><span class="s2">&quot;cd ~/Documents/textbook-project/docs/sims&quot;</span>
-</code></pre></div></td></tr></table></div></p>
+  </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">chapters</span><span class="o">=</span><span class="s2">"cd ~/Documents/textbook-project/docs/chapters"</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">sims</span><span class="o">=</span><span class="s2">"cd ~/Documents/textbook-project/docs/sims"</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 <li>
 <p><strong>Use <code>pushd</code> and <code>popd</code> for temporary directory changes:</strong>
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+  </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">pushd</span><span class="w"> </span>docs/learning-graph<span class="w">    </span><span class="c1"># Navigate and save previous location</span>
 python<span class="w"> </span>analyze-graph.py<span class="w"> </span>learning-graph.csv<span class="w"> </span>quality-metrics.md
 <span class="nb">popd</span><span class="w">                         </span><span class="c1"># Return to previous location</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 </ul>
 <h4 id="diagram-interactive-directory-navigation-practice-microsim">Diagram: Interactive Directory Navigation Practice MicroSim</h4>
 <details>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>
@@ -3387,12 +3366,12 @@ Simulated filesystem structure:
 ```
 
 Interactive controls (right panel):
-- Display: Current working directory (e.g., &quot;/home/student&quot;)
+- Display: Current working directory (e.g., "/home/student")
 - Text input: Command entry field
-- Button: &quot;Execute Command&quot;
-- Button: &quot;Clear Terminal&quot;
-- Button: &quot;Reset to Home&quot;
-- Checkbox: &quot;Show hidden files&quot;
+- Button: "Execute Command"
+- Button: "Clear Terminal"
+- Button: "Reset to Home"
+- Checkbox: "Show hidden files"
 - Display: Challenge progress (5 challenges)
 
 Supported commands:
@@ -3410,15 +3389,15 @@ Default parameters:
 - Show hints: True
 
 Challenges (progressively harder):
-1. &quot;Navigate to the textbook-project directory&quot;
+1. "Navigate to the textbook-project directory"
    Solution: `cd textbook-project`
-2. &quot;List the contents of the docs directory without changing into it&quot;
+2. "List the contents of the docs directory without changing into it"
    Solution: `ls docs`
-3. &quot;Navigate to the chapters directory using a relative path&quot;
+3. "Navigate to the chapters directory using a relative path"
    Solution: `cd docs/chapters`
-4. &quot;Navigate to the scripts directory from chapters&quot;
+4. "Navigate to the scripts directory from chapters"
    Solution: `cd ../../scripts`
-5. &quot;Return to the previous directory using the dash shortcut&quot;
+5. "Return to the previous directory using the dash shortcut"
    Solution: `cd -`
 
 Behavior:
@@ -3430,16 +3409,16 @@ Behavior:
 - Provide hint button that shows first step of current challenge
 
 Interactive features:
-- Click directories in tree view to highlight them (doesn&#39;t navigate)
+- Click directories in tree view to highlight them (doesn't navigate)
 - Hover over directories shows full path
 - Right-click file/directory shows properties (size, permissions)
 - Double-click directory in tree auto-fills `cd` command
 
 Feedback:
-- Success messages: &quot;✓ Navigated to /home/student/textbook-project&quot;
-- Error messages: &quot;✗ Directory not found: &#39;doc&#39; (did you mean &#39;docs&#39;?)&quot;
-- Challenge completion: &quot;🎉 Challenge 1 complete! (4 remaining)&quot;
-- Hints: &quot;💡 Hint: Try using &#39;cd&#39; followed by the directory name&quot;
+- Success messages: "✓ Navigated to /home/student/textbook-project"
+- Error messages: "✗ Directory not found: 'doc' (did you mean 'docs'?)"
+- Challenge completion: "🎉 Challenge 1 complete! (4 remaining)"
+- Hints: "💡 Hint: Try using 'cd' followed by the directory name"
 
 Implementation notes:
 - Use p5.js for rendering
@@ -3448,8 +3427,8 @@ Implementation notes:
 - Parse commands using string splitting and regex
 - Implement basic tab completion (suggest directory names)
 - Save progress to localStorage for session persistence
-</code></pre></div></td></tr></table></div>
-<hr />
+</code></pre></div></td></tr></tbody></table></div>
+<hr>
 <p><strong>MicroSim Generator Recommendations:</strong></p>
 <ol>
 <li>microsim-p5 (94/100) - Interactive directory navigation simulator with terminal emulation is p5.js strength</li>
@@ -3461,7 +3440,7 @@ Implementation notes:
 <p>Command-line file creation and editing are essential skills for automating textbook workflows, especially when generating multiple files from templates or making bulk updates. While VS Code is the primary editor for content development, knowing command-line file operations enables scripting and automation.</p>
 <h3 id="creating-files">Creating Files</h3>
 <p>The <code>touch</code> command creates empty files or updates the modification timestamp of existing files:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -3470,20 +3449,20 @@ touch<span class="w"> </span>docs/chapters/14-future-directions/index.md
 
 <span class="c1"># Create multiple files at once</span>
 touch<span class="w"> </span>docs/chapters/14-future-directions/<span class="o">{</span>index.md,exercises.md,glossary.md<span class="o">}</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <p>The <code>echo</code> command combined with output redirection creates files with initial content:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Create file with single line of content</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;# Chapter 14: Future Directions&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>docs/chapters/14-future-directions/index.md
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"# Chapter 14: Future Directions"</span><span class="w"> </span>&gt;<span class="w"> </span>docs/chapters/14-future-directions/index.md
 
 <span class="c1"># Append content to existing file</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;## Summary&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>docs/chapters/14-future-directions/index.md
-</code></pre></div></td></tr></table></div>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"## Summary"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>docs/chapters/14-future-directions/index.md
+</code></pre></div></td></tr></tbody></table></div>
 <p>For multi-line content, use a here-document:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3508,44 +3487,44 @@ touch<span class="w"> </span>docs/chapters/14-future-directions/<span class="o">
 <span class="s">2. Adaptive Learning Systems</span>
 <span class="s">3. Real-time Content Generation</span>
 <span class="s">EOF</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="editing-files">Editing Files</h3>
 <p>While command-line text editors like <code>vim</code>, <code>nano</code>, and <code>emacs</code> are available, most intelligent textbook developers prefer editing in VS Code. However, simple text transformations can be performed using command-line tools:</p>
 <p><strong><code>sed</code> (stream editor):</strong> Perform find-and-replace operations</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Replace all occurrences of &quot;CMDB&quot; with &quot;Configuration Management Database&quot;</span>
-sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="s1">&#39;s/CMDB/Configuration Management Database/g&#39;</span><span class="w"> </span>docs/chapters/*/index.md
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Replace all occurrences of "CMDB" with "Configuration Management Database"</span>
+sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">''</span><span class="w"> </span><span class="s1">'s/CMDB/Configuration Management Database/g'</span><span class="w"> </span>docs/chapters/*/index.md
 
 <span class="c1"># Add a line after a specific pattern</span>
-sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="s1">&#39;/## Summary/a\</span>
-<span class="s1">This chapter covers fundamental concepts.&#39;</span><span class="w"> </span>docs/chapters/14-future-directions/index.md
-</code></pre></div></td></tr></table></div>
+sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">''</span><span class="w"> </span><span class="s1">'/## Summary/a\</span>
+<span class="s1">This chapter covers fundamental concepts.'</span><span class="w"> </span>docs/chapters/14-future-directions/index.md
+</code></pre></div></td></tr></tbody></table></div>
 <p><strong><code>awk</code> (text processing):</strong> Extract and transform structured text</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Extract all level-2 headers from a file</span>
-awk<span class="w"> </span><span class="s1">&#39;/^## / {print $0}&#39;</span><span class="w"> </span>docs/chapters/01-intro/index.md
+awk<span class="w"> </span><span class="s1">'/^## / {print $0}'</span><span class="w"> </span>docs/chapters/01-intro/index.md
 
-<span class="c1"># Print only lines containing &quot;learning graph&quot;</span>
-awk<span class="w"> </span><span class="s1">&#39;/learning graph/ {print}&#39;</span><span class="w"> </span>docs/chapters/*/index.md
-</code></pre></div></td></tr></table></div>
+<span class="c1"># Print only lines containing "learning graph"</span>
+awk<span class="w"> </span><span class="s1">'/learning graph/ {print}'</span><span class="w"> </span>docs/chapters/*/index.md
+</code></pre></div></td></tr></tbody></table></div>
 <p><strong><code>grep</code> (pattern matching):</strong> Search for text patterns</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Find all chapters mentioning &quot;MicroSim&quot;</span>
-grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;MicroSim&quot;</span><span class="w"> </span>docs/chapters/
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Find all chapters mentioning "MicroSim"</span>
+grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">"MicroSim"</span><span class="w"> </span>docs/chapters/
 
-<span class="c1"># Count occurrences of &quot;learning graph&quot; in all markdown files</span>
-grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;learning graph&quot;</span><span class="w"> </span>docs/<span class="w"> </span>--include<span class="o">=</span><span class="s2">&quot;*.md&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
-</code></pre></div></td></tr></table></div>
+<span class="c1"># Count occurrences of "learning graph" in all markdown files</span>
+grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">"learning graph"</span><span class="w"> </span>docs/<span class="w"> </span>--include<span class="o">=</span><span class="s2">"*.md"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="file-manipulation-operations">File Manipulation Operations</h3>
 <p>Common file operations for textbook projects:</p>
 <table>
@@ -3599,35 +3578,35 @@ grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;lea
 <ul>
 <li>
 <p><strong>Use <code>-i</code> flag for interactive confirmation:</strong>
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rm<span class="w"> </span>-i<span class="w"> </span>docs/chapters/draft.md<span class="w">    </span><span class="c1"># Prompts &quot;remove docs/chapters/draft.md?&quot;</span>
-</code></pre></div></td></tr></table></div></p>
+  </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rm<span class="w"> </span>-i<span class="w"> </span>docs/chapters/draft.md<span class="w">    </span><span class="c1"># Prompts "remove docs/chapters/draft.md?"</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 <li>
 <p><strong>Use <code>-n</code> flag for no-clobber (don't overwrite):</strong>
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cp<span class="w"> </span>-n<span class="w"> </span>source.md<span class="w"> </span>destination.md<span class="w">  </span><span class="c1"># Only copies if destination doesn&#39;t exist</span>
-</code></pre></div></td></tr></table></div></p>
+  </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>cp<span class="w"> </span>-n<span class="w"> </span>source.md<span class="w"> </span>destination.md<span class="w">  </span><span class="c1"># Only copies if destination doesn't exist</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 <li>
 <p><strong>Preview operations before executing:</strong>
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+  </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Preview files that would be deleted</span>
-find<span class="w"> </span>docs/chapters<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;draft*.md&quot;</span>
+find<span class="w"> </span>docs/chapters<span class="w"> </span>-name<span class="w"> </span><span class="s2">"draft*.md"</span>
 <span class="c1"># Then delete them</span>
-find<span class="w"> </span>docs/chapters<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;draft*.md&quot;</span><span class="w"> </span>-delete
-</code></pre></div></td></tr></table></div></p>
+find<span class="w"> </span>docs/chapters<span class="w"> </span>-name<span class="w"> </span><span class="s2">"draft*.md"</span><span class="w"> </span>-delete
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 <li>
 <p><strong>Use version control as a safety net:</strong>
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+  </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>status<span class="w">                      </span><span class="c1"># Check for uncommitted changes</span>
 git<span class="w"> </span>stash<span class="w">                       </span><span class="c1"># Temporarily save current changes</span>
 <span class="c1"># Perform risky operations</span>
 git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w">                   </span><span class="c1"># Restore changes if needed</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 </ul>
 <h2 id="shell-scripts">Shell Scripts</h2>
@@ -3637,23 +3616,23 @@ git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w">     
 <ol>
 <li>
 <p><strong>Shebang line:</strong> Specifies the interpreter (always first line)
-   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
-</code></pre></div></td></tr></table></div></p>
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 <li>
 <p><strong>Comments:</strong> Explain what the script does (start with <code>#</code>)
-   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Install Claude skills to global skills directory</span>
-</code></pre></div></td></tr></table></div></p>
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Install Claude skills to global skills directory</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 <li>
 <p><strong>Commands:</strong> The actual operations to perform
-   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ln<span class="w"> </span>-s<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/skills/*<span class="w"> </span>~/.claude/skills/
-</code></pre></div></td></tr></table></div></p>
+   </p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ln<span class="w"> </span>-s<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/skills/*<span class="w"> </span>~/.claude/skills/
+</code></pre></div></td></tr></tbody></table></div><p></p>
 </li>
 </ol>
 <h3 id="example-installing-claude-skills">Example: Installing Claude Skills</h3>
 <p>The <code>install-claude-skills.sh</code> script creates symbolic links from the project's skills directory to the global Claude skills directory:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3676,43 +3655,43 @@ git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w">     
 <span class="c1"># Install Claude skills to global skills directory</span>
 <span class="c1"># This makes skills available to all Claude projects</span>
 
-<span class="nv">SKILLS_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.claude/skills&quot;</span>
-<span class="nv">PROJECT_SKILLS</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">/skills&quot;</span>
+<span class="nv">SKILLS_DIR</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.claude/skills"</span>
+<span class="nv">PROJECT_SKILLS</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">/skills"</span>
 
-<span class="c1"># Create skills directory if it doesn&#39;t exist</span>
-mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SKILLS_DIR</span><span class="s2">&quot;</span>
+<span class="c1"># Create skills directory if it doesn't exist</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">"</span><span class="nv">$SKILLS_DIR</span><span class="s2">"</span>
 
 <span class="c1"># Link each skill to global directory</span>
-<span class="k">for</span><span class="w"> </span>skill<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PROJECT_SKILLS</span><span class="s2">&quot;</span>/*<span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="nv">skill_name</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$skill</span><span class="s2">&quot;</span><span class="k">)</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Installing skill: </span><span class="nv">$skill_name</span><span class="s2">&quot;</span>
-<span class="w">    </span>ln<span class="w"> </span>-sf<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$skill</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SKILLS_DIR</span><span class="s2">/</span><span class="nv">$skill_name</span><span class="s2">&quot;</span>
+<span class="k">for</span><span class="w"> </span>skill<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"</span><span class="nv">$PROJECT_SKILLS</span><span class="s2">"</span>/*<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nv">skill_name</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">"</span><span class="nv">$skill</span><span class="s2">"</span><span class="k">)</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Installing skill: </span><span class="nv">$skill_name</span><span class="s2">"</span>
+<span class="w">    </span>ln<span class="w"> </span>-sf<span class="w"> </span><span class="s2">"</span><span class="nv">$skill</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$SKILLS_DIR</span><span class="s2">/</span><span class="nv">$skill_name</span><span class="s2">"</span>
 <span class="k">done</span>
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Skills installation complete!&quot;</span>
-</code></pre></div></td></tr></table></div>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Skills installation complete!"</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="script-components-explained">Script Components Explained</h3>
 <p><strong>Variables:</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">SKILLS_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.claude/skills&quot;</span><span class="w">      </span><span class="c1"># Directory where skills are installed</span>
-<span class="nv">PROJECT_SKILLS</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">/skills&quot;</span><span class="w">         </span><span class="c1"># Directory containing project skills</span>
-</code></pre></div></td></tr></table></div></p>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">SKILLS_DIR</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.claude/skills"</span><span class="w">      </span><span class="c1"># Directory where skills are installed</span>
+<span class="nv">PROJECT_SKILLS</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">/skills"</span><span class="w">         </span><span class="c1"># Directory containing project skills</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Command substitution:</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">skill_name</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$skill</span><span class="s2">&quot;</span><span class="k">)</span><span class="w">        </span><span class="c1"># Extracts filename from full path</span>
-</code></pre></div></td></tr></table></div></p>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">skill_name</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">"</span><span class="nv">$skill</span><span class="s2">"</span><span class="k">)</span><span class="w">        </span><span class="c1"># Extracts filename from full path</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>For loops:</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span><span class="w"> </span>skill<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PROJECT_SKILLS</span><span class="s2">&quot;</span>/*<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w">   </span><span class="c1"># Iterate over each skill directory</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span><span class="w"> </span>skill<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"</span><span class="nv">$PROJECT_SKILLS</span><span class="s2">"</span>/*<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w">   </span><span class="c1"># Iterate over each skill directory</span>
 <span class="w">    </span><span class="c1"># Commands here execute for each skill</span>
 <span class="k">done</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Conditional creation:</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SKILLS_DIR</span><span class="s2">&quot;</span><span class="w">                 </span><span class="c1"># Create directory if it doesn&#39;t exist</span>
-</code></pre></div></td></tr></table></div></p>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">"</span><span class="nv">$SKILLS_DIR</span><span class="s2">"</span><span class="w">                 </span><span class="c1"># Create directory if it doesn't exist</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Symbolic links:</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ln<span class="w"> </span>-sf<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$skill</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SKILLS_DIR</span><span class="s2">/</span><span class="nv">$skill_name</span><span class="s2">&quot;</span><span class="w">    </span><span class="c1"># -s = symbolic, -f = force (replace if exists)</span>
-</code></pre></div></td></tr></table></div></p>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ln<span class="w"> </span>-sf<span class="w"> </span><span class="s2">"</span><span class="nv">$skill</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$SKILLS_DIR</span><span class="s2">/</span><span class="nv">$skill_name</span><span class="s2">"</span><span class="w">    </span><span class="c1"># -s = symbolic, -f = force (replace if exists)</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <h3 id="script-best-practices">Script Best Practices</h3>
 <p>Effective shell scripts follow these conventions:</p>
 <ul>
@@ -3725,7 +3704,7 @@ mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</
 <li><strong>Validate inputs:</strong> Check that required files/directories exist</li>
 </ul>
 <h3 id="example-advanced-script-with-error-handling">Example: Advanced Script with Error Handling</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3760,33 +3739,33 @@ mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</
 
 <span class="c1"># Validate learning graph quality before deployment</span>
 
-<span class="nv">LEARNING_GRAPH_CSV</span><span class="o">=</span><span class="s2">&quot;docs/learning-graph/learning-graph.csv&quot;</span>
+<span class="nv">LEARNING_GRAPH_CSV</span><span class="o">=</span><span class="s2">"docs/learning-graph/learning-graph.csv"</span>
 <span class="nv">QUALITY_THRESHOLD</span><span class="o">=</span><span class="m">70</span>
 
 <span class="c1"># Check that learning graph file exists</span>
-<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LEARNING_GRAPH_CSV</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: Learning graph file not found: </span><span class="nv">$LEARNING_GRAPH_CSV</span><span class="s2">&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span><span class="s2">"</span><span class="nv">$LEARNING_GRAPH_CSV</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Error: Learning graph file not found: </span><span class="nv">$LEARNING_GRAPH_CSV</span><span class="s2">"</span>
 <span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 
 <span class="c1"># Run quality analysis</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Analyzing learning graph quality...&quot;</span>
-python<span class="w"> </span>docs/learning-graph/analyze-graph.py<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LEARNING_GRAPH_CSV</span><span class="s2">&quot;</span><span class="w"> </span>quality-metrics.md
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Analyzing learning graph quality..."</span>
+python<span class="w"> </span>docs/learning-graph/analyze-graph.py<span class="w"> </span><span class="s2">"</span><span class="nv">$LEARNING_GRAPH_CSV</span><span class="s2">"</span><span class="w"> </span>quality-metrics.md
 
 <span class="c1"># Extract quality score from quality-metrics.md</span>
-<span class="nv">quality_score</span><span class="o">=</span><span class="k">$(</span>grep<span class="w"> </span><span class="s2">&quot;Quality Score:&quot;</span><span class="w"> </span>quality-metrics.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $3}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">&#39;/&#39;</span><span class="w"> </span>-f1<span class="k">)</span>
+<span class="nv">quality_score</span><span class="o">=</span><span class="k">$(</span>grep<span class="w"> </span><span class="s2">"Quality Score:"</span><span class="w"> </span>quality-metrics.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $3}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">'/'</span><span class="w"> </span>-f1<span class="k">)</span>
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Quality score: </span><span class="nv">$quality_score</span><span class="s2">/100&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Quality score: </span><span class="nv">$quality_score</span><span class="s2">/100"</span>
 
 <span class="c1"># Check if quality meets threshold</span>
-<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$quality_score</span><span class="s2">&quot;</span><span class="w"> </span>-lt<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$QUALITY_THRESHOLD</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: Quality score (</span><span class="nv">$quality_score</span><span class="s2">) is below threshold (</span><span class="nv">$QUALITY_THRESHOLD</span><span class="s2">)&quot;</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Review quality-metrics.md for issues&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$quality_score</span><span class="s2">"</span><span class="w"> </span>-lt<span class="w"> </span><span class="s2">"</span><span class="nv">$QUALITY_THRESHOLD</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Error: Quality score (</span><span class="nv">$quality_score</span><span class="s2">) is below threshold (</span><span class="nv">$QUALITY_THRESHOLD</span><span class="s2">)"</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Review quality-metrics.md for issues"</span>
 <span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✓ Quality check passed! Ready for deployment.&quot;</span>
-</code></pre></div></td></tr></table></div>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"✓ Quality check passed! Ready for deployment."</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>This script demonstrates:
 - Error handling with <code>set -e</code>
 - File existence checks
@@ -3798,10 +3777,10 @@ python<span class="w"> </span>docs/learning-graph/analyze-graph.py<span class="w
 <p>Unix-like systems (macOS, Linux) use a permission system to control who can read, write, or execute files. Before a shell script can be run, it must have execute permissions set.</p>
 <h3 id="understanding-file-permissions">Understanding File Permissions</h3>
 <p>File permissions are displayed by <code>ls -l</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>scripts/install-claude-skills.sh
 -rwxr-xr-x<span class="w">  </span><span class="m">1</span><span class="w"> </span>username<span class="w">  </span>staff<span class="w">  </span><span class="m">512</span><span class="w"> </span>Jan<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">10</span>:30<span class="w"> </span>install-claude-skills.sh
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <p>The permission string <code>-rwxr-xr-x</code> breaks down as:</p>
 <ul>
 <li><strong>File type:</strong> <code>-</code> (regular file), <code>d</code> (directory), <code>l</code> (symbolic link)</li>
@@ -3812,19 +3791,19 @@ python<span class="w"> </span>docs/learning-graph/analyze-graph.py<span class="w
 <h3 id="permission-notation">Permission Notation</h3>
 <p>Permissions can be represented in two formats:</p>
 <p><strong>Symbolic notation:</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>r = read (4)
 w = write (2)
 x = execute (1)
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Numeric notation (octal):</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>rwx = 4+2+1 = 7
 r-x = 4+0+1 = 5
 r-- = 4+0+0 = 4
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p>Common permission combinations:</p>
 <table>
 <thead>
@@ -3859,7 +3838,7 @@ r-- = 4+0+0 = 4
 </table>
 <h3 id="making-scripts-executable">Making Scripts Executable</h3>
 <p>To make a script executable, use the <code>chmod</code> command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -3874,9 +3853,9 @@ chmod<span class="w"> </span>a+x<span class="w"> </span>scripts/install-claude-s
 
 <span class="c1"># Set specific permissions using numeric notation</span>
 chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>scripts/install-claude-skills.sh
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <p>After setting execute permissions, the script can be run directly:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -3893,10 +3872,10 @@ chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>s
 
 <span class="c1"># Run from anywhere if in PATH</span>
 install-claude-skills.sh
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <h4 id="diagram-permission-bits-visual-infographic">Diagram: Permission Bits Visual Infographic</h4>
 <details>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3976,10 +3955,10 @@ Layout: Grid layout with three main sections
 Section 1 - Permission String Breakdown (top):
 - Large text: `-rwxr-xr-x`
 - Each character highlighted separately:
-  - `-` → &quot;File type: Regular file&quot;
-  - `rwx` → &quot;Owner: Read, Write, Execute&quot;
-  - `r-x` → &quot;Group: Read, Execute only&quot;
-  - `r-x` → &quot;Others: Read, Execute only&quot;
+  - `-` → "File type: Regular file"
+  - `rwx` → "Owner: Read, Write, Execute"
+  - `r-x` → "Group: Read, Execute only"
+  - `r-x` → "Others: Read, Execute only"
 - Color coding: Owner (blue), Group (green), Others (orange)
 
 Section 2 - Octal Representation (middle):
@@ -3997,25 +3976,25 @@ Section 2 - Octal Representation (middle):
 Section 3 - Common Permissions (bottom):
 - Cards showing common permission sets:
 
-  Card 1: &quot;Executable Script&quot;
+  Card 1: "Executable Script"
   - Octal: 755
   - Symbolic: -rwxr-xr-x
   - Use case: Shell scripts that should run
   - Icon: 📜 with ⚡
 
-  Card 2: &quot;Private Script&quot;
+  Card 2: "Private Script"
   - Octal: 700
   - Symbolic: -rwx------
   - Use case: Scripts with sensitive data
   - Icon: 🔒
 
-  Card 3: &quot;Markdown File&quot;
+  Card 3: "Markdown File"
   - Octal: 644
   - Symbolic: -rw-r--r--
   - Use case: Documentation files
   - Icon: 📝
 
-  Card 4: &quot;Directory&quot;
+  Card 4: "Directory"
   - Octal: 755
   - Symbolic: drwxr-xr-x
   - Use case: Standard project directories
@@ -4024,7 +4003,7 @@ Section 3 - Common Permissions (bottom):
 Interactive elements:
 - Hover over permission bits to see explanation
 - Click octal number to toggle between symbolic and numeric views
-- Click &quot;Common Permissions&quot; cards to see full explanation and chmod command
+- Click "Common Permissions" cards to see full explanation and chmod command
 - Slider to build custom permissions: drag to set r/w/x for owner/group/others
   - Displays resulting chmod command in real-time
 
@@ -4037,8 +4016,8 @@ Color scheme:
 - Background: White with subtle shadows for cards
 
 Implementation: HTML/CSS/JavaScript with interactive permission builder
-</code></pre></div></td></tr></table></div>
-<hr />
+</code></pre></div></td></tr></tbody></table></div>
+<hr>
 <p><strong>MicroSim Generator Recommendations:</strong></p>
 <ol>
 <li>markdown table (best) - Permission notation reference doesn't require interactivity, table clearest</li>
@@ -4057,22 +4036,22 @@ Implementation: HTML/CSS/JavaScript with interactive permission builder
 <h3 id="troubleshooting-permission-issues">Troubleshooting Permission Issues</h3>
 <p>Common permission-related errors:</p>
 <p><strong>Error: "Permission denied"</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>./scripts/install-claude-skills.sh
 -bash:<span class="w"> </span>./scripts/install-claude-skills.sh:<span class="w"> </span>Permission<span class="w"> </span>denied
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <strong>Solution:</strong> Add execute permission
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>scripts/install-claude-skills.sh
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>scripts/install-claude-skills.sh
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Error: "No such file or directory" when script exists</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>./scripts/install-claude-skills.sh
 -bash:<span class="w"> </span>./scripts/install-claude-skills.sh:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <strong>Cause:</strong> Incorrect shebang line (e.g., Windows line endings)
 <strong>Solution:</strong> Convert line endings to Unix format
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dos2unix<span class="w"> </span>scripts/install-claude-skills.sh
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dos2unix<span class="w"> </span>scripts/install-claude-skills.sh
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <h2 id="symlink-creation">Symlink Creation</h2>
 <p>Symbolic links (symlinks) are special files that act as pointers to other files or directories, enabling multiple paths to access the same content. In intelligent textbook development, symlinks are used to install Claude skills globally while maintaining the skills in the project repository.</p>
 <h3 id="why-use-symlinks-for-skills">Why Use Symlinks for Skills?</h3>
@@ -4085,7 +4064,7 @@ Implementation: HTML/CSS/JavaScript with interactive permission builder
 <p>Symlinks solve this by creating a reference in <code>~/.claude/skills/</code> that points to the original skill files in the project repository. When the original files are updated, the changes are immediately reflected in all projects using that symlink.</p>
 <h3 id="creating-symlinks">Creating Symlinks</h3>
 <p>The <code>ln</code> command creates symbolic links:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -4100,7 +4079,7 @@ ln<span class="w"> </span>-s<span class="w"> </span>~/Documents/textbook-project
 
 <span class="c1"># Example: Link all skills in a directory</span>
 ln<span class="w"> </span>-s<span class="w"> </span>~/Documents/textbook-project/skills/*<span class="w"> </span>~/.claude/skills/
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <p><strong>Flags:</strong>
 - <code>-s</code>: Create symbolic link (not a hard link)
 - <code>-f</code>: Force overwrite if link already exists
@@ -4145,24 +4124,24 @@ ln<span class="w"> </span>-s<span class="w"> </span>~/Documents/textbook-project
 </table>
 <h3 id="verifying-symlinks">Verifying Symlinks</h3>
 <p>Use <code>ls -l</code> to see symlink targets:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>~/.claude/skills/glossary-generator
 lrwxr-xr-x<span class="w">  </span><span class="m">1</span><span class="w"> </span>username<span class="w">  </span>staff<span class="w">  </span><span class="m">72</span><span class="w"> </span>Jan<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">10</span>:30<span class="w"> </span>glossary-generator<span class="w"> </span>-&gt;<span class="w"> </span>/Users/username/Documents/textbook-project/skills/glossary-generator
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <p>The <code>-&gt;</code> arrow indicates this is a symlink pointing to the target path.</p>
 <h3 id="managing-symlinks">Managing Symlinks</h3>
 <p><strong>List all symlinks in a directory:</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>find<span class="w"> </span>~/.claude/skills/<span class="w"> </span>-type<span class="w"> </span>l<span class="w"> </span>-ls
-</code></pre></div></td></tr></table></div></p>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>find<span class="w"> </span>~/.claude/skills/<span class="w"> </span>-type<span class="w"> </span>l<span class="w"> </span>-ls
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Check if a symlink target exists:</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">test</span><span class="w"> </span>-e<span class="w"> </span>~/.claude/skills/glossary-generator<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Target exists&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Broken symlink&quot;</span>
-</code></pre></div></td></tr></table></div></p>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">test</span><span class="w"> </span>-e<span class="w"> </span>~/.claude/skills/glossary-generator<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Target exists"</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Broken symlink"</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Remove a symlink:</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rm<span class="w"> </span>~/.claude/skills/glossary-generator<span class="w">     </span><span class="c1"># Removes link only, original unaffected</span>
-</code></pre></div></td></tr></table></div></p>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rm<span class="w"> </span>~/.claude/skills/glossary-generator<span class="w">     </span><span class="c1"># Removes link only, original unaffected</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Update a symlink to point to a new target:</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ln<span class="w"> </span>-sf<span class="w"> </span>/new/path/to/skill<span class="w"> </span>~/.claude/skills/glossary-generator
-</code></pre></div></td></tr></table></div></p>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ln<span class="w"> </span>-sf<span class="w"> </span>/new/path/to/skill<span class="w"> </span>~/.claude/skills/glossary-generator
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <h3 id="project-local-vs-global-skills">Project-Local vs. Global Skills</h3>
 <p>Claude Code supports two skill installation strategies:</p>
 <p><strong>Global skills (<code>~/.claude/skills/</code>):</strong>
@@ -4174,16 +4153,16 @@ lrwxr-xr-x<span class="w">  </span><span class="m">1</span><span class="w"> </sp
 - Ideal for experimental or project-specific skills
 - Installed by creating <code>.claude/skills/</code> directory in project root</p>
 <p>The installation script can be modified to install to project-local directory by changing:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># From:</span>
-<span class="nv">SKILLS_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.claude/skills&quot;</span>
+<span class="nv">SKILLS_DIR</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.claude/skills"</span>
 
 <span class="c1"># To:</span>
-<span class="nv">SKILLS_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">/.claude/skills&quot;</span>
-</code></pre></div></td></tr></table></div>
+<span class="nv">SKILLS_DIR</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">/.claude/skills"</span>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="troubleshooting-symlinks">Troubleshooting Symlinks</h3>
 <p><strong>Problem: "Skill not found" error in Claude Code</strong></p>
 <p>Possible causes:
@@ -4191,7 +4170,7 @@ lrwxr-xr-x<span class="w">  </span><span class="m">1</span><span class="w"> </sp
 2. Target path is incorrect
 3. Permissions issue on target directory</p>
 <p><strong>Solution:</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -4206,16 +4185,16 @@ ls<span class="w"> </span>-l<span class="w"> </span>~/Documents/textbook-project
 
 <span class="c1"># Re-create symlink with correct path</span>
 ln<span class="w"> </span>-sf<span class="w"> </span>~/Documents/textbook-project/skills/glossary-generator<span class="w"> </span>~/.claude/skills/glossary-generator
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Problem: "Permission denied" when running skill</strong></p>
 <p><strong>Solution:</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Ensure original skill directory has correct permissions</span>
 chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">755</span><span class="w"> </span>~/Documents/textbook-project/skills/
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <h4 id="diagram-skill-installation-workflow-diagram">Diagram: Skill Installation Workflow Diagram</h4>
 <details>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -4270,7 +4249,7 @@ chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">755</span
 <span class="normal">53</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Skill Installation Workflow Diagram&lt;/summary&gt;
 Type: diagram
 
-Purpose: Show the relationship between project skills directory, global skills directory, and Claude Code&#39;s skill discovery
+Purpose: Show the relationship between project skills directory, global skills directory, and Claude Code's skill discovery
 
 Components to show:
 - Project repository structure (left side):
@@ -4303,15 +4282,15 @@ Components to show:
   - Loading SKILL.md files
 
 Connections:
-- Dashed arrows from global skills to project skills (labeled &quot;symlink&quot;)
-- Solid arrow from install-claude-skills.sh to global skills (labeled &quot;creates&quot;)
-- Solid arrow from Claude Code to global skills (labeled &quot;reads from&quot;)
+- Dashed arrows from global skills to project skills (labeled "symlink")
+- Solid arrow from install-claude-skills.sh to global skills (labeled "creates")
+- Solid arrow from Claude Code to global skills (labeled "reads from")
 
 Annotations:
-- Label on project skills: &quot;Original files (version controlled)&quot;
-- Label on global skills: &quot;Symlinks (not version controlled)&quot;
-- Label on symlinks: &quot;Points to original, no duplication&quot;
-- Callout: &quot;When original files update, changes immediately available to Claude&quot;
+- Label on project skills: "Original files (version controlled)"
+- Label on global skills: "Symlinks (not version controlled)"
+- Label on symlinks: "Points to original, no duplication"
+- Callout: "When original files update, changes immediately available to Claude"
 
 Visual style: System architecture diagram with clear flow
 Color scheme:
@@ -4320,8 +4299,8 @@ Color scheme:
 - Claude Code: Purple
 
 Implementation: SVG diagram with labeled components and directional arrows
-</code></pre></div></td></tr></table></div>
-<hr />
+</code></pre></div></td></tr></tbody></table></div>
+<hr>
 <p><strong>MicroSim Generator Recommendations:</strong></p>
 <ol>
 <li>timeline-generator (97/100) - Project timeline showing phase progression is perfect vis-timeline use</li>
@@ -4366,10 +4345,10 @@ Implementation: SVG diagram with labeled components and directional arrows
 <h3 id="phase-1-course-design-3-5-hours">Phase 1: Course Design (3-5 hours)</h3>
 <p><strong>Step 1: Course Description Development</strong></p>
 <p>Use the <code>course-description-analyzer</code> skill to create your course description:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># In Claude Code, invoke the skill</span>
 /skill<span class="w"> </span>course-description-analyzer
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <p>Your course description should specify:
 - Course title and target audience (reading level)
 - Prerequisites and assumed knowledge
@@ -4377,21 +4356,21 @@ Implementation: SVG diagram with labeled components and directional arrows
 - Topics explicitly out of scope (5-10 topics)
 - Learning outcomes across all six Bloom's Taxonomy levels</p>
 <p><strong>Quality check:</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Skill will generate quality score</span>
 <span class="c1"># Target: ≥ 85/100</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Step 2: Learning Graph Generation</strong></p>
 <p>Use the <code>learning-graph-generator</code> skill to create your concept map:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/skill<span class="w"> </span>learning-graph-generator
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/skill<span class="w"> </span>learning-graph-generator
+</code></pre></div></td></tr></tbody></table></div>
 <p>The skill will:
 - Enumerate 200 concepts from your course description
 - Map concept dependencies (directed acyclic graph)
 - Categorize concepts by taxonomy
 - Validate graph quality</p>
 <p><strong>Quality check:</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -4400,11 +4379,11 @@ python<span class="w"> </span>analyze-graph.py<span class="w"> </span>learning-g
 
 <span class="c1"># Target: Quality score ≥ 70/100</span>
 <span class="c1"># Ensure zero circular dependencies</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Step 3: Chapter Structure Design</strong></p>
 <p>Use the <code>book-chapter-generator</code> skill to design chapters:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/skill<span class="w"> </span>book-chapter-generator
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/skill<span class="w"> </span>book-chapter-generator
+</code></pre></div></td></tr></tbody></table></div>
 <p>The skill creates chapter directories with:
 - Chapter title and summary
 - List of concepts covered in each chapter
@@ -4416,10 +4395,10 @@ python<span class="w"> </span>analyze-graph.py<span class="w"> </span>learning-g
 <h3 id="phase-2-content-creation-8-15-hours">Phase 2: Content Creation (8-15 hours)</h3>
 <p><strong>Step 4: Generate Chapter Content</strong></p>
 <p>For each chapter, use the <code>chapter-content-generator</code> skill:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>/skill<span class="w"> </span>chapter-content-generator
 <span class="c1"># Provide chapter name or path when prompted</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <p>The skill generates:
 - Detailed educational content at appropriate reading level
 - Diverse non-text elements (lists, tables, diagrams)
@@ -4427,28 +4406,28 @@ python<span class="w"> </span>analyze-graph.py<span class="w"> </span>learning-g
 <p><strong>Minimum requirement:</strong> Complete 3 chapters with rich content</p>
 <p><strong>Step 5: Create Interactive Elements</strong></p>
 <p>Implement at least one MicroSim using the <code>microsim-p5</code> skill:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/skill<span class="w"> </span>microsim-p5
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/skill<span class="w"> </span>microsim-p5
+</code></pre></div></td></tr></tbody></table></div>
 <p>Choose a concept that benefits from interactive visualization, such as:
 - Algorithm visualization (sorting, graph traversal)
 - System behavior simulation (networking, resource allocation)
 - Parameter exploration (statistical distributions, optimization)</p>
 <p><strong>Step 6: Build Supporting Resources</strong></p>
 <p>Generate glossary:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/skill<span class="w"> </span>glossary-generator
-</code></pre></div></td></tr></table></div></p>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/skill<span class="w"> </span>glossary-generator
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p>Generate chapter quizzes:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>/skill<span class="w"> </span>quiz-generator
 <span class="c1"># Generate quiz for at least one chapter</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p>Generate FAQ:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/skill<span class="w"> </span>faq-generator
-</code></pre></div></td></tr></table></div></p>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/skill<span class="w"> </span>faq-generator
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <h3 id="phase-3-integration-and-quality-assurance-2-4-hours">Phase 3: Integration and Quality Assurance (2-4 hours)</h3>
 <p><strong>Step 7: Configure MkDocs</strong></p>
 <p>Update <code>mkdocs.yml</code> navigation to include all content:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -4477,10 +4456,10 @@ python<span class="w"> </span>analyze-graph.py<span class="w"> </span>learning-g
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">FAQ</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">faq.md</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">MicroSims</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Simulation Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sims/sim-name/index.md</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <p><strong>Step 8: Test Locally</strong></p>
 <p>Build and serve the textbook locally:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -4493,7 +4472,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 mkdocs<span class="w"> </span>serve
 
 <span class="c1"># Open browser to http://localhost:8000</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <p><strong>Quality checks:</strong>
 - All navigation links work
 - Images and MicroSims load correctly
@@ -4503,20 +4482,20 @@ mkdocs<span class="w"> </span>serve
 - Quiz questions display correctly</p>
 <p><strong>Step 9: Build Validation</strong></p>
 <p>Test strict build (fail on warnings):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdocs<span class="w"> </span>build<span class="w"> </span>--strict
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdocs<span class="w"> </span>build<span class="w"> </span>--strict
+</code></pre></div></td></tr></tbody></table></div>
 <p>Fix any warnings or errors reported by MkDocs.</p>
 <h3 id="phase-4-deployment-1-2-hours">Phase 4: Deployment (1-2 hours)</h3>
 <p><strong>Step 10: GitHub Repository Setup</strong></p>
 <p>Initialize Git repository (if not already done):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>init
 git<span class="w"> </span>add<span class="w"> </span>.
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit: Complete intelligent textbook project&quot;</span>
-</code></pre></div></td></tr></table></div>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Initial commit: Complete intelligent textbook project"</span>
+</code></pre></div></td></tr></tbody></table></div>
 <p>Create GitHub repository and push:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -4525,26 +4504,26 @@ git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </sp
 git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/username/textbook-name.git
 git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>main
 git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <p><strong>Step 11: Deploy to GitHub Pages</strong></p>
 <p>Configure GitHub Pages in repository settings:
 - Settings → Pages → Source: Deploy from branch
 - Branch: gh-pages
 - Folder: / (root)</p>
 <p>Deploy using MkDocs:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdocs<span class="w"> </span>gh-deploy
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdocs<span class="w"> </span>gh-deploy
+</code></pre></div></td></tr></tbody></table></div>
 <p>This command:
 1. Builds the static site
 2. Creates/updates <code>gh-pages</code> branch
 3. Pushes to GitHub
 4. Triggers GitHub Pages deployment</p>
 <p><strong>Wait 2-5 minutes</strong> for deployment to complete, then visit:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>https://username.github.io/textbook-name/
-</code></pre></div></td></tr></table></div></p>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>https://username.github.io/textbook-name/
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>Step 12: Documentation</strong></p>
 <p>Update <code>README.md</code> with:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -4585,7 +4564,7 @@ An intelligent textbook on [subject] created using Claude Skills.
 <span class="k">- [X]</span> chapters with interactive elements
 <span class="k">-</span><span class="w"> </span>[Y] MicroSims demonstrating key concepts
 <span class="k">-</span><span class="w"> </span>Comprehensive glossary with [Z] terms
-<span class="k">-</span><span class="w"> </span>Chapter quizzes aligned to Bloom&#39;s Taxonomy
+<span class="k">-</span><span class="w"> </span>Chapter quizzes aligned to Bloom's Taxonomy
 
 <span class="gu">## Live Site</span>
 
@@ -4599,9 +4578,9 @@ pip install -r requirements.txt
 
 <span class="gh"># Serve locally</span>
 mkdocs serve
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <h2 id="project-structure">Project Structure</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -4610,7 +4589,7 @@ mkdocs serve
 ├── skills/            # Claude skills used
 ├── scripts/           # Utility scripts
 └── mkdocs.yml         # Site configuration
-</code></pre></div></td></tr></table></div>
+</code></pre></div></td></tr></tbody></table></div>
 <h2 id="license">License</h2>
 <p>[Your chosen license]
 ```</p>
@@ -4717,7 +4696,7 @@ mkdocs serve
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
         
@@ -4727,13 +4706,13 @@ mkdocs serve
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
           <a href="../12-interactive-elements-microsims/quiz/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quiz">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -4758,7 +4737,7 @@ mkdocs serve
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
             </div>
           </a>
         
@@ -4770,7 +4749,7 @@ mkdocs serve
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+      Copyright © 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
     </div>
   
   
@@ -4786,15 +4765,15 @@ mkdocs serve
     </div>
     
     
-    
-      
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
         <script src="../../js/extra.js"></script>
       
     
-  </body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
