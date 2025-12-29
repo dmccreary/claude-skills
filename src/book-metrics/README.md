@@ -53,7 +53,7 @@ python /path/to/generate-equation-list.py /path/to/textbook/docs /path/to/output
 - Extracts both display (`$$...$$`) and inline (`$...$`) equations
 - Groups equations by chapter
 - Provides line numbers and clickable links to source
-- Generates MkDocs-compatible relative links (`../../` prefix, no trailing `index/`)
+- Generates MkDocs-compatible relative links with `.md` extension for proper link resolution
 - Renders equations in the report for visual verification
 - Excludes administrative directories (prompts/, learning-graph/)
 
@@ -111,8 +111,8 @@ The `generate-equation-list.py` script produces a report like:
 
 | # | Type | Equation | Source |
 |---|------|----------|--------|
-| 1 | Display | $$F = ma$$ | [Line 42](../../chapters/01-scientific-foundations/) |
-| 2 | Inline | $v = \frac{d}{t}$ | [Line 58](../../chapters/01-scientific-foundations/) |
+| 1 | Display | $$F = ma$$ | [Line 42](../chapters/01-scientific-foundations/index.md) |
+| 2 | Inline | $v = \frac{d}{t}$ | [Line 58](../chapters/01-scientific-foundations/index.md) |
 ...
 ```
 

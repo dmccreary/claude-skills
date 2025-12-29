@@ -342,14 +342,9 @@ class EquationListGenerator:
                 try:
                     relative_path = eq.file_path.relative_to(self.docs_dir)
                     # Convert to URL-friendly path (for mkdocs)
+                    # Keep the .md extension for proper MkDocs link resolution
                     url_path = str(relative_path).replace('\\', '/')
-                    # Remove .md extension for mkdocs links
-                    if url_path.endswith('.md'):
-                        url_path = url_path[:-3] + '/'
-                    # Remove trailing 'index/' since MkDocs serves index.md at directory root
-                    if url_path.endswith('index/'):
-                        url_path = url_path[:-6]
-                    source_link = f"[Line {eq.line_number}](../../{url_path})"
+                    source_link = f"[Line {eq.line_number}](../{url_path})"
                 except ValueError:
                     source_link = f"Line {eq.line_number}"
 
