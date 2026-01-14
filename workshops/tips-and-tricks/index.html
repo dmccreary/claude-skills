@@ -1060,6 +1060,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#readmemd-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      README.md Generator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows-arrangement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows Arrangement
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1123,6 +1141,15 @@ a refresh if <code>mkdocs serve</code> is running.</p>
 <p>After you change a microsim and you want to view it you can run <code>mkdocs serve</code> or have it running in a shell.  When you save the system will rerun <code>mkdocs build</code>.  This runs in just a second on a small book, but if you have a 500-page book, converting every chapter and all the supplementary materials can take over 10 seconds.</p>
 <p>A better option is to have the <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a> extension installed.  This only triggers a server for the single document you are working on, so it renders in just a fraction of a second.  To trigger it just right click over the <code>main.html</code> file in the MicroSim and click on the <code>Open With Live Server</code> option.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../LiveServer.png" data-desc-position="bottom"><img alt="" src="../LiveServer.png"></a></p>
+<h2 id="readmemd-generator">README.md Generator</h2>
+<p>Although you are limited to about 30 skills, you can also run the following skill
+that will create a high-quality README.md file.</p>
+<p><code>&gt; Please generate a new README.md file by using the readme-generator skill.</code></p>
+<p>You can also explicitly add the following path if you don't install this skill.</p>
+<p><a href="https://github.com/dmccreary/claude-skills/tree/main/skills/readme-generator">https://github.com/dmccreary/claude-skills/tree/main/skills/readme-generator</a></p>
+<h2 id="windows-arrangement">Windows Arrangement</h2>
+<p>When I am debugging MicroSims I like to have my Claude shell window on the left, my browser on the right and a small shell window running below Claude running <code>mkdocs serve</code>.  That way when I talk to claude and he make changes, I can quickly see the changes on the right side of the screen.  This arrangement also works if I use the Live Server extension, but in that case I have to open VSCode to see the MicroSim quickly.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../window-arrangement.png" data-desc-position="bottom"><img alt="" src="../window-arrangement.png"></a></p>
 
 
 
