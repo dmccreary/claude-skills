@@ -105,3 +105,10 @@ Usage: bk - show this menu
 You should be able see your book in HTML form:
 
 [http://GITHUB_ID.github.io/my-intelligent-book](http://GITHUB_ID.github.io/my-intelligent-book)
+
+## Testing Skills
+
+Ask claude what skills he knows about
+
+`claude`
+> What skills do you know about for building intelligent textbooks and MicroSims?
