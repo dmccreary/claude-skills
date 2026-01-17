@@ -11,8 +11,13 @@
     <button id="toggle-button" onclick="toggleSidebar()">&#9776;</button>
 
     <div id="sidebar">
-      <h3>Legend & Controls</h3>
+      <h3>Search</h3>
+      <div id="search-container">
+        <input type="text" id="search-input" placeholder="Search concepts...">
+        <div id="search-results"></div>
+      </div>
 
+      <h3>Categories</h3>
       <div class="control-buttons">
         <button onclick="checkAllGroups()">Check All</button>
         <button onclick="uncheckAllGroups()">Uncheck All</button>
@@ -33,12 +38,6 @@
 
   <div id="main">
     <h4 id="graph-title">Learning Graph Viewer for Using Claude Skills to Create Intelligent Textbooks</h4>
-
-    <div id="search-container">
-      <input type="text" id="search-input" placeholder="Search nodes by name...">
-      <div id="search-results"></div>
-    </div>
-
     <div id="mynetwork"></div>
     <br/>
     <a href=".">Back to Lesson Plan</a>
