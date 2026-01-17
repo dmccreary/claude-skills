@@ -125,6 +125,20 @@ function initializeNetwork() {
 
     network = new vis.Network(container, data, options);
 
+    // Disable physics after stabilization to stop the graph from spinning
+    network.on('stabilizationIterationsDone', function() {
+        network.setOptions({ physics: { enabled: false } });
+    });
+
+    // Re-enable physics while dragging a node, disable when done
+    // This allows manual node repositioning while keeping the graph stable
+    network.on('dragStart', function() {
+        network.setOptions({ physics: { enabled: true } });
+    });
+    network.on('dragEnd', function() {
+        network.setOptions({ physics: { enabled: false } });
+    });
+
     // Handle node selection
     network.on('selectNode', function(params) {
         if (params.nodes.length > 0) {
