@@ -249,7 +249,7 @@ a template for an iframe that displays the diagram or microsim
 
 ```markdown
 #### Diagram: {{DIAGRAM_NAME}}
-<iframe src="../../sims/{MICROSIM_NAME}" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
 ```
 
 Note that the {MICROSIM_NAME} in the src path must be a string kebab-case (lowercase letters and dashes)
@@ -271,7 +271,7 @@ Use `<details markdown="1">` block with a detailed specification
 **Example specification:**
 ```xml
 #### Diagram: CMDB Architecture Diagram
-<iframe src="../../sims/{MICROSIM_NAME}" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
 <details markdown="1">
 <summary>CMDB Architecture Diagram</summary>
 Type: diagram
@@ -326,7 +326,7 @@ Color scheme: Blue for application layers, orange for database layer
 
 **Example MicroSim Specification:**
 ```xml
-<iframe src="../../sims/{MICROSIM_NAME}" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
 
 <details markdown="1">
 
@@ -379,7 +379,7 @@ Implementation: HTML/CSS/JavaScript with SVG timeline
 
 **Example specification:**
 ```xml
-<iframe src="../../sims/{MICROSIM_NAME}" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Graph Traversal Visualization MicroSim</summary>
@@ -449,7 +449,7 @@ Implementation notes:
 
 **Example specification:**
 ```xml
-<iframe src="../../sims/{MICROSIM_NAME}" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
 <details markdown="1">
 <summary>Query Performance Comparison: RDBMS vs Graph Database</summary>
 Type: chart
@@ -513,7 +513,7 @@ the historical events that triggered an important based of knowledge.
 
 **Example specification:**
 ```xml
-<iframe src="../../sims/{MICROSIM_NAME}" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Evolution of Configuration Management Timeline</summary>
@@ -573,7 +573,7 @@ Interactive features:
 
 **Example specification:**
 ```xml
-<iframe src="../../sims/{MICROSIM_NAME}" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>GDPR Data Flow Compliance Map</summary>
@@ -633,7 +633,7 @@ Interactive features:
 
 **Example specification:**
 ```xml
-<iframe src="../../sims/{MICROSIM_NAME}" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Change Management Workflow with Impact Analysis</summary>
@@ -708,7 +708,7 @@ Swimlanes:
 
 **Example specification:**
 ```xml
-<iframe src="../../sims/{MICROSIM_NAME}" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>IT Management Graph Data Model</summary>
@@ -793,7 +793,7 @@ Canvas size: 800x600px
 For any element requiring specification (types 3-10), use this template:
 
 ```xml
-<iframe src="../../sims/{MICROSIM_NAME}" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Brief descriptive title</summary>
