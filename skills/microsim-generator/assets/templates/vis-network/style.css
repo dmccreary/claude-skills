@@ -1,0 +1,290 @@
+/* vis-network MicroSim Stylesheet
+ * ================================
+ * Layout: Full-height network graph with overlay panels
+ * - Network canvas takes full width/height
+ * - Title overlay at top center
+ * - Legend overlay at upper left
+ * - Info/control panel on right side
+ *
+ * Designed for minimal padding in iframe embedding
+ */
+
+/* ===========================================
+   RESET & BASE STYLES
+   =========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   MAIN CONTAINER & NETWORK CANVAS
+   =========================================== */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+#network {
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   TITLE (Top Center)
+   =========================================== */
+.title {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    background-color: aliceblue;
+    padding: 4px 12px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* ===========================================
+   LEGEND (Upper Left)
+   =========================================== */
+.legend {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 6px 8px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 3px 0;
+    font-size: 11px;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 4px;
+    border: 2px solid black;
+}
+
+/* Standard legend colors - customize as needed */
+.color-gray { background-color: #e0e0e0; }
+.color-green { background-color: #4caf50; }
+.color-blue { background-color: #2196f3; }
+.color-orange { background-color: #ff9800; }
+.color-red { background-color: #f44336; }
+.color-purple { background-color: #9c27b0; }
+
+/* ===========================================
+   RIGHT PANEL (Controls & Info)
+   =========================================== */
+.right-panel {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 10;
+}
+
+/* ===========================================
+   CONTROL BUTTONS
+   =========================================== */
+.controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 10px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stats {
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+}
+
+.btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: #2196f3;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1976d2;
+}
+
+.btn-primary:disabled {
+    background-color: #90caf9;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background-color: #757575;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #616161;
+}
+
+/* ===========================================
+   INFO PANEL (Node Details on Hover)
+   =========================================== */
+.info-panel {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 2px solid #2196f3;
+}
+
+.info-title {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: #1976d2;
+}
+
+.info-content {
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.info-placeholder {
+    color: #888;
+    font-style: italic;
+    font-size: 12px;
+}
+
+/* ===========================================
+   STATUS/HELP PANEL
+   =========================================== */
+.status-panel {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.status-title {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+
+.status-text {
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.status-text ul {
+    margin-left: 16px;
+    margin-top: 4px;
+}
+
+.status-text li {
+    margin-bottom: 4px;
+}
+
+/* ===========================================
+   SAVE BUTTON (Lower Right - Editor Mode)
+   =========================================== */
+.btn-save {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: #ff5722;
+    color: white;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    transition: all 0.2s;
+    z-index: 20;
+}
+
+.btn-save:hover {
+    background-color: #e64a19;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transform: translateY(-1px);
+}
+
+.btn-save:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* ===========================================
+   RESPONSIVE STYLES
+   =========================================== */
+@media (max-width: 600px) {
+    .title {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+
+    .legend {
+        padding: 4px 6px;
+    }
+
+    .legend-item {
+        font-size: 10px;
+    }
+
+    .legend-color {
+        width: 12px;
+        height: 12px;
+    }
+
+    .right-panel {
+        width: 220px;
+    }
+
+    .controls {
+        padding: 8px 10px;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .stats {
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept Dependency Graph</title>
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Concept Dependency Graph</div>
+
+        <!-- Legend in upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-blue"></div>
+                <span><strong>Blue</strong> - Foundation</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-green"></div>
+                <span><strong>Green</strong> - Intermediate</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-purple"></div>
+                <span><strong>Purple</strong> - Advanced</span>
+            </div>
+        </div>
+
+        <!-- Right panel -->
+        <div class="right-panel">
+            <div class="controls">
+                <div class="stats" id="stats">Concepts: 0</div>
+                <button class="btn btn-secondary" id="reset-btn">Reset View</button>
+            </div>
+
+            <div class="info-panel" id="info-panel" style="display: none;">
+                <div class="info-title">Concept Details</div>
+                <div class="info-content" id="info-content"></div>
+            </div>
+
+            <div class="status-panel">
+                <div class="status-title">How to Use:</div>
+                <div class="status-text">
+                    <ul>
+                        <li><strong>Hover</strong> over nodes to see details</li>
+                        <li><strong>Arrows</strong> show dependencies</li>
+                        <li>Follow arrows to see prerequisites</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-save" id="save-btn" style="display: none;">Save Node Positions</button>
+    </div>
+
+    <script>
+        // Node colors by category
+        const colors = {
+            foundation: {
+                background: '#2196f3',
+                border: '#1565c0',
+                font: 'white'
+            },
+            intermediate: {
+                background: '#4caf50',
+                border: '#2e7d32',
+                font: 'white'
+            },
+            advanced: {
+                background: '#9c27b0',
+                border: '#6a1b9a',
+                font: 'white'
+            }
+        };
+
+        // Node descriptions for hover
+        const nodeDescriptions = {
+            1: 'The basic building block - understanding numbers and counting',
+            2: 'Symbols that represent unknown or changing values',
+            3: 'Fixed values that do not change',
+            4: 'A single number, variable, or combination with multiplication',
+            5: 'Combination of terms with addition/subtraction',
+            6: 'A statement that two expressions are equal'
+        };
+
+        // State
+        let graphData = null;
+        let nodeData = [];
+        let edgeData = [];
+        let nodes, edges, network;
+
+        function isSaveEnabled() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('enable-save') === 'true';
+        }
+
+        async function loadGraphData() {
+            // Inline data for this example
+            graphData = {
+                metadata: {
+                    title: "Basic Math Concepts",
+                    description: "Foundation concepts for algebra"
+                },
+                nodes: [
+                    { id: 1, label: "Number", x: 0, y: -150, category: "foundation" },
+                    { id: 2, label: "Variable", x: -100, y: -50, category: "foundation" },
+                    { id: 3, label: "Constant", x: 100, y: -50, category: "foundation" },
+                    { id: 4, label: "Term", x: 0, y: 50, category: "intermediate" },
+                    { id: 5, label: "Expression", x: 0, y: 150, category: "intermediate" },
+                    { id: 6, label: "Equation", x: 0, y: 250, category: "advanced" }
+                ],
+                edges: [
+                    { from: 2, to: 1 },
+                    { from: 3, to: 1 },
+                    { from: 4, to: 2 },
+                    { from: 4, to: 3 },
+                    { from: 5, to: 4 },
+                    { from: 6, to: 5 }
+                ]
+            };
+            nodeData = graphData.nodes;
+            edgeData = graphData.edges;
+            return true;
+        }
+
+        function positionView() {
+            if (network) {
+                network.moveTo({
+                    position: { x: 0, y: 50 },
+                    scale: 1.0,
+                    animation: false
+                });
+            }
+        }
+
+        function initializeNetwork() {
+            const visNodes = nodeData.map(node => {
+                const colorSet = colors[node.category] || colors.foundation;
+                return {
+                    id: node.id,
+                    label: node.label,
+                    x: node.x,
+                    y: node.y,
+                    color: {
+                        background: colorSet.background,
+                        border: colorSet.border
+                    },
+                    font: { color: colorSet.font, size: 14 }
+                };
+            });
+
+            const visEdges = edgeData.map((edge, index) => ({
+                id: index,
+                from: edge.from,
+                to: edge.to,
+                color: { color: '#666666' },
+                width: 2
+            }));
+
+            nodes = new vis.DataSet(visNodes);
+            edges = new vis.DataSet(visEdges);
+
+            const saveEnabled = isSaveEnabled();
+
+            const options = {
+                layout: { improvedLayout: false },
+                physics: { enabled: false },
+                interaction: {
+                    selectConnectedEdges: false,
+                    zoomView: saveEnabled,
+                    dragView: saveEnabled,
+                    dragNodes: saveEnabled,
+                    navigationButtons: saveEnabled,
+                    hover: true
+                },
+                nodes: {
+                    shape: 'ellipse',
+                    margin: 10,
+                    font: { size: 14, face: 'Arial' },
+                    borderWidth: 3,
+                    shadow: {
+                        enabled: true,
+                        color: 'rgba(0,0,0,0.2)',
+                        size: 5,
+                        x: 2,
+                        y: 2
+                    }
+                },
+                edges: {
+                    arrows: { to: { enabled: true, scaleFactor: 1 } },
+                    width: 2,
+                    smooth: { type: 'curvedCW', roundness: 0.15 }
+                }
+            };
+
+            const container = document.getElementById('network');
+            network = new vis.Network(container, { nodes, edges }, options);
+
+            network.on('hoverNode', handleNodeHover);
+            network.on('blurNode', handleNodeBlur);
+
+            if (saveEnabled) {
+                network.on('dragEnd', handleDragEnd);
+            }
+
+            setTimeout(positionView, 200);
+            updateStats();
+        }
+
+        function handleNodeHover(params) {
+            const nodeId = params.node;
+            const node = nodeData.find(n => n.id === nodeId);
+            const infoPanel = document.getElementById('info-panel');
+            const infoContent = document.getElementById('info-content');
+
+            if (node) {
+                let html = `<strong>${node.label}</strong><br>`;
+                html += `Category: ${node.category}<br>`;
+                if (nodeDescriptions[nodeId]) {
+                    html += `<br>${nodeDescriptions[nodeId]}`;
+                }
+                infoContent.innerHTML = html;
+                infoPanel.style.display = 'block';
+            }
+        }
+
+        function handleNodeBlur() {
+            document.getElementById('info-panel').style.display = 'none';
+        }
+
+        function handleDragEnd(params) {
+            if (params.nodes.length > 0) {
+                params.nodes.forEach(nodeId => {
+                    const position = network.getPositions([nodeId])[nodeId];
+                    const nodeIndex = nodeData.findIndex(n => n.id === nodeId);
+                    if (nodeIndex !== -1) {
+                        nodeData[nodeIndex].x = Math.round(position.x);
+                        nodeData[nodeIndex].y = Math.round(position.y);
+                    }
+                });
+            }
+        }
+
+        function saveNodePositions() {
+            graphData.nodes = nodeData;
+            const jsonString = JSON.stringify(graphData, null, 2);
+            const blob = new Blob([jsonString], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'data.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function updateStats() {
+            document.getElementById('stats').textContent = `Concepts: ${nodeData.length}`;
+        }
+
+        function reset() {
+            positionView();
+        }
+
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadGraphData();
+            initializeNetwork();
+
+            document.getElementById('reset-btn').addEventListener('click', reset);
+
+            if (isSaveEnabled()) {
+                const saveBtn = document.getElementById('save-btn');
+                saveBtn.style.display = 'block';
+                saveBtn.addEventListener('click', saveNodePositions);
+            }
+
+            window.addEventListener('resize', positionView);
+        });
+    </script>
+</body>
+</html>

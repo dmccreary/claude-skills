@@ -1,0 +1,23 @@
+{
+  "title": "{{TITLE}}",
+  "description": "{{DESCRIPTION}}",
+  "creator": "{{CREATOR}}",
+  "date": "{{DATE}}",
+  "version": "1.0",
+  "format": "MicroSim HTML/JavaScript",
+  "license": "CC BY 4.0",
+  "subject": {{SUBJECT_LIST}},
+  "keywords": {{KEYWORDS_LIST}},
+  "language": "en",
+  "audience": "{{AUDIENCE}}",
+  "educationalLevel": "{{EDUCATIONAL_LEVEL}}",
+  "interactivityType": "active",
+  "learningResourceType": "simulation",
+  "technicalRequirements": "Modern web browser with JavaScript enabled",
+  "dependencies": [
+    "vis-network.js"
+  ],
+  "concepts": {{CONCEPTS_LIST}},
+  "nodeCount": "{{NODE_COUNT}}",
+  "edgeCount": "{{EDGE_COUNT}}"
+}

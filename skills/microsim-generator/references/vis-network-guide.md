@@ -18,6 +18,38 @@ MicroSims occupy a unique position at the intersection of
 
 Educational MicroSims transform abstract concepts into visual interactive, manipulable experiences that enable students to learn through exploration and experimentation. Each MicroSim addresses specific learning objectives while maintaining the pedagogical rigor and technical quality necessary for educational deployment.
 
+## Working Templates (REQUIRED REFERENCE)
+
+Before generating any vis-network MicroSim, **you MUST read the template files** in `assets/templates/vis-network/`:
+
+| File | Purpose |
+|------|---------|
+| `main-template.html` | HTML shell with full-height network canvas and overlay panels |
+| `style.css` | All styling - title, legend, right panel, responsive design |
+| `script.js` | Core vis-network logic with data loading, hover, and save functionality |
+| `data-template.json` | Graph structure with nodes (id, label, x, y) and edges (from, to) |
+| `concept-graph-example.html` | Complete working example demonstrating all patterns |
+| `index-template.md` | Documentation template with proper YAML frontmatter |
+| `metadata-template.json` | Dublin Core metadata structure |
+
+**File Structure for Each MicroSim:**
+```
+docs/sims/[microsim-name]/
+├── main.html              # HTML with vis-network setup
+├── style.css              # Copy from template (customize colors, panels)
+├── [microsim-name].js     # Main JavaScript (customize from script.js)
+├── data.json              # Graph data with node positions
+├── index.md               # Documentation page
+└── metadata.json          # Dublin Core metadata
+```
+
+**CRITICAL**: Copy the structural patterns exactly. The default layout uses:
+- **Network canvas**: Full width/height background layer
+- **Title overlay**: Centered at top (position: absolute)
+- **Legend overlay**: Upper left corner
+- **Right panel**: Controls and info panel on right side (~280px width)
+- **Zero margin/padding**: Designed for iframe embedding without wasted space
+
 ## Default Layout: vis-network-tutorial
 
 The **vis-network-tutorial** layout is the standard template for all vis-network MicroSims embedded in intelligent textbooks. This layout features:

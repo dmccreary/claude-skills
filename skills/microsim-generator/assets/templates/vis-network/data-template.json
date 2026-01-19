@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "{{TITLE}}",
+    "description": "{{DESCRIPTION}}",
+    "version": "1.0"
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "label": "Node 1",
+      "x": -200,
+      "y": -100
+    },
+    {
+      "id": 2,
+      "label": "Node 2",
+      "x": 0,
+      "y": -100
+    },
+    {
+      "id": 3,
+      "label": "Node 3",
+      "x": 200,
+      "y": -100
+    },
+    {
+      "id": 4,
+      "label": "Node 4",
+      "x": -100,
+      "y": 50
+    },
+    {
+      "id": 5,
+      "label": "Node 5",
+      "x": 100,
+      "y": 50
+    },
+    {
+      "id": 6,
+      "label": "Node 6",
+      "x": 0,
+      "y": 150
+    }
+  ],
+  "edges": [
+    {
+      "from": 4,
+      "to": 1
+    },
+    {
+      "from": 4,
+      "to": 2
+    },
+    {
+      "from": 5,
+      "to": 2
+    },
+    {
+      "from": 5,
+      "to": 3
+    },
+    {
+      "from": 6,
+      "to": 4
+    },
+    {
+      "from": 6,
+      "to": 5
+    }
+  ]
+}
