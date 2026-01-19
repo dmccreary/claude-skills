@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Template</title>
+    <script src="https://unpkg.com/vis-timeline@7.7.3/standalone/umd/vis-timeline-graph2d.min.js"></script>
+    <link href="https://unpkg.com/vis-timeline@7.7.3/styles/vis-timeline-graph2d.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Timeline Title</h1>
+        <p>Subtitle describing the timeline scope and date range</p>
+    </header>
+
+    <div class="controls">
+        <button class="filter-btn all" onclick="filterCategory('all')">All Events</button>
+        <button class="filter-btn category1" onclick="filterCategory('Category1')">Category 1</button>
+        <button class="filter-btn category2" onclick="filterCategory('Category2')">Category 2</button>
+        <button class="filter-btn category3" onclick="filterCategory('Category3')">Category 3</button>
+    </div>
+
+    <div class="nav-controls">
+        <button class="nav-btn" onclick="panLeft()">&#9664; Earlier</button>
+        <button class="nav-btn" onclick="zoomIn()">+ Zoom In</button>
+        <button class="nav-btn" onclick="zoomOut()">- Zoom Out</button>
+        <button class="nav-btn" onclick="fitAll()">Fit All</button>
+        <button class="nav-btn" onclick="panRight()">Later &#9654;</button>
+    </div>
+
+    <div id="timeline"></div>
+
+    <p class="instructions">Click an event to see details below. Use buttons to navigate or drag to pan.</p>
+
+    <div class="info-panel">
+        <div class="legend">
+            <h3>Legend</h3>
+            <div class="legend-item">
+                <div class="legend-color category1"></div>
+                <span>Category 1</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color category2"></div>
+                <span>Category 2</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color category3"></div>
+                <span>Category 3</span>
+            </div>
+        </div>
+
+        <div class="details">
+            <h3>Event Details</h3>
+            <div id="event-details">Click an event on the timeline to see details here.</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

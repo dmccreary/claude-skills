@@ -174,6 +174,29 @@ docs/sims/[sim-name]/
 - **User Interface**: controls, visual elements, layout pattern
 - Enables automated indexing, catalog generation, and quality validation
 
+**`index.md`** - MkDocs documentation page:
+
+- Must include an iframe embedding the MicroSim for inline viewing
+- Must include a fullscreen button link
+- Standard format:
+
+```markdown
+# MicroSim Title
+
+Brief description of what the MicroSim demonstrates.
+
+<iframe src="./main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+[View Fullscreen](./main.html){ .md-button .md-button--primary }
+
+## Overview
+...
+```
+
+- The iframe allows users to interact with the MicroSim directly in the documentation
+- The fullscreen button opens main.html in a new tab for larger viewing
+- Adjust `height` as needed (typically 400px-600px depending on MicroSim complexity)
+
 #### Example: ChartJS MicroSim Structure
 
 ```html

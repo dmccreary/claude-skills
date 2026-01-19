@@ -1,0 +1,77 @@
+{
+  "title": "Timeline Template",
+  "events": [
+    {
+      "start_date": { "year": "1950", "month": "1", "day": "15" },
+      "text": {
+        "headline": "First Event",
+        "text": "Description of the first event in the timeline. Add details about what happened and why it matters."
+      },
+      "group": "Category1",
+      "notes": "Additional context or notes that appear in tooltips and the details panel."
+    },
+    {
+      "start_date": { "year": "1965" },
+      "text": {
+        "headline": "Second Event",
+        "text": "Description of the second event. Events without month/day default to January 1st."
+      },
+      "group": "Category2",
+      "notes": "Context notes for this milestone."
+    },
+    {
+      "start_date": { "year": "1975", "month": "6" },
+      "text": {
+        "headline": "Third Event",
+        "text": "Description of the third event. Events with only year and month default to the 1st of that month."
+      },
+      "group": "Category1",
+      "notes": "Background information for this event."
+    },
+    {
+      "start_date": { "year": "1985", "month": "3", "day": "20" },
+      "text": {
+        "headline": "Fourth Event",
+        "text": "Description of the fourth event with full date precision."
+      },
+      "group": "Category3",
+      "notes": "Historical significance and context."
+    },
+    {
+      "start_date": { "year": "1995" },
+      "text": {
+        "headline": "Fifth Event",
+        "text": "Description of the fifth event marking a significant milestone."
+      },
+      "group": "Category2",
+      "notes": "Impact and relevance of this event."
+    },
+    {
+      "start_date": { "year": "2005", "month": "9", "day": "10" },
+      "text": {
+        "headline": "Sixth Event",
+        "text": "Description of the sixth event with modern significance."
+      },
+      "group": "Category3",
+      "notes": "Contemporary context and lasting effects."
+    },
+    {
+      "start_date": { "year": "2015" },
+      "text": {
+        "headline": "Seventh Event",
+        "text": "Description of the seventh event representing recent developments."
+      },
+      "group": "Category1",
+      "notes": "Recent developments and future implications."
+    },
+    {
+      "start_date": { "year": "2020", "month": "12", "day": "1" },
+      "text": {
+        "headline": "Eighth Event",
+        "text": "Description of the eighth and final template event."
+      },
+      "group": "Category2",
+      "notes": "Current state and ongoing relevance."
+    }
+  ]
+}
