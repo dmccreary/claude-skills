@@ -1154,7 +1154,7 @@
         265 +      "date": "2024-09-15",
         266 +      "version": "1.2.0",
         267 +      "format": "vis-network JSON",
-        268 +      "license": "CC-BY-4.0"
+        268 +      "license": "CC BY-NC-SA 4.0"
         269 +    }
         270 +  }
         271 +  ```
@@ -1510,7 +1510,7 @@
         574 +  
         575 +  ```json
         576 +  {
-        577 +    "license": "CC-BY-4.0"
+        577 +    "license": "CC BY-NC-SA 4.0"
         578 +  }
         579 +  ```
         580 +  

@@ -276,7 +276,7 @@ Use `assets/template-metadata.json` and replace:
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en-US",
-  "rights": "CC BY 4.0"
+  "rights": "CC BY-NC-SA 4.0"
 }
 ```
 

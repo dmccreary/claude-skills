@@ -285,7 +285,7 @@ Example metadata section:
     "date": "2024-09-15",
     "version": "1.2.0",
     "format": "vis-network JSON",
-    "license": "CC-BY-4.0"
+    "license": "CC BY-NC-SA 4.0"
   }
 }
 ```
@@ -604,7 +604,7 @@ The **license** field clarifies usage rights using standard license identifiers:
 
 ```json
 {
-  "license": "CC-BY-4.0"
+  "license": "CC BY-NC-SA 4.0"
 }
 ```
 

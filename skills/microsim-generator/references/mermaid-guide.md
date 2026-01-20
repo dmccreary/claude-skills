@@ -280,7 +280,7 @@ Copy `assets/templates/mermaid/metadata-template.json` and replace placeholders:
   "format": "text/html",
   "language": "en-US",
   "coverage": "Introductory",
-  "rights": "Educational Use",
+  "rights": "CC BY-NC-SA 4.0",
   "audience": "Undergraduate",
   "diagram_type": "flowchart",
   "direction": "TD",

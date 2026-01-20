@@ -126,7 +126,7 @@ Create Dublin Core metadata following the schema in `assets/metadata-schema.json
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en-US",
-  "rights": "CC BY 4.0",
+  "rights": "CC BY-NC-SA 4.0",
   "educationalLevel": "High School",
   "learningResourceType": "comparison table",
   "library": "CSS (no JavaScript library)"

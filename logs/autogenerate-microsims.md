@@ -500,7 +500,7 @@ Complete Dublin Core metadata:
   "format": "text/html",
   "language": "en-US",
   "coverage": "Introductory",
-  "rights": "Educational Use",
+  "rights": "CC BY-NC-SA 4.0",
   "audience": "Undergraduate",
   "diagram_type": "block-diagram",
   "direction": "TD",
