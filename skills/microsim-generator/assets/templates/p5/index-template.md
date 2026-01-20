@@ -13,7 +13,7 @@ social:
 <iframe src="main.html" height="432px" scrolling="no"></iframe>
 
 [Run the Bouncing Ball MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
-<br/>
+
 [Edit the Bouncing Ball MicroSim with the p5.js editor](https://editor.p5js.org/dmccreary/sketches/icpiK4UjE)
 
 Place the following line in your website to include this in your course.

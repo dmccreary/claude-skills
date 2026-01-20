@@ -2,6 +2,7 @@
 // This simulation shows a ball bouncing around inside a drawing region.
 // The design is width responsive so it adjusts to the width of container as it resizes.
 // Note that the width of the slider must also change with a window resize event
+// MicroSim template version 2026.02
 
 // global variables for width and height
 let containerWidth; // this values is calculated by container upon init and changed on resize
@@ -66,6 +67,7 @@ function draw() {
 
   // fill drawing area with very light blue background - MicroSim standard style
   fill('aliceblue');
+  // draw a light gray border around the both the drawing region and the control region
   stroke('silver');
   strokeWeight(1);
   rect(0, 0, canvasWidth, drawHeight);

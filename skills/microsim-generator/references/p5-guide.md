@@ -244,12 +244,11 @@ function draw() {
 
   // Drawing area (light blue background with silver border)
   fill('aliceblue');
+  // Draw a light gray border around both the drawing region AND the control region
   stroke('silver');
   rect(0, 0, canvasWidth, drawHeight);
-
   // Control area (white background)
   fill('white');
-  noStroke();
   rect(0, drawHeight, canvasWidth, controlHeight);
 
   // IMPORTANT: Draw grid and axes FIRST, then title
