@@ -70,9 +70,20 @@ project-root/
 │   │   └── favicon.ico (placeholder - user must provide)
 │   ├── chapters/
 │   │   └── index.md
-│   ├── learning-graph/
+|   |   └──   01-introduction/
+|   |      └── index.md
+|   |      └── quiz.md
+|   |   └──   02-concepts/
+|   |      └── index.md
+|   |      └── quiz.md│   
+├── ├── sims/
 │   │   └── index.md
-│   ├── sims/
+|   |   └──   bouncing-ball/
+|   |      └── bouncing-ball.js
+|   |      └── index.md
+|   |      └── main.html
+|   |      └── metadata.json
+├── learning-graph/
 │   │   └── index.md
 │   └── index.md
 ├── plugins/
@@ -120,17 +131,26 @@ Create minimal starter files for each directory:
 
 This intelligent textbook is built with MkDocs Material theme.
 
-## Navigation
+### Navigation
 
 Use the navigation menu on the left to explore chapters and content.
-```
+Do NOT put any navigation on the top.
 
-**docs/chapters/index.md:**
-```markdown
-# Chapters
+## Front Matter
+
+- index.md is the home page and contains a cover image
+- about.md tells the reader about the book, the audience for the book and how to use the navigation and search
+- course-description.md is the file used to generate the learning graph for the course
+
+## Chapters
 
 This section contains the main chapter content of the textbook.
+Every chapter has its own folder with a two digit number at the start of the directory name.
 ```
+
+**docs/learning-graph/index.md:**
+```markdown
+# Learning Graph
 
 **docs/learning-graph/index.md:**
 ```markdown

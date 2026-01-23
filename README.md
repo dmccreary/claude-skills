@@ -351,9 +351,6 @@ This repository includes 19 specialized skills for intelligent textbook creation
 18. **install-learning-graph-viewer** - Installs interactive graph exploration tools
 19. **readme-generator** - Generates comprehensive README files (this skill!)
 
-### Hardware Skills
-
-20. **moving-rainbow** - Generates MicroPython programs for Raspberry Pi Pico with NeoPixels
 
 For detailed documentation on each skill, see the [skill descriptions](https://dmccreary.github.io/claude-skills/skill-descriptions/) in the documentation site.
 
