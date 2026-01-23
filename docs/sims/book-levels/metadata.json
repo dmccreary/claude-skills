@@ -16,5 +16,26 @@
   "learningResourceType": "simulation",
   "audience": "Educators, Developers",
   "version": "1.0.0",
-  "library": "p5.js"
+  "library": "p5.js",
+  "visualizationType": [
+    "animation",
+    "data-visualization",
+    "diagram",
+    "interactive-demo",
+    "simulation"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of book levels",
+    "Explore book levels through interactive visualization",
+    "Apply knowledge of book levels to solve problems",
+    "Experiment with parameters to observe their effects on book levels"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze",
+    "Evaluate",
+    "Create"
+  ]
 }

@@ -16,5 +16,23 @@
   "learningResourceType": "simulation",
   "audience": "Educators, Developers",
   "version": "1.0.0",
-  "library": "vis-network"
+  "library": "vis-network",
+  "visualizationType": [
+    "animation",
+    "graph",
+    "interactive-demo",
+    "network",
+    "simulation"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of learning graph viewer",
+    "Explore learning graph viewer through interactive visualization",
+    "Apply knowledge of learning graph viewer to solve problems",
+    "Experiment with parameters to observe their effects on learning graph viewer"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Apply",
+    "Create"
+  ]
 }

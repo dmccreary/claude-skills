@@ -25,5 +25,25 @@
     "legend": "Shows the three colors (White, Gray, Black) and their meanings",
     "stack_display": "Shows the current DFS traversal stack",
     "cycle_alert": "Highlights when a cycle is detected with explanation"
-  }
+  },
+  "visualizationType": [
+    "animation",
+    "graph",
+    "interactive-demo",
+    "map",
+    "network",
+    "simulation"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of three-color dfs cycle detection",
+    "Explore three-color dfs cycle detection through interactive visualization",
+    "Apply knowledge of three-color dfs cycle detection to solve problems",
+    "Test understanding of three-color dfs cycle detection through interactive exercises"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Create"
+  ]
 }

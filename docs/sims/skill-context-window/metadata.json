@@ -18,7 +18,11 @@
   "rights": "CC BY-NC-SA 4.0",
   "audience": "Developers, AI Engineers, Prompt Engineers",
   "educationalLevel": "Advanced/Professional",
-  "bloomsLevel": ["Understanding", "Applying", "Analyzing"],
+  "bloomsLevel": [
+    "Understanding",
+    "Applying",
+    "Analyzing"
+  ],
   "prerequisites": [
     "Basic understanding of AI language models",
     "Familiarity with context windows and token limits",
@@ -35,7 +39,7 @@
   ],
   "library": "p5.js",
   "framework": "p5.js 1.11.10",
-  "canvasDimensions": "600×550 (responsive width)",
+  "canvasDimensions": "600\u00d7550 (responsive width)",
   "responsive": "Width-responsive",
   "interactionType": "Hover exploration",
   "modelType": "Conceptual visualization",
@@ -61,5 +65,26 @@
     "Simplified representation of context management",
     "Actual token counts may vary",
     "Does not show runtime context changes"
+  ],
+  "visualizationType": [
+    "animation",
+    "graph",
+    "interactive-demo",
+    "network",
+    "simulation"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of skill context window",
+    "Explore skill context window through interactive visualization",
+    "Apply knowledge of skill context window to solve problems",
+    "Test understanding of skill context window through interactive exercises"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze",
+    "Evaluate",
+    "Create"
   ]
 }

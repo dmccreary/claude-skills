@@ -16,5 +16,21 @@
   "learningResourceType": "simulation",
   "audience": "Educators, Developers",
   "version": "1.0.0",
-  "library": "Mermaid"
+  "library": "Mermaid",
+  "visualizationType": [
+    "diagram",
+    "graph",
+    "interactive-demo"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of terminal workflow for textbook development",
+    "Explore terminal workflow for textbook development through interactive visualization",
+    "Apply knowledge of terminal workflow for textbook development to solve problems"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Apply",
+    "Analyze",
+    "Create"
+  ]
 }

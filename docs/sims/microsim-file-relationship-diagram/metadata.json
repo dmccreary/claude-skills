@@ -39,11 +39,23 @@
     "Trace the flow from navigation to interactive simulation"
   ],
   "components": {
-    "documentation": ["index.md", "MkDocs Navigation"],
-    "integration": ["iframe element"],
-    "simulation": ["main.html", "p5.js rendering"],
-    "metadata": ["metadata.json"],
-    "external": ["Learning Management System"]
+    "documentation": [
+      "index.md",
+      "MkDocs Navigation"
+    ],
+    "integration": [
+      "iframe element"
+    ],
+    "simulation": [
+      "main.html",
+      "p5.js rendering"
+    ],
+    "metadata": [
+      "metadata.json"
+    ],
+    "external": [
+      "Learning Management System"
+    ]
   },
   "color_scheme": {
     "documentation": "#4dabf7",
@@ -57,7 +69,35 @@
     "library": "Mermaid.js",
     "version": "10.x",
     "rendering_mode": "SVG",
-    "interactive_features": ["zoom", "pan", "export"],
+    "interactive_features": [
+      "zoom",
+      "pan",
+      "export"
+    ],
     "responsive": true
-  }
+  },
+  "visualizationType": [
+    "3d-model",
+    "animation",
+    "diagram",
+    "graph",
+    "interactive-demo",
+    "map",
+    "network",
+    "simulation"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of file relationship diagram",
+    "Explore file relationship diagram through interactive visualization",
+    "Apply knowledge of file relationship diagram to solve problems",
+    "Experiment with parameters to observe their effects on file relationship diagram"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze",
+    "Evaluate",
+    "Create"
+  ]
 }

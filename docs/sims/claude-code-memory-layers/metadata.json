@@ -1,7 +1,12 @@
 {
   "title": "Claude Code Memory Layers",
   "creator": "Dan McCreary",
-  "subject": ["Claude Code", "Memory Management", "Configuration", "AI Tools"],
+  "subject": [
+    "Claude Code",
+    "Memory Management",
+    "Configuration",
+    "AI Tools"
+  ],
   "description": "An interactive infographic showing the five memory layers in Claude Code, demonstrating how rules are loaded from Enterprise Policy, Project Memory, Project Rules, User Memory, and Project Local layers with animated loading sequence and hover interactions.",
   "date": "2025-12-11",
   "type": "Interactive Simulation",
@@ -18,16 +23,29 @@
       "Understand how higher-priority rules override lower-priority ones",
       "Identify appropriate use cases for each memory layer"
     ],
-    "bloomsTaxonomyLevels": ["Remember", "Understand", "Apply", "Analyze"],
+    "bloomsTaxonomyLevels": [
+      "Remember",
+      "Understand",
+      "Apply",
+      "Analyze"
+    ],
     "duration": "5-10 minutes",
-    "prerequisites": ["Basic understanding of file systems", "Familiarity with Claude Code"]
+    "prerequisites": [
+      "Basic understanding of file systems",
+      "Familiarity with Claude Code"
+    ]
   },
   "technical": {
     "framework": "p5.js",
     "canvasDimensions": "800x600",
     "responsive": "Width-responsive",
-    "dependencies": ["p5.js CDN"],
-    "accessibility": ["describe() function included", "High contrast colors"]
+    "dependencies": [
+      "p5.js CDN"
+    ],
+    "accessibility": [
+      "describe() function included",
+      "High contrast colors"
+    ]
   },
   "userInterface": {
     "controls": [
@@ -60,7 +78,34 @@
   },
   "simulationModel": {
     "modelType": "Information Visualization",
-    "variables": ["animationPhase", "animationProgress", "hoveredLayer"],
-    "assumptions": ["Priority order is fixed", "Override behavior is absolute"]
-  }
+    "variables": [
+      "animationPhase",
+      "animationProgress",
+      "hoveredLayer"
+    ],
+    "assumptions": [
+      "Priority order is fixed",
+      "Override behavior is absolute"
+    ]
+  },
+  "visualizationType": [
+    "animation",
+    "data-visualization",
+    "diagram",
+    "interactive-demo",
+    "map"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of claude code memory layers",
+    "Explore claude code memory layers through interactive visualization",
+    "Apply knowledge of claude code memory layers to solve problems",
+    "Experiment with parameters to observe their effects on claude code memory layers"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze",
+    "Create"
+  ]
 }

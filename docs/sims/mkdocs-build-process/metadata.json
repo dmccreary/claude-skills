@@ -16,5 +16,20 @@
   "learningResourceType": "simulation",
   "audience": "Educators, Developers",
   "version": "1.0.0",
-  "library": "Mermaid"
+  "library": "Mermaid",
+  "visualizationType": [
+    "diagram",
+    "graph",
+    "interactive-demo"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of mkdocs build process workflow",
+    "Explore mkdocs build process workflow through interactive visualization",
+    "Apply knowledge of mkdocs build process workflow to solve problems"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Apply",
+    "Create"
+  ]
 }

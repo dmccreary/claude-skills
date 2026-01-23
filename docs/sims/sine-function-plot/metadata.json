@@ -19,5 +19,27 @@
   "educationalLevel": "Grade 10-12, Undergraduate",
   "learningResourceType": "Interactive Plot",
   "interactivityType": "active",
-  "typicalLearningTime": "PT10M"
+  "typicalLearningTime": "PT10M",
+  "visualizationType": [
+    "animation",
+    "chart",
+    "graph",
+    "interactive-demo",
+    "map",
+    "simulation"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of sine function visualization",
+    "Explore sine function visualization through interactive visualization",
+    "Apply knowledge of sine function visualization to solve problems",
+    "Experiment with parameters to observe their effects on sine function visualization"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze",
+    "Evaluate",
+    "Create"
+  ]
 }

@@ -16,5 +16,21 @@
   "learningResourceType": "simulation",
   "audience": "Educators, Developers",
   "version": "1.0.0",
-  "library": "Mermaid"
+  "library": "Mermaid",
+  "visualizationType": [
+    "diagram",
+    "interactive-demo",
+    "map",
+    "network"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of chapter index file structure",
+    "Explore chapter index file structure through interactive visualization",
+    "Apply knowledge of chapter index file structure to solve problems"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Apply",
+    "Create"
+  ]
 }

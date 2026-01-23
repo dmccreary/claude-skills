@@ -16,5 +16,21 @@
   "learningResourceType": "simulation",
   "audience": "Educators, Developers",
   "version": "1.0.0",
-  "library": "Mermaid"
+  "library": "Mermaid",
+  "visualizationType": [
+    "diagram",
+    "interactive-demo"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of skill directory structure",
+    "Explore skill directory structure through interactive visualization",
+    "Apply knowledge of skill directory structure to solve problems",
+    "Test understanding of skill directory structure through interactive exercises"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze"
+  ]
 }

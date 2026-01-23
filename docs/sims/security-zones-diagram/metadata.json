@@ -16,5 +16,23 @@
   "learningResourceType": "simulation",
   "audience": "Educators, Developers",
   "version": "1.0.0",
-  "library": "Mermaid"
+  "library": "Mermaid",
+  "visualizationType": [
+    "diagram",
+    "interactive-demo",
+    "map",
+    "simulation"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of security zones diagram",
+    "Explore security zones diagram through interactive visualization",
+    "Apply knowledge of security zones diagram to solve problems",
+    "Test understanding of security zones diagram through interactive exercises"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Create"
+  ]
 }

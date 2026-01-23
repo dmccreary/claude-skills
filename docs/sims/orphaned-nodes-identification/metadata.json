@@ -16,5 +16,28 @@
   "learningResourceType": "simulation",
   "audience": "Educators, Developers",
   "version": "1.0.0",
-  "library": "Chart.js"
+  "library": "Chart.js",
+  "visualizationType": [
+    "animation",
+    "chart",
+    "diagram",
+    "graph",
+    "interactive-demo",
+    "map",
+    "network"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of orphaned nodes identification chart",
+    "Explore orphaned nodes identification chart through interactive visualization",
+    "Apply knowledge of orphaned nodes identification chart to solve problems",
+    "Experiment with parameters to observe their effects on orphaned nodes identification chart"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze",
+    "Evaluate",
+    "Create"
+  ]
 }
