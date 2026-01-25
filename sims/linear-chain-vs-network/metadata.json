@@ -16,5 +16,23 @@
   "learningResourceType": "simulation",
   "audience": "Educators, Developers",
   "version": "1.0.0",
-  "library": "vis-network"
+  "library": "vis-network",
+  "visualizationType": [
+    "diagram",
+    "interactive-demo",
+    "network",
+    "simulation"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of linear chain vs network structure comparison",
+    "Explore linear chain vs network structure comparison through interactive visualization",
+    "Apply knowledge of linear chain vs network structure comparison to solve problems"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze",
+    "Create"
+  ]
 }

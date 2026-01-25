@@ -36,5 +36,20 @@
     "Light Blue"
   ],
   "print_format": "SVG or high-resolution PNG",
-  "optimal_width_inches": "10-12"
+  "optimal_width_inches": "10-12",
+  "visualizationType": [
+    "diagram",
+    "interactive-demo"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of claude code t-shirt design - workflow diagram",
+    "Explore claude code t-shirt design - workflow diagram through interactive visualization",
+    "Apply knowledge of claude code t-shirt design - workflow diagram to solve problems"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Apply",
+    "Analyze",
+    "Create"
+  ]
 }

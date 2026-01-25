@@ -16,5 +16,26 @@
   "learningResourceType": "simulation",
   "audience": "Educators, Developers",
   "version": "1.0.0",
-  "library": "Chart.js"
+  "library": "Chart.js",
+  "visualizationType": [
+    "animation",
+    "chart",
+    "diagram",
+    "interactive-demo",
+    "map"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of taxonomy distribution pie chart",
+    "Explore taxonomy distribution pie chart through interactive visualization",
+    "Apply knowledge of taxonomy distribution pie chart to solve problems",
+    "Test understanding of taxonomy distribution pie chart through interactive exercises"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze",
+    "Evaluate",
+    "Create"
+  ]
 }

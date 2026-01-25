@@ -16,5 +16,28 @@
   "learningResourceType": "simulation",
   "audience": "Educators, Developers",
   "version": "1.0.0",
-  "library": "HTML/CSS/JavaScript"
+  "library": "HTML/CSS/JavaScript",
+  "visualizationType": [
+    "animation",
+    "data-visualization",
+    "diagram",
+    "graph",
+    "interactive-demo",
+    "map",
+    "timeline"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of chapter content generation workflow timeline",
+    "Explore chapter content generation workflow timeline through interactive visualization",
+    "Apply knowledge of chapter content generation workflow timeline to solve problems",
+    "Experiment with parameters to observe their effects on chapter content generation workflow timeline"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze",
+    "Evaluate",
+    "Create"
+  ]
 }

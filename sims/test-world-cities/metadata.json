@@ -45,5 +45,25 @@
   ],
   "version": "1.0",
   "library": "Leaflet",
-  "library_version": "1.9.4"
+  "library_version": "1.9.4",
+  "visualizationType": [
+    "graph",
+    "interactive-demo",
+    "map",
+    "timeline"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of major world cities",
+    "Explore major world cities through interactive visualization",
+    "Apply knowledge of major world cities to solve problems",
+    "Test understanding of major world cities through interactive exercises"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze",
+    "Evaluate",
+    "Create"
+  ]
 }

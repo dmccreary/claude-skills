@@ -16,5 +16,21 @@
   "learningResourceType": "simulation",
   "audience": "Educators, Developers",
   "version": "1.0.0",
-  "library": "Mermaid"
+  "library": "Mermaid",
+  "visualizationType": [
+    "diagram",
+    "graph",
+    "interactive-demo"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of adding taxonomy to csv workflow",
+    "Explore adding taxonomy to csv workflow through interactive visualization",
+    "Apply knowledge of adding taxonomy to csv workflow to solve problems",
+    "Experiment with parameters to observe their effects on adding taxonomy to csv workflow"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Apply",
+    "Create"
+  ]
 }

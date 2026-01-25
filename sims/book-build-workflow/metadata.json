@@ -44,5 +44,26 @@
     "Diagrams": "#ffb3b3 (light coral)",
     "Book Metrics": "#dab3ff (light violet)"
   },
-  "educational_context": "Textbook development workflow, project management, educational design process"
+  "educational_context": "Textbook development workflow, project management, educational design process",
+  "visualizationType": [
+    "data-visualization",
+    "diagram",
+    "graph",
+    "interactive-demo",
+    "simulation",
+    "timeline"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of book build workflow",
+    "Explore book build workflow through interactive visualization",
+    "Apply knowledge of book build workflow to solve problems",
+    "Experiment with parameters to observe their effects on book build workflow"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Apply",
+    "Analyze",
+    "Evaluate",
+    "Create"
+  ]
 }

@@ -16,5 +16,27 @@
   "learningResourceType": "simulation",
   "audience": "Educators, Developers",
   "version": "1.0.0",
-  "library": "Chart.js"
+  "library": "Chart.js",
+  "visualizationType": [
+    "animation",
+    "chart",
+    "diagram",
+    "graph",
+    "interactive-demo",
+    "timeline"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of average dependencies distribution bar chart",
+    "Explore average dependencies distribution bar chart through interactive visualization",
+    "Apply knowledge of average dependencies distribution bar chart to solve problems",
+    "Experiment with parameters to observe their effects on average dependencies distribution bar chart"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze",
+    "Evaluate",
+    "Create"
+  ]
 }

@@ -16,5 +16,21 @@
   "learningResourceType": "simulation",
   "audience": "Educators, Developers",
   "version": "1.0.0",
-  "library": "Chart.js"
+  "library": "Chart.js",
+  "visualizationType": [
+    "chart",
+    "interactive-demo",
+    "map"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of concept label length histogram",
+    "Explore concept label length histogram through interactive visualization",
+    "Apply knowledge of concept label length histogram to solve problems",
+    "Test understanding of concept label length histogram through interactive exercises"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Analyze",
+    "Create"
+  ]
 }

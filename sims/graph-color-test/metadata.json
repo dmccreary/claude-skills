@@ -1,0 +1,49 @@
+{
+  "title": "Learning Graph Color Test",
+  "description": "<iframe src=\"main.html\" width=\"100%\" height=\"880px\" scrolling=\"no\"></iframe>",
+  "subject": "Mathematics",
+  "topic": "Learning Graph Color Test",
+  "gradeLevel": "6-12",
+  "bloomsTaxonomy": [
+    "Understand",
+    "Apply"
+  ],
+  "author": "Dan McCreary",
+  "dateCreated": "2026-01-23",
+  "dateModified": "2026-01-23",
+  "version": "1.0.0",
+  "license": "MIT",
+  "language": "en",
+  "format": "text/html",
+  "type": "Interactive Simulation",
+  "framework": "vis-network",
+  "url": "https://dmccreary.github.io/claude-skills/sims/graph-color-test/",
+  "identifier": "https://dmccreary.github.io/claude-skills/sims/graph-color-test/",
+  "_source": {
+    "repo": "claude-skills",
+    "sim": "graph-color-test",
+    "github_url": "https://github.com/dmccreary/claude-skills/tree/main/docs/sims/graph-color-test",
+    "auto_generated": true,
+    "generation_date": "2026-01-23"
+  },
+  "subjects": [
+    "Mathematics",
+    "Physics",
+    "Computer Science",
+    "Chemistry",
+    "Statistics"
+  ],
+  "visualizationType": [
+    "simulation",
+    "chart",
+    "graph",
+    "interactive-demo",
+    "network"
+  ],
+  "learningObjectives": [
+    "Understand the mathematical concept of learning graph color test",
+    "Apply learning graph color test to solve problems",
+    "Visualize and interpret learning graph color test relationships",
+    "Test understanding of learning graph color test through interactive exercises"
+  ]
+}

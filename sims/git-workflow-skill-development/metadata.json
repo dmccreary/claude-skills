@@ -16,5 +16,22 @@
   "learningResourceType": "simulation",
   "audience": "Educators, Developers",
   "version": "1.0.0",
-  "library": "Mermaid"
+  "library": "Mermaid",
+  "visualizationType": [
+    "diagram",
+    "graph",
+    "interactive-demo"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of git workflow for skill development",
+    "Explore git workflow for skill development through interactive visualization",
+    "Apply knowledge of git workflow for skill development to solve problems",
+    "Test understanding of git workflow for skill development through interactive exercises"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Create"
+  ]
 }

@@ -16,5 +16,29 @@
   "learningResourceType": "simulation",
   "audience": "Educators, Developers",
   "version": "1.0.0",
-  "library": "Chart.js"
+  "library": "Chart.js",
+  "visualizationType": [
+    "animation",
+    "chart",
+    "data-visualization",
+    "diagram",
+    "graph",
+    "interactive-demo",
+    "map",
+    "simulation",
+    "timeline"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of skill development priority matrix visualization",
+    "Explore skill development priority matrix visualization through interactive visualization",
+    "Apply knowledge of skill development priority matrix visualization to solve problems",
+    "Experiment with parameters to observe their effects on skill development priority matrix visualization"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze",
+    "Create"
+  ]
 }
