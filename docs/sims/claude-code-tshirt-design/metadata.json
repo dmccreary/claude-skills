@@ -51,5 +51,27 @@
     "Apply",
     "Analyze",
     "Create"
-  ]
+  ],
+  "pedagogical": {
+    "pattern": "reference",
+    "bloomAlignment": [
+      "remember",
+      "apply",
+      "analyze"
+    ],
+    "bloomVerbs": [
+      "define",
+      "recognize",
+      "state",
+      "illustrate",
+      "implement"
+    ],
+    "pacing": "self-paced",
+    "supportsPrediction": false,
+    "dataVisibility": "medium",
+    "feedbackType": [
+      "corrective"
+    ],
+    "interactionStyle": "construct"
+  }
 }

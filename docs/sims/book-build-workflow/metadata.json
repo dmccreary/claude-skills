@@ -65,5 +65,28 @@
     "Analyze",
     "Evaluate",
     "Create"
-  ]
+  ],
+  "pedagogical": {
+    "pattern": "demonstration",
+    "bloomAlignment": [
+      "apply",
+      "analyze",
+      "evaluate"
+    ],
+    "bloomVerbs": [
+      "calculate",
+      "demonstrate",
+      "illustrate",
+      "use",
+      "analyze"
+    ],
+    "pacing": "self-paced",
+    "supportsPrediction": false,
+    "dataVisibility": "medium",
+    "feedbackType": [
+      "corrective",
+      "explanatory"
+    ],
+    "interactionStyle": "observe"
+  }
 }

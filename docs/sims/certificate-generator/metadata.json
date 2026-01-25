@@ -39,5 +39,25 @@
     "Apply certificate of completion generator to solve problems",
     "Visualize and interpret certificate of completion generator relationships",
     "Test understanding of certificate of completion generator through interactive exercises"
-  ]
+  ],
+  "pedagogical": {
+    "pattern": "demonstration",
+    "bloomAlignment": [
+      "understand",
+      "apply"
+    ],
+    "bloomVerbs": [
+      "demonstrate",
+      "solve",
+      "use"
+    ],
+    "pacing": "self-paced",
+    "supportsPrediction": false,
+    "dataVisibility": "medium",
+    "feedbackType": [
+      "immediate",
+      "corrective"
+    ],
+    "interactionStyle": "respond"
+  }
 }

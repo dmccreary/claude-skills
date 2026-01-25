@@ -32,5 +32,28 @@
     "Remember",
     "Analyze",
     "Create"
-  ]
+  ],
+  "pedagogical": {
+    "pattern": "demonstration",
+    "bloomAlignment": [
+      "remember",
+      "analyze",
+      "evaluate"
+    ],
+    "bloomVerbs": [
+      "define",
+      "list",
+      "state",
+      "analyze",
+      "assess"
+    ],
+    "pacing": "self-paced",
+    "supportsPrediction": false,
+    "dataVisibility": "high",
+    "feedbackType": [
+      "immediate",
+      "explanatory"
+    ],
+    "interactionStyle": "observe"
+  }
 }
