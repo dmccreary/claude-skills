@@ -45,5 +45,27 @@
     "Apply learning graph color test to solve problems",
     "Visualize and interpret learning graph color test relationships",
     "Test understanding of learning graph color test through interactive exercises"
-  ]
+  ],
+  "pedagogical": {
+    "pattern": "demonstration",
+    "bloomAlignment": [
+      "understand",
+      "apply",
+      "analyze"
+    ],
+    "bloomVerbs": [
+      "classify",
+      "summarize",
+      "apply",
+      "illustrate",
+      "implement"
+    ],
+    "pacing": "continuous",
+    "supportsPrediction": false,
+    "dataVisibility": "medium",
+    "feedbackType": [
+      "explanatory"
+    ],
+    "interactionStyle": "observe"
+  }
 }

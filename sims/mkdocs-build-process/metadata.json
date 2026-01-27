@@ -31,5 +31,26 @@
     "Remember",
     "Apply",
     "Create"
-  ]
+  ],
+  "pedagogical": {
+    "pattern": "demonstration",
+    "bloomAlignment": [
+      "remember",
+      "apply",
+      "evaluate"
+    ],
+    "bloomVerbs": [
+      "illustrate",
+      "implement",
+      "assess",
+      "evaluate"
+    ],
+    "pacing": "self-paced",
+    "supportsPrediction": false,
+    "dataVisibility": "medium",
+    "feedbackType": [
+      "none"
+    ],
+    "interactionStyle": "construct"
+  }
 }
