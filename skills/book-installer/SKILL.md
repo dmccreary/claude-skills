@@ -26,29 +26,30 @@ If the user asks for "help", "what can you do", or "list features", display this
 ```
 Book Installer Features (most → least common):
 
- 1. Site logo - Add custom logo to header
- 2. Favicon - Browser tab/bookmark icon
- 3. Cover image & social preview - Home page image + og:image metadata
- 4. Math equations - KaTeX (recommended) or MathJax
- 5. Code syntax highlighting - Language-aware code blocks
- 6. Code copy button - One-click copy for code blocks
- 7. Mermaid diagrams - Flowcharts, sequence diagrams from text
- 8. Content tabs - Tabbed sections for alternatives
- 9. Image zoom (GLightbox) - Click to enlarge images
-10. Custom admonitions - Prompt boxes with copy button
-11. Interactive quizzes - Self-assessment questions
-12. Abbreviations & tooltips - Glossary hover definitions
-13. Task lists - Checkbox lists
-14. Simple feedback - Thumbs up/down per page
-15. Detailed comments (Giscus) - GitHub Discussions integration
-16. Tags & categorization - Page tagging system
-17. Search enhancements - Suggestions and highlighting
-18. Table of contents config - TOC sidebar options
-19. Blog support - Add blog section
-20. Announcement bar - Dismissible top banner
-21. Privacy & cookie consent - GDPR compliance
-22. Learning graph viewer - Interactive concept visualization
-23. Skill usage tracker - Claude Code analytics hooks
+ 1. Simple mkdocs.yml template - Minimal starter config for new projects
+ 2. Site logo - Add custom logo to header
+ 3. Favicon - Browser tab/bookmark icon
+ 4. Cover image & social preview - Home page image + og:image metadata
+ 5. Math equations - KaTeX (recommended) or MathJax
+ 6. Code syntax highlighting - Language-aware code blocks
+ 7. Code copy button - One-click copy for code blocks
+ 8. Mermaid diagrams - Flowcharts, sequence diagrams from text
+ 9. Content tabs - Tabbed sections for alternatives
+10. Image zoom (GLightbox) - Click to enlarge images
+11. Custom admonitions - Prompt boxes with copy button
+12. Interactive quizzes - Self-assessment questions
+13. Abbreviations & tooltips - Glossary hover definitions
+14. Task lists - Checkbox lists
+15. Simple feedback - Thumbs up/down per page
+16. Detailed comments (Giscus) - GitHub Discussions integration
+17. Tags & categorization - Page tagging system
+18. Search enhancements - Suggestions and highlighting
+19. Table of contents config - TOC sidebar options
+20. Blog support - Add blog section
+21. Announcement bar - Dismissible top banner
+22. Privacy & cookie consent - GDPR compliance
+23. Learning graph viewer - Interactive concept visualization
+24. Skill usage tracker - Claude Code analytics hooks
 
 Type a number or feature name to install.
 
@@ -85,7 +86,8 @@ Match the user's request to the appropriate installation guide:
 | Trigger Keywords | Action | Purpose |
 |------------------|--------|---------|
 | help, what can you do, features, capabilities, list features | Display numbered list (Step 1) | Show quick feature overview |
-| enrich, add feature, number 1-23, specific feature name | `references/mkdocs-features.md` | Install specific feature |
+| 1, simple mkdocs, minimal template, starter config | `references/mkdocs-template.md` (minimal section) | Create simple mkdocs.yml starter |
+| enrich, add feature, number 2-24, specific feature name | `references/mkdocs-features.md` | Install specific feature |
 | new project, mkdocs, textbook, bootstrap, setup, template, new book | `references/mkdocs-template.md` | Create new MkDocs Material project |
 | graph viewer, learning graph, visualization, interactive graph, concept viewer | `references/learning-graph-viewer.md` | Add learning graph viewer to existing project |
 | track skills, skill usage, activity tracking, hooks, usage analytics | `references/skill-tracker.md` | Set up skill tracking with hooks |
@@ -145,7 +147,7 @@ Each guide contains:
 
 **Purpose:** Detailed configuration for all MkDocs feature enhancements
 
-**Contains:** Full configuration snippets for all 23 features listed in the help output, including:
+**Contains:** Full configuration snippets for features 2-24 listed in the help output, including:
 - YAML for mkdocs.yml
 - JavaScript files to create
 - CSS files to create
@@ -230,9 +232,14 @@ Each guide contains:
 **Action:** Load mkdocs-features.md, find the Math Equations section, and apply the configuration
 
 ### Example 2b: Select by Number
-**User:** "4"
+**User:** "5"
 **Routing:** Number selection after help list → `references/mkdocs-features.md`
-**Action:** Load mkdocs-features.md, find Math Equations (item 4), and apply the configuration
+**Action:** Load mkdocs-features.md, find Math Equations (item 5), and apply the configuration
+
+### Example 2c: Simple Template
+**User:** "1"
+**Routing:** Number 1 → `references/mkdocs-template.md` (minimal section)
+**Action:** Load mkdocs-template.md and create a simple mkdocs.yml starter config
 
 ### Example 3: New Textbook Project
 **User:** "I want to create a new intelligent textbook about machine learning"

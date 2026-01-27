@@ -23,7 +23,7 @@ Type `book-installer help` to see this list, then select by number or name:
 | 13 | [Task lists](#task-lists) | Checkbox lists |
 | 14 | [Simple feedback](#simple-feedback) | Thumbs up/down per page |
 | 15 | [Detailed comments (Giscus)](#detailed-comments-giscus) | GitHub Discussions integration |
-| 16 | [Tags & categorization](#tags--categorization) | Page tagging system |
+| 16 | [Tags & categorization](#tags-and-categorization) | Page tagging system |
 | 17 | [Search enhancements](#search-enhancements) | Suggestions and highlighting |
 | 18 | [Table of contents config](#table-of-contents-config) | TOC sidebar options |
 | 19 | [Blog support](#blog-support) | Add blog section |
@@ -589,9 +589,23 @@ Requires custom JavaScript. See mkdocs-features.md for implementation.
 
 ---
 
-### Tags & Categorization
+### Tags and Categorization
 
 **Purpose:** Add tags to pages for filtering and organization.
+
+**Why use tags:**
+
+- **Content Discovery** - Readers find related content across chapters (e.g., all pages tagged "recursion")
+- **Skill Level Filtering** - Tag by difficulty: `beginner`, `intermediate`, `advanced`
+- **Content Type Organization** - Tag by type: `tutorial`, `reference`, `exercise`, `case-study`
+- **Cross-Cutting Concerns** - Topics spanning multiple chapters: `best-practices`, `performance`, `security`
+- **Auto-Generated Index** - MkDocs creates a `tags.md` page listing all tags with linked pages
+
+**When it's most useful:**
+
+- Large textbooks with 15+ chapters
+- Reference materials readers return to repeatedly
+- Content with overlapping topics across chapters
 
 **mkdocs.yml:**
 
@@ -607,8 +621,17 @@ plugins:
 ---
 tags:
   - beginner
+  - loops
   - python
 ---
+```
+
+**Create `docs/tags.md`:**
+
+```markdown
+# Tags
+
+This page lists all tagged content in the textbook.
 ```
 
 ---

@@ -5,7 +5,72 @@ description: This skill creates a complete MkDocs Material project structure for
 
 # Install MkDocs Template
 
-This skill creates a complete MkDocs Material project structure optimized for intelligent textbooks.
+This skill creates MkDocs Material project structures optimized for intelligent textbooks.
+
+---
+
+## Simple mkdocs.yml Template (Option 1)
+
+For users who just want a minimal starter config without the full project setup.
+
+### Workflow
+
+1. **Gather information** - Ask the user for:
+   - Site name (book title)
+   - Site description
+   - Author name
+   - GitHub username
+   - Repository name
+
+2. **Use the template file** at `assets/templates/mkdocs-minimal.yml` and replace placeholders:
+   - `{{SITE_NAME}}` - Book title
+   - `{{SITE_DESCRIPTION}}` - Brief description
+   - `{{SITE_AUTHOR}}` - Author name
+   - `{{GITHUB_USERNAME}}` - GitHub username
+   - `{{REPO_NAME}}` - Repository name
+
+3. **Create the directory structure** using files from `assets/templates/docs/`:
+   - Copy `index.md`, `about.md`, `course-description.md`, `contact.md`, `license.md`
+   - Create `chapters/` subdirectories with starter chapter files
+   - Replace placeholders in all files
+
+### Minimal Directory Structure
+
+```
+project-root/
+├── docs/
+│   ├── index.md
+│   ├── about.md
+│   ├── course-description.md
+│   ├── contact.md
+│   ├── license.md
+│   └── chapters/
+│       ├── 01-introduction/
+│       │   └── index.md
+│       ├── 02-getting-started/
+│       │   └── index.md
+│       └── 03-core-concepts/
+│           └── index.md
+└── mkdocs.yml
+```
+
+### Install and Run
+
+```bash
+# Install MkDocs (if not already installed)
+pip install mkdocs mkdocs-material
+
+# Serve locally
+mkdocs serve
+```
+
+Then visit http://127.0.0.1:8000/repo-name/
+
+---
+
+## Full Project Setup (Option 2)
+
+For a complete intelligent textbook with all features, continue below.
 
 ## What This Skill Creates
 
