@@ -1311,9 +1311,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tags-categorization" class="md-nav__link">
+  <a href="#tags-and-categorization" class="md-nav__link">
     <span class="md-ellipsis">
-      Tags &amp; Categorization
+      Tags and Categorization
     </span>
   </a>
   
@@ -1482,7 +1482,7 @@
 </tr>
 <tr>
 <td>16</td>
-<td><a href="#tags--categorization">Tags &amp; categorization</a></td>
+<td><a href="#tags-and-categorization">Tags &amp; categorization</a></td>
 <td>Page tagging system</td>
 </tr>
 <tr>
@@ -2074,8 +2074,22 @@ $$\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}$$
 <li>Configure at: https://giscus.app</li>
 </ol>
 <hr>
-<h3 id="tags-categorization">Tags &amp; Categorization</h3>
+<h3 id="tags-and-categorization">Tags and Categorization</h3>
 <p><strong>Purpose:</strong> Add tags to pages for filtering and organization.</p>
+<p><strong>Why use tags:</strong></p>
+<ul>
+<li><strong>Content Discovery</strong> - Readers find related content across chapters (e.g., all pages tagged "recursion")</li>
+<li><strong>Skill Level Filtering</strong> - Tag by difficulty: <code>beginner</code>, <code>intermediate</code>, <code>advanced</code></li>
+<li><strong>Content Type Organization</strong> - Tag by type: <code>tutorial</code>, <code>reference</code>, <code>exercise</code>, <code>case-study</code></li>
+<li><strong>Cross-Cutting Concerns</strong> - Topics spanning multiple chapters: <code>best-practices</code>, <code>performance</code>, <code>security</code></li>
+<li><strong>Auto-Generated Index</strong> - MkDocs creates a <code>tags.md</code> page listing all tags with linked pages</li>
+</ul>
+<p><strong>When it's most useful:</strong></p>
+<ul>
+<li>Large textbooks with 15+ chapters</li>
+<li>Reference materials readers return to repeatedly</li>
+<li>Content with overlapping topics across chapters</li>
+</ul>
 <p><strong>mkdocs.yml:</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2088,11 +2102,20 @@ $$\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}$$
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nn">---</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nn">---</span>
 <span class="nt">tags</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beginner</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">loops</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span>
 <span class="nn">---</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong>Create <code>docs/tags.md</code>:</strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gh"># Tags</span>
+
+This page lists all tagged content in the textbook.
 </code></pre></div></td></tr></tbody></table></div>
 <hr>
 <h3 id="search-enhancements">Search Enhancements</h3>
