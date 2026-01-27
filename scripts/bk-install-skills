@@ -50,6 +50,48 @@ if [ ! -d "$TARGET_DIR" ]; then
     mkdir -p "$TARGET_DIR"
 fi
 
+# Clean up old/broken symlinks first
+echo -e "${BLUE}Cleaning up old symlinks...${NC}"
+cleanup_count=0
+declare -a cleaned_links=()
+
+shopt -s nullglob
+for link in "$TARGET_DIR"/*; do
+    if [ -L "$link" ]; then
+        link_name=$(basename "$link")
+        link_target=$(readlink "$link")
+
+        # Check if symlink is broken OR if it points to a location that no longer exists in source
+        if [ ! -e "$link" ]; then
+            # Broken symlink - target doesn't exist
+            rm "$link"
+            cleaned_links+=("$link_name (broken)")
+            ((cleanup_count++))
+        elif [[ "$link_target" == "$SKILLS_DIR"* ]] || [[ "$link_target" == *"/claude-skills/skills/"* ]]; then
+            # Symlink points to our skills directory - check if source skill still exists
+            source_skill_name=$(basename "$link_target")
+            if [ ! -d "$SKILLS_DIR/$source_skill_name" ]; then
+                # Source skill no longer exists (renamed or removed)
+                rm "$link"
+                cleaned_links+=("$link_name (stale - source removed)")
+                ((cleanup_count++))
+            fi
+        fi
+    fi
+done
+shopt -u nullglob
+
+if [ "$cleanup_count" -gt 0 ]; then
+    echo -e "${YELLOW}Cleaned up $cleanup_count old symlink(s):${NC}"
+    for cleaned in "${cleaned_links[@]}"; do
+        echo -e "  - ${YELLOW}$cleaned${NC}"
+    done
+    echo ""
+else
+    echo -e "${GREEN}✓${NC} No stale symlinks found"
+    echo ""
+fi
+
 # Counter for installed skills
 installed_count=0
 declare -a installed_skills=()

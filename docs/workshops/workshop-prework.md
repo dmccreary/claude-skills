@@ -410,7 +410,7 @@ You should see output similar to:
 
 ```
 book-chapter-generator          glossary-generator              moving-rainbow
-book-metrics-generator          installer                       pi-keys-generator
+book-metrics-generator          book-installer                  pi-keys-generator
 chapter-content-generator       learning-graph-generator        quiz-generator
 concept-classifier              linkedin-announcement-generator readme-generator
 faq-generator                   microsim-generator              reference-generator
