@@ -32,6 +32,16 @@ Match the user's request to the appropriate installation guide:
 | graph viewer, learning graph, visualization, interactive graph, concept viewer | `references/learning-graph-viewer.md` | Add learning graph viewer to existing project |
 | track skills, skill usage, activity tracking, hooks, usage analytics | `references/skill-tracker.md` | Set up skill tracking with hooks |
 | cover image, home page, social media, og:image, montage, book cover, index page | `references/home-page-template.md` | Create home page with cover image and social metadata |
+| logo, site logo, branding, upper left, header icon | `references/mkdocs-features.md` | Add custom logo with AI prompt examples |
+| favicon, browser tab, bookmark icon, .ico | `references/mkdocs-features.md` | Add favicon with AI prompt examples |
+| math, equations, latex, mathjax, katex | `references/mkdocs-features.md` | Add math equation support |
+| quiz, quizzes, assessment, multiple choice | `references/mkdocs-features.md` | Add interactive quizzes |
+| feedback, thumbs up, thumbs down, was this helpful | `references/mkdocs-features.md` | Add page feedback widget |
+| comments, giscus, discussions | `references/mkdocs-features.md` | Add comment system |
+| image zoom, lightbox, glightbox, click to enlarge | `references/mkdocs-features.md` | Add image zoom on click |
+| code highlighting, syntax, copy button | `references/mkdocs-features.md` | Add code syntax highlighting |
+| mermaid, diagrams, flowchart | `references/mkdocs-features.md` | Add Mermaid diagram support |
+| admonition, callout, prompt box, copy prompt | `references/mkdocs-features.md` | Add custom admonitions with copy |
 
 ### Decision Tree
 
@@ -50,6 +60,9 @@ Setting up skill usage tracking?
 
 Creating a cover image or setting up home page with social metadata?
   → YES: home-page-template.md
+
+Want to add branding (logo, favicon, cover image)?
+  → YES: mkdocs-features.md (Branding Features section)
 
 Want to add a specific feature (equations, quizzes, feedback, etc.)?
   → YES: mkdocs-features.md (then follow specific feature instructions)

@@ -6,6 +6,9 @@ This guide lists all the features that can be added to an MkDocs Material intell
 
 | Feature | Category | Complexity |
 |---------|----------|------------|
+| [Site Logo](#site-logo) | Branding | Easy |
+| [Favicon](#favicon) | Branding | Easy |
+| [Cover Image & Social Preview](#cover-image--social-preview) | Branding | Medium |
 | [Math Equations (MathJax)](#math-equations-mathjax) | Content | Easy |
 | [Math Equations (KaTeX)](#math-equations-katex) | Content | Easy |
 | [Code Syntax Highlighting](#code-syntax-highlighting) | Content | Easy |
@@ -28,6 +31,210 @@ This guide lists all the features that can be added to an MkDocs Material intell
 | [Blog Support](#blog-support) | Content | Medium |
 | [Privacy & Cookie Consent](#privacy--cookie-consent) | Legal | Easy |
 | [Announcement Bar](#announcement-bar) | Engagement | Easy |
+
+---
+
+## Branding Features
+
+### Site Logo
+
+Add a custom logo to the upper-left corner of every page.
+
+**Add to mkdocs.yml:**
+
+```yaml
+theme:
+  name: material
+  logo: img/logo.png
+```
+
+**File location:** `docs/img/logo.png` (recommended: 48x48 to 64x64 pixels, PNG with transparency)
+
+**Alternative - Use Material Design Icon:**
+
+```yaml
+theme:
+  name: material
+  icon:
+    logo: material/book-open-page-variant
+```
+
+Browse icons at: https://pictogrammers.com/library/mdi/
+
+#### AI Prompt for Logo Generation
+
+```
+A minimalist [SUBJECT] logo icon, simple geometric shapes,
+[PRIMARY COLOR] on transparent background, flat design,
+suitable for small size display, professional, clean lines,
+no text, centered composition, square format
+```
+
+**Example prompts by topic:**
+
+- **Programming:** "A minimalist code brackets logo icon, angular < > symbols, indigo (#3F51B5) on transparent background, modern tech feel, clean vector style, no text"
+
+- **Data Science:** "A minimalist neural network logo icon, three connected nodes in triangular arrangement, purple gradient (#7C4DFF to #536DFE), transparent background, flat design, no text"
+
+- **Education:** "A minimalist open book logo icon, simple geometric book shape with pages fanning out, warm orange (#FF9800) on transparent background, flat design, no text"
+
+- **Science:** "A minimalist atom logo icon, three orbital rings around central dot, cyan (#00BCD4) on transparent background, scientific feel, clean lines"
+
+**Post-processing:** Generate at 512x512, resize to 64x64, ensure transparent background, save as PNG.
+
+---
+
+### Favicon
+
+Add a favicon that appears in browser tabs and bookmarks.
+
+**Add to mkdocs.yml:**
+
+```yaml
+theme:
+  name: material
+  favicon: img/favicon.ico
+```
+
+**File location:** `docs/img/favicon.ico` (multi-resolution) or `docs/img/favicon.png` (32x32)
+
+#### AI Prompt for Favicon Generation
+
+Favicons must be EXTREMELY simple - recognizable at 16x16 pixels!
+
+```
+An extremely minimalist [SINGLE SHAPE] icon, [ONE COLOR] on white
+background, ultra-simple geometric form, must be recognizable at
+16x16 pixels, no details, no gradients, bold single element,
+favicon style, flat design
+```
+
+**Example prompts:**
+
+- **Single Letter:** "An extremely minimalist letter 'A' favicon icon, bold sans-serif, deep blue (#1A237E) on white background, ultra-simple, geometric, must be clear at 16 pixels, no decoration"
+
+- **Geometric Shape:** "An extremely minimalist hexagon favicon icon, solid teal (#009688), white background, simple flat shape, clear at 16x16 pixels"
+
+- **Abstract Symbol:** "An extremely minimalist book favicon, simple open book silhouette, navy blue (#303F9F), white background, two rectangles at angle, ultra-simplified"
+
+**Post-processing:**
+1. Generate at 512x512
+2. Simplify (remove any fine details)
+3. Create multi-resolution .ico with: 16x16, 32x32, 48x48
+4. Tools: https://realfavicongenerator.net/ or ImageMagick
+
+---
+
+### Cover Image & Social Preview
+
+Add a professional cover image that appears on your home page and as the social media preview when links are shared.
+
+**Aspect ratio:** 1.91:1 (wide landscape)
+**Recommended size:** 1200x630 pixels
+
+**Home page frontmatter (docs/index.md):**
+
+```yaml
+---
+title: Your Book Title
+description: A compelling description for social sharing
+image: img/cover-social.png
+---
+```
+
+**Create theme override (overrides/main.html):**
+
+```html
+{% extends "base.html" %}
+{% block extrahead %}
+  <meta property="og:image" content="{{ page.meta.image | default('img/cover-social.png') | url }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ page.meta.image | default('img/cover-social.png') | url }}">
+{% endblock %}
+```
+
+**Add to mkdocs.yml:**
+
+```yaml
+theme:
+  name: material
+  custom_dir: overrides
+```
+
+#### AI Prompt for Cover Image Generation
+
+Style: Title centered with montage/collage of related images around edges.
+
+```
+A professional book cover image in wide landscape format (1.91:1 aspect ratio),
+'[YOUR BOOK TITLE]' in large elegant typography centered on a [COLOR] gradient
+background, surrounded by a subtle montage collage of [TOPIC ELEMENTS] arranged
+around the edges, professional educational design, clean modern aesthetic,
+social media preview style, high contrast text, 1200x630 pixels
+```
+
+**Example prompts:**
+
+- **Programming:**
+```
+A professional book cover in wide 1.91:1 landscape format,
+'Introduction to Python Programming' in bold white typography centered
+on a deep blue (#1A237E) to purple (#4A148C) gradient background,
+surrounded by a subtle montage of code snippets, terminal windows,
+Python logo elements, circuit patterns, and geometric shapes around
+the edges, modern tech aesthetic, clean professional design,
+suitable for social media preview, 1200x630 pixels
+```
+
+- **Data Science:**
+```
+A professional educational book cover, 1.91:1 wide format,
+'Data Science with R' in bold centered typography, white text on
+teal (#00695C) to dark cyan (#006064) gradient,
+montage border of scatter plots, bar charts, R logo elements,
+data tables, statistical formulas, and flowing data streams,
+clean modern infographic style, 1200x630 for social preview
+```
+
+- **Education:**
+```
+A professional textbook cover in wide 1.91:1 format,
+'Designing Effective Learning Experiences' in warm white typography,
+centered on sunset orange (#E65100) to deep red (#B71C1C) gradient,
+montage border of open books, lightbulbs, brain icons, Bloom's pyramid,
+classroom elements, and interconnected concept nodes,
+warm educational feel, social media preview optimized
+```
+
+**Post-processing:**
+1. Generate at 1200x630 or larger
+2. Verify title is readable at small preview sizes
+3. Test with social preview validators:
+   - https://cards-dev.twitter.com/validator
+   - https://www.linkedin.com/post-inspector/
+4. Save as PNG (< 5MB)
+5. Place in `docs/img/cover-social.png`
+
+**Display on home page:**
+
+```markdown
+![Book Cover](img/cover-social.png){ .cover-image }
+```
+
+**CSS for cover image (docs/css/extra.css):**
+
+```css
+.cover-image {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  margin: 1rem auto 2rem;
+  display: block;
+}
+```
 
 ---
 

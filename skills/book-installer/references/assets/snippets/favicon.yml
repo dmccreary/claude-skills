@@ -1,0 +1,117 @@
+# Favicon Configuration for MkDocs Material
+# Copy these sections into your mkdocs.yml
+#
+# Favicon appears in browser tabs, bookmarks, and mobile home screens
+# Required formats: .ico (multi-size) or .png (32x32)
+
+# Add to theme:
+theme:
+  name: material
+  favicon: img/favicon.ico
+  # Or use PNG:
+  # favicon: img/favicon.png
+
+# File location: docs/img/favicon.ico or docs/img/favicon.png
+
+# =============================================================================
+# AI Image Generation Prompts for Favicons
+# =============================================================================
+#
+# Favicons must be EXTREMELY simple and recognizable at 16x16 pixels.
+# Generate at larger size, then create multi-resolution .ico file.
+#
+# -----------------------------------------------------------------------------
+# PROMPT TEMPLATE (customize bracketed sections):
+# -----------------------------------------------------------------------------
+#
+# "An extremely minimalist [SINGLE SHAPE] icon, [ONE COLOR] on white
+# background, ultra-simple geometric form, must be recognizable at
+# 16x16 pixels, no details, no gradients, bold single element,
+# favicon style, flat design"
+#
+# -----------------------------------------------------------------------------
+# KEY PRINCIPLES FOR FAVICON PROMPTS:
+# -----------------------------------------------------------------------------
+# - ONE simple shape only (letter, symbol, or basic geometric form)
+# - HIGH CONTRAST (dark on light or light on dark)
+# - NO fine details (they disappear at small sizes)
+# - NO text except single letters/initials
+# - BOLD, thick lines
+# - SOLID colors (no gradients at final size)
+#
+# -----------------------------------------------------------------------------
+# EXAMPLE PROMPTS BY STYLE:
+# -----------------------------------------------------------------------------
+#
+# SINGLE LETTER INITIALS:
+# "An extremely minimalist letter 'A' favicon icon, bold sans-serif,
+# deep blue (#1A237E) on white background, ultra-simple, geometric,
+# must be clear at 16 pixels, no decoration"
+#
+# "A bold letter 'M' favicon, thick geometric strokes, orange (#FF5722)
+# on white background, minimalist, readable at tiny size"
+#
+# SIMPLE GEOMETRIC SHAPES:
+# "An extremely minimalist hexagon favicon icon, solid teal (#009688),
+# white background, simple flat shape, clear at 16x16 pixels"
+#
+# "A minimalist circle with dot favicon, concentric rings, purple (#7C4DFF),
+# white background, target-like symbol, ultra-simple"
+#
+# "A bold triangle favicon pointing up, solid red (#F44336), white
+# background, geometric, must work at 16 pixels"
+#
+# ABSTRACT SYMBOLS:
+# "An extremely minimalist book favicon, simple open book silhouette,
+# navy blue (#303F9F), white background, two rectangles at angle,
+# ultra-simplified, favicon-ready"
+#
+# "A minimalist lightning bolt favicon, single bold zigzag stroke,
+# yellow (#FFC107) on dark gray (#424242) background, electric symbol"
+#
+# "A minimalist leaf favicon, single curved teardrop shape, green (#4CAF50),
+# white background, organic but geometric, simple silhouette"
+#
+# TECH-THEMED:
+# "An extremely minimalist code bracket favicon, single < or > symbol,
+# bold stroke, cyan (#00BCD4) on dark background, developer icon"
+#
+# "A minimalist pixel favicon, four squares in 2x2 grid, different shades
+# of blue, white background, digital/tech feel, simple blocky design"
+#
+# -----------------------------------------------------------------------------
+# POST-PROCESSING STEPS:
+# -----------------------------------------------------------------------------
+# 1. Generate image at 512x512 or 1024x1024 pixels
+# 2. Simplify further if needed (remove any fine details)
+# 3. Create multi-resolution .ico file with these sizes:
+#    - 16x16 (browser tabs)
+#    - 32x32 (taskbar, newer browsers)
+#    - 48x48 (Windows site icons)
+#    - Optional: 64x64, 128x128, 256x256
+#
+# Tools for creating .ico files:
+#    - https://www.favicon-generator.org/
+#    - https://realfavicongenerator.net/
+#    - ImageMagick: convert input.png -define icon:auto-resize favicon.ico
+#
+# 4. Also create favicon.png (32x32) as fallback
+# 5. Place in docs/img/favicon.ico
+#
+# -----------------------------------------------------------------------------
+# TESTING YOUR FAVICON:
+# -----------------------------------------------------------------------------
+# - View at actual size (16x16) - is it still recognizable?
+# - Test in multiple browsers (Chrome, Firefox, Safari)
+# - Check dark/light mode browser themes
+# - Test on mobile (add to home screen)
+#
+# -----------------------------------------------------------------------------
+# APPLE TOUCH ICON (Optional - for iOS home screens):
+# -----------------------------------------------------------------------------
+# Create a 180x180 PNG for iOS devices:
+#
+# In your custom overrides/main.html:
+# {% block extrahead %}
+#   <link rel="apple-touch-icon" sizes="180x180" href="{{ 'img/apple-touch-icon.png' | url }}">
+# {% endblock %}

@@ -1,0 +1,114 @@
+# Logo Configuration for MkDocs Material
+# Copy these sections into your mkdocs.yml
+#
+# Logo appears in the upper-left corner of every page
+# Recommended size: 48x48px to 64x64px (square, transparent PNG)
+
+# Add to theme:
+theme:
+  name: material
+  logo: img/logo.png
+  # Or use an icon instead of image:
+  # icon:
+  #   logo: material/book-open-page-variant
+
+# File location: docs/img/logo.png
+
+# =============================================================================
+# AI Image Generation Prompts for Logos
+# =============================================================================
+#
+# Use these prompts with DALL-E, Midjourney, or other AI image generators.
+# After generation, resize to 48x48 or 64x64 pixels and save as PNG with
+# transparent background.
+#
+# -----------------------------------------------------------------------------
+# PROMPT TEMPLATE (customize the bracketed sections):
+# -----------------------------------------------------------------------------
+#
+# "A minimalist [SUBJECT] logo icon, simple geometric shapes,
+# [PRIMARY COLOR] on transparent background, flat design,
+# suitable for small size display, professional, clean lines,
+# no text, centered composition, square format"
+#
+# -----------------------------------------------------------------------------
+# EXAMPLE PROMPTS BY TOPIC:
+# -----------------------------------------------------------------------------
+#
+# TECHNOLOGY / PROGRAMMING:
+# "A minimalist circuit board logo icon, simple geometric lines forming
+# a brain shape, electric blue (#2196F3) on transparent background,
+# flat design, suitable for small size display, no text"
+#
+# "A minimalist code brackets logo icon, angular < > symbols with subtle
+# gradient, indigo (#3F51B5) on transparent background, modern tech feel,
+# clean vector style, no text"
+#
+# DATA SCIENCE / AI:
+# "A minimalist neural network logo icon, three connected nodes in
+# triangular arrangement, purple gradient (#7C4DFF to #536DFE),
+# transparent background, flat design, no text"
+#
+# "A minimalist data visualization logo, abstract bar chart forming
+# upward arrow, teal (#009688) on transparent background, clean lines"
+#
+# EDUCATION / LEARNING:
+# "A minimalist open book logo icon, simple geometric book shape with
+# pages fanning out, warm orange (#FF9800) on transparent background,
+# flat design, educational feel, no text"
+#
+# "A minimalist lightbulb logo icon, geometric bulb shape with rays,
+# golden yellow (#FFC107) on transparent background, knowledge symbol"
+#
+# "A minimalist graduation cap logo, simple mortarboard shape,
+# navy blue (#1A237E) on transparent background, academic style"
+#
+# SCIENCE / RESEARCH:
+# "A minimalist atom logo icon, three orbital rings around central dot,
+# cyan (#00BCD4) on transparent background, scientific feel, clean lines"
+#
+# "A minimalist DNA helix logo, double helix in simple geometric form,
+# green (#4CAF50) on transparent background, biotech style"
+#
+# ENGINEERING:
+# "A minimalist gear logo icon, single cog with clean teeth,
+# steel gray (#607D8B) on transparent background, industrial design"
+#
+# "A minimalist bridge logo icon, simple arch structure,
+# deep blue (#1565C0) on transparent background, structural engineering"
+#
+# MATH / STATISTICS:
+# "A minimalist pi symbol logo, stylized π in geometric form,
+# purple (#9C27B0) on transparent background, mathematical elegance"
+#
+# "A minimalist graph logo, simple line chart trending upward,
+# green (#43A047) on transparent background, data analytics style"
+#
+# -----------------------------------------------------------------------------
+# POST-PROCESSING STEPS:
+# -----------------------------------------------------------------------------
+# 1. Generate image at high resolution (1024x1024)
+# 2. Use background removal tool if needed (remove.bg, Photoshop)
+# 3. Resize to 64x64 pixels (or 48x48 for smaller displays)
+# 4. Save as PNG with transparency
+# 5. Place in docs/img/logo.png
+# 6. Test at small sizes to ensure readability
+#
+# -----------------------------------------------------------------------------
+# ALTERNATIVE: Use Material Design Icons
+# -----------------------------------------------------------------------------
+# Instead of a custom image, use a built-in icon:
+#
+# theme:
+#   icon:
+#     logo: material/book-open-page-variant
+#
+# Browse icons at: https://pictogrammers.com/library/mdi/
+# Common choices:
+#   - material/book-open-page-variant (textbook)
+#   - material/school (education)
+#   - material/lightbulb-outline (ideas)
+#   - material/code-tags (programming)
+#   - material/chart-line (data)
+#   - material/atom (science)
+#   - material/brain (AI/ML)

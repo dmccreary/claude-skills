@@ -106,6 +106,9 @@ Added automatic cleanup of old/broken symlinks before installing new ones. The s
   - [x] `image-zoom.yml` - GLightbox configuration
   - [x] `giscus-comments.yml` - Giscus configuration
   - [x] `mermaid-diagrams.yml` - Mermaid diagram configuration
+  - [x] `logo.yml` - Logo configuration with AI prompt examples
+  - [x] `favicon.yml` - Favicon configuration with AI prompt examples
+  - [x] `cover-image.yml` - Cover image & social preview with AI prompts
 
 - [x] **Create minimal mkdocs template** in `references/assets/templates/`:
   - [x] `mkdocs-minimal.yml` - Starter mkdocs.yml with placeholders
@@ -209,7 +212,10 @@ skills/book-installer/
 │   │   │   ├── custom-admonitions.yml    # Custom admonitions snippet
 │   │   │   ├── image-zoom.yml            # GLightbox snippet
 │   │   │   ├── giscus-comments.yml       # Giscus config snippet
-│   │   │   └── mermaid-diagrams.yml      # Mermaid config snippet
+│   │   │   ├── mermaid-diagrams.yml      # Mermaid config snippet
+│   │   │   ├── logo.yml                  # Logo with AI prompts
+│   │   │   ├── favicon.yml               # Favicon with AI prompts
+│   │   │   └── cover-image.yml           # Cover image with AI prompts
 │   │   ├── templates/
 │   │   │   ├── mkdocs-minimal.yml        # Minimal starter mkdocs.yml
 │   │   │   └── docs/

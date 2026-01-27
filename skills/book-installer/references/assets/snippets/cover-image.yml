@@ -1,0 +1,179 @@
+# Cover Image & Social Preview for MkDocs Material
+# Copy these sections into your mkdocs.yml
+#
+# The cover image appears on the home page and as the social media preview
+# when links are shared on Twitter, LinkedIn, Facebook, etc.
+#
+# Required aspect ratio: 1.91:1 (landscape)
+# Recommended size: 1200x630 pixels (minimum: 600x315)
+
+# =============================================================================
+# MKDOCS.YML CONFIGURATION
+# =============================================================================
+
+# Option 1: Set site-wide default social image
+# Add to extra:
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/yourhandle
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/yourprofile
+
+# Option 2: Per-page override in frontmatter (docs/index.md):
+# ---
+# title: Your Book Title
+# description: A compelling description for social sharing
+# image: img/cover-social.png
+# ---
+
+# For the image meta tag, create overrides/main.html:
+# {% extends "base.html" %}
+# {% block extrahead %}
+#   <meta property="og:image" content="{{ page.meta.image | default('img/cover-social.png') | url }}">
+#   <meta property="og:image:width" content="1200">
+#   <meta property="og:image:height" content="630">
+#   <meta name="twitter:card" content="summary_large_image">
+#   <meta name="twitter:image" content="{{ page.meta.image | default('img/cover-social.png') | url }}">
+# {% endblock %}
+
+# File location: docs/img/cover-social.png
+
+# =============================================================================
+# AI Image Generation Prompts for Cover Images
+# =============================================================================
+#
+# Style: Title centered with montage/collage of related images around edges
+# Aspect Ratio: 1.91:1 (wide landscape) - specify 1200x630 or similar
+#
+# -----------------------------------------------------------------------------
+# PROMPT TEMPLATE:
+# -----------------------------------------------------------------------------
+#
+# "A professional book cover image in wide landscape format (1.91:1 aspect ratio),
+# '[YOUR BOOK TITLE]' in large elegant typography centered on a [COLOR] gradient
+# background, surrounded by a subtle montage collage of [TOPIC ELEMENTS] arranged
+# around the edges, professional educational design, clean modern aesthetic,
+# social media preview style, high contrast text, 1200x630 pixels"
+#
+# -----------------------------------------------------------------------------
+# EXAMPLE PROMPTS BY TOPIC:
+# -----------------------------------------------------------------------------
+#
+# PROGRAMMING / COMPUTER SCIENCE:
+# "A professional book cover in wide 1.91:1 landscape format,
+# 'Introduction to Python Programming' in bold white typography centered
+# on a deep blue (#1A237E) to purple (#4A148C) gradient background,
+# surrounded by a subtle montage of code snippets, terminal windows,
+# Python logo elements, circuit patterns, and geometric shapes around
+# the edges, modern tech aesthetic, clean professional design,
+# suitable for social media preview, 1200x630 pixels"
+#
+# "A professional book cover, wide landscape 1.91:1 aspect ratio,
+# 'Machine Learning Fundamentals' centered in sleek white sans-serif text,
+# dark gradient background transitioning from navy to black,
+# edges decorated with montage of neural network diagrams, data visualizations,
+# mathematical formulas, brain imagery, and abstract AI patterns,
+# futuristic yet professional, social media card style"
+#
+# DATA SCIENCE / ANALYTICS:
+# "A professional educational book cover, 1.91:1 wide format,
+# 'Data Science with R' in bold centered typography, white text on
+# teal (#00695C) to dark cyan (#006064) gradient,
+# montage border of scatter plots, bar charts, R logo elements,
+# data tables, statistical formulas, and flowing data streams,
+# clean modern infographic style, 1200x630 for social preview"
+#
+# ELECTRICAL ENGINEERING / ELECTRONICS:
+# "A professional textbook cover in wide landscape 1.91:1 ratio,
+# 'Digital Electronics Essentials' centered in bold white text,
+# background gradient from dark blue to electric blue,
+# edges feature montage collage of circuit boards, logic gates,
+# oscilloscope traces, resistors, capacitors, microchips, and
+# schematic diagrams, technical yet approachable design,
+# educational publisher quality, social media optimized"
+#
+# MATHEMATICS / STATISTICS:
+# "A professional book cover, wide 1.91:1 landscape format,
+# 'Statistical Methods in Research' in elegant serif white typography,
+# centered on rich purple (#4A148C) to indigo (#1A237E) gradient,
+# surrounding montage of bell curves, Greek letters (μ, σ, Σ),
+# scatter plots, probability distributions, and mathematical notation,
+# academic yet modern aesthetic, social preview dimensions"
+#
+# SCIENCE / BIOLOGY:
+# "A professional educational cover in 1.91:1 wide landscape,
+# 'Molecular Biology Principles' centered in clean white sans-serif,
+# emerald green (#1B5E20) to teal (#004D40) gradient background,
+# edge montage featuring DNA helices, cell diagrams, microscope imagery,
+# protein structures, laboratory equipment, and molecular models,
+# scientific illustration style, 1200x630 social card format"
+#
+# BUSINESS / MANAGEMENT:
+# "A professional book cover, 1.91:1 wide landscape aspect ratio,
+# 'Strategic Leadership in Practice' centered in gold (#FFD700) text,
+# dark navy (#0D1B2A) to charcoal gradient background,
+# subtle montage around edges of business charts, organizational diagrams,
+# handshake silhouettes, growth arrows, and abstract geometric patterns,
+# executive professional aesthetic, LinkedIn-ready social preview"
+#
+# EDUCATION / PEDAGOGY:
+# "A professional textbook cover in wide 1.91:1 format,
+# 'Designing Effective Learning Experiences' in warm white typography,
+# centered on sunset orange (#E65100) to deep red (#B71C1C) gradient,
+# montage border of open books, lightbulbs, brain icons, Bloom's pyramid,
+# classroom elements, and interconnected concept nodes,
+# warm educational feel, social media preview optimized"
+#
+# -----------------------------------------------------------------------------
+# ALTERNATIVE STYLE: Geometric Abstract
+# -----------------------------------------------------------------------------
+#
+# "A modern abstract book cover in 1.91:1 wide landscape format,
+# '[TITLE]' in bold minimalist white typography dead center,
+# background of overlapping geometric shapes in [BRAND COLORS],
+# subtle depth through layered translucent polygons,
+# professional tech aesthetic, clean and contemporary,
+# no photographs, pure geometric design, social preview ready"
+#
+# -----------------------------------------------------------------------------
+# POST-PROCESSING STEPS:
+# -----------------------------------------------------------------------------
+# 1. Generate at 1200x630 pixels (or larger, then resize)
+# 2. Verify title is readable at small preview sizes
+# 3. Check contrast - title must stand out clearly
+# 4. Test by pasting URL into Twitter/LinkedIn preview tools:
+#    - https://cards-dev.twitter.com/validator
+#    - https://www.linkedin.com/post-inspector/
+# 5. Save as PNG or high-quality JPG (< 5MB for best loading)
+# 6. Place in docs/img/cover-social.png
+# 7. Update index.md frontmatter with image path
+#
+# -----------------------------------------------------------------------------
+# HOME PAGE INTEGRATION (docs/index.md):
+# -----------------------------------------------------------------------------
+#
+# ---
+# title: Your Book Title
+# description: A comprehensive guide to [topic]
+# image: img/cover-social.png
+# ---
+#
+# # Your Book Title
+#
+# ![Book Cover](img/cover-social.png){ .cover-image }
+#
+# Welcome to [Book Title]...
+#
+# -----------------------------------------------------------------------------
+# OPTIONAL CSS FOR COVER IMAGE DISPLAY (docs/css/extra.css):
+# -----------------------------------------------------------------------------
+#
+# .cover-image {
+#   width: 100%;
+#   max-width: 800px;
+#   border-radius: 8px;
+#   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+#   margin: 1rem auto 2rem;
+#   display: block;
+# }
