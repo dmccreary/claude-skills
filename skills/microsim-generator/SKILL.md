@@ -7,7 +7,7 @@ description: Creates interactive educational MicroSims using the best-matched Ja
 
 ## Overview
 
-This meta-skill routes MicroSim creation requests to the appropriate specialized generator based on visualization requirements. It consolidates 13 individual MicroSim generator skills into a single entry point with on-demand loading of specific implementation guides.
+This meta-skill routes MicroSim creation requests to the appropriate specialized generator based on visualization requirements. It consolidates 14 individual MicroSim generator skills into a single entry point with on-demand loading of specific implementation guides.
 
 ## When to Use This Skill
 
@@ -24,6 +24,7 @@ Use this skill when users request:
 - Priority matrices or bubble charts
 - Custom simulations or animations
 - Comparison tables with ratings
+- Matrix comparisons with expandable cell details
 
 ## Step 1: Analyze Request and Match Generator
 
@@ -43,6 +44,7 @@ Scan the user's request for trigger keywords and match to the appropriate genera
 | bubble, priority, matrix, quadrant, impact vs effort, risk vs value | `references/bubble-guide.md` | Chart.js |
 | causal, feedback, loop, systems thinking, reinforcing, balancing | `references/causal-loop-guide.md` | vis-network |
 | comparison, table, ratings, stars, side-by-side, features | `references/comparison-table-guide.md` | Custom |
+| matrix, framework comparison, clickable cells, detail panel, expandable | `references/html-table.md` | Custom |
 | animation, celebration, particles, confetti, effects | `references/celebration-guide.md` | p5.js |
 | custom, simulation, physics, interactive, bouncing, movement, p5.js | `references/p5-guide.md` | p5.js |
 
@@ -75,6 +77,9 @@ Standard chart (bar/line/pie/radar)?
 
 Comparison table with ratings/stars?
   → YES: comparison-table-guide.md
+
+Matrix comparison with clickable cells/detail panels?
+  → YES: html-table.md
 
 Celebration/particles/visual feedback?
   → YES: celebration-guide.md
@@ -186,6 +191,7 @@ If the request could match multiple generators:
 | "graph" | Chart (ChartJS) or Network graph (vis-network)? |
 | "diagram" | Structural (Mermaid), Network (vis-network), or Custom (p5)? |
 | "map" | Geographic (Leaflet) or Concept map (vis-network)? |
+| "table" | Star ratings (comparison-table) or Clickable cells with detail panels (html-table)? |
 | "visualization" | What type of data? What interaction needed? |
 
 ## Available Generators
@@ -205,6 +211,7 @@ If the request could match multiple generators:
 | bubble-guide | Chart.js | Priority matrices, multi-dimensional data |
 | causal-loop-guide | vis-network | Systems thinking, feedback loops |
 | comparison-table-guide | Custom | Side-by-side comparisons with ratings |
+| html-table | Custom | Matrix comparisons with clickable cells, detail panels |
 | celebration-guide | p5.js | Particle effects, visual feedback |
 
 ### Shared Standards

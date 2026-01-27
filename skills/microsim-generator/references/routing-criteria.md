@@ -6,6 +6,7 @@ This reference document provides detailed matching criteria for all available Mi
 
 **Version Check:** This file is version-controlled on GitHub. Use `scripts/check-version.py` to verify you have the latest version.
 
+- **2026-01-27**: Added html-table-generator for interactive matrix comparisons with clickable cells and sliding detail panels
 - **2025-11-17**: Initial release with 9 MicroSim generators
   - Added: microsim-p5, chartjs-generator, math-function-plotter-plotly
   - Added: mermaid-generator, vis-network, timeline-generator
@@ -537,6 +538,64 @@ When scoring, consider:
 
 ---
 
+### 10. html-table-generator
+
+**Skill Location**: `skills/microsim-generator/references/html-table.md`
+
+**Primary Use Cases:**
+- Framework comparison matrices
+- Cultural/philosophical tradition comparisons
+- Feature evaluation tables with detailed explanations
+- Multi-dimensional analysis grids
+- Educational comparison tables with expandable content
+
+**Data Types:**
+- Row categories (e.g., traditions, theories, platforms)
+- Column dimensions (e.g., aspects, criteria, features)
+- Cell values with summary text and detailed explanations
+- Metadata for each row (subtitles, tags, key figures)
+
+**Interactivity Level:**
+- High
+- Clickable cells revealing detail panels
+- Sliding side panel with descriptions and examples
+- Hover effects on cells
+- Keyboard navigation (ESC to close)
+- Emphasis color-coding
+
+**Trigger Words/Phrases:**
+- "matrix", "comparison matrix", "framework comparison"
+- "table with clickable cells", "expandable table"
+- "cultural comparison", "tradition comparison"
+- "detailed explanations for each cell"
+- "dimension analysis", "multi-dimensional comparison"
+- "clicking reveals details", "detail panel"
+
+**Scoring Guidelines:**
+- **Score 90-100 if**: Specification describes a matrix/table where each cell needs expandable detailed content, framework comparisons across multiple dimensions, or mentions clickable cells with detail panels
+- **Score 70-89 if**: Comparison table where cells contain summary values but detailed explanations would enhance learning
+- **Score 50-69 if**: Simple comparison table without need for expanded content (use comparison-table-generator instead)
+- **Score 30-49 if**: Table structure but no interactivity needed
+- **Score 0-29 if**: Non-tabular visualizations (charts, networks, timelines, diagrams)
+
+**Strengths:**
+- Clean separation of concerns (HTML, CSS, JS, JSON data)
+- Expandable detail panels for rich content
+- Light theme matching MkDocs styling
+- Emphasis color system for visual categorization
+- Compact layout fits MkDocs iframe
+- Mobile responsive with full-width detail panel
+
+**Limitations:**
+- Requires structured data for all cells
+- Not suitable for simple star-rating tables (use comparison-table-generator)
+- Detail panel takes screen space
+- Best for 4-8 rows × 3-6 columns
+
+**Special Note**: Data should be stored in data.json with row/column structure. Each cell needs: value (short display text), emphasis (color coding), description (detailed explanation), and optionally example (concrete illustration).
+
+---
+
 ## Matching Strategy
 
 ### Step-by-Step Matching Process
@@ -604,6 +663,10 @@ When scoring, consider:
 
 **Custom/animated/unique?**
 → YES: microsim-p5 (high score)
+→ NO: Continue
+
+**Matrix comparison with clickable cells?**
+→ YES: html-table-generator (high score)
 → NO: Need more information
 
 ---
