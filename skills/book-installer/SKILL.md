@@ -19,15 +19,73 @@ Use this skill when users request:
 - Setting up skill usage tracking with hooks
 - Bootstrapping project infrastructure
 
-## Step 1: Identify Installation Type
+## Step 1: Handle Help Requests
+
+If the user asks for "help", "what can you do", or "list features", display this numbered list directly (do not load a reference file):
+
+```
+Book Installer Features (most → least common):
+
+ 1. Site logo - Add custom logo to header
+ 2. Favicon - Browser tab/bookmark icon
+ 3. Cover image & social preview - Home page image + og:image metadata
+ 4. Math equations - KaTeX (recommended) or MathJax
+ 5. Code syntax highlighting - Language-aware code blocks
+ 6. Code copy button - One-click copy for code blocks
+ 7. Mermaid diagrams - Flowcharts, sequence diagrams from text
+ 8. Content tabs - Tabbed sections for alternatives
+ 9. Image zoom (GLightbox) - Click to enlarge images
+10. Custom admonitions - Prompt boxes with copy button
+11. Interactive quizzes - Self-assessment questions
+12. Abbreviations & tooltips - Glossary hover definitions
+13. Task lists - Checkbox lists
+14. Simple feedback - Thumbs up/down per page
+15. Detailed comments (Giscus) - GitHub Discussions integration
+16. Tags & categorization - Page tagging system
+17. Search enhancements - Suggestions and highlighting
+18. Table of contents config - TOC sidebar options
+19. Blog support - Add blog section
+20. Announcement bar - Dismissible top banner
+21. Privacy & cookie consent - GDPR compliance
+22. Learning graph viewer - Interactive concept visualization
+23. Skill usage tracker - Claude Code analytics hooks
+
+Type a number or feature name to install.
+
+Note: If you see `navigation.tabs` in mkdocs.yml, remove it. These books
+use side navigation optimized for wide landscape screens.
+```
+
+After displaying the list, wait for user to specify which feature they want.
+
+---
+
+## Step 1b: Check for Navigation Tabs (Existing Projects)
+
+When working with an existing mkdocs.yml, always check for and remove navigation tabs:
+
+```yaml
+# REMOVE these lines if present in mkdocs.yml:
+theme:
+  features:
+    - navigation.tabs        # DELETE
+    - navigation.tabs.sticky # DELETE
+```
+
+These books use side navigation optimized for wide landscape screens. Top navigation tabs waste vertical space and are not appropriate for this format.
+
+---
+
+## Step 2: Identify Installation Type
 
 Match the user's request to the appropriate installation guide:
 
 ### Routing Table
 
-| Trigger Keywords | Guide File | Purpose |
-|------------------|------------|---------|
-| help, what can you do, features, capabilities, list features, enrich | `references/mkdocs-features.md` | List all available MkDocs feature enhancements |
+| Trigger Keywords | Action | Purpose |
+|------------------|--------|---------|
+| help, what can you do, features, capabilities, list features | Display numbered list (Step 1) | Show quick feature overview |
+| enrich, add feature, number 1-23, specific feature name | `references/mkdocs-features.md` | Install specific feature |
 | new project, mkdocs, textbook, bootstrap, setup, template, new book | `references/mkdocs-template.md` | Create new MkDocs Material project |
 | graph viewer, learning graph, visualization, interactive graph, concept viewer | `references/learning-graph-viewer.md` | Add learning graph viewer to existing project |
 | track skills, skill usage, activity tracking, hooks, usage analytics | `references/skill-tracker.md` | Set up skill tracking with hooks |
@@ -46,8 +104,8 @@ Match the user's request to the appropriate installation guide:
 ### Decision Tree
 
 ```
-Asking what book-installer can do or wanting to see available features?
-  → YES: mkdocs-features.md (show feature catalog)
+Asking for help or what book-installer can do?
+  → YES: Display numbered list directly (Step 1)
 
 Creating a new project/textbook from scratch?
   → YES: mkdocs-template.md
@@ -85,25 +143,17 @@ Each guide contains:
 
 ### mkdocs-features.md
 
-**Purpose:** Show all available MkDocs feature enhancements and enrich existing mkdocs.yml files
+**Purpose:** Detailed configuration for all MkDocs feature enhancements
 
-**Features Catalog:**
-- Math equations (MathJax/KaTeX)
-- Code syntax highlighting with copy button
-- Social media preview cards
-- Per-page social image overrides
-- Interactive quizzes
-- Custom admonitions with copy functionality
-- Simple feedback (thumbs up/down)
-- Detailed comment feedback (Giscus)
-- Image zoom on click (GLightbox)
-- Mermaid diagrams
-- Content tabs
-- And many more...
+**Contains:** Full configuration snippets for all 23 features listed in the help output, including:
+- YAML for mkdocs.yml
+- JavaScript files to create
+- CSS files to create
+- Usage examples
 
 **Use when:**
-- User asks "what can book-installer do?"
-- User wants to add a specific feature to existing project
+- User selects a feature by number or name
+- User wants detailed configuration for a specific feature
 - User has a minimal mkdocs.yml and wants to enrich it
 
 ### mkdocs-template.md
@@ -169,15 +219,20 @@ Each guide contains:
 
 ## Examples
 
-### Example 1: Ask What Book-Installer Can Do
-**User:** "What does the book-installer skill do?"
-**Routing:** Keywords "what", "do" → `references/mkdocs-features.md`
-**Action:** Load mkdocs-features.md and present the feature catalog to the user
+### Example 1: Ask for Help
+**User:** "book-installer help"
+**Routing:** Keyword "help" → Display numbered list
+**Action:** Show the numbered feature list (Step 1), then wait for user to select a feature
 
 ### Example 2: Add a Specific Feature
 **User:** "Add math equation support to my book"
-**Routing:** Keywords relating to specific feature → `references/mkdocs-features.md`
+**Routing:** Keyword "math" → `references/mkdocs-features.md`
 **Action:** Load mkdocs-features.md, find the Math Equations section, and apply the configuration
+
+### Example 2b: Select by Number
+**User:** "4"
+**Routing:** Number selection after help list → `references/mkdocs-features.md`
+**Action:** Load mkdocs-features.md, find Math Equations (item 4), and apply the configuration
 
 ### Example 3: New Textbook Project
 **User:** "I want to create a new intelligent textbook about machine learning"

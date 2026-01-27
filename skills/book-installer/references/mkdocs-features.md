@@ -9,8 +9,9 @@ This guide lists all the features that can be added to an MkDocs Material intell
 | [Site Logo](#site-logo) | Branding | Easy |
 | [Favicon](#favicon) | Branding | Easy |
 | [Cover Image & Social Preview](#cover-image--social-preview) | Branding | Medium |
-| [Math Equations (MathJax)](#math-equations-mathjax) | Content | Easy |
-| [Math Equations (KaTeX)](#math-equations-katex) | Content | Easy |
+| [Math Equations](#math-equations) | Content | Easy |
+| ↳ [KaTeX](#math-equations-katex) (recommended) | Content | Easy |
+| ↳ [MathJax](#math-equations-mathjax) | Content | Easy |
 | [Code Syntax Highlighting](#code-syntax-highlighting) | Content | Easy |
 | [Code Copy Button](#code-copy-button) | Content | Easy |
 | [Social Media Preview Cards](#social-media-preview-cards) | SEO | Medium |
@@ -24,7 +25,6 @@ This guide lists all the features that can be added to an MkDocs Material intell
 | [Content Tabs](#content-tabs) | Content | Easy |
 | [Task Lists](#task-lists) | Content | Easy |
 | [Abbreviations & Glossary Tooltips](#abbreviations--glossary-tooltips) | Content | Easy |
-| [Navigation Tabs](#navigation-tabs) | Navigation | Easy |
 | [Table of Contents Sidebar](#table-of-contents-sidebar) | Navigation | Easy |
 | [Search with Suggestions](#search-with-suggestions) | Navigation | Easy |
 | [Tags & Categorization](#tags--categorization) | Organization | Medium |
@@ -240,9 +240,33 @@ warm educational feel, social media preview optimized
 
 ## Content Features
 
+### Math Equations
+
+MkDocs Material supports two math rendering libraries: **KaTeX** and **MathJax**. Choose one based on your needs.
+
+#### Comparison: KaTeX vs MathJax
+
+| Aspect | KaTeX | MathJax |
+|--------|-------|---------|
+| **Speed** | Much faster (100x+) | Slower, especially with many equations |
+| **LaTeX coverage** | Most common commands | More complete, handles edge cases |
+| **File size** | Smaller | Larger |
+| **Accessibility** | Good | Better (more mature) |
+| **Server-side rendering** | Yes | Limited |
+
+#### Recommendation
+
+- **KaTeX (recommended for most textbooks)** - Fast rendering means pages with 50+ equations still load quickly. Handles standard math notation well.
+
+- **MathJax** - Choose if you need obscure LaTeX commands (e.g., `\xleftarrow`, certain AMSmath environments, extensible arrows, or custom macros).
+
+For intelligent textbooks, **KaTeX is usually the better choice** since fast page loads improve the learning experience.
+
+---
+
 ### Math Equations (MathJax)
 
-Add LaTeX math equation support using MathJax for rendering.
+Add LaTeX math equation support using MathJax. Best for projects requiring complete LaTeX compatibility.
 
 **Add to mkdocs.yml:**
 
@@ -295,7 +319,7 @@ Display:
 
 ### Math Equations (KaTeX)
 
-Faster alternative to MathJax using KaTeX.
+**Recommended for most textbooks.** Faster alternative to MathJax with smaller file size.
 
 **Add to mkdocs.yml:**
 
@@ -972,21 +996,9 @@ All images will now be zoomable on click. To exclude specific images:
 
 ## Navigation Features
 
-### Navigation Tabs
-
-Add top-level navigation tabs for major sections.
-
-**Add to mkdocs.yml:**
-
-```yaml
-theme:
-  name: material
-  features:
-    - navigation.tabs
-    - navigation.tabs.sticky
-```
-
----
+> **Important:** Do NOT use `navigation.tabs` or `navigation.tabs.sticky` in mkdocs.yml.
+> These books are designed for wide landscape screens with ample side navigation space.
+> If you see these settings in an existing mkdocs.yml, remove them.
 
 ### Table of Contents Sidebar
 
@@ -1168,6 +1180,18 @@ If starting with a minimal mkdocs.yml, add features incrementally:
 5. **Educational:** Quizzes, interactive elements
 
 ## Troubleshooting
+
+### Remove navigation tabs if present
+
+These intelligent textbooks use side navigation optimized for wide landscape screens. If you find `navigation.tabs` in mkdocs.yml, remove it:
+
+```yaml
+# REMOVE these lines if present:
+theme:
+  features:
+    - navigation.tabs        # DELETE
+    - navigation.tabs.sticky # DELETE
+```
 
 ### Feature not working?
 
