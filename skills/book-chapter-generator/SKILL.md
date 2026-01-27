@@ -310,7 +310,9 @@ TODO: Generate Chapter Content
 
 #### 4.5 Update MkDocs Navigation
 
-After creating all chapter files, update `mkdocs.yml` to include the chapters in navigation:
+After creating all chapter files, update `mkdocs.yml` to include the chapters in navigation.
+Note that the navigation bar is not very wide, so we don't spell out the name "Chapter X" in the nav bar.
+We only need to put the number since the "Chapters:" label is above the list of chapters.
 
 ```yaml
 nav:
@@ -318,8 +320,9 @@ nav:
   - Course Description: course-description.md
   - Chapters:
     - Overview: chapters/index.md
-    - Chapter 1: chapters/01-[url-path-name]/index.md
-    - Chapter 2: chapters/02-[url-path-name]/index.md
+    - 1. [Chapter 1 Title]: chapters/01-[url-path-name]/index.md
+    - 2. [Chapter 2 Title]: chapters/02-[url-path-name]/index.md
+    - 3. [Chapter 3 Title]: chapters/03-[url-path-name]/index.md
     # ... continue for all chapters
   - Learning Graph:
     - Introduction: learning-graph/index.md
