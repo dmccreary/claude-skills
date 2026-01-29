@@ -115,9 +115,40 @@ ls docs/sims/<microsim-name>/<microsim-name>.png
 
 The screenshot filename must match the directory name (e.g., `command-syntax/command-syntax.png`).
 
-### Step 5: Capture Missing Screenshots
+### Step 5: Log Missing Screenshots to TODO.md (REQUIRED)
 
-For each MicroSim missing a screenshot, use the screenshot capture tool:
+**IMPORTANT**: Before generating the index, you MUST create or update `/docs/sims/TODO.md` to log any MicroSims that are missing screenshots. This step is required even if you cannot run the screenshot capture tool.
+
+For each MicroSim missing a screenshot, add an entry to `/docs/sims/TODO.md` with the exact shell command needed to capture the screenshot:
+
+```markdown
+# MicroSim Screenshot TODO
+
+This file tracks MicroSims that need screenshots captured.
+
+## Missing Screenshots
+
+Run the following commands to capture missing screenshots:
+
+### [MicroSim Name]
+```bash
+~/.local/bin/bk-capture-screenshot docs/sims/<microsim-name>
+```
+
+### [Another MicroSim Name]
+```bash
+~/.local/bin/bk-capture-screenshot docs/sims/<another-microsim-name>
+```
+```
+
+The TODO.md file should include:
+1. The MicroSim name as a heading
+2. The exact shell command to run (copy-paste ready)
+3. The date the issue was logged
+
+### Step 6: Capture Screenshots (Optional)
+
+If the screenshot capture tool is available, attempt to capture missing screenshots:
 
 ```bash
 ~/.local/bin/bk-capture-screenshot docs/sims/<microsim-name>
@@ -143,24 +174,19 @@ After running the capture script, verify:
 
 #### Handle Failed Screenshots
 
-If screenshot capture fails for a MicroSim:
-
-1. Note the failure reason (Chrome not found, blank image, timeout, etc.)
-2. Add an entry to `/docs/sims/TODO.md` with the format:
+If screenshot capture fails for a MicroSim, update the TODO.md entry with error details:
 
 ```markdown
-## Screenshot Capture Issues
-
 ### [MicroSim Name] - [Date]
 - **Status**: Screenshot capture failed
 - **Error**: [Brief description of the error]
-- **Attempted**: `~/.local/bin/bk-capture-screenshot docs/sims/<microsim-name>`
+- **Command**: `~/.local/bin/bk-capture-screenshot docs/sims/<microsim-name>`
 - **Notes**: [Any observations about why it might have failed]
 ```
 
 Continue processing other MicroSims rather than stopping on failure.
 
-### Step 6: Generate Index Page Content
+### Step 7: Generate Index Page Content
 
 Create the index page at `/docs/sims/index.md` using mkdocs-material grid cards format.
 
@@ -218,11 +244,11 @@ Example card:
 
 **Note**: The horizontal rule (`---`) between title and image is optional. Some projects use it, some don't. Follow the existing project convention.
 
-### Step 7: Sort Alphabetically
+### Step 8: Sort Alphabetically
 
 Sort all MicroSim cards alphabetically by their title. This ensures consistent ordering across the index page and navigation.
 
-### Step 8: Update mkdocs.yml Navigation
+### Step 9: Update mkdocs.yml Navigation
 
 Locate the MicroSims section in `mkdocs.yml` and update it with alphabetically sorted entries:
 

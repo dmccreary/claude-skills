@@ -5,7 +5,6 @@ quality_score: 100
 image: /sims/sine-function-plot/sine-function-plot.png
 og:image: /sims/sine-function-plot/sine-function-plot.png
 ---
-
 # Sine Function Visualization
 
 ## Interactive Visualization
