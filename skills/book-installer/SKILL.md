@@ -50,8 +50,10 @@ Book Installer Features (most → least common):
 22. Privacy & cookie consent - GDPR compliance
 23. Learning graph viewer - Interactive concept visualization
 24. Skill usage tracker - Claude Code analytics hooks
-25. Google Analytics
-26. .gitignore installer
+25. Google Analytics - requires a Google Analytics property ID G-*
+26. .gitignore installer - make sure that `site` and `.cache` are not in the main branch
+27. extra CSS installer for iframe and customer prompt admonition
+28. extra JavaScript installer - for prompt admonition copy button
 
 Type a number or feature name to install.
 

@@ -30,7 +30,7 @@ Match the user's request to the appropriate utility guide:
 | standardize, quality, validate, score, check, audit | `references/standardization.md` | Quality validation and scoring |
 | screenshot, capture, preview, image, thumbnail | `references/screen-capture.md` | Automated screenshot generation |
 | icons, add icons, favicon, logo | `references/add-icons.md` | Icon management for MicroSims |
-| index page, microsim list, grid, directory, catalog | `references/index-generator.md` | Generate index page with grid cards |
+| index page, microsim list, grid, directory, catalog, update the microsim listings, update the list of microsims, create a grid view, generate a listing | `references/index-generator.md` | Generate index page with grid cards |
 
 ### Decision Tree
 
