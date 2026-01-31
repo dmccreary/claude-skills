@@ -38,6 +38,22 @@ Having these prerequisites ensures the FAQ generator has sufficient context to c
 
 Use the faq-template.md in the skill references section as your template.
 
+## Critical Rule: No Anchor Links
+
+!!! warning "NEVER Use Anchor Links"
+    **All links must point to files only, never with `#` anchor fragments.**
+
+    Anchor links (`file.md#section-name`) break frequently because:
+
+    - Section headers change during content editing
+    - Anchors are case-sensitive and whitespace-sensitive
+    - MkDocs anchor auto-generation is unpredictable
+    - Broken anchors cause build warnings and confuse users
+
+    ✅ **Correct:** `[See Ohm's Law](chapters/02-ohms-law/index.md)`
+
+    ❌ **Wrong:** `[See Ohm's Law](chapters/02-ohms-law/index.md#series-circuits)`
+
 ## Workflow
 
 ### Step 1: Assess Content Completeness
@@ -247,11 +263,12 @@ For each category, generate questions following these guidelines:
 - [ ] Directly answers the question
 - [ ] Uses terminology from glossary consistently
 - [ ] Includes example if concept is abstract (40% target)
-- [ ] Links to relevant chapter/section (60% target)
+- [ ] Links to relevant chapter file (60% target) - **NO anchor fragments**
 - [ ] Appropriate length (100-300 words)
 - [ ] Clear and understandable for target audience
 - [ ] Accurate based on textbook content
 - [ ] No jargon unless defined in glossary
+- [ ] **Zero links with `#` anchors** (hard requirement)
 
 ### Step 5: Create FAQ File
 
@@ -303,10 +320,23 @@ Generate `docs/faq.md` with proper structure:
 - Use level-2 headers for category names
 - Use level-3 headers for questions
 - Use body text for answers
-- Use markdown links: `[text](path.md#section)`
+- Use markdown links to chapter files: `[text](path.md)` - **NEVER use anchor links**
 - Use bold for emphasis: `**important term**`
 - Use code blocks for code: ` ```language ```
 - Maintain consistent spacing
+
+**CRITICAL: No Anchor Links**
+
+NEVER add anchor fragments (`#section-name`) to links. Anchors break frequently because:
+- Section headers change during editing
+- Anchors are case-sensitive and whitespace-sensitive
+- MkDocs anchor generation is unpredictable
+- Broken anchors cause build warnings and confuse users
+
+✅ **Correct:** `[Ohm's Law](chapters/02-ohms-law/index.md)`
+❌ **Wrong:** `[Ohm's Law](chapters/02-ohms-law/index.md#series-circuits)`
+
+Link to the chapter file only. Users can navigate within the page themselves.
 
 ### Step 6: Generate Chatbot Training JSON
 
@@ -346,7 +376,7 @@ Create `docs/learning-graph/faq-chatbot-training.json` for RAG integration:
       "keywords": ["learning graph", "dependencies", "prerequisites"],
       "source_links": [
         "docs/concepts/learning-graph.md",
-        "docs/glossary.md#learning-graph"
+        "docs/glossary.md"
       ],
       "has_example": true,
       "word_count": 218
@@ -518,8 +548,10 @@ Perform comprehensive validation:
 **2. Link Validation:**
 
 - Extract all markdown links from answers
-- Verify each link target exists
+- **REJECT any links containing `#` anchor fragments** - these must be removed
+- Verify each link target file exists
 - Report broken links
+- Links should be to files only (e.g., `chapters/01-intro/index.md`), never with anchors
 
 **3. Bloom's Distribution:**
 
@@ -554,7 +586,8 @@ Perform comprehensive validation:
 - All answers include source references
 - Chatbot JSON validates against schema
 - Zero duplicate questions
-- All internal links valid
+- All internal links valid (file exists)
+- **Zero anchor links** - no `#` fragments in any links
 
 ### Step 10: Update Navigation Section in mkdocs.yml (Optional)
 
@@ -639,8 +672,15 @@ Calculate deviation from target for each level, sum absolute deviations:
 **Missing Links:**
 
 - Don't forget to link answers to source content
-- Use specific section anchors, not just page links
-- Verify all links before finalizing
+- Link to chapter files only - NEVER use anchor fragments (`#section-name`)
+- Verify all links point to files that exist before finalizing
+
+**Broken Anchor Links:**
+
+- NEVER use anchor links like `file.md#section-name`
+- Anchors break when headers are edited, renamed, or restructured
+- Link to the chapter/page file only: `file.md`
+- This is a hard rule - no exceptions
 
 **Poor Question Phrasing:**
 
