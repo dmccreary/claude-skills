@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Image Generation Workflow</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .mermaid {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aliceblue;
+        }
+        .mermaid svg {
+            max-width: 100%;
+            max-height: 100vh;
+        }
+        #tooltip {
+            position: absolute;
+            background-color: #333;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            max-width: 300px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        #tooltip.visible {
+            opacity: 1;
+        }
+        .node {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="mermaid">
+flowchart TD
+    Start("Run generate-cover.sh"):::startNode
+
+    CheckAPI{"HAS_OPENAI_API_KEY?"}:::decisionNode
+
+    CheckBilling{"API Billing Active?"}:::decisionNode
+
+    FullAuto["Use Full Auto Mode"]:::autoNode
+    GenerateAPI["Generate via API"]:::processNode
+    SaveAuto["Save to docs/img/cover.png"]:::processNode
+    DoneAuto("Done - Image Generated!"):::successNode
+
+    CheckChatGPT{"HAS_CHATGPT_PRO?"}:::decisionNode
+
+    LocalPrompt["Use --local-prompt"]:::processNode
+    GeneratePrompt["Generate Prompt Locally"]:::processNode
+    DisplayPrompt["Display Image Prompt"]:::processNode
+
+    CheckMacOS{"ON_MACOS?"}:::decisionNode
+
+    OpenBrowser["Use --open-browser"]:::macNode
+    AutoPaste["Auto-open ChatGPT & Paste"]:::macNode
+
+    ManualCopy["Copy Prompt Manually"]:::processNode
+    PasteChatGPT["Paste in ChatGPT"]:::processNode
+
+    DownloadImg["Download Generated Image"]:::processNode
+    SaveManual["Save to docs/img/cover.png"]:::processNode
+    DoneManual("Done - Image Saved!"):::successNode
+
+    NoOption("Cannot Generate Cover"):::errorNode
+    SetupAPI["Setup OpenAI API Billing"]:::processNode
+
+    Start --> CheckAPI
+
+    CheckAPI -->|Yes| CheckBilling
+    CheckAPI -->|No| CheckChatGPT
+
+    CheckBilling -->|Yes| FullAuto
+    CheckBilling -->|No| CheckChatGPT
+
+    FullAuto --> GenerateAPI --> SaveAuto --> DoneAuto
+
+    CheckChatGPT -->|Yes| LocalPrompt
+    CheckChatGPT -->|No| NoOption
+
+    NoOption --> SetupAPI
+    SetupAPI --> CheckAPI
+
+    LocalPrompt --> GeneratePrompt --> DisplayPrompt --> CheckMacOS
+
+    CheckMacOS -->|Yes| OpenBrowser
+    CheckMacOS -->|No| ManualCopy
+
+    OpenBrowser --> AutoPaste --> DownloadImg
+    ManualCopy --> PasteChatGPT --> DownloadImg
+
+    DownloadImg --> SaveManual --> DoneManual
+
+    classDef startNode fill:#667eea,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef processNode fill:#764ba2,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef decisionNode fill:#f093fb,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef successNode fill:#4facfe,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef errorNode fill:#ff6b6b,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef autoNode fill:#00b894,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef macNode fill:#0984e3,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+
+    linkStyle default stroke:#999,stroke-width:2px,font-size:16px
+    </div>
+    <div id="tooltip"></div>
+    <script>
+        const tooltips = {
+            'Start': 'Run the generate-cover.sh script from your project root directory',
+            'CheckAPI': 'Check if OPENAI_API_KEY environment variable is set',
+            'CheckBilling': 'Test if your OpenAI account has active billing for API usage',
+            'FullAuto': 'Fully automated mode - generates image directly via OpenAI API',
+            'GenerateAPI': 'Call OpenAI Images API to generate the cover image',
+            'SaveAuto': 'Automatically save the generated image to docs/img/cover.png',
+            'DoneAuto': 'Success! Your cover image is ready at 1200x630 pixels',
+            'CheckChatGPT': 'Do you have a ChatGPT Pro/Plus subscription ($20/month)?',
+            'LocalPrompt': 'Use --local-prompt flag to generate prompt without API calls',
+            'GeneratePrompt': 'Extract keywords from course description and build image prompt',
+            'DisplayPrompt': 'Show the optimized prompt for copying to ChatGPT',
+            'CheckMacOS': 'Are you running on macOS? (Required for browser automation)',
+            'OpenBrowser': 'Use --open-browser flag for automatic browser integration',
+            'AutoPaste': 'Opens ChatGPT in browser and automatically pastes the prompt',
+            'ManualCopy': 'Copy the displayed prompt to your clipboard manually',
+            'PasteChatGPT': 'Open chatgpt.com and paste the prompt in the input field',
+            'DownloadImg': 'Download the generated image from ChatGPT',
+            'SaveManual': 'Save the downloaded image to docs/img/cover.png',
+            'DoneManual': 'Success! Your cover image is ready',
+            'NoOption': 'Cannot generate cover without API key or ChatGPT subscription',
+            'SetupAPI': 'Visit platform.openai.com/account/billing to add payment method'
+        };
+
+        const tooltip = document.getElementById('tooltip');
+
+        function setupTooltips() {
+            const nodes = document.querySelectorAll('.node');
+            nodes.forEach(node => {
+                const nodeId = node.id.replace('flowchart-', '').split('-')[0];
+                if (tooltips[nodeId]) {
+                    node.addEventListener('mouseenter', (e) => {
+                        tooltip.textContent = tooltips[nodeId];
+                        tooltip.classList.add('visible');
+                    });
+                    node.addEventListener('mousemove', (e) => {
+                        const x = e.pageX + 15;
+                        const y = e.pageY + 15;
+                        const tooltipRect = tooltip.getBoundingClientRect();
+                        const maxX = window.innerWidth - tooltipRect.width - 20;
+                        const maxY = window.innerHeight - tooltipRect.height - 20;
+                        tooltip.style.left = Math.min(x, maxX) + 'px';
+                        tooltip.style.top = Math.min(y, maxY) + 'px';
+                    });
+                    node.addEventListener('mouseleave', () => {
+                        tooltip.classList.remove('visible');
+                    });
+                }
+            });
+        }
+
+        function waitForMermaid() {
+            const mermaidDiv = document.querySelector('.mermaid');
+            const svg = mermaidDiv.querySelector('svg');
+            if (svg && document.querySelectorAll('.node').length > 0) {
+                setupTooltips();
+            } else {
+                setTimeout(waitForMermaid, 100);
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => setTimeout(waitForMermaid, 100));
+        } else {
+            setTimeout(waitForMermaid, 100);
+        }
+    </script>
+</body>
+</html>

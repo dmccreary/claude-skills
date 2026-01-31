@@ -1,0 +1,27 @@
+{
+  "title": "Cover Image Generation Workflow",
+  "description": "Interactive decision tree flowchart showing the workflow options for generating book cover images based on available resources (API key, billing, ChatGPT Pro, OS)",
+  "subject": "Software Tools",
+  "creator": "Claude AI with Mermaid Generator Skill",
+  "date": "2026-01-31",
+  "type": "Interactive Workflow Diagram",
+  "format": "text/html",
+  "language": "en-US",
+  "coverage": "Introductory",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Developers",
+  "diagram_type": "flowchart",
+  "direction": "TD",
+  "node_count": "21",
+  "edge_count": "22",
+  "concepts": [
+    "OpenAI API",
+    "ChatGPT Pro",
+    "Image Generation",
+    "Browser Automation",
+    "Command Line Tools",
+    "Decision Trees"
+  ],
+  "bloom_taxonomy": "Apply",
+  "version": "1.0"
+}
