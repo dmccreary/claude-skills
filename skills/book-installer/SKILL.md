@@ -55,6 +55,7 @@ Book Installer Features (most → least common):
 26. .gitignore installer - make sure that `site` and `.cache` are not in the main branch
 27. extra CSS installer for iframe and customer prompt admonition
 28. extra JavaScript installer - for prompt admonition copy button
+29. Feature checklist - auto-detect and document which features are implemented
 
 Type a number or feature name to install.
 
@@ -101,6 +102,7 @@ Match the user's request to the appropriate installation guide:
 | logo, site logo, branding, upper left, header icon | `references/mkdocs-features.md` | Add custom logo with AI prompt examples |
 | favicon, browser tab, bookmark icon, .ico | `references/mkdocs-features.md` | Add favicon with AI prompt examples |
 | math, equations, latex, mathjax, katex | `references/mkdocs-features.md` | Add math equation support |
+| feature checklist, generate feature checklist, feature status, what features | `references/feature-checklist-generator.md` | Auto-detect and document implemented features |
 | quiz, quizzes, assessment, multiple choice | `references/mkdocs-features.md` | Add interactive quizzes |
 | feedback, thumbs up, thumbs down, was this helpful | `references/mkdocs-features.md` | Add page feedback widget |
 | comments, giscus, discussions | `references/mkdocs-features.md` | Add comment system |
@@ -129,6 +131,9 @@ Want to GENERATE a cover image automatically using AI?
 
 Creating a cover image MANUALLY or setting up home page with social metadata?
   → YES: home-page-template.md
+
+Want to generate a feature checklist showing what's implemented?
+  → YES: feature-checklist-generator.md
 
 Want to add branding (logo, favicon, cover image)?
   → YES: mkdocs-features.md (Branding Features section)
@@ -299,6 +304,11 @@ Each guide contains:
 **User:** "generate cover image" or "book-installer generate cover image"
 **Routing:** Keywords "generate cover image" → `references/cover-image-generator.md`
 **Action:** Read cover-image-generator.md, ask user about their resources (API key, ChatGPT Pro, macOS), then run the appropriate generate-cover.sh command
+
+### Example 9: Generate Feature Checklist
+**User:** "generate a feature checklist" or "what features do I have"
+**Routing:** Keywords "feature checklist" → `references/feature-checklist-generator.md`
+**Action:** Read feature-checklist-generator.md, run the detection script, generate docs/feature-checklist.md with detected statuses
 
 ## Common Workflows
 
