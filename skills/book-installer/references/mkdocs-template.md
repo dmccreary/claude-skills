@@ -392,6 +392,17 @@ When returning to work on the textbook in a new terminal session:
 conda activate mkdocs
 ```
 
+## URI Scheme for Discoverability
+
+All intelligent textbooks should include the textbook schema URI in the `extra` section of mkdocs.yml:
+
+```yaml
+extra:
+  schema: https://dmccreary.github.io/intelligent-textbooks/ns/textbook/v1
+```
+
+This enables counting and discovery of intelligent textbooks across GitHub. See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textbooks/uri-scheme/) for details.
+
 ## Notes
 
 - The template uses a custom primary color defined in CSS rather than Material's built-in palette

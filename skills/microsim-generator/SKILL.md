@@ -227,6 +227,16 @@ docs/sims/<microsim-name>/
 └── metadata.json   # Dublin Core metadata (optional)
 ```
 
+**URI Scheme for Discoverability:**
+
+All MicroSim HTML files MUST include this schema meta tag for global discoverability:
+
+```html
+<meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+```
+
+This enables counting and discovery of MicroSims across GitHub using code search. See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textbooks/uri-scheme/) for details.
+
 **Integration:**
 - Embedded via iframe in MkDocs pages
 - Width-responsive design

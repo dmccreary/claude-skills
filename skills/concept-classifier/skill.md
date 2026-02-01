@@ -123,6 +123,16 @@ Each Concept Classifier MicroSim creates these files:
 └── metadata.json      # Dublin Core metadata
 ```
 
+## URI Scheme for Discoverability
+
+All MicroSim HTML files include this schema meta tag for global discoverability:
+
+```html
+<meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+```
+
+This enables counting and discovery of MicroSims across GitHub. See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textbooks/uri-scheme/) for details.
+
 ## Customization Options
 
 ### Visual Customization

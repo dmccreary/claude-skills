@@ -182,6 +182,15 @@ Each guide contains:
 - Custom CSS for branding
 - Social media card plugins
 - GitHub Pages deployment configuration
+- URI scheme in `extra` section for global discoverability
+
+**URI Scheme:**
+New projects automatically include the textbook schema in mkdocs.yml:
+```yaml
+extra:
+  schema: https://dmccreary.github.io/intelligent-textbooks/ns/textbook/v1
+```
+See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textbooks/uri-scheme/) for details.
 
 **Prerequisites:**
 - Conda installed
