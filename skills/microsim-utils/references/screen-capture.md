@@ -36,15 +36,15 @@ Before capturing a screenshot, verify:
 
 ### Step 2: Run the Screenshot Capture Script
 
-Execute the provided shell script with the MicroSim directory path:
+Execute the `bk-capture-screenshot` script with the MicroSim directory path:
 
 ```bash
-bash scripts/capture-screenshot.sh <microsim-directory-path>
+~/.local/bin/bk-capture-screenshot <microsim-directory-path>
 ```
 
 **Example:**
 ```bash
-bash scripts/capture-screenshot.sh $HOME/Documents/ws/intro-to-graph/docs/sims/org-chart
+~/.local/bin/bk-capture-screenshot /Users/dan/Documents/ws/intro-to-graph/docs/sims/org-chart
 ```
 
 The script will:
@@ -94,10 +94,10 @@ This adds the social media preview metadata and contributes 10 points toward the
 **Problem:** The screenshot shows the page header/controls but the main visualization area is white/empty.
 
 **Solutions:**
-1. Increase the timeout value in the script (change `--timeout=5000` to `--timeout=10000`)
+1. The `bk-capture-screenshot` script waits 3 seconds by default; for complex visualizations, you may need to edit the script to increase the delay
 2. Check browser console for JavaScript errors (the script filters them out but they may indicate issues)
 3. Verify the visualization works when opening `main.html` directly in a browser
-4. For very complex visualizations, consider using `--virtual-time-budget=10000` instead of `--timeout`
+4. Ensure the local HTTP server started correctly (the script handles this automatically)
 
 ### Chrome not found error
 
@@ -112,30 +112,21 @@ This adds the social media preview metadata and contributes 10 points toward the
 
 **Problem:** Visualizations that use CDN libraries (vis-network, p5.js, Chart.js) don't render
 
-**Solution:** The script already includes `--disable-web-security` and `--allow-file-access-from-files` flags which should allow CDN resources. If still not working:
+**Solution:** The `bk-capture-screenshot` script uses a localhost server which properly handles CDN resources. If still not working:
 1. Verify internet connectivity (CDNs need to be accessible)
 2. Check if the library CDN URL is valid in `main.html`
-3. Try using a localhost server instead of `file://` URLs (see Advanced Usage below)
+3. Ensure the HTTP server started successfully (check script output for errors)
 
-### Advanced Usage: Using localhost Instead of file:// URLs
+### Advanced Usage: localhost Server
 
-For MicroSims that have issues with `file://` URLs, serve the content via HTTP:
+The `bk-capture-screenshot` script automatically starts a local HTTP server to serve the MicroSim content. This ensures proper loading of CDN resources (vis-network, p5.js, Chart.js, etc.) which can fail with `file://` URLs.
 
-```bash
-# Start a local server in the project root
-cd /path/to/project-root
-python -m http.server 8000 &
-
-# Modify the script to use localhost URL
-# Replace: "file://$ABSOLUTE_PATH"
-# With: "http://localhost:8000/docs/sims/microsim-name/main.html"
-
-# Capture screenshot
-bash scripts/capture-screenshot.sh /path/to/microsim
-
-# Stop the server
-pkill -f "http.server"
-```
+The script:
+1. Starts a Python HTTP server on an available port
+2. Navigates Chrome to the localhost URL
+3. Waits for JavaScript to render
+4. Captures the screenshot
+5. Automatically cleans up the server process
 
 ## Technical Details
 
@@ -171,17 +162,19 @@ To customize dimensions, modify the `--window-size` flag in the script.
 
 ## Resources
 
-### scripts/capture-screenshot.sh
+### ~/.local/bin/bk-capture-screenshot
 
-Bash script that automates the entire screenshot capture process. The script:
+User-installed Bash script that automates the entire screenshot capture process. The script:
 - Validates input and checks for required files
 - Locates Chrome/Chromium across different platforms
-- Constructs proper file:// URLs with absolute paths
+- Starts a local HTTP server to properly load CDN resources
+- Waits 3 seconds for JavaScript to fully render
 - Runs Chrome headless with optimized flags for JavaScript visualizations
+- Saves screenshot as `{microsim-name}.png` in the MicroSim directory
 - Reports success/failure with file size information
 
 The script is designed to be:
-- **Self-contained:** No external dependencies beyond Chrome
-- **Cross-platform:** Works on macOS, Linux, and Windows (with minor path adjustments)
+- **Self-contained:** No external dependencies beyond Chrome and Python
+- **Reliable:** Uses localhost server instead of file:// URLs for better CDN support
 - **Error-tolerant:** Filters out common Chrome headless warnings that don't affect functionality
-- **User-friendly:** Clear error messages and success indicators
+- **User-friendly:** Clear colored output with success indicators

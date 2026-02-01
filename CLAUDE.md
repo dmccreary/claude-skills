@@ -232,6 +232,37 @@ const chartData = {
 - Responsive design that works in iframes
 - Accessible color schemes and font sizes
 
+### MicroSim Screenshot Capture
+
+When the user says "capture screenshot", "capture screen image", or "capture microsim screen image", use the `bk-capture-screenshot` script:
+
+```bash
+~/.local/bin/bk-capture-screenshot <microsim-directory-path>
+```
+
+**Example:**
+```bash
+~/.local/bin/bk-capture-screenshot /Users/dan/Documents/ws/my-textbook/docs/sims/bouncing-ball
+```
+
+The script:
+- Starts a local HTTP server to properly load CDN resources
+- Waits 3 seconds for JavaScript to render
+- Captures a 1200x800 screenshot using Chrome headless
+- Saves as `{microsim-name}.png` in the MicroSim directory
+
+**Proactive Behavior:** When a user indicates they are happy with a MicroSim's layout (e.g., "looks good", "that's perfect", "I like it"), proactively ask:
+
+> "Would you like me to capture a screenshot of this MicroSim for the catalog listing in `docs/sims/index.md`?"
+
+This ensures MicroSims have preview images for the index page grid display.
+
+**Session Logging:** After capturing a screenshot, proactively ask the user if they want to log the session:
+
+> "Would you like me to log this session's design decisions to `logs/{microsim-name}.md`?"
+
+Session logs document the specification, instructional design decisions, technical choices, revisions made, and serve as a reference for future MicroSim development.
+
 ### Intelligent Textbook Workflow
 
 Building an intelligent textbook follows this 12-step process using multiple skills:

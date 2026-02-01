@@ -2,4 +2,6 @@
 
 Please connect with me on [LinkedIn](https://www.linkedin.com/in/danmccreary/)
 
-Thanks! - Dan
+I am looking forward to your feedback!
+
+ - Dan McCreary

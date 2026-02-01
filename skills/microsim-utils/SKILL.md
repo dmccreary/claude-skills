@@ -80,13 +80,15 @@ Each guide contains:
 
 **Purpose:** Capture high-quality screenshots for social media previews
 
-**Features:**
-- Uses Chrome headless mode
-- Handles JavaScript-heavy visualizations
-- Waits for proper rendering
-- Creates consistent image sizes
+**Script:** `~/.local/bin/bk-capture-screenshot <microsim-directory-path>`
 
-**Output:** PNG screenshot in MicroSim directory
+**Features:**
+- Uses Chrome headless mode with localhost server
+- Handles JavaScript-heavy visualizations (p5.js, vis-network, Chart.js)
+- Waits 3 seconds for proper rendering
+- Creates consistent 1200x800 image sizes
+
+**Output:** PNG screenshot named `{microsim-name}.png` in MicroSim directory
 
 ### add-icons.md
 
@@ -118,7 +120,7 @@ Each guide contains:
 ### Example 2: Capture Screenshot
 **User:** "Create a preview image for the timeline MicroSim"
 **Routing:** Keywords "preview", "image" → `references/screen-capture.md`
-**Action:** Read screen-capture.md and follow its workflow
+**Action:** Run `~/.local/bin/bk-capture-screenshot /path/to/docs/sims/timeline`
 
 ### Example 3: Update Index
 **User:** "Update the MicroSim index page with all new sims"
@@ -129,7 +131,7 @@ Each guide contains:
 
 ### After Creating New MicroSim
 1. Run `standardization.md` to validate quality
-2. Run `screen-capture.md` to create preview image
+2. Run `~/.local/bin/bk-capture-screenshot <microsim-path>` to create preview image
 3. Run `index-generator.md` to add to index page
 
 ### Bulk Quality Audit
