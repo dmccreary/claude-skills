@@ -1,12 +1,47 @@
 #!/bin/bash
 # bk-capture-screenshot
 #
-# Capture a screenshot of a MicroSim using Chrome headless mode
-# Can be run from within a MicroSim directory or by specifying a path
+# Capture a screenshot of a MicroSim using Chrome headless mode.
+# Can be run from within a MicroSim directory or by specifying a path.
+#
 # Usage:
 #   cd /path/to/microsim && bk-capture-screenshot
 #   bk-capture-screenshot /path/to/microsim
-#   bk-capture-screenshot /path/to/microsim 5  # 5 second delay
+#   bk-capture-screenshot /path/to/microsim 5        # 5 second delay
+#   bk-capture-screenshot /path/to/microsim 3 700    # 3 second delay, 700px height
+#
+# Arguments:
+#   $1  MicroSim directory path (default: current directory)
+#   $2  Delay in seconds for JS rendering (default: 3)
+#   $3  Target image height in pixels (default: 600)
+#       Tip: use the iframe height from the MicroSim's index.md file.
+#
+# Output:
+#   Creates <microsim-name>.png in the MicroSim directory.
+#
+# Requirements:
+#   - Google Chrome or Chromium
+#   - Python 3 with Pillow (PIL) for image cropping
+#
+# Screenshot approach — "render tall, crop to fit":
+#   Chrome headless --window-size sets the browser window dimensions, but on
+#   macOS the actual viewport is smaller than specified due to internal
+#   overhead (~30-50px). This causes the bottom of the page to be clipped
+#   when the window height matches the content height exactly.
+#
+#   A fixed-pixel buffer does not work well because:
+#     - Too small: bottom controls still get clipped on taller canvases
+#     - Too large: excess whitespace appears below the canvas
+#
+#   Instead, this script:
+#     1. Renders at (target height + 200px) so the full page content is
+#        guaranteed to be within the viewport, with room to spare.
+#     2. Uses Python PIL to crop the captured image from the top down to
+#        the exact target height, removing any excess whitespace below
+#        the canvas.
+#
+#   This produces pixel-perfect screenshots that match the iframe height
+#   with no clipping and no wasted space.
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -18,6 +53,10 @@ NC='\033[0m' # No Color
 # Default delay in seconds (time to wait for JavaScript to load)
 DELAY_SECONDS=3
 
+# Default window dimensions
+WINDOW_WIDTH=800
+WINDOW_HEIGHT=600
+
 # Parse arguments
 if [ $# -eq 0 ]; then
     # No argument provided - use current directory
@@ -25,11 +64,21 @@ if [ $# -eq 0 ]; then
 elif [ $# -eq 1 ]; then
     # One argument - use it as directory
     MICROSIM_DIR="$1"
-else
+elif [ $# -eq 2 ]; then
     # Two arguments - directory and delay
     MICROSIM_DIR="$1"
     DELAY_SECONDS="$2"
+else
+    # Three arguments - directory, delay, and height
+    MICROSIM_DIR="$1"
+    DELAY_SECONDS="$2"
+    WINDOW_HEIGHT="$3"
 fi
+
+# Chrome headless --window-size has viewport overhead that can clip the bottom.
+# Strategy: render at a generous height, then crop the image to the exact target.
+TARGET_HEIGHT=$WINDOW_HEIGHT
+CAPTURE_HEIGHT=$((WINDOW_HEIGHT + 200))
 
 # Convert delay to milliseconds for Chrome
 DELAY_MS=$((DELAY_SECONDS * 1000))
@@ -93,6 +142,7 @@ echo ""
 echo -e "📸 Capturing screenshot of MicroSim: ${YELLOW}$MICROSIM_NAME${NC}"
 echo -e "   Source: ${BLUE}$ABSOLUTE_PATH${NC}"
 echo -e "   Output: ${BLUE}$OUTPUT_IMAGE${NC}"
+echo -e "   Size:   ${YELLOW}${WINDOW_WIDTH}x${TARGET_HEIGHT}${NC}"
 echo -e "   Delay:  ${YELLOW}${DELAY_SECONDS} seconds${NC} (waiting for JavaScript to load)"
 echo ""
 
@@ -111,7 +161,7 @@ echo ""
     --headless=new \
     --disable-gpu \
     --screenshot="$OUTPUT_IMAGE" \
-    --window-size=800,600 \
+    --window-size=${WINDOW_WIDTH},${CAPTURE_HEIGHT} \
     --hide-scrollbars \
     --disable-web-security \
     --allow-file-access-from-files \
@@ -119,8 +169,15 @@ echo ""
     "file://$ABSOLUTE_PATH" \
     2>&1 | grep -v "CVDisplayLink" | grep -v "SharedImageManager" || true
 
-# Verify screenshot was created
+# Verify screenshot was created, then crop to exact target height
 if [ -f "$OUTPUT_IMAGE" ]; then
+    # Crop to exact target height, keeping the top portion of the image
+    python3 -c "
+from PIL import Image
+img = Image.open('$OUTPUT_IMAGE')
+if img.height > $TARGET_HEIGHT:
+    img.crop((0, 0, img.width, $TARGET_HEIGHT)).save('$OUTPUT_IMAGE')
+" 2>/dev/null
     SIZE=$(ls -lh "$OUTPUT_IMAGE" | awk '{print $5}')
     echo -e "${GREEN}✅ Screenshot captured successfully!${NC}"
     echo -e "   File: ${YELLOW}$OUTPUT_IMAGE${NC} (${SIZE})"
