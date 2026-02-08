@@ -188,6 +188,22 @@ For each label, write the exact text call:
 
 ## Technical Architecture Standards
 
+### Always Use Native Builtin p5.js Controls
+
+Always use the native builtin controls that are provided by the p5.js library.
+The most common controls are button, slider, select, checkbox and input.
+Do not attempt to draw your own controls using the drawing commands.
+
+Reference for Create Button: https://p5js.org/reference/p5/createButton/
+Reference for Create Slider: https://p5js.org/reference/p5/createSlider/
+Reference for Create Select: https://p5js.org/reference/p5/createSelect/
+Reference for Create checkBox: https://p5js.org/reference/p5/createCheckbox/
+Reference for Create Input: https://p5js.org/reference/p5/createInput/
+
+For guidance on aligning the label and value of a slider see the following template:
+
+slider-label-value-alignment.js
+
 ### Iframe Structure (REQUIRED)
 
 MicroSims are designed to be called by an HTML `iframe`.  They run in a fixed height region with a variable width.  This is an essential requirement and it will impact
