@@ -204,9 +204,12 @@ Reference for Create Input: https://p5js.org/reference/p5/createInput/
 
 The default layout is to place both the label and value to the left of a slider control.
 We must make sure that the label, value and slider do not overlap.
+For a single slider, the positions can be placed manually.
 If we have multiple sliders, the horizontal positions of the label, value and sliders should be aligned.
 
-For guidance on aligning the label and value to the left of a slider see the following template:
+For guidance on aligning the label and value to the left of a slider see the following template
+which places the label, value and slider in a HTML div with an inline block CSS rule for
+consistent precise placement.
 
 microsim-generator/assets/templates/p5/slider-label-value-alignment.js
 
