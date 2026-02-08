@@ -200,9 +200,15 @@ Reference for Create Select: https://p5js.org/reference/p5/createSelect/
 Reference for Create checkBox: https://p5js.org/reference/p5/createCheckbox/
 Reference for Create Input: https://p5js.org/reference/p5/createInput/
 
-For guidance on aligning the label and value of a slider see the following template:
+### Aligning Slider Labels and Values
 
-slider-label-value-alignment.js
+The default layout is to place both the label and value to the left of a slider control.
+We must make sure that the label, value and slider do not overlap.
+If we have multiple sliders, the horizontal positions of the label, value and sliders should be aligned.
+
+For guidance on aligning the label and value to the left of a slider see the following template:
+
+microsim-generator/assets/templates/p5/slider-label-value-alignment.js
 
 ### Iframe Structure (REQUIRED)
 
