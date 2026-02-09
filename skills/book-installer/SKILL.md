@@ -56,6 +56,7 @@ Book Installer Features (most → least common):
 27. extra CSS installer for iframe and customer prompt admonition
 28. extra JavaScript installer - for prompt admonition copy button
 29. Feature checklist - auto-detect and document which features are implemented
+30. Learning mascot - add a pedagogical agent character to guide students
 
 Type a number or feature name to install.
 
@@ -110,6 +111,7 @@ Match the user's request to the appropriate installation guide:
 | code highlighting, syntax, copy button | `references/mkdocs-features.md` | Add code syntax highlighting |
 | mermaid, diagrams, flowchart | `references/mkdocs-features.md` | Add Mermaid diagram support |
 | admonition, callout, prompt box, copy prompt | `references/mkdocs-features.md` | Add custom admonitions with copy |
+| mascot, learning mascot, pedagogical agent, character, guide character, persona | `references/learning-mascot.md` | Add a learning mascot to guide students |
 
 ### Decision Tree
 
@@ -137,6 +139,9 @@ Want to generate a feature checklist showing what's implemented?
 
 Want to add branding (logo, favicon, cover image)?
   → YES: mkdocs-features.md (Branding Features section)
+
+Want to add a learning mascot (pedagogical agent) to guide students?
+  → YES: learning-mascot.md
 
 Want to add a specific feature (equations, quizzes, feedback, etc.)?
   → YES: mkdocs-features.md (then follow specific feature instructions)
@@ -242,6 +247,26 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 - Existing MkDocs project
 - Access to AI image generator (DALL-E, Midjourney, etc.)
 
+### learning-mascot.md
+
+**Purpose:** Design and implement a pedagogical agent (learning mascot) that guides students through the textbook
+
+**Creates:**
+- Character design (name, species, appearance, personality, catchphrase)
+- AI image generation prompts for consistent mascot poses
+- Implementation via inline images, custom CSS admonitions, or JavaScript auto-detection
+- CLAUDE.md character guidelines for consistent AI-generated content
+
+**Features:**
+- Subject-specific mascot suggestions with reasoning
+- Six standard pose variants (welcome, thinking, tip, warning, celebration, encouraging)
+- Three implementation methods at different complexity levels
+- Restraint guidelines to prevent overuse
+
+**Prerequisites:**
+- Existing MkDocs Material project
+- Access to AI image generator (DALL-E, Midjourney, etc.)
+
 ### cover-image-generator.md
 
 **Purpose:** Auto-generate cover images using the generate-cover.sh script
@@ -314,7 +339,12 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 **Routing:** Keywords "generate cover image" → `references/cover-image-generator.md`
 **Action:** Read cover-image-generator.md, ask user about their resources (API key, ChatGPT Pro, macOS), then run the appropriate generate-cover.sh command
 
-### Example 9: Generate Feature Checklist
+### Example 9: Add a Learning Mascot
+**User:** "I want to add a mascot character to my math textbook"
+**Routing:** Keywords "mascot", "character" → `references/learning-mascot.md`
+**Action:** Read learning-mascot.md, guide user through character design, generate AI image prompts, and implement chosen method (inline, CSS admonitions, or JS detection)
+
+### Example 10: Generate Feature Checklist
 **User:** "generate a feature checklist" or "what features do I have"
 **Routing:** Keywords "feature checklist" → `references/feature-checklist-generator.md`
 **Action:** Read feature-checklist-generator.md, run the detection script, generate docs/feature-checklist.md with detected statuses
