@@ -805,7 +805,7 @@ Check the following:
 
 ### Step 8: Create a Test Page (Optional)
 
-Create `docs/mascot-test.md` to preview all mascot variants:
+Create `docs/learning-graph/mascot-test.md` to preview all mascot variants:
 
 ```markdown
 # Mascot Style Guide
@@ -831,7 +831,7 @@ This page shows all mascot admonition styles for reference.
     This is the encouraging style, used for difficult content.
 ```
 
-**Note:** You may want to exclude this page from the final navigation or keep it as a contributor reference.
+**Note:** Place this file in the `docs/learning-graph/` directory alongside the other learning graph assets. You may want to exclude this page from the final navigation or keep it as a contributor reference.
 
 ## Quick Reference
 
@@ -848,10 +848,11 @@ docs/
 │       ├── celebration.png
 │       └── encouraging.png
 ├── css/
-│   └── mascot.css          # Option 2 only
+│   └── mascot.css              # Option 2 only
 ├── js/
-│   └── mascot.js           # Option 3 only
-└── mascot-test.md          # Optional test page
+│   └── mascot.js               # Option 3 only
+└── learning-graph/
+    └── mascot-test.md          # Optional test page
 ```
 
 ### Implementation Comparison
