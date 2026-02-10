@@ -242,6 +242,10 @@ This enables counting and discovery of MicroSims across GitHub using code search
 - Width-responsive design
 - Non-scrolling iframe container
 - Standard height: drawHeight + controlHeight + 2px
+- **Iframe paths MUST always be relative, NEVER absolute:**
+  - From a sim's own `index.md`: `<iframe src="main.html" ...>`
+  - From chapter files (`docs/chapters/*/index.md`): `<iframe src="../../sims/[sim-name]/main.html" ...>`
+  - **NEVER use absolute paths** like `/sims/...` — they break on GitHub Pages where the site is served under a subdirectory (e.g., `/geometry-course/`)
 
 **Quality Checklist:**
 - [ ] Runs without errors in modern browsers
