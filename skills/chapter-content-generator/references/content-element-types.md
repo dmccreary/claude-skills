@@ -249,10 +249,10 @@ a template for an iframe that displays the diagram or microsim
 
 ```markdown
 #### Diagram: {{DIAGRAM_NAME}}
-<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{sim-id}/main.html" width="100%" height="500px" scrolling="no"></iframe>
 ```
 
-Note that the {MICROSIM_NAME} in the src path must be a string kebab-case (lowercase letters and dashes)
+Note that the `{sim-id}` in the src path must be a kebab-case string (lowercase letters and dashes) matching the **sim-id** field inside the `<details>` block.
 
 Use `<details markdown="1">` block with a detailed specification
 
@@ -271,10 +271,13 @@ Use `<details markdown="1">` block with a detailed specification
 **Example specification:**
 ```xml
 #### Diagram: CMDB Architecture Diagram
-<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/cmdb-architecture-diagram/main.html" width="100%" height="500px" scrolling="no"></iframe>
 <details markdown="1">
 <summary>CMDB Architecture Diagram</summary>
 Type: diagram
+**sim-id:** cmdb-architecture-diagram<br/>
+**Library:** p5.js<br/>
+**Status:** Specified
 
 Purpose: Show the traditional CMDB architecture with RDBMS foundation
 
@@ -326,7 +329,7 @@ Color scheme: Blue for application layers, orange for database layer
 
 **Example MicroSim Specification:**
 ```xml
-<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{sim-id}/main.html" width="100%" height="500px" scrolling="no"></iframe>
 
 <details markdown="1">
 
@@ -438,7 +441,7 @@ and obscure the actual data transformations.
 
 **Example specification:**
 ```xml
-<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{sim-id}/main.html" width="100%" height="500px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Graph Traversal Visualization MicroSim</summary>
@@ -508,7 +511,7 @@ Implementation notes:
 
 **Example specification:**
 ```xml
-<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{sim-id}/main.html" width="100%" height="500px" scrolling="no"></iframe>
 <details markdown="1">
 <summary>Query Performance Comparison: RDBMS vs Graph Database</summary>
 Type: chart
@@ -572,7 +575,7 @@ the historical events that triggered an important based of knowledge.
 
 **Example specification:**
 ```xml
-<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{sim-id}/main.html" width="100%" height="500px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Evolution of Configuration Management Timeline</summary>
@@ -632,7 +635,7 @@ Interactive features:
 
 **Example specification:**
 ```xml
-<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{sim-id}/main.html" width="100%" height="500px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>GDPR Data Flow Compliance Map</summary>
@@ -692,7 +695,7 @@ Interactive features:
 
 **Example specification:**
 ```xml
-<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{sim-id}/main.html" width="100%" height="500px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Change Management Workflow with Impact Analysis</summary>
@@ -767,7 +770,7 @@ Swimlanes:
 
 **Example specification:**
 ```xml
-<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{sim-id}/main.html" width="100%" height="500px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>IT Management Graph Data Model</summary>
@@ -852,11 +855,14 @@ Canvas size: 800x600px
 For any element requiring specification (types 3-10), use this template:
 
 ```xml
-<iframe src="../../sims/{MICROSIM_NAME}/main.html" width="100%" height="500xp" scrolling="no"></iframe>
+<iframe src="../../sims/{sim-id}/main.html" width="100%" height="500px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Brief descriptive title</summary>
 Type: [element-type]
+**sim-id:** [kebab-case-directory-name]<br/>
+**Library:** [p5.js | vis-network | Chart.js | Mermaid | Plotly | Leaflet | vis-timeline]<br/>
+**Status:** Specified
 
 Purpose: [What educational goal does this serve?]
 
@@ -865,5 +871,14 @@ Purpose: [What educational goal does this serve?]
 Implementation: [Technology/approach to be used]
 </details>
 ```
+
+Note that the `{sim-id}` in the iframe src path must be a kebab-case string
+(lowercase letters and dashes) matching the **sim-id** field inside the
+`<details>` block.
+
+The three structured fields enable machine-readable extraction:
+- **sim-id** — kebab-case directory name used for the `docs/sims/{sim-id}/` path
+- **Library** — JavaScript library, used by scaffold generators to select the correct CDN
+- **Status** — lifecycle state; always `Specified` for new specs in chapter content
 
 The specification should be detailed enough that another skill or developer can implement the element without additional context.

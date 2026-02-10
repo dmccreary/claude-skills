@@ -320,12 +320,20 @@ For each `<details markdown="1">` block element, use this structure:
 <details markdown="1">
 <summary>[Brief descriptive title]</summary>
 Type: [element-type]
+**sim-id:** [kebab-case-directory-name]<br/>
+**Library:** [p5.js | vis-network | Chart.js | Mermaid | Plotly | Leaflet | vis-timeline]<br/>
+**Status:** Specified
 
 [Detailed specification following guidelines in references/content-element-types.md]
 
 Implementation: [Technology/approach]
 </details>
 ```
+
+The three structured fields enable machine-readable extraction by batch utilities:
+- **sim-id** — kebab-case directory name (e.g., `angle-type-explorer`), used by `extract-sim-specs.py`
+- **Library** — JavaScript library for CDN selection by `generate-sim-scaffold.py`
+- **Status** — initial lifecycle state (always `Specified` for new specs)
 
 Do not indent any text within a `<details markdown="1">` block. Do not put any leading spaces or tabs on newlines within a `<details markdown="1">` block.
 

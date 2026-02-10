@@ -326,7 +326,9 @@ This eliminates the need to manually run `microsim-utils standardization` after 
 
 ## mkdocs.yml Integration
 
-After creating and standardizing a MicroSim, add it to the site navigation:
+After creating and standardizing a MicroSim, update the site navigation.
+
+For **single MicroSims**, add manually to mkdocs.yml:
 
 ```yaml
 nav:
@@ -335,3 +337,63 @@ nav:
     - Existing Sim: sims/existing-sim/index.md
     - New MicroSim: sims/new-microsim-name/index.md  # Add here
 ```
+
+For **batch operations**, use the `update-mkdocs-nav.py` utility instead:
+
+```bash
+python3 src/microsim-utils/update-mkdocs-nav.py --project-dir /path/to/project
+```
+
+This scans `docs/sims/` and regenerates the entire MicroSims nav section alphabetically. It is idempotent and safe to run multiple times.
+
+## Batch Generation Utilities
+
+When generating MicroSims for multiple chapters, these Python utilities in
+`src/microsim-utils/` eliminate ~430K tokens of repetitive work per batch run:
+
+| Utility | Purpose | Savings |
+|---------|---------|---------|
+| `extract-sim-specs.py` | Parse specs from chapter `#### Diagram:` headers | ~80K tokens |
+| `generate-sim-scaffold.py` | Create main.html, index.md, metadata.json | ~150K tokens |
+| `update-mkdocs-nav.py` | Regenerate MicroSims nav in mkdocs.yml | ~100K tokens |
+| `add-iframes-to-chapter.py` | Insert missing iframes, fix heights/paths | ~50K tokens |
+| `validate-sims.py` | 100-point quality rubric scoring | ~50K tokens |
+
+### Batch Workflow
+
+```bash
+# 1. Extract all diagram/drawing specs from chapters
+python3 src/microsim-utils/extract-sim-specs.py \
+    --project-dir $PROJECT --output /tmp/specs.json \
+    --status-file docs/sims/sim-status.json --verbose
+
+# 2. Scaffold unbuilt sims (main.html, index.md, metadata.json)
+python3 src/microsim-utils/generate-sim-scaffold.py \
+    --spec-file /tmp/specs.json --project-dir $PROJECT --verbose
+
+# 3. Agent implements .js files (this is where the creative work happens)
+
+# 4. Insert iframes into chapter markdown
+python3 src/microsim-utils/add-iframes-to-chapter.py \
+    --all --project-dir $PROJECT --fix-heights --fix-paths
+
+# 5. Update mkdocs.yml navigation
+python3 src/microsim-utils/update-mkdocs-nav.py --project-dir $PROJECT
+
+# 6. Validate quality scores
+python3 src/microsim-utils/validate-sims.py --project-dir $PROJECT
+```
+
+### sim-status.json Integration
+
+The `extract-sim-specs.py --status-file` flag generates a lifecycle tracking
+file. After a context window fills during batch generation, a new session can
+read `sim-status.json` to resume where it left off:
+
+- **specified** — has spec in chapter but no sim directory yet
+- **scaffolded** — directory with main.html/index.md but no substantive JS
+- **implemented** — JS file exists and >50 lines
+- **validated** — quality_score >= 70
+- **deployed** — validated + iframe present in chapter
+
+See `src/microsim-utils/README.md` for full documentation.
