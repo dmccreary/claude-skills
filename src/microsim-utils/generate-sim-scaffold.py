@@ -20,7 +20,7 @@ from datetime import date
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from shared import (
-    find_project_root, kebab_case, LIBRARY_CDNS, LIBRARY_CSS,
+    find_project_root, kebab_case, load_mkdocs_config, LIBRARY_CDNS, LIBRARY_CSS,
     GREEN, RED, YELLOW, CYAN, BOLD, DIM, RESET, CHECK, CROSS, WARN, ARROW,
 )
 
@@ -71,7 +71,7 @@ def _html_template(sim_id, title, library):
 """
 
 
-def _index_md_template(sim_id, title, library, bloom_level, chapter):
+def _index_md_template(sim_id, title, library, bloom_level, chapter, site_url=""):
     """Generate the index.md scaffold."""
     display_title = title.replace("-", " ").title() if title == sim_id else title
     today = date.today().isoformat()
@@ -106,7 +106,7 @@ TODO: Describe how students should interact with this MicroSim.
 ## Iframe Embed Code
 
 ```html
-<iframe src="main.html"
+<iframe src="{site_url}sims/{sim_id}/main.html"
         height="450px"
         width="100%"
         scrolling="no"></iframe>
@@ -182,7 +182,7 @@ def _metadata_json_template(sim_id, title, library, bloom_level, chapter):
     }, indent=2) + "\n"
 
 
-def scaffold_sim(spec, project_dir, dry_run=False, force=False, verbose=False):
+def scaffold_sim(spec, project_dir, site_url="", dry_run=False, force=False, verbose=False):
     """Create scaffold files for a single sim spec."""
     sim_id = spec["sim_id"]
     title = spec["title"]
@@ -203,7 +203,7 @@ def scaffold_sim(spec, project_dir, dry_run=False, force=False, verbose=False):
 
     files = {
         "main.html":     _html_template(sim_id, title, library),
-        "index.md":      _index_md_template(sim_id, title, library, bloom, chapter),
+        "index.md":      _index_md_template(sim_id, title, library, bloom, chapter, site_url),
         "metadata.json": _metadata_json_template(sim_id, title, library, bloom, chapter),
     }
 
@@ -253,6 +253,12 @@ def main():
 
     project_dir = args.project_dir or find_project_root()
 
+    # Extract site_url from mkdocs.yml for full iframe embed paths
+    mkdocs_cfg = load_mkdocs_config(project_dir)
+    site_url = mkdocs_cfg.get("site_url", "").rstrip("/")
+    if site_url:
+        site_url += "/"
+
     with open(args.spec_file, encoding="utf-8") as f:
         specs = json.load(f)
 
@@ -265,7 +271,8 @@ def main():
     created = 0
     skipped = 0
     for spec in specs:
-        if scaffold_sim(spec, project_dir, dry_run=args.dry_run,
+        if scaffold_sim(spec, project_dir, site_url=site_url,
+                        dry_run=args.dry_run,
                         force=args.force, verbose=args.verbose):
             created += 1
         else:
