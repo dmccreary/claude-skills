@@ -105,6 +105,8 @@ TODO: Describe how students should interact with this MicroSim.
 
 ## Iframe Embed Code
 
+You can add this MicroSim to any web page by adding this to your HTML:
+
 ```html
 <iframe src="{site_url}sims/{sim_id}/main.html"
         height="450px"
