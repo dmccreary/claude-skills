@@ -1,6 +1,6 @@
 ---
 name: microsim-generator
-description: Creates interactive educational MicroSims using the best-matched JavaScript library (p5.js, Chart.js, Plotly, Mermaid, vis-network, vis-timeline, Leaflet, Venn.js). Analyzes user requirements to route to the appropriate visualization type and generates complete MicroSim packages with HTML, JavaScript, CSS, documentation, and metadata.
+description: Creates interactive educational MicroSims using the best-matched JavaScript library (p5.js, Chart.js, Plotly, Mermaid, vis-network, vis-timeline, Leaflet, Venn.js). Analyzes user requirements to route to the appropriate visualization type and generates complete MicroSim packages with HTML, JavaScript, CSS, documentation, screen capture, and metadata.
 ---
 
 # MicroSim Generator
@@ -469,6 +469,38 @@ python3 $UTILS/update-mkdocs-nav.py \
 
 ---
 
+## Step 8: Generate a Screen Image of the MicroSim
+
+A screen image of the microsim is needed for the /doc/sims/index.md file which
+provides a list of all the MicroSims in the textbook.
+
+A unix shell script is use to get a screen image of the MicroSim.  This
+shell script runs Google Chrome headless and creates a 800px wide image
+where the height of the screen image is determined by the iframe height.
+
+The screen capture shell scrip is installed in ~/.local/bin/bk-capture-screenshot
+as a symbolic link to the $BK_HOME/scripts/bk-capture-screenshot program
+
+bk-capture-screenshot has 3 command line parameters:
+
+$1  MicroSim directory path (default: current directory)
+$2  Delay in seconds for JS rendering (default: 3)
+$3  Target image height in pixels (default: 600)
+
+Tip: use the iframe height from the MicroSim's index.md file to get the correct height.
+
+Sample Usage:
+
+```sh
+bk-capture-screenshot /path/to/microsim 3 700    # 3 second delay, 700px height
+```
+
+Output:
+
+Creates <microsim-name>.png in the MicroSim directory that is typically around 50K bytes.
+
+---
+
 ## Workflow Summary
 
 ### Batch (Chapter-Level) Generation
@@ -489,6 +521,8 @@ Step 5: add-iframes-to-chapter.py → inserts/fixes iframes
 Step 6: validate-sims.py → scores quality, fix issues
   ↓
 Step 7: update-mkdocs-nav.py → regenerates nav
+  ↓
+Step 8: bk-capture-screenshot /path/to/microsim 3 {height} → creates screen image
 ```
 
 ### Single Sim Generation
@@ -505,6 +539,8 @@ Step 4:  Write .js file
 Step 6:  validate-sims.py --sim <name>
   ↓
 Step 7:  update-mkdocs-nav.py
+  ↓
+Step 8:  bk-capture-screenshot /path/to/microsim 3 {height} → creates screen image
 ```
 
 ### Resuming After Context Window Fills

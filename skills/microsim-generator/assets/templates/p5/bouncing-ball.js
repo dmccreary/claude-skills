@@ -18,9 +18,13 @@ let controlHeight = 30;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight; // fixed height on page determined by MicroSim author
 
-// margin around the active plotting region
+// the margin around the entire edge of the canvas
 let margin = 25;
-// the left margin of the slider to provide room for the labels and values
+
+// This is where we calculate where to place the left edges of the slider
+// the left margin of the slider to provide room for the button, labels and values
+// you must calculate this based on the width of the button, slider label and slider values 
+// to the left of the slider
 let sliderLeftMargin = 160;
 // larger text so students in the back of the room can read the labels
 let defaultTextSize = 16;
@@ -39,7 +43,7 @@ let dy = speed;
 let speedSlider;
 // Start/Pause button and running state
 let startButton;
-let isRunning = false; // default state is paused
+let isRunning = false; // the default state of all microsims must be paused
 
 function setup() {
   updateCanvasSize() // set the container dimensions to get the correct container width
@@ -49,6 +53,7 @@ function setup() {
 
   textSize(16);
 
+  // Always use the native builtin p5.js controls
   // Create Start/Pause button
   startButton = createButton('Start');
   startButton.position(10, drawHeight + 5);
@@ -67,7 +72,7 @@ function draw() {
 
   // fill drawing area with very light blue background - MicroSim standard style
   fill('aliceblue');
-  // draw a light gray border around the both the drawing region and the control region
+  // draw a light gray border around the BOTH the drawing region and the control region
   stroke('silver');
   strokeWeight(1);
   rect(0, 0, canvasWidth, drawHeight);
@@ -75,16 +80,18 @@ function draw() {
   // fill control area with a white background
   fill('white');
   rect(0, drawHeight, canvasWidth, canvasHeight-drawHeight); 
+
   // get the new speed from the UI
   speed = speedSlider.value();
 
-  // Title
+  // Draw the title centered at the top of the MicroSim in 32 point font
   fill('black');
+  // Always put the noStroke() before we draw text
   noStroke();
   textAlign(CENTER, TOP);
   textSize(32);
+  // place the text in the exact center a margin down from the top of the canvas
   text('Bouncing Ball Simulation', canvasWidth/2, margin);
-  // stroke();
 
   // Only update position when running
   if (isRunning) {
