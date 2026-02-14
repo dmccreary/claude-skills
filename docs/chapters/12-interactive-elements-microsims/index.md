@@ -368,9 +368,7 @@ For responsive designs that adapt to different screen sizes, consider using CSS 
 This wrapper uses the "padding-bottom percentage trick" where the percentage is calculated as (height/width) × 100%. For a 1000×600 simulation, that's (600/1000) × 100% = 60%. The absolutely positioned iframe then fills this responsive container.
 #### Diagram: Responsive Iframe Embedding MicroSim
 
-<iframe src="../../sims/responsive-iframe-embedding-microsim/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
+<iframe src="../../sims/responsive-iframe-embedding-microsim/main.html" width="100%" height="760px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Responsive Iframe Embedding MicroSim</summary>
@@ -805,9 +803,7 @@ Designing effective educational simulations requires balancing technical capabil
 **Align with learning objectives.** Every MicroSim should map clearly to specific learning objectives from your course or chapter. The simulation should help students achieve outcomes like "explain the difference between X and Y," "predict the behavior of system Z under different conditions," or "analyze the trade-offs between approaches A and B." If you cannot articulate what learning objective a simulation addresses, reconsider whether it belongs in your textbook.
 #### Diagram: MicroSim Design Quality Checklist
 
-<iframe src="../../sims/microsim-design-quality-checklist/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
+<iframe src="../../sims/microsim-design-quality-checklist/main.html" width="100%" height="840px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>MicroSim Design Quality Checklist</summary>

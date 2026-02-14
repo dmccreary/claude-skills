@@ -70,9 +70,7 @@ The following features are particularly valuable for intelligent textbook develo
 
 #### Diagram: VS Code Interface Layout for Textbook Development
 
-<iframe src="../../sims/vs-code-interface-layout-for-textbook-development/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
+<iframe src="../../sims/vs-code-interface-layout-for-textbook-development/main.html" width="100%" height="820px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>VS Code Interface Layout for Textbook Development</summary>
@@ -538,9 +536,7 @@ Efficient navigation requires understanding project structure and using shortcut
   ```
 #### Diagram: Interactive Directory Navigation Practice MicroSim
 
-<iframe src="../../sims/interactive-directory-navigation-practice-microsim/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
+<iframe src="../../sims/interactive-directory-navigation-practice-microsim/main.html" width="100%" height="720px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Interactive Directory Navigation Practice MicroSim</summary>
@@ -998,9 +994,7 @@ install-claude-skills.sh
 ```
 #### Diagram: Permission Bits Visual Infographic
 
-<iframe src="../../sims/permission-bits-visual-infographic/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
+<iframe src="../../sims/permission-bits-visual-infographic/main.html" width="100%" height="760px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Permission Bits Visual Infographic</summary>
