@@ -19,7 +19,7 @@
     
     
       
-        <title>Installing Claude on Windows Systems for Linux - Claude Skills for Intelligent Textbooks</title>
+        <title>Installing Claude on Windows Systems for Linux (WSL) - Claude Skills for Intelligent Textbooks</title>
       
     
     
@@ -66,7 +66,7 @@
       
         <meta property="og:type" content="website">
       
-        <meta property="og:title" content="Installing Claude on Windows Systems for Linux - Claude Skills for Intelligent Textbooks">
+        <meta property="og:title" content="Installing Claude on Windows Systems for Linux (WSL) - Claude Skills for Intelligent Textbooks">
       
         <meta property="og:description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
       
@@ -82,7 +82,7 @@
       
         <meta name="twitter:card" content="summary_large_image">
       
-        <meta name="twitter:title" content="Installing Claude on Windows Systems for Linux - Claude Skills for Intelligent Textbooks">
+        <meta name="twitter:title" content="Installing Claude on Windows Systems for Linux (WSL) - Claude Skills for Intelligent Textbooks">
       
         <meta name="twitter:description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
       
@@ -117,7 +117,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installing-claude-on-windows-systems-for-linux" class="md-skip">
+        <a href="#installing-claude-on-windows-systems-for-linux-wsl" class="md-skip">
           Skip to content
         </a>
       
@@ -152,7 +152,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installing Claude on Windows Systems for Linux
+              Installing Claude on Windows Systems for Linux (WSL)
             
           </span>
         </div>
@@ -352,6 +352,8 @@
       
         
           
+        
+      
         
       
         
@@ -1041,6 +1043,56 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      PowerShell
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PowerShell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pros-of-the-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pros of the Powershell
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cons-of-the-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cons of the Powershell
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launching-the-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      Launching the Browser
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1062,11 +1114,33 @@
   
 
 
-<h1 id="installing-claude-on-windows-systems-for-linux">Installing Claude on Windows Systems for Linux</h1>
+<h1 id="installing-claude-on-windows-systems-for-linux-wsl">Installing Claude on Windows Systems for Linux (WSL)</h1>
+<p>It is often difficult to get the Windows Systems for Linux (WSL) working.
+You much make sure your computer support the Hyper-V options.
+On older systems this could only be set in the BIOS during boot.
+You can install Claude on the PowerShell and then have Claude
+walk you through the steps of installing WSL.</p>
+<p><a href="https://code.claude.com/docs/en/setup#platform-specific-setup">Claude Code Documentation</a></p>
+<h2 id="powershell">PowerShell</h2>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>irm<span class="w"> </span>https://claude.ai/install.ps1<span class="w"> </span><span class="p">|</span><span class="w"> </span>iex
+</code></pre></div></td></tr></tbody></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Anthropic has deprecated the node installation.  Only
+use the native installer.</p>
+</div>
 <p>Make sure the Hypervisor is turned on
 You will find this in the Windows Control Panel</p>
-<p>```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">Enable-WindowsOptionalFeature</span> <span class="n">-Online</span> <span class="n">-FeatureName</span> <span class="n">Microsoft-Hyper-V</span> <span class="n">-All</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="pros-of-the-powershell">Pros of the Powershell</h3>
+<p>It can talk directly to your desktop and install icons on your desktop that will start the mkdocs server.</p>
+<h3 id="cons-of-the-powershell">Cons of the Powershell</h3>
+<p>Claude Code on the Powershell is very under-tested.  99% of Claude Code users
+use Linux, so, that is always the preferred method.</p>
+<h3 id="launching-the-browser">Launching the Browser</h3>
+<p>Our skill use a screen capture shell script to get screen images.
+These tools will not work on the PowerShell.</p>
 
 
 
