@@ -64,6 +64,9 @@ The essential components of every chapter include:
 
 #### Diagram: Chapter Organization Workflow Diagram
 
+<iframe src="../../sims/chapter-organization-workflow/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details markdown="1">
     <summary>Chapter Organization Workflow Diagram</summary>
     Type: workflow
@@ -154,8 +157,10 @@ When the book-chapter-generator skill creates these files, it populates them wit
 The concept list within a chapter index file serves multiple critical functions in the content generation process. First, it acts as a checklist ensuring comprehensive coverage—every concept listed must be addressed in the generated content. Second, it provides scope boundaries, preventing content from expanding into related but out-of-scope areas. Third, it enables automated verification, allowing quality checks to confirm all concepts have been adequately explained.
 
 When working with concept lists, keep several important considerations in mind. The concepts should reflect learning graph entries exactly as they appear, maintaining consistency across the entire textbook. While the list order may follow the learning graph numbering, the actual content presentation order should be determined by pedagogical effectiveness rather than list sequence. Each concept should be atomic and focused on a single clear idea rather than combining multiple distinct notions.
-
 #### Diagram: Chapter Index File Structure Diagram
+
+<iframe src="../../sims/chapter-index-structure/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Chapter Index File Structure Diagram</summary>
@@ -223,11 +228,9 @@ The skill follows a six-step workflow to ensure systematic, high-quality content
 ### Content Generation Parameters
 
 Several key parameters influence how content is generated, ensuring it aligns with course objectives and audience needs. The reading level, determined from the course description file, affects sentence complexity, vocabulary choices, explanation depth, and example sophistication. The concept list defines the precise scope of coverage, while concept dependencies from the learning graph determine the optimal presentation order.
-
 #### Diagram: Content Generation Process Timeline
 
 <iframe src="../../sims/chapter-content-generation-timeline/main.html" width="100%" height="720px" scrolling="no"></iframe>
-[Run the Chapter Content Generation Timeline MicroSim Fullscreen](../../sims/chapter-content-generation-timeline/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
     <summary>Content Generation Process Timeline</summary>
@@ -296,6 +299,9 @@ Implementation: CSS/JavaScript timeline with SVG elements
 
 </details>
 
+[Run the Chapter Content Generation Timeline MicroSim Fullscreen](../../sims/chapter-content-generation-timeline/main.html){ .md-button .md-button--primary }
+
+
 ## Reading Level Appropriateness
 
 One of the most critical factors in effective educational content is appropriate reading level calibration. Content that is too simple fails to challenge and engage learners, while overly complex material creates frustration and impedes comprehension. The intelligent textbook framework addresses this challenge through systematic reading level analysis and adaptive content generation based on the target audience specification in the course description.
@@ -331,8 +337,11 @@ Worked examples serve as essential pedagogical tools that bridge the gap between
 High-quality worked examples share several key characteristics that maximize their instructional value. They begin with clear problem statements that specify all given information and explicit goals, eliminating ambiguity about what needs to be accomplished. The solution process is broken into explicit steps with explanations for why each step is taken, not just what is done. This metacognitive commentary helps learners understand the reasoning process rather than simply memorizing procedures.
 
 Effective examples also include progressive complexity, starting with straightforward cases that isolate individual concepts before advancing to integrated examples that require combining multiple concepts. Each example should connect explicitly to the concept it illustrates, with annotations or callouts highlighting where specific principles are being applied. For college-level content, examples should draw from realistic professional contexts that learners are likely to encounter, increasing relevance and motivation.
-
 #### Diagram: Worked Example: Determining Reading Level from Course Description
+
+<iframe src="../../sims/worked-example-determining-reading-level-from-course-description/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Worked Example: Determining Reading Level from Course Description</summary>
@@ -419,8 +428,11 @@ For a chapter on content creation workflows, appropriate exercises might include
 - **Analyze**: Compare two chapter structures and identify which better respects pedagogical principles
 - **Evaluate**: Assess a sample chapter index file for completeness and quality
 - **Create**: Design a complete content generation workflow for a new educational technology
-
 #### Diagram: Interactive Exercise Generator MicroSim
+
+<iframe src="../../sims/interactive-exercise-generator-microsim/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Interactive Exercise Generator MicroSim</summary>
@@ -540,8 +552,11 @@ Violations: Circular (uses "learning" and "learn"), includes business rules (men
 "Learning Graph: A directed acyclic graph where nodes represent educational concepts and edges represent prerequisite dependencies."
 
 This definition is precise (specifies DAG structure), concise (minimal words), distinct (differentiates from other graph types through the prerequisite dependency characteristic), non-circular (doesn't use "learning" in the definition), and free of business rules (describes what it is, not how it's used).
-
 #### Diagram: ISO 11179 Principles Comparison Table Infographic
+
+<iframe src="../../sims/iso-11179-principles-comparison-table-infographic/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>ISO 11179 Principles Comparison Table Infographic</summary>

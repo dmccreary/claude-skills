@@ -3,89 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter Organization Workflow</title>
-    <link rel="stylesheet" href="../adding-taxonomy-workflow/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-</head>
-<body>
-    <div class="container">
-        <h1>Chapter Organization Workflow</h1>
-        <p class="subtitle">Decision-making process for organizing content within a chapter</p>
-
-        <div class="diagram-container">
-            <div class="mermaid">
-flowchart TD
-    Start(("Chapter Planning<br/>Initiated")):::startNode
-    Review["Review Concept<br/>Dependencies"]:::processNode
-    Structure{"Linear or<br/>Branching?"}:::decisionNode
-    Linear["Create Linear<br/>Section Sequence"]:::linearNode
-    Branching["Create Parallel<br/>Section Tracks"]:::branchNode
-    Assign["Assign Concepts<br/>to Sections"]:::processNode
-    Plan["Plan Non-Text<br/>Elements"]:::processNode
-    Validate{"All Dependencies<br/>Satisfied?"}:::decisionNode
-    Reorganize["Reorganize<br/>Sections"]:::processNode
-    Finalize["Finalize Chapter<br/>Structure"]:::finalNode
-    End(("Structure Complete")):::endNode
-
-    Start --> Review
-    Review --> Structure
-    Structure -->|Linear| Linear
-    Structure -->|Branching| Branching
-    Linear --> Assign
-    Branching --> Assign
-    Assign --> Plan
-    Plan --> Validate
-    Validate -->|No| Reorganize
-    Reorganize --> Validate
-    Validate -->|Yes| Finalize
-    Finalize --> End
-
-    classDef startNode fill:#667eea,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
-    classDef processNode fill:#4facfe,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
-    classDef decisionNode fill:#ffd166,stroke:#333,stroke-width:2px,color:#333,font-size:16px
-    classDef linearNode fill:#43aa8b,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
-    classDef branchNode fill:#06ffa5,stroke:#333,stroke-width:2px,color:#333,font-size:16px
-    classDef finalNode fill:#f77f00,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
-    classDef endNode fill:#43aa8b,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
-
-    linkStyle default stroke:#999,stroke-width:2px,font-size:14px
-            </div>
-        </div>
-
-        <div class="description">
-            <h2>Organization Process</h2>
-            <p>This workflow guides the decision-making process for organizing concepts within a chapter, ensuring prerequisite relationships are satisfied and content flows logically.</p>
-
-            <h3>Key Decision Points</h3>
-
-            <h4>Linear vs Branching Structure</h4>
-            <p><strong>Linear:</strong> Concepts build sequentially, each depending on the previous. Best for foundational material where order matters.</p>
-            <p><strong>Branching:</strong> Multiple parallel tracks that can be studied in flexible order. Best for topics with independent subtopics.</p>
-
-            <h3>Workflow Steps</h3>
-            <ol>
-                <li><strong>Review Concept Dependencies</strong> - Examine learning graph for prerequisite relationships</li>
-                <li><strong>Choose Structure</strong> - Determine if concepts build linearly or branch into parallel tracks</li>
-                <li><strong>Create Section Sequence</strong> - Order sections from foundational to advanced (linear) or group related concepts (branching)</li>
-                <li><strong>Assign Concepts to Sections</strong> - Map each concept from the concept list to specific sections</li>
-                <li><strong>Plan Non-Text Elements</strong> - Identify where diagrams, MicroSims, tables, and visuals enhance learning</li>
-                <li><strong>Validate Dependencies</strong> - Verify prerequisite concepts appear first</li>
-                <li><strong>Reorganize if Needed</strong> - Reorder sections to satisfy dependencies</li>
-                <li><strong>Finalize Structure</strong> - Lock in organization and proceed to content generation</li>
-            </ol>
-
-            <h3>Quality Checks</h3>
-            <p>Before finalizing, ensure:</p>
-            <ul>
-                <li>All prerequisite concepts are covered before they're needed</li>
-                <li>Section sizes are balanced (avoid one very long section)</li>
-                <li>Each section has clear learning objectives</li>
-                <li>Non-text elements are strategically placed</li>
-            </ul>
-        </div>
-    </div>
-
-    <script>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Chapter Organization Workflow Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
         mermaid.initialize({
             startOnLoad: true,
             theme: 'default',
@@ -96,5 +17,98 @@ flowchart TD
             }
         });
     </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <div class="diagram-panel">
+            <div class="mermaid">
+flowchart TD
+    Start("Chapter Planning Initiated"):::planningNode
+    ReviewDependencies["Review Concept Dependencies"]:::planningNode
+    StructureType{"Linear or Branching Structure?"}:::decisionNode
+    LinearSequence["Create Linear Section Sequence"]:::organizationNode
+    ParallelTracks["Create Parallel Section Tracks"]:::organizationNode
+    AssignConcepts["Assign Concepts to Sections"]:::organizationNode
+    PlanElements["Plan Non-Text Elements"]:::organizationNode
+    DependenciesSatisfied{"All Dependencies Satisfied?"}:::decisionNode
+    ReorganizeSections["Reorganize Sections"]:::verificationNode
+    FinalizeStructure["Finalize Chapter Structure"]:::verificationNode
+    End("Chapter Structure Complete"):::verificationNode
+
+    Start --> ReviewDependencies --> StructureType
+    StructureType -->|Linear| LinearSequence
+    StructureType -->|Branching| ParallelTracks
+    LinearSequence --> AssignConcepts
+    ParallelTracks --> AssignConcepts
+    AssignConcepts --> PlanElements --> DependenciesSatisfied
+    DependenciesSatisfied -->|No| ReorganizeSections --> DependenciesSatisfied
+    DependenciesSatisfied -->|Yes| FinalizeStructure --> End
+
+    classDef planningNode fill:#3a86ff,stroke:#1f2937,stroke-width:2px,color:#ffffff,font-size:16px
+    classDef decisionNode fill:#ffd166,stroke:#1f2937,stroke-width:2px,color:#1f2937,font-size:16px
+    classDef organizationNode fill:#43aa8b,stroke:#1f2937,stroke-width:2px,color:#ffffff,font-size:16px
+    classDef verificationNode fill:#f77f00,stroke:#1f2937,stroke-width:2px,color:#ffffff,font-size:16px
+
+    linkStyle default stroke:#6b7280,stroke-width:2px,font-size:16px
+            </div>
+        </div>
+        <div class="info-panel">
+            <h3>Details</h3>
+            <div id="info-display">
+                <p class="info-placeholder">Hover over a node to see details</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const nodeInfo = {
+            Start: {
+                title: 'Chapter Planning Initiated',
+                description: 'Beginning with chapter title, summary, and concept list from book-chapter-generator.'
+            },
+            ReviewDependencies: {
+                title: 'Review Concept Dependencies',
+                description: 'Examine learning graph to identify prerequisite relationships among chapter concepts.'
+            },
+            StructureType: {
+                title: 'Linear or Branching Structure?',
+                description: 'Determine if concepts build linearly or if multiple parallel tracks exist.'
+            },
+            LinearSequence: {
+                title: 'Create Linear Section Sequence',
+                description: 'Order sections from foundational to advanced, one concept building on the previous.'
+            },
+            ParallelTracks: {
+                title: 'Create Parallel Section Tracks',
+                description: 'Group related concepts into parallel sections that can be studied in flexible order.'
+            },
+            AssignConcepts: {
+                title: 'Assign Concepts to Sections',
+                description: 'Map each concept from the concept list to specific chapter sections.'
+            },
+            PlanElements: {
+                title: 'Plan Non-Text Elements',
+                description: 'Identify where diagrams, MicroSims, tables, and other visual elements will enhance learning.'
+            },
+            DependenciesSatisfied: {
+                title: 'All Dependencies Satisfied?',
+                description: "Verify that each section's concepts have their prerequisites covered in earlier sections or previous chapters."
+            },
+            ReorganizeSections: {
+                title: 'Reorganize Sections',
+                description: 'Reorder sections to ensure prerequisite concepts appear first. Returns to dependency check.'
+            },
+            FinalizeStructure: {
+                title: 'Finalize Chapter Structure',
+                description: 'Lock in the section organization and proceed to content generation.'
+            },
+            End: {
+                title: 'Chapter Structure Complete',
+                description: 'Ready for detailed content generation with clear section organization.'
+            }
+        };
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>

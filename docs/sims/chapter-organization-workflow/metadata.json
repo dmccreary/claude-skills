@@ -1,59 +1,59 @@
 {
-  "title": "Chapter Organization Workflow",
-  "description": "Interactive Mermaid visualization for chapter organization workflow",
-  "creator": "Dan McCreary",
-  "date": "2025-11-22",
-  "subject": [
-    "educational technology",
-    "data visualization",
-    "mermaid"
-  ],
-  "type": "Interactive Simulation",
+  "title": "Chapter Organization Workflow Diagram",
+  "description": "Flowchart showing chapter content organization decisions with dependency checks and finalization.",
+  "subject": "Intelligent textbook chapter design workflow",
+  "creator": "Claude AI with Mermaid Generator Skill",
+  "date": "2026-02-14",
+  "type": "Interactive Workflow Diagram",
   "format": "text/html",
   "language": "en-US",
+  "coverage": "Chapter planning and section organization",
   "rights": "CC BY-NC-SA 4.0",
-  "publisher": "Claude Skills Repository",
-  "learningResourceType": "simulation",
-  "audience": "Educators, Developers",
-  "version": "1.0.0",
-  "library": "Mermaid",
-  "visualizationType": [
-    "diagram",
-    "graph",
-    "interactive-demo",
-    "map"
+  "audience": "Educators, instructional designers, curriculum developers",
+  "diagram_type": "flowchart",
+  "direction": "TD",
+  "node_count": 11,
+  "edge_count": 12,
+  "concepts": [
+    "chapter planning",
+    "concept dependencies",
+    "linear structure",
+    "branching structure",
+    "section sequencing",
+    "non-text elements",
+    "dependency verification",
+    "chapter finalization"
   ],
-  "learningObjectives": [
-    "Understand the key concepts of chapter organization workflow",
-    "Explore chapter organization workflow through interactive visualization",
-    "Apply knowledge of chapter organization workflow to solve problems"
-  ],
-  "bloomsTaxonomy": [
-    "Remember",
-    "Apply",
-    "Analyze",
-    "Create"
-  ],
+  "bloom_taxonomy": "Analyze",
+  "library": "mermaid.js",
+  "library_version": "11",
+  "version": "1.2",
+  "educational": {
+    "learningResourceType": "simulation",
+    "interactivityType": "active",
+    "interactivityLevel": "medium",
+    "typicalAgeRange": "15-99",
+    "timeRequired": "PT10M"
+  },
   "pedagogical": {
-    "pattern": "demonstration",
+    "pattern": "workflow analysis",
     "bloomAlignment": [
-      "apply",
+      "understand",
       "analyze",
       "evaluate"
     ],
     "bloomVerbs": [
       "illustrate",
       "examine",
-      "test",
-      "assess",
-      "critique"
+      "verify",
+      "reorganize"
     ],
     "pacing": "self-paced",
-    "supportsPrediction": false,
-    "dataVisibility": "medium",
+    "supportsPrediction": true,
+    "dataVisibility": "high",
     "feedbackType": [
-      "none"
+      "visual"
     ],
-    "interactionStyle": "observe"
+    "interactionStyle": "hover-explore"
   }
 }

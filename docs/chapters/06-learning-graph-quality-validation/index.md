@@ -68,7 +68,6 @@ If the algorithm encounters a gray node during traversal, it has detected a back
 #### Diagram: DAG Validation Algorithm Visualization
 
 <iframe src="../../sims/three-color-dfs/main.html" width="100%" height="700px" scrolling="no"></iframe>
-[Run the Three Color DFS Fullscreen](../../sims/three-color-dfs/main.html)
 
 <details markdown="1">
     <summary>DAG Validation Algorithm Visualization</summary>
@@ -114,6 +113,9 @@ If the algorithm encounters a gray node during traversal, it has detected a back
 3. microsim-p5 (75/100) - Custom interactive visualization possible but requires more development effort
 
 </details>
+
+[Run the Three Color DFS Fullscreen](../../sims/three-color-dfs/main.html)
+
 
 ### Circular Dependency Detection
 
@@ -169,8 +171,10 @@ An **orphaned node** is a concept that no other concept depends upon—it has an
 - Missing their dependent concepts due to incomplete graph construction
 
 A well-designed learning graph typically has 5-10% orphaned nodes, representing culminating concepts and specialized topics. If more than 20% of your concepts are orphaned, review them to determine whether they should be connected to later material or removed from the graph entirely.
-
 #### Diagram: Orphaned Nodes Identification Chart
+
+<iframe src="../../sims/orphaned-nodes-identification/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Orphaned Nodes Identification Chart</summary>
@@ -245,8 +249,10 @@ def is_linear_chain_node(concept):
 ```
 
 Quality learning graphs typically have 20-40% of concepts in linear chains, with the remainder providing branching paths and concept integration points. If more than 60% of concepts form linear chains, consider adding cross-dependencies to create a richer learning network.
-
 #### Diagram: Linear Chain vs Network Structure Comparison
+
+<iframe src="../../sims/linear-chain-vs-network/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Linear Chain vs Network Structure Comparison</summary>
@@ -336,8 +342,10 @@ For educational learning graphs, empirical research suggests optimal ranges:
 - **>5.0:** May indicate over-specification of prerequisites
 
 The `analyze-graph.py` script calculates this metric and flags values outside the recommended 2.0-4.5 range. Graphs with average dependencies below 2.0 may be too linear, while those above 5.0 may impose unrealistic prerequisite burdens on learners.
-
 #### Diagram: Average Dependencies Distribution Bar Chart
+
+<iframe src="../../sims/average-dependencies-distribution/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Average Dependencies Distribution Bar Chart</summary>
@@ -442,8 +450,11 @@ Interpretation of quality scores:
 | 0-39 | Critical | Major revision required |
 
 The quality score should be calculated after every significant graph revision. Track scores over time to ensure your changes improve rather than degrade graph quality.
-
 #### Diagram: Learning Graph Quality Score Calculator MicroSim
+
+<iframe src="../../sims/learning-graph-quality-score-calculator-microsim/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Learning Graph Quality Score Calculator MicroSim</summary>
@@ -567,8 +578,10 @@ Healthy category distributions typically exhibit:
 - **Foundational category: 5-10% of concepts:** Appropriate base layer
 
 The `taxonomy-distribution.py` script generates a detailed report showing both absolute counts and percentages for each category, enabling quick identification of imbalanced distributions.
-
 #### Diagram: Taxonomy Distribution Pie Chart
+
+<iframe src="../../sims/taxonomy-distribution-pie/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Taxonomy Distribution Pie Chart</summary>

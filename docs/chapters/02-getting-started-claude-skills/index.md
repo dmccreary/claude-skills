@@ -110,6 +110,9 @@ The separation of metadata (YAML frontmatter) from workflow instructions (markdo
 
 #### Diagram: Skill File Anatomy Diagram
 
+<iframe src="../../sims/skill-file-anatomy-diagram/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details markdown="1">
     <summary>Skill File Anatomy Diagram</summary>
     Type: diagram
@@ -286,8 +289,10 @@ the project home of your cloned git repository.
 !!! warning
     Avoid starting Claude in your $HOME directory with these rules.  This will give Claude the ability to
     to change all of your files and if they are not in git, there is no ability to undo these changes!
-
 #### Diagram: Skill Permission Matrix
+
+<iframe src="../../sims/skill-permission-matrix/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Skill Permission Matrix</summary>
@@ -422,8 +427,10 @@ ls -la .claude/skills/
 ```
 
 Project-local skills take precedence over global skills with the same name, enabling project-specific customization of standard workflows.
-
 #### Diagram: Skill Installation Locations and Priority
+
+<iframe src="../../sims/skill-installation-locations-and-priority/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Skill Installation Locations and Priority</summary>
@@ -549,8 +556,10 @@ Generate chapter content for junior-high reading level with emphasis on concrete
 ```
 
 The skill receives both the general instruction and executes its standard workflow, incorporating the contextual guidance where applicable.
-
 #### Diagram: Skill Invocation and Execution Lifecycle
+
+<iframe src="../../sims/skill-invocation-and-execution-lifecycle/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Skill Invocation and Execution Lifecycle</summary>
@@ -703,8 +712,10 @@ The fundamental distinction between skills and commands lies in autonomy and com
 - Quick shortcuts for common questions
 
 In this course, the intelligent textbook workflow relies primarily on skills due to the complexity and multi-step nature of content generation. Commands might be used for auxiliary tasks like "check-concept-coverage" or "validate-markdown-format."
-
 #### Diagram: Skills vs Commands Decision Tree
+
+<iframe src="../../sims/skills-vs-commands-decision-tree/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Skills vs Commands Decision Tree</summary>
@@ -754,7 +765,7 @@ In this course, the intelligent textbook workflow relies primarily on skills due
 
 ## Token Management Strategies
 
-Effective use of Claude requires understanding and managing token consumption. Claude Pro accounts provide generous but finite token budgets within 4-hour usage windows, making token management essential for sustained productivity on textbook projects.
+Effective use of Claude requires understanding and managing token consumption. Claude Pro accounts provide generous but finite token budgets within 5-hour usage windows, making token management essential for sustained productivity on textbook projects.
 
 ### Understanding Tokens
 
@@ -778,9 +789,9 @@ Claude Code uses the Sonnet or Opus models depending on task complexity. As of 2
 
 These generous limits enable Claude to process entire textbook chapters, comprehensive learning graphs, and extensive reference materials in a single context. However, the cumulative token consumption across an entire session must be managed within Claude Pro usage limits.
 
-### 4-Hour Usage Windows
+### 5-Hour Usage Windows
 
-Claude Pro accounts operate on a rolling 4-hour usage window model. Rather than a daily reset, your available capacity regenerates continuously based on when tokens were consumed.
+Claude Pro accounts operate on a rolling 5-hour usage window model. Rather than a daily reset, your available capacity regenerates continuously based on when tokens were consumed.
 
 How it works:
 
@@ -792,11 +803,13 @@ How it works:
 Example: If you consume 50,000 tokens at 9:00 AM, those tokens remain unavailable until 1:00 PM (4 hours later), when they're restored to your budget.
 
 This model rewards distributed work patterns over concentrated bursts. For textbook creation workflows that may involve generating content for 13 chapters, spreading skill invocations across several sessions prevents exhausting your token budget.
+#### Diagram: 5-Hour Token Window Visualization
 
-#### Diagram: 4-Hour Token Window Visualization
+<iframe src="../../sims/5-hour-token-window-visualization/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
-    <summary>4-Hour Token Window Visualization</summary>
+    <summary>5-Hour Token Window Visualization</summary>
     Type: timeline
 
     Purpose: Show how token usage and regeneration works over time
@@ -817,14 +830,14 @@ This model rewards distributed work patterns over concentrated bursts. For textb
     Visual elements:
     - Timeline showing activity times
     - Stacked bar chart below showing available vs consumed tokens at each time point
-    - Rolling 4-hour window indicator
+    - Rolling 5-hour window indicator
     - Annotations showing "Tokens consumed" and "Tokens restored"
 
     Color coding:
     - Blue: Available token budget
     - Orange: Consumed tokens
     - Green: Restored tokens
-    - Gray: 4-hour restoration window
+    - Gray: 5-hour restoration window
 
     Interactive features:
     - Hover over timeline events to see token amounts
@@ -862,7 +875,7 @@ When chapter content needs adjustment, use targeted edits rather than regenerati
 
 **Strategy 5: Monitor usage patterns**
 
-Track which skills consume the most tokens (typically learning-graph-generator and chapter-content-generator for large textbooks). Plan sessions to stay within 4-hour windows for these heavy operations.
+Track which skills consume the most tokens (typically learning-graph-generator and chapter-content-generator for large textbooks). Plan sessions to stay within 5-hour windows for these heavy operations.
 
 **Strategy 6: Use appropriate model variants**
 
@@ -927,8 +940,10 @@ Over 3-5 iterations, prompts typically converge to consistent, high-quality outp
 - Generated content requires minimal post-processing
 
 Converged prompts can be captured as skills or commands for reuse across projects, sharing expertise and accelerating future textbook development.
-
 #### Diagram: Iterative Prompt Refinement Metrics
+
+<iframe src="../../sims/iterative-prompt-refinement-metrics/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Iterative Prompt Refinement Metrics</summary>
@@ -978,7 +993,7 @@ This chapter introduced the Claude Skills system as the foundation for automatin
 
 You learned practical techniques for installing skills globally or project-locally, listing available skills through slash commands and scripts, and invoking skills within Claude Code sessions. We examined the skill execution lifecycle and how skills access context, make autonomous decisions, and produce structured outputs.
 
-Finally, we addressed token management strategies essential for sustained productivity within Claude Pro's 4-hour usage windows and explored iterative prompt refinement techniques for systematically improving educational content generation quality. These capabilities form the foundation for the educational framework and learning graph concepts introduced in subsequent chapters.
+Finally, we addressed token management strategies essential for sustained productivity within Claude Pro's 5-hour usage windows and explored iterative prompt refinement techniques for systematically improving educational content generation quality. These capabilities form the foundation for the educational framework and learning graph concepts introduced in subsequent chapters.
 
 **Concepts covered:** Claude Skill ✓, Skill Definition File Structure ✓, YAML Frontmatter in Skills ✓, Skill Name and Description ✓, Skill License Information ✓, Allowed Tools in Skills ✓, Skill Workflow Instructions ✓, Installing a Claude Skill ✓, Listing Available Skills ✓, Invoking Skills with Slash Commands ✓, Skill Execution Context ✓, Claude Command ✓, Command Definition Files ✓, Installing Claude Commands ✓, Difference Between Skills & Commands ✓, Iterative Prompt Refinement ✓, Claude Token Limits ✓, Token Management Strategies ✓
 

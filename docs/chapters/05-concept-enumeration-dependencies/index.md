@@ -60,6 +60,10 @@ For AI-assisted enumeration via the learning-graph-generator skill, the course d
 
 #### Diagram: Topic-to-Concept Expansion Process
 
+<iframe src="../../sims/topic-to-concept-expansion-process/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
+
 <details markdown="1">
     <summary>Topic-to-Concept Expansion Process</summary>
     Type: workflow
@@ -150,8 +154,11 @@ The target of approximately 200 concepts for a semester-length course derives fr
 - **Year-long courses:** Target 350-450 concepts (split into 2 semester graphs)
 
 The learning-graph-generator skill defaults to 200 concepts but accepts guidance in the course description. A statement like "This is an intensive 6-week boot camp" signals to generate ~100 concepts; "This is a comprehensive two-semester sequence" signals ~400 concepts split into multiple graphs.
-
 #### Diagram: Concept Count by Course Duration
+
+<iframe src="../../sims/concept-count-by-course-duration/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Concept Count by Course Duration</summary>
@@ -211,8 +218,11 @@ Concept labels serve as human-readable identifiers appearing in learning graphs,
 **Acronym handling:** For well-known acronyms, include both expansion and acronym on first use, acronym only thereafter. "Directed Acyclic Graph (DAG)" for first mention, "DAG Properties" for subsequent concepts.
 
 **Avoid gerunds in favor of noun forms:** "Concept Enumeration" rather than "Enumerating Concepts"; "Dependency Mapping" rather than "Mapping Dependencies." This aligns with knowledge domain nomenclature conventions.
-
 #### Diagram: Concept Label Quality Checklist
+
+<iframe src="../../sims/concept-label-quality-checklist/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Concept Label Quality Checklist</summary>
@@ -313,8 +323,11 @@ The 32-character constraint balances information density with usability across c
 **Split overly broad concepts:** If a label exceeds 32 characters, the concept may not be sufficiently atomic. Consider splitting: "Learning Graph Generation Process and Quality Validation" (56 chars) becomes two concepts: "Learning Graph Generation" + "Learning Graph Quality Validation."
 
 The character count includes all letters, spaces, punctuation, and symbols. "Bloom's Taxonomy (2001)" counts as 23 characters including spaces and parentheses.
-
 #### Diagram: Concept Label Length Optimization
+
+<iframe src="../../sims/concept-label-length-optimization/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Concept Label Length Optimization</summary>
@@ -372,8 +385,11 @@ Concept granularity—the level of detail and scope at which concepts are define
 **Terminology test:** Is this concept referenced in domain literature using this specific term? Domain-standard concepts have appropriate granularity; ad-hoc invented concepts may be too fine.
 
 Achieving consistent granularity across 200 concepts requires iterative refinement. The learning-graph-generator produces initial concepts at mixed granularity; manual review identifies and resolves granularity mismatches before finalizing the graph.
-
 #### Diagram: Concept Granularity Spectrum Visualization
+
+<iframe src="../../sims/concept-granularity-spectrum-visualization/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Concept Granularity Spectrum Visualization</summary>
@@ -493,8 +509,11 @@ Repeat until DAG constraint satisfied.
 Review edge set to ensure all dependencies represent true prerequisites, not merely "helpful background." Weak dependencies should be omitted unless they significantly aid learning.
 
 The learning-graph-generator skill automates much of this process using LLM reasoning about concept relationships, but manual review typically identifies 10-20% of dependencies requiring adjustment—either missing edges (under-specification) or spurious edges (over-specification).
-
 #### Diagram: Dependency Mapping Workflow
+
+<iframe src="../../sims/dependency-mapping-workflow/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Dependency Mapping Workflow</summary>
@@ -637,8 +656,11 @@ When manually editing CSV files to add or modify dependencies:
 2. Add to Dependencies field using pipe delimiter if multiple
 3. Verify all referenced IDs exist
 4. Run validation script to check for cycles before proceeding
-
 #### Diagram: CSV File Format Example with Validation
+
+<iframe src="../../sims/csv-file-format-example-with-validation/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>CSV File Format Example with Validation</summary>
@@ -746,8 +768,11 @@ The Dependencies field encodes prerequisite relationships as pipe-delimited Conc
 **Avoid circular dependencies:** Never create cycles like A → B → C → A. DAG constraint must be satisfied.
 
 **Reasonable fan-in:** While no hard limit exists, concepts depending on 5+ prerequisites often indicate overly advanced or insufficiently atomic concepts. Consider splitting.
-
 #### Diagram: ConceptID vs ConceptLabel Comparison
+
+<iframe src="../../sims/conceptid-vs-conceptlabel-comparison/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>ConceptID vs ConceptLabel Comparison</summary>
@@ -854,8 +879,11 @@ Anomalies suggesting quality issues:
 - **Too many advanced concepts (>40%):** Dependencies may be over-specified or concepts insufficiently atomic
 
 The analyze-graph.py script in the learning-graph-generator skill computes these distributions and flags anomalies in the quality report.
-
 #### Diagram: Concept Depth Distribution Analysis
+
+<iframe src="../../sims/concept-depth-distribution-analysis/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Concept Depth Distribution Analysis</summary>

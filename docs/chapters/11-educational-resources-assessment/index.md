@@ -79,6 +79,9 @@ The following table summarizes the question categories and their pedagogical fun
 
 #### Diagram: FAQ Question Pattern Analysis Workflow
 
+<iframe src="../../sims/faq-pattern-analysis/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details markdown="1">
     <summary>FAQ Question Pattern Analysis Workflow</summary>
     Type: workflow
@@ -248,8 +251,11 @@ The following table illustrates distractor categories and their diagnostic funct
 | Overgeneralization | Shows improper concept extension | Student assumes all NoSQL databases behave identically |
 | Underdiscrimination | Indicates insufficient boundary understanding | Student cannot distinguish index-free adjacency from indexed lookup |
 | Procedural Error | Exposes common implementation mistakes | Student confuses BFS and DFS traversal patterns |
-
 #### Diagram: Interactive Quiz Question Constructor MicroSim
+
+<iframe src="../../sims/interactive-quiz-question-constructor-microsim/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Interactive Quiz Question Constructor MicroSim</summary>
@@ -441,8 +447,11 @@ The following table maps Bloom's levels to characteristic question stems and exa
 | Analyze | Differentiate, Organize, Attribute | "Which factors most influence graph query performance?" | 10-15% |
 | Evaluate | Judge, Critique, Assess, Decide | "Which approach is most appropriate for this use case?" | 5-10% |
 | Create | Design, Construct, Plan, Generate | "What would be the optimal graph schema for this scenario?" | 0-5% |
-
 #### Diagram: Bloom's Taxonomy Distribution Analyzer Chart
+
+<iframe src="../../sims/bloom-s-taxonomy-distribution-analyzer-chart/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Bloom's Taxonomy Distribution Analyzer Chart</summary>
@@ -600,8 +609,11 @@ For educators and instructional designers transitioning from primarily GUI-based
 The terminal emulator serves as the window into the command-line world, providing a text interface that interprets keystrokes, displays output, and maintains session state including the current working directory and environment variables. macOS provides Terminal.app by default, while Windows offers Command Prompt and PowerShell (though the Windows Subsystem for Linux provides a more Unix-like experience), and Linux distributions typically include GNOME Terminal or other emulators. Regardless of specific emulator choice, the fundamental interaction pattern remains consistent: type a command, press Enter, observe output, repeat.
 
 A critical distinction between GUI and CLI workflows involves the visibility of state and operations. GUI applications typically show all available options visually, allowing users to discover functionality through exploration. Command-line tools, conversely, assume users know what they want to accomplish and provide the syntax to express it concisely, requiring external documentation or help systems (man pages, --help flags) to discover available functionality. This documentation-dependent model proves efficient for experienced users executing known workflows but demands initial investment in learning command syntax and consulting references.
-
 #### Diagram: Command-Line Interface Basics Interactive Infographic
+
+<iframe src="../../sims/command-line-interface-basics-interactive-infographic/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Command-Line Interface Basics Interactive Infographic</summary>

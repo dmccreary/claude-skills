@@ -17,11 +17,11 @@ This chapter covers the following 15 concepts from the learning graph:
 5. Claude Code Interface
 6. Intelligent Textbook
 7. Five Levels of Textbook Intelligence
-8. Level 1: Static Content
-9. Level 2: Hyperlinked Navigation
-10. Level 3: Interactive Elements
-11. Level 4: Adaptive Content
-12. Level 5: AI Personalization
+8. Level 1: Static Textbooks
+9. Level 2: Interactive Content Textbooks
+10. Level 3: Adaptive Textbooks
+11. Level 4: Textbooks with Chatbots
+12. Level 5: Autonomous AI Textbooks
 13. Prompt Engineering
 14. Prompt Design Principles
 15. Educational Content Prompts
@@ -55,6 +55,9 @@ Explore the complete interactive timeline chronicling 52 pivotal moments in AI h
 
 #### Diagram: Evolution of AI Approaches Timeline
 
+<iframe src="../../sims/evolution-of-ai-approaches-timeline/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details markdown="1">
     <summary>Evolution of AI Approaches Timeline</summary>
 
@@ -86,8 +89,6 @@ Interactive features:
 3. microsim-p5 (Score: 55/100) - Could build custom timeline but timeline-generator already provides optimized solution for this exact use case
 </details>
 
-
-
 ## Large Language Models Overview
 
 Large Language Models (LLMs) represent a specific class of AI systems trained on vast corpora of text data to understand and generate human language. These models utilize transformer architectures with billions of parameters, enabling them to capture complex linguistic patterns, semantic relationships, and contextual dependencies across extended sequences.
@@ -100,8 +101,10 @@ Key characteristics of modern LLMs include:
 - **Few-shot learning:** Ability to adapt to new tasks with minimal examples
 - **Contextual understanding:** Processing contexts spanning thousands of tokens
 - **Emergent capabilities:** Behaviors not explicitly programmed, arising from scale and training
-
 #### Diagram: Transformer Architecture Diagram
+
+<iframe src="../../sims/transformer-architecture-diagram/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Transformer Architecture Diagram</summary>
@@ -178,8 +181,10 @@ The Claude Code interface provides several capabilities critical for intelligent
 - **Multi-step workflows:** Execute complex sequences of operations autonomously
 
 To access Claude Code, users require an **Anthropic Claude Pro account**, which provides enhanced usage limits, priority access during high-demand periods, and access to the latest model versions. The Pro subscription operates on a usage-based model with 4-hour windows, a concept we'll explore in depth in Chapter 4.
-
 #### Diagram: Claude Code Workflow Diagram
+
+<iframe src="../../sims/claude-code-workflow-diagram/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Claude Code Workflow Diagram</summary>
@@ -263,51 +268,38 @@ For professional development contexts—such as this course on creating intellig
 
 ## Five Levels of Textbook Intelligence
 
-The evolution of textbooks from static content to AI-powered personalization can be conceptualized as a progression through five distinct levels of intelligence, each building on the capabilities of the previous tier.
+This chapter uses the canonical five-level model defined in the Book Levels MicroSim.
 
-### Level 1: Static Content
+<iframe src="../../sims/book-levels/main.html" width="100%" height="500px" scrolling="no"></iframe>
 
-Level 1 textbooks consist of fixed content identical for all learners. This includes traditional printed books and basic PDFs with no interactive elements. Content is linear, non-adaptive, and requires supplementary resources for assessment and practice.
+[Run the Book Levels MicroSim Fullscreen](../../sims/book-levels/main.html){ .md-button .md-button--primary }
 
-Characteristics of Level 1 textbooks:
+### Level 1: Static Textbooks
+
+Level 1 textbooks provide fixed content for all learners. This includes printed books and static PDFs with no built-in adaptation.
+
+Key characteristics:
 
 - Fixed text and images
-- Linear reading sequence
-- No user interaction beyond page turning
-- Assessment separate from content
-- One-size-fits-all presentation
+- Linear reading flow
+- No embedded interactivity
+- No learner-specific personalization
 
-While limited in capability, Level 1 textbooks excel in certain contexts: they're reliably accessible without technology, can be annotated physically, and provide a definitive reference unaffected by software changes or platform dependencies.
+### Level 2: Interactive Content Textbooks
 
-### Level 2: Hyperlinked Navigation
+Level 2 textbooks add interactive digital features while still delivering mostly shared content across learners.
 
-Level 2 textbooks introduce hyperlinks, table of contents navigation, search functionality, and internal cross-references. This is the baseline for modern digital textbooks built with platforms like MkDocs, Sphinx, or Docusaurus.
+Common features:
 
-Key features include:
-
-- Internal hyperlinks between chapters and sections
-- Glossary terms linked to definitions
-- Searchable full-text content
-- Multi-level table of contents
-- External links to supplementary resources
-
-The MkDocs Material theme—used throughout this course—provides an excellent Level 2 foundation with navigation, search, and responsive design. All textbooks created using the skills in this course achieve at minimum Level 2 intelligence.
-
-### Level 3: Interactive Elements
-
-Level 3 textbooks incorporate interactive visualizations, simulations, and self-assessment tools directly embedded in the content. Learners can manipulate parameters, explore scenarios, and receive immediate feedback.
-
-Interactive elements at Level 3 include:
-
-- **MicroSims:** p5.js-based simulations demonstrating dynamic concepts
-- **Interactive infographics:** Clickable concept maps with progressive disclosure
-- **Self-grading quizzes:** Multiple-choice and short-answer assessments with instant feedback
-- **Code playgrounds:** Executable code snippets learners can modify and run
-- **Interactive diagrams:** Filterable network graphs, zoomable architectures
-
-This course emphasizes creating Level 3 textbooks through skills like `microsim-p5`, `quiz-generator`, and specifications for interactive infographics in chapter content.
+- Hyperlinks, table of contents, and search
+- Embedded media and visual elements
+- Lightweight quizzes and interactive components
+- MicroSims and clickable diagrams
 
 #### Diagram: Interactive Learning Element Types Comparison
+
+<iframe src="../../sims/interactive-learning-element-types-comparison/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Interactive Learning Element Types Comparison</summary>
@@ -349,92 +341,49 @@ This course emphasizes creating Level 3 textbooks through skills like `microsim-
 3. microsim-p5 (Score: 50/100) - Could create custom bar chart but Chart.js already provides professional bar charts
 </details>
 
-### Level 4: Adaptive Content
+### Level 3: Adaptive Textbooks
 
-Level 4 textbooks dynamically adjust content presentation based on learner behavior, assessment results, and progress tracking. The system identifies knowledge gaps and modifies the learning pathway accordingly.
+Level 3 textbooks dynamically adjust pathways, pacing, or support based on learner performance and behavior signals.
 
-Adaptive mechanisms include:
+Typical capabilities:
 
-- **Prerequisite checking:** Assessing whether learner has mastered required concepts before presenting advanced material
-- **Difficulty adjustment:** Modifying example complexity based on learner performance
-- **Remedial content insertion:** Providing additional explanations when assessments indicate confusion
-- **Learning pathway optimization:** Reordering content based on demonstrated strengths and weaknesses
-- **Pace adaptation:** Allowing learners to skip mastered content or spend additional time on challenging topics
+- Prerequisite-aware progression
+- Difficulty and pacing adjustment
+- Data-informed next-step recommendations
+- Personalized pathway selection
 
-Implementing Level 4 intelligence typically requires learning management system (LMS) integration, learner profiles, and assessment databases—beyond the scope of this course but representing the next evolution in intelligent textbook development.
+### Level 4: Textbooks with Chatbots
 
-### Level 5: AI Personalization
+Level 4 textbooks integrate conversational assistants to provide contextual, on-demand help while learners study.
 
-Level 5 textbooks leverage AI to generate personalized content, provide conversational tutoring, and offer real-time assistance adapted to individual learner context. This represents the frontier of intelligent textbook development.
+Typical capabilities:
 
-AI personalization capabilities include:
+- Chat-based question answering
+- Conversational tutoring interactions
+- Clarification and re-explanation in context
+- Guided exploration prompts
 
-- **Generative explanations:** AI creates custom explanations tailored to learner's background and question
-- **Conversational tutoring:** Chatbot interface answering questions and guiding discovery
-- **Example generation:** Creating practice problems matched to learner's current skill level
-- **Learning style adaptation:** Adjusting modality (visual, verbal, kinesthetic) based on effectiveness
-- **Predictive intervention:** Identifying learners at risk of falling behind and proactively offering support
+### Level 5: Autonomous AI Textbooks
 
-While Level 5 systems remain largely experimental in 2025, the skills framework in this course positions learners to integrate AI capabilities as they mature. The FAQ generator skill, for instance, creates question-answer pairs that can seed AI tutoring agents, bridging toward Level 5 functionality.
+Level 5 represents future autonomous systems that continuously personalize learning experiences with minimal manual intervention.
 
-#### Diagram: Five Levels of Textbook Intelligence Visual Model
+Expected capabilities:
 
-<details markdown="1">
-    <summary>Five Levels of Textbook Intelligence Visual Model</summary>
-    Type: diagram
+- Deep learner modeling
+- Real-time generation of individualized content paths
+- Proactive interventions
+- Continuous optimization of instruction
 
-    Purpose: Illustrate the progression from static to AI-powered textbooks with cumulative capabilities
+### Privacy Considerations Across Levels
 
-    Components to show:
-    - Five stacked layers (pyramid or staircase visualization)
-    - Each level labeled and color-coded
-    - Key capabilities listed for each level
-    - Arrows showing that higher levels include all capabilities of lower levels
-    - Current course focus highlighted
+As textbooks move from Level 1 to Level 5, data collection and privacy risk increase:
 
-    Levels (bottom to top):
-    1. Level 1: Static Content (Red)
-       - Fixed text and images
-       - Linear reading
+- **Level 1-2:** Minimal learner-specific data collection
+- **Level 3:** Performance and behavior data used for adaptation
+- **Level 4:** Conversation logs may include sensitive learner context
+- **Level 5:** Would require comprehensive learner profiling
 
-    2. Level 2: Hyperlinked Navigation (Orange)
-       - Internal links, TOC
-       - Search functionality
-       - Includes all Level 1 capabilities
-
-    3. Level 3: Interactive Elements (Yellow)
-       - MicroSims, quizzes
-       - Interactive visualizations
-       - Includes all Level 1-2 capabilities
-
-    4. Level 4: Adaptive Content (Green)
-       - Prerequisite checking
-       - Personalized pathways
-       - Includes all Level 1-3 capabilities
-
-    5. Level 5: AI Personalization (Purple)
-       - Generative explanations
-       - Conversational tutoring
-       - Includes all Level 1-4 capabilities
-
-    Annotations:
-    - Highlight Level 2-3 with border: "This course focuses here"
-    - Arrow pointing up: "Increasing intelligence and personalization"
-    - Side note: "Higher levels include all capabilities of lower levels"
-
-    Visual style: Stacked pyramid or staircase diagram
-
-    Color scheme: Rainbow gradient from red (Level 1) to purple (Level 5)
-
-    Implementation: SVG diagram with clean geometric shapes
-
----
-**MicroSim Generator Recommendations:**
-
-1. microsim-p5 (Score: 85/100) - Best for custom pyramid/staircase visualization with cumulative capabilities shown, allows creative geometric shapes and gradients
-2. mermaid-generator (Score: 70/100) - Could use block diagram or flowchart to show hierarchical levels but lacks pyramid/staircase styling
-3. chartjs-generator (Score: 40/100) - Could use stacked bar chart but doesn't capture pyramid metaphor effectively
-</details>
+Any implementation beyond Level 2 should include explicit consent, data-minimization, and strong privacy protections.
 
 ## Prompt Engineering Fundamentals
 
@@ -473,8 +422,10 @@ Initial prompts rarely achieve optimal results. Expert prompt engineers treat pr
 **Principle 5: Separate generation from evaluation**
 
 Rather than attempting to generate perfect content in a single step, sophisticated workflows separate content generation from quality assessment. Generate draft content, run quality checks (completeness, concept coverage, reading level), and refine based on evaluation results.
-
 #### Diagram: Prompt Engineering Iterative Refinement Workflow
+
+<iframe src="../../sims/prompt-engineering-iterative-refinement-workflow/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Prompt Engineering Iterative Refinement Workflow</summary>
@@ -564,7 +515,7 @@ You learned about Anthropic's approach to AI development through constitutional 
 
 Finally, we examined prompt engineering fundamentals, exploring how explicit learning objectives, comprehensive context, structural specifications, and iterative refinement enable effective educational content generation. The principles and frameworks introduced here form the foundation for all subsequent chapters as you learn to leverage Claude Skills for creating comprehensive, interactive intelligent textbooks.
 
-**Concepts covered:** Artificial Intelligence ✓, Claude AI ✓, Large Language Models Overview ✓, Anthropic Claude Pro Account ✓, Claude Code Interface ✓, Intelligent Textbook ✓, Five Levels of Textbook Intelligence ✓, Level 1: Static Content ✓, Level 2: Hyperlinked Navigation ✓, Level 3: Interactive Elements ✓, Level 4: Adaptive Content ✓, Level 5: AI Personalization ✓, Prompt Engineering ✓, Prompt Design Principles ✓, Educational Content Prompts ✓
+**Concepts covered:** Artificial Intelligence ✓, Claude AI ✓, Large Language Models Overview ✓, Anthropic Claude Pro Account ✓, Claude Code Interface ✓, Intelligent Textbook ✓, Five Levels of Textbook Intelligence ✓, Level 1: Static Textbooks ✓, Level 2: Interactive Content Textbooks ✓, Level 3: Adaptive Textbooks ✓, Level 4: Textbooks with Chatbots ✓, Level 5: Autonomous AI Textbooks ✓, Prompt Engineering ✓, Prompt Design Principles ✓, Educational Content Prompts ✓
 
 ## References
 

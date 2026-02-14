@@ -14,43 +14,43 @@ nav:
 
   - Chapters:
     - Overview: chapters/index.md
-    - Chapter 1 - Introduction to AI and Intelligent Textbooks:
+    - 1 - Introduction to AI and Intelligent Textbooks:
       - Content: chapters/01-intro-ai-intelligent-textbooks/index.md
       - Quiz: chapters/01-intro-ai-intelligent-textbooks/quiz.md
-    - Chapter 2 - Getting Started with Claude and Skills:
+    - 2 - Getting Started with Claude and Skills:
       - Content: chapters/02-getting-started-claude-skills/index.md
       - Quiz: chapters/02-getting-started-claude-skills/quiz.md
-    - Chapter 3 - Course Design and Educational Theory:
+    - 3 - Course Design and Educational Theory:
       - Content: chapters/03-course-design-educational-theory/index.md
       - Quiz: chapters/03-course-design-educational-theory/quiz.md
-    - Chapter 4 - Introduction to Learning Graphs:
+    - 4 - Introduction to Learning Graphs:
       - Content: chapters/04-intro-learning-graphs/index.md
       - Quiz: chapters/04-intro-learning-graphs/quiz.md
-    - Chapter 5 - Concept Enumeration and Dependencies:
+    - 5 - Concept Enumeration and Dependencies:
       - Content: chapters/05-concept-enumeration-dependencies/index.md
       - Quiz: chapters/05-concept-enumeration-dependencies/quiz.md
-    - Chapter 6 - Learning Graph Quality and Validation:
+    - 6 - Learning Graph Quality and Validation:
       - Content: chapters/06-learning-graph-quality-validation/index.md
       - Quiz: chapters/06-learning-graph-quality-validation/quiz.md
-    - Chapter 7 - Taxonomy and Data Formats:
+    - 7 - Taxonomy and Data Formats:
       - Content: chapters/07-taxonomy-data-formats/index.md
       - Quiz: chapters/07-taxonomy-data-formats/quiz.md
-    - Chapter 8 - MkDocs Platform and Documentation:
+    - 8 - MkDocs Platform and Documentation:
       - Content: chapters/08-mkdocs-platform-documentation/index.md
       - Quiz: chapters/08-mkdocs-platform-documentation/quiz.md
-    - Chapter 9 - Claude Skills Architecture and Development:
+    - 9 - Claude Skills Architecture and Development:
       - Content: chapters/09-claude-skills-architecture-development/index.md
       - Quiz: chapters/09-claude-skills-architecture-development/quiz.md
-    - Chapter 10 - Content Creation Workflows:
+    - 10 - Content Creation Workflows:
       - Content: chapters/10-content-creation-workflows/index.md
       - Quiz: chapters/10-content-creation-workflows/quiz.md
-    - Chapter 11 - Educational Resources and Assessment:
+    - 11 - Educational Resources and Assessment:
       - Content: chapters/11-educational-resources-assessment/index.md
       - Quiz: chapters/11-educational-resources-assessment/quiz.md
-    - Chapter 12 - Interactive Elements and MicroSims:
+    - 12 - Interactive Elements and MicroSims:
       - Content: chapters/12-interactive-elements-microsims/index.md
       - Quiz: chapters/12-interactive-elements-microsims/quiz.md
-    - Chapter 13 - Development Tools, Version Control, and Deployment:
+    - 13 - Development Tools, Version Control, and Deployment:
       - Content: chapters/13-dev-tools-version-control-deployment/index.md
       - Quiz: chapters/13-dev-tools-version-control-deployment/quiz.md
     - 17. Parallel Execution:
@@ -109,9 +109,9 @@ nav:
     - Book Build Workflow: sims/book-build-workflow/index.md
     - Book Levels: sims/book-levels/index.md
     - Certificate Generator: sims/certificate-generator/index.md
-    - Chapter Content Generation Timeline: sims/chapter-content-generation-timeline/index.md
-    - Chapter Index Structure: sims/chapter-index-structure/index.md
-    - Chapter Organization Workflow: sims/chapter-organization-workflow/index.md
+    - Content Generation Timeline: sims/chapter-content-generation-timeline/index.md
+    - Index Structure: sims/chapter-index-structure/index.md
+    - Organization Workflow: sims/chapter-organization-workflow/index.md
     - Claude Code Memory Layers: sims/claude-code-memory-layers/index.md
     - Claude Code Timeline: sims/claude-code-timeline/index.md
     - Claude Code T-Shirt Design: sims/claude-code-tshirt-design/index.md
@@ -155,7 +155,7 @@ nav:
     - Progress Report: learning-graph/progress.md
     - Usage Limits: claude-usage-limits.md
     - Book Metrics: learning-graph/book-metrics.md
-    - Chapter Metrics: learning-graph/chapter-metrics.md
+    - Metrics: learning-graph/chapter-metrics.md
     - Diagram Table: learning-graph/diagram-table.md
     - Diagram Details: learning-graph/diagram-details.md
     - MicroSim Quality Report: learning-graph/microsim-quality-report.md
@@ -165,7 +165,7 @@ nav:
     - Run the Course Description Skill: prompts/course-description-skill.md
     - Run the References Generator Skill: prompts/references-generator-skill.md
     - Book Chapter Generator: prompts/book-chapter-generator-skill.md
-    - Chapter Generator: prompts/chapter-content-generator.md
+    - Generator: prompts/chapter-content-generator.md
     - prompts/create-mermaid-generator-skill.md
     - prompts/run-glossary-generator-skill.md
     - prompts/venn-diagram-skill-generator.md

@@ -100,6 +100,9 @@ The script prompts for taxonomy rules (keyword → TaxonomyID mappings) and appl
 
 #### Diagram: Adding Taxonomy to CSV Workflow Diagram
 
+<iframe src="../../sims/adding-taxonomy-workflow/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details markdown="1">
     <summary>Adding Taxonomy to CSV Workflow Diagram</summary>
     Type: workflow
@@ -206,8 +209,10 @@ The learning graph JSON schema specifies:
 - Metadata fields should follow Dublin Core standards (covered in next section)
 
 The `csv-to-json.py` script implements this schema validation automatically, rejecting CSV data that would produce invalid JSON and providing detailed error messages for corrections.
-
 #### Diagram: Learning Graph JSON Schema Diagram
+
+<iframe src="../../sims/learning-graph-json-schema/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Learning Graph JSON Schema Diagram</summary>
@@ -396,8 +401,11 @@ Example edges section:
 The edges array defines the directed acyclic graph structure. vis-network renders these as arrows pointing from prerequisite to dependent concepts, creating the visual flow of the learning progression.
 
 For a 200-concept learning graph with an average of 3 dependencies per concept, expect approximately 600 edge objects in this array.
-
 #### Diagram: CSV to JSON Conversion Mapping Diagram
+
+<iframe src="../../sims/csv-to-json-conversion-mapping-diagram/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>CSV to JSON Conversion Mapping Diagram</summary>
@@ -623,8 +631,11 @@ Clear licensing enables:
 - Legal sharing and remixing
 - Inclusion in open educational resource repositories
 - Compliance with institutional policies
-
 #### Diagram: Dublin Core Metadata Field Reference Card
+
+<iframe src="../../sims/dublin-core-metadata-field-reference-card/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Dublin Core Metadata Field Reference Card</summary>
@@ -770,8 +781,11 @@ Relative Luminance = 0.2126 * R + 0.7152 * G + 0.0722 * B
 ```
 
 If luminance > 0.5, use black text; otherwise, use white text.
-
 #### Diagram: Color Accessibility Checker MicroSim
+
+<iframe src="../../sims/color-accessibility-checker-microsim/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Color Accessibility Checker MicroSim</summary>
@@ -1059,8 +1073,11 @@ output = {
 with open(output_file, 'w') as f:
     json.dump(output, f, indent=2)
 ```
-
 #### Diagram: Python Learning Graph Processing Pipeline
+
+<iframe src="../../sims/python-learning-graph-processing-pipeline/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Python Learning Graph Processing Pipeline</summary>

@@ -77,6 +77,9 @@ MkDocs operates through a simple command-line interface with three primary comma
 
 #### Diagram: MkDocs Build Process Workflow Diagram
 
+<iframe src="../../sims/mkdocs-build-process/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details markdown="1">
     <summary>MkDocs Build Process Workflow Diagram</summary>
     Type: workflow
@@ -141,8 +144,11 @@ The Material theme extends MkDocs with powerful additional capabilities through 
 - **Social cards**: Automatically generated preview images for social media sharing
 
 The theme's configuration system allows extensive customization while maintaining sensible defaults for rapid deployment. Color palettes can be customized to match institutional branding, fonts can be selected from Google Fonts or custom sources, and page layouts can be adjusted to emphasize different content types. For intelligent textbook development, the Material theme's support for mathematical notation (via MathJax or KaTeX), code syntax highlighting, and complex content hierarchies makes it particularly well-suited for technical educational content.
-
 #### Diagram: Material Theme Features Interactive Comparison
+
+<iframe src="../../sims/material-theme-features-interactive-comparison/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Material Theme Features Interactive Comparison</summary>
@@ -298,8 +304,11 @@ Standard admonition types include several semantic categories:
 - **quote**: Citations or referenced content (gray, quotation marks icon)
 
 The `pymdownx.details` extension adds collapsible admonitions using `???` instead of `!!!`, creating interactive disclosure widgets that can be expanded by clicking. This feature is particularly valuable for optional content, detailed explanations, or supplementary information that some learners may want to skip. Collapsible admonitions help manage content density by hiding details until explicitly requested, preventing overwhelming presentation of information while keeping it accessible for learners who need additional depth.
-
 #### Diagram: Admonition Types Interactive Reference
+
+<iframe src="../../sims/admonition-types-interactive-reference/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Admonition Types Interactive Reference</summary>
@@ -399,8 +408,11 @@ Essential Git commands for documentation workflows include:
 The staging area concept initially confuses new Git users but provides essential flexibility for professional workflows. Rather than committing every change in your working directory, you can stage specific files or even specific lines within files, creating focused commits that represent logical units of work. For textbook development, this means you can edit multiple chapters, then create separate commits for each chapter with descriptive messages, maintaining a clean and understandable project history despite working on multiple files simultaneously.
 
 Git's branching model enables parallel development workflows where different aspects of a textbook can be developed simultaneously without interference. A typical intelligent textbook project might have branches for chapter development, technical editing, graphics creation, and interactive element integration, all proceeding independently until ready to merge into the main branch. This isolation prevents incomplete work from affecting others while preserving the ability to integrate finished work at any time.
-
 #### Diagram: Git Branching and Merging Visualization MicroSim
+
+<iframe src="../../sims/git-branching-and-merging-visualization-microsim/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Git Branching and Merging Visualization MicroSim</summary>
@@ -516,8 +528,10 @@ The deployment workflow for an intelligent textbook follows these steps:
 6. Custom domains can be configured through GitHub Pages settings
 
 GitHub Pages provides CDN-backed hosting with automatic HTTPS encryption, ensuring fast global access to educational content regardless of student location. The integration with Git version control means every published version is tracked, and rolling back to previous versions is trivial. For courses that update content iteratively, this provides students with stable URLs that always reflect the current curriculum while preserving the ability to reference specific historical versions when needed.
-
 #### Diagram: MkDocs GitHub Pages Deployment Workflow
+
+<iframe src="../../sims/mkdocs-github-pages-deployment/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>MkDocs GitHub Pages Deployment Workflow</summary>

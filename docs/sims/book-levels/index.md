@@ -8,7 +8,7 @@ quality_score: 80
 
 # Book Levels MicroSim
 
-<iframe src="main.html" width="100%" height="600px"></iframe>
+<iframe src="main.html" width="100%" height="500px" scrolling="no"></iframe>
 
 
 Use this MicroSim to create an interactive tool to view the five levels of intelligent textbooks.

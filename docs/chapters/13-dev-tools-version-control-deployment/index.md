@@ -70,6 +70,10 @@ The following features are particularly valuable for intelligent textbook develo
 
 #### Diagram: VS Code Interface Layout for Textbook Development
 
+<iframe src="../../sims/vs-code-interface-layout-for-textbook-development/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
+
 <details markdown="1">
     <summary>VS Code Interface Layout for Textbook Development</summary>
     Type: diagram
@@ -239,8 +243,10 @@ A typical intelligent textbook development session might maintain three terminal
 1. **Development server terminal:** Running `mkdocs serve` continuously
 2. **Script execution terminal:** For running Python analysis scripts and skill invocations
 3. **Git operations terminal:** For staging commits and pushing changes
-
 #### Diagram: Terminal Workflow for Textbook Development
+
+<iframe src="../../sims/terminal-workflow-textbook/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Terminal Workflow for Textbook Development</summary>
@@ -530,8 +536,11 @@ Efficient navigation requires understanding project structure and using shortcut
   python analyze-graph.py learning-graph.csv quality-metrics.md
   popd                         # Return to previous location
   ```
-
 #### Diagram: Interactive Directory Navigation Practice MicroSim
+
+<iframe src="../../sims/interactive-directory-navigation-practice-microsim/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Interactive Directory Navigation Practice MicroSim</summary>
@@ -987,8 +996,11 @@ cd scripts
 # Run from anywhere if in PATH
 install-claude-skills.sh
 ```
-
 #### Diagram: Permission Bits Visual Infographic
+
+<iframe src="../../sims/permission-bits-visual-infographic/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Permission Bits Visual Infographic</summary>
@@ -1237,8 +1249,10 @@ ln -sf ~/Documents/textbook-project/skills/glossary-generator ~/.claude/skills/g
 # Ensure original skill directory has correct permissions
 chmod -R 755 ~/Documents/textbook-project/skills/
 ```
-
 #### Diagram: Skill Installation Workflow Diagram
+
+<iframe src="../../sims/skill-installation-workflow/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
     <summary>Skill Installation Workflow Diagram</summary>
