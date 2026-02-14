@@ -55,7 +55,6 @@ The graph structure provides computational tractability—algorithms can verify 
 
 <iframe src="../../sims/learning-graph-structure-visualization/main.html" width="100%" height="600px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Learning Graph Structure Visualization</summary>
@@ -175,7 +174,6 @@ If A → B and B → C, then A is transitively prerequisite to C even without a 
 
 <iframe src="../../sims/dependency-pattern-examples/main.html" width="100%" height="600px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Dependency Pattern Examples</summary>

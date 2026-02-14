@@ -616,6 +616,9 @@ This enables counting and discovery of MicroSims across GitHub using code search
 - Width-responsive design
 - Non-scrolling iframe container
 - Standard height: drawHeight + controlHeight + 2px
+- Prevent scroll hijacking:
+  - Keep chapter iframes non-scrolling: `scrolling="no"`
+  - Do not consume page wheel-scroll by default inside sims (for example, set Leaflet `scrollWheelZoom: false` unless explicitly requested)
 - **Iframe paths MUST always be relative, NEVER absolute:**
   - From a sim's own `index.md`: `<iframe src="main.html" ...>`
   - From chapter files (`docs/chapters/*/index.md`): `<iframe src="../../sims/[sim-name]/main.html" ...>`
@@ -625,6 +628,7 @@ This enables counting and discovery of MicroSims across GitHub using code search
 - [ ] Runs without errors in modern browsers
 - [ ] Responsive to container width
 - [ ] Controls respond immediately
+- [ ] Does not hijack page scrolling when embedded in an iframe
 - [ ] Educational purpose is clear
 - [ ] Code is well-commented
 

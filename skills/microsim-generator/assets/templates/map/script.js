@@ -135,7 +135,8 @@ async function loadGeoJSON() {
 function initializeMap() {
     map = L.map('map', {
         zoomControl: true,
-        scrollWheelZoom: true
+        // Prevent iframe scroll hijacking in chapter pages; enable only if explicitly required.
+        scrollWheelZoom: false
     }).setView(MAP_CONFIG.center, MAP_CONFIG.zoom);
 
     // Add tile layer (OpenStreetMap)

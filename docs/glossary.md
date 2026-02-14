@@ -1044,6 +1044,19 @@ The structure of how content within chapters is divided into logical subsections
 
 **Example:** Sections might include Introduction, Core Concepts, Examples, Practice Exercises, and Summary.
 
+#### Scroll Hijacking
+
+A usability problem where an embedded interactive element (such as an iframe, map, or canvas) captures mouse-wheel or touch-scroll input, preventing normal page scrolling.
+
+**Example:** To prevent iframe scroll hijacking in chapter pages, set the iframe to non-scrolling and disable wheel zoom inside the MicroSim:
+```html
+<iframe src="../../sims/example/main.html" width="100%" height="500px" scrolling="no"></iframe>
+```
+```javascript
+// Inside the MicroSim (e.g., Leaflet)
+L.map('map', { scrollWheelZoom: false });
+```
+
 #### Security in Skill Execution
 
 Safeguards ensuring skills only access authorized files and don't perform unintended or harmful operations.

@@ -12,6 +12,10 @@
  * - Network options (physics, interaction)
  * - Event handlers (click, hover behavior)
  * - View positioning
+ *
+ * Scroll Hijacking Rule:
+ * - When embedded in chapter iframes, do NOT capture mouse-wheel scroll by default.
+ * - Keep zoom/pan disabled unless explicitly enabled for editor mode.
  */
 
 // ===========================================
@@ -46,6 +50,15 @@ let nodeData = [];
 let edgeData = [];
 let nodes, edges, network;
 let selectedNode = null;
+
+// ===========================================
+// INTERACTION POLICY
+// ===========================================
+// Prevent iframe scroll hijacking in normal viewing mode.
+// Enable wheel zoom/pan only when explicitly editing positions.
+const interactionPolicy = {
+    allowZoomInEditorOnly: true
+};
 
 // ===========================================
 // UTILITY FUNCTIONS
@@ -144,7 +157,8 @@ function initializeNetwork() {
         },
         interaction: {
             selectConnectedEdges: false,
-            zoomView: saveEnabled,       // Enable zoom only in save mode
+            // Scroll hijacking prevention: keep wheel zoom off in normal mode.
+            zoomView: saveEnabled && interactionPolicy.allowZoomInEditorOnly,
             dragView: saveEnabled,       // Enable pan only in save mode
             dragNodes: saveEnabled,      // Enable node drag only in save mode
             navigationButtons: saveEnabled,

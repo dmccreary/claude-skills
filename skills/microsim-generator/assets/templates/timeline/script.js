@@ -10,6 +10,14 @@ let timeline;
 let timelineData;
 let allItems = [];
 
+// Scroll Hijacking Rule:
+// Keep wheel/drag timeline navigation disabled when embedded in chapter iframes.
+// Enable only when explicitly requested via ?enable-interaction=true.
+function isInteractionEnabled() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('enable-interaction') === 'true';
+}
+
 // Initialize timeline on page load
 document.addEventListener('DOMContentLoaded', function() {
     loadTimelineData();
@@ -42,6 +50,7 @@ function loadTimelineData() {
             timelineData = new vis.DataSet(allItems);
 
             // Timeline options
+            const interactionEnabled = isInteractionEnabled();
             const options = {
                 width: '100%',
                 height: '400px',
@@ -60,8 +69,8 @@ function loadTimelineData() {
                 stack: true,
                 selectable: true,
                 showCurrentTime: false,
-                moveable: true,
-                zoomable: false,
+                moveable: interactionEnabled,
+                zoomable: interactionEnabled,
                 align: 'center'
             };
 

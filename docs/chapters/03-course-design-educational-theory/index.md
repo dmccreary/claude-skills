@@ -416,7 +416,6 @@ Apply-level content includes worked examples with step-by-step execution, practi
 
 <iframe src="../../sims/lower-order-vs-higher-order-thinking-skills/main.html" width="100%" height="600px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Lower-Order vs Higher-Order Thinking Skills</summary>
@@ -539,7 +538,6 @@ Create-level content provides open-ended challenges, offers frameworks and const
 
 <iframe src="../../sims/bloom-s-taxonomy-application-distribution-in-quality-courses/main.html" width="100%" height="600px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Bloom's Taxonomy Application Distribution in Quality Courses</summary>
@@ -659,7 +657,6 @@ Courses scoring below 70 should be revised before invoking learning-graph-genera
 
 <iframe src="../../sims/course-description-quality-rubric-visualization/main.html" width="100%" height="600px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Course Description Quality Rubric Visualization</summary>
