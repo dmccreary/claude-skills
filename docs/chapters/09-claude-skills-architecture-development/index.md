@@ -176,8 +176,6 @@ Effective testing and debugging practices are essential for developing reliable 
 #### Diagram: Skill Testing Workflow Diagram
 
 <iframe src="../../sims/skill-testing-workflow-diagram/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Skill Testing Workflow Diagram</summary>
@@ -454,9 +452,7 @@ Professional skill packaging ensures users can install, understand, and use skil
 7. **Installation automation** - Include scripts for common installation scenarios
 #### Diagram: Skill Package Contents Checklist
 
-<iframe src="../../sims/skill-package-contents-checklist/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
+<iframe src="../../sims/skill-package-contents-checklist/main.html" width="100%" height="680px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Skill Package Contents Checklist</summary>

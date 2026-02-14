@@ -220,7 +220,6 @@ Concept labels serve as human-readable identifiers appearing in learning graphs,
 
 <iframe src="../../sims/concept-label-quality-checklist/main.html" width="100%" height="600px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Concept Label Quality Checklist</summary>
@@ -325,7 +324,6 @@ The character count includes all letters, spaces, punctuation, and symbols. "Blo
 
 <iframe src="../../sims/concept-label-length-optimization/main.html" width="100%" height="600px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Concept Label Length Optimization</summary>
@@ -387,7 +385,6 @@ Achieving consistent granularity across 200 concepts requires iterative refineme
 
 <iframe src="../../sims/concept-granularity-spectrum-visualization/main.html" width="100%" height="600px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Concept Granularity Spectrum Visualization</summary>
@@ -509,9 +506,8 @@ Review edge set to ensure all dependencies represent true prerequisites, not mer
 The learning-graph-generator skill automates much of this process using LLM reasoning about concept relationships, but manual review typically identifies 10-20% of dependencies requiring adjustment—either missing edges (under-specification) or spurious edges (over-specification).
 #### Diagram: Dependency Mapping Workflow
 
-<iframe src="../../sims/dependency-mapping-workflow/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/dependency-mapping-workflow/main.html" width="100%" height="995px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Dependency Mapping Workflow</summary>
@@ -570,7 +566,7 @@ TODO: Generate Microsim
 
 ## CSV File Format for Learning Graphs
 
-Learning graphs are persisted in CSV (Comma-Separated Values) format, enabling both human readability for manual editing and programmatic processing by validation scripts and visualization tools. The CSV structure follows a standardized schema essential for downstream skill compatibility.
+Learning graphs are persisted in both CSV (Comma-Separated Values) format and a JSON file format, enabling both human readability for manual editing and programmatic processing by validation scripts and visualization tools. The CSV structure follows a standardized schema essential for downstream skill compatibility.
 
 **Required CSV columns:**
 
@@ -607,11 +603,19 @@ ConceptID,ConceptLabel,Dependencies,TaxonomyID
 7,Concept Enumeration Process,5,PROC
 ```
 
+The following is a screen image of viewing the sample above in the Visual Studio Editor with a CSV viewer extension.
+
+![](./graph-csv-sample.jpg)
+
+Note that each column has it's own color.
+
 This format enables:
 - Spreadsheet editing in Excel, Google Sheets, LibreOffice
 - Programmatic parsing with Python pandas, CSV libraries
 - Version control with git (text-based diffing)
 - Conversion to JSON for graph visualization tools
+
+Our skills have python programs that convert CSV into JSON.  So the conversion process is simple.
 
 The learning-graph-generator skill outputs properly formatted CSV; manual editing should preserve the format specification to ensure downstream skills function correctly.
 
@@ -656,9 +660,7 @@ When manually editing CSV files to add or modify dependencies:
 4. Run validation script to check for cycles before proceeding
 #### Diagram: CSV File Format Example with Validation
 
-<iframe src="../../sims/csv-file-format-example-with-validation/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
+<iframe src="../../sims/csv-file-format-example-with-validation/main.html" width="100%" height="560px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>CSV File Format Example with Validation</summary>
@@ -769,8 +771,7 @@ The Dependencies field encodes prerequisite relationships as pipe-delimited Conc
 #### Diagram: ConceptID vs ConceptLabel Comparison
 
 <iframe src="../../sims/conceptid-vs-conceptlabel-comparison/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
+<!-- TODO:study this and figure out why a simple Markdown table might work better -->
 
 <details markdown="1">
     <summary>ConceptID vs ConceptLabel Comparison</summary>
@@ -880,8 +881,6 @@ The analyze-graph.py script in the learning-graph-generator skill computes these
 #### Diagram: Concept Depth Distribution Analysis
 
 <iframe src="../../sims/concept-depth-distribution-analysis/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Concept Depth Distribution Analysis</summary>

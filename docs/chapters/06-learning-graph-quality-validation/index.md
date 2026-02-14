@@ -453,8 +453,6 @@ The quality score should be calculated after every significant graph revision. T
 #### Diagram: Learning Graph Quality Score Calculator MicroSim
 
 <iframe src="../../sims/learning-graph-quality-score-calculator-microsim/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Learning Graph Quality Score Calculator MicroSim</summary>

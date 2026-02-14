@@ -339,9 +339,7 @@ High-quality worked examples share several key characteristics that maximize the
 Effective examples also include progressive complexity, starting with straightforward cases that isolate individual concepts before advancing to integrated examples that require combining multiple concepts. Each example should connect explicitly to the concept it illustrates, with annotations or callouts highlighting where specific principles are being applied. For college-level content, examples should draw from realistic professional contexts that learners are likely to encounter, increasing relevance and motivation.
 #### Diagram: Worked Example: Determining Reading Level from Course Description
 
-<iframe src="../../sims/worked-example-determining-reading-level-from-course-description/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
+<iframe src="../../sims/worked-example-determining-reading-level-from-course-description/main.html" width="100%" height="1020px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Worked Example: Determining Reading Level from Course Description</summary>
@@ -430,9 +428,7 @@ For a chapter on content creation workflows, appropriate exercises might include
 - **Create**: Design a complete content generation workflow for a new educational technology
 #### Diagram: Interactive Exercise Generator MicroSim
 
-<iframe src="../../sims/interactive-exercise-generator-microsim/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
+<iframe src="../../sims/interactive-exercise-generator-microsim/main.html" width="100%" height="740px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Interactive Exercise Generator MicroSim</summary>
@@ -554,9 +550,7 @@ Violations: Circular (uses "learning" and "learn"), includes business rules (men
 This definition is precise (specifies DAG structure), concise (minimal words), distinct (differentiates from other graph types through the prerequisite dependency characteristic), non-circular (doesn't use "learning" in the definition), and free of business rules (describes what it is, not how it's used).
 #### Diagram: ISO 11179 Principles Comparison Table Infographic
 
-<iframe src="../../sims/iso-11179-principles-comparison-table-infographic/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
+<iframe src="../../sims/iso-11179-principles-comparison-table-infographic/main.html" width="100%" height="740px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>ISO 11179 Principles Comparison Table Infographic</summary>

@@ -147,8 +147,6 @@ The theme's configuration system allows extensive customization while maintainin
 #### Diagram: Material Theme Features Interactive Comparison
 
 <iframe src="../../sims/material-theme-features-interactive-comparison/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Material Theme Features Interactive Comparison</summary>
@@ -307,8 +305,6 @@ The `pymdownx.details` extension adds collapsible admonitions using `???` instea
 #### Diagram: Admonition Types Interactive Reference
 
 <iframe src="../../sims/admonition-types-interactive-reference/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Admonition Types Interactive Reference</summary>
@@ -410,9 +406,7 @@ The staging area concept initially confuses new Git users but provides essential
 Git's branching model enables parallel development workflows where different aspects of a textbook can be developed simultaneously without interference. A typical intelligent textbook project might have branches for chapter development, technical editing, graphics creation, and interactive element integration, all proceeding independently until ready to merge into the main branch. This isolation prevents incomplete work from affecting others while preserving the ability to integrate finished work at any time.
 #### Diagram: Git Branching and Merging Visualization MicroSim
 
-<iframe src="../../sims/git-branching-and-merging-visualization-microsim/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
+<iframe src="../../sims/git-branching-and-merging-visualization-microsim/main.html" width="100%" height="660px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Git Branching and Merging Visualization MicroSim</summary>

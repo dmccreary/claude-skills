@@ -41,6 +41,9 @@ docs/sims/[diagram-name]/
 - **Left 2/3 (66.67%)**: Diagram panel with vertical flowchart
 - **Right 1/3 (33.33%)**: Fixed info panel for hover descriptions
 - **Zero margin/padding**: Designed for iframe embedding without wasted space
+- **No internal scroll capture**: Never use `overflow:auto` inside diagram/notes panels
+- **Canvas-first sizing**: Set diagram container height to fit full Mermaid output before tuning iframe
+- **Follow-Y infobox**: Right panel content box should move near mouse Y on node hover (clamped)
 
 ## Default Layout: 2/3 Diagram + 1/3 Info Panel
 
@@ -224,6 +227,7 @@ The default stylesheet provides:
 - Change `.diagram-panel` background color (default: `aliceblue`)
 - Adjust `.info-panel` width for different layouts
 - Modify `.info-title` color to match diagram theme
+- Adjust fixed container heights only after verifying the entire workflow (including bottom branches) is visible
 
 #### 4.3 Create script.js
 
@@ -233,6 +237,7 @@ The script provides:
 - Robust polling to wait for Mermaid rendering
 - Mouse event handlers for node hover
 - Info panel content updates
+- Y-follow positioning for the info card so lower-node details remain visible
 
 **Note:** The `nodeInfo` object must be defined in main.html BEFORE script.js is loaded.
 
@@ -331,6 +336,9 @@ Perform quality checks:
 7. **Tooltip verification**: Confirm every node has a corresponding tooltip entry
 8. **Tooltip font**: Verify tooltip uses `font-family: Arial, Helvetica, sans-serif`
 9. **Iframe compatibility**: Test tooltips work when embedded in an iframe
+10. **No scroll hijacking**: Ensure no `overflow:auto` on diagram/notes containers and no wheel handlers that trap page scroll
+11. **Full-height fit**: Confirm bottom-most nodes/labels/arrows are visible with no clipping
+12. **Y-follow infobox**: Hover low nodes and verify right-side info card repositions near mouse Y and stays in-bounds
 
 **Test the diagram:**
 
@@ -379,40 +387,50 @@ Next steps:
 - Consider creating related diagrams for connected concepts
 ```
 
-## Interactive Tooltips (Required Feature)
+## Interactive Info Panel (Required Feature)
 
-Every Mermaid diagram MUST include interactive hover tooltips. These tooltips provide educational context when users hover over nodes in the workflow, enhancing the learning experience.
+Every Mermaid diagram MUST include interactive hover descriptions. Prefer a right-side info panel/card (not floating tooltip overlays) so content remains readable inside iframes.
 
-### Tooltip HTML Structure
+### Info Panel HTML Structure
 
-Add this tooltip div after the mermaid container:
+Use a right-side panel with an inner card that can move vertically:
 
 ```html
-<div id="tooltip"></div>
+<section id="notes">
+  <h3>Workflow Notes</h3>
+  <div id="panelWrap">
+    <div id="panel">Hover a node for details.</div>
+  </div>
+</section>
 ```
 
-### Tooltip CSS Styling
+### Info Panel CSS Styling (No Scroll Hijacking)
 
-Include this CSS for the tooltip (note the required font-family):
+Use fixed-height containers with no internal scroll capture:
 
 ```css
-#tooltip {
+html, body {
+    overflow: hidden;
+}
+.diagram-panel, .info-panel {
+    overflow: visible; /* never auto/scroll */
+}
+#panelWrap {
+    position: relative;
+    height: 920px; /* adjust after render test */
+}
+#panel {
     position: absolute;
-    background-color: #333;
-    color: #fff;
-    padding: 8px 12px;
+    left: 0;
+    right: 0;
+    top: 8px;
+    background-color: #f8fafc;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+    padding: 10px;
     border-radius: 6px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    max-width: 280px;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.2s;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}
-#tooltip.visible {
-    opacity: 1;
 }
 .node {
     cursor: pointer;
@@ -435,33 +453,36 @@ const tooltips = {
 
 **Important:** Node IDs must match the IDs used in your Mermaid flowchart code (the part before the brackets/parentheses).
 
-### Robust Tooltip Initialization
+### Robust Hover Initialization + Y-Follow Positioning
 
-Use this polling-based initialization that works reliably in iframes. **Do NOT use a fixed setTimeout** as Mermaid rendering time varies:
+Use this polling-based initialization. **Do NOT use fixed one-shot timing**. Position the right info card near mouse Y and clamp to panel bounds:
 
 ```javascript
-const tooltip = document.getElementById('tooltip');
+const panel = document.getElementById('panel');
+const panelWrap = document.getElementById('panelWrap');
 
-function setupTooltips() {
+function positionPanel(evt) {
+    const r = panelWrap.getBoundingClientRect();
+    const panelH = panel.offsetHeight || 120;
+    const y = evt.clientY - r.top - 20;
+    const top = Math.max(8, Math.min(r.height - panelH - 8, y));
+    panel.style.top = `${top}px`;
+}
+
+function setupNodeHover() {
     const nodes = document.querySelectorAll('.node');
     nodes.forEach(node => {
         const nodeId = node.id.replace('flowchart-', '').split('-')[0];
-        if (tooltips[nodeId]) {
+        if (nodeInfo[nodeId]) {
             node.addEventListener('mouseenter', (e) => {
-                tooltip.textContent = tooltips[nodeId];
-                tooltip.classList.add('visible');
+                panel.textContent = nodeInfo[nodeId];
+                positionPanel(e);
             });
             node.addEventListener('mousemove', (e) => {
-                const x = e.pageX + 15;
-                const y = e.pageY + 15;
-                const tooltipRect = tooltip.getBoundingClientRect();
-                const maxX = window.innerWidth - tooltipRect.width - 20;
-                const maxY = window.innerHeight - tooltipRect.height - 20;
-                tooltip.style.left = Math.min(x, maxX) + 'px';
-                tooltip.style.top = Math.min(y, maxY) + 'px';
+                positionPanel(e);
             });
             node.addEventListener('mouseleave', () => {
-                tooltip.classList.remove('visible');
+                panel.textContent = 'Hover a node for details.';
             });
         }
     });
@@ -472,7 +493,7 @@ function waitForMermaid() {
     const mermaidDiv = document.querySelector('.mermaid');
     const svg = mermaidDiv.querySelector('svg');
     if (svg && document.querySelectorAll('.node').length > 0) {
-        setupTooltips();
+        setupNodeHover();
     } else {
         // Check again after a short delay
         setTimeout(waitForMermaid, 100);
@@ -486,6 +507,13 @@ if (document.readyState === 'loading') {
     setTimeout(waitForMermaid, 100);
 }
 ```
+
+### Height and Iframe Rule (Required)
+
+After rendering, verify the full workflow is visible (especially bottom branches/labels). Then set iframe height to match rendered content plus padding.
+
+- Never leave clipped nodes/arrows in the iframe.
+- If uncertain, increase container and iframe height, then reduce in small increments until no clipping remains.
 
 ### Complete main.html Template with Tooltips
 

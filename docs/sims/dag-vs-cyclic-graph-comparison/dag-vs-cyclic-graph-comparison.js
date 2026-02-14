@@ -18,15 +18,15 @@
     main.innerHTML = `
       <section style="padding:10px;background:#f8fafc;overflow:auto;"><div id="mmd" class="mermaid">
 flowchart LR
-  subgraph L[Valid Learning Graph (DAG)]
+  subgraph L["Valid Learning Graph (DAG)"]
     V_A[A]:::good --> V_B[B]:::good --> V_C[C]:::good
     V_A --> V_C
-    V_OK(["✓ Pedagogically sound"]):::goodNote
+    V_OK["Pedagogically sound"]:::goodNote
   end
 
-  subgraph R[Invalid Learning Graph (Contains Cycle)]
+  subgraph R["Invalid Learning Graph (Contains Cycle)"]
     I_A[A]:::bad --> I_B[B]:::bad --> I_C[C]:::bad --> I_A
-    I_BAD(["✗ Logically impossible"]):::badNote
+    I_BAD["Logically impossible"]:::badNote
   end
 
   classDef good fill:#22c55e,stroke:#166534,color:#fff,font-size:16px
