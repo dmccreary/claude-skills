@@ -460,7 +460,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 1 - Introduction to AI and Intelligent Textbooks
+    1 - Introduction to AI and Intelligent Textbooks
   </span>
   
 
@@ -508,7 +508,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 2 - Getting Started with Claude and Skills
+    2 - Getting Started with Claude and Skills
   </span>
   
 
@@ -556,7 +556,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 3 - Course Design and Educational Theory
+    3 - Course Design and Educational Theory
   </span>
   
 
@@ -604,7 +604,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 4 - Introduction to Learning Graphs
+    4 - Introduction to Learning Graphs
   </span>
   
 
@@ -652,7 +652,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 5 - Concept Enumeration and Dependencies
+    5 - Concept Enumeration and Dependencies
   </span>
   
 
@@ -700,7 +700,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 6 - Learning Graph Quality and Validation
+    6 - Learning Graph Quality and Validation
   </span>
   
 
@@ -748,7 +748,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 7 - Taxonomy and Data Formats
+    7 - Taxonomy and Data Formats
   </span>
   
 
@@ -796,7 +796,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 8 - MkDocs Platform and Documentation
+    8 - MkDocs Platform and Documentation
   </span>
   
 
@@ -844,7 +844,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 9 - Claude Skills Architecture and Development
+    9 - Claude Skills Architecture and Development
   </span>
   
 
@@ -895,7 +895,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 10 - Content Creation Workflows
+    10 - Content Creation Workflows
   </span>
   
 
@@ -911,7 +911,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_11_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_11">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 10 - Content Creation Workflows
+            10 - Content Creation Workflows
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -978,7 +978,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 11 - Educational Resources and Assessment
+    11 - Educational Resources and Assessment
   </span>
   
 
@@ -1026,7 +1026,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 12 - Interactive Elements and MicroSims
+    12 - Interactive Elements and MicroSims
   </span>
   
 
@@ -1074,7 +1074,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 13 - Development Tools, Version Control, and Deployment
+    13 - Development Tools, Version Control, and Deployment
   </span>
   
 
@@ -2227,6 +2227,9 @@
 <li><strong>Key Takeaways</strong>: Summary of essential points students should retain</li>
 </ul>
 <h4 id="diagram-chapter-organization-workflow-diagram">Diagram: Chapter Organization Workflow Diagram</h4>
+<iframe src="../../sims/chapter-organization-workflow/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2378,6 +2381,9 @@ Implementation: Mermaid.js flowchart with interactive hover states
 <p>The concept list within a chapter index file serves multiple critical functions in the content generation process. First, it acts as a checklist ensuring comprehensive coverage—every concept listed must be addressed in the generated content. Second, it provides scope boundaries, preventing content from expanding into related but out-of-scope areas. Third, it enables automated verification, allowing quality checks to confirm all concepts have been adequately explained.</p>
 <p>When working with concept lists, keep several important considerations in mind. The concepts should reflect learning graph entries exactly as they appear, maintaining consistency across the entire textbook. While the list order may follow the learning graph numbering, the actual content presentation order should be determined by pedagogical effectiveness rather than list sequence. Each concept should be atomic and focused on a single clear idea rather than combining multiple distinct notions.</p>
 <h4 id="diagram-chapter-index-file-structure-diagram">Diagram: Chapter Index File Structure Diagram</h4>
+<iframe src="../../sims/chapter-index-structure/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2474,7 +2480,7 @@ Implementation: SVG diagram with clean technical documentation style
 <p>Several key parameters influence how content is generated, ensuring it aligns with course objectives and audience needs. The reading level, determined from the course description file, affects sentence complexity, vocabulary choices, explanation depth, and example sophistication. The concept list defines the precise scope of coverage, while concept dependencies from the learning graph determine the optimal presentation order.</p>
 <h4 id="diagram-content-generation-process-timeline">Diagram: Content Generation Process Timeline</h4>
 <iframe src="../../sims/chapter-content-generation-timeline/main.html" width="100%" height="720px" scrolling="no"></iframe>
-<p><a class="md-button md-button--primary" href="../../sims/chapter-content-generation-timeline/main.html">Run the Chapter Content Generation Timeline MicroSim Fullscreen</a></p>
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Content Generation Process Timeline&lt;/summary&gt;
 </code></pre></div></td></tr></tbody></table></div>
@@ -2543,6 +2549,7 @@ Status: Done</p>
 <li>microsim-p5 (75/100) - Custom timeline rendering with manual event positioning</li>
 </ol>
 </details>
+<p><a class="md-button md-button--primary" href="../../sims/chapter-content-generation-timeline/main.html">Run the Chapter Content Generation Timeline MicroSim Fullscreen</a></p>
 <h2 id="reading-level-appropriateness">Reading Level Appropriateness</h2>
 <p>One of the most critical factors in effective educational content is appropriate reading level calibration. Content that is too simple fails to challenge and engage learners, while overly complex material creates frustration and impedes comprehension. The intelligent textbook framework addresses this challenge through systematic reading level analysis and adaptive content generation based on the target audience specification in the course description.</p>
 <h3 id="reading-level-categories">Reading Level Categories</h3>
@@ -2606,6 +2613,8 @@ Status: Done</p>
 <p>High-quality worked examples share several key characteristics that maximize their instructional value. They begin with clear problem statements that specify all given information and explicit goals, eliminating ambiguity about what needs to be accomplished. The solution process is broken into explicit steps with explanations for why each step is taken, not just what is done. This metacognitive commentary helps learners understand the reasoning process rather than simply memorizing procedures.</p>
 <p>Effective examples also include progressive complexity, starting with straightforward cases that isolate individual concepts before advancing to integrated examples that require combining multiple concepts. Each example should connect explicitly to the concept it illustrates, with annotations or callouts highlighting where specific principles are being applied. For college-level content, examples should draw from realistic professional contexts that learners are likely to encounter, increasing relevance and motivation.</p>
 <h4 id="diagram-worked-example-determining-reading-level-from-course-description">Diagram: Worked Example: Determining Reading Level from Course Description</h4>
+<iframe src="../../sims/worked-example-determining-reading-level-from-course-description/main.html" width="100%" height="1020px" scrolling="no"></iframe>
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2733,6 +2742,8 @@ Canvas size: 800px wide × 1000px tall (scrollable)
 <li><strong>Create</strong>: Design a complete content generation workflow for a new educational technology</li>
 </ul>
 <h4 id="diagram-interactive-exercise-generator-microsim">Diagram: Interactive Exercise Generator MicroSim</h4>
+<iframe src="../../sims/interactive-exercise-generator-microsim/main.html" width="100%" height="740px" scrolling="no"></iframe>
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2913,6 +2924,8 @@ Implementation: p5.js with HTML DOM elements for text display and buttons
 "Learning Graph: A directed acyclic graph where nodes represent educational concepts and edges represent prerequisite dependencies."</p>
 <p>This definition is precise (specifies DAG structure), concise (minimal words), distinct (differentiates from other graph types through the prerequisite dependency characteristic), non-circular (doesn't use "learning" in the definition), and free of business rules (describes what it is, not how it's used).</p>
 <h4 id="diagram-iso-11179-principles-comparison-table-infographic">Diagram: ISO 11179 Principles Comparison Table Infographic</h4>
+<iframe src="../../sims/iso-11179-principles-comparison-table-infographic/main.html" width="100%" height="740px" scrolling="no"></iframe>
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>

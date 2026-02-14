@@ -2742,6 +2742,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#scroll-hijacking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scroll Hijacking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#security-in-skill-execution" class="md-nav__link">
     <span class="md-ellipsis">
       Security in Skill Execution
@@ -5031,6 +5040,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#scroll-hijacking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scroll Hijacking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#security-in-skill-execution" class="md-nav__link">
     <span class="md-ellipsis">
       Security in Skill Execution
@@ -5989,6 +6007,15 @@
 <h4 id="section-organization">Section Organization</h4>
 <p>The structure of how content within chapters is divided into logical subsections with clear headings.</p>
 <p><strong>Example:</strong> Sections might include Introduction, Core Concepts, Examples, Practice Exercises, and Summary.</p>
+<h4 id="scroll-hijacking">Scroll Hijacking</h4>
+<p>A usability problem where an embedded interactive element (such as an iframe, map, or canvas) captures mouse-wheel or touch-scroll input, preventing normal page scrolling.</p>
+<p><strong>Example:</strong> To prevent iframe scroll hijacking in chapter pages, set the iframe to non-scrolling and disable wheel zoom inside the MicroSim:
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"../../sims/example/main.html"</span> <span class="na">width</span><span class="o">=</span><span class="s">"100%"</span> <span class="na">height</span><span class="o">=</span><span class="s">"500px"</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">"no"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Inside the MicroSim (e.g., Leaflet)</span>
+<span class="nx">L</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s1">'map'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">scrollWheelZoom</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">});</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
 <h4 id="security-in-skill-execution">Security in Skill Execution</h4>
 <p>Safeguards ensuring skills only access authorized files and don't perform unintended or harmful operations.</p>
 <p><strong>Example:</strong> Skills should validate input file existence before processing to prevent unintended file creation.</p>

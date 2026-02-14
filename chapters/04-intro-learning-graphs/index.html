@@ -460,7 +460,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 1 - Introduction to AI and Intelligent Textbooks
+    1 - Introduction to AI and Intelligent Textbooks
   </span>
   
 
@@ -508,7 +508,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 2 - Getting Started with Claude and Skills
+    2 - Getting Started with Claude and Skills
   </span>
   
 
@@ -556,7 +556,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 3 - Course Design and Educational Theory
+    3 - Course Design and Educational Theory
   </span>
   
 
@@ -607,7 +607,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 4 - Introduction to Learning Graphs
+    4 - Introduction to Learning Graphs
   </span>
   
 
@@ -623,7 +623,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_5">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 4 - Introduction to Learning Graphs
+            4 - Introduction to Learning Graphs
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -690,7 +690,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 5 - Concept Enumeration and Dependencies
+    5 - Concept Enumeration and Dependencies
   </span>
   
 
@@ -738,7 +738,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 6 - Learning Graph Quality and Validation
+    6 - Learning Graph Quality and Validation
   </span>
   
 
@@ -786,7 +786,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 7 - Taxonomy and Data Formats
+    7 - Taxonomy and Data Formats
   </span>
   
 
@@ -834,7 +834,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 8 - MkDocs Platform and Documentation
+    8 - MkDocs Platform and Documentation
   </span>
   
 
@@ -882,7 +882,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 9 - Claude Skills Architecture and Development
+    9 - Claude Skills Architecture and Development
   </span>
   
 
@@ -930,7 +930,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 10 - Content Creation Workflows
+    10 - Content Creation Workflows
   </span>
   
 
@@ -978,7 +978,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 11 - Educational Resources and Assessment
+    11 - Educational Resources and Assessment
   </span>
   
 
@@ -1026,7 +1026,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 12 - Interactive Elements and MicroSims
+    12 - Interactive Elements and MicroSims
   </span>
   
 
@@ -1074,7 +1074,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 13 - Development Tools, Version Control, and Deployment
+    13 - Development Tools, Version Control, and Deployment
   </span>
   
 
@@ -2063,6 +2063,9 @@
 <p><strong>Assessment alignment:</strong> Enabling quiz and exercise generation that tests concepts learners should have mastered at each stage</p>
 <p>The graph structure provides computational tractability—algorithms can verify the graph is a valid DAG (Directed Acyclic Graph), compute topological orderings for valid learning sequences, identify strongly connected components indicating circular dependencies that must be resolved, and calculate concept depth as a proxy for difficulty.</p>
 <h4 id="diagram-learning-graph-structure-visualization">Diagram: Learning Graph Structure Visualization</h4>
+<iframe src="../../sims/learning-graph-structure-visualization/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2204,6 +2207,9 @@ Canvas size: 800x600px
 <p><strong>Fan-in (convergence):</strong> Multiple prerequisites converging on advanced concept (e.g., "Course Description" → "Learning Graph Generation" ← "Bloom's Taxonomy")</p>
 <p><strong>Fan-out (divergence):</strong> Foundational concept enabling multiple dependent concepts (e.g., "Claude Code Interface" → "File System Access," "Command Execution," "Context Management")</p>
 <h4 id="diagram-dependency-pattern-examples">Diagram: Dependency Pattern Examples</h4>
+<iframe src="../../sims/dependency-pattern-examples/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2311,6 +2317,9 @@ Implementation: SVG diagram with clear geometric layout
 <p>A DAG admits at least one topological ordering—a linear sequence of concepts such that for every edge A → B, A appears before B in the sequence. This ordering provides one valid teaching sequence, though multiple valid orderings typically exist.</p>
 <p>Chapter generation leverages topological ordering to group concepts into sequential chapters while respecting dependencies. Concepts with no incoming edges (foundational) appear in early chapters; concepts with many incoming edges (advanced, integrative) appear in later chapters.</p>
 <h4 id="diagram-dag-vs-cyclic-graph-comparison">Diagram: DAG vs Cyclic Graph Comparison</h4>
+<iframe src="../../sims/dag-vs-cyclic-graph-comparison/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2443,6 +2452,9 @@ Prompt Engineering → Learning Graph Generation
 </table>
 <p>The learning-graph-generator skill uses the course description's topic list and learning outcomes to infer likely dependencies, but manual review and refinement typically improves accuracy. Chapter 6 discusses quality validation metrics that identify potential dependency errors.</p>
 <h4 id="diagram-dependency-mapping-decision-tree">Diagram: Dependency Mapping Decision Tree</h4>
+<iframe src="../../sims/dependency-mapping-decision-tree/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2621,6 +2633,9 @@ Implementation: SVG decision tree with diamond decision nodes
 <p><strong>Parallelization considerations:</strong></p>
 <p>While Claude Code itself operates sequentially within a session, you can run multiple independent Claude Code sessions across different projects or chapter generation tasks. This "poor man's parallelization" enables working on Chapter 1 content while Chapter 2 quiz generation runs in a separate session, effectively doubling throughput within token budget constraints.</p>
 <h4 id="diagram-token-consumption-timeline-for-complete-textbook-project">Diagram: Token Consumption Timeline for Complete Textbook Project</h4>
+<iframe src="../../sims/token-consumption-timeline-for-complete-textbook-project/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>

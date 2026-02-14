@@ -460,7 +460,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 1 - Introduction to AI and Intelligent Textbooks
+    1 - Introduction to AI and Intelligent Textbooks
   </span>
   
 
@@ -508,7 +508,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 2 - Getting Started with Claude and Skills
+    2 - Getting Started with Claude and Skills
   </span>
   
 
@@ -556,7 +556,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 3 - Course Design and Educational Theory
+    3 - Course Design and Educational Theory
   </span>
   
 
@@ -604,7 +604,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 4 - Introduction to Learning Graphs
+    4 - Introduction to Learning Graphs
   </span>
   
 
@@ -652,7 +652,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 5 - Concept Enumeration and Dependencies
+    5 - Concept Enumeration and Dependencies
   </span>
   
 
@@ -700,7 +700,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 6 - Learning Graph Quality and Validation
+    6 - Learning Graph Quality and Validation
   </span>
   
 
@@ -748,7 +748,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 7 - Taxonomy and Data Formats
+    7 - Taxonomy and Data Formats
   </span>
   
 
@@ -799,7 +799,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 8 - MkDocs Platform and Documentation
+    8 - MkDocs Platform and Documentation
   </span>
   
 
@@ -815,7 +815,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_9">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 8 - MkDocs Platform and Documentation
+            8 - MkDocs Platform and Documentation
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -882,7 +882,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 9 - Claude Skills Architecture and Development
+    9 - Claude Skills Architecture and Development
   </span>
   
 
@@ -930,7 +930,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 10 - Content Creation Workflows
+    10 - Content Creation Workflows
   </span>
   
 
@@ -978,7 +978,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 11 - Educational Resources and Assessment
+    11 - Educational Resources and Assessment
   </span>
   
 
@@ -1026,7 +1026,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 12 - Interactive Elements and MicroSims
+    12 - Interactive Elements and MicroSims
   </span>
   
 
@@ -1074,7 +1074,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 13 - Development Tools, Version Control, and Deployment
+    13 - Development Tools, Version Control, and Deployment
   </span>
   
 
@@ -2122,6 +2122,9 @@
 </ul>
 <p>MkDocs operates through a simple command-line interface with three primary commands: <code>mkdocs new</code> creates a new documentation project, <code>mkdocs serve</code> launches a local development server with live reload functionality, and <code>mkdocs build</code> generates the production-ready static site. The development server watches for file changes and automatically rebuilds the site, providing immediate feedback as content authors write and edit documentation. This tight feedback loop dramatically accelerates the content development process compared to traditional publishing workflows that require manual build and preview steps.</p>
 <h4 id="diagram-mkdocs-build-process-workflow-diagram">Diagram: MkDocs Build Process Workflow Diagram</h4>
+<iframe src="../../sims/mkdocs-build-process/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2221,6 +2224,8 @@ Implementation: Mermaid diagram or similar flowchart tool
 </ul>
 <p>The theme's configuration system allows extensive customization while maintaining sensible defaults for rapid deployment. Color palettes can be customized to match institutional branding, fonts can be selected from Google Fonts or custom sources, and page layouts can be adjusted to emphasize different content types. For intelligent textbook development, the Material theme's support for mathematical notation (via MathJax or KaTeX), code syntax highlighting, and complex content hierarchies makes it particularly well-suited for technical educational content.</p>
 <h4 id="diagram-material-theme-features-interactive-comparison">Diagram: Material Theme Features Interactive Comparison</h4>
+<iframe src="../../sims/material-theme-features-interactive-comparison/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2450,6 +2455,8 @@ Implementation: HTML/CSS/JavaScript with responsive grid layout
 </ul>
 <p>The <code>pymdownx.details</code> extension adds collapsible admonitions using <code>???</code> instead of <code>!!!</code>, creating interactive disclosure widgets that can be expanded by clicking. This feature is particularly valuable for optional content, detailed explanations, or supplementary information that some learners may want to skip. Collapsible admonitions help manage content density by hiding details until explicitly requested, preventing overwhelming presentation of information while keeping it accessible for learners who need additional depth.</p>
 <h4 id="diagram-admonition-types-interactive-reference">Diagram: Admonition Types Interactive Reference</h4>
+<iframe src="../../sims/admonition-types-interactive-reference/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2625,6 +2632,8 @@ Implementation: HTML/CSS/JavaScript with syntax highlighting and copy-to-clipboa
 <p>The staging area concept initially confuses new Git users but provides essential flexibility for professional workflows. Rather than committing every change in your working directory, you can stage specific files or even specific lines within files, creating focused commits that represent logical units of work. For textbook development, this means you can edit multiple chapters, then create separate commits for each chapter with descriptive messages, maintaining a clean and understandable project history despite working on multiple files simultaneously.</p>
 <p>Git's branching model enables parallel development workflows where different aspects of a textbook can be developed simultaneously without interference. A typical intelligent textbook project might have branches for chapter development, technical editing, graphics creation, and interactive element integration, all proceeding independently until ready to merge into the main branch. This isolation prevents incomplete work from affecting others while preserving the ability to integrate finished work at any time.</p>
 <h4 id="diagram-git-branching-and-merging-visualization-microsim">Diagram: Git Branching and Merging Visualization MicroSim</h4>
+<iframe src="../../sims/git-branching-and-merging-visualization-microsim/main.html" width="100%" height="660px" scrolling="no"></iframe>
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2792,6 +2801,9 @@ Implementation notes:
 </ol>
 <p>GitHub Pages provides CDN-backed hosting with automatic HTTPS encryption, ensuring fast global access to educational content regardless of student location. The integration with Git version control means every published version is tracked, and rolling back to previous versions is trivial. For courses that update content iteratively, this provides students with stable URLs that always reflect the current curriculum while preserving the ability to reference specific historical versions when needed.</p>
 <h4 id="diagram-mkdocs-github-pages-deployment-workflow">Diagram: MkDocs GitHub Pages Deployment Workflow</h4>
+<iframe src="../../sims/mkdocs-github-pages-deployment/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>

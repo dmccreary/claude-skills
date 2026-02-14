@@ -460,7 +460,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 1 - Introduction to AI and Intelligent Textbooks
+    1 - Introduction to AI and Intelligent Textbooks
   </span>
   
 
@@ -508,7 +508,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 2 - Getting Started with Claude and Skills
+    2 - Getting Started with Claude and Skills
   </span>
   
 
@@ -556,7 +556,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 3 - Course Design and Educational Theory
+    3 - Course Design and Educational Theory
   </span>
   
 
@@ -604,7 +604,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 4 - Introduction to Learning Graphs
+    4 - Introduction to Learning Graphs
   </span>
   
 
@@ -655,7 +655,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 5 - Concept Enumeration and Dependencies
+    5 - Concept Enumeration and Dependencies
   </span>
   
 
@@ -671,7 +671,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_6">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 5 - Concept Enumeration and Dependencies
+            5 - Concept Enumeration and Dependencies
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -738,7 +738,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 6 - Learning Graph Quality and Validation
+    6 - Learning Graph Quality and Validation
   </span>
   
 
@@ -786,7 +786,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 7 - Taxonomy and Data Formats
+    7 - Taxonomy and Data Formats
   </span>
   
 
@@ -834,7 +834,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 8 - MkDocs Platform and Documentation
+    8 - MkDocs Platform and Documentation
   </span>
   
 
@@ -882,7 +882,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 9 - Claude Skills Architecture and Development
+    9 - Claude Skills Architecture and Development
   </span>
   
 
@@ -930,7 +930,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 10 - Content Creation Workflows
+    10 - Content Creation Workflows
   </span>
   
 
@@ -978,7 +978,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 11 - Educational Resources and Assessment
+    11 - Educational Resources and Assessment
   </span>
   
 
@@ -1026,7 +1026,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 12 - Interactive Elements and MicroSims
+    12 - Interactive Elements and MicroSims
   </span>
   
 
@@ -1074,7 +1074,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 13 - Development Tools, Version Control, and Deployment
+    13 - Development Tools, Version Control, and Deployment
   </span>
   
 
@@ -2181,6 +2181,9 @@
 <p><strong>Eliminate duplicates and resolve overlaps:</strong> Identify concepts with significant overlap, merging or refining to maintain distinctness.</p>
 <p>For AI-assisted enumeration via the learning-graph-generator skill, the course description provides essential context. Rich topic lists with 20-30 entries enable more accurate concept generation than sparse lists with 5-10 entries. Learning outcomes aligned with Bloom's Taxonomy signal which cognitive levels to emphasize, influencing the mix of definitional concepts (Remember), procedural concepts (Apply), and analytical concepts (Analyze, Evaluate).</p>
 <h4 id="diagram-topic-to-concept-expansion-process">Diagram: Topic-to-Concept Expansion Process</h4>
+<iframe src="../../sims/topic-to-concept-expansion-process/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2323,6 +2326,9 @@ Implementation: SVG hierarchical tree diagram
 </ul>
 <p>The learning-graph-generator skill defaults to 200 concepts but accepts guidance in the course description. A statement like "This is an intensive 6-week boot camp" signals to generate ~100 concepts; "This is a comprehensive two-semester sequence" signals ~400 concepts split into multiple graphs.</p>
 <h4 id="diagram-concept-count-by-course-duration">Diagram: Concept Count by Course Duration</h4>
+<iframe src="../../sims/concept-count-by-course-duration/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2401,6 +2407,9 @@ Implementation: Chart.js bar chart with range indicators
 <p><strong>Acronym handling:</strong> For well-known acronyms, include both expansion and acronym on first use, acronym only thereafter. "Directed Acyclic Graph (DAG)" for first mention, "DAG Properties" for subsequent concepts.</p>
 <p><strong>Avoid gerunds in favor of noun forms:</strong> "Concept Enumeration" rather than "Enumerating Concepts"; "Dependency Mapping" rather than "Mapping Dependencies." This aligns with knowledge domain nomenclature conventions.</p>
 <h4 id="diagram-concept-label-quality-checklist">Diagram: Concept Label Quality Checklist</h4>
+<iframe src="../../sims/concept-label-quality-checklist/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2528,6 +2537,9 @@ Implementation: HTML/CSS with interactive JavaScript
 <p><strong>Split overly broad concepts:</strong> If a label exceeds 32 characters, the concept may not be sufficiently atomic. Consider splitting: "Learning Graph Generation Process and Quality Validation" (56 chars) becomes two concepts: "Learning Graph Generation" + "Learning Graph Quality Validation."</p>
 <p>The character count includes all letters, spaces, punctuation, and symbols. "Bloom's Taxonomy (2001)" counts as 23 characters including spaces and parentheses.</p>
 <h4 id="diagram-concept-label-length-optimization">Diagram: Concept Label Length Optimization</h4>
+<iframe src="../../sims/concept-label-length-optimization/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2587,6 +2599,9 @@ Note: Optimization preserves meaning while meeting length constraint
 <p><strong>Terminology test:</strong> Is this concept referenced in domain literature using this specific term? Domain-standard concepts have appropriate granularity; ad-hoc invented concepts may be too fine.</p>
 <p>Achieving consistent granularity across 200 concepts requires iterative refinement. The learning-graph-generator produces initial concepts at mixed granularity; manual review identifies and resolves granularity mismatches before finalizing the graph.</p>
 <h4 id="diagram-concept-granularity-spectrum-visualization">Diagram: Concept Granularity Spectrum Visualization</h4>
+<iframe src="../../sims/concept-granularity-spectrum-visualization/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2749,6 +2764,9 @@ Run cycle detection algorithm (DFS-based or topological sort). If cycles found:
 Review edge set to ensure all dependencies represent true prerequisites, not merely "helpful background." Weak dependencies should be omitted unless they significantly aid learning.</p>
 <p>The learning-graph-generator skill automates much of this process using LLM reasoning about concept relationships, but manual review typically identifies 10-20% of dependencies requiring adjustment—either missing edges (under-specification) or spurious edges (over-specification).</p>
 <h4 id="diagram-dependency-mapping-workflow">Diagram: Dependency Mapping Workflow</h4>
+<iframe src="../../sims/dependency-mapping-workflow/main.html" width="100%" height="995px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2849,7 +2867,7 @@ Implementation: SVG flowchart
 </ol>
 </details>
 <h2 id="csv-file-format-for-learning-graphs">CSV File Format for Learning Graphs</h2>
-<p>Learning graphs are persisted in CSV (Comma-Separated Values) format, enabling both human readability for manual editing and programmatic processing by validation scripts and visualization tools. The CSV structure follows a standardized schema essential for downstream skill compatibility.</p>
+<p>Learning graphs are persisted in both CSV (Comma-Separated Values) format and a JSON file format, enabling both human readability for manual editing and programmatic processing by validation scripts and visualization tools. The CSV structure follows a standardized schema essential for downstream skill compatibility.</p>
 <p><strong>Required CSV columns:</strong></p>
 <p><strong>ConceptID:</strong> Integer identifier (1 to n) uniquely identifying each concept. Sequential numbering with no gaps required.</p>
 <p><strong>ConceptLabel:</strong> String following Title Case convention, maximum 32 characters. Human-readable concept name appearing in all generated content.</p>
@@ -2878,11 +2896,15 @@ Implementation: SVG flowchart
 6,Directed Acyclic Graph (DAG),5,CORE
 7,Concept Enumeration Process,5,PROC
 </code></pre></div></td></tr></tbody></table></div>
+<p>The following is a screen image of viewing the sample above in the Visual Studio Editor with a CSV viewer extension.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="graph-csv-sample.jpg" data-desc-position="bottom"><img alt="" src="graph-csv-sample.jpg"></a></p>
+<p>Note that each column has it's own color.</p>
 <p>This format enables:
 - Spreadsheet editing in Excel, Google Sheets, LibreOffice
 - Programmatic parsing with Python pandas, CSV libraries
 - Version control with git (text-based diffing)
 - Conversion to JSON for graph visualization tools</p>
+<p>Our skills have python programs that convert CSV into JSON.  So the conversion process is simple.</p>
 <p>The learning-graph-generator skill outputs properly formatted CSV; manual editing should preserve the format specification to ensure downstream skills function correctly.</p>
 <h3 id="pipe-delimited-dependencies">Pipe-Delimited Dependencies</h3>
 <p>The Dependencies column uses pipe (|) delimiters to separate multiple prerequisite ConceptIDs, enabling compact representation of concepts with multiple prerequisites.</p>
@@ -2912,6 +2934,8 @@ Every ConceptID referenced in Dependencies must appear as a ConceptID in some ro
 3. Verify all referenced IDs exist
 4. Run validation script to check for cycles before proceeding</p>
 <h4 id="diagram-csv-file-format-example-with-validation">Diagram: CSV File Format Example with Validation</h4>
+<iframe src="../../sims/csv-file-format-example-with-validation/main.html" width="100%" height="560px" scrolling="no"></iframe>
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3022,6 +3046,9 @@ Purpose: Show correct and incorrect CSV formatting
 <p><strong>Avoid circular dependencies:</strong> Never create cycles like A → B → C → A. DAG constraint must be satisfied.</p>
 <p><strong>Reasonable fan-in:</strong> While no hard limit exists, concepts depending on 5+ prerequisites often indicate overly advanced or insufficiently atomic concepts. Consider splitting.</p>
 <h4 id="diagram-conceptid-vs-conceptlabel-comparison">Diagram: ConceptID vs ConceptLabel Comparison</h4>
+<iframe src="../../sims/conceptid-vs-conceptlabel-comparison/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO:study this and figure out why a simple Markdown table might work better -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3144,6 +3171,8 @@ Note: ConceptID enables robust dependency tracking; ConceptLabel provides clarit
 - <strong>Too many advanced concepts (&gt;40%):</strong> Dependencies may be over-specified or concepts insufficiently atomic</p>
 <p>The analyze-graph.py script in the learning-graph-generator skill computes these distributions and flags anomalies in the quality report.</p>
 <h4 id="diagram-concept-depth-distribution-analysis">Diagram: Concept Depth Distribution Analysis</h4>
+<iframe src="../../sims/concept-depth-distribution-analysis/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>

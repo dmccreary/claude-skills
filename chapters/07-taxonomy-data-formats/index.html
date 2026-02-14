@@ -460,7 +460,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 1 - Introduction to AI and Intelligent Textbooks
+    1 - Introduction to AI and Intelligent Textbooks
   </span>
   
 
@@ -508,7 +508,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 2 - Getting Started with Claude and Skills
+    2 - Getting Started with Claude and Skills
   </span>
   
 
@@ -556,7 +556,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 3 - Course Design and Educational Theory
+    3 - Course Design and Educational Theory
   </span>
   
 
@@ -604,7 +604,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 4 - Introduction to Learning Graphs
+    4 - Introduction to Learning Graphs
   </span>
   
 
@@ -652,7 +652,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 5 - Concept Enumeration and Dependencies
+    5 - Concept Enumeration and Dependencies
   </span>
   
 
@@ -700,7 +700,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 6 - Learning Graph Quality and Validation
+    6 - Learning Graph Quality and Validation
   </span>
   
 
@@ -751,7 +751,7 @@
               
   
   <span class="md-ellipsis">
-    Chapter 7 - Taxonomy and Data Formats
+    7 - Taxonomy and Data Formats
   </span>
   
 
@@ -767,7 +767,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_8">
             <span class="md-nav__icon md-icon"></span>
-            Chapter 7 - Taxonomy and Data Formats
+            7 - Taxonomy and Data Formats
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -834,7 +834,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 8 - MkDocs Platform and Documentation
+    8 - MkDocs Platform and Documentation
   </span>
   
 
@@ -882,7 +882,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 9 - Claude Skills Architecture and Development
+    9 - Claude Skills Architecture and Development
   </span>
   
 
@@ -930,7 +930,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 10 - Content Creation Workflows
+    10 - Content Creation Workflows
   </span>
   
 
@@ -978,7 +978,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 11 - Educational Resources and Assessment
+    11 - Educational Resources and Assessment
   </span>
   
 
@@ -1026,7 +1026,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 12 - Interactive Elements and MicroSims
+    12 - Interactive Elements and MicroSims
   </span>
   
 
@@ -1074,7 +1074,7 @@
       
   
   <span class="md-ellipsis">
-    Chapter 13 - Development Tools, Version Control, and Deployment
+    13 - Development Tools, Version Control, and Deployment
   </span>
   
 
@@ -2267,6 +2267,9 @@ python<span class="w"> </span>add-taxonomy.py<span class="w"> </span>learning-gr
 </code></pre></div></td></tr></tbody></table></div>
 <p>The script prompts for taxonomy rules (keyword → TaxonomyID mappings) and applies them systematically, flagging ambiguous cases for manual review.</p>
 <h4 id="diagram-adding-taxonomy-to-csv-workflow-diagram">Diagram: Adding Taxonomy to CSV Workflow Diagram</h4>
+<iframe src="../../sims/adding-taxonomy-workflow/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2420,6 +2423,9 @@ Implementation: SVG flowchart with hover tooltips
 </ul>
 <p>The <code>csv-to-json.py</code> script implements this schema validation automatically, rejecting CSV data that would produce invalid JSON and providing detailed error messages for corrections.</p>
 <h4 id="diagram-learning-graph-json-schema-diagram">Diagram: Learning Graph JSON Schema Diagram</h4>
+<iframe src="../../sims/learning-graph-json-schema/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<!-- TODO: adjust the height of the iframe -->
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2697,6 +2703,8 @@ Implementation: SVG tree diagram with labeled boxes and connecting lines
 <p>The edges array defines the directed acyclic graph structure. vis-network renders these as arrows pointing from prerequisite to dependent concepts, creating the visual flow of the learning progression.</p>
 <p>For a 200-concept learning graph with an average of 3 dependencies per concept, expect approximately 600 edge objects in this array.</p>
 <h4 id="diagram-csv-to-json-conversion-mapping-diagram">Diagram: CSV to JSON Conversion Mapping Diagram</h4>
+<iframe src="../../sims/csv-to-json-conversion-mapping-diagram/main.html" width="100%" height="680px" scrolling="no"></iframe>
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3011,6 +3019,8 @@ Implementation: Diagram with data tables and connecting arrows
 <li>Compliance with institutional policies</li>
 </ul>
 <h4 id="diagram-dublin-core-metadata-field-reference-card">Diagram: Dublin Core Metadata Field Reference Card</h4>
+<iframe src="../../sims/dublin-core-metadata-field-reference-card/main.html" width="100%" height="660px" scrolling="no"></iframe>
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3237,6 +3247,8 @@ Implementation: HTML/CSS grid with JavaScript for interactivity
 </code></pre></div></td></tr></tbody></table></div>
 <p>If luminance &gt; 0.5, use black text; otherwise, use white text.</p>
 <h4 id="diagram-color-accessibility-checker-microsim">Diagram: Color Accessibility Checker MicroSim</h4>
+<iframe src="../../sims/color-accessibility-checker-microsim/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3671,6 +3683,8 @@ Implementation: p5.js MicroSim with color picker controls
     <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h4 id="diagram-python-learning-graph-processing-pipeline">Diagram: Python Learning Graph Processing Pipeline</h4>
+<iframe src="../../sims/python-learning-graph-processing-pipeline/main.html" width="100%" height="660px" scrolling="no"></iframe>
+
 <details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>

@@ -505,11 +505,47 @@
          <lastmod>2026-02-14</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/microsim-build-queue/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/4-hour-token-window-visualization/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/5-hour-token-window-visualization/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/sims/adding-taxonomy-workflow/</loc>
          <lastmod>2026-02-14</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/admonition-types-interactive-reference/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/algorithm-visualization-with-step-controls-microsim/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/sims/average-dependencies-distribution/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/basic-microsim-template-structure/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/bloom-s-taxonomy-1956-vs-2001-comparison/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/bloom-s-taxonomy-application-distribution-in-quality-courses/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/bloom-s-taxonomy-distribution-analyzer-chart/</loc>
          <lastmod>2026-02-14</lastmod>
     </url>
     <url>
@@ -549,11 +585,51 @@
          <lastmod>2026-02-14</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/claude-code-workflow-diagram/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/color-accessibility-checker-microsim/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/sims/color-wheel-with-named-colors/</loc>
          <lastmod>2026-02-14</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/command-line-interface-basics-interactive-infographic/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/concept-count-by-course-duration/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/concept-depth-distribution-analysis/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/concept-granularity-spectrum-visualization/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/concept-label-length-optimization/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/concept-label-quality-checklist/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/sims/concept-length-histogram/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/conceptid-vs-conceptlabel-comparison/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/course-description-quality-rubric-visualization/</loc>
          <lastmod>2026-02-14</lastmod>
     </url>
     <url>
@@ -565,7 +641,47 @@
          <lastmod>2026-02-14</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/csv-file-format-example-with-validation/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/csv-to-json-conversion-mapping-diagram/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/dag-vs-cyclic-graph-comparison/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/dependency-mapping-decision-tree/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/dependency-mapping-workflow/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/dependency-pattern-examples/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/dublin-core-metadata-field-reference-card/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/evolution-of-ai-approaches-timeline/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/sims/faq-pattern-analysis/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/five-levels-of-textbook-intelligence-visual-model/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/git-branching-and-merging-visualization-microsim/</loc>
          <lastmod>2026-02-14</lastmod>
     </url>
     <url>
@@ -585,11 +701,55 @@
          <lastmod>2026-02-14</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/interactive-directory-navigation-practice-microsim/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/interactive-exercise-generator-microsim/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/interactive-learning-element-types-comparison/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/interactive-quiz-question-constructor-microsim/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/iso-11179-principles-comparison-table-infographic/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/iterative-prompt-refinement-metrics/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/sims/learning-graph-json-schema/</loc>
          <lastmod>2026-02-14</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/learning-graph-quality-score-calculator-microsim/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/learning-graph-structure-visualization/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/sims/linear-chain-vs-network/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/lower-order-vs-higher-order-thinking-skills/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/material-theme-features-interactive-comparison/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/microsim-design-quality-checklist/</loc>
          <lastmod>2026-02-14</lastmod>
     </url>
     <url>
@@ -613,6 +773,22 @@
          <lastmod>2026-02-14</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/permission-bits-visual-infographic/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/prompt-engineering-iterative-refinement-workflow/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/python-learning-graph-processing-pipeline/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/responsive-iframe-embedding-microsim/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/sims/security-zones-diagram/</loc>
          <lastmod>2026-02-14</lastmod>
     </url>
@@ -629,11 +805,39 @@
          <lastmod>2026-02-14</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/skill-file-anatomy-diagram/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/sims/skill-impact-chart/</loc>
          <lastmod>2026-02-14</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/skill-installation-locations-and-priority/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/claude-skills/sims/skill-installation-workflow/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/skill-invocation-and-execution-lifecycle/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/skill-package-contents-checklist/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/skill-permission-matrix/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/skill-testing-workflow-diagram/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/skills-vs-commands-decision-tree/</loc>
          <lastmod>2026-02-14</lastmod>
     </url>
     <url>
@@ -650,6 +854,30 @@
     </url>
     <url>
          <loc>https://dmccreary.github.io/claude-skills/sims/three-color-dfs/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/token-consumption-timeline-for-complete-textbook-project/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/topic-to-concept-expansion-example/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/topic-to-concept-expansion-process/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/transformer-architecture-diagram/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/vs-code-interface-layout-for-textbook-development/</loc>
+         <lastmod>2026-02-14</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/claude-skills/sims/worked-example-determining-reading-level-from-course-description/</loc>
          <lastmod>2026-02-14</lastmod>
     </url>
     <url>

@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.diagram-panel {
+    width: 66.67%;
+    height: 100%;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    overflow: auto;
+}
+
+.mermaid {
+    width: 100%;
+    max-height: 100%;
+}
+
+.mermaid svg {
+    max-width: 100%;
+    max-height: calc(100vh - 20px);
+}
+
+.info-panel {
+    width: 33.33%;
+    height: 100%;
+    background-color: #f8f9fa;
+    border-left: 1px solid #dee2e6;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.info-panel h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #3a86ff;
+}
+
+.info-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #3a86ff;
+    margin-bottom: 8px;
+}
+
+.info-content {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #444;
+}
+
+.info-placeholder {
+    color: #888;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.node {
+    cursor: pointer;
+}
+
+.node:hover rect,
+.node:hover circle,
+.node:hover polygon,
+.node:hover path {
+    filter: brightness(1.08);
+}

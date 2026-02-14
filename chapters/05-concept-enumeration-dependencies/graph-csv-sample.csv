@@ -1,0 +1,8 @@
+ConceptID,ConceptLabel,Dependencies,TaxonomyID
+1,Artificial Intelligence,,FOUND
+2,Claude AI,1,BASIC
+3,Large Language Models Overview,2,BASIC
+4,Prompt Engineering,3,SKILL
+5,Learning Graph,1|4,CORE
+6,Directed Acyclic Graph (DAG),5,CORE
+7,Concept Enumeration Process,5,PROC

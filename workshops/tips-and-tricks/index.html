@@ -1089,6 +1089,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#custom-status-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Status Line
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Status Line">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#make-it-executable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Make it executable:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1350,6 +1374,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#custom-status-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Status Line
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Status Line">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#make-it-executable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Make it executable:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1385,9 +1433,7 @@
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>git_hub_project
 claude<span class="w"> </span>--dangerously-skip-permissions
 </code></pre></div></td></tr></tbody></table></div>
-<p>In this mode, claude will not constantly ask for permissions to manipulate files and run commands.
-However, that is a <strong>REALLY</strong> long and hard to remember command line option.  The solution is
-to create a short shell alias like <code>claude-dsp</code> so that when you type that, it expands to use the actual long option.</p>
+<p>In this mode, claude will not constantly ask for permissions to manipulate files and run commands.  However, that is a <strong>REALLY</strong> long and hard to remember command line option.  The solution is to create a short shell alias like <code>claude-dsp</code> so that when you type that, it expands to use the actual long option.</p>
 <p>Add this line to your shell startup (.zshrc or .bashrc)</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">alias</span><span class="w"> </span>claude-dsp<span class="o">=</span><span class="err">'</span>claude<span class="w"> </span>--dangerously-skip-permissions<span class="sb">`</span>
 </code></pre></div></td></tr></tbody></table></div>
@@ -1397,7 +1443,7 @@ to create a short shell alias like <code>claude-dsp</code> so that when you type
 <p>Then check your alias:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">alias</span>
 </code></pre></div></td></tr></tbody></table></div>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>claude-dsp='claude --dangerously-skip-permissions'
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>claude-dsp<span class="o">=</span><span class="s1">'claude --dangerously-skip-permissions'</span>
 </code></pre></div></td></tr></tbody></table></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1407,8 +1453,7 @@ to create a short shell alias like <code>claude-dsp</code> so that when you type
 <p>I often forget to save my editor.  One option is to have it automatically save
 whenever you change focus.  To change this in Visual Studio go to the main Code menu and go to the <code>Settings...</code> option.  Search for <code>Auto Save</code>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../auto-save-focus.png" data-desc-position="bottom"><img alt="" src="../auto-save-focus.png"></a></p>
-<p>This means the file will always save.  If you change your mind you will need to use the <code>undo</code> function of your editor.  Just by moving your mouse to the MicroSim page you will get
-a refresh if <code>mkdocs serve</code> is running.</p>
+<p>This means the file will always save.  If you change your mind you will need to use the <code>undo</code> function of your editor.  Just by moving your mouse to the MicroSim page you will get a refresh if <code>mkdocs serve</code> is running.</p>
 <h2 id="fast-microsim-rendering-with-the-visual-studio-live-server-extension">Fast MicroSim Rendering with the Visual Studio Live Server Extension</h2>
 <p>After you change a microsim and you want to view it you can run <code>mkdocs serve</code> or have it running in a shell.  When you save the system will rerun <code>mkdocs build</code>.  This runs in just a second on a small book, but if you have a 500-page book, converting every chapter and all the supplementary materials can take over 10 seconds.</p>
 <p>A better option is to have the <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a> extension installed.  This only triggers a server for the single document you are working on, so it renders in just a fraction of a second.  To trigger it just right click over the <code>main.html</code> file in the MicroSim and click on the <code>Open With Live Server</code> option.</p>
@@ -1431,6 +1476,78 @@ that will create a high-quality README.md file.</p>
 <h2 id="windows-arrangement">Windows Arrangement</h2>
 <p>When I am debugging MicroSims I like to have my Claude shell window on the left, my browser on the right and a small shell window running below Claude running <code>mkdocs serve</code>.  That way when I talk to claude and he make changes, I can quickly see the changes on the right side of the screen.  This arrangement also works if I use the Live Server extension, but in that case I have to open VSCode to see the MicroSim quickly.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../window-arrangement.png" data-desc-position="bottom"><img alt="" src="../window-arrangement.png"></a></p>
+<h2 id="custom-status-line">Custom Status Line</h2>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/statusline<span class="w"> </span>Model<span class="w"> </span><span class="p">|</span><span class="w"> </span>Directory<span class="w"> </span><span class="p">|</span><span class="w"> </span>Percent<span class="w"> </span>Context<span class="w"> </span>Window
+</code></pre></div></td></tr></tbody></table></div>
+<p>Two pieces are needed: a shell script and a settings entry.</p>
+<ol>
+<li>Create ~/.claude/statusline-command.sh                      </li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nv">input</span><span class="o">=</span><span class="k">$(</span>cat<span class="k">)</span>
+<span class="nv">model</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$input</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.model.display_name'</span><span class="k">)</span>
+<span class="nv">cwd</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$input</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.workspace.current_dir'</span><span class="k">)</span>
+<span class="nv">parent</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>dirname<span class="w"> </span><span class="s2">"</span><span class="nv">$cwd</span><span class="s2">"</span><span class="k">)</span><span class="s2">"</span><span class="k">)</span>
+<span class="nv">current</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">"</span><span class="nv">$cwd</span><span class="s2">"</span><span class="k">)</span>
+<span class="nv">used</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$input</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.context_window.used_percentage // empty'</span><span class="k">)</span>
+
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$used</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="nv">filled</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$used</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{printf "%d", $1/5}'</span><span class="k">)</span>
+<span class="nv">empty</span><span class="o">=</span><span class="k">$((</span><span class="m">20</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">filled</span><span class="k">))</span>
+<span class="nv">RED</span><span class="o">=</span><span class="s1">'\033[0;31m'</span>
+<span class="nv">GREEN</span><span class="o">=</span><span class="s1">'\033[0;32m'</span>
+<span class="nv">RESET</span><span class="o">=</span><span class="s1">'\033[0m'</span>
+<span class="nv">bar</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">RED</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>seq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nv">$filled</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nv">bar</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">bar</span><span class="si">}</span><span class="s2">░"</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+<span class="nv">bar</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">bar</span><span class="si">}${</span><span class="nv">RESET</span><span class="si">}</span><span class="s2">│</span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>seq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="k">$((</span><span class="nv">empty</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="k">)))</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nv">bar</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">bar</span><span class="si">}</span><span class="s2">░"</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+<span class="nv">bar</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">bar</span><span class="si">}${</span><span class="nv">RESET</span><span class="si">}</span><span class="s2">"</span>
+<span class="nb">printf</span><span class="w"> </span><span class="s2">"%s | 📁 %s/%s | [</span><span class="si">${</span><span class="nv">bar</span><span class="si">}</span><span class="s2">] %.0f%%\n"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$model</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$parent</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$current</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$used</span><span class="s2">"</span>
+<span class="k">else</span>
+<span class="nb">printf</span><span class="w"> </span><span class="s1">'%s | 📁 %s/%s\n'</span><span class="w"> </span><span class="s2">"</span><span class="nv">$model</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$parent</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$current</span><span class="s2">"</span>
+<span class="k">fi</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="make-it-executable">Make it executable:</h3>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>~/.claude/statusline-command.sh
+</code></pre></div></td></tr></tbody></table></div>
+<ol>
+<li>Add to ~/.claude/settings.json</li>
+</ol>
+<p>Add this top-level key (or merge into your existing settings):</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="nt">"statusLine"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bash /Users/dan/.claude/statusline-command.sh"</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 
 
 
