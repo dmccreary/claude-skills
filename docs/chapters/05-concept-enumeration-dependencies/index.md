@@ -62,7 +62,6 @@ For AI-assisted enumeration via the learning-graph-generator skill, the course d
 
 <iframe src="../../sims/topic-to-concept-expansion-process/main.html" width="100%" height="600px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Topic-to-Concept Expansion Process</summary>
@@ -158,7 +157,6 @@ The learning-graph-generator skill defaults to 200 concepts but accepts guidance
 
 <iframe src="../../sims/concept-count-by-course-duration/main.html" width="100%" height="600px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Concept Count by Course Duration</summary>

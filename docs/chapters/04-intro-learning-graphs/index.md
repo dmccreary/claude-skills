@@ -258,7 +258,6 @@ Chapter generation leverages topological ordering to group concepts into sequent
 
 <iframe src="../../sims/dag-vs-cyclic-graph-comparison/main.html" width="100%" height="600px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>DAG vs Cyclic Graph Comparison</summary>
@@ -359,7 +358,6 @@ The learning-graph-generator skill uses the course description's topic list and 
 
 <iframe src="../../sims/dependency-mapping-decision-tree/main.html" width="100%" height="600px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Dependency Mapping Decision Tree</summary>
@@ -489,7 +487,6 @@ While Claude Code itself operates sequentially within a session, you can run mul
 
 <iframe src="../../sims/token-consumption-timeline-for-complete-textbook-project/main.html" width="100%" height="600px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
 
 <details markdown="1">
     <summary>Token Consumption Timeline for Complete Textbook Project</summary>
