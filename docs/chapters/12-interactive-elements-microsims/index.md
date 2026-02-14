@@ -236,9 +236,7 @@ Key requirements for the `main.html` structure:
 - Ensure the simulation starts in a meaningful state
 #### Diagram: Basic MicroSim Template Structure
 
-<iframe src="../../sims/basic-microsim-template-structure/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
+<iframe src="../../sims/basic-microsim-template-structure/main.html" width="100%" height="780px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Basic MicroSim Template Structure</summary>
@@ -557,9 +555,7 @@ function draw() {
 Effective button design for educational purposes requires attention to labeling, feedback, and state management. Button labels should use action verbs that clearly communicate what will happen ("Start Traversal" rather than "Go"). Visual feedback such as color changes, disabled states, or confirmation messages helps students understand the effects of their actions. For toggleable buttons, the label or appearance should reflect the current state, making it clear whether clicking will enable or disable a feature.
 #### Diagram: Algorithm Visualization with Step Controls MicroSim
 
-<iframe src="../../sims/algorithm-visualization-with-step-controls-microsim/main.html" width="100%" height="600px" scrolling="no"></iframe>
-<!-- TODO: adjust the height of the iframe -->
-TODO: Generate Microsim
+<iframe src="../../sims/algorithm-visualization-with-step-controls-microsim/main.html" width="100%" height="720px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Algorithm Visualization with Step Controls MicroSim</summary>
