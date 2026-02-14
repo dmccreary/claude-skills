@@ -1,6 +1,6 @@
 ---
 name: book-chapter-generator
-description: This skill generates a structured chapter outline for intelligent textbooks by analyzing course descriptions, learning graphs, and concept dependencies. Use this skill after the learning graph has been created and before generating chapter content, to design an optimal chapter structure that respects concept dependencies and distributes content evenly across 6-20 chapters.
+description: This skill generates a structured chapter outline for intelligent textbooks by analyzing course descriptions, learning graphs, and concept dependencies. Use this skill after the learning graph has been created and before generating chapter content, to design an optimal chapter structure that respects concept dependencies and distributes content evenly across all of the chapter in a book.
 ---
 
 # Book Chapter Generator
@@ -8,20 +8,18 @@ description: This skill generates a structured chapter outline for intelligent t
 ## Overview
 
 This skill creates a comprehensive chapter structure for intelligent textbooks by analyzing the course description, learning graph, and concept taxonomy. It designs an optimal chapter outline that ensures all concepts are covered exactly once, respects dependency relationships, and distributes content appropriately across chapters.
+This task is run serially after the learning graph generation.
 
 ## When to Use This Skill
 
 Use this skill when:
-- A learning graph has been generated (learning-graph.json exists)
-- The course description is finalized
-- The concept taxonomy has been established
+- The course description is finalized and the a learning graph has been generated (learning-graph.json exists)
 - Chapter content structure needs to be designed before writing begins
 
 **Prerequisites:**
 - `/docs/course-description.md` must exist
 - `/docs/learning-graph/learning-graph.json` must exist with ~200 concepts
-- `/docs/learning-graph/concept-taxonomy.md` should exist
-- MkDocs project structure must be in place
+- mkdocs.yml file must be in place for the chapter links to be generated to the nav section
 
 **Do NOT use this skill if:**
 - The learning graph hasn't been generated yet (use `learning-graph-generator` first)

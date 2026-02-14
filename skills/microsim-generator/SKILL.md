@@ -11,6 +11,12 @@ This meta-skill routes MicroSim creation requests to the appropriate specialized
 
 Five Python batch utilities in `src/microsim-utils/` automate the repetitive parts of MicroSim generation (parsing specs, scaffolding files, inserting iframes, validating quality, updating navigation), saving ~430K tokens per batch run. The agent's creative work is focused on writing the `.js` file.
 
+## Default Sequential Execution
+
+When the microsim generator skill us used on all of the #### Diagram elements
+of a chapter, always run the microsim generator tasks sequentially unless
+the user specifically uses the phrase "execute in parallel".
+
 ## When to Use This Skill
 
 Use this skill when users request:

@@ -53,6 +53,8 @@ nav:
     - Chapter 13 - Development Tools, Version Control, and Deployment:
       - Content: chapters/13-dev-tools-version-control-deployment/index.md
       - Quiz: chapters/13-dev-tools-version-control-deployment/quiz.md
+    - 17. Parallel Execution:
+      - Content: chapters/17-parallel-execution/index.md
 
   - Skill Descriptions:
     - Overview of Skills: skill-descriptions/index.md

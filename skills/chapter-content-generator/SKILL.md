@@ -5,16 +5,15 @@ description: This skill generates comprehensive chapter content for intelligent 
 
 # Chapter Content Generator
 
-**Version:** 0.04
+**Version:** 0.05
 
 ## Overview
 
 This skill generates detailed educational content for individual textbook chapters, transforming chapter outlines (title, summary, concept list) into comprehensive learning material with appropriate reading level, rich visual elements, and interactive components. The skill is designed to run after the `book-chapter-generator` skill has created the chapter structure.
 
-**Version 0.04 Features:**
-- **Parallel execution** - Generate content for multiple chapters simultaneously
-- **3-4x faster** - 23 chapters in ~15-20 minutes instead of ~60+ minutes
-- **Same token usage** - Parallel doesn't increase total tokens, only reduces wall-clock time
+**Version 0.05 Features:**
+- **Sequential execution** - Generate content one chapter at a time to avoid excessive token usage.  A user may override this with the phase "use parallel execution" but the
+skill will warn them that a 38% additional tokens will be used
 
 ## When to Use This Skill
 
@@ -29,25 +28,20 @@ Do NOT use this skill when:
 - Chapter structure hasn't been created yet (use `book-chapter-generator` first)
 - Content already exists and just needs editing (use Edit tool directly)
 - Generating other types of content (prompts, glossaries, etc.)
+- The user is almost out of tokens (over 95% of used in a 5-hour window)
 
 ## Execution Modes
 
-### Parallel Mode (Default for 4+ chapters)
+### Sequential Mode (Default for all use-cases)
 
-When generating content for 4 or more chapters, use parallel execution:
+- Always only do one chapter at a time due to large overhead of parallel mode
+- Wait for a chapter to totally finish and log the session before you begin the next chapter
+- Clearly indicate to the user when each chapter is finished
 
-| Aspect | Sequential | Parallel |
-|--------|------------|----------|
-| Agents | 1 | 4-6 concurrent |
-| Wall-clock time | ~60+ minutes (23 chapters) | ~15-20 minutes |
-| Total tokens | Same | Same |
+### Parallel Mode (Only on request)
 
-### Sequential Mode
-
-Use for:
-- Fewer than 4 chapters
-- Debugging or troubleshooting
-- When explicit sequential processing is requested
+Parallel mode should ONLY be used when the user specifically request parallel execution.
+Warn the user that there will be a substantial token penalty to pay for parallel execution.
 
 ### Single Chapter Mode
 
@@ -61,17 +55,19 @@ Use for:
 
 This phase runs once before any content generation, reading shared context that all agents will need.
 
-#### Step 1.1: Capture Start Time
+#### Step 1.1: Capture Start Time for Logging
 
 ```bash
-date "+%Y-%m-%d %H:%M:%S"
+date "+%Y-%m-%d %H:%M:%S" >>logs/ch-{NN}-content-generation.md
 ```
+
+Where {NN} is the two digit chapter number with zero padding.
 
 Log the start time for the session report.
 
 #### Step 1.2: Indicate Skill Running
 
-Notify the user: "Chapter Content Generator Skill v0.04 running in [parallel/sequential] mode."
+Notify the user: "Chapter Content Generator Skill v0.05 running in [parallel/sequential] mode."
 
 #### Step 1.3: Read Shared Context
 
@@ -79,15 +75,16 @@ Read and cache these files for all agents:
 
 1. **Course Description** (`docs/course-description.md`)
    - Extract target audience and reading level
-   - Note course objectives and tone guidelines
-   - Identify any mascot or narrative elements (e.g., Delta in calculus)
+   - Note course objectives and tone guidelines in the project CLAUDE.md
+   - Identify any mascot or narrative elements (e.g., Delta in calculus) in the project CLAUDE.md
 
 2. **Learning Graph** (`docs/learning-graph/learning-graph.csv` or similar)
    - Load concept list with dependencies
    - Understand concept relationships for pedagogical ordering
 
 3. **Glossary** (`docs/glossary.md`)
-   - Load term definitions for consistent terminology
+   - Load term definitions for consistent terminology if they exist
+   - In most cases the glossary is created after the content is generated
    - Note which concepts have glossary entries
 
 4. **Project CLAUDE.md** (if exists)
@@ -103,12 +100,14 @@ Read and cache these files for all agents:
 Extract the grade reading level from the course description:
 
 **Reading level indicators:**
+- "grade-school", "grade school", "grades 1-6", "elementary school" → Elementary School
 - "junior-high", "junior high", "grades 7-9", "middle school" → Junior High
 - "senior-high", "senior high", "grades 10-12", "high school" → Senior High
 - "college", "undergraduate", "bachelor" → College
 - "graduate", "master", "masters", "master's", "PhD", "doctoral" → Graduate
 
 **Reading level characteristics:**
+- **Grade School (Grades 1-6):** Very sentences (10-14 words), common vocabulary, concrete examples, frequent visual aids
 - **Junior High (Grades 7-9):** Simple sentences (12-18 words), common vocabulary, concrete examples, frequent visual aids
 - **Senior High (Grades 10-12):** Mixed sentence complexity (15-22 words), technical vocabulary with definitions, balance of concrete and abstract
 - **College:** Academic style (18-25 words), technical terminology, case studies, research context
@@ -160,7 +159,7 @@ COURSE CONTEXT:
 - Tone: [tone guidelines from course description or CLAUDE.md]
 
 CONTENT GUIDELINES:
-- No more than 3 paragraphs of pure text without a non-text element
+- No more than 4 paragraphs of pure text without a non-text element
 - Use diverse element types (lists, tables, diagrams, MicroSims)
 - Present concepts in pedagogical order (simple to complex)
 - Include LaTeX equations where appropriate (backslash delimiters: `\( \)` for inline, `\[ \]` for display)
@@ -191,24 +190,10 @@ version: 0.04
 REPORT when done:
 - Chapter name
 - Word count
-- Non-text elements (lists, tables, diagrams, MicroSims)
+- Non-text elements (lists, tables, admonitions, diagrams, MicroSims)
 - Concepts covered (X of Y)
 ```
 
-**Launching Parallel Agents:**
-
-Use the Task tool with multiple invocations in a SINGLE message to run agents in parallel:
-
-```markdown
-[Call Task tool for Agent 1: Chapters 1-4]
-[Call Task tool for Agent 2: Chapters 5-8]
-[Call Task tool for Agent 3: Chapters 9-12]
-[Call Task tool for Agent 4: Chapters 13-16]
-[Call Task tool for Agent 5: Chapters 17-20]
-[Call Task tool for Agent 6: Chapters 21-23]
-```
-
-**IMPORTANT:** All Task tool calls MUST be in a single message to execute in parallel. If sent in separate messages, they will run sequentially.
 
 #### Sequential Execution
 
@@ -233,6 +218,22 @@ Verify that the chapter file exists and has required elements.
 Where:
 - `NN` = Two-digit chapter number with leading zero (e.g., "01", "07", "12")
 - `lowercase-name` = URL-friendly lowercase name with dashes, no spaces
+
+**Launching Parallel Agents:**
+This is done ONLY if the user request parallel execution. 
+
+Use the Task tool with multiple invocations in a SINGLE message to run agents in parallel:
+
+```markdown
+[Call Task tool for Agent 1: Chapters 1-4]
+[Call Task tool for Agent 2: Chapters 5-8]
+[Call Task tool for Agent 3: Chapters 9-12]
+[Call Task tool for Agent 4: Chapters 13-16]
+[Call Task tool for Agent 5: Chapters 17-20]
+[Call Task tool for Agent 6: Chapters 21-23]
+```
+
+**IMPORTANT:** All Task tool calls MUST be in a single message to execute in parallel. If sent in separate messages, they will run sequentially.
 
 #### Step 2.2: Verify Chapter Outline
 
