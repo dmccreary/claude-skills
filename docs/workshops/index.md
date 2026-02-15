@@ -4,6 +4,8 @@
 the workshop.  They typically take about 30-minutes on a Mac or Linux system and 2-3 hours on
 a Windows system.  You must have 10GB free space and had admin rights on your computer.
 
+[Quickstart](./quick-start.md) - the smallest list of commands to get you started
+
 [From Course Description to Textbook in Two Hours](intelligent-textbook-workshop-outline.md)
 Detailed step-by-step for building an intelligent textbook.
 
