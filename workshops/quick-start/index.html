@@ -1339,7 +1339,7 @@ and set it to ~/projects/claude-skills so the shell scripts run.  See the README
 This will become the {$PROJECT} in future prompts</p>
 <p>Clone the {$PROJECT} repo into my projects directory.  </p>
 <p>Copy a mkdocs.yml file from your favorite book (calculus, statistics, physics, linux, computer science).  Get the full list here: https://dmccreary.github.io/intelligent-textbooks/case-studies/ or have Claude generate one for you.</p>
-<p>Create a detailed course description on the subject SUBJECT_NAME and include all the things you would see in a detailed course description including learing objectives categorized by the 2001 Bloom Taxonomy.</p>
+<p>Create a detailed course description on the subject SUBJECT_NAME and include all the things you would see in a detailed course description including learning objectives categorized by the 2001 Bloom Taxonomy.</p>
 <p>Run the /course-description-analyzer on my course description</p>
 <p>Get the quality score above 85.</p>
 <p>Run the /learning-graph-generation skill</p>
@@ -1353,8 +1353,8 @@ This will become the {$PROJECT} in future prompts</p>
 <p>For each #### Diagram in @docs/chapter/01*/index.md run the /microsim-generator skill</p>
 <p>Repeat this for each chapter and check the quality of each MicroSim</p>
 <p>Run the ~./.local/bin/bk-capture-screenshot script on each of the microsims
-in @docs/sims/* using the parameters </p><dir> <delay=3> <height> where height is
-taken from the iframe in the index.md of the microsim directory.<p></p>
+in @docs/sims/* using the parameters <code>dir</code> <code>delay=3</code> <code>height</code> where height is
+taken from the iframe in the index.md of the microsim directory.</p>
 <p>Run the /book-installer skill that generates the @docs/sims/index.md which generates mkdocs material grid cards for every microsim.</p>
 <p>Run the ~/.local/bin/bk-generate-book-metrics which will generate the metrics for the entire book and create a markdown report in the @docs/learning-graph</p>
 <p>Run the  ~/.local/bin/bk-diagram-reports
@@ -1369,8 +1369,9 @@ family of favicons and various sized logos</p>
 <p>Run the /book-installer generate feature checklist to generate
 a detailed checklist of what features you have enabled and what features
 you can enable (like formatting equations)</p>
+<p>Run the /readme-generator skill</p>
 <p>Run the /book-installer generate a LinkedIn announcement</p>
-</height></delay=3></dir></div>
+</div>
 
 
 
