@@ -96,4 +96,6 @@ Copy these lines into Claude one at a time and verify they work.
     a detailed checklist of what features you have enabled and what features
     you can enable (like formatting equations)
 
+    Run the /readme-generator skill
+
     Run the /book-installer generate a LinkedIn announcement
