@@ -1286,6 +1286,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#status-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status Line
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1321,6 +1330,8 @@
 <li>Any image processing tools that you will need to build the preview images for the social preview images</li>
 <li>The <code>gh</code> unix command that does github manipulations</li>
 <li>You should have an account on github that you log into with the gh login command</li>
+<li>Tell Claude to update you github global name and email</li>
+<li>Tell Claude to remember your github id</li>
 </ol>
 <h2 id="setup">Setup</h2>
 <p>Copy these lines into Claude one at a time and verify they work.</p>
@@ -1337,8 +1348,14 @@ and set it to ~/projects/claude-skills so the shell scripts run.  See the README
 <p>Create the conda virtual environment called "mkdocs" and add the mkdocs-material python library into it.</p>
 <p>Create a new github repository for me called <code>my-intelligent-book</code> or another similar name that identifies my book like "pre-calculus-course".
 This will become the {$PROJECT} in future prompts</p>
-<p>Clone the {$PROJECT} repo into my projects directory.  </p>
+<p>Clone the {$PROJECT} repo into my projects directory.</p>
+<p>Add the following to the {$PROJECT}/.gitignore
+site
+.cache
+.DS_Store
+~$*</p>
 <p>Copy a mkdocs.yml file from your favorite book (calculus, statistics, physics, linux, computer science).  Get the full list here: https://dmccreary.github.io/intelligent-textbooks/case-studies/ or have Claude generate one for you.</p>
+<p>Do a commit and push and verify that your commits are on the github.com website</p>
 <p>Create a detailed course description on the subject SUBJECT_NAME and include all the things you would see in a detailed course description including learning objectives categorized by the 2001 Bloom Taxonomy.</p>
 <p>Run the /course-description-analyzer on my course description</p>
 <p>Get the quality score above 85.</p>
@@ -1371,7 +1388,51 @@ a detailed checklist of what features you have enabled and what features
 you can enable (like formatting equations)</p>
 <p>Run the /readme-generator skill</p>
 <p>Run the /book-installer generate a LinkedIn announcement</p>
+<p>Add the following to your Claude settings.json</p>
 </div>
+<h2 id="status-line">Status Line</h2>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">"statusLine"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bash /Users/dan/.claude/statusline-command.sh"</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>```sh</p>
+<h1 id="binbash">!/bin/bash</h1>
+<p>input=$(cat)
+model=$(echo "$input" | jq -r '.model.display_name')
+cwd=$(echo "$input" | jq -r '.workspace.current_dir')
+parent=$(basename "$(dirname "$cwd")")
+current=$(basename "$cwd")
+used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
+cost=$(echo "$input" | jq -r '.cost.total_cost_usd // empty')</p>
+<p>if [ -n "$used" ]; then
+  filled=$(echo "$used" | awk '{printf "%d", $1/5}')
+  empty=$((20 - filled))
+  RED='\033[0;31m'
+  GREEN='\033[0;32m'
+  RESET='\033[0m'
+  remaining=$((20 - filled))
+  bar="${RED}"
+  for i in $(seq 1 $filled); do bar="${bar}░"; done
+  bar="${bar}${RESET}│${GREEN}"
+  for i in $(seq 1 $remaining); do bar="${bar}░"; done
+  bar="${bar}${RESET}"
+  cost_str=""
+  if [ -n "$cost" ]; then
+    cost_str=$(printf ' | $%.2f' "$cost")
+  fi
+  printf "%s | 📁 %s/%s | [${bar}] %.0f%%%s\n" "$model" "$parent" "$current" "$used" "$cost_str"
+else
+  cost_str=""
+  if [ -n "$cost" ]; then
+    cost_str=$(printf ' | $%.2f' "$cost")
+  fi
+  printf '%s | 📁 %s/%s%s\n' "$model" "$parent" "$current" "$cost_str"
+fi
+``</p>
 
 
 
