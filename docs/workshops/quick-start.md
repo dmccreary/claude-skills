@@ -11,6 +11,7 @@ Before you begin, you should have the following installed:
 4. mkdocs mkdocs-material
 5. Any image processing tools that you will need to build the preview images for the social preview images
 6. The `gh` unix command that does github manipulations
+7. You should have an account on github that you log into with the gh login command
 
 ## Setup
 
@@ -35,8 +36,9 @@ Copy these lines into Claude one at a time and verify they work.
     Create the conda virtual environment called "mkdocs" and add the mkdocs-material python library into it.
 
     Create a new github repository for me called `my-intelligent-book` or another similar name that identifies my book like "pre-calculus-course".
+    This will become the {$PROJECT} in future prompts
 
-    Clone the `my-intelligent-book` repo into my projects directory.
+    Clone the {$PROJECT} repo into my projects directory.  
 
     Copy a mkdocs.yml file from your favorite book (calculus, statistics, physics, linux, computer science).  Get the full list here: https://dmccreary.github.io/intelligent-textbooks/case-studies/ or have Claude generate one for you.
 
@@ -50,7 +52,7 @@ Copy these lines into Claude one at a time and verify they work.
 
     Run the /book-chapter-generator
 
-    Run the /book-installer skill and create a mascot (copy the prompts into an image generator like OpenAI ChatGPG DALL-E or Google nano-banana)
+    Run the /book-installer skill and create a mascot (copy the prompts into an image generator like OpenAI ChatGPG DALL-E or Google nano-banana).  Update the CLAUDE.md file in {$PROJECT}/CLAUDE.md
 
     For each of the chapters in @docs/chapters/*/index.md run the /chapter-content-generator
 
@@ -79,6 +81,19 @@ Copy these lines into Claude one at a time and verify they work.
 
     Run the  ~/.local/bin/bk-install-social-override-plugin
 
+    Check that the html files have the right metadata in the html header
+
+    Run the /book-installer generate cover
+
+    Run the /book-installer generate logo
+
+    Upload the logo to https://favicon.io/favicon-converter/ to generate the
+    family of favicons and various sized logos
+
     Run the mkdocs build program and repair any missing links
+
+    Run the /book-installer generate feature checklist to generate
+    a detailed checklist of what features you have enabled and what features
+    you can enable (like formatting equations)
 
     Run the /book-installer generate a LinkedIn announcement
