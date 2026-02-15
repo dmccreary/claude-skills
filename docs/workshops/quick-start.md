@@ -12,6 +12,8 @@ Before you begin, you should have the following installed:
 5. Any image processing tools that you will need to build the preview images for the social preview images
 6. The `gh` unix command that does github manipulations
 7. You should have an account on github that you log into with the gh login command
+8. Tell Claude to update you github global name and email
+9. Tell Claude to remember your github id
 
 ## Setup
 
@@ -38,9 +40,17 @@ Copy these lines into Claude one at a time and verify they work.
     Create a new github repository for me called `my-intelligent-book` or another similar name that identifies my book like "pre-calculus-course".
     This will become the {$PROJECT} in future prompts
 
-    Clone the {$PROJECT} repo into my projects directory.  
+    Clone the {$PROJECT} repo into my projects directory.
+
+    Add the following to the {$PROJECT}/.gitignore
+    site
+    .cache
+    .DS_Store
+    ~$*
 
     Copy a mkdocs.yml file from your favorite book (calculus, statistics, physics, linux, computer science).  Get the full list here: https://dmccreary.github.io/intelligent-textbooks/case-studies/ or have Claude generate one for you.
+
+    Do a commit and push and verify that your commits are on the github.com website
 
     Create a detailed course description on the subject SUBJECT_NAME and include all the things you would see in a detailed course description including learning objectives categorized by the 2001 Bloom Taxonomy.
 
@@ -99,3 +109,50 @@ Copy these lines into Claude one at a time and verify they work.
     Run the /readme-generator skill
 
     Run the /book-installer generate a LinkedIn announcement
+
+    Add the following to your Claude settings.json
+
+## Status Line
+
+```json
+"statusLine": {
+   "type": "command",
+   "command": "bash /Users/dan/.claude/statusline-command.sh"
+}
+```
+
+```sh
+#!/bin/bash
+input=$(cat)
+model=$(echo "$input" | jq -r '.model.display_name')
+cwd=$(echo "$input" | jq -r '.workspace.current_dir')
+parent=$(basename "$(dirname "$cwd")")
+current=$(basename "$cwd")
+used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
+cost=$(echo "$input" | jq -r '.cost.total_cost_usd // empty')
+
+if [ -n "$used" ]; then
+  filled=$(echo "$used" | awk '{printf "%d", $1/5}')
+  empty=$((20 - filled))
+  RED='\033[0;31m'
+  GREEN='\033[0;32m'
+  RESET='\033[0m'
+  remaining=$((20 - filled))
+  bar="${RED}"
+  for i in $(seq 1 $filled); do bar="${bar}░"; done
+  bar="${bar}${RESET}│${GREEN}"
+  for i in $(seq 1 $remaining); do bar="${bar}░"; done
+  bar="${bar}${RESET}"
+  cost_str=""
+  if [ -n "$cost" ]; then
+    cost_str=$(printf ' | $%.2f' "$cost")
+  fi
+  printf "%s | 📁 %s/%s | [${bar}] %.0f%%%s\n" "$model" "$parent" "$current" "$used" "$cost_str"
+else
+  cost_str=""
+  if [ -n "$cost" ]; then
+    cost_str=$(printf ' | $%.2f' "$cost")
+  fi
+  printf '%s | 📁 %s/%s%s\n' "$model" "$parent" "$current" "$cost_str"
+fi
+``
