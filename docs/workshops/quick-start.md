@@ -72,9 +72,12 @@ Copy these lines into Claude one at a time and verify they work.
 
     Run the /book-installer skill that generates the @docs/sims/index.md which generates mkdocs material grid cards for every microsim.
 
-    Run the ~/.local/bin/bk-generate-book-metrics
+    Run the ~/.local/bin/bk-generate-book-metrics which will generate the metrics for the entire book and create a markdown report in the @docs/learning-graph
 
     Run the  ~/.local/bin/bk-diagram-reports
+    which will generate the diagram metrics for the entire book and create a markdown report in the @docs/learning-graph
+
+    Run the  ~/.local/bin/bk-install-social-override-plugin
 
     Run the mkdocs build program and repair any missing links
 
