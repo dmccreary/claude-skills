@@ -42,7 +42,7 @@ Copy these lines into Claude one at a time and verify they work.
 
     Copy a mkdocs.yml file from your favorite book (calculus, statistics, physics, linux, computer science).  Get the full list here: https://dmccreary.github.io/intelligent-textbooks/case-studies/ or have Claude generate one for you.
 
-    Create a detailed course description on the subject SUBJECT_NAME and include all the things you would see in a detailed course description including learing objectives categorized by the 2001 Bloom Taxonomy.
+    Create a detailed course description on the subject SUBJECT_NAME and include all the things you would see in a detailed course description including learning objectives categorized by the 2001 Bloom Taxonomy.
 
     Run the /course-description-analyzer on my course description
 
@@ -69,7 +69,7 @@ Copy these lines into Claude one at a time and verify they work.
     Repeat this for each chapter and check the quality of each MicroSim
 
     Run the ~./.local/bin/bk-capture-screenshot script on each of the microsims
-    in @docs/sims/* using the parameters <dir> <delay=3> <height> where height is
+    in @docs/sims/* using the parameters `dir` `delay=3` `height` where height is
     taken from the iframe in the index.md of the microsim directory.
 
     Run the /book-installer skill that generates the @docs/sims/index.md which generates mkdocs material grid cards for every microsim.
