@@ -233,6 +233,12 @@ that makes it easy for the user to copy.
 All iframes that enclose a MicroSim are designed to be run in the entire width of their container and non-scrolling.  This prevents confusion to the user that sees
 scrolling regions with scrolling regions of a web page.
 
+Always use named colors like 'aliceblue', 'black' and 'white'.  Never use
+a hex representation since these are much harder for the code reader to understand.
+
+Always place a noStroke(); before each text() element.  This ensures that
+no residual stroke command will corrupt the text() display.
+
 Every MicroSim must have two distinct regions of the `iframe` canvas:
 
 1. A top `drawing` region with a fixed height called `drawHeight`.  No user interface controls are placed in the drawing region.
@@ -268,11 +274,14 @@ function draw() {
   updateCanvasSize();
 
   // Drawing area (light blue background with silver border)
+  // THIS IS REQUIRED for UI Consistency!  NO EXCEPTIONS!
   fill('aliceblue');
-  // Draw a light gray border around both the drawing region AND the control region
+  // Draw a light gray border around BOTH the drawing region AND the control region
+  // THIS IS REQUIRED for UI Consistency!  NO EXCEPTIONS!
   stroke('silver');
   rect(0, 0, canvasWidth, drawHeight);
   // Control area (white background)
+  // THIS IS REQUIRED for UI Consistency!  NO EXCEPTIONS!
   fill('white');
   rect(0, drawHeight, canvasWidth, controlHeight);
 
