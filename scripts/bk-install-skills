@@ -66,7 +66,7 @@ for link in "$TARGET_DIR"/*; do
             # Broken symlink - target doesn't exist
             rm "$link"
             cleaned_links+=("$link_name (broken)")
-            ((cleanup_count++))
+            ((++cleanup_count))
         elif [[ "$link_target" == "$SKILLS_DIR"* ]] || [[ "$link_target" == *"/claude-skills/skills/"* ]]; then
             # Symlink points to our skills directory - check if source skill still exists
             source_skill_name=$(basename "$link_target")
@@ -74,7 +74,7 @@ for link in "$TARGET_DIR"/*; do
                 # Source skill no longer exists (renamed or removed)
                 rm "$link"
                 cleaned_links+=("$link_name (stale - source removed)")
-                ((cleanup_count++))
+                ((++cleanup_count))
             fi
         fi
     fi

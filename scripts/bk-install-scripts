@@ -76,7 +76,7 @@ for script in "$SCRIPT_DIR"/bk*; do
     ln -s "$script" "$link_path"
     echo -e "${GREEN}✓${NC} $script_name -> $script"
     installed_links+=("$script_name")
-    ((installed_count++))
+    ((++installed_count))
 done
 shopt -u nullglob
 
