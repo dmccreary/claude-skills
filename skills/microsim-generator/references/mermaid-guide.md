@@ -154,6 +154,26 @@ Consult `references/mermaid-flowchart-syntax.md` for detailed syntax guidance.
    flowchart TD
    ```
 
+6. **Use `<br/>` for line breaks in node labels — never `\n`:**
+   Mermaid v11 does not interpret `\n` escape sequences inside labels when
+   `htmlLabels: true` (the default). Always use `<br/>`:
+   ```
+   Node["First line<br/>Second line<br/>Third line"]:::processNode
+   ```
+
+7. **Avoid these characters inside node labels** — they break the Mermaid parser:
+
+   | Character | Problem | Safe alternative |
+   |-----------|---------|-----------------|
+   | `\n` | Not parsed as newline | Use `<br/>` |
+   | `$` or `$$` | Triggers MathJax / parser confusion | Spell out "dollars" or omit |
+   | `{` `}` | Conflicts with diamond-node syntax | Spell out or use plain English |
+   | `\(` `\[` `\ce{}` | Backslash sequences break tokenizer | Use plain English descriptions |
+   | Bare `(` `)` inside `[]` nodes | Can confuse the parser | Wrap the entire label in `"..."` |
+
+   **Rule of thumb:** If a label character has special meaning in Markdown, LaTeX,
+   or JavaScript, replace it with a plain English equivalent.
+
 **Example Mermaid code structure:**
 
 ```mermaid
@@ -391,6 +411,43 @@ Next steps:
 
 Every Mermaid diagram MUST include interactive hover descriptions. Prefer a right-side info panel/card (not floating tooltip overlays) so content remains readable inside iframes.
 
+### Legend Placement in 2/3 + 1/3 Layout
+
+Place the color-key legend at the **top of the info panel** as a normal-flow
+block element — not absolutely positioned inside the diagram panel.
+
+This is the correct placement because:
+- The info panel's top is otherwise empty (the Y-following hover card floats
+  near the mouse, leaving the top of the column blank)
+- The diagram panel is 66% wide; "upper-right of diagram" is not the far right
+  of the page and still overlaps diagram nodes
+- A normal-flow legend in the right column fills that empty space cleanly
+
+```html
+<div class="info-panel">
+    <div class="legend">          <!-- legend first, normal flow -->
+        <div class="legend-title">Color Key</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#2e7d32"></div>Start / success</div>
+        <!-- ... more items ... -->
+    </div>
+    <h3>Step Details</h3>         <!-- header below legend -->
+    <div id="panelWrap">
+        <div id="panel">Hover a node for details.</div>
+    </div>
+</div>
+```
+
+```css
+.legend {
+    margin-bottom: 12px;
+    font-size: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 8px 10px;
+    background: #fff;
+}
+```
+
 ### Info Panel HTML Structure
 
 Use a right-side panel with an inner card that can move vertically:
@@ -464,8 +521,15 @@ const panelWrap = document.getElementById('panelWrap');
 function positionPanel(evt) {
     const r = panelWrap.getBoundingClientRect();
     const panelH = panel.offsetHeight || 120;
+    // Use offsetHeight (full CSS height), NOT r.height (visible viewport slice).
+    // r.height shrinks when the element is partially scrolled out of view,
+    // making Math.min() push the panel below the canvas for bottom nodes.
+    const wrapH = panelWrap.offsetHeight;
     const y = evt.clientY - r.top - 20;
-    const top = Math.max(8, Math.min(r.height - panelH - 8, y));
+    // Bottom buffer of 200px: accounts for the gap between panelWrap bottom
+    // and the iframe bottom (legend height + h3 + padding). Increase if the
+    // last-node infobox still clips; decrease if there is excessive empty space.
+    const top = Math.max(8, Math.min(wrapH - panelH - 200, y));
     panel.style.top = `${top}px`;
 }
 
@@ -514,6 +578,17 @@ After rendering, verify the full workflow is visible (especially bottom branches
 
 - Never leave clipped nodes/arrows in the iframe.
 - If uncertain, increase container and iframe height, then reduce in small increments until no clipping remains.
+
+**Three heights must stay in sync** whenever you change diagram size:
+
+| Location | Typical value | Notes |
+|----------|--------------|-------|
+| `index.md` iframe `height` attribute | e.g. `1850px` | What MkDocs embeds |
+| `.container` height in `main.html` CSS | iframe − 10px | Prevents inner scrollbar |
+| `#panelWrap` height in `main.html` CSS | container − ~50px | Accounts for legend + h3 above it |
+
+Update all three together. Changing only the iframe height leaves the inner
+layout clipped or showing a scrollbar.
 
 ### Complete main.html Template with Tooltips
 
@@ -758,6 +833,23 @@ Start → Try Action → Success?
 - Use `e.pageX`/`e.pageY` for positioning relative to the document
 - Include boundary checks using `window.innerWidth` and `window.innerHeight`
 - Set `pointer-events: none` on tooltip to prevent mouse interference
+
+**Issue: Info panel card renders below the visible canvas for bottom nodes**
+
+Two causes, both in `positionPanel`:
+
+1. **`r.height` instead of `offsetHeight`** — `getBoundingClientRect().height`
+   returns the *viewport-clipped* height. When the user scrolls down,
+   `r.height` shrinks and `r.height - panelH - 8` goes negative, pushing the
+   card off screen. Fix: use `panelWrap.offsetHeight` (the full CSS height).
+
+2. **Insufficient bottom buffer** — Even with `offsetHeight`, the last node's
+   card can still clip because `panelWrap` ends before the iframe bottom
+   (legend + header height above `panelWrap`). Increase the bottom buffer:
+   ```javascript
+   // Change -8 to -200 (tune up/down in increments of 20)
+   const top = Math.max(8, Math.min(wrapH - panelH - 200, y));
+   ```
 
 ## Resources
 

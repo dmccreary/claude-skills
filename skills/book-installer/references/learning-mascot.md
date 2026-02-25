@@ -885,6 +885,7 @@ This page shows all mascot admonition styles for reference.
 docs/
 ├── img/
 │   └── mascot/
+│       ├── neutral.png
 │       ├── welcome.png
 │       ├── thinking.png
 │       ├── tip.png
@@ -915,6 +916,7 @@ docs/
 
 | Type | Usage | Color |
 |------|-------|-------|
+| `mascot-neutral` | General sidebars / default | Slate gray |
 | `mascot-welcome` | Chapter openings | Primary color |
 | `mascot-thinking` | Key concepts | Secondary color |
 | `mascot-tip` | Tips and hints | Green |
