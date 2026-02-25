@@ -149,6 +149,14 @@ suitable for embedding in educational content. No text in image.
 
 Generate prompts for each of these poses:
 
+**0. Neutral/Default Pose** (general sidebars, introductions, inline use)
+```
+[BASE_PROMPT] [NAME] stands upright in a relaxed, neutral pose facing the
+viewer directly, with a calm and friendly closed-mouth smile. Arms/paws/wings
+rest naturally at their sides with no specific gesture. The pose is balanced
+and unassuming — suitable as a general-purpose or default illustration.
+```
+
 **1. Welcome/Introduction Pose** (chapter openings)
 ```
 [BASE_PROMPT] [NAME] is waving cheerfully with one hand/paw/wing,
@@ -202,6 +210,10 @@ The character is small and compact, suitable for icon-sized display.
 Style: modern flat vector, clean lines, white background,
 suitable for embedding in educational content. No text in image.
 
+Neutral: [Base] Otto stands upright in a relaxed, neutral pose facing
+the viewer with a calm, friendly closed-mouth smile. Both wings rest
+naturally at his sides. No specific gesture.
+
 Welcome: [Base] Otto is waving one wing cheerfully, facing the viewer
 with a warm, welcoming expression.
 
@@ -229,6 +241,7 @@ After the user generates their images, instruct them to save them:
 
 ```
 docs/img/mascot/
+├── neutral.png       # General purpose / default
 ├── welcome.png       # Chapter openings
 ├── thinking.png      # Key concepts
 ├── tip.png           # Tips and hints
@@ -327,6 +340,28 @@ Create or append to `docs/css/mascot.css`:
   --mascot-bg: {{BG_COLOR}};               /* e.g., #e8eaf6 */
   --mascot-border: {{BORDER_COLOR}};       /* e.g., #7986cb */
   --mascot-size: 60px;
+}
+
+/* Neutral admonition (general purpose) */
+.md-typeset .admonition.mascot-neutral,
+.md-typeset details.mascot-neutral {
+  border-color: #546e7a;
+  background-color: #eceff1;
+}
+.md-typeset .mascot-neutral > .admonition-title,
+.md-typeset .mascot-neutral > summary {
+  background-color: #546e7a;
+  color: white;
+}
+.md-typeset .mascot-neutral > .admonition-title::before,
+.md-typeset .mascot-neutral > summary::before {
+  content: "";
+  background: url('../img/mascot/neutral.png') center/contain no-repeat;
+  width: 1.2em;
+  height: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.4em;
 }
 
 /* Welcome admonition */
@@ -495,6 +530,11 @@ markdown_extensions:
 Authors use standard admonition syntax with the custom types:
 
 ```markdown
+!!! mascot-neutral "A Note from {{CHARACTER_NAME}}"
+
+    Use this for general sidebars, introductions, or any content
+    that doesn't call for a specific emotional tone.
+
 !!! mascot-welcome "Welcome to Quadratic Equations!"
 
     In this chapter, we'll discover how to solve equations
@@ -762,6 +802,7 @@ To ensure consistent mascot usage across AI-generated content, add a section to 
 
 | Context | Admonition Type | Frequency |
 |---------|----------------|-----------|
+| General note / sidebar | mascot-neutral | As needed |
 | Chapter opening | mascot-welcome | Every chapter |
 | Key concept | mascot-thinking | 2-3 per chapter |
 | Helpful tip | mascot-tip | As needed |
@@ -811,6 +852,9 @@ Create `docs/learning-graph/mascot-test.md` to preview all mascot variants:
 # Mascot Style Guide
 
 This page shows all mascot admonition styles for reference.
+
+!!! mascot-neutral "General Note"
+    This is the neutral style, used for general sidebars or introductions.
 
 !!! mascot-welcome "Welcome!"
     This is the welcome style, used at chapter openings.
