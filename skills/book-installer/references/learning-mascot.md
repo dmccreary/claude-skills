@@ -260,6 +260,22 @@ Recommended specifications:
 - Dimensions: 200x200 to 400x400 pixels for display
 - File size: Under 100KB per image for web performance
 
+#### Step 4b: Trim Excess Padding from Mascot Images
+
+AI image generators frequently add excessive transparent padding around mascot images, which makes the mascot appear too small when displayed at the target CSS size (e.g., 90px). After saving the images, recommend running the padding trimmer on each file:
+
+```bash
+python $BK_HOME/src/image-utils/trim-padding-from-image.py docs/img/mascot/neutral.png
+python $BK_HOME/src/image-utils/trim-padding-from-image.py docs/img/mascot/welcome.png
+python $BK_HOME/src/image-utils/trim-padding-from-image.py docs/img/mascot/thinking.png
+python $BK_HOME/src/image-utils/trim-padding-from-image.py docs/img/mascot/tip.png
+python $BK_HOME/src/image-utils/trim-padding-from-image.py docs/img/mascot/warning.png
+python $BK_HOME/src/image-utils/trim-padding-from-image.py docs/img/mascot/celebration.png
+python $BK_HOME/src/image-utils/trim-padding-from-image.py docs/img/mascot/encouraging.png
+```
+
+This script trims transparent padding to the bounding box of the visible content. It is critical to run this step because untrimmed images display much smaller than intended inside the admonition boxes.
+
 ### Step 5: Choose Implementation Method
 
 Present the three implementation options to the user:
@@ -340,6 +356,25 @@ Create or append to `docs/css/mascot.css`:
   --mascot-bg: {{BG_COLOR}};               /* e.g., #e8eaf6 */
   --mascot-border: {{BORDER_COLOR}};       /* e.g., #7986cb */
   --mascot-size: 60px;
+}
+
+/* Override MkDocs Material's default smaller admonition font size
+   so mascot admonition text matches the body text exactly. */
+.md-typeset .admonition.mascot-neutral,
+.md-typeset .admonition.mascot-welcome,
+.md-typeset .admonition.mascot-thinking,
+.md-typeset .admonition.mascot-tip,
+.md-typeset .admonition.mascot-warning,
+.md-typeset .admonition.mascot-celebration,
+.md-typeset .admonition.mascot-encourage,
+.md-typeset details.mascot-neutral,
+.md-typeset details.mascot-welcome,
+.md-typeset details.mascot-thinking,
+.md-typeset details.mascot-tip,
+.md-typeset details.mascot-warning,
+.md-typeset details.mascot-celebration,
+.md-typeset details.mascot-encourage {
+  font-size: inherit;
 }
 
 /* Neutral admonition (general purpose) */
