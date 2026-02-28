@@ -1,7 +1,6 @@
 ---
 name: glossary-generator
-description: This skill automatically generates a comprehensive glossary of terms from a learning graph's concept list, ensuring each definition follows ISO 11179 metadata registry standards (precise, concise, distinct, non-circular, and free of business rules). Use this skill when creating a glossary for an intelligent textbook after the learning graph concept list has been finalized.
-license: MIT
+description: This skill automatically generates a comprehensive glossary of terms from a learning graph's concept list, ensuring each definition is precise, concise, distinct, non-circular, and free of business rules. Use this skill when creating a glossary for an intelligent textbook after the learning graph concept list has been finalized.
 ---
 
 # Glossary Generator
