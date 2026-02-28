@@ -8,6 +8,30 @@ license: MIT
 
 Generate a comprehensive glossary of terms from a learning graph's concept list with ISO 11179-compliant definitions.
 
+## TOKEN EFFICIENCY WARNING
+
+**This skill generates large files (2,000+ lines). Token cost matters far more than
+wall-clock time for teacher users on limited budgets.**
+
+**Default approach: ONE serial Task agent** that writes all definitions directly to
+a temp file. This is the most token-efficient method because:
+
+- System prompt / tool description overhead is paid only **once** (~12K tokens)
+- No coordination or assembly overhead
+- Proven to complete a 300-term glossary in **under 50K tokens**
+
+| Approach | Agent overhead | Definition generation | Assembly | Total |
+|----------|---------------|----------------------|----------|-------|
+| 1 serial agent writing to file | ~12K (once) | ~35K | ~700 (script) | **~48K** |
+| 4 parallel agents + script | ~48K (4x) | ~35K | ~700 (script) | **~84K** |
+| 4 parallel agents + manual Edit | ~48K (4x) | ~35K | ~200K (!!!) | **~283K** |
+
+**Always use the serial approach unless the user explicitly asks for speed.**
+
+The assembly step (sorting and writing the final file) MUST always use a Python
+script — NEVER manually emit glossary content through Edit/Write tool calls.
+See `logs/glossary-generation-very-inefficient.md` for the full post-mortem.
+
 ## Purpose
 
 This skill automates glossary creation for intelligent textbooks by converting concept labels from a learning graph into properly formatted glossary definitions. Each definition follows ISO 11179 metadata registry standards: precise, concise, distinct, non-circular, and free of business rules. The skill ensures consistency across terminology, validates cross-references, and produces alphabetically ordered entries with relevant examples.
@@ -59,7 +83,32 @@ Read the course description file (`docs/course-description.md`) and any other ma
 - Prerequisites (for background knowledge assumptions)
 - Learning outcomes (for context on concept usage)
 
-### Step 3: Generate Definitions
+### Step 3: Generate Definitions Using a Single Serial Agent
+
+**Default approach (most token-efficient):** Launch ONE Task agent that generates
+all definitions and writes them directly to a single temp file.
+
+```
+Task agent prompt:
+"Generate ISO 11179-compliant glossary definitions for the following [N] terms.
+Write ALL entries as markdown (#### headers with definitions, examples, and
+discussion) to the file /tmp/glossary-raw.md using the Write tool.
+Each entry uses #### for the term header. Do not return the content in your
+response — just confirm the file was written and report the term count.
+
+[Paste the full term list here]
+
+[Paste course description context here for audience level]"
+```
+
+The single agent writes all definitions to one file. This pays system-prompt overhead
+only once (~12K tokens) and avoids all coordination costs. Proven at **under 50K
+tokens** for a 380-term glossary.
+
+**Optional parallel approach (only if user explicitly requests speed):** Split terms
+into 4 alphabetical ranges and launch 4 parallel Task agents, each writing to
+`/tmp/glossary-part-{1,2,3,4}.md`. This costs ~84K tokens (nearly 2x serial) due
+to repeated agent overhead but completes faster in wall-clock time.
 
 For each concept in the list, create a definition that follows ISO 11179 standards:
 
@@ -120,50 +169,86 @@ Where appropriate, reference related terms:
 - Ensure all cross-referenced terms exist in the glossary
 - Keep cross-references to 1-3 per term
 
-### Step 6: Create Glossary File
+### Step 6: Assemble Glossary File Using a Python Script
 
-Generate `docs/glossary.md` with the following structure:
+**CRITICAL: NEVER manually assemble the glossary through Edit/Write tool calls.**
+Alphabetical sorting and file merging is a trivial programming task. Doing it manually
+through LLM text generation wastes 100,000+ tokens that cost real money.
 
-```markdown
-# Glossary of Terms
+**MANDATORY APPROACH:** Write and execute a Python script via the Bash tool that:
 
-#### [Term 1]
+1. Reads the agent output file(s) — `/tmp/glossary-raw.md` (serial) or `/tmp/glossary-part-*.md` (parallel)
+2. Parses entries by splitting on `#### ` headers
+3. Sorts entries alphabetically (case-insensitive) using `sorted()`
+4. Writes the final `docs/glossary.md` in one pass
 
-[Definition]
+**Reference script (adapt paths as needed):**
 
-**Example:** [Example if applicable]
+```python
+#!/usr/bin/env python3
+"""Merge glossary parts into a single sorted glossary."""
+import glob, os, re
 
-#### [Term 2]
+entries = {}
 
-[Definition]
+# Support both serial (single file) and parallel (multiple files)
+if os.path.exists('/tmp/glossary-raw.md'):
+    sources = ['/tmp/glossary-raw.md']
+else:
+    sources = sorted(glob.glob('/tmp/glossary-part-*.md'))
 
-**Example:** [Example if applicable]
+for path in sources:
+    with open(path) as f:
+        content = f.read()
+    for block in re.split(r'\n(?=#### )', content):
+        block = block.strip()
+        m = re.match(r'#### (.+)', block)
+        if m:
+            entries[m.group(1).strip()] = block
 
-[Continue alphabetically...]
+sorted_terms = sorted(entries.keys(), key=lambda t: t.lower().lstrip('0123456789-'))
+
+with open('docs/glossary.md', 'w') as out:
+    out.write('# Glossary of Terms\n\n')
+    for term in sorted_terms:
+        out.write(entries[term] + '\n\n')
+
+print(f"Wrote {len(sorted_terms)} terms to docs/glossary.md")
 ```
 
-Note: Do not put any `---` strings in the glossary.  They are not needed.
+Run this script with `python3 /tmp/assemble_glossary.py` via the Bash tool.
+Total cost: ~500 tokens for the script + ~200 tokens for output = **~700 tokens**
+(versus 200,000+ tokens if done manually through Edit calls).
 
-**Important formatting rules:**
+**NEVER DO ANY OF THE FOLLOWING:**
 
-- Sort all terms alphabetically (case-insensitive)
+- Write glossary entries directly through the Write or Edit tool
+- Copy-paste subagent output into Edit tool old_string/new_string parameters
+- Manually sort terms by emitting them in alphabetical order
+- Append sections to the glossary file one at a time through Edit calls
+
+**Formatting rules for the assembled file:**
+
+- Do not put any `---` strings in the glossary. They are not needed.
+- Sort all terms alphabetically (case-insensitive) — the script handles this
 - Use level-4 headers (####) for term names
 - Place definition in body text (no special formatting)
 - Use "**Example:**" for examples (bold, with colon)
-- Maintain consistent spacing between entries
+- Maintain consistent spacing between entries (one blank line between entries)
 
 ### Step 7: Generate Quality Report
 
 Create `docs/learning-graph/glossary-quality-report.md` with:
 
-**ISO 11179 Compliance Metrics:**
+**ISO 11179 Metadata Registry Compliance Metrics:**
 
-For each definition, score on 4 criteria (25 points each):
+For each definition, score on 5 criteria (25 points each):
 
 1. Precision: Does it accurately capture the meaning?
 2. Conciseness: Is it brief (20-50 words)?
 3. Distinctiveness: Is it unique and distinguishable?
 4. Non-circularity: No circular dependencies?
+5. Unencumbered by business rules: Free of specific policies or rules?
 
 **Overall Quality Metrics:**
 
@@ -319,12 +404,16 @@ Use this rubric to score each definition (1-100 scale):
 
 **Claude (using this skill):**
 
-1. Reads `docs/learning-graph/02-concept-list-v1.md`
-2. Validates quality (checks for duplicates, formatting)
-3. Reads `docs/course-description.md` for context
-4. Generates ISO 11179-compliant definitions
-5. Adds examples to 70% of terms
-6. Sorts alphabetically
-7. Creates `docs/glossary.md`
-8. Generates quality report
-9. Reports: "Created glossary with 187 terms. Overall quality score: 89/100. Added examples to 71% of terms. No circular definitions found."
+1. Reads concept list file and `docs/course-description.md` (~5K tokens)
+2. Validates quality (checks for duplicates, formatting) (~1K tokens)
+3. Launches ONE serial Task agent that writes all definitions to `/tmp/glossary-raw.md` (~35K tokens)
+4. Writes a Python assembly script to `/tmp/assemble_glossary.py` (~500 tokens)
+5. Runs the script via Bash — it parses, sorts, and writes `docs/glossary.md` (~200 tokens)
+6. Verifies term count with `grep -c "^####" docs/glossary.md` (~100 tokens)
+7. Updates `mkdocs.yml` navigation if needed (~500 tokens)
+8. Reports: "Created glossary with 187 terms. Overall quality score: 89/100. Added examples to 71% of terms. No circular definitions found."
+
+**Total token budget: ~48K tokens** (NOT 250K+)
+
+**REMEMBER:** The subagents generate text (unavoidable LLM work). The assembly is
+a programming task — use `sorted()`, not the Edit tool.
