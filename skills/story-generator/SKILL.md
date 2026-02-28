@@ -32,6 +32,8 @@ Each story follows a consistent structure designed to engage high school student
 8. **Quotes** - 2-3 memorable quotes from the scientist
 9. **References** - Academic sources (can use placeholders initially)
 
+A template for the story structure can be found in `skills/story-generator/references/index-template.md`.
+
 ### Image Prompt Requirements
 
 Every image prompt must specify:
@@ -82,11 +84,12 @@ social:
 ![Cover image](./cover.png)
 <details>
 <summary>Cover Image Prompt</summary>
-[Detailed cover image generation prompt - 16:9 format, period style, composition details]
+[Detailed cover image generation prompt - 16:9 format, period style, composition details.
+Include specific characters, setting, color palette, and emotional tone.]
 </details>
 
 <details>
-    <summary>Narrative Prompt</summary>
+<summary>Narrative Prompt</summary>
 [Background context and style guide for the entire story]
 </details>
 
@@ -96,14 +99,16 @@ social:
 
 ![](./panel-01.png)
 <details><summary>Image Prompt</summary>
-[Detailed image prompt for prologue scene]
+Please generate a 16:9 image in [period style] depicting the the first panel. The scene should include [specific characters], set in [specific setting including period in time and location], with a color palette of [color palette]. The emotional tone should be [emotional tone].
+[Detailed image prompt for prologue scene with a minimum of 6 specific details to guide the AI image generation.]
 </details>
 
 ## Panel N – <Panel Title>
 
-![](./panel-02.png)
+![](./panel-N.png)
 <details><summary>Image Prompt</summary>
-[Image prompt...]
+Please generate a 16:9 image in [period style] depicting the panel N. The scene should include [specific characters], set in [specific setting including period in time and location], with a color palette of [color palette]. The emotional tone should be [emotional tone].
+[Detailed image prompt for prologue scene with a minimum of 6 specific details to guide the AI image generation.]
 </details>
 
 [Panel narrative text which is 3-4 sentences long.  This is the text that will appear in the graphic novel panel.  It should be engaging and move the story forward, while also being historically accurate and appropriate for high school students.  The narrative should be written in a way that complements the image, providing context and emotional depth to the scene depicted.  Use active voice and vivid descriptions to bring the story to life, while also ensuring that the language is accessible to the target audience.]
