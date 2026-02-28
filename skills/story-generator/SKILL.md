@@ -5,7 +5,7 @@ description: This skill generates graphic novel narratives about physicists and 
 
 # Story Generator
 
-This skill generates complete graphic novel narratives about key contributors to various subjects for intelligent textbooks built with MkDocs Material markdown.  The stories are designed to be inspirational, engaging and educational for high school students, with a focus on historical accuracy and compelling storytelling. Each story includes detailed image prompts for AI image generation, ensuring a visually rich experience that complements the narrative.
+This skill generates complete graphic novel narratives about key contributors to various subjects for intelligent textbooks built with MkDocs Material markdown.  The stories are designed to be inspirational, engaging and educational for high school students, with a focus on historical accuracy and compelling storytelling. Each story includes detailed image prompts for AI image generation of each panel, ensuring a visually rich experience that complements the narrative.  Each panel image is followed by a short 3-4 sentence narrative that provides context and emotional depth to the scene depicted, making the story accessible and engaging for high school students.
 
 ## When to Use This Skill
 
