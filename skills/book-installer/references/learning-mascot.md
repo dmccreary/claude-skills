@@ -110,15 +110,15 @@ Collect specific visual details:
 
 Suggest placement contexts:
 
-| Context | Purpose | Frequency |
-|---------|---------|-----------|
-| Chapter openings | Welcome and preview | Every chapter |
-| Key concept introductions | Signal important content | 2-3 per chapter |
-| Tips and hints | Offer helpful guidance | As needed |
-| Warnings and pitfalls | Alert to common mistakes | As needed |
-| Practice exercises | Encourage practice | After each section |
-| Chapter summaries | Review and celebrate | Every chapter |
-| Difficult concepts | Provide encouragement | Where students struggle |
+| Context | Purpose | Frequency | Filename |
+|---------|---------|-----------|----------|
+| Neutral Pose | General pose | As needed | neutral.png |
+| Chapter Welcome | Welcome and preview | Start of very chapter | welcome.png |
+| Key insight | Signal important insights | As needed | thinking.png |
+| Tips and hints | Offer helpful guidance | As needed | tip.png |
+| Warnings and pitfalls | Alert to common mistakes | As needed | warning.png |
+| Difficult concepts | Provide encouragement | As needed | encouraging.png |
+| Chapter summaries | Review and celebrate | End of every chapter | celebration.png |
 
 **IMPORTANT: Restraint Guidelines**
 
@@ -149,47 +149,45 @@ suitable for embedding in educational content. No text in image.
 
 Generate prompts for each of these poses:
 
-**0. Neutral/Default Pose** (general sidebars, introductions, inline use)
+**1. Neutral/Default Pose** (general sidebars, introductions, inline use)
 ```
 [BASE_PROMPT] [NAME] stands upright in a relaxed, neutral pose facing the
 viewer directly, with a calm and friendly closed-mouth smile. Arms/paws/wings
 rest naturally at their sides with no specific gesture. The pose is balanced
 and unassuming — suitable as a general-purpose or default illustration.
+Filename: neutral.png
 ```
 
-**1. Welcome/Introduction Pose** (chapter openings)
+**2. Welcome/Introduction Pose** (chapter openings)
 ```
 [BASE_PROMPT] [NAME] is waving cheerfully with one hand/paw/wing,
 facing the viewer with a warm, welcoming expression.
 The pose suggests "welcome" and "let's get started."
+Filename: welcome.png
 ```
 
-**2. Thinking/Teaching Pose** (key concepts)
+**3. Thinking/Teaching Pose** (key concepts)
 ```
 [BASE_PROMPT] [NAME] has one hand/paw on chin in a thoughtful pose,
 with a small lightbulb or thought bubble above their head.
 The pose suggests deep thinking and discovery.
+Filename: thinking.png
 ```
 
-**3. Pointing/Tip Pose** (tips and hints)
+**4. Pointing/Tip Pose** (tips and hints)
 ```
 [BASE_PROMPT] [NAME] is pointing upward with one finger/paw
 as if sharing an important tip. Expression is helpful and knowing.
 A small star or sparkle near the pointing gesture.
+Filename: tip.png
 ```
 
-**4. Warning/Caution Pose** (warnings and pitfalls)
+**5. Warning/Caution Pose** (warnings and pitfalls)
 ```
 [BASE_PROMPT] [NAME] holds up both hands/paws in a gentle "stop"
 or "be careful" gesture. Expression is concerned but caring.
 A small exclamation mark or caution symbol nearby.
-```
-
-**5. Celebration Pose** (achievements, chapter completion)
-```
-[BASE_PROMPT] [NAME] is jumping or raising both arms/paws/wings
-in celebration. Expression is joyful and proud.
-Small confetti or stars around the character.
+Filename: warning.png
 ```
 
 **6. Encouraging Pose** (difficult sections)
@@ -197,7 +195,16 @@ Small confetti or stars around the character.
 [BASE_PROMPT] [NAME] gives a thumbs up (or equivalent gesture)
 with a reassuring, supportive smile. The pose radiates confidence
 and "you can do it" energy.
+Filename: encouraging.png
 ```
+
+**7. Celebration Pose** (achievements, chapter completion)
+```
+[BASE_PROMPT] [NAME] is jumping or raising both arms/paws/wings
+in celebration. Expression is joyful and proud.
+Small confetti or stars around the character.
+```
+
 
 #### Example: Complete Prompt Set for "Otto the Owl"
 
