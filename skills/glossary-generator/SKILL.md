@@ -17,15 +17,49 @@ a temp file. This is the most token-efficient method because:
 
 - System prompt / tool description overhead is paid only **once** (~12K tokens)
 - No coordination or assembly overhead
-- Proven to complete a 300-term glossary in **under 50K tokens**
+- Proven to complete a 350-term glossary in **~31K tokens** (2026-03-14 benchmark)
 
-| Approach | Agent overhead | Definition generation | Assembly | Total |
-|----------|---------------|----------------------|----------|-------|
-| 1 serial agent writing to file | ~12K (once) | ~35K | ~700 (script) | **~48K** |
-| 4 parallel agents + script | ~48K (4x) | ~35K | ~700 (script) | **~84K** |
-| 4 parallel agents + manual Edit | ~48K (4x) | ~35K | ~200K (!!!) | **~283K** |
+### Measured Token Economics (350-term benchmark, 2026-03-14)
 
-**Always use the serial approach unless the user explicitly asks for speed.**
+| Component | Tokens | Notes |
+|-----------|--------|-------|
+| Agent overhead (system prompt + tools) | ~12K | Paid once for serial, 4× for parallel |
+| Definition generation (350 terms) | ~19K | Unavoidable LLM work |
+| Assembly (Python script) | ~700 | Trivial programming task |
+| **Total (serial)** | **~31K** | |
+
+**Tokens per term: ~88 total, ~54 marginal** (after subtracting one-time overhead).
+
+The marginal cost is calculated as: (30,788 − 12,000) / 350 = **~54 tokens/term**.
+Use this to estimate costs for glossaries of any size:
+
+| Glossary size | Estimated total tokens |
+|---------------|----------------------|
+| 100 terms | ~17K (12K overhead + 5.4K generation) |
+| 200 terms | ~23K |
+| 350 terms | ~31K (measured) |
+| 500 terms | ~39K |
+
+### Why Parallel Execution Should NEVER Be Used
+
+Each parallel agent pays the full ~12K system prompt overhead independently.
+For glossary generation, the definitions are completely independent — there is
+no speedup benefit that justifies the cost. The serial agent writes all terms
+in a single Write call and finishes in ~6 minutes, which is perfectly acceptable.
+
+| Approach | Agent overhead | Generation | Assembly | Total | Waste |
+|----------|---------------|------------|----------|-------|-------|
+| **1 serial agent (recommended)** | ~12K (once) | ~19K | ~700 | **~31K** | — |
+| 4 parallel agents + script | ~48K (4×) | ~19K | ~700 | **~68K** | +37K (119%) |
+| 4 parallel agents + manual Edit | ~48K (4×) | ~19K | ~200K | **~267K** | +236K (761%) |
+
+Parallel execution **more than doubles** the token cost for zero quality benefit.
+For teachers on the Claude Pro plan (~200K token five-hour budget), the serial
+approach uses ~16% of their budget vs. 34% (parallel) or 100%+ (manual assembly).
+
+**NEVER use parallel agents for glossary generation. The token waste is not justified.**
+
+**Always use the serial approach. Do not offer parallel as an option.**
 
 The assembly step (sorting and writing the final file) MUST always use a Python
 script — NEVER manually emit glossary content through Edit/Write tool calls.
@@ -101,13 +135,12 @@ response — just confirm the file was written and report the term count.
 ```
 
 The single agent writes all definitions to one file. This pays system-prompt overhead
-only once (~12K tokens) and avoids all coordination costs. Proven at **under 50K
-tokens** for a 380-term glossary.
+only once (~12K tokens) and avoids all coordination costs. Proven at **~31K tokens
+for a 350-term glossary** (~88 tokens/term total, ~54 tokens/term marginal).
 
-**Optional parallel approach (only if user explicitly requests speed):** Split terms
-into 4 alphabetical ranges and launch 4 parallel Task agents, each writing to
-`/tmp/glossary-part-{1,2,3,4}.md`. This costs ~84K tokens (nearly 2x serial) due
-to repeated agent overhead but completes faster in wall-clock time.
+**Do NOT use parallel agents for glossary generation.** See the TOKEN EFFICIENCY
+WARNING section above for why parallel execution should never be used — it more
+than doubles the token cost for zero quality benefit.
 
 For each concept in the list, create a definition that follows ISO 11179 standards:
 
@@ -405,14 +438,16 @@ Use this rubric to score each definition (1-100 scale):
 
 1. Reads concept list file and `docs/course-description.md` (~5K tokens)
 2. Validates quality (checks for duplicates, formatting) (~1K tokens)
-3. Launches ONE serial Task agent that writes all definitions to `/tmp/glossary-raw.md` (~35K tokens)
+3. Launches ONE serial Task agent that writes all definitions to `/tmp/glossary-raw.md` (~19K tokens)
 4. Writes a Python assembly script to `/tmp/assemble_glossary.py` (~500 tokens)
 5. Runs the script via Bash — it parses, sorts, and writes `docs/glossary.md` (~200 tokens)
 6. Verifies term count with `grep -c "^####" docs/glossary.md` (~100 tokens)
 7. Updates `mkdocs.yml` navigation if needed (~500 tokens)
-8. Reports: "Created glossary with 187 terms. Overall quality score: 89/100. Added examples to 71% of terms. No circular definitions found."
+8. Reports: "Created glossary with 350 terms. Added examples to 70% of terms."
 
-**Total token budget: ~48K tokens** (NOT 250K+)
+**Measured result (2026-03-14):** 350 terms generated and assembled in **~31K total tokens**.
+At ~88 tokens/term (or ~54 tokens/term after subtracting agent overhead), this is
+the most efficient approach possible.
 
-**REMEMBER:** The subagents generate text (unavoidable LLM work). The assembly is
-a programming task — use `sorted()`, not the Edit tool.
+**REMEMBER:** The subagent generates text (unavoidable LLM work). The assembly is
+a programming task — use `sorted()`, not the Edit tool. NEVER use parallel agents.
