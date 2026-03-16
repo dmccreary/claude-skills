@@ -350,7 +350,7 @@ A high-quality learning graph scores **70+/100** on the quality metrics generate
 
 - Foundational concepts (zero dependencies): 10 points
 - Average 2-4 dependencies per concept: 10 points
-- No orphaned nodes (concepts nothing depends on): 10 points
+- No terminal nodes (concepts nothing depends on): 10 points
 
 **Balance (20 points)**:
 
@@ -671,22 +671,24 @@ Circular dependencies occur when concept prerequisites form a cycle, making it i
 
 **Example**: If "Git Basics" and "Git Repository Structure" depend on each other, split into "Git Introduction" → "Git Repository Structure" → "Git Basic Commands". See [Chapter 6](chapters/06-learning-graph-quality-validation/index.md).
 
-### My learning graph has orphaned nodes. What does this mean?
+### My learning graph has terminal nodes. What does this mean?
 
-Orphaned nodes are concepts that nothing depends on—they're terminal leaves with no outgoing edges. While not errors, many orphaned nodes suggest:
+Terminal nodes are concepts that nothing depends on—they have no outgoing edges (outdegree of zero). While not errors, many terminal nodes suggest:
 
 **Missing dependencies**: Later concepts should build on these but don't
 **Over-granularity**: Concepts too specific to be prerequisites
 **Incomplete graph**: Advanced topics not yet added
 
+Note: Terminal nodes are valid and expected in learning graphs (e.g., advanced capstone topics). They differ from orphaned nodes, which have no inbound AND no outbound edges (completely disconnected from the graph) and indicate a structural problem.
+
 **How to fix**:
 
-1. Review the quality metrics report for the list of orphaned nodes
-2. Identify which concepts should logically depend on these orphans
-3. Add dependency relationships to integrate orphans into the graph
+1. Review the quality metrics report for the list of terminal nodes
+2. Identify which concepts should logically depend on these terminal nodes
+3. Add dependency relationships to integrate terminal nodes into the graph
 4. Consider whether very specific concepts should be merged into broader ones
 
-**Acceptable orphans**: Advanced capstone topics, specialized optional topics, or leaf concepts like specific tool configurations. Target: <10% orphaned nodes. See [Chapter 6](chapters/06-learning-graph-quality-validation/index.md).
+**Acceptable terminal nodes**: Advanced capstone topics, specialized optional topics, or leaf concepts like specific tool configurations. Target: <10% terminal nodes. See [Chapter 6](chapters/06-learning-graph-quality-validation/index.md).
 
 ### Claude Code keeps asking for permissions. How do I fix this?
 
@@ -772,12 +774,12 @@ Low quality scores (<70/100) indicate structural or balance issues. Check the qu
 - Review over-represented categories
 - Recategorize concepts for better distribution
 
-**Too many orphaned nodes (>20%)**:
+**Too many terminal nodes (>20%)**:
 
 - Add dependencies for terminal concepts
 - Merge overly specific concepts
 
-**Example improvement path**: A graph scoring 55/100 with 40% orphaned nodes and taxonomy imbalance should first connect orphaned concepts to reduce that to <10%, then rebalance taxonomy distribution. See [Chapter 6](chapters/06-learning-graph-quality-validation/index.md).
+**Example improvement path**: A graph scoring 55/100 with 40% terminal nodes and taxonomy imbalance should first connect terminal concepts to reduce that to <10%, then rebalance taxonomy distribution. See [Chapter 6](chapters/06-learning-graph-quality-validation/index.md).
 
 ### How do I handle Claude token limits during content generation?
 

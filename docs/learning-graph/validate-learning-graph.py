@@ -68,7 +68,7 @@ def validate_learning_graph(data_path, schema_path):
         print(f"  Nodes: {len(data.get('nodes', []))}")
         print(f"  Edges: {len(data.get('edges', []))}")
 
-        # Check for orphan nodes
+        # Check for orphaned nodes (completely disconnected — no inbound or outbound edges)
         if 'nodes' in data and 'edges' in data:
             node_ids = {node['id'] for node in data['nodes']}
             connected_ids = set()
@@ -77,12 +77,12 @@ def validate_learning_graph(data_path, schema_path):
                 connected_ids.add(edge['to'])
             orphans = node_ids - connected_ids
             if orphans:
-                print(f"  {YELLOW}Orphan nodes: {len(orphans)} (nodes with no connections){NC}")
+                print(f"  {YELLOW}Orphaned nodes: {len(orphans)} (completely disconnected — no inbound or outbound edges){NC}")
                 if len(orphans) <= 10:
                     orphan_labels = [node['label'] for node in data['nodes'] if node['id'] in orphans]
                     print(f"    {', '.join(orphan_labels)}")
             else:
-                print(f"  Orphan nodes: 0")
+                print(f"  Orphaned nodes: 0")
 
         # Check for duplicate node IDs
         node_ids_list = [node['id'] for node in data['nodes']]

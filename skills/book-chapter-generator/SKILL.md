@@ -68,7 +68,7 @@ Analyze the data to identify:
 - **Advanced concepts**: Concepts with many dependencies (should appear later)
 - **Dependency chains**: Long sequences of prerequisite relationships
 - **Concept clusters**: Groups of related concepts that should stay together
-- **Orphaned concepts**: Concepts that nothing depends on (can be placed flexibly)
+- **Terminal concepts**: Concepts that nothing depends on (can be placed flexibly)
 
 ### Step 2: Design Chapter Structure
 
@@ -412,13 +412,13 @@ Consider student cognitive load:
 - Place earlier dependencies in multiple chapters if appropriate
 - Consider creating a dedicated "foundations" chapter for deep dependency roots
 
-### Challenge: Orphaned Concepts
+### Challenge: Terminal Concepts
 
 **Problem**: Some concepts have no dependents (nothing builds on them).
 
 **Solutions**:
-- Place orphaned concepts at the end of related chapters
-- Group orphaned concepts into "Additional Topics" or "Special Topics" chapters
+- Place terminal concepts at the end of related chapters
+- Group terminal concepts into "Additional Topics" or "Special Topics" chapters
 - Consider whether these concepts are truly necessary (but don't remove them without user approval)
 
 ### Challenge: Cluster Splitting

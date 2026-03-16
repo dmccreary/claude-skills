@@ -24,7 +24,7 @@ function setup(){
   const c=createCanvas(900,600); c.parent(document.querySelector('main'));
   createDiv('<div id="controls" style="position:absolute;left:610px;top:16px;width:280px;font-family:Arial"></div>');
   mkSlider('Number of Concepts',50,300,200,1,'concepts');
-  mkSlider('Orphaned Nodes %',0,40,10,1,'orph');
+  mkSlider('Terminal Nodes %',0,40,10,1,'orph');
   mkSlider('Avg Dependencies',1,6,3.2,0.1,'avg');
   mkSlider('Max Chain Length',5,35,16,1,'chain');
   mkSlider('Linear Chain %',10,80,35,1,'linear');

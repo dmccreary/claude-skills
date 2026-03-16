@@ -183,7 +183,7 @@ It will do the following checks:
 1. **Verify DAG structure**: Ensure no cycles exist
 2. **Check for self-dependencies**: No concept should depend on itself
 3. **Foundational concepts**: Identify concepts with zero dependencies
-4. **Terminal nodes**: Identify concepts that nothing depends on (leaf nodes) but do not call them orphans if they have dependencies themselves
+4. **Terminal nodes**: Identify concepts that nothing depends on (leaf nodes). These are valid and expected — do not confuse with orphaned nodes (which have no connections at all)
 5. **Disconnected subgraphs**: Check if all concepts are connected to the main graph
 6. **Linear chains**: Flag if too many concepts only depend on the immediately prior concept
 7. **Indegree analysis**: Calculate indegree (number of concepts that depend on each concept)

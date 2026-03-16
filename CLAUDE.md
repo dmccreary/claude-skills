@@ -435,7 +435,8 @@ A high-quality learning graph should have:
 - Quality score ≥ 70/100
 - Zero circular dependencies (must be a DAG)
 - Foundational concepts with zero dependencies
-- No orphaned nodes (concepts nothing depends on)
+- No orphan nodes (nodes with zero inbound and zero outbound edges, making the graph disconnected)
+- Terminal nodes are valid (nodes with inbound edges but no outbound edges — nothing depends on them, but they have dependencies)
 - Average 2-4 dependencies per concept
 - No single taxonomy category exceeding 30% of concepts
 - All concepts connected to the main graph

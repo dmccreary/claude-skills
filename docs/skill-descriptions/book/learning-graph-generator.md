@@ -20,7 +20,7 @@ Creates a CSV file mapping learning dependencies between concepts. Each concept 
 
 ## Step 4: Learning Graph Quality Validation
 
-Performs comprehensive quality checks using the `analyze-graph.py` program. Verifies DAG structure, checks for self-dependencies, identifies foundational concepts, orphaned nodes, and disconnected subgraphs. Generates quality metrics report including indegree analysis and dependency chain statistics. Provides a quality score (1-100).
+Performs comprehensive quality checks using the `analyze-graph.py` program. Verifies DAG structure, checks for self-dependencies, identifies foundational concepts, terminal nodes (outdegree zero), orphaned nodes (completely disconnected), and disconnected subgraphs. Generates quality metrics report including indegree analysis and dependency chain statistics. Provides a quality score (1-100).
 
 ## Step 5: Create Concept Taxonomy
 

@@ -435,7 +435,7 @@
 2. mermaid-generator (82/100) - Can create side-by-side graph diagrams with different layouts
 3. microsim-p5 (78/100) - Force-directed graph layout possible but requires physics simulation coding
 
-### [Orphaned Nodes Identification Chart](../chapters/06-learning-graph-quality-validation/index.md#diagram-orphaned-nodes-identification-chart)
+### [Terminal Nodes Identification Chart](../chapters/06-learning-graph-quality-validation/index.md#diagram-terminal-nodes-identification-chart)
 - **Type:** Microsim
 - **Bloom's Taxonomy:** Not specified
 - **UI Elements:** 0

@@ -2,7 +2,7 @@
 
 ## Summary
 
-This chapter focuses on validating and assessing the quality of your learning graph. You'll learn techniques for detecting circular dependencies and validating that your graph is a proper Directed Acyclic Graph (DAG). The chapter covers self-dependency checking and introduces comprehensive quality metrics including orphaned nodes, disconnected subgraphs, and linear chain detection.
+This chapter focuses on validating and assessing the quality of your learning graph. You'll learn techniques for detecting circular dependencies and validating that your graph is a proper Directed Acyclic Graph (DAG). The chapter covers self-dependency checking and introduces comprehensive quality metrics including terminal nodes, orphaned nodes, disconnected subgraphs, and linear chain detection.
 
 You'll learn to analyze your graph using indegree and outdegree metrics, calculate average dependencies per concept, and determine the maximum dependency chain length. The chapter culminates with learning how to generate an overall learning graph quality score. Additionally, you'll explore taxonomy distribution metrics to ensure balanced category representation and avoid over-representation of any single topic area.
 
@@ -14,7 +14,7 @@ This chapter covers the following 16 concepts from the learning graph:
 2. DAG Validation
 3. Self-Dependency Checking
 4. Quality Metrics for Graphs
-5. Orphaned Nodes
+5. Terminal Nodes
 6. Disconnected Subgraphs
 7. Linear Chain Detection
 8. Indegree Analysis
@@ -38,7 +38,7 @@ This chapter builds on concepts from:
 
 ## Introduction to Learning Graph Quality Validation
 
-Creating a learning graph is a significant achievement, but ensuring its quality is equally important for effective educational outcomes. A well-constructed learning graph serves as the foundation for your intelligent textbook, guiding students through concepts in a logical, dependency-aware sequence. Poor quality graphs—those with circular dependencies, orphaned concepts, or imbalanced taxonomy distributions—can confuse learners and undermine the pedagogical value of your materials.
+Creating a learning graph is a significant achievement, but ensuring its quality is equally important for effective educational outcomes. A well-constructed learning graph serves as the foundation for your intelligent textbook, guiding students through concepts in a logical, dependency-aware sequence. Poor quality graphs—those with circular dependencies, orphaned or disconnected concepts, or imbalanced taxonomy distributions—can confuse learners and undermine the pedagogical value of your materials.
 
 This chapter introduces systematic approaches for validating and assessing the quality of your learning graph. You'll learn both structural validation techniques that ensure your graph is mathematically sound as a Directed Acyclic Graph (DAG), and quality metrics that measure pedagogical effectiveness. These validation techniques are essential for identifying and correcting issues before generating chapter content, as structural problems in your graph will propagate throughout your entire textbook.
 
@@ -162,27 +162,32 @@ Beyond structural validation, effective learning graphs exhibit certain quality 
 
 The following metrics help identify potential issues that, while not structurally invalid, may indicate pedagogical problems or opportunities for improvement.
 
-### Orphaned Nodes
+### Terminal Nodes
 
-An **orphaned node** is a concept that no other concept depends upon—it has an outdegree of zero. While terminal concepts (endpoints in the learning journey) naturally have no dependents, excessive orphaned nodes suggest concepts that may be:
+A **terminal node** is a concept that no other concept depends upon—it has an outdegree of zero but still has inbound edges (dependencies on other concepts). Terminal nodes represent endpoints in the learning journey: culminating concepts that students reach after mastering their prerequisites.
+
+Terminal nodes are valid and expected in a well-designed learning graph. However, excessive terminal nodes may suggest concepts that are:
 
 - Too specialized or advanced for the course scope
-- Improperly isolated from the main learning progression
 - Missing their dependent concepts due to incomplete graph construction
 
-A well-designed learning graph typically has 5-10% orphaned nodes, representing culminating concepts and specialized topics. If more than 20% of your concepts are orphaned, review them to determine whether they should be connected to later material or removed from the graph entirely.
-#### Diagram: Orphaned Nodes Identification Chart
+A well-designed learning graph typically has 5-15% terminal nodes, representing culminating concepts and specialized topics. If more than 20% of your concepts are terminal nodes, review them to determine whether they should be connected to later material or removed from the graph entirely.
+
+!!! warning "Terminal Nodes vs. Orphaned Nodes"
+    Do not confuse terminal nodes with **orphaned nodes**. An orphaned node has NO inbound AND no outbound edges—it is completely disconnected from the graph. Orphaned nodes are invalid and indicate a structural problem that must be fixed. Terminal nodes, by contrast, are connected to the graph through their prerequisites and simply represent the end of a learning path.
+
+#### Diagram: Terminal Nodes Identification Chart
 
 <iframe src="../../sims/orphaned-nodes-identification/main.html" width="100%" height="600px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
-    <summary>Orphaned Nodes Identification Chart</summary>
+    <summary>Terminal Nodes Identification Chart</summary>
     Type: chart
 
     Chart type: Scatter plot
 
-    Purpose: Visualize concept connectivity by showing indegree vs outdegree for all concepts, highlighting orphaned nodes
+    Purpose: Visualize concept connectivity by showing indegree vs outdegree for all concepts, highlighting terminal nodes
 
     X-axis: Indegree (number of prerequisites, 0-8)
     Y-axis: Outdegree (number of dependents, 0-12)
@@ -196,7 +201,7 @@ A well-designed learning graph typically has 5-10% orphaned nodes, representing 
        - Scatter of 150+ points representing well-connected concepts
        - Example: "DAG Validation" (2, 4)
 
-    3. Orphaned concepts (red dots, indegree > 0, outdegree = 0)
+    3. Terminal concepts (red dots, indegree > 0, outdegree = 0)
        - Example: "Advanced Quality Metrics" (5, 0)
        - Example: "Future of Learning Graphs" (3, 0)
        - Show approximately 15-20 red dots
@@ -204,9 +209,9 @@ A well-designed learning graph typically has 5-10% orphaned nodes, representing 
     Title: "Concept Connectivity Analysis: Indegree vs Outdegree"
 
     Annotations:
-    - Vertical line at outdegree=0 labeled "Orphaned Zone"
+    - Vertical line at outdegree=0 labeled "Terminal Zone"
     - Horizontal line at indegree=0 labeled "Foundation Zone"
-    - Callout: "12% orphaned (healthy range: 5-15%)"
+    - Callout: "12% terminal nodes (healthy range: 5-15%)"
 
     Legend: Position top-right with color coding explanation
 
@@ -425,7 +430,7 @@ The quality scoring algorithm used by `analyze-graph.py` weights various factors
 
 **Connectivity Quality (30 points):**
 
-- Orphaned nodes 5-15% of total (10 points, scaled for deviation)
+- Terminal nodes 5-15% of total (10 points, scaled for deviation)
 - Average dependencies 2.5-4.0 per concept (10 points, scaled)
 - Maximum chain length appropriate for scope (10 points)
 
@@ -477,7 +482,7 @@ The quality score should be calculated after every significant graph revision. T
 
     Interactive controls (right panel):
     - Slider: "Number of Concepts" (50-300, default 200)
-    - Slider: "Orphaned Nodes %" (0-40%, default 10%)
+    - Slider: "Terminal Nodes %" (0-40%, default 10%)
     - Slider: "Avg Dependencies" (1.0-6.0, default 3.2)
     - Slider: "Max Chain Length" (5-35, default 16)
     - Slider: "Linear Chain %" (10-80%, default 35%)
@@ -490,7 +495,7 @@ The quality score should be calculated after every significant graph revision. T
 
     Default parameters (Good Graph):
     - Concepts: 200
-    - Orphaned: 10%
+    - Terminal Nodes: 10%
     - Avg Dependencies: 3.2
     - Max Chain: 16
     - Linear Chain %: 35%
@@ -504,7 +509,7 @@ The quality score should be calculated after every significant graph revision. T
     - Component bars update proportionally
     - Color of gauge changes based on score range
     - Tooltip on hover shows calculation details for each component
-    - "Poor Graph" example: cycles=true, orphaned=35%, score~28
+    - "Poor Graph" example: cycles=true, terminal=35%, score~28
     - "Excellent Graph" example: optimal all parameters, score~96
 
     Implementation notes:
@@ -665,7 +670,7 @@ python analyze-graph.py learning-graph.csv quality-metrics.md
 2. Self-dependency detection
 3. Cycle detection (DAG validation)
 4. Connectivity analysis
-5. Orphaned node identification
+5. Terminal node identification
 6. Linear chain detection
 7. Indegree/outdegree statistics
 8. Maximum dependency chain calculation
@@ -717,7 +722,7 @@ All three scripts should be run after any changes to your learning graph CSV fil
 
 ## Summary and Best Practices
 
-Validating learning graph quality ensures your intelligent textbook rests on a sound pedagogical foundation. This chapter covered both structural validation (DAG properties, connectivity) and quality metrics (orphaned nodes, dependency distribution, taxonomy balance) that collectively determine graph effectiveness.
+Validating learning graph quality ensures your intelligent textbook rests on a sound pedagogical foundation. This chapter covered both structural validation (DAG properties, connectivity) and quality metrics (terminal nodes, dependency distribution, taxonomy balance) that collectively determine graph effectiveness.
 
 Key takeaways for maintaining high-quality learning graphs:
 
@@ -725,7 +730,7 @@ Key takeaways for maintaining high-quality learning graphs:
 - **Target quality scores above 75:** Scores in this range indicate graphs ready for content generation
 - **Monitor taxonomy distribution:** Keep any single category below 30% and ensure at least 5 categories represented
 - **Aim for 2.5-4.0 average dependencies:** This range balances prerequisite completeness with learner accessibility
-- **Accept 5-15% orphaned nodes:** Terminal and specialized concepts naturally have no dependents
+- **Accept 5-15% terminal nodes:** Culminating and specialized concepts naturally have no dependents
 - **Run all three Python scripts after edits:** Complete quality assessment requires structural validation, format conversion, and taxonomy analysis
 
 Learning graph validation is iterative. Your first quality score may be low, but systematic application of the techniques in this chapter will guide improvements. Track your quality scores over time, targeting incremental increases until you achieve publication-ready scores above 85.

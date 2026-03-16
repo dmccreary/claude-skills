@@ -18,11 +18,11 @@ For each diagram below:
 - **Specification:** `specs/06-average-dependencies-distribution-bar-chart.md`
 - **Command:** Invoke `/skill chartjs-generator` with specification from `specs/06-average-dependencies-distribution-bar-chart.md`
 
-### 2. Orphaned Nodes Identification Chart
+### 2. Terminal Nodes Identification Chart
 - **Chapter:** 06 - Learning Graph Quality Validation
 - **Match Score:** 97/100
-- **Specification:** `specs/06-orphaned-nodes-identification-chart.md`
-- **Command:** Invoke `/skill chartjs-generator` with specification from `specs/06-orphaned-nodes-identification-chart.md`
+- **Specification:** `specs/06-terminal-nodes-identification-chart.md`
+- **Command:** Invoke `/skill chartjs-generator` with specification from `specs/06-terminal-nodes-identification-chart.md`
 
 ### 3. Taxonomy Distribution Pie Chart
 - **Chapter:** 06 - Learning Graph Quality Validation

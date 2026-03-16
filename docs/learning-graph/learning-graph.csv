@@ -81,7 +81,7 @@ ConceptID,ConceptLabel,Dependencies,TaxonomyID
 80,DAG Validation,42|79,GRAPH
 81,Self-Dependency Checking,80,GRAPH
 82,Quality Metrics for Graphs,80,GRAPH
-83,Orphaned Nodes,82,GRAPH
+83,Terminal Nodes,82,GRAPH
 84,Disconnected Subgraphs,82,GRAPH
 85,Linear Chain Detection,82,GRAPH
 86,Indegree Analysis,82,GRAPH

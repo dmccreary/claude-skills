@@ -12,7 +12,7 @@ Generating 18 Medium difficulty diagrams with MicroSim match score > 90
    - Location: `/docs/sims/average-dependencies-distribution/`
    - Type: Histogram showing prerequisite distribution
 
-2. **Orphaned Nodes Identification Chart** (Chapter 6) - Score: 97/100
+2. **Terminal Nodes Identification Chart** (Chapter 6) - Score: 97/100
    - Location: `/docs/sims/orphaned-nodes-identification/`
    - Type: Scatter plot of concept connectivity
 

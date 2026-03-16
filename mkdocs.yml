@@ -169,7 +169,7 @@ nav:
     - MicroSim File Relationship Diagram: sims/microsim-file-relationship-diagram/index.md
     - MkDocs Build Process Workflow: sims/mkdocs-build-process/index.md
     - MkDocs GitHub Pages Deployment Workflow: sims/mkdocs-github-pages-deployment/index.md
-    - Orphaned Nodes Identification Chart: sims/orphaned-nodes-identification/index.md
+    - Terminal Nodes Identification Chart: sims/orphaned-nodes-identification/index.md
     - p5.js Architecture and Execution Model: sims/p5js-architecture/index.md
     - Permission Bits Visual Infographic: sims/permission-bits-visual-infographic/index.md
     - Prompt Engineering Iterative Refinement Workflow: sims/prompt-engineering-iterative-refinement-workflow/index.md

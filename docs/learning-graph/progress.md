@@ -59,7 +59,7 @@
   - Validated: 0 cycles, no self-dependencies, 1 connected component
   - Generated `quality-metrics.md` report
   - **Metrics:** 8 foundational concepts, avg 1.18 dependencies, max chain length 11
-  - **Quality Assessment:** 75/100 (good structure, some orphaned terminal concepts)
+  - **Quality Assessment:** 75/100 (good structure, some terminal concepts)
 
 ### Step 5: Create Concept Taxonomy ✓
 - **Status:** Complete
@@ -181,7 +181,7 @@
 ### Quality Scores:
 
 - **Course Description:** 95/100
-- **Learning Graph:** 75/100 (good structure, acceptable orphaned terminal concepts)
+- **Learning Graph:** 75/100 (good structure, acceptable terminal concepts)
 - **Taxonomy Balance:** ✅ All categories under 30% threshold
 
 ---

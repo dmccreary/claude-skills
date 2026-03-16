@@ -545,9 +545,9 @@ Impact (Frequency)
 
 **Chapter:** Learning Graph Quality and Validation
 
-**Summary:** Orphaned Nodes Identification Chart
+**Summary:** Terminal Nodes Identification Chart
 
-**Purpose:** Visualize concept connectivity by showing indegree vs outdegree for all concepts, highlighting orphaned nodes
+**Purpose:** Visualize concept connectivity by showing indegree vs outdegree for all concepts, highlighting terminal nodes
 
 ---
 

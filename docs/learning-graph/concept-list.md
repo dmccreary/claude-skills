@@ -97,7 +97,7 @@ Please review this list and:
 80. DAG Validation
 81. Self-Dependency Checking
 82. Quality Metrics for Graphs
-83. Orphaned Nodes
+83. Terminal Nodes
 84. Disconnected Subgraphs
 85. Linear Chain Detection
 86. Indegree Analysis
