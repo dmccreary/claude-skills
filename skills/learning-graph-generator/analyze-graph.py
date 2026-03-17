@@ -6,7 +6,8 @@ Analyzes the concept dependency graph and generates quality metrics including:
 - DAG verification
 - Indegree/outdegree analysis
 - Dependency chain analysis
-- Terminal node detection (nodes with no outbound edges)
+- Terminal node detection (indegree=0, outdegree>0: nothing depends on them)
+- Orphaned node detection (indegree=0, outdegree=0: completely disconnected)
 - Connected component analysis
 """
 
@@ -55,37 +56,48 @@ def calculate_outdegree(concepts: Dict[int, str],
 def find_terminal_nodes(concepts: Dict[int, str],
                         indegree: Dict[int, int],
                         dependencies: Dict[int, List[int]]) -> List[Tuple[int, str]]:
-    """Find terminal nodes: concepts that nothing depends on (no outbound edges).
-    These are valid leaf nodes in the learning graph - they represent
-    advanced or specialized topics that are not prerequisites for other concepts."""
+    """Find terminal nodes: concepts that nothing depends on but have prerequisites.
+    These are natural endpoints of learning paths (indegree=0, outdegree>0)."""
     terminal = [(cid, label) for cid, label in concepts.items()
-                if indegree[cid] == 0 and cid in dependencies]
+                if indegree[cid] == 0 and len(dependencies.get(cid, [])) > 0]
     return terminal
+
+
+def find_orphaned_nodes(concepts: Dict[int, str],
+                        indegree: Dict[int, int],
+                        dependencies: Dict[int, List[int]]) -> List[Tuple[int, str]]:
+    """Find orphaned nodes: completely disconnected concepts with no edges at all.
+    These have no inbound AND no outbound edges (indegree=0, outdegree=0)."""
+    orphaned = [(cid, label) for cid, label in concepts.items()
+                if indegree[cid] == 0 and len(dependencies.get(cid, [])) == 0]
+    return orphaned
 
 
 def verify_dag(concepts: Dict[int, str],
                dependencies: Dict[int, List[int]]) -> Tuple[bool, List[List[int]]]:
-    """Verify the graph is a DAG using topological sort. Returns (is_dag, cycles_found)."""
-    indeg = {cid: 0 for cid in concepts}
+    """Verify the graph is a DAG using topological sort (Kahn's algorithm).
 
-    # Calculate indegree
-    for concept_id, prereqs in dependencies.items():
-        for prereq in prereqs:
-            indeg[prereq] += 1
+    Uses the reverse graph (prerequisite → dependent) so that:
+    - in-degree = number of prerequisites each concept has
+    - Start from foundational concepts (no prerequisites)
+    - When a concept's prerequisites are all processed, it can be processed too
+    """
+    # In-degree in reverse graph = number of prerequisites each concept has
+    prereq_count = {cid: len(dependencies.get(cid, [])) for cid in concepts}
 
-    # Kahn's algorithm for topological sort
-    queue = deque([cid for cid in concepts if indeg[cid] == 0])
+    # Start with foundational concepts (no prerequisites)
+    queue = deque([cid for cid in concepts if prereq_count[cid] == 0])
     processed = []
 
     while queue:
         node = queue.popleft()
         processed.append(node)
 
-        # For each concept that depends on this node
+        # Find all concepts that depend on this node (this node is their prerequisite)
         for concept_id, prereqs in dependencies.items():
             if node in prereqs:
-                indeg[concept_id] -= 1
-                if indeg[concept_id] == 0:
+                prereq_count[concept_id] -= 1
+                if prereq_count[concept_id] == 0:
                     queue.append(concept_id)
 
     is_dag = len(processed) == len(concepts)
@@ -211,13 +223,14 @@ def generate_report(csv_path: str, output_path: str):
     indegree = calculate_indegree(concepts, dependencies)
     outdegree = calculate_outdegree(concepts, dependencies)
     terminal = find_terminal_nodes(concepts, indegree, dependencies)
+    orphaned = find_orphaned_nodes(concepts, indegree, dependencies)
     is_dag, cycles = verify_dag(concepts, dependencies)
     max_chain_length, max_chain_path = find_longest_chain(concepts, dependencies)
     components = find_connected_components(concepts, dependencies)
 
-    # Foundational concepts
+    # Foundational concepts (no prerequisites but other concepts depend on them)
     foundational = [(cid, label) for cid, label in concepts.items()
-                    if outdegree[cid] == 0]
+                    if outdegree[cid] == 0 and indegree[cid] > 0]
 
     # Top concepts by indegree
     top_indegree = sorted([(cid, label, indegree[cid])
@@ -233,7 +246,9 @@ def generate_report(csv_path: str, output_path: str):
         f.write("# Learning Graph Quality Metrics Report\n\n")
         f.write("## Overview\n\n")
         f.write(f"- **Total Concepts**: {len(concepts)}\n")
-        f.write(f"- **Foundational Concepts** (no dependencies): {len(foundational)}\n")
+        f.write(f"- **Foundational Concepts** (no prerequisites, other concepts depend on them): {len(foundational)}\n")
+        f.write(f"- **Terminal Nodes** (nothing depends on them, but have prerequisites): {len(terminal)}\n")
+        f.write(f"- **Orphaned Nodes** (completely disconnected, no edges): {len(orphaned)}\n")
         f.write(f"- **Concepts with Dependencies**: {len(dependencies)}\n")
         f.write(f"- **Average Dependencies per Concept**: {avg_deps:.2f}\n\n")
 
@@ -262,18 +277,32 @@ def generate_report(csv_path: str, output_path: str):
             f.write(f"{i}. **{concepts[cid]}** (ID: {cid})\n")
         f.write("\n")
 
+        terminal_pct = len(terminal) / len(concepts) * 100 if concepts else 0
         f.write("## Terminal Nodes Analysis\n\n")
-        f.write("Terminal nodes are concepts that no other concept depends on (leaf nodes).\n")
-        f.write("These are valid and expected — they represent advanced or specialized topics.\n\n")
-        f.write(f"- **Total Terminal Nodes**: {len(terminal)}\n\n")
+        f.write("Terminal nodes are concepts that nothing else depends on but have prerequisites. ")
+        f.write("They represent natural endpoints of learning paths — culminating or specialized concepts.\n\n")
+        f.write(f"- **Total Terminal Nodes**: {len(terminal)} ({terminal_pct:.1f}% of all concepts)\n")
+        f.write(f"- **Healthy Range**: 5-40% of total concepts\n\n")
         if terminal:
-            f.write("Concepts that are not prerequisites for any other concept:\n\n")
+            f.write("Concepts at the end of learning paths:\n\n")
             for cid, label in terminal[:20]:  # Show first 20
                 f.write(f"- **{cid}**: {label}\n")
             if len(terminal) > 20:
                 f.write(f"\n*...and {len(terminal) - 20} more*\n")
         else:
             f.write("No terminal nodes detected.\n")
+        f.write("\n")
+
+        f.write("## Orphaned Nodes Analysis\n\n")
+        f.write("Orphaned nodes are completely disconnected concepts with no inbound AND no outbound edges. ")
+        f.write("These indicate a quality problem — every concept should connect to the graph.\n\n")
+        f.write(f"- **Total Orphaned Nodes**: {len(orphaned)}\n\n")
+        if orphaned:
+            f.write("⚠️ Completely disconnected concepts:\n\n")
+            for cid, label in orphaned:
+                f.write(f"- **{cid}**: {label}\n")
+        else:
+            f.write("✅ No orphaned nodes detected. All concepts are connected to the graph.\n")
         f.write("\n")
 
         f.write("## Connected Components\n\n")
@@ -312,8 +341,14 @@ def generate_report(csv_path: str, output_path: str):
         f.write("## Recommendations\n\n")
         if len(components) > 1:
             f.write("- ⚠️ **Connect disconnected components**: Add dependencies to link separate subgraphs\n")
-        if len(terminal) > 50:
-            f.write(f"- ⚠️ **Many terminal nodes** ({len(terminal)}): Consider if some of these should be prerequisites for advanced concepts\n")
+        if orphaned:
+            f.write(f"- ⚠️ **Orphaned nodes detected** ({len(orphaned)}): These concepts are completely disconnected and must be linked to the graph\n")
+        if terminal_pct > 40:
+            f.write(f"- ℹ️ **High terminal node percentage** ({terminal_pct:.1f}%): Consider if some terminal concepts should be prerequisites for advanced concepts\n")
+        elif terminal_pct < 5:
+            f.write(f"- ℹ️ **Low terminal node percentage** ({terminal_pct:.1f}%): Graph may lack endpoint specialization\n")
+        else:
+            f.write(f"- ✅ **Terminal node percentage** ({terminal_pct:.1f}%): Within healthy range (5-40%)\n")
         if is_dag:
             f.write("- ✅ **DAG structure verified**: Graph supports valid learning progressions\n")
         if max_chain_length > 15:
@@ -325,7 +360,7 @@ def generate_report(csv_path: str, output_path: str):
         f.write("*Report generated by learning-graph-reports/analyze_graph.py*\n")
 
     print(f"✅ Quality metrics report generated: {output_path}")
-    return is_dag, len(foundational), len(terminal), max_chain_length
+    return is_dag, len(foundational), len(terminal), len(orphaned), max_chain_length
 
 
 if __name__ == "__main__":
