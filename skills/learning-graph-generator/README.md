@@ -28,7 +28,7 @@ Summary:
   Groups: 10
   Nodes: 25
   Edges: 24
-  Orphan nodes: 0
+  Orphaned nodes: 0
 
 ✓ Learning graph is valid!
 ```

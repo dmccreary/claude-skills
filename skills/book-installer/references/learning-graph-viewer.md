@@ -938,6 +938,49 @@ Common taxonomy mappings:
 | DEPLO | Deployment |
 | CAPST | Capstone |
 
+### Step 7b: Reorder Groups to Match Taxonomy Order (REQUIRED)
+
+**The order of groups in learning-graph.json determines the order of category checkboxes in the sidebar legend.** The groups MUST be ordered to match the order defined in `docs/learning-graph/concept-taxonomy.md`, with Foundation Concepts always first.
+
+The `csv-to-json.py` script outputs groups in arbitrary order. Run this Python script to reorder them:
+
+```bash
+cd docs/learning-graph
+python3 -c "
+import json, re
+
+# Read the taxonomy order from concept-taxonomy.md
+with open('concept-taxonomy.md') as f:
+    text = f.read()
+# Extract taxonomy IDs in order from headings like '### 1. Foundation Concepts (FOUND)'
+ordered_ids = re.findall(r'\(([A-Z]{3,5})\)', text)
+
+# Reorder groups in learning-graph.json
+with open('learning-graph.json') as f:
+    data = json.load(f)
+
+ordered_groups = {}
+for key in ordered_ids:
+    if key in data['groups']:
+        ordered_groups[key] = data['groups'][key]
+# Append any groups not found in taxonomy (safety net)
+for key in data['groups']:
+    if key not in ordered_groups:
+        ordered_groups[key] = data['groups'][key]
+
+data['groups'] = ordered_groups
+
+with open('learning-graph.json', 'w') as f:
+    json.dump(data, f, indent=2)
+
+print('Groups reordered to match concept-taxonomy.md:')
+for k in data['groups']:
+    print(f'  {k}: {data[\"groups\"][k][\"classifierName\"]}')
+"
+```
+
+**Why this matters:** Without this step, the sidebar legend categories appear in arbitrary order (often alphabetical by taxonomy ID), which does not reflect the pedagogical progression from foundational to advanced topics. Students and instructors expect the legend to flow from basic to advanced, matching the taxonomy document.
+
 ### Step 8: Update Title in main.html
 
 Replace the "TITLE" placeholder in main.html with the course title:

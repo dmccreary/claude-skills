@@ -79,4 +79,9 @@ echo ""
 
 python3 "$PYTHON_SCRIPT" "$TARGET_DIR" "$@"
 
+echo -e "Run the following command to remove the backup files created by this script:"
+echo -e ""
+echo -e "find . -type f -name '*.backup' -delete"
+echo -e ""
+
 exit $?

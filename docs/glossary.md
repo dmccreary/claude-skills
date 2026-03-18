@@ -882,9 +882,11 @@ Strategies for maximizing productivity within Claude's token limits and usage wi
 
 #### Orphaned Nodes
 
-Concepts in a learning graph that no other concepts depend on, suggesting they may be too specific or misplaced.
+A node in a learning graph with zero edges — no inbound edges and no outbound edges — making it completely disconnected from the graph.
 
-**Example:** If concept 150 has no concepts listing it as a prerequisite, it's orphaned and may need reevaluation.
+Orphaned nodes make a learning graph disconnected and therefore invalid. Every node in a valid learning graph must have at least one edge. Contrast with [terminal nodes](#terminal-nodes), which have inbound edges but no outbound edges and are valid.
+
+**Example:** If concept 150 has no concepts listing it as a prerequisite and it also has no prerequisites itself, it is an orphaned node with zero total edges.
 
 #### Outdegree Analysis
 
@@ -984,7 +986,7 @@ Supporting Python programs included in skill directories that perform specific d
 
 Quantitative measures used to assess learning graph structure, including connectivity, balance, and DAG validity.
 
-**Example:** Quality metrics include average dependencies, chain length, orphaned nodes, and category distribution percentages.
+**Example:** Quality metrics include average dependencies, chain length, orphaned nodes, terminal nodes, and category distribution percentages.
 
 #### Quiz
 
@@ -1185,6 +1187,14 @@ A column in learning graph CSV files containing category abbreviations for each 
 
 **Example:** The TaxonomyID field might contain "FOUND" for concept 1 and "ADVAN" for concept 200.
 
+#### Terminal Nodes
+
+A node in a learning graph with one or more inbound edges but no outbound edges, meaning other concepts depend on it as a prerequisite but it is not a prerequisite for any subsequent concept.
+
+Terminal nodes are valid and expected in learning graphs. They represent culminating or specialized concepts at the end of a dependency chain. Contrast with [orphaned nodes](#orphaned-nodes), which have zero edges and are invalid.
+
+**Example:** Concept 200 "Capstone Project Design" depends on several prerequisites but no other concept lists it as a dependency, making it a terminal node.
+
 #### Template Files in Skills
 
 Reusable file structures that skills populate with generated content to ensure consistent formatting.
@@ -1202,6 +1212,21 @@ Text-based instructions entered in a command-line interface to execute programs,
 An integrated command-line interface within Visual Studio Code for running commands without leaving the editor.
 
 **Example:** Open the VS Code terminal with Ctrl+` to run `mkdocs serve` while editing content.
+
+#### Terminal Nodes
+
+Concepts in a learning graph that no other concepts depend on, suggesting they
+are an outcome learning objective and might be placed further to the right of other nodes.
+
+Terminal nodes have one or more inbound edges, but no outbound edges.
+
+Terminal nodes are normal in all learning graphs.  Learning graphs
+many contain up to 50% terminal nodes.
+
+Another name for a terminal node is a leaf node.
+
+**Example:** If concept 150 has no concepts listing it as a prerequisite it is a terminal
+or node.
 
 #### The Role of FAQs in Intelligent Textbooks
 

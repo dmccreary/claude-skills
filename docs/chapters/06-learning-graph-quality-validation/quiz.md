@@ -40,39 +40,39 @@ Test your understanding of DAG validation, quality metrics, circular dependency 
 
 ---
 
-#### 3. What does an orphaned node in a learning graph represent?
+#### 3. What does a terminal node in a learning graph represent?
 
 <div class="upper-alpha" markdown>
 1. A concept with zero dependencies (foundational concept)
-2. A concept that no other concepts depend upon (outdegree = 0)
-3. A concept in a disconnected subgraph
+2. A concept that no other concepts depend upon (outdegree = 0) but has inbound edges
+3. A concept with no inbound and no outbound edges (completely disconnected)
 4. A concept with exactly one dependency
 </div>
 
 ??? question "Show Answer"
-    The correct answer is **B**. An orphaned node has an outdegree of zero, meaning no other concepts depend on it. These are terminal or culminating concepts. Option A describes foundational concepts (indegree = 0, not orphaned), option C describes disconnected components (a different issue), and option D is arbitrary and doesn't define orphaned status.
+    The correct answer is **B**. A terminal node has an outdegree of zero, meaning no other concepts depend on it, but it still has inbound edges (prerequisites). These are culminating concepts that represent the end of a learning path. Option A describes foundational concepts (indegree = 0), option C describes an orphaned node (completely disconnected from the graph, which is invalid), and option D is arbitrary and doesn't define terminal status.
 
-    **Concept Tested:** Orphaned Nodes
+    **Concept Tested:** Terminal Nodes
 
-    **See:** [Orphaned Nodes](../../glossary.md#orphaned-nodes)
+    **See:** [Terminal Nodes](../../glossary.md#terminal-nodes)
 
 ---
 
-#### 4. In a healthy learning graph, what percentage of concepts should typically be orphaned nodes?
+#### 4. In a healthy learning graph, what percentage of concepts should typically be terminal nodes?
 
 <div class="upper-alpha" markdown>
 1. 0-2% (essentially none)
-2. 5-10% (terminal concepts)
+2. 5-15% (culminating concepts)
 3. 25-30% (significant portion)
 4. 50%+ (majority of concepts)
 </div>
 
 ??? question "Show Answer"
-    The correct answer is **B**. A well-designed learning graph typically has 5-10% orphaned nodes representing culminating concepts and specialized topics. Too few orphaned nodes (option A) suggests incomplete terminal concepts, while too many (options C and D) indicates concepts that may be improperly isolated, missing dependent concepts, or too specialized for the course scope.
+    The correct answer is **B**. A well-designed learning graph typically has 5-15% terminal nodes representing culminating concepts and specialized topics. Too few terminal nodes (option A) suggests incomplete culminating concepts, while too many (options C and D) indicates concepts that may be missing dependent concepts or are too specialized for the course scope.
 
     **Concept Tested:** Quality Metrics for Graphs
 
-    **See:** [Orphaned Nodes](../../glossary.md#orphaned-nodes)
+    **See:** [Terminal Nodes](../../glossary.md#terminal-nodes)
 
 ---
 

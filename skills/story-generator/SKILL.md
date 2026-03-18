@@ -5,7 +5,7 @@ description: This skill generates graphic novel narratives about physicists and 
 
 # Story Generator
 
-This skill generates complete graphic novel narratives about physicists and scientists for intelligent textbooks built with MkDocs Material.
+This skill generates complete graphic novel narratives about key contributors to various subjects for intelligent textbooks built with MkDocs Material markdown.  The stories are designed to be inspirational, engaging and educational for high school students, with a focus on historical accuracy and compelling storytelling. Each story includes detailed image prompts for AI image generation of each panel, ensuring a visually rich experience that complements the narrative.  Each panel image is followed by a short 3-4 sentence narrative that provides context and emotional depth to the scene depicted, making the story accessible and engaging for high school students.
 
 ## When to Use This Skill
 
@@ -26,11 +26,13 @@ Each story follows a consistent structure designed to engage high school student
 2. **Cover Image** - With detailed generation prompt in `<details>` block
 3. **Narrative Prompt** - Background context for generating the story
 4. **Prologue** - Hook introducing the scientist's significance
-5. **Chapters (12-14)** - Each with narrative text, image placeholder, and image prompt
+5. **Chapters (12-14)** - Each with narrative text, image placeholder, and image prompt for the panel
 6. **Epilogue** - Lessons table summarizing what made the scientist successful
 7. **Call to Action** - Inspiring message connecting to readers
 8. **Quotes** - 2-3 memorable quotes from the scientist
 9. **References** - Academic sources (can use placeholders initially)
+
+A template for the story structure can be found in `skills/story-generator/references/index-template.md`.
 
 ### Image Prompt Requirements
 
@@ -44,7 +46,7 @@ Every image prompt must specify:
 
 ## Workflow
 
-### Step 1: Gather Information
+### Step 1: Gather Information and Plan the Story
 
 Before writing, identify:
 
@@ -82,11 +84,12 @@ social:
 ![Cover image](./cover.png)
 <details>
 <summary>Cover Image Prompt</summary>
-[Detailed cover image generation prompt - 16:9 format, period style, composition details]
+[Detailed cover image generation prompt - 16:9 format, period style, composition details.
+Include specific characters, setting, color palette, and emotional tone.]
 </details>
 
 <details>
-    <summary>Narrative Prompt</summary>
+<summary>Narrative Prompt</summary>
 [Background context and style guide for the entire story]
 </details>
 
@@ -94,19 +97,21 @@ social:
 
 [Opening narrative establishing the scientist's importance]
 
-![](./image-01.png)
+![](./panel-01.png)
 <details><summary>Image Prompt</summary>
-[Detailed image prompt for prologue scene]
+Please generate a 16:9 image in [period style] depicting the the first panel. The scene should include [specific characters], set in [specific setting including period in time and location], with a color palette of [color palette]. The emotional tone should be [emotional tone].
+[Detailed image prompt for prologue scene with a minimum of 6 specific details to guide the AI image generation.]
 </details>
 
-## Chapter 1 – <Chapter Title>
+## Panel N – <Panel Title>
 
-[Chapter narrative...]
-
-![](./image-02.png)
+![](./panel-N.png)
 <details><summary>Image Prompt</summary>
-[Image prompt...]
+Please generate a 16:9 image in [period style] depicting the panel N. The scene should include [specific characters], set in [specific setting including period in time and location], with a color palette of [color palette]. The emotional tone should be [emotional tone].
+[Detailed image prompt for prologue scene with a minimum of 6 specific details to guide the AI image generation.]
 </details>
+
+[Panel narrative text which is 3-4 sentences long.  This is the text that will appear in the graphic novel panel.  It should be engaging and move the story forward, while also being historically accurate and appropriate for high school students.  The narrative should be written in a way that complements the image, providing context and emotional depth to the scene depicted.  Use active voice and vivid descriptions to bring the story to life, while also ensuring that the language is accessible to the target audience.]
 
 [Continue for 12-14 chapters...]
 

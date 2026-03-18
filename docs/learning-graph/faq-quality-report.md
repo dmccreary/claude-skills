@@ -142,7 +142,7 @@ All 64 answers are complete, standalone, and directly address their questions. A
 - Directed Acyclic Graph (DAG), Prerequisite Relationships
 - Concept Dependencies, Learning Pathways
 - Circular Dependency Detection, DAG Validation
-- Quality Metrics for Graphs, Orphaned Nodes
+- Quality Metrics for Graphs, Terminal Nodes
 
 **Intelligent Textbooks (15 concepts):**
 - Intelligent Textbook, Five Levels of Textbook Intelligence

@@ -35,7 +35,7 @@
   - Metrics panel with 6 key statistics
   - Quality assessment indicators
 
-### 2. Orphaned Nodes Identification Chart ✓
+### 2. Terminal Nodes Identification Chart ✓
 - **Chapter:** 06 - Learning Graph Quality Validation
 - **Generator:** chartjs-generator
 - **Match Score:** 97/100
@@ -46,10 +46,10 @@
   - `index.md` - Comprehensive analysis guide
 - **Features:**
   - Scatter plot: indegree (x-axis) vs outdegree (y-axis)
-  - Three color-coded categories: foundational (green), intermediate (blue), orphaned (red)
-  - Zone annotations for foundation and orphaned zones
+  - Three color-coded categories: foundational (green), intermediate (blue), terminal (red)
+  - Zone annotations for foundation and terminal zones
   - Connectivity metrics panel
-  - Health indicator showing 12% orphaned rate
+  - Health indicator showing 12% terminal rate
 
 ### 3. Taxonomy Distribution Pie Chart ✓
 - **Chapter:** 06 - Learning Graph Quality Validation
@@ -382,7 +382,7 @@ Focus on highest-scoring diagrams first (95-98):
     ├── execution-plan.md
     └── specs/
         ├── 06-average-dependencies-distribution-bar-chart.md ✓ DONE
-        ├── 06-orphaned-nodes-identification-chart.md ✓ DONE
+        ├── 06-terminal-nodes-identification-chart.md ✓ DONE
         ├── 06-taxonomy-distribution-pie-chart.md ✓ DONE
         ├── 06-dag-validation-algorithm-visualization.md
         ├── 06-linear-chain-vs-network-structure-comparison.md

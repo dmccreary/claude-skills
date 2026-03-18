@@ -132,6 +132,24 @@ Create an external CSS file for styling. Use the template at `resources/template
 **Template placeholders in style.css**:
 - `{{FILTER_BUTTON_STYLES}}`: CSS rules for category-specific filter button colors
 
+**Critical event box sizing** (ensures item boxes are wide enough to fit their text):
+
+```css
+/* Ensure all item boxes fit their text */
+.vis-item .vis-item-content {
+    white-space: nowrap !important;
+    padding: 4px 8px !important;
+}
+.vis-item.vis-range {
+    min-width: fit-content !important;
+}
+.vis-item.vis-box {
+    min-width: fit-content !important;
+}
+```
+
+By default, vis-timeline clips event labels when the box is narrower than the text — especially for range items that span a short period on a long timeline. The `white-space: nowrap` and `min-width: fit-content` rules prevent this. Always include these rules in `style.css`.
+
 **Critical tooltip styling** (ensures text wraps properly):
 
 ```css

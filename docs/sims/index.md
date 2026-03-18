@@ -403,11 +403,11 @@ Interactive Micro Simulations to help students learn intelligent textbook develo
 
     Interactive Mermaid visualization showing mkdocs github pages deployment workflow
 
--   **[Orphaned Nodes Identification Chart](./orphaned-nodes-identification/index.md)**
+-   **[Terminal Nodes Identification Chart](./orphaned-nodes-identification/index.md)**
 
-    ![Orphaned Nodes Identification Chart](./orphaned-nodes-identification/orphaned-nodes-identification.png)
+    ![Terminal Nodes Identification Chart](./orphaned-nodes-identification/orphaned-nodes-identification.png)
 
-    Interactive Chart.js visualization showing orphaned nodes identification chart
+    Interactive Chart.js visualization showing terminal nodes (outdegree=0) identification chart
 
 -   **[p5.js Architecture and Execution Model](./p5js-architecture/index.md)**
 

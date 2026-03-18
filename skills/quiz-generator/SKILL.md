@@ -1,18 +1,17 @@
 ---
 name: quiz-generator
-description: This skill generates interactive multiple-choice quizzes for each chapter of an intelligent textbook, with questions aligned to specific concepts from the learning graph and distributed across Bloom's Taxonomy cognitive levels to assess student understanding effectively. Use this skill after chapter content has been written and the learning graph exists.
+description: This skill generates interactive multiple-choice quizzes for each chapter of an intelligent textbook, with questions aligned to specific concepts from the learning graph and distributed across Bloom's Taxonomy cognitive levels to assess student understanding effectively. Uses serial execution (one agent) for token efficiency. Use this skill after chapter content has been written and the learning graph exists.
 license: MIT
 ---
 
 # Quiz Generator for Intelligent Textbooks
 
-**Version:** 0.3
+**Version:** 0.4
 
 ## Overview
 1. For each markdown chapter, generate interactive multiple-choice quizzes for textbook chapters with quality distractor analysis.
 2. Generate quality reports in markdown format.
 3. Update mkdocs.yml navigation to include quizzes and reports.
-4. **NEW in v0.3:** Support parallel execution for faster generation across multiple chapters.
 
 ## Purpose
 
@@ -33,41 +32,39 @@ Trigger this skill when:
 - Building comprehensive quiz bank for entire textbook
 - Exporting quiz data for LMS or chatbot integration
 
-The skill can run:
-- **Parallel mode** (default): Multiple chapters processed concurrently for faster generation
-- **Sequential mode**: Chapter by chapter processing
+## Token Efficiency: Serial Execution Only
+
+!!! warning "NEVER Use Parallel Agents Unless the User Explicitly Requests It"
+    **Always use a single serial agent for quiz generation.** This is a hard
+    requirement, not a suggestion. Do not offer parallel execution as an option.
+
+Each spawned agent incurs ~12,000 tokens of startup overhead (system prompt,
+tool schemas, project context). Parallel execution multiplies this overhead
+with zero quality benefit. Measured data from a 17-chapter quiz generation:
+
+| Approach | System Overhead | Total Tokens | Waste |
+|----------|----------------|--------------|-------|
+| **Serial (1 agent)** | ~12,000 | ~310,000 | — |
+| Parallel (4 agents) | ~48,000 | ~358,000 | +48,000 (13%) |
+
+Additional problems with parallel execution observed in production:
+
+1. **Inconsistent behavior:** Agents independently choose different strategies,
+   causing 5x variation in tool calls (8 vs 39) for the same workload
+2. **Conflicting file edits:** Multiple agents modifying mkdocs.yml simultaneously
+   causes inconsistencies requiring manual repair
+3. **No shared learning:** Each agent starts from scratch with no accumulated
+   context from earlier chapters
+
+The skill supports two modes:
+- **Serial mode** (default, always): One agent processes all chapters sequentially
 - **Single chapter mode**: Generate quiz for one specific chapter
-
-## Execution Modes
-
-### Parallel Mode (Default for 4+ chapters)
-
-When generating quizzes for 4 or more chapters, use parallel execution:
-
-| Aspect | Sequential | Parallel |
-|--------|------------|----------|
-| Agents | 1 | 4-6 concurrent |
-| Wall-clock time | ~10 minutes (23 chapters) | ~2-3 minutes |
-| Total tokens | Same | Same |
-
-### Sequential Mode
-
-Use for:
-- Fewer than 4 chapters
-- Debugging or troubleshooting
-- When explicit sequential processing is requested
-
-### Single Chapter Mode
-
-Use for:
-- Updating one quiz after content revision
-- Testing quiz format before batch generation
 
 ## Workflow
 
 ### Phase 1: Setup (Sequential)
 
-This phase runs once before any quiz generation, reading shared context that all agents will need.
+This phase runs once before quiz generation, reading shared context.
 
 #### Step 1.1: Capture Start Time
 
@@ -79,7 +76,7 @@ Log the start time for the session report.
 
 #### Step 1.2: Indicate Skill Running
 
-Notify the user: "Quiz Generator Skill v0.3 running in [parallel/sequential] mode."
+Notify the user: "Quiz Generator Skill v0.4 running in serial mode."
 
 #### Step 1.3: Read Shared Context
 
@@ -151,42 +148,17 @@ Calculate content readiness score (1-100) for each target chapter:
 - Concept gaps: Ask "[N] concepts in chapter not in learning graph. Continue with available concepts?"
 - No learning outcomes: Ask "No Bloom's Taxonomy outcomes in course description. Use default distribution?"
 
-#### Step 1.5: Plan Chapter Batches (Parallel Mode)
+### Phase 2: Quiz Generation (Serial)
 
-Divide chapters into batches for parallel processing:
-
-**Batch Size Guidelines:**
-- 4-8 chapters: 2 agents (2-4 chapters each)
-- 9-15 chapters: 3-4 agents (3-4 chapters each)
-- 16-24 chapters: 4-6 agents (4-5 chapters each)
-- 25+ chapters: 5-6 agents (5-6 chapters each)
-
-**Example for 23 chapters:**
-```
-Agent 1: Chapters 1-4 (Foundations)
-Agent 2: Chapters 5-8 (Limits & Continuity)
-Agent 3: Chapters 9-12 (Derivative Rules)
-Agent 4: Chapters 13-16 (Applications)
-Agent 5: Chapters 17-20 (Analysis)
-Agent 6: Chapters 21-23 (Integration)
-```
-
-### Phase 2: Quiz Generation (Parallel or Sequential)
-
-#### Parallel Execution
-
-Spawn multiple Task agents simultaneously using the Task tool. Each agent receives:
-
-1. **Shared context** (course info, glossary terms, Bloom's targets)
-2. **Assigned chapters** (specific chapter directories)
-3. **Quiz format template** (the standard format from this skill)
-4. **Output instructions** (write quiz.md to each chapter directory)
+Launch ONE agent that processes all chapters sequentially. The agent reads each
+chapter, generates 10 questions, and writes the quiz file before moving to the
+next chapter. This pays the ~12K system prompt overhead only once.
 
 **Agent Prompt Template:**
 
 ```
 You are generating quizzes for an intelligent textbook. Generate quizzes for
-the following chapters.
+ALL of the following chapters, processing them one at a time.
 
 COURSE CONTEXT:
 - Course: [course name]
@@ -199,7 +171,7 @@ BLOOM'S TAXONOMY TARGETS:
 - Advanced chapters: 15% Remember, 20% Understand, 25% Apply, 25% Analyze, 10% Evaluate, 5% Create
 
 CHAPTERS TO PROCESS:
-[List specific chapter directories with full paths]
+[List ALL chapter directories with full paths]
 
 FOR EACH CHAPTER:
 1. Read the chapter content at the index.md file
@@ -242,26 +214,7 @@ REPORT when done:
 - Answer distribution (A:#, B:#, C:#, D:#)
 ```
 
-**Launching Parallel Agents:**
-
-Use the Task tool with multiple invocations in a SINGLE message to run agents in parallel:
-
-```markdown
-[Call Task tool for Agent 1: Chapters 1-4]
-[Call Task tool for Agent 2: Chapters 5-8]
-[Call Task tool for Agent 3: Chapters 9-12]
-[Call Task tool for Agent 4: Chapters 13-16]
-[Call Task tool for Agent 5: Chapters 17-20]
-[Call Task tool for Agent 6: Chapters 21-23]
-```
-
-**IMPORTANT:** All Task tool calls MUST be in a single message to execute in parallel. If sent in separate messages, they will run sequentially.
-
-#### Sequential Execution
-
-For sequential mode or fewer than 4 chapters, process each chapter one at a time following Steps 2-8 below.
-
-### Phase 2 Steps (Per Chapter - used by agents or sequential mode)
+### Phase 2 Steps (Per Chapter)
 
 #### Step 2: Determine Target Distribution
 
@@ -515,13 +468,9 @@ Test your understanding of [chapter topic] with these questions.
 - Maintain consistent spacing
 - Ensure all markdown renders correctly
 
-### Phase 3: Aggregation (Sequential, after parallel agents complete)
+### Phase 3: Aggregation
 
-After all parallel agents complete, aggregate results.
-
-#### Step 9: Collect Agent Results
-
-Wait for all Task agents to complete. Collect from each:
+After the serial agent completes, collect its results:
 - List of quiz files created
 - Per-chapter statistics (questions, Bloom's distribution, answer balance)
 - Any errors or issues encountered
@@ -624,7 +573,7 @@ Create `docs/learning-graph/quiz-generation-report.md`:
 # Quiz Generation Quality Report
 
 Generated: YYYY-MM-DD
-Execution Mode: Parallel (6 agents)
+Execution Mode: Serial (1 agent)
 Wall-clock Time: X minutes Y seconds
 
 ## Overall Statistics
@@ -633,17 +582,6 @@ Wall-clock Time: X minutes Y seconds
 - **Total Questions:** 187
 - **Avg Questions per Chapter:** 9.4
 - **Overall Quality Score:** 76/100
-
-## Execution Summary (Parallel Mode)
-
-| Agent | Chapters | Questions | Time |
-|-------|----------|-----------|------|
-| Agent 1 | 1-4 | 40 | 45s |
-| Agent 2 | 5-8 | 40 | 52s |
-| Agent 3 | 9-12 | 40 | 48s |
-| Agent 4 | 13-16 | 40 | 51s |
-| Agent 5 | 17-20 | 40 | 47s |
-| Agent 6 | 21-23 | 27 | 38s |
 
 ## Per-Chapter Summary
 
@@ -794,9 +732,9 @@ Export the session information to `logs/quiz-generator-YYYY-MM-DD.md`:
 ```markdown
 # Quiz Generator Session Log
 
-**Skill Version:** 0.3
+**Skill Version:** 0.4
 **Date:** YYYY-MM-DD
-**Execution Mode:** Parallel (6 agents)
+**Execution Mode:** Serial (1 agent)
 
 ## Timing
 
@@ -811,11 +749,9 @@ Export the session information to `logs/quiz-generator-YYYY-MM-DD.md`:
 | Phase | Estimated Tokens |
 |-------|------------------|
 | Setup (shared context) | ~15,000 |
-| Agent 1 (Ch 1-4) | ~25,000 |
-| Agent 2 (Ch 5-8) | ~25,000 |
-| ... | ... |
-| Aggregation | ~5,000 |
-| **Total** | ~160,000 |
+| Serial agent (all chapters) | ~295,000 |
+| Aggregation + nav update | ~5,000 |
+| **Total** | ~315,000 |
 
 ## Results
 
@@ -833,9 +769,9 @@ Export the session information to `logs/quiz-generator-YYYY-MM-DD.md`:
 
 Notify the user:
 
-"Quiz Generator v0.3 complete!
+"Quiz Generator v0.4 complete!
 
-- **Mode:** Parallel (6 agents)
+- **Mode:** Serial (1 agent)
 - **Elapsed time:** X minutes Y seconds
 - **Chapters processed:** 23
 - **Questions generated:** 230
@@ -908,10 +844,10 @@ Session logged to `logs/quiz-generator-YYYY-MM-DD.md`"
 - ❌ Missing or broken links
 - ❌ Too brief (< 30 words) or too long (> 150 words)
 
-**Parallel Execution:**
-- ❌ Sending Task calls in separate messages (runs sequentially)
-- ❌ Not waiting for all agents before aggregation
-- ❌ Forgetting to aggregate statistics from all agents
+**Token Efficiency:**
+- ❌ Using parallel agents (wastes ~12K tokens per extra agent in system prompt overhead)
+- ❌ Spawning multiple agents when a single serial agent would produce the same output
+- ❌ Offering parallel execution as an option without the user explicitly requesting it
 
 ## Output Files Summary
 
@@ -929,28 +865,27 @@ Session logged to `logs/quiz-generator-YYYY-MM-DD.md`"
 
 ## Example Session
 
-### Parallel Mode (Default)
+### All Chapters (Default Serial Mode)
 
 **User:** "Generate quizzes for all chapters"
 
 **Claude (using this skill):**
 
 1. Captures start time
-2. Notifies: "Quiz Generator Skill v0.3 running in parallel mode."
+2. Notifies: "Quiz Generator Skill v0.4 running in serial mode."
 3. Reads shared context (course description, learning graph, glossary)
 4. Scans chapter directories, finds 23 chapters
 5. Assesses content readiness (all chapters 2000+ words)
-6. Plans batches: 6 agents, ~4 chapters each
-7. Spawns 6 Task agents in a SINGLE message (parallel execution)
-8. Waits for all agents to complete
-9. Aggregates results from all agents
-10. Generates quality report (score: 82/100)
-11. Updates mkdocs.yml navigation
-12. Captures end time
-13. Writes session log
-14. Reports: "Quiz Generator v0.3 complete! Mode: Parallel. Time: 2m 45s. Questions: 230. Quality: 82/100."
+6. Launches ONE serial agent that processes all 23 chapters sequentially
+7. Agent reads each chapter, generates 10 questions, writes quiz.md, then moves to next
+8. Collects results from the single agent
+9. Generates quality report (score: 82/100)
+10. Updates mkdocs.yml navigation
+11. Captures end time
+12. Writes session log
+13. Reports: "Quiz Generator v0.4 complete! Mode: Serial. Time: 33m. Questions: 230. Quality: 82/100."
 
-### Sequential Mode
+### Single Chapter Mode
 
 **User:** "Generate a quiz for Chapter 3 only"
 

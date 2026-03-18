@@ -14,7 +14,7 @@ This textbook is organized into 13 chapters covering 200 concepts that guide you
 
 5. [Concept Enumeration and Dependencies](05-concept-enumeration-dependencies/index.md) - This chapter covers the concept enumeration process, generating 200 concepts, concept labels, granularity, atomic concepts, dependency mapping, and foundational vs. advanced concepts.
 
-6. [Learning Graph Quality and Validation](06-learning-graph-quality-validation/index.md) - This chapter focuses on graph quality metrics, DAG validation, circular dependency detection, orphaned nodes, disconnected subgraphs, indegree/outdegree analysis, and quality scoring.
+6. [Learning Graph Quality and Validation](06-learning-graph-quality-validation/index.md) - This chapter focuses on graph quality metrics, DAG validation, circular dependency detection, terminal nodes, disconnected subgraphs, indegree/outdegree analysis, and quality scoring.
 
 7. [Taxonomy and Data Formats](07-taxonomy-data-formats/index.md) - This chapter covers taxonomy categorization, CSV file formats, pipe-delimited dependencies, JSON schema for learning graphs, metadata (Dublin Core), and color coding for visualizations.
 

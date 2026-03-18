@@ -110,15 +110,15 @@ Collect specific visual details:
 
 Suggest placement contexts:
 
-| Context | Purpose | Frequency |
-|---------|---------|-----------|
-| Chapter openings | Welcome and preview | Every chapter |
-| Key concept introductions | Signal important content | 2-3 per chapter |
-| Tips and hints | Offer helpful guidance | As needed |
-| Warnings and pitfalls | Alert to common mistakes | As needed |
-| Practice exercises | Encourage practice | After each section |
-| Chapter summaries | Review and celebrate | Every chapter |
-| Difficult concepts | Provide encouragement | Where students struggle |
+| Context | Purpose | Frequency | Filename |
+|---------|---------|-----------|----------|
+| Neutral Pose | General pose | As needed | neutral.png |
+| Chapter Welcome | Welcome and preview | Start of very chapter | welcome.png |
+| Key insight | Signal important insights | As needed | thinking.png |
+| Tips and hints | Offer helpful guidance | As needed | tip.png |
+| Warnings and pitfalls | Alert to common mistakes | As needed | warning.png |
+| Difficult concepts | Provide encouragement | As needed | encouraging.png |
+| Chapter summaries | Review and celebrate | End of every chapter | celebration.png |
 
 **IMPORTANT: Restraint Guidelines**
 
@@ -149,39 +149,45 @@ suitable for embedding in educational content. No text in image.
 
 Generate prompts for each of these poses:
 
-**1. Welcome/Introduction Pose** (chapter openings)
+**1. Neutral/Default Pose** (general sidebars, introductions, inline use)
+```
+[BASE_PROMPT] [NAME] stands upright in a relaxed, neutral pose facing the
+viewer directly, with a calm and friendly closed-mouth smile. Arms/paws/wings
+rest naturally at their sides with no specific gesture. The pose is balanced
+and unassuming — suitable as a general-purpose or default illustration.
+Filename: neutral.png
+```
+
+**2. Welcome/Introduction Pose** (chapter openings)
 ```
 [BASE_PROMPT] [NAME] is waving cheerfully with one hand/paw/wing,
 facing the viewer with a warm, welcoming expression.
 The pose suggests "welcome" and "let's get started."
+Filename: welcome.png
 ```
 
-**2. Thinking/Teaching Pose** (key concepts)
+**3. Thinking/Teaching Pose** (key concepts)
 ```
 [BASE_PROMPT] [NAME] has one hand/paw on chin in a thoughtful pose,
 with a small lightbulb or thought bubble above their head.
 The pose suggests deep thinking and discovery.
+Filename: thinking.png
 ```
 
-**3. Pointing/Tip Pose** (tips and hints)
+**4. Pointing/Tip Pose** (tips and hints)
 ```
 [BASE_PROMPT] [NAME] is pointing upward with one finger/paw
 as if sharing an important tip. Expression is helpful and knowing.
 A small star or sparkle near the pointing gesture.
+Filename: tip.png
 ```
 
-**4. Warning/Caution Pose** (warnings and pitfalls)
+**5. Warning/Caution Pose** (warnings and pitfalls)
 ```
 [BASE_PROMPT] [NAME] holds up both hands/paws in a gentle "stop"
 or "be careful" gesture. Expression is concerned but caring.
 A small exclamation mark or caution symbol nearby.
-```
-
-**5. Celebration Pose** (achievements, chapter completion)
-```
-[BASE_PROMPT] [NAME] is jumping or raising both arms/paws/wings
-in celebration. Expression is joyful and proud.
-Small confetti or stars around the character.
+Filename: warning.png
 ```
 
 **6. Encouraging Pose** (difficult sections)
@@ -189,7 +195,16 @@ Small confetti or stars around the character.
 [BASE_PROMPT] [NAME] gives a thumbs up (or equivalent gesture)
 with a reassuring, supportive smile. The pose radiates confidence
 and "you can do it" energy.
+Filename: encouraging.png
 ```
+
+**7. Celebration Pose** (achievements, chapter completion)
+```
+[BASE_PROMPT] [NAME] is jumping or raising both arms/paws/wings
+in celebration. Expression is joyful and proud.
+Small confetti or stars around the character.
+```
+
 
 #### Example: Complete Prompt Set for "Otto the Owl"
 
@@ -201,6 +216,10 @@ graduation cap. Otto has large, kind eyes with a gentle smile.
 The character is small and compact, suitable for icon-sized display.
 Style: modern flat vector, clean lines, white background,
 suitable for embedding in educational content. No text in image.
+
+Neutral: [Base] Otto stands upright in a relaxed, neutral pose facing
+the viewer with a calm, friendly closed-mouth smile. Both wings rest
+naturally at his sides. No specific gesture.
 
 Welcome: [Base] Otto is waving one wing cheerfully, facing the viewer
 with a warm, welcoming expression.
@@ -229,6 +248,7 @@ After the user generates their images, instruct them to save them:
 
 ```
 docs/img/mascot/
+├── neutral.png       # General purpose / default
 ├── welcome.png       # Chapter openings
 ├── thinking.png      # Key concepts
 ├── tip.png           # Tips and hints
@@ -246,6 +266,22 @@ Recommended specifications:
 - Format: PNG with transparent background (preferred) or WebP
 - Dimensions: 200x200 to 400x400 pixels for display
 - File size: Under 100KB per image for web performance
+
+#### Step 4b: Trim Excess Padding from Mascot Images
+
+AI image generators frequently add excessive transparent padding around mascot images, which makes the mascot appear too small when displayed at the target CSS size (e.g., 90px). After saving the images, recommend running the padding trimmer on each file:
+
+```bash
+python $BK_HOME/src/image-utils/trim-padding-from-image.py docs/img/mascot/neutral.png
+python $BK_HOME/src/image-utils/trim-padding-from-image.py docs/img/mascot/welcome.png
+python $BK_HOME/src/image-utils/trim-padding-from-image.py docs/img/mascot/thinking.png
+python $BK_HOME/src/image-utils/trim-padding-from-image.py docs/img/mascot/tip.png
+python $BK_HOME/src/image-utils/trim-padding-from-image.py docs/img/mascot/warning.png
+python $BK_HOME/src/image-utils/trim-padding-from-image.py docs/img/mascot/celebration.png
+python $BK_HOME/src/image-utils/trim-padding-from-image.py docs/img/mascot/encouraging.png
+```
+
+This script trims transparent padding to the bounding box of the visible content. It is critical to run this step because untrimmed images display much smaller than intended inside the admonition boxes.
 
 ### Step 5: Choose Implementation Method
 
@@ -327,6 +363,47 @@ Create or append to `docs/css/mascot.css`:
   --mascot-bg: {{BG_COLOR}};               /* e.g., #e8eaf6 */
   --mascot-border: {{BORDER_COLOR}};       /* e.g., #7986cb */
   --mascot-size: 60px;
+}
+
+/* Override MkDocs Material's default smaller admonition font size
+   so mascot admonition text matches the body text exactly. */
+.md-typeset .admonition.mascot-neutral,
+.md-typeset .admonition.mascot-welcome,
+.md-typeset .admonition.mascot-thinking,
+.md-typeset .admonition.mascot-tip,
+.md-typeset .admonition.mascot-warning,
+.md-typeset .admonition.mascot-celebration,
+.md-typeset .admonition.mascot-encourage,
+.md-typeset details.mascot-neutral,
+.md-typeset details.mascot-welcome,
+.md-typeset details.mascot-thinking,
+.md-typeset details.mascot-tip,
+.md-typeset details.mascot-warning,
+.md-typeset details.mascot-celebration,
+.md-typeset details.mascot-encourage {
+  font-size: inherit;
+}
+
+/* Neutral admonition (general purpose) */
+.md-typeset .admonition.mascot-neutral,
+.md-typeset details.mascot-neutral {
+  border-color: #546e7a;
+  background-color: #eceff1;
+}
+.md-typeset .mascot-neutral > .admonition-title,
+.md-typeset .mascot-neutral > summary {
+  background-color: #546e7a;
+  color: white;
+}
+.md-typeset .mascot-neutral > .admonition-title::before,
+.md-typeset .mascot-neutral > summary::before {
+  content: "";
+  background: url('../img/mascot/neutral.png') center/contain no-repeat;
+  width: 1.2em;
+  height: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.4em;
 }
 
 /* Welcome admonition */
@@ -495,6 +572,11 @@ markdown_extensions:
 Authors use standard admonition syntax with the custom types:
 
 ```markdown
+!!! mascot-neutral "A Note from {{CHARACTER_NAME}}"
+
+    Use this for general sidebars, introductions, or any content
+    that doesn't call for a specific emotional tone.
+
 !!! mascot-welcome "Welcome to Quadratic Equations!"
 
     In this chapter, we'll discover how to solve equations
@@ -762,6 +844,7 @@ To ensure consistent mascot usage across AI-generated content, add a section to 
 
 | Context | Admonition Type | Frequency |
 |---------|----------------|-----------|
+| General note / sidebar | mascot-neutral | As needed |
 | Chapter opening | mascot-welcome | Every chapter |
 | Key concept | mascot-thinking | 2-3 per chapter |
 | Helpful tip | mascot-tip | As needed |
@@ -812,6 +895,9 @@ Create `docs/learning-graph/mascot-test.md` to preview all mascot variants:
 
 This page shows all mascot admonition styles for reference.
 
+!!! mascot-neutral "General Note"
+    This is the neutral style, used for general sidebars or introductions.
+
 !!! mascot-welcome "Welcome!"
     This is the welcome style, used at chapter openings.
 
@@ -841,6 +927,7 @@ This page shows all mascot admonition styles for reference.
 docs/
 ├── img/
 │   └── mascot/
+│       ├── neutral.png
 │       ├── welcome.png
 │       ├── thinking.png
 │       ├── tip.png
@@ -871,6 +958,7 @@ docs/
 
 | Type | Usage | Color |
 |------|-------|-------|
+| `mascot-neutral` | General sidebars / default | Slate gray |
 | `mascot-welcome` | Chapter openings | Primary color |
 | `mascot-thinking` | Key concepts | Secondary color |
 | `mascot-tip` | Tips and hints | Green |

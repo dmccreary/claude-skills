@@ -200,7 +200,7 @@ These concepts have moderate centrality and would improve FAQ completeness:
 - Suggested Question: "What are linear chains in learning graphs and should I avoid them?"
 - Category: Common Challenges
 
-**38. Disconnected Subgraphs (Concept 84)** - Covered as orphaned nodes
+**38. Disconnected Subgraphs (Concept 84)** - Covered as terminal nodes
 
 ### Concept Refinement (5 concepts)
 

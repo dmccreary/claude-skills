@@ -78,7 +78,7 @@ Definitions must be: **Precise** | **Concise** | **Distinct** | **Non-circular**
 - Dependencies per concept: **2-4 average**
 - No taxonomy category: **>30%** of concepts
 - **Zero** circular dependencies (must be a DAG)
-- All concepts connected (no orphans)
+- All concepts connected (no orphaned nodes, i.e., no completely disconnected concepts)
 
 ## 8. Quick Reference: Visualization Skills
 | Type | Skill | Use For |

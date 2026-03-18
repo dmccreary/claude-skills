@@ -47,7 +47,7 @@ This viewer reads a learning graph data from [../../learning-graph/learning-grap
 Real-time statistics that update as you filter:
 - **Nodes**: Count of visible nodes
 - **Edges**: Count of visible edges (both endpoints must be visible)
-- **Orphans**: Nodes with no connections (this is an indication that the learning graph needs editing)
+- **Orphans**: Nodes with no connections at all (completely disconnected from the graph, indicating the learning graph needs editing)
 
 ## Sample Graph Demo
 
@@ -70,7 +70,7 @@ The demo includes a Graph Theory learning graph with 10 taxonomy categories:
 2. **Search within visible nodes** - Use search to quickly find specific concepts among visible nodes
 3. **Focus on a topic** - Uncheck all categories, then check only the ones you want to study
 4. **Collapse sidebar** - Click the menu button (☰) to hide the sidebar and expand the graph view
-5. **Find orphans** - Check the statistics to see if any nodes lack connections
+5. **Find orphans** - Check the statistics to see if any nodes have no connections at all (completely disconnected)
 
 ## Implementation Notes
 
@@ -86,7 +86,7 @@ This viewer follows the standard vis.js architectural patterns:
 
 - **Course planning** - Filter by topic area to design lesson sequences
 - **Concept exploration** - Search for specific concepts and see their dependencies
-- **Gap analysis** - Use orphan count to identify disconnected concepts
+- **Gap analysis** - Use orphan count to identify completely disconnected concepts (no edges at all)
 - **Progressive learning** - Start with foundation concepts, gradually enable advanced topics
 
 

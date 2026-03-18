@@ -1,6 +1,6 @@
 {
-  "title": "Orphaned Nodes Identification Chart",
-  "description": "Interactive Chart.js visualization for orphaned nodes identification chart",
+  "title": "Terminal Nodes Identification Chart",
+  "description": "Interactive Chart.js visualization for terminal nodes identification chart",
   "creator": "Dan McCreary",
   "date": "2025-11-22",
   "subject": [
@@ -27,10 +27,10 @@
     "network"
   ],
   "learningObjectives": [
-    "Understand the key concepts of orphaned nodes identification chart",
-    "Explore orphaned nodes identification chart through interactive visualization",
-    "Apply knowledge of orphaned nodes identification chart to solve problems",
-    "Experiment with parameters to observe their effects on orphaned nodes identification chart"
+    "Understand the key concepts of terminal nodes identification chart",
+    "Explore terminal nodes identification chart through interactive visualization",
+    "Apply knowledge of terminal nodes identification chart to solve problems",
+    "Experiment with parameters to observe their effects on terminal nodes identification chart"
   ],
   "bloomsTaxonomy": [
     "Remember",

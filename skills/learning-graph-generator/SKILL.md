@@ -183,7 +183,7 @@ It will do the following checks:
 1. **Verify DAG structure**: Ensure no cycles exist
 2. **Check for self-dependencies**: No concept should depend on itself
 3. **Foundational concepts**: Identify concepts with zero dependencies
-4. **Orphaned nodes**: Identify concepts that nothing depends on (potential dead ends)
+4. **Terminal nodes**: Identify concepts that nothing depends on (leaf nodes). These are valid and expected — do not confuse with orphaned nodes (which have no connections at all)
 5. **Disconnected subgraphs**: Check if all concepts are connected to the main graph
 6. **Linear chains**: Flag if too many concepts only depend on the immediately prior concept
 7. **Indegree analysis**: Calculate indegree (number of concepts that depend on each concept)
@@ -197,7 +197,7 @@ Verify the report has been written to [quality-metrics.md](./quality-metrics.md)
 - Total concepts with 1+ dependencies
 - Average number of dependencies per concept
 - Maximum dependency chain length
-- Number of orphaned nodes
+- Number of terminal (leaf) nodes that no other concept depends on
 - Number of disconnected subgraphs
 - Top 10 concepts with highest indegree (most depended-upon concepts)
 

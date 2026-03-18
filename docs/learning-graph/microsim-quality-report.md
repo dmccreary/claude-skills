@@ -25,7 +25,7 @@
 | 🏆 chapter-content-generation-timeline | 100/100 | HTML/CSS/JS |  |
 | 🏆 microsim-file-relationship-diagram | 100/100 | p5.js |  |
 | 🏆 mkdocs-github-pages-deployment | 100/100 | Mermaid |  |
-| 🏆 orphaned-nodes-identification | 100/100 | Chart.js |  |
+| 🏆 terminal-nodes-identification | 100/100 | Chart.js |  |
 | 🏆 sine-function-plot | 100/100 | Plotly.js |  |
 | 🏆 skill-context-window | 100/100 | p5.js |  |
 | 🏆 taxonomy-distribution-pie | 100/100 | Chart.js |  |

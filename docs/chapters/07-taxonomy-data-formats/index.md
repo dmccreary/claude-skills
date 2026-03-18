@@ -971,10 +971,10 @@ def calculate_quality_score(metrics):
         score += 10
 
     # Connectivity quality (30 points)
-    orphaned_pct = metrics['orphaned_nodes'] / metrics['total_nodes']
-    if 0.05 <= orphaned_pct <= 0.15:
+    terminal_pct = metrics['terminal_nodes'] / metrics['total_nodes']
+    if 0.05 <= terminal_pct <= 0.15:
         score += 10
-    elif orphaned_pct < 0.25:
+    elif terminal_pct < 0.25:
         score += 5
 
     # ... (additional metrics)

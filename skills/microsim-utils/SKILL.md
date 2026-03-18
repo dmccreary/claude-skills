@@ -31,6 +31,7 @@ Match the user's request to the appropriate utility guide:
 | screenshot, capture, preview, image, thumbnail | `references/screen-capture.md` | Automated screenshot generation |
 | icons, add icons, favicon, logo | `references/add-icons.md` | Icon management for MicroSims |
 | index page, microsim list, grid, directory, catalog, update the microsim listings, update the list of microsims, create a grid view, generate a listing | `references/index-generator.md` | Generate index page with grid cards |
+| TODO, todo json, extract specs, diagram specs, unimplemented, create microsim todo, todo files, extract diagrams, unimplemented microsims | `scripts/create-microsim-todo-json-files.py` | Extract unimplemented diagram specs into TODO JSON files |
 
 ### Decision Tree
 
@@ -46,11 +47,20 @@ Need to add or manage icons?
 
 Need to generate/update the MicroSim index page?
   → YES: index-generator.md
+
+Need to extract unimplemented diagram specs into TODO files?
+  → YES: Run scripts/create-microsim-todo-json-files.py
 ```
 
-## Step 2: Load the Matched Guide
+## Step 2: Load the Matched Guide or Run the Script
 
-Read the corresponding guide file from `references/` and follow its workflow.
+For reference-based utilities, read the corresponding guide file from `references/` and follow its workflow.
+
+For the TODO JSON extractor, run the Python script directly:
+```bash
+python /path/to/skills/microsim-utils/scripts/create-microsim-todo-json-files.py --project-dir /path/to/project
+```
+Report the summary output to the user (chapters scanned, total specs found, already implemented, TODO files written, output directory).
 
 ## Step 3: Execute Utility
 
@@ -110,6 +120,25 @@ Each guide contains:
 - MkDocs Material card format
 - Updates mkdocs.yml navigation
 
+### create-microsim-todo-json-files.py
+
+**Purpose:** Extract unimplemented MicroSim diagram specifications from chapter content and create TODO JSON files
+
+**Script:** `scripts/create-microsim-todo-json-files.py --project-dir /path/to/project`
+
+**How it works:**
+- Scans all `docs/chapters/*/index.md` files for `#### Diagram:` headers
+- Extracts sim-id, library, Bloom level, learning objective, and full specification from `<details>` blocks
+- Skips any sim-id that already has a directory with `main.html` under `docs/sims/`
+- Writes one JSON file per unimplemented diagram to `docs/sims/TODO/`
+
+**Output:** Individual JSON files in `docs/sims/TODO/{sim-id}.json` with fields:
+- `sim_id`, `diagram_name`, `chapter_number`, `chapter_title`
+- `library`, `bloom_level`, `bloom_verb`, `learning_objective`
+- `completion_status: "specified"`, `extracted_date`, `specification`
+
+**Important:** Always pass `--project-dir` pointing to the project root (the directory containing `mkdocs.yml`). If omitted, the script walks up from its own location to find `mkdocs.yml`, which may find the wrong project.
+
 ## Examples
 
 ### Example 1: Quality Check
@@ -126,6 +155,11 @@ Each guide contains:
 **User:** "Update the MicroSim index page with all new sims"
 **Routing:** Keywords "index", "update" → `references/index-generator.md`
 **Action:** Read index-generator.md and follow its workflow
+
+### Example 4: Create TODO JSON Files
+**User:** "Create MicroSim TODO JSON files"
+**Routing:** Keywords "TODO", "create microsim todo" → `scripts/create-microsim-todo-json-files.py`
+**Action:** Run `python scripts/create-microsim-todo-json-files.py --project-dir /path/to/project` and report results (chapters scanned, specs found, already implemented, TODO files written)
 
 ## Common Workflows
 

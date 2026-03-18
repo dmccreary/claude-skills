@@ -77,7 +77,7 @@
 
   6. Learning Graph Quality and Validation (16 concepts)
      This chapter focuses on graph quality metrics, DAG validation, circular dependency
-  detection, orphaned nodes, disconnected subgraphs, indegree/outdegree analysis, and
+  detection, terminal nodes, disconnected subgraphs, indegree/outdegree analysis, and
   quality scoring.
 
   7. Taxonomy and Data Formats (22 concepts)
@@ -290,7 +290,7 @@
       You'll learn techniques for detecting circular dependencies and validating that
      your graph is a proper Directed Acyclic Graph (DAG). The chapter covers
      self-dependency checking and introduces comprehensive quality metrics including
-     orphaned nodes, disconnected subgraphs, and linear chain detection.
+     terminal nodes, disconnected subgraphs, and linear chain detection.
      You'll learn to analyze your graph using indegree and outdegree metrics, calculate
      average dependencies per concept, and determine the maximum dependency chain length.
       The chapter culminates with learning how to generate an overall learning graph

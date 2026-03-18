@@ -160,11 +160,11 @@ Implement a complete documentation deployment system:
 
 After completing this lesson, students will be able to:
 
-- **Identify** (Remember) orphaned nodes in directed graphs using visual analysis
-- **Analyze** (Analyze) the pedagogical implications of concepts with no dependents
-- **Evaluate** (Evaluate) whether orphaned nodes indicate quality issues or valid terminal concepts
+- **Identify** (Remember) terminal nodes in directed graphs using visual analysis
+- **Analyze** (Analyze) the pedagogical implications of concepts with no dependents (outdegree=0)
+- **Evaluate** (Evaluate) whether terminal nodes indicate quality issues or valid learning endpoints
 - **Apply** (Apply) graph analysis techniques to improve learning graph structure
-- **Create** (Create) recommendations for resolving orphaned node issues
+- **Create** (Create) recommendations for resolving terminal node issues
 
 ### Target Audience
 
@@ -175,29 +175,31 @@ After completing this lesson, students will be able to:
 
 ### Activities
 
-**Activity 1: Orphaned Node Detection (15 minutes)**
+**Activity 1: Terminal Node Detection (15 minutes)**
 
-1. Examine the chart showing orphaned nodes vs. integrated concepts
-2. Calculate what percentage of the 200-concept graph consists of orphaned nodes
+1. Examine the chart showing terminal nodes vs. integrated concepts
+2. Calculate what percentage of the 200-concept graph consists of terminal nodes
 3. Identify the maximum in-degree for integrated concepts
-4. Discuss: Is having 8 orphaned nodes (4%) a problem for a 200-concept graph?
+4. Discuss: Is having 8 terminal nodes (4%) a problem for a 200-concept graph?
+
+Note: Terminal nodes (outdegree=0) are different from orphaned nodes, which have no edges at all and are disconnected from the graph entirely.
 
 **Activity 2: Root Cause Analysis (25 minutes)**
 
-For each identified orphaned node, determine the likely cause:
+For each identified terminal node, determine the likely cause:
 
 1. **Too advanced**: Concept has no simpler concepts depending on it
 2. **Too specific**: Niche topic not needed for other concepts
 3. **Incorrectly placed**: Should be in a different domain/course
-4. **Valid terminal**: Legitimate endpoint in the learning progression
+4. **Valid endpoint**: Legitimate endpoint in the learning progression
 
-Categorize the 8 orphaned nodes using these criteria.
+Categorize the 8 terminal nodes using these criteria.
 
 **Activity 3: Resolution Strategies (30 minutes)**
 
-For 3 different orphaned nodes, propose resolution strategies:
+For 3 different terminal nodes, propose resolution strategies:
 
-1. **Option 1**: Remove the orphaned concept entirely (when appropriate?)
+1. **Option 1**: Remove the terminal concept entirely (when appropriate?)
 2. **Option 2**: Add dependent concepts that build on it
 3. **Option 3**: Merge it with a related concept
 4. **Option 4**: Keep as-is (justify why it's a valid terminal concept)
@@ -208,30 +210,30 @@ Write a 1-paragraph rationale for each chosen strategy.
 
 Using a provided learning graph CSV:
 
-1. Run a script to identify all orphaned nodes (in-degree = 0 from other concepts)
-2. Visualize orphaned vs. integrated concepts using Chart.js
-3. Propose 5 new concepts that could depend on orphaned nodes
-4. Update the CSV to add these dependencies and verify orphans are resolved
+1. Run a script to identify all terminal nodes (outdegree=0, no other concepts depend on them)
+2. Visualize terminal vs. integrated concepts using Chart.js
+3. Propose 5 new concepts that could depend on terminal nodes
+4. Update the CSV to add these dependencies and verify terminal count is reduced
 
 ### Assessment
 
 **Formative Assessment:**
-- During Activity 2: Can students correctly categorize orphaned node types?
-- During Activity 3: Do resolution strategies match the orphaned node characteristics?
+- During Activity 2: Can students correctly categorize terminal node types?
+- During Activity 3: Do resolution strategies match the terminal node characteristics?
 
 **Summative Assessment:**
 
-Analyze and improve a learning graph with orphaned nodes:
+Analyze and improve a learning graph with terminal nodes:
 
-1. **Detection** (25 points): Correctly identify all orphaned nodes in a 150-concept graph
-2. **Analysis** (30 points): Categorize each orphaned node by type with clear rationale
-3. **Resolution Plan** (25 points): Propose specific, actionable fixes for each orphan
+1. **Detection** (25 points): Correctly identify all terminal nodes in a 150-concept graph
+2. **Analysis** (30 points): Categorize each terminal node by type with clear rationale
+3. **Resolution Plan** (25 points): Propose specific, actionable fixes for each terminal node
 4. **Implementation** (20 points): Update graph structure and verify improvement
 
 **Success Criteria:**
-- Orphaned node percentage reduced to <3%
-- All remaining orphans justified as valid terminal concepts
-- No new orphans introduced during resolution
+- Terminal node percentage reduced to <3%
+- All remaining terminal nodes justified as valid learning endpoints
+- No new terminal nodes introduced during resolution
 - Graph maintains DAG structure (no cycles)
 """,
 

@@ -12,7 +12,7 @@
    - `/docs/sims/average-dependencies-distribution/`
    - Histogram with optimal range shading, metrics panel, annotations
 
-2. **Orphaned Nodes Identification Chart** - Score: 97/100
+2. **Terminal Nodes Identification Chart** - Score: 97/100
    - `/docs/sims/orphaned-nodes-identification/`
    - Scatter plot: indegree vs outdegree, color-coded categories
 

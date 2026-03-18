@@ -32,10 +32,10 @@
 - **Match Score:** 95/100
 - **Specification File:** `specs/06-linear-chain-vs-network-structure-comparison.md`
 
-#### Orphaned Nodes Identification Chart
+#### Terminal Nodes Identification Chart
 - **Generator:** chartjs-generator
 - **Match Score:** 97/100
-- **Specification File:** `specs/06-orphaned-nodes-identification-chart.md`
+- **Specification File:** `specs/06-terminal-nodes-identification-chart.md`
 
 #### Taxonomy Distribution Pie Chart
 - **Generator:** chartjs-generator

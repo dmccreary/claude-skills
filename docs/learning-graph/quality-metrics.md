@@ -44,9 +44,9 @@ These concepts have no prerequisites:
 10. **Dublin Core Metadata** (ID: 105)
 11. **Title Metadata Field** (ID: 106)
 
-## Orphaned Nodes Analysis
+## Terminal Nodes Analysis
 
-- **Total Orphaned Nodes**: 104
+- **Total Terminal Nodes**: 104
 
 Concepts that are not prerequisites for any other concept:
 
@@ -108,7 +108,7 @@ Top 10 concepts that are prerequisites for the most other concepts:
 
 ## Recommendations
 
-- ⚠️ **Many orphaned nodes** (104): Consider if these should be prerequisites for advanced concepts
+- ⚠️ **Many terminal nodes** (104): Consider if these should be prerequisites for advanced concepts
 - ℹ️ **Consider adding cross-dependencies**: More connections could create richer learning pathways
 
 ---
