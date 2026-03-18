@@ -573,6 +573,36 @@ timeline.setWindow(
 
 **Note**: The same padding logic must be applied in the `filterCategory()` and `fitAll()` functions to maintain consistency when filtering or resetting the view.
 
+### Scroll Hijacking — Vertical Scroll Ignored, Horizontal Scroll Pans
+
+**Problem**: vis-timeline captures all wheel events on the container, preventing the page from scrolling when the user rolls the mouse wheel vertically over the timeline.
+
+**Solution**: Add a wheel event listener in the **capture phase** on the container, immediately after `new vis.Timeline(...)`. This runs before vis-timeline's own listener. For vertical scrolls, call `stopImmediatePropagation()` (blocks vis) but do NOT call `preventDefault()` (so the page scrolls normally). For horizontal scrolls, prevent the browser's default side-scroll and manually pan the timeline window.
+
+```javascript
+container.addEventListener('wheel', function(e) {
+    const isHorizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY);
+    if (!isHorizontal) {
+        // Vertical scroll — block vis-timeline, let page scroll normally.
+        e.stopImmediatePropagation();
+        // Do NOT call e.preventDefault() here.
+    } else {
+        // Horizontal scroll — pan the timeline proportionally.
+        e.preventDefault();
+        const win = timeline.getWindow();
+        const interval = win.end - win.start;
+        const shift = (e.deltaX / container.clientWidth) * interval;
+        timeline.setWindow(
+            new Date(win.start.valueOf() + shift),
+            new Date(win.end.valueOf() + shift),
+            { animation: false }
+        );
+    }
+}, true); // true = capture phase, runs before vis-timeline's listener
+```
+
+**Why capture phase matters**: vis-timeline registers its wheel listener on the container element in the bubble phase. By registering in the capture phase (`true` as the third argument), this listener always runs first. `stopImmediatePropagation()` then cancels all subsequent listeners on that element, including vis-timeline's.
+
 ## References
 
 This skill uses the following assets and references:

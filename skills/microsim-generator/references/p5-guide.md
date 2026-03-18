@@ -256,7 +256,10 @@ let defaultTextSize = 16;            // Base text size
 function setup() {
   updateCanvasSize(); // this gets the width of the container we are running in
   const canvas = createCanvas(canvasWidth, canvasHeight);
-  canvas.parent(document.querySelector('main'));
+  canvas.parent(document.querySelector('main')); // NEVER use canvas.parent('main') — that looks for id="main" which does not exist
+  // This same rule applies to ALL p5 elements: sliders, buttons, checkboxes, divs, etc.
+  // mySlider.parent(document.querySelector('main')); ✓
+  // mySlider.parent('main');                         ✗ — null error
 
   // Create sliders and controls here
   // Position controls relative to drawHeight
@@ -595,6 +598,8 @@ always be paste directly into the p5.js editing tool.  This tool uses a standard
 </html>
 ```
 
+**CRITICAL**: The `<main>` tag must have **no `id` attribute**. Never write `<main id="main">`. The JavaScript uses `document.querySelector('main')` (by tag name), not by id. Adding `id="main"` is unnecessary and using `canvas.parent('main')` (the string form) will fail with a null error because p5.js's `parent()` string lookup searches for `id="main"` — which does not exist.
+
 ### Customizing the main.html File
 
 The following items must be modified in each main.html file:
@@ -694,7 +699,7 @@ structure of this file is governed by a JSON schema file located at /src/microsi
 | updateCanvasSize() first | First line in `setup()` is `updateCanvasSize()` | ☐ |
 | windowResized() exists | Function exists and calls `resizeCanvas()` | ☐ |
 | describe() called | Accessibility description present in `setup()` | ☐ |
-| main element target | Canvas parented to `document.querySelector('main')` | ☐ |
+| main element target | Canvas parented to `document.querySelector('main')` — **NEVER** `canvas.parent('main')` (string form looks for `id="main"` which does not exist and throws a null error) | ☐ |
 
 ### Control Placement Validation
 
