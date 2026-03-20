@@ -41,10 +41,12 @@ We use the Open Graph (og) protocol for social media sharing, so the frontmatter
 ---
 title: <Catchy Title> - <Scientist Name>'s <Theme>
 description: A graphic-novel story of how <brief description>...
-image: /stories/<scientist-name>/cover.png
-og:image: /stories/<scientist-name>/cover.png
-twitter:image: /stories/<scientist-name>/cover.png
+image: /stories/{story-dir-name}/cover.png
+og:image: /stories/{story-dir-name}/cover.png
+twitter:image: /stories/{story-dir-name}/cover.png
 ```
+
+Where {story-dir-name} is the kabab-case directory name of the story.
 
 #### YAML Frontmatter Title Length 
 - the title should have a maximum length of: 60–70 characters
@@ -81,22 +83,22 @@ Before writing, identify:
 ### Step 2: Create Story Directory
 
 ```bash
-mkdir -p docs/stories/{story-name-in-kebab-case}
+mkdir -p docs/stories/{story-dir-name-in-kebab-case}
 ```
 
 Use kebab-case (lowercase with hyphens) for directory names (e.g., `nikola-tesla`, `marie-curie`) and never use spaces or underscores.
 
 ### Step 3: Write the Story
 
-Create `docs/stories/<scientist-name>/index.md` with the following structure:
+Create `docs/stories/{story-dir-name-in-kebab-case}/index.md` with the following structure:
 
 ```markdown
 ---
-title: <Catchy Title> - <Scientist Name>'s <Theme>
-description: A graphic-novel story of how <brief description>...
-image: /stories/<scientist-name>/cover.png
-og:image: /stories/<scientist-name>/cover.png
-twitter:image: /stories/<scientist-name>/cover.png
+title: {story title in title case up to 70 characters}
+description: {story description with a length around 155–200 characters}
+image: /stories/{story-dir-name}/cover.png
+og:image: /stories/{story-dir-name}/cover.png
+twitter:image: /stories/{story-dir-name}/cover.png
 social:
    cards: false
 ---
