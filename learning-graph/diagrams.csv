@@ -36,7 +36,7 @@ Chapter,Chapter Name,Element Title,Status,Type,Bloom Levels,UI Elements,Difficul
 06,Learning Graph Quality Validation,DAG Validation Algorithm Visualization,,Microsim,Not specified,0,Medium,,vis-network (98); mermaid-generator (85); microsim-p5 (75)
 06,Learning Graph Quality Validation,Learning Graph Quality Score Calculator MicroSim,,Microsim,Not specified,21,Very Hard,,microsim-p5 (92); chartjs-generator (65); vis-network (20)
 06,Learning Graph Quality Validation,Linear Chain vs Network Structure Comparison,,Microsim,Not specified,0,Medium,,vis-network (95); mermaid-generator (82); microsim-p5 (78)
-06,Learning Graph Quality Validation,Orphaned Nodes Identification Chart,,Microsim,Not specified,0,Medium,,chartjs-generator (97); bubble-chart-generator (80); microsim-p5 (72)
+06,Learning Graph Quality Validation,Terminal Nodes Identification Chart,,Microsim,Not specified,0,Medium,,chartjs-generator (97); bubble-chart-generator (80); microsim-p5 (72)
 06,Learning Graph Quality Validation,Taxonomy Distribution Pie Chart,,Microsim,Not specified,0,Medium,,chartjs-generator (98); microsim-p5 (68); venn-diagram-generator (15)
 07,Taxonomy Data Formats,Adding Taxonomy to CSV Workflow Diagram,,Microsim,Not specified,0,Medium,,mermaid-generator (94); microsim-p5 (75); vis-network (45)
 07,Taxonomy Data Formats,CSV to JSON Conversion Mapping Diagram,,Microsim,Not specified,0,Medium,,mermaid-generator (90); microsim-p5 (78); chartjs-generator (20)

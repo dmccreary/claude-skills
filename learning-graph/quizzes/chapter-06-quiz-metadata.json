@@ -35,24 +35,24 @@
     {
       "id": "ch6-q003",
       "number": 3,
-      "question_text": "What does an orphaned node in a learning graph represent?",
+      "question_text": "What does a terminal node in a learning graph represent?",
       "correct_answer": "B",
       "bloom_level": "Remember",
       "difficulty": "easy",
-      "concept_tested": "Orphaned Nodes",
-      "source_link": "index.md#orphaned-nodes",
+      "concept_tested": "Terminal Nodes",
+      "source_link": "index.md#terminal-nodes",
       "distractor_quality": 0.90,
       "explanation_word_count": 64
     },
     {
       "id": "ch6-q004",
       "number": 4,
-      "question_text": "In a healthy learning graph, what percentage of concepts should typically be orphaned nodes?",
+      "question_text": "In a healthy learning graph, what percentage of concepts should typically be terminal nodes?",
       "correct_answer": "B",
       "bloom_level": "Understand",
       "difficulty": "medium",
       "concept_tested": "Quality Metrics for Graphs",
-      "source_link": "index.md#orphaned-nodes",
+      "source_link": "index.md#terminal-nodes",
       "distractor_quality": 0.89,
       "explanation_word_count": 73
     },
@@ -150,7 +150,7 @@
     "tested_concept_list": [
       "DAG Validation",
       "Circular Dependency Detection",
-      "Orphaned Nodes",
+      "Terminal Nodes",
       "Quality Metrics for Graphs",
       "Average Dependencies Per Concept",
       "Learning Graph Quality Score",

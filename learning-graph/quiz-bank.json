@@ -817,28 +817,28 @@
       "chapter": "Learning Graph Quality and Validation",
       "chapter_number": 6,
       "question_number": 3,
-      "question_text": "What does an orphaned node in a learning graph represent?",
+      "question_text": "What does a terminal node in a learning graph represent?",
       "correct_answer": "B",
       "bloom_level": "Remember",
       "difficulty": "easy",
-      "concept": "Orphaned Nodes",
+      "concept": "Terminal Nodes",
       "chapter_file": "docs/chapters/06-learning-graph-quality-validation/index.md",
       "quiz_file": "docs/chapters/06-learning-graph-quality-validation/quiz.md",
-      "source_section": "index.md#orphaned-nodes"
+      "source_section": "index.md#terminal-nodes"
     },
     {
       "id": "ch6-q004",
       "chapter": "Learning Graph Quality and Validation",
       "chapter_number": 6,
       "question_number": 4,
-      "question_text": "In a healthy learning graph, what percentage of concepts should typically be orphaned nodes?",
+      "question_text": "In a healthy learning graph, what percentage of concepts should typically be terminal nodes?",
       "correct_answer": "B",
       "bloom_level": "Understand",
       "difficulty": "medium",
       "concept": "Quality Metrics for Graphs",
       "chapter_file": "docs/chapters/06-learning-graph-quality-validation/index.md",
       "quiz_file": "docs/chapters/06-learning-graph-quality-validation/quiz.md",
-      "source_section": "index.md#orphaned-nodes"
+      "source_section": "index.md#terminal-nodes"
     },
     {
       "id": "ch6-q005",

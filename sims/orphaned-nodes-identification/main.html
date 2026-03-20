@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>Concept Connectivity Analysis: Indegree vs Outdegree</h1>
-        <p class="subtitle">Identifying orphaned nodes and connection patterns in a learning graph</p>
+        <p class="subtitle">Identifying terminal nodes and connection patterns in a learning graph</p>
 
         <div class="chart-container">
             <canvas id="connectivityChart"></canvas>
@@ -37,7 +37,7 @@
                 <div class="legend-item">
                     <div class="legend-color orphaned"></div>
                     <div class="legend-text">
-                        <strong>Orphaned Concepts</strong>
+                        <strong>Terminal Concepts</strong>
                         <p>Red dots: Terminal nodes with prerequisites but no dependents (indegree>0, outdegree=0)</p>
                     </div>
                 </div>
@@ -57,21 +57,21 @@
                 </div>
                 <div class="metric-card orphaned-card">
                     <div class="metric-value">24</div>
-                    <div class="metric-label">Orphaned (12%)</div>
+                    <div class="metric-label">Terminal (12%)</div>
                 </div>
             </div>
             <div class="health-indicator">
                 <span class="indicator-icon">✓</span>
-                <span class="indicator-text">12% orphaned (healthy range: 5-15%)</span>
+                <span class="indicator-text">12% terminal (healthy range: 5-15%)</span>
             </div>
         </div>
 
         <div class="analysis">
             <h2>Analysis</h2>
             <p><strong>Foundational Zone (left edge):</strong> Concepts along the left edge (indegree=0) are foundational concepts that serve as entry points to the learning graph. A healthy graph should have 5-10% foundational concepts.</p>
-            <p><strong>Orphaned Zone (bottom edge):</strong> Concepts along the bottom edge (outdegree=0) are terminal or orphaned concepts. Having 5-15% orphaned concepts is healthy, as these represent advanced topics or specializations.</p>
+            <p><strong>Terminal Zone (bottom edge):</strong> Concepts along the bottom edge (outdegree=0) are terminal concepts. Having 5-15% terminal concepts is healthy, as these represent advanced topics or specializations.</p>
             <p><strong>Intermediate Concepts (bulk):</strong> The majority of concepts should cluster in the middle, representing well-connected nodes that both depend on and support other concepts.</p>
-            <p><strong>Quality Assessment:</strong> This graph shows a healthy distribution with strong connectivity patterns and appropriate orphan percentage.</p>
+            <p><strong>Quality Assessment:</strong> This graph shows a healthy distribution with strong connectivity patterns and appropriate terminal node percentage.</p>
         </div>
     </div>
 
@@ -101,8 +101,8 @@
             });
         }
 
-        // Generate orphaned concepts (indegree>0, outdegree=0)
-        const orphanedData = [
+        // Generate terminal concepts (indegree>0, outdegree=0)
+        const terminalData = [
             { x: 5, y: 0, label: 'Advanced Quality Metrics' },
             { x: 3, y: 0, label: 'Future of Learning Graphs' },
             { x: 4, y: 0, label: 'Research Applications' },
@@ -150,8 +150,8 @@
                     pointHoverRadius: 6
                 },
                 {
-                    label: 'Orphaned Concepts',
-                    data: orphanedData,
+                    label: 'Terminal Concepts',
+                    data: terminalData,
                     backgroundColor: 'rgba(244, 67, 54, 0.7)',
                     borderColor: 'rgba(244, 67, 54, 1)',
                     borderWidth: 2,
@@ -203,7 +203,7 @@
                     },
                     annotation: {
                         annotations: {
-                            orphanedZone: {
+                            terminalZone: {
                                 type: 'line',
                                 yMin: 0,
                                 yMax: 0,
@@ -212,7 +212,7 @@
                                 borderDash: [5, 5],
                                 label: {
                                     display: true,
-                                    content: 'Orphaned Zone (outdegree = 0)',
+                                    content: 'Terminal Zone (outdegree = 0)',
                                     position: 'end',
                                     backgroundColor: 'rgba(244, 67, 54, 0.8)',
                                     color: 'white',
