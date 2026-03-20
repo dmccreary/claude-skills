@@ -1,3 +1,7 @@
+---
+title: {STORY_TITLE}
+description: {STORY_DESCRIPTION}
+---
 # {STORY TITLE}
 ![](./cover.png)
 <details>
@@ -5,6 +9,7 @@
 Please generate a new wide-landscape 16:9 cover image for this story.
 {Detailed description of the title of the story.  Note that the title text should be placed
 in the cover image}
+Generate the image now.
 </details>
 
 <details>
@@ -19,9 +24,15 @@ and time period.]
 
 ## Panel 1: {PANEL 1 Title}
 <details><summary>Image Prompt</summary>
-Please generate a 16:9 image in [period style] depicting the panel 1. 
+I am about to ask you to generate a series of images for a graphic novel.
+Please make the images have a consistent style and consistent characters.
+Do not ask any clarifying questions.  Just generate the image
+immediately when asked to do so.
+
+Please generate a 16:9 image in [period style] depicting the panel 1 of {N}. 
 The scene should include [specific characters], set in [specific setting including period in time and location], with a color palette of [color palette]. The emotional tone should be [emotional tone].
 [Detailed image prompt for prologue scene with a minimum of 6 specific details to guide the AI image generation.]
+Generate the image now.
 </details>
 
 {Panel 1 narrative text - 3-4 sentence narrative that provides context and emotional depth to the scene depicted, making the story accessible and engaging for high school students}
@@ -29,10 +40,11 @@ The scene should include [specific characters], set in [specific setting includi
 ## Panel 2: {PANEL 2 Title}
 ![](./panel-02.md)
 <details><summary>Image Prompt</summary>
-Please generate a 16:9 image in [period style] depicting the panel 2.
+Please generate a 16:9 image in [period style] depicting the panel 2 of {N}.
 Make the characters and style consistent with the prior panel.
 The scene should include [specific characters], set in [specific setting including period in time and location], with a color palette of [color palette]. The emotional tone should be [emotional tone].
 [Detailed image prompt for prologue scene with a minimum of 6 specific details to guide the AI image generation.]
+Generate the image now.
 </details>
 
 {Panel 2 narrative text - 3-4 sentence narrative that provides context and emotional depth to the scene depicted, making the story accessible and engaging for high school students}
@@ -40,10 +52,11 @@ The scene should include [specific characters], set in [specific setting includi
 ## Panel 3: {PANEL 3 Title}
 ![](./panel-03.md)
 <details><summary>Image Prompt</summary>
-Please generate a 16:9 image in [period style] depicting the panel 3.
+Please generate a 16:9 image in [period style] depicting the panel 3 of {N}.
 Make the characters and style consistent with the prior panel.
 The scene should include [specific characters], set in [specific setting including period in time and location], with a color palette of [color palette]. The emotional tone should be [emotional tone].
 [Detailed image prompt for prologue scene with a minimum of 6 specific details to guide the AI image generation.]
+Generate the image now.
 </details>
 
 {Panel 3 narrative text - 3-4 sentence narrative that provides context and emotional depth to the scene depicted, making the story accessible and engaging for high school students}
@@ -61,7 +74,6 @@ The scene should include [specific characters], set in [specific setting includi
 ### Call to Action
 
 [Inspiring message connecting to readers]
-
 
 *"Quote from scientist"*
 —<Scientist Name>

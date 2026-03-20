@@ -34,6 +34,27 @@ Each story follows a consistent structure designed to engage high school student
 
 A template for the story structure can be found in `skills/story-generator/references/index-template.md`.
 
+### YAML Frontmatter
+We use the Open Graph (og) protocol for social media sharing, so the frontmatter must include:
+
+```yaml
+---
+title: <Catchy Title> - <Scientist Name>'s <Theme>
+description: A graphic-novel story of how <brief description>...
+image: /stories/<scientist-name>/cover.png
+og:image: /stories/<scientist-name>/cover.png
+twitter:image: /stories/<scientist-name>/cover.png
+```
+
+#### YAML Frontmatter Title Length 
+- the title should have a maximum length of: 60–70 characters
+- longer titles may be used, but note that they may be truncated in some contexts (e.g., search results, social media shares)       
+
+YAML Frontmatter Description Length                       
+  - Recommended: 155–200 characters                                                                                 
+  - Facebook typically shows ~300 characters, but truncates in many contexts such as on mobile devices
+  - Aim for 1–2 punchy sentences that work as a standalone teaser  
+
 ### Image Prompt Requirements
 
 Every image prompt must specify:
@@ -43,6 +64,7 @@ Every image prompt must specify:
 - Specific scene details and characters
 - Color palette guidance
 - Emotional tone and mood
+- Add the text: "Generate the image immediately without asking clarifying questions" at the end of the prompt to ensure quick generation without delays.
 
 ## Workflow
 
@@ -50,7 +72,7 @@ Every image prompt must specify:
 
 Before writing, identify:
 
-- The scientist's name and birth/death years
+- The scientist's or main character's name and birth/death years
 - Key discoveries or contributions
 - Central theme (e.g., "overcoming doubters", "persistence through failure")
 - Historical period and appropriate art style
@@ -59,10 +81,10 @@ Before writing, identify:
 ### Step 2: Create Story Directory
 
 ```bash
-mkdir -p docs/stories/<scientist-name>
+mkdir -p docs/stories/{story-name-in-kebab-case}
 ```
 
-Use lowercase with hyphens for directory names (e.g., `nikola-tesla`, `marie-curie`).
+Use kebab-case (lowercase with hyphens) for directory names (e.g., `nikola-tesla`, `marie-curie`) and never use spaces or underscores.
 
 ### Step 3: Write the Story
 
