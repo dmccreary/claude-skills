@@ -141,7 +141,7 @@ This is the core description reused across all poses:
 A [ART_STYLE] illustration of [NAME] the [SPECIES], a friendly pedagogical mascot
 for a [SUBJECT] textbook. [NAME] is [COLOR_DESCRIPTION], wearing [ACCESSORIES].
 [NAME] has [EXPRESSION]. The character is [SIZE_DESCRIPTION].
-Style: [ART_STYLE], clean lines, transparent or white background,
+Style: [ART_STYLE], clean lines, transparent background,
 suitable for embedding in educational content. No text in image.
 ```
 
@@ -214,7 +214,7 @@ mascot for a mathematics textbook. Otto is a round barn owl with warm
 brown and cream feathers, wearing small round glasses and a blue
 graduation cap. Otto has large, kind eyes with a gentle smile.
 The character is small and compact, suitable for icon-sized display.
-Style: modern flat vector, clean lines, white background,
+Style: modern flat vector, clean lines, transparent background,
 suitable for embedding in educational content. No text in image.
 
 Neutral: [Base] Otto stands upright in a relaxed, neutral pose facing
