@@ -38,7 +38,15 @@ docs/sims/shared-libs/
 └── style.css     (shared styles for all diagram MicroSims)
 ```
 
-If `shared-libs/` does not exist, copy it from a reference project (e.g., the biology textbook at `/Users/dan/Documents/ws/biology/docs/sims/shared-libs/`) or install it before using this skill.
+If `shared-libs/` does not exist, install it from this skill's bundled assets:
+
+```bash
+mkdir -p docs/sims/shared-libs
+cp ~/.claude/skills/interactive-infographic-overlay/assets/shared-libs/diagram.js docs/sims/shared-libs/
+cp ~/.claude/skills/interactive-infographic-overlay/assets/shared-libs/style.css docs/sims/shared-libs/
+```
+
+Always check that the project's copy is up to date with the skill's bundled version before creating new diagram MicroSims.
 
 ## Workflow
 
@@ -174,3 +182,5 @@ This edit mode is built into diagram.js and requires no additional code.
 ### assets/
 
 - `main-template.html` — HTML template for main.html with placeholder variables
+- `shared-libs/diagram.js` — Interactive diagram overlay engine (explore, quiz, edit modes)
+- `shared-libs/style.css` — Shared styles for all diagram MicroSims
