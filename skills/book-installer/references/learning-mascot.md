@@ -138,11 +138,15 @@ Create a set of prompts for generating consistent mascot images. Generate prompt
 This is the core description reused across all poses:
 
 ```
+Please generate a new pose for [NAME] the [SPECIES].
 A [ART_STYLE] illustration of [NAME] the [SPECIES], a friendly pedagogical mascot
 for a [SUBJECT] textbook. [NAME] is [COLOR_DESCRIPTION], wearing [ACCESSORIES].
 [NAME] has [EXPRESSION]. The character is [SIZE_DESCRIPTION].
 Style: [ART_STYLE], clean lines, transparent background,
 suitable for embedding in educational content. No text in image.
+
+Please generate a single png image with a transparent background now.
+
 ```
 
 #### Pose Variants
@@ -261,9 +265,9 @@ docs/img/mascot/
 mkdir -p docs/img/mascot
 ```
 
-Recommended specifications:
+Required specifications:
 
-- Format: PNG with transparent background (preferred) or WebP
+- Format: PNG with transparent background
 - Dimensions: 200x200 to 400x400 pixels for display
 - File size: Under 100KB per image for web performance
 
