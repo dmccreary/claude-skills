@@ -899,6 +899,10 @@ Create `docs/sims/graph-viewer/index.md` with documentation:
 ```markdown
 # Learning Graph Viewer
 
+[Open Learning Graph Viewer Fullscreen](./main.html){ .md-button .md-button--primary }
+
+<iframe src="./main.html" width="100%" height="600px" frameborder="0"></iframe>
+
 This interactive viewer allows you to explore the learning graph for the course.
 
 ## Features
@@ -926,12 +930,6 @@ This interactive viewer allows you to explore the learning graph for the course.
 - **Foundational Concepts** (left side): Prerequisites with no dependencies
 - **Advanced Concepts** (right side): Topics that build on multiple prerequisites
 - **Edges**: Arrows point from a concept to its prerequisites
-
-## Launch the Viewer
-
-[Open Learning Graph Viewer](./main.html){ .md-button .md-button--primary }
-
-<iframe src="./main.html" width="100%" height="600px" frameborder="0"></iframe>
 ```
 
 ### Step 7: Verify classifierName Values in JSON (IMPORTANT)
@@ -1039,7 +1037,17 @@ nav:
     - Graph Viewer: sims/graph-viewer/index.md
 ```
 
-### Step 10: Inform the User
+### Step 10: Add the Fullscreen Link and Iframe to the Learning Graph Index.md
+
+Add the following markdown to the @docs/learning-graph/index.md right after the level 1 title
+
+```markdown
+[Open Learning Graph Viewer Fullscreen](./main.html){ .md-button .md-button--primary }
+
+<iframe src="./main.html" width="100%" height="600px" frameborder="0"></iframe>
+```
+
+### Step 11: Inform the User
 
 Provide the user with instructions to test the installation:
 

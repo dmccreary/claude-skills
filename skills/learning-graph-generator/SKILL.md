@@ -5,7 +5,7 @@ description: Generates a comprehensive learning graph from a course description,
 
 # Learning Graph Generator
 
-**Version:** 0.03
+**Version:** 0.04
 
 You are tasked with generating a comprehensive high-quality learning graph from a course description.
 A learning graph is the foundational data structure for intelligent textbooks that can recommend learning paths.
@@ -72,11 +72,11 @@ quality_score: 95
 
 If you see a quality_score above 85 you may tell the user you found a score above 85 and skip this entire step.  Tell them this is a way to save tokens.
 
-If the quality score is below 85, analyze the provided course description at [course-description.md](../course-description.md) to ensure it has enough content to generate 200 high-quality concepts:
+If the quality score is below 85, analyze the provided course description at [course-description.md](../course-description.md) to ensure it has enough content to generate at a minimum of 200 high-quality concepts:
 
 1. Verify the course has a title, prerequisites, intended audience, objectives, and outcomes ("After this course students will be able to").  If these fields are missing ask the user for this information. 
 1. Examine the depth and breadth of topics covered
-2. Assess whether the material has sufficient granularity for 200 distinct concepts
+2. Assess whether the material has sufficient granularity for at a minimum of 200 distinct concepts
 3. Check for diverse topic areas and learning objectives
 4. Provide detailed feedback to the user about:
    - List the expected content that you found
@@ -124,7 +124,7 @@ Save this report to [course-description-assessment.md](./course-description-asse
 
 ## Step 2: Generate Concept Labels
 
-Once the course-description has been approved, generate 200 concept labels from the course content:
+Once the course-description has been approved, generate the concept labels from the course content:
 
 **Requirements:**
 - Each Concept label must be in Title Case
@@ -134,13 +134,20 @@ Once the course-description has been approved, generate 200 concept labels from 
 - Concept Labels are entity names, not questions
 - Do not use questions in the Concept Label.  Don't use "What is Git", just use "Git"
 
+**Number of Concepts:**
+
+For simple books, a list of 200 concepts is fine.
+For complex technical books, you may generate up to 500 concepts.
+Do not exceed 500 concepts unless you have good reason and the user approves this decision.
+Remember that generating concept dependencies gets complex the more concepts there are.
+
 !!! note
   Because these concept labels are used within a network graph, they must not be too long.
   Otherwise the graph will be hard to read.
 
 **Output:**
 - Save the numbered list to [concept-list.md](./concept-list.md)
-- Format: Simple numbered list (1-200) in a markdown file
+- Format: Simple numbered list (1-500) in a markdown file
 - Make sure that each number is unique so it can be used as a ConceptID
 - Inform the user the file has been created
 - Tell the user they should view the list and add and remove concepts now
@@ -160,7 +167,7 @@ Create a CSV file mapping dependencies between concepts:
 **Format:**
 - Filename: [learning-graph.csv](./learning-graph.csv)
 - Columns: `ConceptID,ConceptLabel,Dependencies`
-- ConceptID: Integer (1-200)
+- ConceptID: Integer (1-500)
 - ConceptLabel: The exact label from Step 2
 - Dependencies: Pipe-delimited list of ConceptIDs (e.g., "1|3|7")
 
@@ -449,12 +456,17 @@ This is important for debugging.
 
 ## Step 13: Completion
 
-Inform the user that the learning graph generation is complete! Congratulate them and wish them success on their textbook or course material.  Tell them that the next step is the book-chapter-generator skill, but that it is critical to review
+Inform the user that the learning graph generation is complete! Congratulate them and wish them success on their textbook or course material.  
+Tell the user if they want to view the learning graph they should run the /book-installer skill with the install learning graph guide which will create a microsim in @docs/sims/graph-viewer.
+Although this step is optional, it is strongly recommended.
+Tell them that the next logical step is to run the /book-chapter-generator skill, but that it is critical to review the chapter overview and
 the concept lists, the concept taxonomies and the learning graph before they do this next step.
+Generating chapter content takes a lot of tokens and it is best to make sure each
+chapter overview and concept lists are complete.
 
 **Files created:**
 - [course-description-assessment.md](./course-description-assessment.md) - quality assessment of the course description
-- [concept-list.md](./concept-list.md) - Numbered list of 200 concepts
+- [concept-list.md](./concept-list.md) - Numbered list of up to 500 concepts
 - [learning-graph.csv](./learning-graph.csv) - Full dependency graph with taxonomy
 - [taxonomy-names.json](./taxonomy-names.json) - Mapping of taxonomy IDs to human-readable names (CRITICAL for graph viewer)
 - [metadata.json](./metadata.json) - Metadata for the learning graph (title, description, creator, etc.)

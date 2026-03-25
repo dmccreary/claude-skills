@@ -57,6 +57,7 @@ Book Installer Features (most → least common):
 28. extra JavaScript installer - for prompt admonition copy button
 29. Feature checklist - auto-detect and document which features are implemented
 30. Learning mascot - add a pedagogical agent character to guide students
+31. Instructor's guide - comprehensive teacher's guide with classroom tips
 
 Type a number or feature name to install.
 
@@ -112,6 +113,7 @@ Match the user's request to the appropriate installation guide:
 | mermaid, diagrams, flowchart | `references/mkdocs-features.md` | Add Mermaid diagram support |
 | admonition, callout, prompt box, copy prompt | `references/mkdocs-features.md` | Add custom admonitions with copy |
 | mascot, learning mascot, pedagogical agent, character, guide character, persona | `references/learning-mascot.md` | Add a learning mascot to guide students |
+| instructor guide, teacher guide, teachers guide, instructor's guide, classroom guide | `references/instructors-guide.md` | Generate comprehensive instructor's guide |
 
 ### Decision Tree
 
@@ -142,6 +144,9 @@ Want to add branding (logo, favicon, cover image)?
 
 Want to add a learning mascot (pedagogical agent) to guide students?
   → YES: learning-mascot.md
+
+Want to generate an instructor's/teacher's guide?
+  → YES: instructors-guide.md
 
 Want to add a specific feature (equations, quizzes, feedback, etc.)?
   → YES: mkdocs-features.md (then follow specific feature instructions)
@@ -267,6 +272,31 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 - Existing MkDocs Material project
 - Access to AI image generator (DALL-E, Midjourney, etc.)
 
+### instructors-guide.md
+
+**Purpose:** Generate a comprehensive instructor's/teacher's guide for the textbook
+
+**Creates:**
+- `docs/teachers-guide/index.md` (or `docs/instructors-guide/index.md` for college-level)
+- Navigation entry in mkdocs.yml
+
+**Features:**
+- Five levels of intelligent textbooks explained
+- Detailed usage instructions for chapters, MicroSims, glossary, FAQ, quizzes, and references
+- Classroom tips (before/during/after class suggestions, pacing)
+- MicroSim iframe embedding guide for external LMS pages
+- Creative Commons license explained in plain English (what you can/cannot do)
+- Step-by-step customization guide (fork, clone, change colors/title/logo, deploy)
+- Google Analytics setup instructions
+- xAPI/LRS overview with FERPA/COPPA/GDPR regulatory warnings
+- Learning graph usage tips for teachers
+- Pedagogical agent (mascot) documentation (if mascot exists)
+- All technical terms defined before use — no assumed prior knowledge
+
+**Prerequisites:**
+- Existing MkDocs Material project
+- At least some chapter content written
+
 ### cover-image-generator.md
 
 **Purpose:** Auto-generate cover images using the generate-cover.sh script
@@ -348,6 +378,11 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 **User:** "generate a feature checklist" or "what features do I have"
 **Routing:** Keywords "feature checklist" → `references/feature-checklist-generator.md`
 **Action:** Read feature-checklist-generator.md, run the detection script, generate docs/feature-checklist.md with detected statuses
+
+### Example 11: Generate Instructor's Guide
+**User:** "add a teacher's guide" or "create instructor guide"
+**Routing:** Keywords "teacher guide", "instructor guide" → `references/instructors-guide.md`
+**Action:** Read instructors-guide.md, gather project variables from mkdocs.yml/course-description.md/CLAUDE.md, generate the guide with all variables substituted, add to navigation
 
 ## Common Workflows
 

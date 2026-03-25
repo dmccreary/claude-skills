@@ -1,6 +1,8 @@
 ---
 name: home-page-template
 description: This skill creates a professional home page with cover image, social media metadata, and proper formatting for intelligent textbooks. It includes generating AI prompts for cover images with montage backgrounds and central titles, setting up Open Graph and Twitter card metadata, and configuring the index.md with proper frontmatter.
+image: img/cover.png
+og:image: img/cover.png
 ---
 
 # Home Page Template
@@ -75,23 +77,23 @@ Based on the book's themes, identify visual elements for the cover montage. Thes
 Standard intelligent textbook cover layout:
 
 ```
-+----------------------------------------------------------+
-|                                                          |
-|  [Montage elements    [Montage elements                  |
-|   distributed          distributed                       |
-|   throughout]          throughout]                       |
-|                                                          |
-|           +------------------------+                     |
-|           |                        |                     |
-|           |    BOOK TITLE          |  (Semi-transparent  |
-|           |    (White Text)        |   dark overlay)     |
-|           |                        |                     |
-|           +------------------------+                     |
-|                                                          |
-|  [More montage        [More montage                      |
-|   elements]            elements]                         |
-|                                                          |
-+----------------------------------------------------------+
++--------------------------------------------------------------+
+|                                                              |
+|     [Montage elements    [Montage elements                   |
+|      distributed          distributed                        |
+|      throughout]          throughout]                        |
+|                                                              |
+|               +------------------------+                     |
+| Mascot        |                        |                     |
+| Image         |    BOOK TITLE          |  (Semi-transparent  |
+|               |    (White Text)        |   dark overlay)     |
+|               |                        |                     |
+|               +------------------------+                     |
+|                                                              |
+|  [More montage        [More montage                          |
+|   elements]            elements]                             |
+|                                                              |
++--------------------------------------------------------------+
 
 Aspect Ratio: 1.91:1 (e.g., 1910x1000 pixels)
 ```

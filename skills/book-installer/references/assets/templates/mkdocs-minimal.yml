@@ -8,13 +8,25 @@ site_url: "https://{{GITHUB_USERNAME}}.github.io/{{REPO_NAME}}/"
 repo_url: "https://github.com/{{GITHUB_USERNAME}}/{{REPO_NAME}}"
 repo_name: "{{GITHUB_USERNAME}}/{{REPO_NAME}}"
 
+# Navigation Structure
+nav:
+  - Home: index.md
+  - About: about.md
+  - Course Description: course-description.md
+  - Chapters:
+    - 1. Introduction: chapters/01-introduction/index.md
+    - 2. Getting Started: chapters/02-getting-started/index.md
+    - 3. Core Concepts: chapters/03-core-concepts/index.md
+  - Contact: contact.md
+  - License: license.md
+
 # Theme Configuration
 theme:
   name: material
   palette:
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: blue
+      accent: orange
   font:
     text: Roboto
     code: Roboto Mono
@@ -37,15 +49,6 @@ markdown_extensions:
 # Plugins
 plugins:
   - search
-
-# Navigation Structure
-nav:
-  - Home: index.md
-  - About: about.md
-  - Course Description: course-description.md
-  - Chapters:
-    - Chapter 1 - Introduction: chapters/01-introduction/index.md
-    - Chapter 2 - Getting Started: chapters/02-getting-started/index.md
-    - Chapter 3 - Core Concepts: chapters/03-core-concepts/index.md
-  - Contact: contact.md
-  - License: license.md
+  - social
+  # run the shell script bk-install-social-override-plugin to use this plugin
+  - social_override

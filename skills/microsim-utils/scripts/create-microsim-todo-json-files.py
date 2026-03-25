@@ -36,9 +36,20 @@ def find_project_root(start_path):
 
 
 def extract_field(text, field_name):
-    """Extract a **field:** value from the details block text."""
+    """Extract a field value from the details block text.
+
+    Supports two formats:
+      1. Bold markdown: **Field Name:** value
+      2. Plain text:    Field Name: value (at start of line)
+    """
+    # Try bold markdown format first
     pattern = rf"\*\*{re.escape(field_name)}:\*\*\s*(.+?)(?:<br/>|$)"
     match = re.search(pattern, text, re.MULTILINE)
+    if match:
+        return match.group(1).strip()
+    # Fall back to plain-text format (line starts with field name)
+    pattern = rf"^{re.escape(field_name)}:\s*(.+)$"
+    match = re.search(pattern, text, re.MULTILINE | re.IGNORECASE)
     if match:
         return match.group(1).strip()
     return None
@@ -83,23 +94,37 @@ def extract_diagrams_from_chapter(filepath):
             continue
         details_text = details_match.group(1)
 
-        # Extract sim-id
+        # Extract sim-id: try explicit field first, then derive from iframe src
         sim_id = extract_field(details_text, "sim-id")
+        if not sim_id:
+            # Derive from iframe src path (e.g. ../../sims/my-sim/main.html -> my-sim)
+            iframe_match_id = re.search(r'<iframe\s+src="[^"]*sims/([^/]+)/main\.html"', body)
+            if iframe_match_id:
+                sim_id = iframe_match_id.group(1)
+            else:
+                # Last resort: slugify the diagram name
+                sim_id = re.sub(r"[^a-z0-9]+", "-", diagram_name.lower()).strip("-")
         if not sim_id:
             continue
 
-        # Extract other fields
-        library = extract_field(details_text, "Library")
+        # Extract other fields (supports both bold-markdown and plain-text formats)
+        library = extract_field(details_text, "Library") or extract_field(details_text, "Implementation")
         status = extract_field(details_text, "Status")
-        bloom_level = extract_field(details_text, "Bloom Level")
+        bloom_level = extract_field(details_text, "Bloom Level") or extract_field(details_text, "Bloom Taxonomy Level")
         bloom_verb = extract_field(details_text, "Bloom Verb")
 
-        # Extract learning objective
+        # Extract learning objective (bold or plain-text format)
         lo_match = re.search(
             r"\*\*Learning Objective:\*\*\s*(.+?)(?:\n\n|\n\*\*)",
             details_text,
             re.DOTALL,
         )
+        if not lo_match:
+            lo_match = re.search(
+                r"^Learning Objective:\s*(.+?)(?:\n\n|\n[A-Z])",
+                details_text,
+                re.DOTALL | re.MULTILINE,
+            )
         learning_objective = lo_match.group(1).strip() if lo_match else None
 
         # Extract the iframe src to see if it references a real path
