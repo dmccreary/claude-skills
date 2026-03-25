@@ -233,11 +233,11 @@ and knowing. A small star sparkles near the gesture.
 Warning: [Base] Otto holds up both wings in a gentle "be careful"
 gesture, looking concerned but caring.
 
-Celebration: [Base] Otto spreads both wings wide with joy, eyes
-squinted in a big smile. Small confetti falls around him.
-
 Encouraging: [Base] Otto gives a wing thumbs-up with a warm,
 reassuring smile.
+
+Celebration: [Base] Otto spreads both wings wide with joy, eyes
+squinted in a big smile. Small confetti falls around him.
 ```
 
 Present the generated prompts to the user and ask them to generate images using their preferred AI image tool. Recommend generating at 512x512 or 1024x1024 pixels, then resizing down for use.
