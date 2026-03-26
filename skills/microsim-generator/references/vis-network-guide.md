@@ -902,3 +902,84 @@ http://127.0.0.1:8000/[repo-name]/sims/[microsim-name]/main.html
 ```
 
 Adjust node positions and camera position iteratively until the graph is well-centered on the left with the right panel visible on the right.
+
+## Debugging: Common vis-network Pitfalls
+
+### 1. vis-network Destroys Container Children (CRITICAL)
+
+**Problem:** vis-network replaces the entire innerHTML of its container element during initialization. Any child elements (overlays, status bars, counters) placed inside the network container div will be silently deleted from the DOM.
+
+**Symptom:** `document.getElementById()` returns `null` for elements that exist in the HTML source. Errors like `Uncaught TypeError: Cannot set properties of null (setting 'textContent')`. The error may stop execution mid-function, causing some UI updates to work while others silently fail — making the root cause hard to identify.
+
+**Fix:** Never place overlay elements as children of the network container. Instead, place them as siblings in a parent wrapper:
+
+```html
+<!-- WRONG — vis-network will destroy day-display and timeline -->
+<div id="network-container">
+    <div id="day-display">Day 0</div>
+    <div id="timeline-bar">...</div>
+</div>
+
+<!-- CORRECT — overlays are siblings, not children -->
+<div style="position:relative;">
+    <div id="day-display">Day 0</div>
+    <div id="network-container" style="width:100%;height:100%;"></div>
+    <div id="timeline-bar">...</div>
+</div>
+```
+
+### 2. Navigation Button Icons Require CSS File
+
+**Problem:** Setting `navigationButtons: true` in interaction options creates the button DOM elements, but they appear invisible (no icons rendered).
+
+**Symptom:** The +/−/fit/arrow buttons exist in the DOM but show as empty clickable areas with no visible icons.
+
+**Fix:** Load the vis-network CSS file alongside the JavaScript:
+
+```html
+<script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+```
+
+The standalone UMD JavaScript build does not include the CSS for navigation button icons. The CSS file must be loaded separately.
+
+### 3. Force-Directed Layout Causes Jerky Updates
+
+**Problem:** When using physics-based layout (e.g., ForceAtlas2) in a simulation that adds edges over time, each new edge triggers the physics engine to recompute positions, causing all nodes to jump around.
+
+**Symptom:** Nodes visibly shift position every time the simulation adds new edges or updates node properties, making the visualization hard to follow.
+
+**Fix:** Disable physics after the initial layout stabilizes:
+
+```javascript
+network.on('stabilizationIterationsDone', function() {
+    network.setOptions({ physics: { enabled: false } });
+    network.fit({ animation: false, maxZoomLevel: 1.2 });
+});
+```
+
+The `network.fit()` call after stabilization ensures nodes are centered within the visible area with appropriate padding.
+
+### 4. Cache Busting is Rarely the Real Problem
+
+When debugging vis-network MicroSims served by mkdocs, do not assume browser caching is the issue. mkdocs rebuilds files on each serve. Always check the browser console for JavaScript errors first — a runtime error that stops execution mid-function is a far more common cause of "nothing updates" bugs than stale cached files.
+
+**Tip:** Add a visible version number to the MicroSim UI during development to immediately confirm which code version is running, eliminating cache questions entirely.
+
+### 5. Overlay Elements: Absolute vs Block Positioning
+
+**Problem:** Block-level elements (title bars, status bars) above or below the network container consume vertical space, reducing the area available for the graph. This can cause nodes to extend beyond the visible area or overlap with UI elements.
+
+**Fix:** Use absolute-positioned overlays for titles and status displays. They float on top of the network without consuming layout space:
+
+```css
+#title-bar {
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+```
+
+For status bars that should never be overlapped by nodes, place them outside the network area as normal flow elements rather than absolute overlays within it.
