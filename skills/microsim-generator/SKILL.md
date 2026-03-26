@@ -9,7 +9,7 @@ description: Creates interactive educational MicroSims using the best-matched Ja
 
 This meta-skill routes MicroSim creation requests to the appropriate specialized generator based on visualization requirements. It consolidates 14 individual MicroSim generator skills into a single entry point with on-demand loading of specific implementation guides.
 
-Five Python batch utilities in `src/microsim-utils/` automate the repetitive parts of MicroSim generation (parsing specs, scaffolding files, inserting iframes, validating quality, updating navigation), saving ~430K tokens per batch run. The agent's creative work is focused on writing the `.js` file.
+Six Python batch utilities in `src/microsim-utils/` automate the repetitive parts of MicroSim generation (parsing specs, scaffolding files, inserting iframes, fixing iframe heights, validating quality, updating navigation), saving ~430K tokens per batch run. The agent's creative work is focused on writing the `.js` file.
 
 ## Default Sequential Execution
 
@@ -448,6 +448,43 @@ python3 $UTILS/validate-sims.py \
 
 ---
 
+## Step 6B: Fix Iframe Heights
+
+**MANDATORY after implementing .js files.** Do NOT manually calculate iframe heights.
+
+```bash
+python3 $UTILS/fix-iframe-heights.py \
+    --project-dir $PROJECT \
+    --verbose
+```
+
+**What this does:**
+
+- Parses each sim's `.js` file to detect the actual content height:
+  - **p5.js**: Extracts `createCanvas()` height or named height variables, adds 2px
+  - **vis-network**: Extracts container height from JS, adds 80px for info panel/legend
+- Updates the `<iframe>` height attribute in each sim's `index.md` to match
+- Skips sims that are already correct
+
+**Fix a single sim:**
+
+```bash
+python3 $UTILS/fix-iframe-heights.py \
+    --project-dir $PROJECT \
+    --sim <sim-id> \
+    --verbose
+```
+
+**Dry-run first** to preview changes:
+
+```bash
+python3 $UTILS/fix-iframe-heights.py \
+    --project-dir $PROJECT \
+    --dry-run --verbose
+```
+
+---
+
 ## Step 7: Update Navigation
 
 **MANDATORY after creating new sims.** Do NOT manually edit the MicroSims section of mkdocs.yml.
@@ -526,6 +563,8 @@ Step 5: add-iframes-to-chapter.py → inserts/fixes iframes
   ↓
 Step 6: validate-sims.py → scores quality, fix issues
   ↓
+Step 6B: fix-iframe-heights.py → matches iframe heights to JS dimensions
+  ↓
 Step 7: update-mkdocs-nav.py → regenerates nav
   ↓
 Step 8: bk-capture-screenshot /path/to/microsim 3 {height} → creates screen image
@@ -543,6 +582,8 @@ Step 3:  Instructional Design Checkpoint
 Step 4:  Write .js file
   ↓
 Step 6:  validate-sims.py --sim <name>
+  ↓
+Step 6B: fix-iframe-heights.py --sim <name>
   ↓
 Step 7:  update-mkdocs-nav.py
   ↓
