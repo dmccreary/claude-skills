@@ -172,6 +172,9 @@ An **intelligent textbook** is a digital textbook that goes beyond static text a
 
 Not all digital textbooks are created equal. We categorize intelligent textbooks into five levels based on how interactive and adaptive they are:
 
+<iframe src="https://dmccreary.github.io/intelligent-textbooks/sims/book-levels/main.html" height="500px" scrolling="no"
+  style="overflow: hidden;"></iframe>
+
 | Level | Name | Description | Example Features |
 |-------|------|-------------|-----------------|
 | **Level 1** | Static Digital | A PDF or basic web version of a print textbook | Text and images only, no interactivity |
