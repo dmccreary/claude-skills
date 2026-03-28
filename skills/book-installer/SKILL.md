@@ -58,6 +58,7 @@ Book Installer Features (most → least common):
 29. Feature checklist - auto-detect and document which features are implemented
 30. Learning mascot - add a pedagogical agent character to guide students
 31. Instructor's guide - comprehensive teacher's guide with classroom tips
+32. Custom 404 page - friendly error page with mascot image
 
 Type a number or feature name to install.
 
@@ -114,6 +115,7 @@ Match the user's request to the appropriate installation guide:
 | admonition, callout, prompt box, copy prompt | `references/mkdocs-features.md` | Add custom admonitions with copy |
 | mascot, learning mascot, pedagogical agent, character, guide character, persona | `references/learning-mascot.md` | Add a learning mascot to guide students |
 | instructor guide, teacher guide, teachers guide, instructor's guide, classroom guide | `references/instructors-guide.md` | Generate comprehensive instructor's guide |
+| 404, error page, not found, custom 404, page not found | `references/custom-404-page.md` | Add custom 404 page with mascot |
 
 ### Decision Tree
 
@@ -147,6 +149,9 @@ Want to add a learning mascot (pedagogical agent) to guide students?
 
 Want to generate an instructor's/teacher's guide?
   → YES: instructors-guide.md
+
+Want a custom 404 error page with the mascot?
+  → YES: custom-404-page.md
 
 Want to add a specific feature (equations, quizzes, feedback, etc.)?
   → YES: mkdocs-features.md (then follow specific feature instructions)
@@ -296,6 +301,24 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 **Prerequisites:**
 - Existing MkDocs Material project
 - At least some chapter content written
+
+### custom-404-page.md
+
+**Purpose:** Add a custom 404 error page featuring the project's learning mascot
+
+**Creates:**
+- `overrides/404.html` — Jinja2 template extending Material base theme with mascot image, friendly message, and home link
+- mkdocs.yml updates for `custom_dir` and `static_templates`
+
+**Features:**
+- Uses the mascot's warning pose (or other pose) centered on the page
+- Inherits full site navigation (header, sidebar, footer) from the Material theme
+- Customizable message matched to the mascot's personality and voice
+- Absolute image paths so the 404 works from any URL depth
+
+**Prerequisites:**
+- Existing MkDocs Material project
+- Learning mascot images in `docs/img/mascot/` (use `learning-mascot.md` first if needed)
 
 ### cover-image-generator.md
 

@@ -266,6 +266,7 @@ def detect_features(project_path: Path) -> dict:
         # Content Generation
         "content_generation": {
             "chapters": count_directories(docs_path / "chapters") > 0,
+            "pedagogical_agent": dir_exists(docs_path / "img", "mascot"),
             "prompts_collection": dir_exists(docs_path, "prompts"),
         },
     }

@@ -166,6 +166,7 @@ The Python script checks for features using these patterns:
 | Feature | Detection Method |
 |---------|-----------------|
 | Chapters | Count directories in `docs/chapters/` |
+| Pedagogical Agent (Mascot) | `docs/img/mascot/` directory exists with image files |
 | License page | `docs/license.md` exists |
 | Contact page | `docs/contact.md` exists |
 | About page | `docs/about.md` exists |

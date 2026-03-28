@@ -148,6 +148,7 @@ These features involve creating the actual educational content.
 | Feature | Status | Effort | Notes |
 |---------|--------|--------|-------|
 | Chapter content | {chapters} | Very High | {chapter_count} chapters with full text, examples, and exercises |
+| Pedagogical Agent (Mascot) | {pedagogical_agent} | High | Seven poses in admonitions created using text-to-image generator |
 | Sample prompts collection | {prompts_collection} | Medium | Saved AI prompts so content can be regenerated consistently |
 
 ---

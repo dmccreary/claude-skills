@@ -124,6 +124,7 @@ def generate_checklist(project_path: Path) -> str:
 
         # Content Generation
         "{chapters}": status_icon(results["content_generation"]["chapters"]),
+        "{pedagogical_agent}": status_icon(results["content_generation"]["pedagogical_agent"]),
         "{prompts_collection}": status_icon(results["content_generation"]["prompts_collection"]),
     }
 

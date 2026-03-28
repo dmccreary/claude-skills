@@ -605,17 +605,18 @@ Authors use standard admonition syntax with the custom types:
     using the quadratic formula. The ± means you need
     to solve BOTH cases!
 
-!!! mascot-celebration "Great Progress!"
-
-    You've now mastered the quadratic formula! This is
-    one of the most important tools in all of algebra.
-
 !!! mascot-encourage "You Can Do This!"
 
     Factoring can feel tricky at first. That's completely
     normal! With practice, you'll start seeing patterns
     everywhere.
 ```
+
+!!! mascot-celebration "Great Progress!"
+
+    You've now mastered the quadratic formula! This is
+    one of the most important tools in all of algebra.
+
 
 **Pros:**
 
