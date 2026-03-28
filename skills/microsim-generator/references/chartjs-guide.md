@@ -562,6 +562,17 @@ scales: {
 }
 ```
 
+### Custom Plugin Annotations Bleed Through Tooltips
+When using custom plugins to draw annotations (text, lines, brackets) on the chart canvas, use `afterDatasetsDraw` instead of `afterDraw` as the plugin hook. The `afterDraw` hook runs after tooltips are rendered, causing annotation text to paint on top of the tooltip box. Using `afterDatasetsDraw` ensures annotations are drawn before tooltips, so the tooltip fully covers any overlapping annotations.
+
+```javascript
+// WRONG: annotations render on top of tooltips
+plugins: [{ id: 'myPlugin', afterDraw: function(chart) { ... } }]
+
+// CORRECT: tooltips render on top of annotations
+plugins: [{ id: 'myPlugin', afterDatasetsDraw: function(chart) { ... } }]
+```
+
 ### Colors Not Showing
 **Solution**: Verify color format (rgba, rgb, hex) and ensure arrays match data length.
 
