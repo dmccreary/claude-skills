@@ -82,23 +82,34 @@ Read and cache these files for all agents:
    - Load concept list with dependencies
    - Understand concept relationships for pedagogical ordering
 
+   !!! info "Learning Graph = Concept Dependency Graph (a DAG)"
+       A learning graph is a **Concept Dependency Graph** -- a directed acyclic
+       graph (DAG) where each edge represents a "depends on" relationship. We use
+       the **dependency direction** (edges point FROM a concept TO the concepts it
+       depends on) because this aligns with standard graph theory algorithms for
+       topological sorting, cycle detection, and transitive reduction.
+
+       Some learning management systems use an **enablement graph** where edges
+       point the opposite way (FROM prerequisite TO enabled concept). That direction
+       is more intuitive for some teachers but less natural for graph algorithms.
+       This project uses the dependency direction exclusively.
+
    !!! danger "CRITICAL: Edge Direction in learning-graph.json"
-       In the vis-network JSON format used by learning-graph.json, edges point
-       **FROM dependent TO prerequisite**. This is counterintuitive but consistent
-       across all intelligent textbook projects.
+       In the vis-network JSON format, edges point **FROM dependent TO prerequisite**
+       (the dependency direction).
 
        - Edge `{from: 5, to: 1}` means "Biodiversity (5) depends on Ecology (1)"
-       - It does NOT mean "Ecology leads to Biodiversity"
+       - It does NOT mean "Ecology leads to Biodiversity" (that would be the enablement direction)
 
        **To build a prerequisite map:**
        ```python
-       # CORRECT: from=dependent, to=prerequisite
+       # CORRECT: dependency direction -- from=dependent, to=prerequisite
        prereqs[edge['from']].add(edge['to'])
        ```
 
        **NEVER use:**
        ```python
-       # WRONG: this inverts ALL dependencies
+       # WRONG: accidentally converts to enablement direction, inverting ALL dependencies
        prereqs[edge['to']].add(edge['from'])
        ```
 

@@ -49,23 +49,37 @@ Read `/docs/learning-graph/learning-graph.json` to extract:
 - Concept groupings by taxonomy category
 - Metadata about the course
 
+!!! info "Learning Graph = Concept Dependency Graph (a DAG)"
+    A learning graph is a **Concept Dependency Graph** -- a directed acyclic graph
+    (DAG) where each edge represents a "depends on" relationship. We chose the
+    **dependency direction** (edges point FROM a concept TO the concepts it depends on)
+    because this aligns with standard graph theory algorithms for topological sorting,
+    cycle detection, and transitive reduction.
+
+    Some learning management systems use an alternative called an **enablement graph**,
+    where edges point in the opposite direction (FROM prerequisite TO the concepts it
+    enables). The enablement direction is more intuitive for some teachers ("learning
+    Ecology enables you to learn Ecosystems"), but it is less natural for graph
+    algorithms. This project uses the dependency direction exclusively.
+
 !!! danger "CRITICAL: Edge Direction in learning-graph.json"
-    In the vis-network JSON format, edges point **FROM dependent TO prerequisite**.
-    This is counterintuitive but consistent across all intelligent textbook projects.
+    In the vis-network JSON format, edges point **FROM dependent TO prerequisite**
+    (the dependency direction).
 
     - Edge `{from: 5, to: 1}` means "Biodiversity (5) depends on Ecology (1)"
-    - It does NOT mean "Ecology leads to Biodiversity"
+    - It does NOT mean "Ecology leads to Biodiversity" (that would be the enablement direction)
 
     **To build a prerequisite map:**
     ```python
     prereqs = defaultdict(set)
     for edge in data['edges']:
-        prereqs[edge['from']].add(edge['to'])  # CORRECT
+        prereqs[edge['from']].add(edge['to'])  # CORRECT: dependency direction
     ```
 
-    **NEVER use** `prereqs[edge['to']].add(edge['from'])` -- this inverts ALL
-    dependencies and silently produces invalid chapter orderings. This bug wastes
-    significant tokens and requires a complete redesign.
+    **NEVER use** `prereqs[edge['to']].add(edge['from'])` -- this accidentally
+    converts to the enablement direction, inverting ALL dependencies and silently
+    producing invalid chapter orderings. This bug wastes significant tokens and
+    requires a complete redesign.
 
 Validate that:
 - The graph structure is a valid DAG (no circular dependencies)
