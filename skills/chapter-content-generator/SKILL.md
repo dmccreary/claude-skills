@@ -5,15 +5,15 @@ description: This skill generates comprehensive chapter content for intelligent 
 
 # Chapter Content Generator
 
-**Version:** 0.05
+**Version:** 0.06
 
 ## Overview
 
 This skill generates detailed educational content for individual textbook chapters, transforming chapter outlines (title, summary, concept list) into comprehensive learning material with appropriate reading level, rich visual elements, and interactive components. The skill is designed to run after the `book-chapter-generator` skill has created the chapter structure.
 
-**Version 0.05 Features:**
-- **Sequential execution** - Generate content one chapter at a time to avoid excessive token usage.  A user may override this with the phase "use parallel execution" but the
-skill will warn them that a 38% additional tokens will be used
+**Version 0.06 Features:**
+- **Sequential execution** - Generate content one chapter at a time to avoid excessive token usage. A user may override this with the phrase "use parallel execution" but the skill will warn them that a 38% additional tokens will be used
+- **Edge direction validation** - Mandatory check to prevent inverted dependency bugs (see Step 1.3a)
 
 ## When to Use This Skill
 
@@ -78,9 +78,33 @@ Read and cache these files for all agents:
    - Note course objectives and tone guidelines in the project CLAUDE.md
    - Identify any mascot or narrative elements (e.g., Delta in calculus) in the project CLAUDE.md
 
-2. **Learning Graph** (`docs/learning-graph/learning-graph.csv` or similar)
+2. **Learning Graph** (`docs/learning-graph/learning-graph.json` and/or `learning-graph.csv`)
    - Load concept list with dependencies
    - Understand concept relationships for pedagogical ordering
+
+   !!! danger "CRITICAL: Edge Direction in learning-graph.json"
+       In the vis-network JSON format used by learning-graph.json, edges point
+       **FROM dependent TO prerequisite**. This is counterintuitive but consistent
+       across all intelligent textbook projects.
+
+       - Edge `{from: 5, to: 1}` means "Biodiversity (5) depends on Ecology (1)"
+       - It does NOT mean "Ecology leads to Biodiversity"
+
+       **To build a prerequisite map:**
+       ```python
+       # CORRECT: from=dependent, to=prerequisite
+       prereqs[edge['from']].add(edge['to'])
+       ```
+
+       **NEVER use:**
+       ```python
+       # WRONG: this inverts ALL dependencies
+       prereqs[edge['to']].add(edge['from'])
+       ```
+
+       Getting this wrong produces hundreds of false violations and wastes
+       significant tokens on invalid chapter designs. Always validate with
+       Step 1.3a before proceeding.
 
 3. **Glossary** (`docs/glossary.md`)
    - Load term definitions for consistent terminology if they exist
@@ -94,6 +118,83 @@ Read and cache these files for all agents:
 5. **Chapter List** (scan `docs/chapters/` directory)
    - Enumerate all chapter directories
    - Identify which chapters need content generation (have outline but no content)
+
+#### Step 1.3a: Validate Edge Direction (MANDATORY)
+
+Before using any dependency data, verify the edge direction is correct. This step prevents the most common and expensive bug in chapter generation -- an inverted dependency map that silently produces invalid chapter orderings.
+
+**Validation procedure:**
+
+1. Identify foundational concepts -- those with empty Dependencies in the CSV, or with zero prerequisites in the JSON
+2. Build the prerequisite map using `prereqs[edge['from']].add(edge['to'])`
+3. Check that foundational concepts have ZERO entries in the prereqs map
+
+```python
+import json
+from collections import defaultdict
+
+with open('docs/learning-graph/learning-graph.json') as f:
+    data = json.load(f)
+
+# Build prereqs: from=dependent, to=prerequisite
+prereqs = defaultdict(set)
+for e in data['edges']:
+    prereqs[e['from']].add(e['to'])
+
+# Find concepts with zero prerequisites (foundational)
+all_ids = {n['id'] for n in data['nodes']}
+foundational = all_ids - set(prereqs.keys())
+
+print(f"Foundational concepts (no prerequisites): {len(foundational)}")
+for fid in sorted(foundational):
+    node = next(n for n in data['nodes'] if n['id'] == fid)
+    print(f"  {fid}: {node['label']}")
+
+# SANITY CHECK: foundational concepts should be simple/introductory
+# If you see advanced concepts here, the edge direction is WRONG
+```
+
+**Pass criteria:**
+
+- Foundational concepts should be simple, introductory terms (e.g., "Ecology", "Energy", "System")
+- If advanced concepts appear as foundational (e.g., "Sustainability", "Climate Change", "Tipping Points"), the edge direction is inverted -- STOP and fix before proceeding
+- The number of foundational concepts should be small (typically 3-10 for a 200-400 concept graph)
+- If you see 50+ "foundational" concepts, the direction is likely inverted
+
+**If validation fails:** Do NOT proceed with content generation. Report the issue to the user and suggest re-running with the correct edge direction.
+
+#### Step 1.3b: Verify Chapter Dependency Order (MANDATORY)
+
+After validating edge direction, verify that every chapter's concept prerequisites have already been covered in earlier chapters. This ensures content can reference prior material without forward references.
+
+```python
+# Build chapter_map: concept_id -> chapter_index
+chapter_map = {}
+for i, (title, cids) in enumerate(chapters):
+    for cid in cids:
+        chapter_map[cid] = i
+
+# Check: for every concept, all prerequisites must be in same or earlier chapter
+violations = []
+for i, (title, cids) in enumerate(chapters):
+    for cid in cids:
+        for dep in prereqs.get(cid, set()):
+            if dep in chapter_map and chapter_map[dep] > i:
+                violations.append(
+                    f"  {nodes[cid]['label']}(ch{i+1}) needs "
+                    f"{nodes[dep]['label']}(ch{chapter_map[dep]+1})"
+                )
+
+if violations:
+    print(f"DEPENDENCY VIOLATIONS: {len(violations)}")
+    for v in violations:
+        print(v)
+    print("\nDo NOT generate content until all violations are resolved.")
+else:
+    print("All dependencies respected. Safe to generate content.")
+```
+
+**Pass criteria:** Zero violations. If any exist, the chapter structure must be fixed before content generation begins.
 
 #### Step 1.4: Determine Reading Level
 
@@ -184,7 +285,7 @@ title: [Chapter Title]
 description: [Short description]
 generated_by: claude skill chapter-content-generator
 date: [YYYY-MM-DD HH:MM:SS]
-version: 0.04
+version: 0.06
 ---
 
 REPORT when done:
@@ -264,7 +365,7 @@ title: Chapter Title
 description: Short description of title
 generated_by: claude skill chapter-content-generator
 date: YYYY-MM-DD HH-MM-SS
-version: 0.04
+version: 0.06
 ---
 ```
 
@@ -563,6 +664,14 @@ Load this reference when determining how to write content at the appropriate rea
 
 ## Common Pitfalls to Avoid
 
+**Dependency Direction (HIGHEST PRIORITY):**
+- ❌ Building prereqs map with `prereqs[edge['to']].add(edge['from'])` -- this INVERTS all dependencies
+- ❌ Skipping edge direction validation (Step 1.3a) -- an inverted map silently produces invalid chapters
+- ❌ Proceeding with chapter generation when dependency violations exist (Step 1.3b)
+- ✅ Always use `prereqs[edge['from']].add(edge['to'])` -- from=dependent, to=prerequisite
+- ✅ Always verify foundational concepts look correct before proceeding
+- ✅ Always confirm 0 dependency violations before generating any content
+
 **Content Quality:**
 - ❌ More than 3 paragraphs without a non-text element
 - ❌ Using the same element type repeatedly
@@ -601,7 +710,7 @@ Load this reference when determining how to write content at the appropriate rea
 **Claude (using this skill):**
 
 1. Captures start time
-2. Notifies: "Chapter Content Generator Skill v0.04 running in parallel mode."
+2. Notifies: "Chapter Content Generator Skill v0.06 running in parallel mode."
 3. Reads shared context (course description, learning graph, glossary, CLAUDE.md)
 4. Determines reading level (e.g., Senior High)
 5. Scans chapter directories, finds 23 chapters needing content

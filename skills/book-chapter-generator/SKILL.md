@@ -49,10 +49,49 @@ Read `/docs/learning-graph/learning-graph.json` to extract:
 - Concept groupings by taxonomy category
 - Metadata about the course
 
+!!! danger "CRITICAL: Edge Direction in learning-graph.json"
+    In the vis-network JSON format, edges point **FROM dependent TO prerequisite**.
+    This is counterintuitive but consistent across all intelligent textbook projects.
+
+    - Edge `{from: 5, to: 1}` means "Biodiversity (5) depends on Ecology (1)"
+    - It does NOT mean "Ecology leads to Biodiversity"
+
+    **To build a prerequisite map:**
+    ```python
+    prereqs = defaultdict(set)
+    for edge in data['edges']:
+        prereqs[edge['from']].add(edge['to'])  # CORRECT
+    ```
+
+    **NEVER use** `prereqs[edge['to']].add(edge['from'])` -- this inverts ALL
+    dependencies and silently produces invalid chapter orderings. This bug wastes
+    significant tokens and requires a complete redesign.
+
 Validate that:
 - The graph structure is a valid DAG (no circular dependencies)
 - All concepts have unique IDs
 - Dependency references are valid
+
+#### 1.2a Validate Edge Direction (MANDATORY)
+
+Before designing any chapters, verify the edge direction is correct:
+
+1. Build the prerequisite map using `prereqs[edge['from']].add(edge['to'])`
+2. Identify foundational concepts (those with zero entries in prereqs)
+3. Verify foundational concepts are simple, introductory terms (e.g., "Ecology", "Energy", "System")
+4. If advanced concepts appear as foundational, the direction is WRONG -- stop and fix
+
+```python
+# Quick validation
+foundational = [n for n in data['nodes'] if n['id'] not in prereqs]
+print(f"Foundational ({len(foundational)}):")
+for n in foundational:
+    print(f"  {n['id']}: {n['label']}")
+# These should be simple/introductory. If you see "Sustainability",
+# "Climate Change", etc., the edge direction is inverted.
+```
+
+**Do NOT proceed to chapter design until this check passes.**
 
 #### 1.3 Read Concept Taxonomy
 
@@ -361,6 +400,35 @@ Statistics:
 - If concept B depends on concept A, then A must appear in an earlier (or same) chapter than B
 - Check all dependency relationships before finalizing chapter assignments
 - Use topological sorting to verify the order is valid
+
+**Mandatory validation before presenting to user:**
+
+Run this strict check and achieve **zero violations** before proceeding to Step 3:
+
+```python
+# Build prereqs: from=dependent, to=prerequisite (NEVER invert this)
+prereqs = defaultdict(set)
+for e in data['edges']:
+    prereqs[e['from']].add(e['to'])
+
+# Map each concept to its chapter index
+chapter_map = {}
+for i, (title, cids) in enumerate(chapters):
+    for cid in cids:
+        chapter_map[cid] = i
+
+# Check: every prerequisite must be in same or earlier chapter
+violations = []
+for i, (title, cids) in enumerate(chapters):
+    for cid in cids:
+        for dep in prereqs.get(cid, set()):
+            if dep in chapter_map and chapter_map[dep] > i:
+                violations.append(f"{nodes[cid]} ch{i+1} needs {nodes[dep]} ch{chapter_map[dep]+1}")
+
+assert len(violations) == 0, f"{len(violations)} dependency violations found"
+```
+
+**Do NOT present a chapter design with any violations to the user.** Fix all violations first by moving concepts between chapters or reordering chapters.
 
 ### Content Balance
 
