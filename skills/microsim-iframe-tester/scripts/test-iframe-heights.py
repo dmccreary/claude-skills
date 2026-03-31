@@ -27,7 +27,7 @@ from playwright.sync_api import sync_playwright
 
 TOLERANCE = 5        # px — controls within this margin still count as visible
 SAFETY_MARGIN = 10   # px — added to suggested height
-VIEWPORT_WIDTH = 800 # standard test width
+VIEWPORT_WIDTH = 700 # matches typical MkDocs Material content column width
 
 CONTROL_SELECTORS = ", ".join([
     "button",
@@ -97,6 +97,24 @@ def extract_iframe_height(index_md: Path) -> int | None:
     return int(match.group(1)) if match else None
 
 
+def extract_canvas_height(sim_dir: Path) -> int | None:
+    """Look for a // CANVAS_HEIGHT = N comment in the sim's JS file.
+
+    When present this is the authoritative intended height and is more
+    reliable than measuring dynamic content for responsive sims whose
+    canvas height scales with viewport width.
+    """
+    for js_file in sim_dir.glob("*.js"):
+        try:
+            text = js_file.read_text()
+        except Exception:
+            continue
+        match = re.search(r'//\s*CANVAS_HEIGHT\s*=\s*(\d+)', text)
+        if match:
+            return int(match.group(1))
+    return None
+
+
 def discover_sims(base_dir: Path) -> list[dict]:
     """Find MicroSim directories containing both main.html and index.md."""
     if not base_dir.is_dir():
@@ -146,8 +164,12 @@ def test_sim(page, sim: dict, iframe_height: int) -> SimResult:
     # Measure actual content height
     content_height = page.evaluate(MEASURE_CONTENT_JS)
 
+    # If the sim declares a CANVAS_HEIGHT, trust it over measured content
+    declared_height = extract_canvas_height(sim["dir"])
+    effective_content = declared_height if declared_height else content_height
+
     clipped = [m for m in measurements if not m["isVisible"] and m["tag"] != "canvas"]
-    suggested = round_up(content_height + SAFETY_MARGIN, 10)
+    suggested = round_up(effective_content + SAFETY_MARGIN, 10)
     status = "PASS" if not clipped else "FAIL"
 
     return SimResult(

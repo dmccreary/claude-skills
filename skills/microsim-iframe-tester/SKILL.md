@@ -59,7 +59,11 @@ greenhouse-effect           |           500 |            498 | PASS   |         
 
 - **PASS**: All controls fit within the iframe height (with 5px tolerance)
 - **FAIL**: One or more controls extend below the iframe boundary
-- **Suggested Height**: The actual content height rounded up to the nearest 10px, plus a 10px safety margin
+- **Suggested Height**: The actual content height rounded up to the nearest 10px, plus a 10px safety margin. If the sim's JS file contains a `// CANVAS_HEIGHT = N` comment, that declared height is used instead of the measured content height (responsive sims can measure taller at the test viewport width than they actually render in MkDocs).
+
+## Responsive Sims and CANVAS_HEIGHT
+
+Some p5.js sims dynamically resize their canvas based on viewport width. The test viewport (700px) may not exactly match the MkDocs content column, causing measured heights to differ from the actual embedded height. When a sim declares `// CANVAS_HEIGHT = N` in its JS file, the tester trusts that value as authoritative. **Always sanity-check suggestions for responsive sims** — if the suggested height is dramatically larger than the current iframe height, the sim likely has dynamic sizing and needs a `CANVAS_HEIGHT` declaration rather than a blind height increase.
 
 ## Fixing Failures
 
