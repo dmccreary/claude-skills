@@ -6,40 +6,19 @@ description: This skill installs an interactive learning graph viewer applicatio
 
 ## Overview
 
-This skill installs a complete interactive graph visualization application into the `/docs/sims/graph-viewer/` directory of an intelligent textbook project. The viewer provides an interactive way to explore learning graphs with features like node search, category filtering, and real-time statistics.
+Installs a complete interactive graph viewer into `/docs/sims/graph-viewer/` by copying 4 template files and replacing the TITLE placeholder. Total install time: under 2 minutes.
 
-## When to Use This Skill
+**Template files are in this skill at:** `references/learning-graph-viewer-templates/`
 
-Use this skill when:
-
-- A learning graph has been generated (learning-graph.json exists in /docs/learning-graph/)
-- The textbook needs an interactive visualization tool for exploring concept dependencies
-- Students or instructors need to filter, search, and analyze the learning graph structure
-
-**Prerequisites:**
-
-- `/docs/learning-graph/learning-graph.json` must exist
-- The JSON file must have metadata with a `title` field
-- The JSON file must have proper `classifierName` values in groups (see Step 3.5)
-- MkDocs project structure must be in place
-
-## Installation Workflow
-
-### Step 1: Verify Prerequisites
-
-Before installation, verify that the learning graph JSON file exists:
+## Step 1: Verify Prerequisites
 
 ```bash
 ls docs/learning-graph/learning-graph.json
 ```
 
-If the file doesn't exist, use the `learning-graph-generator` skill first to create the learning graph.
+If missing, run the `learning-graph-generator` skill first.
 
-### Step 1b: Validate classifierName Values (CRITICAL)
-
-**This step prevents the common bug where taxonomy IDs appear instead of human-readable names in the legend.**
-
-Run this validation to check that all `classifierName` values are human-readable:
+### Validate classifierName Values
 
 ```bash
 python3 -c "
@@ -50,1340 +29,125 @@ issues = []
 for gid, ginfo in data['groups'].items():
     name = ginfo.get('classifierName', '')
     if name == gid:
-        issues.append(f\"❌ {gid}: classifierName equals ID - needs human-readable name\")
+        issues.append(f'  {gid}: classifierName equals ID - needs human-readable name')
     else:
-        print(f'✅ {gid}: {name}')
+        print(f'  OK: {gid} -> {name}')
 if issues:
-    print()
-    for issue in issues:
-        print(issue)
-    print()
-    print('⚠️  FIX REQUIRED: Update learning-graph.json groups with proper classifierName values')
-    print('   Or regenerate with: python csv-to-json.py ... taxonomy-names.json')
+    print('FIX REQUIRED:')
+    for i in issues: print(i)
 "
 ```
 
-**If any `classifierName` equals its taxonomy ID:**
+If any classifierName equals its ID, fix taxonomy-names.json and regenerate learning-graph.json before proceeding.
 
-1. Check if `docs/learning-graph/taxonomy-names.json` exists with proper mappings
-2. If it exists, regenerate learning-graph.json using:
-   ```bash
-   cd docs/learning-graph
-   python csv-to-json.py learning-graph.csv learning-graph.json color-config.json metadata.json taxonomy-names.json
-   ```
-3. If it doesn't exist, manually update learning-graph.json with human-readable names
-
-**Common fixes:**
-| Taxonomy ID | Should be classifierName |
-|-------------|--------------------------|
-| FOUND | Foundation Concepts |
-| EDA1 | Exploratory Data Analysis I |
-| REG | Regression & Correlation |
-| PROB | Probability |
-| SAMP | Sampling Distributions |
-
-**Do not proceed until all classifierName values are human-readable.**
-
-### Step 2: Create Directory Structure
-
-Create the graph-viewer directory:
+## Step 2: Copy Template Files
 
 ```bash
+SKILL_DIR="$HOME/.claude/skills/book-installer/references/learning-graph-viewer-templates"
 mkdir -p docs/sims/graph-viewer
+cp "$SKILL_DIR/local.css"  docs/sims/graph-viewer/local.css
+cp "$SKILL_DIR/script.js"  docs/sims/graph-viewer/script.js
+cp "$SKILL_DIR/index.md"   docs/sims/graph-viewer/index.md
+cp "$SKILL_DIR/main.html"  docs/sims/graph-viewer/main.html
 ```
 
-### Step 3: Create main.html
+## Step 3: Replace TITLE Placeholder
 
-Create `docs/sims/graph-viewer/main.html` with the following structure:
+Extract the course title from learning-graph.json and replace TITLE in main.html:
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning Graph Viewer for TITLE</title>
-    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
-    <link rel="stylesheet" href="local.css">
-</head>
-<body>
-    <div class="container">
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <h4>Learning Graph for TITLE</h4>
-                <button id="toggle-sidebar" class="toggle-btn" title="Toggle Sidebar">&#9776;</button>
-            </div>
-
-            <div class="sidebar-content" id="sidebar-content">
-                <div class="search-container">
-                    <label for="search">Search Concepts:</label>
-                    <input type="text" id="search" placeholder="Type to search...">
-                    <div id="search-results" class="search-results"></div>
-                </div>
-
-                <div class="legend-container">
-                    <h5>Categories</h5>
-                    <div class="legend-controls">
-                        <button id="check-all" class="legend-btn">Check All</button>
-                        <button id="uncheck-all" class="legend-btn">Uncheck All</button>
-                    </div>
-                    <div id="legend"></div>
-                </div>
-
-                <div class="stats-container">
-                    <h5>Statistics</h5>
-                    <div id="stats">
-                        <p>Visible Nodes: <span id="visible-nodes">0</span></p>
-                        <p>Visible Edges: <span id="visible-edges">0</span></p>
-                        <p>Foundational: <span id="foundational-nodes">0</span></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="graph-container" id="graph-container">
-            <div id="network"></div>
-            <div id="loading-message">Loading concepts and edges...</div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+```bash
+TITLE=$(python3 -c "import json; print(json.load(open('docs/learning-graph/learning-graph.json'))['metadata']['title'])")
+sed -i '' "s/TITLE/$TITLE/g" docs/sims/graph-viewer/main.html
+echo "Title set to: $TITLE"
 ```
 
-Replace "TITLE" with the course title from learning-graph.json metadata.
+Verify the replacement worked:
 
-### Step 4: Create local.css
-
-Create `docs/sims/graph-viewer/local.css` with all sidebar and layout styling:
-
-```css
-/* Learning Graph Viewer Styles */
-
-/* ================================
-   RESET AND BASE STYLES
-   ================================ */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-    background-color: #f5f5f5;
-    overflow: hidden;
-}
-
-/* ================================
-   MAIN LAYOUT CONTAINER
-   Uses flexbox for sidebar + graph layout
-   ================================ */
-.container {
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-}
-
-/* ================================
-   SIDEBAR STYLES
-   Collapsible sidebar with search, legend, and stats
-   ================================ */
-.sidebar {
-    /* Width settings - adjust for label wrapping */
-    width: 200px;
-    min-width: 200px;
-    /* Visual styling */
-    background-color: #fff;
-    border-right: 1px solid #ddd;
-    /* Flexbox for internal layout */
-    display: flex;
-    flex-direction: column;
-    /* Smooth collapse animation */
-    transition: width 0.3s ease, min-width 0.3s ease;
-    overflow: hidden;
-}
-
-/* Collapsed state - narrow width shows only toggle button */
-.sidebar.collapsed {
-    width: 50px;
-    min-width: 50px;
-}
-
-/* ================================
-   SIDEBAR HEADER
-   Contains title and toggle button
-   ================================ */
-.sidebar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background-color: #2196F3;    /* Blue header bar */
-    color: white;
-}
-
-.sidebar-header h4 {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;      /* Truncate long titles */
-}
-
-/* Hide title when collapsed */
-.sidebar.collapsed .sidebar-header h4 {
-    display: none;
-}
-
-/* ================================
-   TOGGLE BUTTON
-   Hamburger menu icon for collapse/expand
-   ================================ */
-.toggle-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 4px;
-}
-
-.toggle-btn:hover {
-    background-color: rgba(255,255,255,0.2);
-}
-
-/* ================================
-   SIDEBAR CONTENT
-   Scrollable area containing search, legend, stats
-   ================================ */
-.sidebar-content {
-    flex: 1;
-    overflow-y: auto;
-    padding: 15px;
-}
-
-/* ================================
-   SEARCH CONTAINER STYLES
-   Type-ahead search for finding concepts
-   ================================ */
-.search-container {
-    margin-bottom: 20px;
-}
-
-.search-container label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #333;
-}
-
-.search-container input {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 14px;
-    transition: border-color 0.2s;
-}
-
-.search-container input:focus {
-    outline: none;
-    border-color: #2196F3;
-    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);  /* Blue focus ring */
-}
-
-/* ================================
-   SEARCH RESULTS DROPDOWN
-   Positioned absolutely below search input
-   ================================ */
-.search-results {
-    display: none;                    /* Hidden by default */
-    position: absolute;
-    width: calc(100% - 30px);         /* Account for sidebar padding */
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    max-height: 300px;
-    overflow-y: auto;
-    z-index: 100;                     /* Above other content */
-    margin-top: 4px;
-}
-
-.search-result-item {
-    padding: 10px 12px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #eee;
-}
-
-.search-result-item:last-child {
-    border-bottom: none;
-}
-
-.search-result-item:hover {
-    background-color: #f5f5f5;
-}
-
-.result-label {
-    font-weight: 500;
-    color: #333;
-}
-
-/* Category badge in search results */
-.result-category {
-    font-size: 11px;
-    padding: 3px 8px;
-    border-radius: 12px;
-    color: #333;
-}
-
-/* ================================
-   LEGEND CONTAINER STYLES
-   Category filtering with checkboxes
-   ================================ */
-.legend-container {
-    margin-bottom: 20px;
-}
-
-.legend-container h5 {
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-/* Check All / Uncheck All buttons */
-.legend-controls {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 12px;
-}
-
-.legend-btn {
-    flex: 1;
-    padding: 6px 10px;
-    font-size: 12px;
-    border: 1px solid #ddd;
-    background: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.legend-btn:hover {
-    background: #f0f0f0;
-    border-color: #bbb;
-}
-
-/* Legend items container - scrollable for many categories */
-#legend {
-    max-height: 400px;
-    overflow-y: auto;
-}
-
-/* Individual legend item (checkbox + color + label) */
-.legend-item {
-    display: flex;
-    align-items: center;
-    padding: 6px 0;
-    gap: 8px;
-}
-
-.legend-item input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
-}
-
-/* Color swatch box */
-.color-box {
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-    border: 1px solid rgba(0,0,0,0.1);
-    flex-shrink: 0;                   /* Don't shrink color box */
-}
-
-.legend-item label {
-    font-size: 13px;
-    color: #555;
-    cursor: pointer;
-    flex: 1;
-}
-
-/* ================================
-   STATISTICS CONTAINER STYLES
-   Shows counts of visible nodes, edges, foundational
-   ================================ */
-.stats-container {
-    background-color: #f9f9f9;
-    padding: 12px;
-    border-radius: 6px;
-}
-
-.stats-container h5 {
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-#stats p {
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 6px;
-}
-
-#stats span {
-    font-weight: 600;
-    color: #2196F3;                   /* Blue accent for numbers */
-}
-
-/* ================================
-   GRAPH CONTAINER STYLES
-   Main visualization area
-   ================================ */
-.graph-container {
-    flex: 1;                          /* Take remaining space */
-    position: relative;
-    background-color: aliceblue;      /* Light blue background */
-}
-
-#network {
-    width: 100%;
-    height: 100%;
-}
-
-/* Loading message — centered over the graph area, above the vis-network canvas.
-   z-index: 20 is required; without it the canvas renders on top and hides the text.
-   Removed via stabilizationIterationsDone event once the graph is ready to display. */
-#loading-message {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.3rem;
-    color: #555;
-    pointer-events: none;
-    z-index: 20;
-}
-
-/* ================================
-   RESPONSIVE ADJUSTMENTS
-   Mobile-friendly sidebar widths
-   ================================ */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 250px;
-        min-width: 250px;
-    }
-
-    .sidebar.collapsed {
-        width: 40px;
-        min-width: 40px;
-    }
-}
+```bash
+grep "<title>" docs/sims/graph-viewer/main.html
 ```
 
-### Step 5: Create script.js
+## Step 4: Reorder Groups to Match Taxonomy (Optional but Recommended)
 
-Create `docs/sims/graph-viewer/script.js` with the visualization logic:
-
-```javascript
-// Learning Graph Viewer Script
-// Loads and displays an interactive learning graph using vis-network
-
-let network = null;
-let allNodes = [];
-let allEdges = [];
-let groups = {};
-let visibleGroups = new Set();
-
-// Precomputed once at load — never change after that
-let nodesWithDeps = new Set(); // set of node IDs that have outgoing edges
-let groupCounts = {};          // { groupId: count } for legend labels
-
-// Load the learning graph data
-async function loadGraph() {
-    try {
-        const response = await fetch('../../learning-graph/learning-graph.json');
-        const data = await response.json();
-
-        allNodes = data.nodes || [];
-        groups = data.groups || {};
-
-        // Assign explicit integer IDs to every edge at load time.
-        // vis-network auto-assigns its own integer IDs when edges have no id field.
-        // If we later call edges.update([{id: "1-2", ...}]) but the DataSet holds id 0,
-        // the update silently does nothing. Using the array index as fallback guarantees
-        // our allEdges IDs always match the DataSet.
-        allEdges = (data.edges || []).map((edge, i) => ({
-            ...edge,
-            id: edge.id !== undefined ? edge.id : i
-        }));
-
-        // Initialize all groups as visible
-        Object.keys(groups).forEach(g => visibleGroups.add(g));
-
-        // Precompute values that never change after load
-        nodesWithDeps = new Set(allEdges.map(e => e.from));
-        groupCounts = {};
-        allNodes.forEach(n => {
-            groupCounts[n.group] = (groupCounts[n.group] || 0) + 1;
-        });
-
-        initializeNetwork();
-        buildLegend();
-        updateStats();
-        setupSearch();
-        setupControls();
-
-    } catch (error) {
-        console.error('Error loading learning graph:', error);
-        document.getElementById('network').innerHTML =
-            '<p style="color: red; padding: 20px;">Error loading learning graph. Make sure learning-graph.json exists at ../../learning-graph/learning-graph.json</p>';
-    }
-}
-
-// Initialize the vis-network visualization
-function initializeNetwork() {
-    const container = document.getElementById('network');
-
-    // Create nodes DataSet - colors are handled by the groups option
-    const nodes = new vis.DataSet(allNodes);
-
-    // Create edges DataSet — use allEdges which already have explicit IDs
-    const edges = new vis.DataSet(allEdges.map(edge => ({
-        ...edge,
-        arrows: 'to',
-        color: { color: '#888', opacity: 0.6 }
-    })));
-
-    const data = { nodes, edges };
-
-    // Build vis-network groups configuration from JSON groups
-    const visGroups = {};
-    Object.entries(groups).forEach(([groupId, groupInfo]) => {
-        visGroups[groupId] = {
-            color: {
-                background: groupInfo.color || 'lightgray',
-                border: groupInfo.color || 'lightgray',
-                highlight: {
-                    background: groupInfo.color || 'lightgray',
-                    border: '#333'
-                },
-                hover: {
-                    background: groupInfo.color || 'lightgray',
-                    border: '#666'
-                }
-            },
-            font: {
-                color: groupInfo.font?.color || 'black'
-            }
-        };
-    });
-
-    const options = {
-        groups: visGroups,
-        layout: {
-            randomSeed: 42,
-            improvedLayout: true
-        },
-        physics: {
-            enabled: true,
-            solver: 'forceAtlas2Based',
-            forceAtlas2Based: {
-                gravitationalConstant: -50,
-                centralGravity: 0.01,
-                springLength: 100,
-                springConstant: 0.08,
-                damping: 0.4,
-                avoidOverlap: 0.5
-            },
-            stabilization: {
-                enabled: true,
-                iterations: 1000,
-                updateInterval: 25
-            }
-        },
-        nodes: {
-            shape: 'box',
-            margin: 4,
-            font: {
-                size: 14,
-                face: 'Arial'
-            },
-            borderWidth: 2,
-            shadow: true
-        },
-        edges: {
-            smooth: {
-                type: 'cubicBezier',
-                forceDirection: 'horizontal',
-                roundness: 0.4
-            },
-            width: 1.5
-        },
-        interaction: {
-            hover: true,
-            tooltipDelay: 200,
-            zoomView: true,
-            dragView: true
-        }
-    };
-
-    network = new vis.Network(container, data, options);
-
-    // Remove the loading message once the initial layout is computed.
-    // Using stabilizationIterationsDone (not the load event) keeps the message
-    // visible through the physics settling phase — the part users actually wait for.
-    // z-index: 20 on #loading-message is required so it renders above the canvas.
-    network.once('stabilizationIterationsDone', () => {
-        const msg = document.getElementById('loading-message');
-        if (msg) msg.remove();
-    });
-
-    // Turn off physics after 5 seconds to stop spinning
-    setTimeout(() => {
-        network.setOptions({ physics: { enabled: false } });
-    }, 5000);
-
-    // Re-enable physics when user starts dragging a node
-    network.on('dragStart', function(params) {
-        if (params.nodes.length > 0) {
-            network.setOptions({ physics: { enabled: true } });
-        }
-    });
-
-    // Turn off physics when user releases the node
-    network.on('dragEnd', function(params) {
-        if (params.nodes.length > 0) {
-            setTimeout(() => {
-                network.setOptions({ physics: { enabled: false } });
-            }, 1000);
-        }
-    });
-
-    // Handle node selection
-    network.on('selectNode', function(params) {
-        if (params.nodes.length > 0) {
-            highlightNode(params.nodes[0]);
-        }
-    });
-}
-
-// Build the category legend.
-// Legend order = groups object key order = JSON file key order.
-// The JSON must be reordered to match concept-taxonomy.md before installing (see Step 7b).
-function buildLegend() {
-    const legendContainer = document.getElementById('legend');
-    legendContainer.innerHTML = '';
-
-    Object.entries(groups).forEach(([groupId, groupInfo]) => {
-        // Use precomputed count — avoids O(n) filter per group
-        const count = groupCounts[groupId] || 0;
-
-        const item = document.createElement('div');
-        item.className = 'legend-item';
-
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.id = `group-${groupId}`;
-        checkbox.checked = true;
-        checkbox.addEventListener('change', () => toggleGroup(groupId, checkbox.checked));
-
-        const colorBox = document.createElement('span');
-        colorBox.className = 'color-box';
-        colorBox.style.backgroundColor = groupInfo.color || 'lightgray';
-
-        const label = document.createElement('label');
-        label.htmlFor = `group-${groupId}`;
-        label.textContent = `${groupInfo.classifierName || groupId} (${count})`;
-
-        item.appendChild(checkbox);
-        item.appendChild(colorBox);
-        item.appendChild(label);
-        legendContainer.appendChild(item);
-    });
-}
-
-// Toggle visibility of a category group
-function toggleGroup(groupId, visible) {
-    if (visible) {
-        visibleGroups.add(groupId);
-    } else {
-        visibleGroups.delete(groupId);
-    }
-    updateVisibility();
-}
-
-// Update node and edge visibility based on selected groups.
-// Computes visibleNodeIds once and passes it to updateStats() to avoid recomputation.
-function updateVisibility() {
-    const visibleNodeIds = new Set(
-        allNodes.filter(n => visibleGroups.has(n.group)).map(n => n.id)
-    );
-
-    const nodes = network.body.data.nodes;
-    const edges = network.body.data.edges;
-
-    // Batch update nodes — single DataSet.update() call triggers one redraw.
-    // CRITICAL: Never call update() inside a forEach loop — each call triggers a full
-    // redraw. With 200+ nodes this causes 10-20 second freezes. Array form = one redraw.
-    nodes.update(allNodes.map(node => ({
-        id: node.id,
-        hidden: !visibleGroups.has(node.group)
-    })));
-
-    // Batch update edges — edge.id is guaranteed to be set (assigned at load time),
-    // so DataSet lookup always succeeds.
-    edges.update(allEdges.map(edge => ({
-        id: edge.id,
-        hidden: !(visibleNodeIds.has(edge.from) && visibleNodeIds.has(edge.to))
-    })));
-
-    // Pass visibleNodeIds to avoid recomputing it inside updateStats
-    updateStats(visibleNodeIds);
-}
-
-// Update statistics display.
-// Accepts optional visibleNodeIds to avoid recomputation when called from updateVisibility().
-function updateStats(visibleNodeIds) {
-    if (!visibleNodeIds) {
-        visibleNodeIds = new Set(
-            allNodes.filter(n => visibleGroups.has(n.group)).map(n => n.id)
-        );
-    }
-
-    const visibleEdgeCount = allEdges.filter(
-        e => visibleNodeIds.has(e.from) && visibleNodeIds.has(e.to)
-    ).length;
-
-    // nodesWithDeps is precomputed at load time — not recomputed on every toggle
-    const foundationalCount = allNodes.filter(
-        n => !nodesWithDeps.has(n.id) && visibleGroups.has(n.group)
-    ).length;
-
-    document.getElementById('visible-nodes').textContent = visibleNodeIds.size;
-    document.getElementById('visible-edges').textContent = visibleEdgeCount;
-    document.getElementById('foundational-nodes').textContent = foundationalCount;
-}
-
-// Setup search functionality
-function setupSearch() {
-    const searchInput = document.getElementById('search');
-    const resultsContainer = document.getElementById('search-results');
-
-    searchInput.addEventListener('input', function() {
-        const query = this.value.toLowerCase().trim();
-        resultsContainer.innerHTML = '';
-
-        if (query.length < 2) {
-            resultsContainer.style.display = 'none';
-            return;
-        }
-
-        const matches = allNodes.filter(n =>
-            n.label.toLowerCase().includes(query)
-        ).slice(0, 10);
-
-        if (matches.length === 0) {
-            resultsContainer.style.display = 'none';
-            return;
-        }
-
-        matches.forEach(node => {
-            const item = document.createElement('div');
-            item.className = 'search-result-item';
-
-            const groupInfo = groups[node.group] || {};
-            item.innerHTML = `
-                <span class="result-label">${node.label}</span>
-                <span class="result-category" style="background-color: ${groupInfo.color || 'lightgray'}">
-                    ${groupInfo.classifierName || node.group}
-                </span>
-            `;
-
-            item.addEventListener('click', () => {
-                selectNode(node.id);
-                searchInput.value = node.label;
-                resultsContainer.style.display = 'none';
-            });
-
-            resultsContainer.appendChild(item);
-        });
-
-        resultsContainer.style.display = 'block';
-    });
-
-    // Hide results when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!searchInput.contains(e.target) && !resultsContainer.contains(e.target)) {
-            resultsContainer.style.display = 'none';
-        }
-    });
-}
-
-// Select and focus on a node
-function selectNode(nodeId) {
-    network.selectNodes([nodeId]);
-    network.focus(nodeId, {
-        scale: 1.2,
-        animation: {
-            duration: 500,
-            easingFunction: 'easeInOutQuad'
-        }
-    });
-    highlightNode(nodeId);
-}
-
-// Highlight a node and its connections
-function highlightNode(nodeId) {
-    const connectedNodes = network.getConnectedNodes(nodeId);
-    const connectedSet = new Set([nodeId, ...connectedNodes]);
-
-    const nodes = network.body.data.nodes;
-    nodes.update(allNodes.map(node => ({
-        id: node.id,
-        opacity: connectedSet.has(node.id) ? 1 : 0.3
-    })));
-
-    // Reset opacity after a delay — batched for performance
-    setTimeout(() => {
-        nodes.update(allNodes.map(node => ({ id: node.id, opacity: 1 })));
-    }, 3000);
-}
-
-// Setup control buttons
-function setupControls() {
-    // Toggle sidebar
-    document.getElementById('toggle-sidebar').addEventListener('click', function() {
-        const sidebar = document.getElementById('sidebar');
-        const content = document.getElementById('sidebar-content');
-        sidebar.classList.toggle('collapsed');
-        content.style.display = sidebar.classList.contains('collapsed') ? 'none' : 'block';
-    });
-
-    // Check all groups
-    document.getElementById('check-all').addEventListener('click', function() {
-        Object.keys(groups).forEach(groupId => {
-            visibleGroups.add(groupId);
-            document.getElementById(`group-${groupId}`).checked = true;
-        });
-        updateVisibility();
-    });
-
-    // Uncheck all groups
-    document.getElementById('uncheck-all').addEventListener('click', function() {
-        Object.keys(groups).forEach(groupId => {
-            visibleGroups.delete(groupId);
-            document.getElementById(`group-${groupId}`).checked = false;
-        });
-        updateVisibility();
-    });
-}
-
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', loadGraph);
-```
-
-### Step 6: Create index.md
-
-Create `docs/sims/graph-viewer/index.md` with documentation:
-
-```markdown
-# Learning Graph Viewer
-
-[Open Learning Graph Viewer Fullscreen](./main.html){ .md-button .md-button--primary }
-
-<iframe src="./main.html" width="100%" height="600px" frameborder="0"></iframe>
-
-This interactive viewer allows you to explore the learning graph for the course.
-
-## Features
-
-- **Search**: Type in the search box to find specific concepts
-- **Category Filtering**: Use checkboxes to show/hide concept categories
-- **Interactive Navigation**: Click and drag to explore, scroll to zoom
-- **Statistics**: View real-time counts of visible nodes and edges
-
-## Using the Viewer
-
-1. **Search for Concepts**: Start typing in the search box to find concepts. Click on a result to focus on that node.
-
-2. **Filter by Category**: Use the category checkboxes in the sidebar to show or hide groups of related concepts. Use "Check All" or "Uncheck All" for bulk operations.
-
-3. **Navigate the Graph**:
-   - Drag to pan around the graph
-   - Scroll to zoom in and out
-   - Click on a node to select it and highlight its connections
-
-4. **View Statistics**: The sidebar shows counts of visible nodes, edges, and foundational concepts.
-
-## Graph Structure
-
-- **Foundational Concepts** (left side): Prerequisites with no dependencies
-- **Advanced Concepts** (right side): Topics that build on multiple prerequisites
-- **Edges**: Arrows point from a concept to its prerequisites
-```
-
-### Step 7: Verify classifierName Values in JSON (IMPORTANT)
-
-The learning-graph.json file must have human-readable `classifierName` values in the groups section. **This is critical for the legend to display correctly.**
-
-Check the groups section of learning-graph.json:
-
-```json
-"groups": {
-  "FOUND": {
-    "classifierName": "Foundation Concepts",  // CORRECT - human readable
-    "color": "LightCoral"
-  },
-  "BLOOM": {
-    "classifierName": "BLOOM",  // WRONG - just the ID, not human readable
-    "color": "PeachPuff"
-  }
-}
-```
-
-If any `classifierName` values are just the group ID (like "BLOOM", "VISUA"), update them to be human-readable (like "Bloom's Taxonomy", "Visualization Types").
-
-Common taxonomy mappings:
-
-| Group ID | classifierName |
-|----------|----------------|
-| FOUND | Foundation Concepts |
-| BLOOM | Bloom's Taxonomy |
-| VISUA | Visualization Types |
-| LIBRA | Libraries & Tools |
-| SPECI | Specification |
-| COGNI | Cognitive Science |
-| AUDIE | Audience Adaptation |
-| EVALU | Evaluation & Testing |
-| ITERA | Iteration & Workflow |
-| ACCES | Accessibility |
-| DEPLO | Deployment |
-| CAPST | Capstone |
-
-### Step 7b: Reorder Groups to Match Taxonomy Order (REQUIRED)
-
-**The order of groups in learning-graph.json determines the order of category checkboxes in the sidebar legend.** The groups MUST be ordered to match the order defined in `docs/learning-graph/concept-taxonomy.md`, with Foundation Concepts always first.
-
-The `csv-to-json.py` script outputs groups in arbitrary order. Run this Python script to reorder them:
+The legend order in the sidebar matches the groups key order in learning-graph.json. Reorder to match concept-taxonomy.md:
 
 ```bash
 cd docs/learning-graph
 python3 -c "
 import json, re
-
-# Read the taxonomy order from concept-taxonomy.md
 with open('concept-taxonomy.md') as f:
     text = f.read()
-# Extract taxonomy IDs only from heading lines (## 1. Title (ID)) — NOT from body text.
-# The old pattern r'\(([A-Z]{3,5})\)' matched IDs anywhere in the file, including
-# parenthetical notes in includes lists, causing wrong ordering (e.g. MOLBIO at 11
-# instead of 8). The re.MULTILINE + '^#{1,6}' anchor restricts matches to lines that
-# start with one or more # characters.
 ordered_ids = re.findall(r'^#{1,6}[^(]+\(([A-Z]{2,8})\)', text, re.MULTILINE)
-
-# Reorder groups in learning-graph.json
 with open('learning-graph.json') as f:
     data = json.load(f)
-
 ordered_groups = {}
 for key in ordered_ids:
     if key in data['groups']:
         ordered_groups[key] = data['groups'][key]
-# Append any groups not found in taxonomy (safety net)
 for key in data['groups']:
     if key not in ordered_groups:
         ordered_groups[key] = data['groups'][key]
-
 data['groups'] = ordered_groups
-
 with open('learning-graph.json', 'w') as f:
     json.dump(data, f, indent=2)
-
-print('Groups reordered to match concept-taxonomy.md:')
+print('Groups reordered to match concept-taxonomy.md')
 for k in data['groups']:
     print(f'  {k}: {data[\"groups\"][k][\"classifierName\"]}')
 "
+cd ../..
 ```
 
-**Why this matters:** Without this step, the sidebar legend categories appear in arbitrary order (often alphabetical by taxonomy ID), which does not reflect the pedagogical progression from foundational to advanced topics. Students and instructors expect the legend to flow from basic to advanced, matching the taxonomy document.
+## Step 5: Add Fullscreen Link to Learning Graph Index
 
-### Step 8: Update Title in main.html
+Add this markdown to `docs/learning-graph/index.md` right after the level-1 heading:
 
-Replace the "TITLE" placeholder in main.html with the course title:
+```markdown
+[Open Learning Graph Viewer Fullscreen](../sims/graph-viewer/main.html){ .md-button .md-button--primary }
 
-1. Extract title from learning-graph.json metadata
-2. In `docs/sims/graph-viewer/main.html`, replace all instances of "TITLE" with the actual course title
-3. This appears in two locations:
-   - The `<title>` tag: `<title>Learning Graph Viewer for TITLE</title>`
-   - The page heading: `<h4>Learning Graph for TITLE</h4>`
+<iframe src="../sims/graph-viewer/main.html" width="100%" height="600px" frameborder="0"></iframe>
+```
 
-### Step 9: Update MkDocs Navigation (Optional)
+## Step 6: Update mkdocs.yml Navigation
 
-If the user wants the graph viewer in the site navigation, add it to `mkdocs.yml`:
+Add the graph viewer to the MicroSims section in `mkdocs.yml`:
 
 ```yaml
 nav:
+  # ... existing nav ...
   - MicroSims:
-    - Graph Viewer: sims/graph-viewer/index.md
+    - Learning Graph Viewer: sims/graph-viewer/index.md
 ```
 
-### Step 10: Add the Fullscreen Link and Iframe to the Learning Graph Index.md
+## Step 7: Inform the User
 
-Add the following markdown to the @docs/learning-graph/index.md right after the level 1 title
-
-```markdown
-[Open Learning Graph Viewer Fullscreen](./main.html){ .md-button .md-button--primary }
-
-<iframe src="./main.html" width="100%" height="600px" frameborder="0"></iframe>
+Tell the user to test at:
+```
+http://127.0.0.1:8000/REPO_NAME/sims/graph-viewer/main.html
 ```
 
-### Step 11: Inform the User
+Where REPO_NAME is the git repository name.
 
-Provide the user with instructions to test the installation:
-
-1. Run `mkdocs serve` to start the local development server
-2. Navigate to the appropriate URL based on their repository name:
-   - Format: `http://localhost:8000/REPO_NAME/sims/graph-viewer/main.html`
-3. Alternatively, access it through the MkDocs site menu if added to navigation
-
----
-
-## vis-network Options Reference
-
-The viewer uses these vis-network configuration options:
-
-### Groups Configuration
-
-**Purpose:** Maps learning graph taxonomy groups to vis-network colors so legend and nodes match.
-
-```javascript
-const visGroups = {};
-Object.entries(groups).forEach(([groupId, groupInfo]) => {
-    visGroups[groupId] = {
-        color: {
-            background: groupInfo.color || 'lightgray',  // Node fill color
-            border: groupInfo.color || 'lightgray',      // Node border color
-            highlight: {
-                background: groupInfo.color || 'lightgray',
-                border: '#333'                            // Dark border when selected
-            },
-            hover: {
-                background: groupInfo.color || 'lightgray',
-                border: '#666'                            // Medium border on hover
-            }
-        },
-        font: {
-            color: groupInfo.font?.color || 'black'       // Label text color
-        }
-    };
-});
-```
-
-### Layout Options
-
-**Purpose:** Controls initial node positioning. Uses physics-based layout (NOT hierarchical).
-
-```javascript
-layout: {
-    randomSeed: 42,        // Consistent initial positions across reloads
-    improvedLayout: true   // Better initial spread before physics kicks in
-}
-```
-
-**Important:** Do NOT use hierarchical layout for learning graphs - it doesn't work well with complex DAGs.
-
-### Physics Options
-
-**Purpose:** Controls force-directed graph simulation for node positioning.
-
-```javascript
-physics: {
-    enabled: true,
-    solver: 'forceAtlas2Based',           // Best solver for large graphs
-    forceAtlas2Based: {
-        gravitationalConstant: -50,        // Repulsion force (negative = push apart)
-        centralGravity: 0.01,              // Pull toward center (low = spread out)
-        springLength: 100,                 // Ideal edge length in pixels
-        springConstant: 0.08,              // Edge spring stiffness
-        damping: 0.4,                      // Velocity damping (higher = slower settling)
-        avoidOverlap: 0.5                  // Node overlap prevention (0-1)
-    },
-    stabilization: {
-        enabled: true,
-        iterations: 1000,                  // Stabilization iterations before render
-        updateInterval: 25                 // Progress update frequency (ms)
-    }
-}
-```
-
-### Node Options
-
-**Purpose:** Visual appearance of concept nodes.
-
-```javascript
-nodes: {
-    shape: 'box',          // Rectangular nodes (good for text labels)
-    margin: 4,             // Padding inside node box
-    font: {
-        size: 14,          // Label font size
-        face: 'Arial'      // Font family
-    },
-    borderWidth: 2,        // Node border thickness
-    shadow: true           // Drop shadow for depth
-}
-```
-
-### Edge Options
-
-**Purpose:** Visual appearance of dependency arrows.
-
-```javascript
-edges: {
-    smooth: {
-        type: 'cubicBezier',         // Curved edges
-        forceDirection: 'horizontal', // Curves bend horizontally
-        roundness: 0.4               // Curve intensity (0-1)
-    },
-    width: 1.5                       // Line thickness
-}
-```
-
-**Note on edge creation:** Edges are created with arrows and muted color:
-
-```javascript
-edges = new vis.DataSet(allEdges.map(edge => ({
-    ...edge,
-    arrows: 'to',                         // Arrowhead at target
-    color: { color: '#888', opacity: 0.6 } // Gray, semi-transparent
-})));
-```
-
-### Interaction Options
-
-**Purpose:** User interaction controls.
-
-```javascript
-interaction: {
-    hover: true,           // Enable hover effects
-    tooltipDelay: 200,     // Delay before tooltip appears (ms)
-    zoomView: true,        // Allow scroll-to-zoom
-    dragView: true         // Allow click-and-drag panning
-}
-```
-
----
-
-## CSS Reference
-
-### Layout Classes
-
-| Class | Purpose |
-|-------|---------|
-| `.container` | Flex container holding sidebar + graph (100vw × 100vh) |
-| `.sidebar` | Left sidebar (200px width, collapsible to 50px) |
-| `.sidebar.collapsed` | Collapsed state styling |
-| `.sidebar-content` | Scrollable content area inside sidebar |
-| `.graph-container` | Main graph area (flex: 1, fills remaining space) |
-| `#network` | vis-network canvas (100% × 100%) |
-
-### Sidebar Header Classes
-
-| Class | Purpose |
-|-------|---------|
-| `.sidebar-header` | Blue header bar with title and toggle |
-| `.sidebar-header h4` | Title text (truncates with ellipsis) |
-| `.toggle-btn` | Hamburger menu button (&#9776;) |
-
-### Search Classes
-
-| Class | Purpose |
-|-------|---------|
-| `.search-container` | Wrapper for search input and results |
-| `.search-results` | Dropdown with matching concepts |
-| `.search-result-item` | Individual search result row |
-| `.result-label` | Concept name in search result |
-| `.result-category` | Category badge in search result |
-
-### Legend Classes
-
-| Class | Purpose |
-|-------|---------|
-| `.legend-container` | Wrapper for category legend |
-| `.legend-controls` | Check All / Uncheck All buttons |
-| `.legend-btn` | Individual control button |
-| `#legend` | Container for legend items (scrollable) |
-| `.legend-item` | Single category row (checkbox + color + label) |
-| `.color-box` | 20×20px color swatch |
-
-### Statistics Classes
-
-| Class | Purpose |
-|-------|---------|
-| `.stats-container` | Gray background box for stats |
-| `#stats` | Container for stat paragraphs |
-| `#visible-nodes` | Span for node count (blue text) |
-| `#visible-edges` | Span for edge count (blue text) |
-| `#foundational-nodes` | Span for foundational count (blue text) |
-
-### Key CSS Variables/Colors
-
-| Element | Color | Usage |
-|---------|-------|-------|
-| Sidebar header | `#2196F3` | Blue Material Design primary |
-| Focus ring | `rgba(33, 150, 243, 0.1)` | Light blue focus glow |
-| Stats numbers | `#2196F3` | Blue accent for statistics |
-| Graph background | `aliceblue` | Light blue canvas background |
-| Borders | `#ddd` | Light gray for borders |
-| Text primary | `#333` | Dark gray for headings |
-| Text secondary | `#555` / `#666` | Medium gray for labels |
-
----
-
-## Common Issues and Fixes
-
-### Issue 1: Legend colors don't match node colors
-
-**Symptom:** When filtering by category, the visible nodes are a different color than the legend swatch.
-
-**Cause:** The script must pass the groups configuration to vis-network's `groups` option.
-
-**Fix:** Ensure script.js builds `visGroups` from JSON and passes to options:
-
-```javascript
-const options = {
-    groups: visGroups,  // This is required!
-    // ... other options
-};
-```
-
-### Issue 2: Legend shows group IDs instead of readable names
-
-**Symptom:** The legend shows "FOUND", "BLOOM" instead of "Foundation Concepts", "Bloom's Taxonomy".
-
-**Cause:** The `classifierName` values in learning-graph.json are set to the group IDs.
-
-**Fix:** Update the groups section in learning-graph.json to have proper classifierName values.
-
-### Issue 3: Hierarchical layout doesn't work well
-
-**Symptom:** The graph layout is messy or nodes overlap badly.
-
-**Cause:** Hierarchical layout doesn't work well with DAGs that have complex dependency structures.
-
-**Fix:** Use physics-based layout with `forceAtlas2Based` solver (as shown in script.js).
-
-### Issue 4: Checkbox toggling is very slow (10–20 seconds)
-
-**Symptom:** Clicking "Uncheck All" takes 10+ seconds. Checking a single category after unchecking all takes 20+ seconds. The browser tab freezes briefly.
-
-**Cause:** `vis.DataSet.update()` was called once per node and once per edge inside `forEach` loops. Each individual call triggers a full internal redraw event. With 200+ nodes and 400+ edges, a single toggle fires hundreds or thousands of redraws.
-
-**Fix:** Always pass an **array** to `DataSet.update()` so all changes are applied in a single redraw:
-
-```javascript
-// WRONG — triggers one full redraw per node (10-20 seconds for 375 nodes)
-allNodes.forEach(node => {
-    nodes.update({ id: node.id, hidden: !isVisible });
-});
-
-// CORRECT — one redraw for all nodes regardless of count (sub-second)
-nodes.update(allNodes.map(node => ({
-    id: node.id,
-    hidden: !visibleGroups.has(node.group)
-})));
-```
-
-Apply the same pattern to edges. The `script.js` template in this skill already uses the correct batched form. This issue only appears when the wrong form is introduced by editing the script manually.
-
-**Performance impact measured on 375-node biology graph:**
-
-| Operation | Per-item updates | Batched updates |
-|-----------|-----------------|-----------------|
-| Uncheck All | ~10 seconds | <1 second |
-| Check one category | ~20 seconds | <1 second |
-| Redraws per toggle | 1,139 | 2 |
-
-**Rule:** Never call `DataSet.update(singleObject)` inside a loop. Always collect updates into an array and call `DataSet.update(array)` once.
-
-### Issue 5: Graph keeps spinning indefinitely
-
-**Symptom:** The graph keeps moving for a long time before settling.
-
-**Cause:** Physics simulation continues running without a timeout.
-
-**Fix:** The script automatically disables physics after 5 seconds. This is already in the template:
-
-```javascript
-// Turn off physics after 5 seconds to stop spinning
-setTimeout(() => {
-    network.setOptions({ physics: { enabled: false } });
-}, 5000);
-```
-
-Physics is re-enabled when dragging nodes to allow repositioning, then disabled again after 1 second.
-
----
-
-## Viewer Features
-
-The installed graph viewer provides:
-
-**Search Functionality:**
-
-- Type-ahead search with dropdown results
-- Shows category information for each node
-- Focuses and selects matching nodes in the visualization
-
-**Category Filtering:**
-
-- Sidebar legend with color-coded categories
-- Checkboxes to show/hide specific taxonomy groups
-- "Check All" and "Uncheck All" bulk operations
-- Collapsible sidebar for expanded viewing
-
-**Real-time Statistics:**
-
-- Visible node count
-- Visible edge count
-- Foundational node count (concepts with no dependencies)
-
-**Interactive Visualization:**
-
-- vis-network graph with physics simulation (auto-stops after 5 seconds)
-- Color-coded nodes by taxonomy category
-- Directed edges showing concept dependencies
-- Zoomable and draggable interface
-- Node highlight on selection (dims unconnected nodes)
-- Drag nodes to reposition (physics re-enables temporarily)
-
----
-
-## Technical Details
-
-**File Structure:**
+## File Structure Created
 
 ```
 docs/sims/graph-viewer/
-├── main.html      # Main application HTML
-├── script.js      # JavaScript logic for visualization
-├── local.css      # Styling for the viewer
-└── index.md       # Documentation page with iframe embed
+├── main.html      # vis-network viewer (TITLE replaced with course name)
+├── script.js      # Graph loading, search, filtering, highlighting
+├── local.css      # Sidebar layout, search, legend, stats styling
+└── index.md       # MkDocs page with iframe embed + fullscreen link
 ```
 
-**Dependencies:**
+## Troubleshooting
 
-- vis-network.js (loaded from CDN: `https://unpkg.com/vis-network/standalone/umd/vis-network.min.js`)
-- learning-graph.json (loaded from `../../learning-graph/learning-graph.json`)
+| Issue | Cause | Fix |
+|-------|-------|-----|
+| Legend shows IDs like "FOUND" | classifierName not set | Fix taxonomy-names.json, regenerate JSON |
+| Colors don't match legend | groups not passed to vis-network | Verify script.js builds visGroups from JSON |
+| Graph keeps spinning | Physics timeout missing | script.js disables physics after 5s (built-in) |
+| Checkbox toggling slow | Per-item DataSet.update() calls | Use batched array update (built-in) |
+| Graph not loading | Wrong JSON path | script.js expects `../../learning-graph/learning-graph.json` |
 
-**Data Path:**
-The script.js file loads the learning graph from a relative path: `../../learning-graph/learning-graph.json`. This assumes the standard intelligent textbook structure where `/docs/sims/` and `/docs/learning-graph/` are siblings.
+## Dependencies
+
+- vis-network.js (CDN: `https://unpkg.com/vis-network/standalone/umd/vis-network.min.js`)
+- learning-graph.json at `docs/learning-graph/learning-graph.json`
