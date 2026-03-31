@@ -75,7 +75,7 @@ class DiagramSim {
 
     requestAnimationFrame(() => {
       this.drawLeaders();
-      this.resizeObserver = new ResizeObserver(() => this.drawLeaders());
+      this.resizeObserver = new ResizeObserver(() => { this.drawLeaders(); this.reportHeight(); });
       this.resizeObserver.observe(this.layoutEl);
     });
 
@@ -83,6 +83,65 @@ class DiagramSim {
       this.activateEditMode();
     } else {
       this.setMode('explore');
+    }
+
+    this.reportHeight();
+  }
+
+  // ── Iframe auto-resize ────────────────────────────────────────────────────
+  // Sends the actual content height to the parent page via postMessage so the
+  // parent can resize the iframe to fit.  No-op when running fullscreen.
+
+  reportHeight() {
+    if (window.self === window.top) return;
+
+    // Temporarily populate the infobox with the longest callout content
+    // so scrollHeight reflects the worst-case height.
+    const descEl   = document.getElementById('infobox-desc');
+    const labelEl  = document.getElementById('infobox-label');
+    const tipEl    = document.getElementById('infobox-ap-tip');
+    const promptEl = document.getElementById('infobox-prompt');
+
+    if (this.data && this.data.callouts && descEl) {
+      const savedDesc   = descEl.textContent;
+      const savedLabel  = labelEl.textContent;
+      const savedTip    = tipEl ? tipEl.textContent : '';
+      const savedTipVis = tipEl ? tipEl.style.display : '';
+      const savedPrompt = promptEl ? promptEl.style.display : '';
+
+      // Find the callout with the longest combined text
+      let longest = this.data.callouts[0];
+      let maxLen  = 0;
+      for (const c of this.data.callouts) {
+        const len = (c.description || '').length + (c.ap_tip || '').length;
+        if (len > maxLen) { maxLen = len; longest = c; }
+      }
+
+      // Fill infobox with longest content to measure
+      const contentEl     = document.getElementById('infobox-content');
+      const savedContent  = contentEl ? contentEl.style.display : '';
+      if (promptEl) promptEl.style.display = 'none';
+      if (contentEl) contentEl.style.display = 'block';
+      labelEl.textContent = longest.label || '';
+      descEl.textContent  = longest.description || '';
+      if (tipEl && longest.ap_tip) {
+        tipEl.textContent   = longest.ap_tip;
+        tipEl.style.display = 'block';
+      }
+
+      const height = document.body.scrollHeight + 30;
+
+      // Restore original infobox state
+      if (contentEl) contentEl.style.display = savedContent;
+      descEl.textContent  = savedDesc;
+      labelEl.textContent = savedLabel;
+      if (tipEl) { tipEl.textContent = savedTip; tipEl.style.display = savedTipVis; }
+      if (promptEl) promptEl.style.display = savedPrompt;
+
+      window.parent.postMessage({ type: 'microsim-resize', height: height }, '*');
+    } else {
+      const height = document.body.scrollHeight + 30;
+      window.parent.postMessage({ type: 'microsim-resize', height: height }, '*');
     }
   }
 
@@ -526,7 +585,7 @@ class DiagramSim {
 
     const tipEl = document.getElementById('infobox-ap-tip');
     if (callout.ap_tip) {
-      tipEl.innerHTML    = '<strong>AP Exam Tip:</strong> ' + callout.ap_tip;
+      tipEl.innerHTML    = '<strong>college placement Exam Tip:</strong> ' + callout.ap_tip;
       tipEl.style.display = 'block';
     } else {
       tipEl.style.display = 'none';
@@ -624,7 +683,7 @@ class DiagramSim {
 
       const tipEl = document.getElementById('infobox-ap-tip');
       if (target.ap_tip) {
-        tipEl.innerHTML    = '<strong>AP Exam Tip:</strong> ' + target.ap_tip;
+        tipEl.innerHTML    = '<strong>college placement Exam Tip:</strong> ' + target.ap_tip;
         tipEl.style.display = 'block';
       }
 

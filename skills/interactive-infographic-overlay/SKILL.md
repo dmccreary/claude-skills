@@ -164,6 +164,61 @@ This edit mode is built into diagram.js and requires no additional code.
 #16A085  sea green — fluid/matrix regions
 ```
 
+## Iframe Auto-Resize via postMessage
+
+Diagram overlay MicroSims have responsive content heights that change with
+viewport width. Rather than guessing a fixed `height` for the `<iframe>`,
+`diagram.js` automatically reports its actual content height to the parent
+page via `postMessage`. The parent page's `extra.js` listens for these
+messages and adjusts the iframe height dynamically.
+
+### How It Works
+
+1. **Sender (diagram.js)** — After init and on every resize, the
+   `reportHeight()` method temporarily populates the infobox with the
+   **longest** callout's description + AP tip, measures
+   `document.body.scrollHeight + 30px`, then restores the default infobox
+   state. This ensures the iframe is sized for the worst-case content height
+   from the start — no clipping when users hover over long descriptions.
+
+2. **Receiver (extra.js on parent page)** — A `message` event listener
+   matches `event.source` to the correct iframe's `contentWindow` and sets
+   `iframe.style.height` to the reported height.
+
+3. **Fallback** — The static `height="NNN"` attribute in the iframe HTML
+   remains as a fallback shown while the sim loads. Once the sim renders
+   and reports its height, the static value is overridden.
+
+### Requirements
+
+The parent page must include this listener in its JavaScript (already present
+in the standard `docs/js/extra.js`):
+
+```javascript
+window.addEventListener('message', function (event) {
+    if (!event.data || event.data.type !== 'microsim-resize') return;
+    var iframes = document.querySelectorAll('iframe');
+    for (var i = 0; i < iframes.length; i++) {
+        if (iframes[i].contentWindow === event.source) {
+            iframes[i].style.height = event.data.height + 'px';
+            break;
+        }
+    }
+});
+```
+
+If the project's `extra.js` does not have this listener, add it. The
+diagram MicroSims will still work without it — they'll just use the static
+iframe height as before.
+
+## Controls Placement
+
+The Explore/Quiz `#controls` div must be placed **below** `#layout` and
+**above** `#infobox` in `main.html`. This gives the diagram image maximum
+vertical space and places mode buttons where users expect them after
+viewing the diagram. The `main-template.html` asset already follows this
+order.
+
 ## Common Pitfalls
 
 - **Text in generated images** — Always verify the image has NO text, labels, or arrows. Regenerate if the LLM adds annotations.

@@ -9,14 +9,6 @@
 </head>
 <body>
 
-<div id="controls">
-  <button class="mode-btn active" id="btn-explore" onclick="sim.setMode('explore')">Explore</button>
-  <button class="mode-btn"        id="btn-quiz"    onclick="sim.setMode('quiz')">Quiz</button>
-  <span id="quiz-score" style="display:none">
-    Score: <strong id="score-val">0</strong> / <strong id="score-total">0</strong>
-  </span>
-</div>
-
 <div id="layout">
   <svg id="leaders-svg"></svg>
 
@@ -28,6 +20,14 @@
   <div id="label-panel">
     <!-- label rows injected by diagram.js -->
   </div>
+</div>
+
+<div id="controls">
+  <button class="mode-btn active" id="btn-explore" onclick="sim.setMode('explore')">Explore</button>
+  <button class="mode-btn"        id="btn-quiz"    onclick="sim.setMode('quiz')">Quiz</button>
+  <span id="quiz-score" style="display:none">
+    Score: <strong id="score-val">0</strong> / <strong id="score-total">0</strong>
+  </span>
 </div>
 
 <div id="infobox">
