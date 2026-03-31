@@ -1,8 +1,10 @@
-// Bouncing Ball example - use as a template for other sims
+// Bouncing Ball width responsive example MicroSim template - use as a template for other p5.js MicroSims
+// CANVAS_HEIGHT = 430
+// Use this CANVAS_HEIGHT for all the iframe heights that embed this MicroSim
 // This simulation shows a ball bouncing around inside a drawing region.
 // The design is width responsive so it adjusts to the width of container as it resizes.
 // Note that the width of the slider must also change with a window resize event
-// MicroSim template version 2026.02
+// MicroSim template version 2026.03
 
 // global variables for width and height
 let containerWidth; // this values is calculated by container upon init and changed on resize
@@ -44,6 +46,9 @@ let speedSlider;
 // Start/Pause button and running state
 let startButton;
 let isRunning = false; // the default state of all microsims must be paused
+// No exceptions to the default paused state - this is a required MicroSim standard
+// Running simulation as you scroll down a chapter text are distracting for students and 
+// can cause cognitive overload - this is why the default state of all MicroSims must be paused
 
 function setup() {
   updateCanvasSize() // set the container dimensions to get the correct container width
@@ -51,6 +56,8 @@ function setup() {
   var mainElement = document.querySelector('main');
   canvas.parent(mainElement);
 
+  // Set the default text size for all text in the MicroSim
+  // Do not use any text smaller than 16 if possible to ensure readability for students in the back of the classroom
   textSize(16);
 
   // Always use the native builtin p5.js controls
@@ -70,30 +77,33 @@ function draw() {
   // check for window resize
   updateCanvasSize();
 
-  // fill drawing area with very light blue background - MicroSim standard style
+  // fill drawing area with very light blue background - a requiredMicroSim standard
   fill('aliceblue');
   // draw a light gray border around the BOTH the drawing region and the control region
   stroke('silver');
   strokeWeight(1);
   rect(0, 0, canvasWidth, drawHeight);
 
-  // fill control area with a white background
+  // fill control area with a white background and keep the same silver border
   fill('white');
-  rect(0, drawHeight, canvasWidth, canvasHeight-drawHeight); 
+  rect(0, drawHeight, canvasWidth, canvasHeight-drawHeight);
+  noStroke(); // turn off the stroke for all text
 
   // get the new speed from the UI
   speed = speedSlider.value();
 
   // Draw the title centered at the top of the MicroSim in 32 point font
   fill('black');
-  // Always put the noStroke() before we draw text
+  // Always put the noStroke() before we draw ANY text
   noStroke();
+  // Use the built in textAlign function to center the text horizontally at the top of the canvas
   textAlign(CENTER, TOP);
   textSize(32);
-  // place the text in the exact center a margin down from the top of the canvas
+  // place the text in the exact center a margin down from the top of the canvas 
+  // a margin down from the top of the canvas
   text('Bouncing Ball Simulation', canvasWidth/2, margin);
 
-  // Only update position when running
+  // Only update position when the MicroSim is running
   if (isRunning) {
     // adjust the x and y directions
     if (dx > 0) dx = speed;
@@ -115,7 +125,7 @@ function draw() {
     }
   }
 
-  // draw the ball
+  // draw the blue ball at (x,y) with diameter of r*2
   fill('blue');
   circle(x, y, r*2);
 
@@ -126,7 +136,7 @@ function draw() {
   noStroke();
   textAlign(LEFT, CENTER);
   textSize(defaultTextSize);
-  // Note that the label and values are both in a single text - do not separate
+  // Note that the label and values are BOTH in a single text - do not separate
   text('Speed: ' + speed, 70, drawHeight+15);
 }
 
@@ -137,12 +147,16 @@ function toggleSimulation() {
 }
 
 // These two functions must be present for width responsiveness MicroSims
+// Always place them at the END of the code
 // this function is called whenever the browser window is resized
 function windowResized() {
   // Update canvas size when the container resizes
   updateCanvasSize();
   resizeCanvas(containerWidth, containerHeight);
-  // resize the speed slider and any other sliders here
+  // Resize the speed slider width and any other sliders here.
+  // This is an indiction of high-quality width responsive design 
+  // when the slider width also resize with the window resize event.
+  // Students have more control over the positioning with a wider canvas.
   speedSlider.size(canvasWidth - sliderLeftMargin - margin);
   redraw();
 }

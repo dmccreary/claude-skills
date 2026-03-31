@@ -1,6 +1,6 @@
 ---
 name: learning-mascot
-description: Guides users through designing a pedagogical agent (learning mascot) for their intelligent textbook, generating AI image prompts, and implementing the mascot using inline images, custom CSS admonitions, or JavaScript auto-detection.
+description: Guides users through designing a pedagogical agent (learning mascot) for their intelligent textbook, generating AI image prompts, and implementing the mascot using custom CSS admonitions with body-floated images.
 ---
 
 # Learning Mascot (Pedagogical Agent)
@@ -11,10 +11,7 @@ This skill helps users design and implement a pedagogical agent — a visual mas
 
 1. **Character Design** - A fully defined mascot persona (name, species, appearance, voice, catchphrase)
 2. **AI Image Prompts** - Ready-to-use prompts for generating mascot images in consistent poses
-3. **Implementation** - One of three methods for embedding the mascot in the textbook:
-   - **Option 1**: Inline markdown images (simplest)
-   - **Option 2**: Custom CSS admonitions with mascot icons (recommended)
-   - **Option 3**: JavaScript auto-detection of character name/catchphrase (most advanced)
+3. **Implementation** - Custom CSS admonitions with mascot images floated left in the admonition body
 4. **CLAUDE.md Section** - Character guidelines for consistent AI-generated content
 
 ## Benefits of a Learning Mascot
@@ -87,7 +84,7 @@ Provide 3-5 name suggestions based on the species and subject.
 
 **Question 4: What is the character's catchphrase?**
 
-The catchphrase serves double duty — it's personality AND a trigger for CSS/JS styling. Suggest options:
+The catchphrase adds personality. Suggest options:
 
 - **Math**: "Let's figure this out!", "Numbers never lie!", "Time to calculate!"
 - **Science**: "Let's experiment!", "Hypothesis time!", "Let's crack this nut!"
@@ -113,7 +110,7 @@ Suggest placement contexts:
 | Context | Purpose | Frequency | Filename |
 |---------|---------|-----------|----------|
 | Neutral Pose | General pose | As needed | neutral.png |
-| Chapter Welcome | Welcome and preview | Start of very chapter | welcome.png |
+| Chapter Welcome | Welcome and preview | Start of every chapter | welcome.png |
 | Key insight | Signal important insights | As needed | thinking.png |
 | Tips and hints | Offer helpful guidance | As needed | tip.png |
 | Warnings and pitfalls | Alert to common mistakes | As needed | warning.png |
@@ -131,11 +128,11 @@ The mascot should NOT appear:
 
 ### Step 3: Generate AI Image Prompts
 
-Create a set of prompts for generating consistent mascot images. Generate prompts for these standard poses:
+Create a set of prompts for generating consistent mascot images. **Each prompt must be fully self-contained** — include the complete base character description in every prompt so they can be used independently without copying a separate base block.
 
 #### Base Character Prompt
 
-This is the core description reused across all poses:
+This is the core description to include in every pose prompt:
 
 ```
 Please generate a new pose for [NAME] the [SPECIES].
@@ -145,68 +142,83 @@ for a [SUBJECT] textbook. [NAME] is [COLOR_DESCRIPTION], wearing [ACCESSORIES].
 Style: [ART_STYLE], clean lines, transparent background,
 suitable for embedding in educational content. No text in image.
 
-Please generate a single png image with a transparent background now.
+Please generate a new png image now with a fully transparent background now.
 
 ```
 
 #### Pose Variants
 
-Generate prompts for each of these poses:
+Generate prompts for each of these poses. **Always include the full base description in each prompt** — never use `[BASE]` shorthand:
 
 **1. Neutral/Default Pose** (general sidebars, introductions, inline use)
 ```
-[BASE_PROMPT] [NAME] stands upright in a relaxed, neutral pose facing the
+[FULL BASE DESCRIPTION] [NAME] stands upright in a relaxed, neutral pose facing the
 viewer directly, with a calm and friendly closed-mouth smile. Arms/paws/wings
 rest naturally at their sides with no specific gesture. The pose is balanced
 and unassuming — suitable as a general-purpose or default illustration.
 Filename: neutral.png
+
+Please generate a new png image now with a fully transparent background now.
 ```
 
 **2. Welcome/Introduction Pose** (chapter openings)
 ```
-[BASE_PROMPT] [NAME] is waving cheerfully with one hand/paw/wing,
+[FULL BASE DESCRIPTION] [NAME] is waving cheerfully with one hand/paw/wing,
 facing the viewer with a warm, welcoming expression.
 The pose suggests "welcome" and "let's get started."
 Filename: welcome.png
+
+Please generate a new png image now with a fully transparent background now.
 ```
 
 **3. Thinking/Teaching Pose** (key concepts)
 ```
-[BASE_PROMPT] [NAME] has one hand/paw on chin in a thoughtful pose,
+[FULL BASE DESCRIPTION] [NAME] has one hand/paw on chin in a thoughtful pose,
 with a small lightbulb or thought bubble above their head.
 The pose suggests deep thinking and discovery.
 Filename: thinking.png
+
+Please generate a new png image now with a fully transparent background now.
 ```
 
 **4. Pointing/Tip Pose** (tips and hints)
 ```
-[BASE_PROMPT] [NAME] is pointing upward with one finger/paw
+[FULL BASE DESCRIPTION] [NAME] is pointing upward with one finger/paw
 as if sharing an important tip. Expression is helpful and knowing.
 A small star or sparkle near the pointing gesture.
 Filename: tip.png
+
+Please generate a new png image now with a fully transparent background now.
 ```
 
 **5. Warning/Caution Pose** (warnings and pitfalls)
 ```
-[BASE_PROMPT] [NAME] holds up both hands/paws in a gentle "stop"
+[FULL BASE DESCRIPTION] [NAME] holds up both hands/paws in a gentle "stop"
 or "be careful" gesture. Expression is concerned but caring.
 A small exclamation mark or caution symbol nearby.
 Filename: warning.png
+
+Please generate a new png image now with a fully transparent background now.
 ```
 
 **6. Encouraging Pose** (difficult sections)
 ```
-[BASE_PROMPT] [NAME] gives a thumbs up (or equivalent gesture)
+[FULL BASE DESCRIPTION] [NAME] gives a thumbs up (or equivalent gesture)
 with a reassuring, supportive smile. The pose radiates confidence
 and "you can do it" energy.
 Filename: encouraging.png
+
+Please generate a new png image now with a fully transparent background now.
 ```
 
 **7. Celebration Pose** (achievements, chapter completion)
 ```
-[BASE_PROMPT] [NAME] is jumping or raising both arms/paws/wings
+[FULL BASE DESCRIPTION] [NAME] is jumping or raising both arms/paws/wings
 in celebration. Expression is joyful and proud.
 Small confetti or stars around the character.
+Filename: celebration.png
+
+Please generate a new png image now with a fully transparent background now.
 ```
 
 
@@ -287,130 +299,45 @@ python $BK_HOME/src/image-utils/trim-padding-from-image.py docs/img/mascot/encou
 
 This script trims transparent padding to the bounding box of the visible content. It is critical to run this step because untrimmed images display much smaller than intended inside the admonition boxes.
 
-### Step 5: Choose Implementation Method
-
-Present the three implementation options to the user:
-
----
-
-#### Option 1: Inline Markdown Images (Simplest)
-
-**Best for:** Quick setup, minimal customization, few mascot appearances.
-
-**How it works:** Place mascot images directly in markdown content using the `attr_list` extension.
-
-**Prerequisites:** The `attr_list` extension must be enabled in mkdocs.yml:
-
-```yaml
-markdown_extensions:
-  - attr_list
-```
-
-**Usage in chapter markdown:**
-
-```markdown
-## Welcome to Chapter 3
-
-![Otto welcomes you](../img/mascot/welcome.png){ width="80" align="left" }
-
-Welcome back! In this chapter, we'll explore the fascinating world of
-quadratic equations. Let's dive in!
-
-<div style="clear: both;"></div>
-
----
-
-### Key Concept: The Quadratic Formula
-
-![Otto is thinking](../img/mascot/thinking.png){ width="60" align="right" }
-
-The quadratic formula is one of the most powerful tools in algebra...
-
-<div style="clear: both;"></div>
-```
-
-**Pros:**
-
-- Zero configuration beyond `attr_list`
-- Works anywhere in markdown
-- No CSS or JavaScript needed
-
-**Cons:**
-
-- Manual image placement every time
-- No consistent styling wrapper
-- Requires `clear: both` divs to prevent text wrapping issues
-- Hard to maintain if mascot images change
-
----
-
-#### Option 2: Custom CSS Admonitions (Recommended)
-
-**Best for:** Consistent styling, branded callout boxes, moderate customization.
-
-**How it works:** Creates custom admonition types that automatically display the mascot icon in a styled callout box. Authors use standard admonition syntax.
-
-**Step 5a: Create the Custom CSS**
+### Step 5: Create the Custom CSS
 
 Create or append to `docs/css/mascot.css`:
 
 ```css
 /* ============================================
    Learning Mascot: {{CHARACTER_NAME}} the {{SPECIES}}
-   Custom admonition styles for pedagogical agent
+   Pedagogical agent for {{SUBJECT}}
    ============================================ */
 
-/* --- Base mascot admonition --- */
 :root {
-  --mascot-primary: {{PRIMARY_COLOR}};      /* e.g., #5c6bc0 */
-  --mascot-secondary: {{SECONDARY_COLOR}};  /* e.g., #ff7043 */
-  --mascot-bg: {{BG_COLOR}};               /* e.g., #e8eaf6 */
-  --mascot-border: {{BORDER_COLOR}};       /* e.g., #7986cb */
-  --mascot-size: 60px;
+  --mascot-primary:   {{PRIMARY_COLOR}};   /* e.g., #2e7d32 forest green  */
+  --mascot-secondary: {{SECONDARY_COLOR}}; /* e.g., #795548 warm brown    */
+  --mascot-bg:        {{BG_COLOR}};        /* e.g., #e8f5e9 light green   */
+  --mascot-border:    {{BORDER_COLOR}};    /* e.g., #43a047 medium green  */
+  --mascot-size: 90px;
 }
 
+/* ---- Shared base for all mascot admonitions ---- */
 /* Override MkDocs Material's default smaller admonition font size
    so mascot admonition text matches the body text exactly. */
-.md-typeset .admonition.mascot-neutral,
 .md-typeset .admonition.mascot-welcome,
 .md-typeset .admonition.mascot-thinking,
 .md-typeset .admonition.mascot-tip,
 .md-typeset .admonition.mascot-warning,
 .md-typeset .admonition.mascot-celebration,
 .md-typeset .admonition.mascot-encourage,
-.md-typeset details.mascot-neutral,
+.md-typeset .admonition.mascot-neutral,
 .md-typeset details.mascot-welcome,
 .md-typeset details.mascot-thinking,
 .md-typeset details.mascot-tip,
 .md-typeset details.mascot-warning,
 .md-typeset details.mascot-celebration,
-.md-typeset details.mascot-encourage {
+.md-typeset details.mascot-encourage,
+.md-typeset details.mascot-neutral {
   font-size: inherit;
 }
 
-/* Neutral admonition (general purpose) */
-.md-typeset .admonition.mascot-neutral,
-.md-typeset details.mascot-neutral {
-  border-color: #546e7a;
-  background-color: #eceff1;
-}
-.md-typeset .mascot-neutral > .admonition-title,
-.md-typeset .mascot-neutral > summary {
-  background-color: #546e7a;
-  color: white;
-}
-.md-typeset .mascot-neutral > .admonition-title::before,
-.md-typeset .mascot-neutral > summary::before {
-  content: "";
-  background: url('../img/mascot/neutral.png') center/contain no-repeat;
-  width: 1.2em;
-  height: 1.2em;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 0.4em;
-}
-
-/* Welcome admonition */
+/* ---- Welcome (chapter openings) — primary color ---- */
 .md-typeset .admonition.mascot-welcome,
 .md-typeset details.mascot-welcome {
   border-color: var(--mascot-primary);
@@ -421,138 +348,108 @@ Create or append to `docs/css/mascot.css`:
   background-color: var(--mascot-primary);
   color: white;
 }
-.md-typeset .mascot-welcome > .admonition-title::before,
-.md-typeset .mascot-welcome > summary::before {
-  content: "";
-  background: url('../img/mascot/welcome.png') center/contain no-repeat;
-  width: 1.2em;
-  height: 1.2em;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 0.4em;
-}
 
-/* Thinking admonition */
+/* ---- Thinking (key concepts) — secondary color ---- */
 .md-typeset .admonition.mascot-thinking,
 .md-typeset details.mascot-thinking {
   border-color: var(--mascot-secondary);
-  background-color: #fff3e0;
+  background-color: #efebe9;
 }
 .md-typeset .mascot-thinking > .admonition-title,
 .md-typeset .mascot-thinking > summary {
   background-color: var(--mascot-secondary);
   color: white;
 }
-.md-typeset .mascot-thinking > .admonition-title::before,
-.md-typeset .mascot-thinking > summary::before {
-  content: "";
-  background: url('../img/mascot/thinking.png') center/contain no-repeat;
-  width: 1.2em;
-  height: 1.2em;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 0.4em;
-}
 
-/* Tip admonition */
+/* ---- Tip (hints) — teal ---- */
 .md-typeset .admonition.mascot-tip,
 .md-typeset details.mascot-tip {
-  border-color: #66bb6a;
-  background-color: #e8f5e9;
+  border-color: #00897b;
+  background-color: #e0f2f1;
 }
 .md-typeset .mascot-tip > .admonition-title,
 .md-typeset .mascot-tip > summary {
-  background-color: #66bb6a;
+  background-color: #00897b;
   color: white;
 }
-.md-typeset .mascot-tip > .admonition-title::before,
-.md-typeset .mascot-tip > summary::before {
-  content: "";
-  background: url('../img/mascot/tip.png') center/contain no-repeat;
-  width: 1.2em;
-  height: 1.2em;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 0.4em;
-}
 
-/* Warning admonition */
+/* ---- Warning (common mistakes) — red ---- */
 .md-typeset .admonition.mascot-warning,
 .md-typeset details.mascot-warning {
-  border-color: #ef5350;
+  border-color: #c62828;
   background-color: #ffebee;
 }
 .md-typeset .mascot-warning > .admonition-title,
 .md-typeset .mascot-warning > summary {
-  background-color: #ef5350;
+  background-color: #c62828;
   color: white;
 }
-.md-typeset .mascot-warning > .admonition-title::before,
-.md-typeset .mascot-warning > summary::before {
-  content: "";
-  background: url('../img/mascot/warning.png') center/contain no-repeat;
-  width: 1.2em;
-  height: 1.2em;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 0.4em;
-}
 
-/* Celebration admonition */
+/* ---- Celebration (achievements) — purple ---- */
 .md-typeset .admonition.mascot-celebration,
 .md-typeset details.mascot-celebration {
-  border-color: #ab47bc;
+  border-color: #6a1b9a;
   background-color: #f3e5f5;
 }
 .md-typeset .mascot-celebration > .admonition-title,
 .md-typeset .mascot-celebration > summary {
-  background-color: #ab47bc;
+  background-color: #6a1b9a;
   color: white;
 }
-.md-typeset .mascot-celebration > .admonition-title::before,
-.md-typeset .mascot-celebration > summary::before {
-  content: "";
-  background: url('../img/mascot/celebration.png') center/contain no-repeat;
-  width: 1.2em;
-  height: 1.2em;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 0.4em;
-}
 
-/* Encouraging admonition */
+/* ---- Encourage (difficult content) — blue ---- */
 .md-typeset .admonition.mascot-encourage,
 .md-typeset details.mascot-encourage {
-  border-color: #29b6f6;
+  border-color: #0277bd;
   background-color: #e1f5fe;
 }
 .md-typeset .mascot-encourage > .admonition-title,
 .md-typeset .mascot-encourage > summary {
-  background-color: #29b6f6;
+  background-color: #0277bd;
   color: white;
 }
-.md-typeset .mascot-encourage > .admonition-title::before,
-.md-typeset .mascot-encourage > summary::before {
-  content: "";
-  background: url('../img/mascot/encouraging.png') center/contain no-repeat;
-  width: 1.2em;
-  height: 1.2em;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 0.4em;
+
+/* ---- Neutral (general purpose) — slate gray ---- */
+.md-typeset .admonition.mascot-neutral,
+.md-typeset details.mascot-neutral {
+  border-color: #546e7a;
+  background-color: #eceff1;
+}
+.md-typeset .mascot-neutral > .admonition-title,
+.md-typeset .mascot-neutral > summary {
+  background-color: #546e7a;
+  color: white;
 }
 
-/* --- Mascot image in admonition body (larger, decorative) --- */
+/* ---- Title: left-align text, remove default MkDocs icon completely ---- */
+.md-typeset [class*="mascot-"] > .admonition-title,
+.md-typeset [class*="mascot-"] > summary {
+  text-align: left;
+  padding-left: 0.8rem;
+}
+.md-typeset [class*="mascot-"] > .admonition-title::before,
+.md-typeset [class*="mascot-"] > summary::before {
+  display: none;
+}
+
+/* ---- Mascot image floated LEFT of admonition body text ---- */
 .mascot-admonition-img {
-  float: right;
+  float: left;
   width: var(--mascot-size);
   height: var(--mascot-size);
-  margin: 0 0 0.5em 1em;
+  /* margin: top right bottom left */
+  margin: 0 .5em 0 0;
   object-fit: contain;
 }
 ```
 
-**Step 5b: Register the CSS in mkdocs.yml**
+**IMPORTANT design rules:**
+
+- **Never** put mascot icons in the admonition title bar (no `::before` pseudo-elements with mascot images)
+- **Always** place mascot images in the admonition body using `<img class="mascot-admonition-img">`
+- The title bar is clean text only — the default MkDocs icon is hidden via `display: none`
+
+#### Step 5b: Register the CSS in mkdocs.yml
 
 Add the stylesheet to `mkdocs.yml`:
 
@@ -566,264 +463,61 @@ Also ensure the custom admonition types are registered:
 ```yaml
 markdown_extensions:
   - admonition
+  - md_in_html
   - pymdownx.details
   - pymdownx.superfences
   - attr_list
 ```
 
-**Step 5c: Usage in Chapter Markdown**
+### Step 6: Usage in Chapter Markdown
 
-Authors use standard admonition syntax with the custom types:
+Authors use standard admonition syntax with the custom types. The mascot image is placed as an `<img>` tag floated left inside the admonition body (requires `md_in_html` extension):
+
+**IMPORTANT: Image paths** — The `<img>` `src` path is relative to the rendered page URL, not the markdown file. Because MkDocs uses directory URLs (e.g., `chapters/01-intro/` renders as `chapters/01-intro/index.html`), you must count directories from the page to `docs/img/mascot/`. For a chapter page at `chapters/01-intro/index.md`, use `../../img/mascot/`. For a page at `learning-graph/mascot-test.md`, use `../../img/mascot/`.
 
 ```markdown
 !!! mascot-neutral "A Note from {{CHARACTER_NAME}}"
-
+    <img src="../../img/mascot/neutral.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} neutral pose">
     Use this for general sidebars, introductions, or any content
     that doesn't call for a specific emotional tone.
 
-!!! mascot-welcome "Welcome to Quadratic Equations!"
-
+!!! mascot-welcome "Welcome!"
+    <img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} waving welcome">
     In this chapter, we'll discover how to solve equations
     of the form ax² + bx + c = 0. Get ready for some
     powerful mathematical tools!
 
 !!! mascot-thinking "Key Insight"
-
+    <img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} thinking">
     Notice that every quadratic equation has at most two
     solutions. This connects directly to the degree of the
     polynomial!
 
 !!! mascot-tip "{{CHARACTER_NAME}}'s Tip"
-
+    <img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} giving a tip">
     Always check your answers by substituting back into
     the original equation. It only takes a moment and
     catches most errors!
 
 !!! mascot-warning "Common Mistake"
-
+    <img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} warning">
     Don't forget to account for the negative sign when
     using the quadratic formula. The ± means you need
     to solve BOTH cases!
 
 !!! mascot-encourage "You Can Do This!"
-
+    <img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} encouraging">
     Factoring can feel tricky at first. That's completely
     normal! With practice, you'll start seeing patterns
     everywhere.
-```
 
 !!! mascot-celebration "Great Progress!"
-
+    <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} celebrating">
     You've now mastered the quadratic formula! This is
     one of the most important tools in all of algebra.
-
-
-**Pros:**
-
-- Consistent, branded appearance
-- Authors use simple admonition syntax
-- Easy to change styling globally via CSS
-- Icons appear automatically in admonition titles
-
-**Cons:**
-
-- Requires CSS setup
-- Custom admonition types need registration
-- Authors must remember the correct type names
-
----
-
-#### Option 3: JavaScript Auto-Detection (Most Advanced)
-
-**Best for:** Large projects with many contributors, automatic styling without special syntax, maximum consistency.
-
-**How it works:** A JavaScript file scans all admonitions on page load. When it finds the character's name or catchphrase in an admonition title, it automatically applies mascot styling and adds the character image.
-
-**Step 5a: Create the JavaScript File**
-
-Create `docs/js/mascot.js`:
-
-```javascript
-/* ============================================
-   Learning Mascot: Auto-Detection Script
-   Scans admonitions for character name/catchphrase
-   and applies mascot styling automatically.
-   ============================================ */
-
-document.addEventListener('DOMContentLoaded', function() {
-  // --- Configuration ---
-  const MASCOT_CONFIG = {
-    name: '{{CHARACTER_NAME}}',
-    catchphrases: [
-      '{{CATCHPHRASE_1}}',
-      '{{CATCHPHRASE_2}}',
-      '{{CATCHPHRASE_3}}'
-    ],
-    images: {
-      welcome:     '../img/mascot/welcome.png',
-      thinking:    '../img/mascot/thinking.png',
-      tip:         '../img/mascot/tip.png',
-      warning:     '../img/mascot/warning.png',
-      celebration: '../img/mascot/celebration.png',
-      encouraging: '../img/mascot/encouraging.png',
-      default:     '../img/mascot/welcome.png'
-    },
-    // Map keywords in title to image variant
-    titleKeywords: {
-      'welcome':       'welcome',
-      'introduction':  'welcome',
-      'let\\'s begin':  'welcome',
-      'key':           'thinking',
-      'insight':       'thinking',
-      'think':         'thinking',
-      'tip':           'tip',
-      'hint':          'tip',
-      'remember':      'tip',
-      'warning':       'warning',
-      'caution':       'warning',
-      'mistake':       'warning',
-      'careful':       'warning',
-      'great':         'celebration',
-      'congrat':       'celebration',
-      'excellent':     'celebration',
-      'well done':     'celebration',
-      'you can':       'encouraging',
-      'don\\'t give up': 'encouraging',
-      'keep going':    'encouraging',
-      'practice':      'encouraging'
-    },
-    cssClass: 'mascot-enhanced',
-    borderColor: '{{PRIMARY_COLOR}}',
-    bgColor: '{{BG_COLOR}}'
-  };
-
-  // --- Detection Logic ---
-  function detectMascotAdmonitions() {
-    const admonitions = document.querySelectorAll('.admonition, details');
-
-    admonitions.forEach(function(admonition) {
-      const titleEl = admonition.querySelector('.admonition-title, summary');
-      if (!titleEl) return;
-
-      const titleText = titleEl.textContent.toLowerCase();
-
-      // Check if title contains character name or any catchphrase
-      const nameMatch = titleText.includes(MASCOT_CONFIG.name.toLowerCase());
-      const catchphraseMatch = MASCOT_CONFIG.catchphrases.some(function(phrase) {
-        return titleText.includes(phrase.toLowerCase());
-      });
-
-      if (nameMatch || catchphraseMatch) {
-        applyMascotStyling(admonition, titleText);
-      }
-    });
-  }
-
-  function applyMascotStyling(admonition, titleText) {
-    // Prevent double-processing
-    if (admonition.classList.contains(MASCOT_CONFIG.cssClass)) return;
-    admonition.classList.add(MASCOT_CONFIG.cssClass);
-
-    // Determine which image variant to use
-    var imageVariant = 'default';
-    var keywords = Object.keys(MASCOT_CONFIG.titleKeywords);
-    for (var i = 0; i < keywords.length; i++) {
-      if (titleText.includes(keywords[i])) {
-        imageVariant = MASCOT_CONFIG.titleKeywords[keywords[i]];
-        break;
-      }
-    }
-
-    // Apply border and background styling
-    admonition.style.borderLeftColor = MASCOT_CONFIG.borderColor;
-    admonition.style.backgroundColor = MASCOT_CONFIG.bgColor;
-
-    // Add mascot image to the admonition body
-    var body = admonition.querySelector('.admonition-title ~ *, summary ~ *');
-    if (body) {
-      var imgPath = MASCOT_CONFIG.images[imageVariant];
-      // Resolve path relative to site root
-      var basePath = document.querySelector('meta[name="base_url"]');
-      if (basePath) {
-        imgPath = basePath.content + '/img/mascot/' + imageVariant + '.png';
-      } else {
-        // Fallback: use relative path from site root
-        imgPath = '/img/mascot/' + imageVariant + '.png';
-      }
-
-      var img = document.createElement('img');
-      img.src = imgPath;
-      img.alt = MASCOT_CONFIG.name;
-      img.className = 'mascot-auto-img';
-      img.style.cssText = 'float:right;width:60px;height:60px;margin:0 0 0.5em 1em;object-fit:contain;';
-      body.parentNode.insertBefore(img, body);
-    }
-  }
-
-  // Run detection
-  detectMascotAdmonitions();
-
-  // Re-run on MkDocs instant navigation (Material theme)
-  if (typeof document$ !== 'undefined') {
-    document$.subscribe(function() {
-      detectMascotAdmonitions();
-    });
-  }
-});
 ```
 
-**Step 5b: Register the JavaScript in mkdocs.yml**
-
-```yaml
-extra_javascript:
-  - js/mascot.js
-```
-
-**Step 5c: Usage in Chapter Markdown**
-
-Authors write standard admonitions — no special types needed. Just include the character's name or catchphrase in the title:
-
-```markdown
-!!! note "Otto Says: Let's Figure This Out!"
-
-    The quadratic formula might look intimidating, but
-    we'll break it down step by step.
-
-!!! tip "Otto's Tip: Check Your Work"
-
-    Always substitute your answers back into the original
-    equation to verify they're correct.
-
-!!! warning "Otto's Warning: Watch the Signs!"
-
-    The most common mistake with the quadratic formula
-    is mishandling the ± sign. Be careful!
-
-!!! success "Otto Says: Great Progress!"
-
-    You've mastered factoring! This skill will serve you
-    well throughout algebra and beyond.
-```
-
-The JavaScript detects "Otto" in the titles and automatically adds the mascot image and styling.
-
-**Pros:**
-
-- Authors use standard admonition syntax
-- No custom CSS types to remember
-- Automatic — just mention the character name
-- Works with existing content (add character name to titles)
-
-**Cons:**
-
-- Requires JavaScript (may not work in all environments)
-- Slight page load overhead
-- Harder to debug styling issues
-- Relies on name/catchphrase matching (could have false positives)
-
----
-
-### Step 6: Add Character Guidelines to CLAUDE.md
+### Step 7: Add Character Guidelines to CLAUDE.md
 
 To ensure consistent mascot usage across AI-generated content, add a section to the project's `CLAUDE.md`:
 
@@ -844,6 +538,14 @@ To ensure consistent mascot usage across AI-generated content, add a section to 
 - {{VOICE_TRAIT_2}} (e.g., "Occasionally uses subject-specific puns")
 - {{VOICE_TRAIT_3}} (e.g., "Refers to students as 'explorers' or 'investigators'")
 - Signature phrases: "{{PHRASE_1}}", "{{PHRASE_2}}", "{{PHRASE_3}}"
+
+### Mascot Admonition Format
+
+Always place mascot images in the admonition body, never in the title bar:
+
+    !!! mascot-welcome "Title Here"
+        <img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} waving welcome">
+        Admonition text goes here after the img tag.
 
 ### Placement Rules
 
@@ -874,7 +576,7 @@ To ensure consistent mascot usage across AI-generated content, add a section to 
 - Change {{CHARACTER_NAME}}'s personality or speech patterns
 ```
 
-### Step 7: Verify the Implementation
+### Step 8: Verify the Implementation
 
 After setup, verify the mascot works correctly:
 
@@ -891,9 +593,11 @@ Check the following:
 5. Text wrapping around images looks clean
 6. Mobile/responsive layout works
 
-### Step 8: Create a Test Page (Optional)
+### Step 9: Create a Test Page (Optional)
 
-Create `docs/learning-graph/mascot-test.md` to preview all mascot variants:
+Create `docs/learning-graph/mascot-test.md` to preview all mascot variants.
+
+**IMPORTANT:** Adjust the `src` path based on the page's depth. For a page at `learning-graph/mascot-test.md` (which renders at `learning-graph/mascot-test/index.html`), use `../../img/mascot/`.
 
 ```markdown
 # Mascot Style Guide
@@ -901,24 +605,31 @@ Create `docs/learning-graph/mascot-test.md` to preview all mascot variants:
 This page shows all mascot admonition styles for reference.
 
 !!! mascot-neutral "General Note"
+    <img src="../../img/mascot/neutral.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} neutral pose">
     This is the neutral style, used for general sidebars or introductions.
 
 !!! mascot-welcome "Welcome!"
+    <img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} waving welcome">
     This is the welcome style, used at chapter openings.
 
 !!! mascot-thinking "Key Insight"
+    <img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} thinking">
     This is the thinking style, used for key concepts.
 
 !!! mascot-tip "Helpful Tip"
+    <img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} giving a tip">
     This is the tip style, used for hints and advice.
 
 !!! mascot-warning "Watch Out!"
+    <img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} warning">
     This is the warning style, used for common mistakes.
 
 !!! mascot-celebration "Well Done!"
+    <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} celebrating">
     This is the celebration style, used for achievements.
 
 !!! mascot-encourage "Keep Going!"
+    <img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} encouraging">
     This is the encouraging style, used for difficult content.
 ```
 
@@ -932,6 +643,7 @@ This page shows all mascot admonition styles for reference.
 docs/
 ├── img/
 │   └── mascot/
+│       ├── image-prompts.md
 │       ├── neutral.png
 │       ├── welcome.png
 │       ├── thinking.png
@@ -940,36 +652,32 @@ docs/
 │       ├── celebration.png
 │       └── encouraging.png
 ├── css/
-│   └── mascot.css              # Option 2 only
-├── js/
-│   └── mascot.js               # Option 3 only
+│   └── mascot.css
 └── learning-graph/
     └── mascot-test.md          # Optional test page
 ```
 
-### Implementation Comparison
+### Admonition Types
 
-| Feature | Option 1: Inline | Option 2: CSS Admonitions | Option 3: JS Detection |
-|---------|------------------|---------------------------|------------------------|
-| Setup complexity | None | Medium | Medium-High |
-| Author effort | High (manual placement) | Low (use admonition type) | Lowest (just use name) |
-| Consistency | Low | High | High |
-| Customization | Per-instance | Global via CSS | Global via JS config |
-| Works without JS | Yes | Yes | No |
-| Maintenance | Hard | Easy | Easy |
-| **Best for** | Small projects | Most projects | Large multi-author projects |
-
-### Admonition Types (Option 2)
-
-| Type | Usage | Color |
-|------|-------|-------|
+| Type | Usage | Title Bar Color |
+|------|-------|-----------------|
 | `mascot-neutral` | General sidebars / default | Slate gray |
 | `mascot-welcome` | Chapter openings | Primary color |
 | `mascot-thinking` | Key concepts | Secondary color |
-| `mascot-tip` | Tips and hints | Green |
+| `mascot-tip` | Tips and hints | Teal |
 | `mascot-warning` | Warnings | Red |
 | `mascot-celebration` | Achievements | Purple |
 | `mascot-encourage` | Difficult content | Blue |
+
+### Mascot Image Placement Pattern
+
+**Always** use this pattern — image in the body, never in the title:
+
+```markdown
+!!! mascot-TYPE "Title Text"
+    <img src="PATH/TO/mascot/POSE.png" class="mascot-admonition-img" alt="Description">
+    Body text goes here after the img tag.
+```
 
 ## Troubleshooting
 
@@ -977,28 +685,22 @@ docs/
 
 1. Verify images exist in `docs/img/mascot/`
 2. Check file names match exactly (case-sensitive)
-3. Ensure image paths in CSS use correct relative paths (`../img/mascot/`)
-4. For Option 3, check the JavaScript console for path errors
+3. Verify `src` path depth — count directories from the rendered page URL to `docs/img/mascot/`
+4. For a page at `chapters/01-intro/index.md`, use `../../img/mascot/`
+5. For a page at `learning-graph/mascot-test.md`, use `../../img/mascot/`
 
-### Admonition Styles Not Appearing (Option 2)
+### Admonition Styles Not Appearing
 
 1. Verify `css/mascot.css` is listed in `extra_css` in mkdocs.yml
 2. Check browser dev tools for CSS loading errors
 3. Ensure admonition type matches exactly (e.g., `mascot-welcome`, not `mascot_welcome`)
-4. Clear browser cache and rebuild: `mkdocs build --clean`
-
-### JavaScript Not Triggering (Option 3)
-
-1. Verify `js/mascot.js` is listed in `extra_javascript` in mkdocs.yml
-2. Check browser console for JavaScript errors
-3. Ensure character name in config matches what's used in titles
-4. Test with `document.querySelectorAll('.admonition')` in browser console
+4. Verify `md_in_html` is in `markdown_extensions` (required for `<img>` tags inside admonitions)
+5. Clear browser cache and rebuild: `mkdocs build --clean`
 
 ### Mascot Images Too Large/Small
 
-- Adjust `--mascot-size` CSS variable (Option 2)
-- Modify the `width` and `height` in inline styles (Option 1)
-- Change the `style.cssText` dimensions in mascot.js (Option 3)
+- Adjust `--mascot-size` CSS variable in the `:root` section of `mascot.css`
+- Default is 90px, which works well for most layouts
 
 ### Colors Don't Match Book Theme
 
