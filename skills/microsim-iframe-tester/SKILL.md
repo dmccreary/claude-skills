@@ -11,7 +11,7 @@ MicroSims are embedded in MkDocs pages via `<iframe>` tags with fixed heights an
 
 ## How It Works
 
-The test script is available in both Python (`scripts/test-iframe-heights.py`) and Node.js (`scripts/test-iframe-heights.js`). Both produce identical results. The Python version is recommended as it has no `node_modules` dependency. It uses Playwright to:
+Always use the Python script (`scripts/test-iframe-heights.py`) — it only requires `pip install playwright` and avoids any Node.js/npm dependency. A legacy Node.js version (`scripts/test-iframe-heights.js`) exists but should not be used. The script uses Playwright to:
 
 1. Find all MicroSim directories under `docs/sims/`
 2. Read each `index.md` to extract the declared iframe height
@@ -24,21 +24,12 @@ The test script is available in both Python (`scripts/test-iframe-heights.py`) a
 
 ## Prerequisites
 
-Playwright must be installed with Chromium:
-
 ```bash
-# Python (recommended)
 pip install playwright
 playwright install chromium
-
-# Node.js (alternative)
-npm install playwright
-npx playwright install chromium
 ```
 
 ## Running the Tests
-
-### Python (recommended)
 
 ```bash
 # Test all MicroSims
@@ -52,15 +43,6 @@ python scripts/test-iframe-heights.py --sims-dir docs/sims --height 530
 
 # Generate a markdown report
 python scripts/test-iframe-heights.py --sims-dir docs/sims --report report.md
-```
-
-### Node.js (alternative)
-
-```bash
-node scripts/test-iframe-heights.js --sims-dir docs/sims
-node scripts/test-iframe-heights.js --sims-dir docs/sims --sim energy-pyramid
-node scripts/test-iframe-heights.js --sims-dir docs/sims --height 530
-node scripts/test-iframe-heights.js --sims-dir docs/sims --report report.md
 ```
 
 ## Reading the Output
@@ -100,7 +82,7 @@ When the user asks to test iframe heights:
 1. Confirm the project root contains `docs/sims/` with MicroSim directories
 2. Check that `scripts/test-iframe-heights.py` exists in the skill directory at `~/.claude/skills/microsim-iframe-tester/scripts/`
 3. Run `playwright install chromium` if not already installed
-4. Copy or reference the test script and run it from the project root
+4. Run the Python test script from the project root
 5. Present the results to the user
 6. For failures, offer to update the iframe heights in the affected `index.md` files
 7. If chapter markdown files also embed the failing sims, update those too
