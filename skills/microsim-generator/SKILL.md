@@ -326,7 +326,78 @@ Each guide contains:
 2. Code templates and patterns
 3. Best practices for that visualization type
 
-### 4.4 Handling Ambiguous Requests
+### 4.4 MANDATORY: Add CANVAS_HEIGHT Comment to .js File
+
+**Every .js file MUST include a `// CANVAS_HEIGHT:` comment on its own line near the top of the file (within the first 10 lines).** This is the single source of truth for iframe height across all library types. The `fix-iframe-heights.py` utility and manual height-fixing both rely on this comment.
+
+Format: `// CANVAS_HEIGHT: <integer>`
+
+The value is the **total pixel height** the iframe needs to display the entire MicroSim without clipping — canvas, controls, legends, info panels, titles, and any padding.
+
+#### How to Calculate CANVAS_HEIGHT by Library Type
+
+| Library | Formula | Example |
+|---------|---------|---------|
+| **p5.js** | `drawHeight + controlHeight + graphHeight` (the `canvasHeight` variable) | `// CANVAS_HEIGHT: 695` |
+| **vis-network** | container height + title (~35px) + info panel (~60px) + legend (~30px) + controls (~40px) | `// CANVAS_HEIGHT: 685` |
+| **Chart.js** | chart container height + title (~35px) + controls (~40px) + legend (~30px) | `// CANVAS_HEIGHT: 505` |
+| **Plotly.js** | plot div height + title (~35px) + controls (~40px) | `// CANVAS_HEIGHT: 475` |
+| **vis-timeline** | timeline container height + title (~35px) + controls (~40px) | `// CANVAS_HEIGHT: 475` |
+| **Leaflet.js** | map container height + title (~35px) + controls (~40px) + legend (~40px) | `// CANVAS_HEIGHT: 515` |
+| **Mermaid.js** | diagram container height + title (~35px) + controls (~40px) | `// CANVAS_HEIGHT: 475` |
+| **Custom HTML** (comparison table, html-table, venn) | total rendered height of all DOM elements | `// CANVAS_HEIGHT: 600` |
+| **Interactive Infographic Overlay** | image container height + toolbar (~40px) + info panel (~60px) | `// CANVAS_HEIGHT: 620` |
+
+#### Examples for Each Library Type
+
+**p5.js:**
+```javascript
+// Predator-Prey Population Dynamics Simulator
+// CANVAS_HEIGHT: 695
+let drawHeight = 400;
+let graphHeight = 180;
+let controlHeight = 115;
+let canvasHeight = drawHeight + graphHeight + controlHeight;
+```
+
+**vis-network:**
+```javascript
+// Climate Feedback Loops - vis-network
+// CANVAS_HEIGHT: 685
+document.addEventListener('DOMContentLoaded', function() {
+```
+
+**Chart.js:**
+```javascript
+// Air Quality Trends Dashboard - Chart.js
+// CANVAS_HEIGHT: 505
+document.addEventListener('DOMContentLoaded', function () {
+```
+
+**Leaflet.js:**
+```javascript
+// Watershed Map - Leaflet
+// CANVAS_HEIGHT: 515
+document.addEventListener('DOMContentLoaded', function() {
+```
+
+**Interactive Infographic Overlay:**
+```javascript
+// Ecosystem Components Overlay
+// CANVAS_HEIGHT: 620
+document.addEventListener('DOMContentLoaded', function() {
+```
+
+#### Rules
+
+1. **The comment MUST appear within the first 10 lines** of the .js file so parsing tools can find it quickly.
+2. **The value MUST be an integer** (no `px` suffix, no expressions).
+3. **The iframe height = CANVAS_HEIGHT + 2** (2px accounts for the iframe border). The `fix-iframe-heights.py` utility adds this automatically.
+4. **For p5.js sims**, the CANVAS_HEIGHT value must equal `drawHeight + controlHeight` (plus `graphHeight` if present). Keep the existing named variables — the comment is a redundant-but-authoritative declaration for tooling.
+5. **When updating an existing sim**, always update the CANVAS_HEIGHT comment if you change any height-related values.
+6. **If unsure about the height**, render the sim in a browser, measure the total content height, and use that value. Err on the side of being slightly too tall (extra whitespace is better than clipped controls).
+
+### 4.5 Handling Ambiguous Requests
 
 If the request could match multiple generators:
 
@@ -460,11 +531,13 @@ python3 $UTILS/fix-iframe-heights.py \
 
 **What this does:**
 
-- Parses each sim's `.js` file to detect the actual content height:
-  - **p5.js**: Extracts `createCanvas()` height or named height variables, adds 2px
-  - **vis-network**: Extracts container height from JS, adds 80px for info panel/legend
-- Updates the `<iframe>` height attribute in each sim's `index.md` to match
+- Parses each sim's `.js` file to find the `// CANVAS_HEIGHT: <value>` comment (primary source, see Step 4.4)
+- Falls back to detecting `createCanvas()` height or named height variables if the comment is missing
+- Sets the iframe height to `CANVAS_HEIGHT + 2` (2px for border)
+- Updates the `<iframe>` height attribute in each sim's `index.md` **and** in chapter files that embed the sim
 - Skips sims that are already correct
+
+**Important:** The `// CANVAS_HEIGHT:` comment in the .js file is the single source of truth for ALL library types (p5.js, vis-network, Chart.js, Leaflet, Mermaid, etc.). If the comment is missing, add it to the .js file before running this tool — see Step 4.4 for format and calculation rules.
 
 **Fix a single sim:**
 
@@ -482,6 +555,43 @@ python3 $UTILS/fix-iframe-heights.py \
     --project-dir $PROJECT \
     --dry-run --verbose
 ```
+
+---
+
+## Step 6C: Verify Controls Visible in Iframe (Playwright)
+
+**MANDATORY after fixing iframe heights.** This catches controls that extend beyond the iframe boundary — something static height calculation can miss, especially for sims with responsive layouts or narrow viewports.
+
+```bash
+TESTER="$HOME/.claude/skills/microsim-iframe-tester/scripts"
+
+# Single sim (after generating one MicroSim)
+python3 $TESTER/test-iframe-heights.py --sims-dir $PROJECT/docs/sims --sim <sim-id>
+
+# All sims in a batch run
+python3 $TESTER/test-iframe-heights.py --sims-dir $PROJECT/docs/sims
+```
+
+**What this does:**
+
+- Launches headless Chromium via Playwright
+- Loads each MicroSim's `main.html` in a viewport constrained to the iframe height from `index.md`
+- Waits for libraries (p5.js, vis-network, Chart.js) to render
+- Checks that all interactive controls (buttons, sliders, selects, checkboxes) are fully visible
+- Reports PASS/FAIL with a suggested height for any failures
+
+**Prerequisites** (one-time setup):
+
+```bash
+pip install playwright
+playwright install chromium
+```
+
+**If a sim fails:**
+
+1. Update the `// CANVAS_HEIGHT:` comment in the `.js` file to the suggested height minus 10
+2. Re-run `fix-iframe-heights.py` for that sim
+3. Re-run the Playwright test to confirm it passes
 
 ---
 
@@ -565,6 +675,8 @@ Step 6: validate-sims.py → scores quality, fix issues
   ↓
 Step 6B: fix-iframe-heights.py → matches iframe heights to JS dimensions
   ↓
+Step 6C: test-iframe-heights.py → Playwright verifies controls visible in iframe
+  ↓
 Step 7: update-mkdocs-nav.py → regenerates nav
   ↓
 Step 8: bk-capture-screenshot /path/to/microsim 3 {height} → creates screen image
@@ -584,6 +696,8 @@ Step 4:  Write .js file
 Step 6:  validate-sims.py --sim <name>
   ↓
 Step 6B: fix-iframe-heights.py --sim <name>
+  ↓
+Step 6C: test-iframe-heights.py --sim <name> → Playwright verifies controls visible
   ↓
 Step 7:  update-mkdocs-nav.py
   ↓
@@ -656,7 +770,7 @@ This enables counting and discovery of MicroSims across GitHub using code search
 - Embedded via iframe in MkDocs pages
 - Width-responsive design
 - Non-scrolling iframe container
-- Standard height: drawHeight + controlHeight + 2px
+- Standard height: `CANVAS_HEIGHT + 2px` (where CANVAS_HEIGHT is declared in a `// CANVAS_HEIGHT: <value>` comment at the top of the .js file — see Step 4.4)
 - Prevent scroll hijacking:
   - Keep chapter iframes non-scrolling: `scrolling="no"`
   - Do not consume page wheel-scroll by default inside sims (for example, set Leaflet `scrollWheelZoom: false` unless explicitly requested)
@@ -697,7 +811,7 @@ This enables counting and discovery of MicroSims across GitHub using code search
 
 ### Example 5: Chapter Batch
 **User:** "Generate MicroSims for chapter 11"
-**Action:** Step 0 → Step 1 → Step 2 → Step 3-4 (loop per sim) → Step 5 → Step 6 → Step 7
+**Action:** Step 0 → Step 1 → Step 2 → Step 3-4 (loop per sim) → Step 5 → Step 6 → Step 6B → Step 6C → Step 7
 
 ## Reference Files
 
