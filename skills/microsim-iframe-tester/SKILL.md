@@ -11,7 +11,7 @@ MicroSims are embedded in MkDocs pages via `<iframe>` tags with fixed heights an
 
 ## How It Works
 
-The test script (`scripts/test-iframe-heights.js`) uses Playwright to:
+The test script is available in both Python (`scripts/test-iframe-heights.py`) and Node.js (`scripts/test-iframe-heights.js`). Both produce identical results. The Python version is recommended as it has no `node_modules` dependency. It uses Playwright to:
 
 1. Find all MicroSim directories under `docs/sims/`
 2. Read each `index.md` to extract the declared iframe height
@@ -24,35 +24,42 @@ The test script (`scripts/test-iframe-heights.js`) uses Playwright to:
 
 ## Prerequisites
 
-Playwright must be available. The script uses `npx playwright` so no global install is needed, but Chromium must be downloaded:
+Playwright must be installed with Chromium:
 
 ```bash
+# Python (recommended)
+pip install playwright
+playwright install chromium
+
+# Node.js (alternative)
+npm install playwright
 npx playwright install chromium
 ```
 
 ## Running the Tests
 
-### Test all MicroSims
+### Python (recommended)
+
+```bash
+# Test all MicroSims
+python scripts/test-iframe-heights.py --sims-dir docs/sims
+
+# Test a single MicroSim
+python scripts/test-iframe-heights.py --sims-dir docs/sims --sim energy-pyramid
+
+# Test with a custom height override (ignores index.md heights)
+python scripts/test-iframe-heights.py --sims-dir docs/sims --height 530
+
+# Generate a markdown report
+python scripts/test-iframe-heights.py --sims-dir docs/sims --report report.md
+```
+
+### Node.js (alternative)
 
 ```bash
 node scripts/test-iframe-heights.js --sims-dir docs/sims
-```
-
-### Test a single MicroSim
-
-```bash
 node scripts/test-iframe-heights.js --sims-dir docs/sims --sim energy-pyramid
-```
-
-### Test with a custom height override (ignores index.md heights)
-
-```bash
 node scripts/test-iframe-heights.js --sims-dir docs/sims --height 530
-```
-
-### Generate a markdown report
-
-```bash
 node scripts/test-iframe-heights.js --sims-dir docs/sims --report report.md
 ```
 
@@ -91,8 +98,8 @@ Also update the `// CANVAS_HEIGHT:` comment in the JavaScript file if present, a
 When the user asks to test iframe heights:
 
 1. Confirm the project root contains `docs/sims/` with MicroSim directories
-2. Check that `scripts/test-iframe-heights.js` exists in the skill directory at `~/.claude/skills/microsim-iframe-tester/scripts/`
-3. Run `npx playwright install chromium` if not already installed
+2. Check that `scripts/test-iframe-heights.py` exists in the skill directory at `~/.claude/skills/microsim-iframe-tester/scripts/`
+3. Run `playwright install chromium` if not already installed
 4. Copy or reference the test script and run it from the project root
 5. Present the results to the user
 6. For failures, offer to update the iframe heights in the affected `index.md` files
