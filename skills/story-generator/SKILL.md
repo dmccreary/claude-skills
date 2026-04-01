@@ -249,6 +249,34 @@ Choose a central theme that resonates with teenagers:
 | Mid-Century (1950-1980) | Atomic Age, clean lines |
 | Contemporary | Photorealistic with period elements |
 
+## Scripts
+
+### uncomment-images.sh
+
+After generating images for a story, the image references in the markdown are typically wrapped in HTML comments (`<!-- ![](./panel-01.png) -->`) to prevent broken image icons before the images exist. Once images have been generated and placed in the story directory, run this script to uncomment all image references at once.
+
+**Usage:**
+
+```bash
+scripts/uncomment-images.sh <path-to-index.md>
+```
+
+**Example:**
+
+```bash
+# From the project root
+~/.claude/skills/story-generator/scripts/uncomment-images.sh docs/stories/dragon-layoffs/index.md
+```
+
+The script:
+
+- Converts `<!-- ![Cover image](./cover.png) -->` to `![Cover image](./cover.png)`
+- Converts `<!-- ![](./panel-01.png) -->` to `![](./panel-01.png)`
+- Handles any alt text and any `.png` filename
+- Reports how many images were uncommented
+- Warns if any commented images remain (unexpected formatting)
+- Leaves all other HTML comments untouched
+
 ## Checklist
 
 After completing a story, verify:

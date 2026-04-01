@@ -1,8 +1,9 @@
 #!/bin/bash
-# bk-install-skills-codex
+# bk-install-skills-antigravity
 #
-# Creates symbolic links in ~/.codex/skills/ for every skill directory in
-# $BK_HOME/skills so that the Codex CLI can use the same skill set.
+# Creates symbolic links in ~/.gemini/antigravity/skills/ for every skill
+# directory in $BK_HOME/skills so that Google's Antigravity IDE can use
+# the same skill set.
 
 set -e
 
@@ -31,10 +32,10 @@ if [ ! -d "$BK_HOME/skills" ]; then
 fi
 
 SKILLS_DIR="$BK_HOME/skills"
-TARGET_DIR="$HOME/.codex/skills"
+TARGET_DIR="$HOME/.gemini/antigravity/skills"
 
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
-echo -e "${GREEN}Installing Codex Skills${NC}"
+echo -e "${GREEN}Installing Antigravity Skills${NC}"
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
 echo -e "BK_HOME: ${YELLOW}$BK_HOME${NC}"
 echo -e "Source:  ${YELLOW}$SKILLS_DIR${NC}"
@@ -104,9 +105,8 @@ for skill_dir in "$SKILLS_DIR"/*; do
         ln -s "$skill_dir" "$target_link"
         echo -e "${GREEN}✓${NC} $skill_name -> $skill_dir"
         installed_skills+=("$skill_name")
-        ((installed_count++))
+        ((++installed_count))
     fi
-
 done
 shopt -u nullglob
 
@@ -118,7 +118,7 @@ if [ "$installed_count" -eq 0 ]; then
     exit 0
 fi
 
-echo -e "${GREEN}Successfully installed $installed_count Codex skill link(s) to $TARGET_DIR${NC}"
+echo -e "${GREEN}Successfully installed $installed_count Antigravity skill link(s) to $TARGET_DIR${NC}"
 echo ""
 
 echo -e "${BLUE}Installed skills:${NC}"
@@ -140,7 +140,6 @@ for link in "$TARGET_DIR"/*; do
         broken_links+=("$link_name")
         ((broken_count++))
     fi
-
 done
 shopt -u nullglob
 
@@ -151,11 +150,11 @@ if [ "$broken_count" -gt 0 ]; then
     done
     echo ""
     echo -e "${YELLOW}To remove broken links, run:${NC}"
-    echo "  find ~/.codex/skills -xtype l -delete"
+    echo "  find ~/.gemini/antigravity/skills -xtype l -delete"
 else
     echo -e "${GREEN}✓${NC} No broken symlinks found"
 fi
 
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
-echo -e "${GREEN}Done!${NC} Codex can now use your skill library."
+echo -e "${GREEN}Done!${NC} Antigravity can now use your skill library."
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"

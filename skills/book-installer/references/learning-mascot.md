@@ -27,6 +27,25 @@ This skill helps users design and implement a pedagogical agent — a visual mas
 - Access to an AI image generator (ChatGPT/DALL-E, Midjourney, Stable Diffusion, or similar)
 - Course description or learning graph to inform mascot theme
 
+## Performance Guidelines
+
+This skill involves interactive Q&A (Steps 1-2) followed by file generation (Steps 3-7).
+
+**During Q&A (Steps 1-2):** Ask all design questions in as few turns as possible. Present all questions together with default suggestions so the user can answer multiple at once.
+
+**During file generation (Steps 3-7):** Do NOT use TaskCreate/TaskUpdate — the overhead of loading deferred tools and making 12+ task calls turns a <1 minute job into 10+ minutes. Instead:
+
+1. Run `mkdir -p docs/img/mascot docs/css` first
+2. Then execute ALL file operations in a single parallel batch:
+   - Write `docs/css/mascot.css`
+   - Write `docs/img/mascot/image-prompts.md`
+   - Write `docs/learning-graph/mascot-test.md`
+   - Write or update `CLAUDE.md`
+   - Edit `mkdocs.yml` (theme palette, extra_css, nav entry)
+3. Target: all file generation completes in one tool-call round
+
+**During trim step (Step 4b):** The trim script path is `$PROJECT_HOME/../claude-skills/src/image-utils/trim-padding-from-image.py`. Do NOT search for it — just run it directly on all 7 images. Use the known filenames: neutral.png, welcome.png, thinking.png, tip.png, warning.png, encouraging.png, celebration.png.
+
 ## Workflow
 
 ### Step 1: Gather Course Context
