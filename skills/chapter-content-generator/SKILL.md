@@ -5,13 +5,14 @@ description: This skill generates comprehensive chapter content for intelligent 
 
 # Chapter Content Generator
 
-**Version:** 0.06
+**Version:** 0.07
 
 ## Overview
 
 This skill generates detailed educational content for individual textbook chapters, transforming chapter outlines (title, summary, concept list) into comprehensive learning material with appropriate reading level, rich visual elements, and interactive components. The skill is designed to run after the `book-chapter-generator` skill has created the chapter structure.
 
-**Version 0.06 Features:**
+**Version 0.07 Features:**
+- **Instructional scaffolding** - Define-before-display rules ensure terms are explained before diagrams use them, code parameters are explained before code examples, and tables reinforce rather than introduce concepts (see Step 2.4, principle 3)
 - **Sequential execution** - Generate content one chapter at a time to avoid excessive token usage. A user may override this with the phrase "use parallel execution" but the skill will warn them that a 38% additional tokens will be used
 - **Edge direction validation** - Mandatory check to prevent inverted dependency bugs (see Step 1.3a)
 
@@ -276,6 +277,12 @@ CONTENT GUIDELINES:
 - Present concepts in pedagogical order (simple to complex)
 - Include LaTeX equations where appropriate (backslash delimiters: `\( \)` for inline, `\[ \]` for display)
 
+SCAFFOLDING (CRITICAL):
+- Define every technical term in prose BEFORE it appears in a diagram, code block, or table
+- Before code examples, explain what the code does and what key parameters mean in plain language
+- Tables must summarize concepts already explained — never introduce new concepts via tables
+- Add bridging sentences before complex elements ("Before we examine this diagram, let's define...")
+
 NON-TEXT ELEMENTS:
 - Markdown lists and tables: embed directly (blank line before)
 - Diagrams, MicroSims, infographics: use <details markdown="1"> blocks with #### Diagram: header
@@ -296,7 +303,7 @@ title: [Chapter Title]
 description: [Short description]
 generated_by: claude skill chapter-content-generator
 date: [YYYY-MM-DD HH:MM:SS]
-version: 0.06
+version: 0.07
 ---
 
 REPORT when done:
@@ -376,7 +383,7 @@ title: Chapter Title
 description: Short description of title
 generated_by: claude skill chapter-content-generator
 date: YYYY-MM-DD HH-MM-SS
-version: 0.06
+version: 0.07
 ---
 ```
 
@@ -396,7 +403,13 @@ Generate comprehensive educational content based on the chapter outline, concept
    - Do NOT necessarily follow the order in "Concepts Covered" list
    - Build on previously explained concepts
 
-3. **Non-text elements:**
+3. **Scaffolding — define before you display:**
+   - **Vocabulary before visuals:** Every diagram, code example, or table must be preceded by prose that defines all technical terms it contains. If a diagram shows "vectors" and "embeddings," those terms must be explained in the paragraph(s) immediately before the diagram. A reader should never encounter a term for the first time inside a non-text element.
+   - **Bridge sentences before code:** Before any code example, include a plain-language sentence explaining what the code does and what its key parameters mean. Never present code and defer the explanation to a later section — the explanation must come first. Example: "The `temperature` parameter controls randomness (0 = deterministic, 1 = creative). The `max_tokens` parameter sets the maximum response length."
+   - **Prose first, tables reinforce:** Tables summarize or compare information the reader already understands. Never use a table to introduce new concepts. The pattern is: (1) explain concepts in prose, (2) then present a table that organizes or compares them. If a reader would need to reverse-engineer meaning from table cells, the table is premature.
+   - **Signpost what's coming:** Before complex elements, add a navigation cue: "Before we examine this diagram, let's define two key terms." or "The following table summarizes the three approaches we just discussed." These one-sentence bridges transform content from a reference document into a guided learning experience.
+
+4. **Non-text elements:**
    - Goal: No more than 3 paragraphs of pure text without a non-text element.
    - Use diverse element types (don't repeat the same type).
    - Place special focus on interactive elements (infographics, MicroSims).
@@ -665,13 +678,15 @@ Load this reference when determining how to write content at the appropriate rea
 
 8. **Appropriate depth:** Match explanation depth to reading level (more scaffolding for junior high, more theory for graduate)
 
-9. **Verification:** Always check that all concepts from "Concepts Covered" list appear in generated content
+9. **Scaffolding — the experience of reading:** Generate content that reads like a guided tutorial, not a reference document. Every non-text element (diagram, code block, table) should feel like a natural payoff of the prose that preceded it. Ask: "If a student reads linearly from top to bottom, will they have the vocabulary and context to understand each element when they reach it?" If not, add bridging prose before the element.
 
-10. **Consistent style:** Maintain consistent voice, terminology, and visual style throughout chapter
+10. **Verification:** Always check that all concepts from "Concepts Covered" list appear in generated content
 
-11. **Parallel execution:** When processing 4+ chapters, always use parallel mode for efficiency
+11. **Consistent style:** Maintain consistent voice, terminology, and visual style throughout chapter
 
-12. **Real timestamps:** Always use actual system timestamps, never synthetic data
+12. **Parallel execution:** When processing 4+ chapters, always use parallel mode for efficiency
+
+13. **Real timestamps:** Always use actual system timestamps, never synthetic data
 
 ## Common Pitfalls to Avoid
 
@@ -682,6 +697,16 @@ Load this reference when determining how to write content at the appropriate rea
 - ✅ Always use `prereqs[edge['from']].add(edge['to'])` -- from=dependent, to=prerequisite
 - ✅ Always verify foundational concepts look correct before proceeding
 - ✅ Always confirm 0 dependency violations before generating any content
+
+**Scaffolding (CRITICAL — reader experience):**
+- ❌ Diagram uses terms (e.g., "vectors", "embeddings") that haven't been defined in preceding prose
+- ❌ Code example contains parameters (e.g., `temperature`, `max_tokens`) explained only in a later section
+- ❌ Table introduces new concepts instead of summarizing concepts already explained in prose
+- ❌ Complex element appears without a bridging sentence ("Before we look at this diagram...")
+- ✅ Every technical term in a non-text element is defined in the prose immediately before it
+- ✅ Code examples are preceded by plain-language explanations of what the code does and what its parameters mean
+- ✅ Tables reinforce and organize — they never introduce
+- ✅ Navigation cues ("Let's define two terms before examining this diagram") guide the reader through transitions
 
 **Content Quality:**
 - ❌ More than 3 paragraphs without a non-text element
