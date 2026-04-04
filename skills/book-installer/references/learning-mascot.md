@@ -757,7 +757,7 @@ docs/
 
 ### Too Much Padding Around Image
 
-Run the `Trim Padding From Image` python program:
+If the users says that there is too much padding around the icons, then run the `Trim Padding From Image` python program:
 
 ```sh
 ../scripts/trim-padding-from-image.py docs/img/mascot/FILENAME.png
