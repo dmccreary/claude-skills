@@ -2,7 +2,7 @@
 
 [Open Learning Graph Viewer Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="./main.html" width="100%" height="600px" frameborder="0"></iframe>
+<iframe src="./main.html" width="100%" height="600px" noScroll="1"></iframe>
 
 This interactive viewer allows you to explore the learning graph for the course.
 

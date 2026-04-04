@@ -1,4 +1,13 @@
+---
+title: {{SITE_NAME}}
+description: {{SITE_DESCRIPTION}}
+image: img/cover.png
+og:image: img/cover.png
+---
 # {{SITE_NAME}}
+
+<!-- CSS to remove the title since the title is in the cover image --->
+![](./cover.img)
 
 Welcome to {{SITE_NAME}}!
 

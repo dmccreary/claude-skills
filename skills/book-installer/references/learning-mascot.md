@@ -575,8 +575,8 @@ Always place mascot images in the admonition body, never in the title bar:
 | Key concept | mascot-thinking | 2-3 per chapter |
 | Helpful tip | mascot-tip | As needed |
 | Common mistake | mascot-warning | As needed |
-| Section completion | mascot-celebration | End of major sections |
 | Difficult content | mascot-encourage | Where students may struggle |
+| Section completion | mascot-celebration | End of major sections |
 
 ### Do's and Don'ts
 
@@ -612,11 +612,31 @@ Check the following:
 5. Text wrapping around images looks clean
 6. Mobile/responsive layout works
 
-### Step 9: Create a Test Page (Optional)
+### Step 9: Create a Mascot Rendering Test Page
 
-Create `docs/learning-graph/mascot-test.md` to preview all mascot variants.
+Create `docs/learning-graph/mascot-test.md` to preview all mascot variants
+by running unix shell script:
+
+```sh
+../scripts/render-mascot-test.sh {MASCOT_NAME}
+```
 
 **IMPORTANT:** Adjust the `src` path based on the page's depth. For a page at `learning-graph/mascot-test.md` (which renders at `learning-graph/mascot-test/index.html`), use `../../img/mascot/`.
+
+This program will copy the mascot-test.md file from the template here:
+
+[Mascot Render Test Template](./assets/templates/docs/learning-graph/mascot-render-test.md)
+
+Remind the user that if there is excessive padding around the images that we can
+run the following `Trim Padding From Image` python program:
+
+```sh
+../scripts/trim-padding-from-image.py docs/img/mascot/FILENAME.png
+```
+
+Note that the exact path to the image must be given to the script as the first parameter.
+
+Here is what is a example of what is in this test file:
 
 ```markdown
 # Mascot Style Guide
@@ -652,7 +672,15 @@ This page shows all mascot admonition styles for reference.
     This is the encouraging style, used for difficult content.
 ```
 
-**Note:** Place this file in the `docs/learning-graph/` directory alongside the other learning graph assets. You may want to exclude this page from the final navigation or keep it as a contributor reference.
+There is also additional code to view the border of the images.
+
+**Note:** Place the test file in the `docs/learning-graph/` directory alongside the other learning graph assets. Include this page in the navigation unless the user requests that it is not
+displayed.  If they do not want it display then add it to the exclude_docs section in the mkdocs.yml
+
+```yml
+exclude_docs: |
+  docs/learning-graph/mascot-test.md
+```
 
 ## Quick Reference
 
@@ -668,12 +696,12 @@ docs/
 │       ├── thinking.png
 │       ├── tip.png
 │       ├── warning.png
-│       ├── celebration.png
-│       └── encouraging.png
+│       ├── encouraging.png
+│       └── celebration.png
 ├── css/
 │   └── mascot.css
 └── learning-graph/
-    └── mascot-test.md          # Optional test page
+    └── mascot-test.md          # Mascot rendering test page
 ```
 
 ### Admonition Types
@@ -685,12 +713,12 @@ docs/
 | `mascot-thinking` | Key concepts | Secondary color |
 | `mascot-tip` | Tips and hints | Teal |
 | `mascot-warning` | Warnings | Red |
-| `mascot-celebration` | Achievements | Purple |
 | `mascot-encourage` | Difficult content | Blue |
+| `mascot-celebration` | Achievements | Purple |
 
 ### Mascot Image Placement Pattern
 
-**Always** use this pattern — image in the body, never in the title:
+**Always** use this pattern — image in the body, never put the image in the title:
 
 ```markdown
 !!! mascot-TYPE "Title Text"
@@ -726,6 +754,14 @@ docs/
 1. Update CSS variables in `:root` section of `mascot.css`
 2. Use your book's primary/secondary colors from mkdocs.yml palette
 3. Use a color contrast checker to ensure text readability
+
+### Too Much Padding Around Image
+
+Run the `Trim Padding From Image` python program:
+
+```sh
+../scripts/trim-padding-from-image.py docs/img/mascot/FILENAME.png
+```
 
 ## Related Skills
 
