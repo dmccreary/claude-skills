@@ -1,6 +1,6 @@
 ---
 name: microsim-utils
-description: Utility tools for MicroSim management including quality validation, screenshot capture, icon management, and index page generation. Routes to the appropriate utility based on the task needed.
+description: Utility tools for MicroSim management including quality validation, screenshot capture, icon management, index page generation, and iframe height synchronization. Routes to the appropriate utility based on the task needed.
 ---
 
 # MicroSim Utilities
@@ -18,6 +18,7 @@ Use this skill when users request:
 - Adding or managing icons for MicroSims
 - Generating index pages for MicroSim directories
 - Quality scoring and standardization checks
+- Synchronizing iframe heights from JS source files
 
 ## Step 1: Identify Utility Type
 
@@ -32,6 +33,7 @@ Match the user's request to the appropriate utility guide:
 | icons, add icons, favicon, logo | `references/add-icons.md` | Icon management for MicroSims |
 | index page, microsim list, grid, directory, catalog, update the microsim listings, update the list of microsims, create a grid view, generate a listing | `references/index-generator.md` | Generate index page with grid cards |
 | TODO, todo json, extract specs, diagram specs, unimplemented, create microsim todo, todo files, extract diagrams, unimplemented microsims | `scripts/create-microsim-todo-json-files.py` | Extract unimplemented diagram specs into TODO JSON files |
+| fix iframe heights, sync iframe heights, correct iframe heights, iframe height, canvas height, sync heights, update iframe heights | `scripts/sync-iframe-heights.py` | Synchronize iframe heights from CANVAS_HEIGHT in JS files to sim and chapter index.md files |
 
 ### Decision Tree
 
@@ -50,17 +52,28 @@ Need to generate/update the MicroSim index page?
 
 Need to extract unimplemented diagram specs into TODO files?
   → YES: Run scripts/create-microsim-todo-json-files.py
+
+Need to fix, sync, or correct iframe heights?
+  → YES: Run scripts/sync-iframe-heights.py
 ```
 
 ## Step 2: Load the Matched Guide or Run the Script
 
 For reference-based utilities, read the corresponding guide file from `references/` and follow its workflow.
 
-For the TODO JSON extractor, run the Python script directly:
+For Python script utilities, run the script directly:
+
+**TODO JSON extractor:**
 ```bash
 python /path/to/skills/microsim-utils/scripts/create-microsim-todo-json-files.py --project-dir /path/to/project
 ```
 Report the summary output to the user (chapters scanned, total specs found, already implemented, TODO files written, output directory).
+
+**Iframe height sync:**
+```bash
+python /path/to/skills/microsim-utils/scripts/sync-iframe-heights.py --project-dir /path/to/project --verbose
+```
+Report the summary output to the user (sims synced, CANVAS_HEIGHT comments inserted, iframe heights updated).
 
 ## Step 3: Execute Utility
 
@@ -139,6 +152,30 @@ Each guide contains:
 
 **Important:** Always pass `--project-dir` pointing to the project root (the directory containing `mkdocs.yml`). If omitted, the script walks up from its own location to find `mkdocs.yml`, which may find the wrong project.
 
+### sync-iframe-heights.py
+
+**Purpose:** Synchronize iframe heights across MicroSim index.md files and chapter files using the `CANVAS_HEIGHT` comment in each sim's JavaScript file as the single source of truth.
+
+**Script:** `scripts/sync-iframe-heights.py --project-dir /path/to/project`
+
+**How it works:**
+- Reads `// CANVAS_HEIGHT: <int>` from the first 15 lines of each sim's `.js` file
+- If the comment is missing, computes CANVAS_HEIGHT from `drawHeight + controlHeight` (+ `graphHeight` if present) and **inserts** the comment on line 2 of the JS file
+- Sets iframe height = `CANVAS_HEIGHT + 2` (2px for iframe border) in:
+  - The sim's own `docs/sims/<sim-id>/index.md`
+  - Any chapter file (`docs/chapters/*/index.md`) that embeds the sim
+- Reports all changes with colored output
+
+**Flags:**
+- `--project-dir` — Project root containing `mkdocs.yml` (required or auto-detected)
+- `--sim <sim-id>` — Sync a single sim instead of all
+- `--dry-run` — Preview changes without writing files
+- `--verbose` — Show status for all sims, not just changes
+
+**Output:** Summary showing sims synced, CANVAS_HEIGHT comments inserted, and iframe heights updated.
+
+**Important:** Always pass `--project-dir` pointing to the project root. The script auto-detects by walking up from cwd to find `mkdocs.yml` if omitted.
+
 ## Examples
 
 ### Example 1: Quality Check
@@ -160,6 +197,11 @@ Each guide contains:
 **User:** "Create MicroSim TODO JSON files"
 **Routing:** Keywords "TODO", "create microsim todo" → `scripts/create-microsim-todo-json-files.py`
 **Action:** Run `python scripts/create-microsim-todo-json-files.py --project-dir /path/to/project` and report results (chapters scanned, specs found, already implemented, TODO files written)
+
+### Example 5: Fix Iframe Heights
+**User:** "fix the iframe heights" or "sync the iframe heights" or "correct the iframe heights"
+**Routing:** Keywords "fix iframe heights", "sync iframe heights", "correct iframe heights" → `scripts/sync-iframe-heights.py`
+**Action:** Run `python scripts/sync-iframe-heights.py --project-dir /path/to/project --verbose` and report results (sims synced, comments inserted, iframe heights updated)
 
 ## Common Workflows
 
