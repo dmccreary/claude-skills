@@ -1,13 +1,13 @@
 ---
 name: story-generator
-description: This skill generates graphic novel narratives about scientists, mathematicians, engineers, inventors, and other historical figures in science and technology, designed for intelligent textbooks. It creates compelling, historically accurate 12-panel stories with embedded image prompts and can also generate the panel images automatically via the Google Gemini API. Use this skill when the user wants to add a new historical-figure story to a textbook's Stories section, or when creating educational graphic novel content.
+description: This skill generates graphic novel narratives about scientists, mathematicians, engineers, inventors, and other historical figures in science and technology, designed for intelligent textbooks. It creates compelling, historically accurate 12-panel stories with embedded image prompts and can also generate the panel images automatically via the Google Gemini API. Use this skill when the user wants to add a new historical-figure story to a textbook's Stories section, or when creating educational graphic novel content. Also use this skill when the user says "give me some ideas for graphic-novel stories" to generate a curated list of story ideas tailored to the textbook's subject matter.
 ---
 
 # Story Generator
 
 This skill generates complete graphic novel narratives about key contributors to science, mathematics, and technology, for intelligent textbooks built with MkDocs Material. Each story is a 12-panel graphic novel plus cover, designed to be inspirational, engaging, and historically accurate. Each panel includes a narrative paragraph below it and a detailed image-generation prompt in a collapsible `<details>` block.
 
-As of the 2026-04 skill update, the skill can also **automatically generate all 13 panel images** (1 cover + 12 panels) natively at 16:9 (1344×768) via Google Gemini 2.5 Flash Image. See "Step 3.5: Generate Images" below.
+As of the 2026-04 skill update, the skill can also **automatically generate all 13 panel images** (1 cover + 12 panels) natively at 16:9 (1344×768) via multiple text-to-image APIs including Google Gemini and OpenAI gpt-image-1. Current cost for high-quality images with accurate text placement is approximately **$0.03 per image**. See "Step 3.5: Generate Images" below.
 
 ## When to Use This Skill
 
@@ -17,8 +17,132 @@ Use this skill when:
 - Adding a story to a Stories / History section of any intelligent textbook
 - Creating educational narrative content with embedded image prompts
 - The user mentions "story", "graphic novel", or "narrative" about a historical figure
+- **The user says "give me some ideas for graphic-novel stories"** — triggers the Story Ideas Generator workflow (see below)
 
-## Story Structure
+## Story Ideas Generator
+
+When the user says **"give me some ideas for graphic-novel stories"**, generate a curated list of 12-panel mini-graphic novel ideas tailored to the current textbook's subject matter. Save the result to `docs/stories/story-ideas.md`.
+
+### Workflow
+
+#### Step 1: Analyze the Textbook's Subject Matter
+
+Read the following files to understand the textbook's topic, audience, and key themes:
+
+1. `docs/course-description.md` — the course title, description, target audience, and learning objectives
+2. `mkdocs.yml` — the site name and nav structure for additional context
+3. `docs/learning-graph/learning-graph.csv` (if it exists) — the concept list and taxonomy categories
+
+Extract:
+- The **subject domain** (e.g., theory of knowledge, geometry, functions, biology)
+- The **target audience** (e.g., IB students, AP students, grades 9-12)
+- The **key themes and concepts** from the course description and learning graph
+
+#### Step 2: Generate Story Ideas
+
+Create a list of **15-20 story ideas** that connect to the textbook's subject matter. Each story idea should be a 12-panel mini-graphic novel concept.
+
+**Diversity requirements — draw from ALL of these categories:**
+
+1. **Historical figures** — scientists, mathematicians, engineers, inventors, and philosophers whose work directly relates to the textbook's topics
+2. **Diverse innovators** — people from underrepresented groups (women, people of color, Global South contributors) who made significant contributions to the field
+3. **Science vs. dogma** — stories of people who used evidence and reason to challenge religious dogma, political orthodoxy, or institutional resistance
+4. **Fighting misinformation** — stories of people who used science and critical thinking to make the world better by exposing dangerous falsehoods (e.g., Rachel Carson's *Silent Spring* exposing the dangers of DDT, Ignaz Semmelweis championing handwashing)
+5. **Unsung heroes** — lesser-known contributors whose work was foundational but overlooked
+6. **Contemporary figures** — living or recently active people advancing the field today
+
+**For each story idea, provide:**
+
+- **Title** — a compelling, concise title (e.g., "Silent Spring — Rachel Carson's Fight Against DDT")
+- **Subject** — full name, birth/death years, country
+- **Theme** — the central narrative theme (e.g., "courage to challenge industry", "persistence through rejection")
+- **Connection to textbook** — how this story relates to specific concepts or chapters in the textbook
+- **Synopsis** — 2-3 sentences describing the story arc across 12 panels
+- **Why this story inspires** — 1 sentence on why young readers will connect with it
+
+#### Step 3: Format and Save
+
+Save the story ideas to `docs/stories/story-ideas.md` using this format:
+
+```markdown
+# Story Ideas for {Book Title}
+
+These 12-panel mini-graphic novel ideas are designed to inspire
+young readers by connecting the subject matter of this textbook
+to the real people who shaped the field. Each story can be
+generated using the `/story-generator` skill.
+
+## Selection Criteria
+
+Stories were selected for:
+
+- **Relevance** — direct connection to the textbook's key concepts
+- **Diversity** — range of backgrounds, cultures, genders, and time periods
+- **Inspiration** — themes that resonate with the target audience
+- **Drama** — compelling narrative arcs with conflict and resolution
+
+## Story Ideas
+
+### 1. {Title}
+
+| | |
+|---|---|
+| **Subject** | {Full Name} ({birth}–{death}), {country} |
+| **Theme** | {Central narrative theme} |
+| **Connection** | {How it connects to specific textbook concepts} |
+
+{2-3 sentence synopsis}
+
+*Why this inspires:* {1 sentence}
+
+---
+
+### 2. {Title}
+
+...
+
+## How to Generate a Story
+
+To turn any of these ideas into a full 12-panel graphic novel
+with generated images, use:
+
+> /story-generator
+
+Provide the subject's name and the skill will handle the rest —
+writing the narrative, creating image prompts, and optionally
+generating all panel images via multiple text-to-image APIs
+(Google Gemini, OpenAI gpt-image-1, or others). Current cost
+for high-quality images with accurate text placement is
+approximately **$0.03 per image** (~$0.40 per 13-panel story).
+```
+
+#### Step 4: Update Navigation
+
+Add the story ideas page to `mkdocs.yml` under the Stories section:
+
+```yaml
+- Stories:
+    - Overview: stories/index.md
+    - Story Ideas: stories/story-ideas.md
+    # ... individual stories follow
+```
+
+### Example: Theory of Knowledge
+
+For a Theory of Knowledge textbook, the story ideas might include:
+
+1. **"Silent Spring"** — Rachel Carson's fight to expose DDT dangers (science vs. industry misinformation)
+2. **"The Starry Messenger"** — Galileo's telescope and the battle against geocentric dogma
+3. **"Washing Away Death"** — Ignaz Semmelweis championing handwashing against medical establishment rejection
+4. **"Decoding the Secret"** — Rosalind Franklin's uncredited X-ray crystallography work on DNA
+5. **"The Lady of the Lamp"** — Florence Nightingale using statistical evidence to reform military hospitals
+6. **"Thinking in Pictures"** — Temple Grandin redesigning animal handling through neurodivergent perception
+7. **"The Vaccine Maker"** — Edward Jenner's smallpox vaccine overcoming public fear and superstition
+8. **"Mapping Cholera"** — John Snow's data visualization that proved waterborne disease transmission
+9. **"The Daring Hypothesis"** — Alfred Wegener's continental drift theory, rejected for decades then vindicated
+10. **"Hidden Figures"** — Katherine Johnson's calculations that sent astronauts to space despite racial barriers
+
+
 
 Each story follows a consistent structure designed to engage teenage and young-adult readers:
 
@@ -292,22 +416,26 @@ Gemini 2.5 Flash Image will refuse prompts that trip its safety classifier. The 
 - Output image tokens: $30.00 per 1M
 - Fixed rate: **1,290 output tokens per image** = **$0.039 per image** on the paid tier
 
-**Free tier:**
+**Free tier (CAUTION — see warning below):**
 
 - 500 requests per day (RPD)
 - 10 requests per minute (RPM)
 - ~250,000 tokens per minute (TPM)
-- **No credit card required**, no billing account
+- Advertised as **no credit card required**, no billing account
 
-**Cost projections:**
+> **WARNING: The "free tier" may not support image generation (as of April 2026).** When tested on 2026-04-06, newly created Google AI Studio projects on the free tier returned `RESOURCE_EXHAUSTED` with `limit: 0` for `gemini-2.5-flash-preview-image`. This means the image generation model has **zero quota** on free-tier projects — it is not a rate limit or a temporary cap, but a hard zero. Only projects with **Tier 1 Postpay billing** (credit card required) successfully generated images. The free tier may work for text-only Gemini calls but does not appear to work for image generation. This contradicts the earlier documentation below and in the Gemini docs. If Google restores free-tier image generation, this warning can be removed.
 
-| Scope | Images | Paid tier | Free tier |
-|---|:---:|:---:|:---:|
-| One story (1 cover + 12 panels) | 13 | $0.51 | **$0.00** |
-| One 16-story textbook | 208 | $8.07 | **$0.00** |
-| Daily free-tier ceiling | 500 | — | **$0.00** |
+**Cost projections (paid tier only — free tier currently does not work for images):**
 
-**Headline recommendation for low-budget users (teachers in developing countries, students, independent authors):** use the free tier. A single teacher producing one textbook per week uses roughly 6% of their monthly free quota. The paid tier is essentially never needed for realistic classroom workflows.
+| Scope | Images | Paid tier cost |
+|---|:---:|:---:|
+| One story (1 cover + 12 panels) | 13 | $0.51 |
+| One 14-story textbook | 182 | ~$7.10 |
+| One 16-story textbook | 208 | ~$8.07 |
+
+**Spending cap warning:** Google AI Studio's Tier 1 Postpay projects have a configurable monthly spending cap (default varies). The cap is enforced with up to 10 minutes of latency, so overages of a few percent are possible. Monitor your spend at <https://aistudio.google.com/spend>. The cap resets on the 1st of each month (PST). If you hit the cap mid-run, the script logs each failure and continues — rerun with `--skip-existing` after raising the cap.
+
+**Recommendation:** Budget approximately **$0.50 per story** ($0.039 × 13 images). A 14-story textbook costs roughly $7. Set your spending cap to at least the total you expect to spend in a month, plus a small buffer for overages.
 
 ### Alternative Models (for high-volume production)
 
@@ -324,6 +452,14 @@ If you exceed 500 images/day per project on a sustained basis, cheaper options e
 **Honest assessment:** Gemini 2.5 Flash Image remains the best quality per dollar at the scale this skill targets. The alternatives only become worthwhile above 500 images/day per project, which no realistic textbook workflow hits.
 
 ## Known Issues
+
+### Free tier does not support image generation (as of April 2026)
+
+Newly created Google AI Studio projects on the free tier have **zero quota** for `gemini-2.5-flash-preview-image`. The API returns `RESOURCE_EXHAUSTED` with `limit: 0` — not a rate limit, but a hard zero. This was verified on 2026-04-06 across two separate free-tier projects. Only projects with **Tier 1 Postpay billing** (requires a credit card) can generate images. This appears to be a change from earlier behavior when the functions textbook was generated. If you see `limit: 0` errors on a new project, the fix is to enable billing at <https://aistudio.google.com/billing>, not to wait or retry.
+
+### Spending cap can silently block generation
+
+Tier 1 Postpay projects in Google AI Studio have a configurable monthly spending cap. When the cap is reached, all API calls return `RESOURCE_EXHAUSTED` with the message "Your project has exceeded its spending cap." The `generate-images.py` script logs this and continues (non-fatal), but no images are produced. The cap is enforced with up to 10 minutes of latency, so overages of a few percent are normal. Monitor and adjust at <https://aistudio.google.com/spend>. The cap resets on the 1st of each month (PST).
 
 ### Antigravity `generate_image` tool does not expose `aspect_ratio`
 
@@ -465,7 +601,7 @@ The 2026-04 skill update was driven by a real-world 16-story textbook project in
 
 1. **The old workflow produced square images.** Stories were generated via the Antigravity IDE agent's `generate_image` tool, which does not expose `aspect_ratio` and defaults to 1:1. The workaround was to upscale the square to 1280×1280 and center-crop to 1280×720 — losing ~44% of the vertical content. The fix was to bypass Antigravity and call Gemini directly via `google-genai`, which is what `scripts/generate-images.py` now does.
 
-2. **The free tier is genuinely free.** A full 16-story textbook (208 images) cost **$0.00** on the Gemini free tier and would have cost **$8.07** on the paid tier. For the teachers-in-developing-countries audience the skill targets, the free tier is the correct recommendation every time.
+2. **~~The free tier is genuinely free.~~** *(Corrected 2026-04-06.)* The original functions textbook (208 images) may have been generated during a period when free-tier image generation worked, but as of April 2026, newly created free-tier projects return `limit: 0` for `gemini-2.5-flash-preview-image`. Only Tier 1 Postpay projects (credit card required) can generate images. A 14-story textbook (Theory of Knowledge, 182 images) cost approximately **$11 on Tier 1 Postpay**. The free tier is **not** a viable path for image generation at this time. Budget ~$0.50/story.
 
 3. **Safety filters are rare but will bite you.** Out of 208 images generated, exactly 1 was blocked outright (Emmy Noether panel 10, because of explicit Nazi imagery) and 1 was blocked transiently (Mirzakhani panel 10, cleared on retry without any change). The script now handles both cases gracefully, and the softening pattern for Noether-style content is documented above.
 
@@ -474,5 +610,7 @@ The 2026-04 skill update was driven by a real-world 16-story textbook project in
 5. **Per-run audit logs are worth the lines of code.** The JSONL audit log caught a subtle fact that would have been invisible otherwise: every single image, regardless of prompt complexity, bills for exactly 1,290 output tokens. This confirmed the published pricing model and gave the user confidence that cost projections would be accurate at scale.
 
 6. **Character face consistency is not yet solved at this price point.** See "Known Issues" above. Users should not expect pixel-identical characters across 12 panels — the current state of the art at $0.039/image produces stylistically consistent but individually distinct characters. This is an acceptable tradeoff for educational graphic novels at scale; it is not acceptable for professional commercial publishing.
+
+7. **The free tier stopped working for image generation (2026-04-06).** During the Theory of Knowledge textbook project, 78 images were generated on Tier 1 Postpay before hitting a $10 spending cap. Attempting to create new free-tier projects to continue generation revealed that `gemini-2.5-flash-preview-image` has `limit: 0` on all free-tier projects. This contradicts lesson #2 above (from the functions project, which may have been generated during a window when free-tier image gen worked). The skill documentation has been updated to warn users that image generation requires paid billing. Budget ~$0.50/story, ~$7–8 for a full textbook.
 
 If you're updating this skill in the future, read `logs/stories.md` in the functions project for the full session transcript and all the decisions behind the current design.
