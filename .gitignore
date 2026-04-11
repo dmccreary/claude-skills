@@ -12,3 +12,7 @@ mcp-servers/**/.venv/
 mcp-servers/**/venv/
 .claude/activity-logs/
 .claude/settings.local.json
+
+# Marker file used by the auto-commit-claude-skills-stop.sh hook to receive
+# the commit message Claude writes during a turn. Never commit this file.
+.claude-pending-commit.txt
