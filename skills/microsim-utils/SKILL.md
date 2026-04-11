@@ -19,6 +19,7 @@ Use this skill when users request:
 - Generating index pages for MicroSim directories
 - Quality scoring and standardization checks
 - Synchronizing iframe heights from JS source files
+- Setting up runtime iframe auto-resize via postMessage
 
 ## Step 1: Identify Utility Type
 
@@ -34,6 +35,7 @@ Match the user's request to the appropriate utility guide:
 | index page, microsim list, grid, directory, catalog, update the microsim listings, update the list of microsims, create a grid view, generate a listing | `references/index-generator.md` | Generate index page with grid cards |
 | TODO, todo json, extract specs, diagram specs, unimplemented, create microsim todo, todo files, extract diagrams, unimplemented microsims | `scripts/create-microsim-todo-json-files.py` | Extract unimplemented diagram specs into TODO JSON files |
 | fix iframe heights, sync iframe heights, correct iframe heights, iframe height, canvas height, sync heights, update iframe heights | `scripts/sync-iframe-heights.py` | Synchronize iframe heights from CANVAS_HEIGHT in JS files to sim and chapter index.md files |
+| iframe auto height, iframe auto resize, iframe postMessage, runtime iframe resize, microsim auto resize, auto-size iframe, iframe self-resize | `references/iframe-auto-height.md` | Runtime postMessage protocol so embedded MicroSims report their own height to the parent page |
 
 ### Decision Tree
 
@@ -55,6 +57,9 @@ Need to extract unimplemented diagram specs into TODO files?
 
 Need to fix, sync, or correct iframe heights?
   → YES: Run scripts/sync-iframe-heights.py
+
+Need iframes to auto-resize at runtime via postMessage?
+  → YES: references/iframe-auto-height.md
 ```
 
 ## Step 2: Load the Matched Guide or Run the Script
@@ -176,6 +181,30 @@ Each guide contains:
 
 **Important:** Always pass `--project-dir` pointing to the project root. The script auto-detects by walking up from cwd to find `mkdocs.yml` if omitted.
 
+### iframe-auto-height.md
+
+**Purpose:** Runtime alternative to `sync-iframe-heights.py`. Documents the
+two-part `postMessage` protocol that lets an embedded MicroSim report its
+own measured content height to the parent page, which then resizes the
+iframe automatically.
+
+**When to use:** Sims with responsive or content-dependent heights that
+are hard to predict at build time (e.g., diagram-overlay sims whose height
+depends on the longest callout text). Coexists with `sync-iframe-heights.py`
+without conflict.
+
+**What's in the guide:**
+- The `'microsim-resize'` message contract (type, height fields)
+- Drop-in parent-side listener block for `docs/js/extra.js`
+- Child-side reporter snippets for diagram-overlay, p5.js, and Mermaid sims
+- Why to match by `event.source === iframe.contentWindow` (not by URL)
+- Caveats: one-shot vs. live, target origin, sandbox attributes, fullscreen mode
+- Reference implementation paths in the `digital-citizenship` project
+
+**Setup is one-time per project:** add the listener block once to
+`docs/js/extra.js`, then any MicroSim that posts the `microsim-resize`
+message participates automatically.
+
 ## Examples
 
 ### Example 1: Quality Check
@@ -202,6 +231,11 @@ Each guide contains:
 **User:** "fix the iframe heights" or "sync the iframe heights" or "correct the iframe heights"
 **Routing:** Keywords "fix iframe heights", "sync iframe heights", "correct iframe heights" → `scripts/sync-iframe-heights.py`
 **Action:** Run `python scripts/sync-iframe-heights.py --project-dir /path/to/project --verbose` and report results (sims synced, comments inserted, iframe heights updated)
+
+### Example 6: Set Up Iframe Auto-Resize
+**User:** "make the iframes auto-size" or "set up iframe auto height" or "I want microsims to report their own height"
+**Routing:** Keywords "iframe auto height", "auto-size iframe", "iframe postMessage" → `references/iframe-auto-height.md`
+**Action:** Read `iframe-auto-height.md` and follow the two-part setup: paste the parent-side listener block at the top of `docs/js/extra.js`, then ensure the relevant MicroSims post `{ type: 'microsim-resize', height }` after layout settles. Confirm both sides are in place and report which sims now participate.
 
 ## Common Workflows
 
