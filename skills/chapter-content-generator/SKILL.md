@@ -688,6 +688,8 @@ Load this reference when determining how to write content at the appropriate rea
 
 13. **Real timestamps:** Always use actual system timestamps, never synthetic data
 
+14. **Emoji discipline:** Use emoji only when they signal a metaphor the chapter teaches. Decorative emoji compete with the textbook's mascot and the bold-and-define vocabulary pattern — leave them out. Per Mayer's coherence principle, decorative visuals measurably reduce retention even when students find them friendly. Engagement is not the same as learning.
+
 ## Common Pitfalls to Avoid
 
 **Dependency Direction (HIGHEST PRIORITY):**
