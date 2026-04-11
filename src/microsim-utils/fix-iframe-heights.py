@@ -4,9 +4,12 @@
 Parses JS files to detect canvas/container heights and updates the iframe tag
 in each sim's index.md accordingly.
 
-Height detection:
-  - vis-network: container height from JS + 80px for info panel/legend
-  - p5.js: createCanvas() height + 2px, or named height variables + 2px
+Height detection (in priority order):
+  1. // CANVAS_HEIGHT: <int> comment in the JS file — universal source of truth
+     for ALL library types (Mermaid, Chart.js, Leaflet, vis-network, p5.js, etc.).
+     The iframe height is set to CANVAS_HEIGHT + 2 (2px for the iframe border).
+  2. vis-network: container height from JS + 80px for info panel/legend
+  3. p5.js: createCanvas() height + 2px, or named height variables + 2px
 
 Usage:
   python3 fix-iframe-heights.py --project-dir /path/to/project --verbose
@@ -28,6 +31,18 @@ def detect_height(sim_dir, sim_name):
 
     with open(js_path) as f:
         js_content = f.read()
+
+    # PRIMARY: Look for the universal `// CANVAS_HEIGHT: <int>` comment.
+    # This is the single source of truth for all library types per the
+    # microsim-generator skill spec. The iframe height = CANVAS_HEIGHT + 2
+    # (2px for the iframe border).
+    canvas_height_match = re.search(
+        r'^\s*//\s*CANVAS_HEIGHT\s*:\s*(\d+)\s*$',
+        js_content,
+        re.MULTILINE,
+    )
+    if canvas_height_match:
+        return int(canvas_height_match.group(1)) + 2, 'CANVAS_HEIGHT comment + 2px'
 
     # Detect library type from main.html
     main_html = os.path.join(sim_dir, 'main.html')
