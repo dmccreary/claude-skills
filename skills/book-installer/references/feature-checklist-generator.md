@@ -222,3 +222,63 @@ This feature works well with:
 - **glossary-generator** - To implement missing glossary
 - **faq-generator** - To implement missing FAQ
 - **quiz-generator** - To implement missing quizzes
+
+## Per-Page Status Icons in Navigation (mkdocs-material)
+
+mkdocs-material renders a small icon next to a page's nav entry when the page
+has a `status:` value in its YAML frontmatter. The icon appears as a `<span
+class="md-status md-status--{value}">` and falls back to a generic info-circle
+glyph for any unrecognized status value. To make the icon meaningful you must
+both register the value in `mkdocs.yml` and (optionally) style it via CSS.
+
+### When to use
+
+- Surface MicroSim / chapter / page lifecycle state directly in the left nav
+  so authors and reviewers can see at a glance what is scaffolded vs.
+  generated vs. approved.
+- Track review/approval workflows where a human (e.g., subject-matter expert)
+  must sign off on AI-generated content before it ships.
+
+### How to configure
+
+1. **Register the statuses** in `mkdocs.yml` so the tooltip shows on hover:
+
+   ```yaml
+   extra:
+     status:
+       scaffold: Specification and scaffold only
+       generated: JavaScript generated, awaiting review
+       approved: Approved by reviewer
+   ```
+
+2. **Style each status** in `docs/css/extra.css` to control color/shape. The
+   default theme glyph is an info circle; override the `::after` content or
+   background to render a colored dot:
+
+   ```css
+   .md-status--scaffold::after  { background-color: #e53935; }  /* red */
+   .md-status--generated::after { background-color: #fb8c00; }  /* orange */
+   .md-status--approved::after  { background-color: #43a047; }  /* green */
+   ```
+
+3. **Add `status:` to page frontmatter**:
+
+   ```yaml
+   ---
+   title: My MicroSim
+   status: generated
+   ---
+   ```
+
+### Example: 3-state MicroSim review workflow
+
+A useful pattern for AI-generated MicroSims:
+
+| Status      | Color  | Meaning                                       |
+|-------------|--------|-----------------------------------------------|
+| `scaffold`  | red    | Specification and scaffold only, no code yet  |
+| `generated` | orange | JavaScript generated, awaiting human review   |
+| `approved`  | green  | Reviewed and approved by subject-matter expert|
+
+This was first deployed in the Dementia textbook project (2026-04) to track
+MicroSim review state without leaving the nav sidebar.

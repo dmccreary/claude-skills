@@ -170,7 +170,7 @@ Please generate a new png image now with a fully transparent background now.
 Generate prompts for each of these poses. **Always include the full base description in each prompt** — never use `[BASE]` shorthand:
 
 **1. Neutral/Default Pose** (general sidebars, introductions, inline use)
-```
+
 [FULL BASE DESCRIPTION] [NAME] stands upright in a relaxed, neutral pose facing the
 viewer directly, with a calm and friendly closed-mouth smile. Arms/paws/wings
 rest naturally at their sides with no specific gesture. The pose is balanced
@@ -178,70 +178,90 @@ and unassuming — suitable as a general-purpose or default illustration.
 Filename: neutral.png
 
 Please generate a new png image now with a fully transparent background now.
-```
+The background MUST be fully transparent.  DO NOT use a white, black or a checkered background.
+
 
 **2. Welcome/Introduction Pose** (chapter openings)
-```
+
+
+Please generate a new welcome pose for [NAME].
 [FULL BASE DESCRIPTION] [NAME] is waving cheerfully with one hand/paw/wing,
 facing the viewer with a warm, welcoming expression.
 The pose suggests "welcome" and "let's get started."
 Filename: welcome.png
 
 Please generate a new png image now with a fully transparent background now.
-```
+The background MUST be fully transparent.  
+DO NOT use a white, black or a checkered background.
+
 
 **3. Thinking/Teaching Pose** (key concepts)
-```
+
+
+Please generate a new thinking pose for [NAME].
 [FULL BASE DESCRIPTION] [NAME] has one hand/paw on chin in a thoughtful pose,
 with a small lightbulb or thought bubble above their head.
 The pose suggests deep thinking and discovery.
 Filename: thinking.png
 
 Please generate a new png image now with a fully transparent background now.
-```
+The background MUST be fully transparent.  DO NOT use a white, black or a checkered background.
+
 
 **4. Pointing/Tip Pose** (tips and hints)
-```
+
+
+Please generate a new tip pose for [NAME].
 [FULL BASE DESCRIPTION] [NAME] is pointing upward with one finger/paw
 as if sharing an important tip. Expression is helpful and knowing.
 A small star or sparkle near the pointing gesture.
 Filename: tip.png
 
 Please generate a new png image now with a fully transparent background now.
-```
+The background MUST be fully transparent.  DO NOT use a white, black or a checkered background.
+
 
 **5. Warning/Caution Pose** (warnings and pitfalls)
-```
+
+
+Please generate a new friendly warning pose for [NAME].
 [FULL BASE DESCRIPTION] [NAME] holds up both hands/paws in a gentle "stop"
 or "be careful" gesture. Expression is concerned but caring.
 A small exclamation mark or caution symbol nearby.
 Filename: warning.png
 
 Please generate a new png image now with a fully transparent background now.
-```
+The background MUST be fully transparent.  DO NOT use a white, black or a checkered background.
+
 
 **6. Encouraging Pose** (difficult sections)
-```
+
+
+Please generate a new encouraging pose for [NAME].
 [FULL BASE DESCRIPTION] [NAME] gives a thumbs up (or equivalent gesture)
 with a reassuring, supportive smile. The pose radiates confidence
 and "you can do it" energy.
 Filename: encouraging.png
 
 Please generate a new png image now with a fully transparent background now.
-```
+The background MUST be fully transparent.  DO NOT use a white, black or a checkered background.
+
 
 **7. Celebration Pose** (achievements, chapter completion)
-```
+
+
+Please generate a new celebration pose for [NAME].
 [FULL BASE DESCRIPTION] [NAME] is jumping or raising both arms/paws/wings
 in celebration. Expression is joyful and proud.
 Small confetti or stars around the character.
 Filename: celebration.png
 
 Please generate a new png image now with a fully transparent background now.
-```
+The background MUST be fully transparent.  DO NOT use a white, black or a checkered background.
 
 
 #### Example: Complete Prompt Set for "Otto the Owl"
+
 
 ```
 Base: A flat cartoon illustration of Otto the Owl, a friendly pedagogical
@@ -275,7 +295,10 @@ Celebration: [Base] Otto spreads both wings wide with joy, eyes
 squinted in a big smile. Small confetti falls around him.
 ```
 
-Present the generated prompts to the user and ask them to generate images using their preferred AI image tool. Recommend generating at 512x512 or 1024x1024 pixels, then resizing down for use.
+Present the generated prompts to the user and ask them to generate images using their preferred AI image tool. Recommend generating at 512x512 or 1024x1024 pixels, then resizing down for use
+and also running the python script that will remove extra padding around the edges with
+the scripts/trim-padding-from-image.py program.  Place the trim padding command in
+the screen for the user to run.
 
 ### Step 4: Save Mascot Images
 

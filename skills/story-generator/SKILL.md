@@ -336,6 +336,42 @@ Edit `docs/stories/index.md` to add a card using the MkDocs Material grid format
     <2-4 sentence compelling description emphasizing the story's theme>
 ```
 
+### Step 7: Reusing Stories from Other Textbooks
+
+When a story already exists in another intelligent textbook project (e.g., Theory of Knowledge stories reused in an Ecology textbook), **link to the story on the source textbook's published site** rather than duplicating it. Each story contains ~170 lines of markdown plus 13 generated images (1 cover + 12 panels) — duplicating all of that across textbooks adds unnecessary bulk without adding value.
+
+**Strategy: copy only the cover image, link to the external story.**
+
+```bash
+# Copy ONLY the cover image from the source project into the current project
+mkdir -p docs/stories/<subject-name>
+cp /path/to/other-textbook/docs/stories/<subject-name>/cover.png \
+   docs/stories/<subject-name>/cover.png
+```
+
+The cover image must be local so it renders during `mkdocs serve` development. **Do NOT use external URLs for images** — they don't render locally and create a dependency on the other site.
+
+The story title link should point to the **published URL on the source textbook's site**:
+
+```markdown
+- **[<Story Title>](https://dmccreary.github.io/<source-book>/stories/<subject-name>/)**
+
+    ![<Subject Name>](./<subject-name>/cover.png)
+    <2-4 sentence compelling description>
+```
+
+**Add a reader notice** above the grid of cross-linked stories so students are not confused when they land on a different site. Place this once, before the grid — not on every card:
+
+```markdown
+*Clicking a card below will take you to the <Source Book Name> site, where the
+full story and all 12 panel images are hosted. Use your browser's back button
+to return here. We link rather than duplicate because each story includes 13
+generated images — copying them across textbooks would add unnecessary bulk
+without adding value.*
+```
+
+**Do NOT duplicate the full story markdown or the 12 panel images** into the current project. Only the cover image is copied locally.
+
 ## References Guidance
 
 **Write real working URLs in the first draft. Do not use `(PLACEHOLDER)`.**
