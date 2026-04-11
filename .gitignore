@@ -13,6 +13,11 @@ mcp-servers/**/venv/
 .claude/activity-logs/
 .claude/settings.local.json
 
-# Marker file used by the auto-commit-claude-skills-stop.sh hook to receive
-# the commit message Claude writes during a turn. Never commit this file.
+# Per-turn tracking files used by the auto-commit-claude-skills hooks.
+# .claude-pending-commit.txt holds the commit message Claude writes during
+# the turn; .claude-pending-files.txt holds the list of file paths Claude
+# edited via Edit/Write/MultiEdit (populated by track-claude-skills-edits.sh).
+# Both are deleted by the Stop hook after a successful commit. Never commit
+# either file.
 .claude-pending-commit.txt
+.claude-pending-files.txt
