@@ -97,6 +97,7 @@ def generate_checklist(project_path: Path) -> str:
         "{custom_css}": status_icon(results["site_resources"]["custom_css"]),
         "{custom_js}": status_icon(results["site_resources"]["custom_js"]),
         "{google_analytics}": status_icon(results["site_resources"]["google_analytics"]),
+        "{document_status}": status_icon(results["site_resources"]["document_status"]),
 
         # Publishing
         "{social_media_cards}": status_icon(results["publishing"]["social_media_cards"]),

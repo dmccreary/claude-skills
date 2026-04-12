@@ -95,6 +95,7 @@ These are pages and files that support the entire textbook rather than individua
 | Custom CSS styling | {custom_css} | Low | Override theme colors, fonts, and layouts |
 | Custom JavaScript | {custom_js} | Low | Add interactivity beyond built-in features |
 | Google Analytics | {google_analytics} | Trivial | Track page views and user behavior |
+| Document status indicators | {document_status} | Low | Colored dots in nav showing page lifecycle state (spec → prototype → ready) |
 
 ### Publishing Features
 

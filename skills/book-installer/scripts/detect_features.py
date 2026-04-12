@@ -32,11 +32,17 @@ def load_mkdocs_yml(project_path: Path) -> dict:
         return {}
 
     with open(mkdocs_path, 'r', encoding='utf-8') as f:
-        try:
-            return yaml.safe_load(f) or {}
-        except yaml.YAMLError as e:
-            print(f"Warning: Error parsing mkdocs.yml: {e}")
-            return {}
+        raw = f.read()
+
+    # Strip !!python/name: tags that safe_load rejects — we only need
+    # the surrounding config keys, not the Python objects themselves.
+    raw = re.sub(r'!!python/name:\S+', '""', raw)
+
+    try:
+        return yaml.safe_load(raw) or {}
+    except yaml.YAMLError as e:
+        print(f"Warning: Error parsing mkdocs.yml: {e}")
+        return {}
 
 
 def get_theme_features(config: dict) -> list:
@@ -231,12 +237,13 @@ def detect_features(project_path: Path) -> dict:
             "custom_js": (len(list((docs_path / "js").glob("*.js")) if (docs_path / "js").exists() else []) > 0 or
                          len([j for j in extra_js if not str(j).startswith('http')]) > 0),
             "google_analytics": bool(extra.get('analytics', {}).get('property') if isinstance(extra.get('analytics'), dict) else False),
+            "document_status": bool(extra.get('status') if isinstance(extra.get('status'), dict) else False),
         },
 
         # Publishing Features
         "publishing": {
             "social_media_cards": "social" in plugins,
-            "edit_page_button": bool(config.get('edit_uri')),
+            "edit_page_button": bool(config.get('edit_uri')) or "content.action.edit" in features,
         },
 
         # Advanced Features - Interactive Learning

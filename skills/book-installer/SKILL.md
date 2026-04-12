@@ -59,6 +59,7 @@ Book Installer Features (most → least common):
 30. Learning mascot - add a pedagogical agent character to guide students
 31. Instructor's guide - comprehensive teacher's guide with classroom tips
 32. Custom 404 page - friendly error page with mascot image
+33. Document status indicators - colored dots in nav showing page lifecycle state
 
 Type a number or feature name to install.
 
@@ -116,6 +117,7 @@ Match the user's request to the appropriate installation guide:
 | mascot, learning mascot, pedagogical agent, character, guide character, persona | `references/learning-mascot.md` | Add a learning mascot to guide students |
 | instructor guide, teacher guide, teachers guide, instructor's guide, classroom guide | `references/instructors-guide.md` | Generate comprehensive instructor's guide |
 | 404, error page, not found, custom 404, page not found | `references/custom-404-page.md` | Add custom 404 page with mascot |
+| document status, page status, status indicators, status dots, nav status, page lifecycle, review workflow | `references/document-status.md` | Add colored status dots to nav sidebar |
 
 ### Decision Tree
 
@@ -152,6 +154,9 @@ Want to generate an instructor's/teacher's guide?
 
 Want a custom 404 error page with the mascot?
   → YES: custom-404-page.md
+
+Want to add colored status dots to the nav sidebar for page lifecycle tracking?
+  → YES: document-status.md
 
 Want to add a specific feature (equations, quizzes, feedback, etc.)?
   → YES: mkdocs-features.md (then follow specific feature instructions)
@@ -319,6 +324,25 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 **Prerequisites:**
 - Existing MkDocs Material project
 - Learning mascot images in `docs/img/mascot/` (use `learning-mascot.md` first if needed)
+
+### document-status.md
+
+**Purpose:** Add per-page colored status dots to the navigation sidebar for tracking page lifecycle state
+
+**Creates:**
+- `extra.status` configuration in mkdocs.yml
+- CSS rules for colored status dots in extra.css
+- `status:` frontmatter on individual pages
+
+**Features:**
+- Three-state workflow (spec-complete → prototype → ready-for-testing)
+- Colored dots (red, orange, green) visible in the nav sidebar
+- Tooltip text on hover
+- Customizable status codes for any workflow
+
+**Prerequisites:**
+- Existing MkDocs Material project
+- Custom CSS file referenced in `extra_css`
 
 ### cover-image-generator.md
 

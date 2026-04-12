@@ -138,6 +138,7 @@ The Python script checks for features using these patterns:
 | Custom CSS | `docs/css/*.css` exists OR `extra_css` in mkdocs.yml |
 | Custom JavaScript | `docs/js/*.js` exists OR `extra_javascript` in mkdocs.yml |
 | Google Analytics | `analytics.property` in extra |
+| Document status indicators | `extra.status` is a non-empty dict |
 
 ### Publishing Features
 
