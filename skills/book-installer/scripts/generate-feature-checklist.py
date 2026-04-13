@@ -93,7 +93,9 @@ def generate_checklist(project_path: Path) -> str:
         # Site Resources
         "{glossary}": status_icon(results["site_resources"]["glossary"]),
         "{faq}": status_icon(results["site_resources"]["faq"]),
-        "{references}": status_icon(results["site_resources"]["references"]),
+        "{references}": status_icon(results["site_resources"]["references"] or results["site_resources"]["per_chapter_references"]),
+        "{per_chapter_references}": status_icon(results["site_resources"]["per_chapter_references"]),
+        "{per_chapter_references_count}": str(results["site_resources"]["per_chapter_references_count"]),
         "{custom_css}": status_icon(results["site_resources"]["custom_css"]),
         "{custom_js}": status_icon(results["site_resources"]["custom_js"]),
         "{google_analytics}": status_icon(results["site_resources"]["google_analytics"]),

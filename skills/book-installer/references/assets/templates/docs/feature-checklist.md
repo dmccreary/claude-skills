@@ -91,7 +91,8 @@ These are pages and files that support the entire textbook rather than individua
 |---------|--------|--------|-------|
 | Glossary | {glossary} | Medium | {glossary_term_count} terms with ISO 11179 compliant definitions |
 | FAQ page | {faq} | Medium | {faq_question_count} answers to common student questions |
-| References page | {references} | Medium | Curated bibliography with links per chapter or site-wide |
+| References page | {references} | Medium | Curated bibliography with links — site-wide or per-chapter |
+| Per-chapter references | {per_chapter_references} | Medium | {per_chapter_references_count} chapter-level references.md files |
 | Custom CSS styling | {custom_css} | Low | Override theme colors, fonts, and layouts |
 | Custom JavaScript | {custom_js} | Low | Add interactivity beyond built-in features |
 | Google Analytics | {google_analytics} | Trivial | Track page views and user behavior |

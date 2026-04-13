@@ -232,6 +232,8 @@ def detect_features(project_path: Path) -> dict:
             "glossary": file_exists(docs_path, "glossary.md"),
             "faq": file_exists(docs_path, "faq.md"),
             "references": file_exists(docs_path, "references.md"),
+            "per_chapter_references": count_files(docs_path / "chapters", "**/references.md") > 0,
+            "per_chapter_references_count": count_files(docs_path / "chapters", "**/references.md"),
             "custom_css": (len(list((docs_path / "css").glob("*.css")) if (docs_path / "css").exists() else []) > 0 or
                           len([c for c in extra_css if not c.startswith('http')]) > 0),
             "custom_js": (len(list((docs_path / "js").glob("*.js")) if (docs_path / "js").exists() else []) > 0 or
