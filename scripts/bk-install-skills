@@ -169,6 +169,20 @@ else
     echo -e "${GREEN}✓${NC} No broken symlinks found"
 fi
 
+# ── Global gitignore ──────────────────────────────────────────
+echo ""
+echo -e "${BLUE}Configuring global gitignore...${NC}"
+GITIGNORE_SRC="$BK_HOME/config/gitignore_global"
+GITIGNORE_DST="$HOME/.gitignore_global"
+
+if [ -f "$GITIGNORE_SRC" ]; then
+    cp "$GITIGNORE_SRC" "$GITIGNORE_DST"
+    git config --global core.excludesfile "$GITIGNORE_DST"
+    echo -e "${GREEN}✓${NC} Installed $GITIGNORE_DST"
+else
+    echo -e "${YELLOW}⚠${NC}  $GITIGNORE_SRC not found, skipping global gitignore"
+fi
+
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
 echo -e "${GREEN}Done!${NC} You can now use these skills with Claude Code"
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"

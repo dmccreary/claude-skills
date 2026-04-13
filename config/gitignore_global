@@ -1,0 +1,6 @@
+# Global gitignore for Claude Code users
+# Installed by: bk-install-skills
+# Synced from:  claude-skills/config/gitignore_global
+
+# Claude Code worktrees — ephemeral working copies, never commit
+.claude/worktrees/
