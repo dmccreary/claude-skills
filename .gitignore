@@ -12,6 +12,7 @@ mcp-servers/**/.venv/
 mcp-servers/**/venv/
 .claude/activity-logs/
 .claude/settings.local.json
+.claude/worktrees/
 
 # Per-turn tracking files used by the auto-commit-claude-skills hooks.
 # .claude-pending-commit.txt holds the commit message Claude writes during
