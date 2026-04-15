@@ -60,6 +60,7 @@ Book Installer Features (most → least common):
 31. Instructor's guide - comprehensive teacher's guide with classroom tips
 32. Custom 404 page - friendly error page with mascot image
 33. Document status indicators - colored dots in nav showing page lifecycle state
+34. Kanban board - GitHub Projects board for tracking textbook development
 
 Type a number or feature name to install.
 
@@ -118,6 +119,7 @@ Match the user's request to the appropriate installation guide:
 | instructor guide, teacher guide, teachers guide, instructor's guide, classroom guide | `references/instructors-guide.md` | Generate comprehensive instructor's guide |
 | 404, error page, not found, custom 404, page not found | `references/custom-404-page.md` | Add custom 404 page with mascot |
 | document status, page status, status indicators, status dots, nav status, page lifecycle, review workflow | `references/document-status.md` | Add colored status dots to nav sidebar |
+| kanban, project board, kanban board, project management, github project, task board, milestones, 34 | `references/kanban-board.md` | Create GitHub Projects Kanban board for textbook development |
 
 ### Decision Tree
 
@@ -157,6 +159,9 @@ Want a custom 404 error page with the mascot?
 
 Want to add colored status dots to the nav sidebar for page lifecycle tracking?
   → YES: document-status.md
+
+Want a GitHub Projects Kanban board to track textbook development?
+  → YES: kanban-board.md
 
 Want to add a specific feature (equations, quizzes, feedback, etc.)?
   → YES: mkdocs-features.md (then follow specific feature instructions)
@@ -364,6 +369,28 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 - docs/course-description.md with book content description
 - One of: OpenAI API billing, ChatGPT Pro subscription, or free AI image generator
 
+### kanban-board.md
+
+**Purpose:** Create a GitHub Projects (v2) Kanban board for tracking textbook development progress
+
+**Creates:**
+- GitHub Projects board with Board (Kanban) layout
+- Priority field (High / Medium / Low)
+- 13 standard textbook milestone draft items
+- `docs/project-management.md` with column documentation and workflow guide
+- README section about the Kanban board
+
+**Features:**
+- Automated setup via `gh project` CLI commands
+- Links project to the repository automatically
+- Pre-populated milestones matching the 12-step textbook workflow
+- Fallback instructions for manual setup if `gh` commands fail
+
+**Prerequisites:**
+- `gh` CLI installed and authenticated
+- `project` scope on the GitHub token (`gh auth refresh -s project`)
+- Existing MkDocs project with mkdocs.yml
+
 ## Examples
 
 ### Example 1: Ask for Help
@@ -430,6 +457,11 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 **User:** "add a teacher's guide" or "create instructor guide"
 **Routing:** Keywords "teacher guide", "instructor guide" → `references/instructors-guide.md`
 **Action:** Read instructors-guide.md, gather project variables from mkdocs.yml/course-description.md/CLAUDE.md, generate the guide with all variables substituted, add to navigation
+
+### Example 12: Create Kanban Board
+**User:** "set up a kanban board for my textbook" or "create a project board"
+**Routing:** Keywords "kanban", "project board" → `references/kanban-board.md`
+**Action:** Read kanban-board.md, verify gh auth with project scope, create the GitHub Project, link to repo, populate milestones, create docs/project-management.md, update nav and README
 
 ## Common Workflows
 

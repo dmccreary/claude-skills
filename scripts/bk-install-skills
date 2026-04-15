@@ -66,7 +66,7 @@ for link in "$TARGET_DIR"/*; do
             # Broken symlink - target doesn't exist
             rm "$link"
             cleaned_links+=("$link_name (broken)")
-            ((cleanup_count++))
+            ((++cleanup_count))
         elif [[ "$link_target" == "$SKILLS_DIR"* ]] || [[ "$link_target" == *"/claude-skills/skills/"* ]]; then
             # Symlink points to our skills directory - check if source skill still exists
             source_skill_name=$(basename "$link_target")
@@ -74,7 +74,7 @@ for link in "$TARGET_DIR"/*; do
                 # Source skill no longer exists (renamed or removed)
                 rm "$link"
                 cleaned_links+=("$link_name (stale - source removed)")
-                ((cleanup_count++))
+                ((++cleanup_count))
             fi
         fi
     fi
@@ -167,6 +167,20 @@ if [ "$broken_count" -gt 0 ]; then
     echo "  find ~/.claude/skills -xtype l -delete"
 else
     echo -e "${GREEN}✓${NC} No broken symlinks found"
+fi
+
+# ── Global gitignore ──────────────────────────────────────────
+echo ""
+echo -e "${BLUE}Configuring global gitignore...${NC}"
+GITIGNORE_SRC="$BK_HOME/config/gitignore_global"
+GITIGNORE_DST="$HOME/.gitignore_global"
+
+if [ -f "$GITIGNORE_SRC" ]; then
+    cp "$GITIGNORE_SRC" "$GITIGNORE_DST"
+    git config --global core.excludesfile "$GITIGNORE_DST"
+    echo -e "${GREEN}✓${NC} Installed $GITIGNORE_DST"
+else
+    echo -e "${YELLOW}⚠${NC}  $GITIGNORE_SRC not found, skipping global gitignore"
 fi
 
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
