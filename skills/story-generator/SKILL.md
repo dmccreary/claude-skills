@@ -193,6 +193,9 @@ Every image prompt must specify:
 - Color palette guidance
 - Emotional tone and mood
 - At least 6 specific visual details
+- Begin every prompt body with a panel identifier line:
+  - Cover: `(This is the Cover Image. Do not include this label in the image.)`
+  - Panels: `(This is Panel NN. Do not include the panel number in the image.)` where NN is zero-padded (01–12)
 - End with: `Generate the image immediately without asking clarifying questions.`
 
 The `generate-images.py` script parses `<details><summary>Image Prompt</summary>...</details>` blocks directly from the story's `index.md`, so the block structure is load-bearing — do not change the HTML shape.
@@ -227,6 +230,7 @@ Create `docs/stories/{story-dir-name}/index.md` following the template at `refer
 - All image references use `.png` extension
 - Panel image prompts wrapped in `<details><summary>Image Prompt</summary>...</details>` blocks
 - Cover image prompt wrapped in `<details><summary>Cover Image Prompt</summary>...</details>`
+- Every prompt body starts with a panel identifier line (see "Image Prompt Requirements")
 - Narrative paragraphs go *below* each panel's image (not inside the `<details>` block)
 - References: 5 real URLs, never `(PLACEHOLDER)` — see the References Guidance section below
 
