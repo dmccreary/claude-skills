@@ -61,6 +61,7 @@ Book Installer Features (most → least common):
 32. Custom 404 page - friendly error page with mascot image
 33. Document status indicators - colored dots in nav showing page lifecycle state
 34. Kanban board - GitHub Projects board for tracking textbook development
+35. Mascot chapter updater - retrofit existing chapters with mascot admonitions
 
 Type a number or feature name to install.
 
@@ -120,6 +121,7 @@ Match the user's request to the appropriate installation guide:
 | 404, error page, not found, custom 404, page not found | `references/custom-404-page.md` | Add custom 404 page with mascot |
 | document status, page status, status indicators, status dots, nav status, page lifecycle, review workflow | `references/document-status.md` | Add colored status dots to nav sidebar |
 | kanban, project board, kanban board, project management, github project, task board, milestones, 34 | `references/kanban-board.md` | Create GitHub Projects Kanban board for textbook development |
+| mascot chapter, update chapter, retrofit mascot, place mascot, add mascot to chapter, mascot placement, 35 | `references/mascot-chapter-updater.md` | Retrofit an existing chapter with mascot admonitions using placement rules |
 
 ### Decision Tree
 
@@ -162,6 +164,9 @@ Want to add colored status dots to the nav sidebar for page lifecycle tracking?
 
 Want a GitHub Projects Kanban board to track textbook development?
   → YES: kanban-board.md
+
+Want to retrofit an existing chapter with mascot admonitions?
+  → YES: mascot-chapter-updater.md
 
 Want to add a specific feature (equations, quizzes, feedback, etc.)?
   → YES: mkdocs-features.md (then follow specific feature instructions)
@@ -391,6 +396,26 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 - `project` scope on the GitHub token (`gh auth refresh -s project`)
 - Existing MkDocs project with mkdocs.yml
 
+### mascot-chapter-updater.md
+
+**Purpose:** Retrofit an existing chapter markdown file with mascot admonitions in the right places, following the placement rules from learning-mascot.md
+
+**Creates:**
+- In-place edits to the specified chapter file only (no new files)
+- A placement plan shown to the user for confirmation before editing
+
+**Features:**
+- LLM-driven workflow for semantic placement (no regex auto-insertion)
+- Enforces hard limits: ≤6 admonitions per chapter, one welcome and one celebration maximum, no back-to-back placements
+- Image-path guidance for directory-URL rendering (counts `../` from rendered page)
+- Voice and body-text rules: 1-3 sentences, in-character, specific to chapter content
+- Validation via `scripts/validate-chapter-mascots.py` that flags count limits, back-to-backs, missing `<img>` tags, and body-text length
+
+**Prerequisites:**
+- Mascot images present in `docs/img/mascot/` or `docs/img/mascots/`
+- `docs/css/mascot.css` loaded and the mascot-test page renders correctly
+- Specific chapter file identified by absolute path
+
 ## Examples
 
 ### Example 1: Ask for Help
@@ -462,6 +487,11 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 **User:** "set up a kanban board for my textbook" or "create a project board"
 **Routing:** Keywords "kanban", "project board" → `references/kanban-board.md`
 **Action:** Read kanban-board.md, verify gh auth with project scope, create the GitHub Project, link to repo, populate milestones, create docs/project-management.md, update nav and README
+
+### Example 13: Add Mascots to an Existing Chapter
+**User:** "add Sparky admonitions to chapter 2" or "place the mascot in docs/chapters/02-ohms-law/index.md"
+**Routing:** Keywords "mascot chapter", "place mascot", "add mascot to chapter" → `references/mascot-chapter-updater.md`
+**Action:** Read mascot-chapter-updater.md, survey the chapter, propose a placement plan with line numbers, wait for user confirmation, apply edits, run validate-chapter-mascots.py, and address any flags
 
 ## Common Workflows
 
