@@ -1,8 +1,22 @@
 #!/bin/bash
 # bk-install-social-override-plugin
 #
-# Installs social_override plugin for mkdocs-material into the current directory
-# This plugin allows custom social media card images in MkDocs projects
+# Installs the social_override hook for mkdocs-material into the current
+# directory. The hook replaces the social plugin's auto-generated
+# og:image / twitter:image meta tags with a custom image URL taken from
+# each page's `image:` frontmatter field, so you can use real cover
+# images for LinkedIn / Twitter / Slack previews instead of the
+# generic Material-generated cards.
+#
+# This installer uses the mkdocs `hooks:` mechanism (a file-path
+# reference in mkdocs.yml), NOT a Python entry-point plugin. Reason:
+# when multiple sibling MkDocs projects install editable packages that
+# all claim the top-level `plugins` module name (which is what the old
+# setup.py/entry_point approach did), Python's import resolution
+# silently picks whichever project's `plugins/social_override.py`
+# landed first in sys.meta_path — usually the wrong one. The `hooks:`
+# mechanism loads a file by absolute path and sidesteps the collision
+# entirely.
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -26,7 +40,7 @@ if [ ! -d "$BK_HOME" ]; then
 fi
 
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
-echo -e "${GREEN}Installing Social Override Plugin${NC}"
+echo -e "${GREEN}Installing Social Override Hook${NC}"
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
 echo -e "BK_HOME:    ${YELLOW}$BK_HOME${NC}"
 echo -e "Target dir: ${YELLOW}$(pwd)${NC}"
@@ -45,113 +59,145 @@ if [ ! -f "mkdocs.yml" ]; then
     fi
 fi
 
+# Detect and clean up any old entry-point-plugin install in this project.
+# Older versions of this script created setup.py + egg-info + plugins/__init__.py
+# and ran `pip install -e .`. If we find those artifacts, remove them
+# before writing the hook file, otherwise the stale package can still
+# win at import time.
+cleaned_old=0
+if [ -f "setup.py" ] && grep -q "social_override" setup.py 2>/dev/null; then
+    echo -e "${YELLOW}Removing old entry-point-plugin setup.py...${NC}"
+    rm -f setup.py
+    cleaned_old=1
+fi
+if [ -d "social_override.egg-info" ]; then
+    echo -e "${YELLOW}Removing old social_override.egg-info/...${NC}"
+    rm -rf social_override.egg-info
+    cleaned_old=1
+fi
+if [ -f "plugins/__init__.py" ] && grep -q "SocialOverridePlugin" plugins/__init__.py 2>/dev/null; then
+    echo -e "${YELLOW}Removing old plugins/__init__.py...${NC}"
+    rm -f plugins/__init__.py
+    cleaned_old=1
+fi
+if command -v pip &> /dev/null && pip show social_override &> /dev/null; then
+    echo -e "${YELLOW}Uninstalling old editable social_override package...${NC}"
+    pip uninstall -y social_override
+    cleaned_old=1
+fi
+if [ "$cleaned_old" = "1" ]; then
+    echo ""
+fi
+
 # Create directories
-echo -e "${BLUE}Creating plugin directories...${NC}"
+echo -e "${BLUE}Creating plugins directory...${NC}"
 mkdir -p plugins
 
-# Create __init__.py
-echo -e "${GREEN}✓${NC} Creating plugins/__init__.py..."
-cat > plugins/__init__.py << 'EOL'
-from .social_override import SocialOverridePlugin
-EOL
-
-# Create social_override.py
+# Create the hook file (module-level functions, NOT a BasePlugin subclass)
 echo -e "${GREEN}✓${NC} Creating plugins/social_override.py..."
 cat > plugins/social_override.py << 'EOL'
-from mkdocs.plugins import BasePlugin
+"""MkDocs hook that replaces the social plugin's auto-generated og:image
+and twitter:image meta tags with a custom image URL from a page's
+`image:` frontmatter field.
+
+Loaded via the `hooks:` entry in mkdocs.yml, not as a plugin — this
+avoids collisions with other projects that also install a package
+called `social_override` or a top-level module called `plugins`.
+
+Usage:
+    In mkdocs.yml, add at the top level (NOT under `plugins:`):
+
+        hooks:
+          - plugins/social_override.py
+
+    Make sure `social` is in your plugins list so the default cards
+    still get generated (this hook only rewrites the emitted meta
+    tags; pages without an `image:` frontmatter field fall through
+    to the generated card).
+
+    Then on any page you want a custom preview image:
+
+        ---
+        title: My Page
+        image: img/my-custom-social-card.png
+        ---
+"""
+
 import re
 
-class SocialOverridePlugin(BasePlugin):
-    def on_page_context(self, context, page, config, **kwargs):
-        """Save custom image path from page metadata if it exists"""
-        if page.meta and 'image' in page.meta:
-            page.custom_image = page.meta['image']
-        return context
-    
-    def on_post_page(self, html, page, config, **kwargs):
-        """Replace social plugin meta tags with our custom image"""
-        # Only process pages with custom image
-        if not hasattr(page, 'custom_image'):
-            return html
-        
-        # Build the full URL for the custom image
-        site_url = config['site_url'].rstrip('/')
-        image_path = '/' + page.custom_image.lstrip('/')
-        full_image_url = site_url + image_path
-        
-        # Find and replace OpenGraph image tags
-        og_tags = re.findall(r'<meta\s+property="og:image"[^>]*?>', html)
-        for tag in og_tags:
-            if '/assets/images/social/' in tag:
-                new_tag = f'<meta property="og:image" content="{full_image_url}">'
-                html = html.replace(tag, new_tag)
-        
-        # Find and replace Twitter image tags
-        twitter_tags = re.findall(r'<meta\s+name="twitter:image"[^>]*?>', html)
-        for tag in twitter_tags:
-            if '/assets/images/social/' in tag:
-                new_tag = f'<meta name="twitter:image" content="{full_image_url}">'
-                html = html.replace(tag, new_tag)
-        
+
+def on_page_context(context, page, config, **kwargs):
+    """Stash the custom image path on the page for the post_page hook."""
+    if page.meta and 'image' in page.meta:
+        page.custom_image = page.meta['image']
+    return context
+
+
+def on_post_page(html, page, config, **kwargs):
+    """Replace the social plugin's generated og:image / twitter:image
+    tags with the page's custom cover image URL."""
+    if not hasattr(page, 'custom_image'):
         return html
 
-# Make the plugin available to MkDocs
-def get_plugin():
-    return SocialOverridePlugin()
+    site_url = config['site_url'].rstrip('/')
+    image_path = '/' + page.custom_image.lstrip('/')
+    full_image_url = site_url + image_path
+
+    # og:image uses property=
+    og_pattern = re.compile(r'<meta\s+property="og:image"[^>]*?>')
+    for tag in og_pattern.findall(html):
+        if '/assets/images/social/' in tag:
+            new_tag = f'<meta property="og:image" content="{full_image_url}">'
+            html = html.replace(tag, new_tag)
+
+    # Material emits twitter:image with property= (not name=), so match both
+    twitter_pattern = re.compile(
+        r'<meta\s+(?:property|name)="twitter:image"[^>]*?>'
+    )
+    for tag in twitter_pattern.findall(html):
+        if '/assets/images/social/' in tag:
+            # Preserve whichever attribute style was in the original tag
+            attr = 'property' if 'property=' in tag else 'name'
+            new_tag = f'<meta {attr}="twitter:image" content="{full_image_url}">'
+            html = html.replace(tag, new_tag)
+
+    return html
 EOL
-
-# Create setup.py
-echo -e "${GREEN}✓${NC} Creating setup.py..."
-cat > setup.py << 'EOL'
-from setuptools import setup, find_packages
-
-setup(
-    name='social_override',
-    version='0.1',
-    packages=find_packages(),
-    entry_points={
-        'mkdocs.plugins': [
-            'social_override = plugins.social_override:SocialOverridePlugin',
-        ]
-    }
-)
-EOL
-
-echo ""
-echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
-
-# Check if pip is available
-if ! command -v pip &> /dev/null && ! command -v pip3 &> /dev/null; then
-    echo -e "${RED}Error: pip is not installed or not in PATH${NC}"
-    echo "Please install pip to complete the plugin installation."
-    exit 1
-fi
-
-# Install the plugin
-echo -e "${BLUE}Installing the social_override plugin...${NC}"
-if command -v pip3 &> /dev/null; then
-    pip3 install -e .
-else
-    pip install -e .
-fi
 
 echo ""
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
 echo -e "${GREEN}Installation complete!${NC}"
 echo ""
 echo -e "${YELLOW}Next steps:${NC}"
-echo "Add 'social_override' to your plugins section in mkdocs.yml:"
+echo ""
+echo "1. In mkdocs.yml, make sure the Material social plugin is enabled"
+echo "   (under plugins:) and add a top-level hooks: block:"
 echo ""
 echo -e "${BLUE}plugins:${NC}"
 echo "  - search"
-echo "  - social"
-echo -e "  ${GREEN}- social_override${NC}"
+echo -e "  ${GREEN}- social${NC}"
 echo ""
-echo "Then you can add custom images to page metadata:"
+echo -e "${BLUE}hooks:${NC}"
+echo -e "  ${GREEN}- plugins/social_override.py${NC}"
+echo ""
+echo "   IMPORTANT: 'hooks:' is a TOP-LEVEL key in mkdocs.yml. Do NOT"
+echo "   put it under 'plugins:' — that's a different mechanism."
+echo ""
+echo "2. Add a custom social preview image to any page's frontmatter:"
 echo ""
 echo -e "${BLUE}---${NC}"
 echo "title: My Page"
 echo -e "${GREEN}image: img/my-custom-social-card.png${NC}"
 echo -e "${BLUE}---${NC}"
+echo ""
+echo "   Pages without an 'image:' field fall through to the default"
+echo "   Material-generated social card — no change in behavior."
+echo ""
+echo "3. Rebuild with 'mkdocs build' and verify by grepping the output:"
+echo ""
+echo -e "${BLUE}   grep 'og:image' site/index.html${NC}"
+echo ""
+echo "   The og:image content should point to your custom image, NOT to"
+echo "   /assets/images/social/index.png."
 echo ""
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"

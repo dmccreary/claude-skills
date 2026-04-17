@@ -298,8 +298,11 @@ theme:
 plugins:
   - search
   - social
-  - social_override
   - glightbox
+
+hooks:
+  - plugins/social_override.py
+
 markdown_extensions:
   - md_in_html
   - admonition

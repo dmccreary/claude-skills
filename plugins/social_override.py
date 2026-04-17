@@ -1,40 +1,66 @@
-from mkdocs.plugins import BasePlugin
+"""MkDocs hook that replaces the social plugin's auto-generated og:image
+and twitter:image meta tags with a custom image URL from a page's
+`image:` frontmatter field.
+
+Loaded via the `hooks:` entry in mkdocs.yml, not as a plugin — this
+avoids collisions with other projects that also install a package
+called `social_override` or a top-level module called `plugins`.
+
+Usage:
+    In mkdocs.yml, add at the top level (NOT under `plugins:`):
+
+        hooks:
+          - plugins/social_override.py
+
+    Make sure `social` is in your plugins list so the default cards
+    still get generated (this hook only rewrites the emitted meta
+    tags; pages without an `image:` frontmatter field fall through
+    to the generated card).
+
+    Then on any page you want a custom preview image:
+
+        ---
+        title: My Page
+        image: img/my-custom-social-card.png
+        ---
+"""
+
 import re
 
-class SocialOverridePlugin(BasePlugin):
-    def on_page_context(self, context, page, config, **kwargs):
-        """Save custom image path from page metadata if it exists"""
-        if page.meta and 'image' in page.meta:
-            page.custom_image = page.meta['image']
-        return context
-    
-    def on_post_page(self, html, page, config, **kwargs):
-        """Replace social plugin meta tags with our custom image"""
-        # Only process pages with custom image
-        if not hasattr(page, 'custom_image'):
-            return html
-        
-        # Build the full URL for the custom image
-        site_url = config['site_url'].rstrip('/')
-        image_path = '/' + page.custom_image.lstrip('/')
-        full_image_url = site_url + image_path
-        
-        # Find and replace OpenGraph image tags
-        og_tags = re.findall(r'<meta\s+property="og:image"[^>]*?>', html)
-        for tag in og_tags:
-            if '/assets/images/social/' in tag:
-                new_tag = f'<meta property="og:image" content="{full_image_url}">'
-                html = html.replace(tag, new_tag)
-        
-        # Find and replace Twitter image tags
-        twitter_tags = re.findall(r'<meta\s+name="twitter:image"[^>]*?>', html)
-        for tag in twitter_tags:
-            if '/assets/images/social/' in tag:
-                new_tag = f'<meta name="twitter:image" content="{full_image_url}">'
-                html = html.replace(tag, new_tag)
-        
+
+def on_page_context(context, page, config, **kwargs):
+    """Stash the custom image path on the page for the post_page hook."""
+    if page.meta and 'image' in page.meta:
+        page.custom_image = page.meta['image']
+    return context
+
+
+def on_post_page(html, page, config, **kwargs):
+    """Replace the social plugin's generated og:image / twitter:image
+    tags with the page's custom cover image URL."""
+    if not hasattr(page, 'custom_image'):
         return html
 
-# Make the plugin available to MkDocs
-def get_plugin():
-    return SocialOverridePlugin()
+    site_url = config['site_url'].rstrip('/')
+    image_path = '/' + page.custom_image.lstrip('/')
+    full_image_url = site_url + image_path
+
+    # og:image uses property=
+    og_pattern = re.compile(r'<meta\s+property="og:image"[^>]*?>')
+    for tag in og_pattern.findall(html):
+        if '/assets/images/social/' in tag:
+            new_tag = f'<meta property="og:image" content="{full_image_url}">'
+            html = html.replace(tag, new_tag)
+
+    # Material emits twitter:image with property= (not name=), so match both
+    twitter_pattern = re.compile(
+        r'<meta\s+(?:property|name)="twitter:image"[^>]*?>'
+    )
+    for tag in twitter_pattern.findall(html):
+        if '/assets/images/social/' in tag:
+            # Preserve whichever attribute style was in the original tag
+            attr = 'property' if 'property=' in tag else 'name'
+            new_tag = f'<meta {attr}="twitter:image" content="{full_image_url}">'
+            html = html.replace(tag, new_tag)
+
+    return html

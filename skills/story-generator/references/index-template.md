@@ -13,6 +13,7 @@ social:
 ![](./cover.png)
 <details>
 <summary>Cover Image Prompt</summary>
+(This is the Cover Image. Do not include this label in the image.)
 Please generate a wide-landscape 16:9 cover image for this story in
 [period-appropriate art style]. {Detailed description of the scene, the
 subject's appearance, and the setting. Include the title text rendered in
@@ -35,6 +36,7 @@ so all panels share the same visual language.]
 
 ![](./panel-01.png)
 <details><summary>Image Prompt</summary>
+(This is Panel 01. Do not include the panel number in the image.)
 I am about to ask you to generate a series of images for a graphic novel.
 Please make the images have a consistent style and consistent characters.
 Do not ask any clarifying questions. Just generate the image immediately
@@ -56,6 +58,7 @@ audience (e.g., high school students) — accessible but not dumbed down.}
 
 ![](./panel-02.png)
 <details><summary>Image Prompt</summary>
+(This is Panel 02. Do not include the panel number in the image.)
 Please generate a 16:9 image in [period style] depicting panel 2 of 12.
 Make the characters and style consistent with the prior panel. The scene
 should include [specific characters], set in [specific setting including
@@ -70,6 +73,7 @@ Generate the image immediately without asking clarifying questions.
 
 ![](./panel-03.png)
 <details><summary>Image Prompt</summary>
+(This is Panel 03. Do not include the panel number in the image.)
 Please generate a 16:9 image in [period style] depicting panel 3 of 12.
 Make the characters and style consistent with the prior panel. The scene
 should include [specific characters], set in [specific setting including
