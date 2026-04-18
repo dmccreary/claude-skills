@@ -427,15 +427,19 @@ Create or append to `docs/css/mascot.css`:
   color: white;
 }
 
-/* ---- Celebration (achievements) — purple ---- */
+/* ---- Celebration (achievements) — deep purple so pale confetti sparkles pop ---- */
+/* NOTE: celebration poses typically contain pale gold/white confetti that
+   vanishes against light backgrounds. Keep the body dark and flip text
+   color to light. See "Contrast-check each pose image" below. */
 .md-typeset .admonition.mascot-celebration,
 .md-typeset details.mascot-celebration {
-  border-color: #6a1b9a;
-  background-color: #f3e5f5;
+  border-color: #4a148c;
+  background-color: #311b4f;
+  color: #f3e5f5;
 }
 .md-typeset .mascot-celebration > .admonition-title,
 .md-typeset .mascot-celebration > summary {
-  background-color: #6a1b9a;
+  background-color: #4a148c;
   color: white;
 }
 
@@ -490,6 +494,7 @@ Create or append to `docs/css/mascot.css`:
 - **Never** put mascot icons in the admonition title bar (no `::before` pseudo-elements with mascot images)
 - **Always** place mascot images in the admonition body using `<img class="mascot-admonition-img">`
 - The title bar is clean text only — the default MkDocs icon is hidden via `display: none`
+- **Contrast-check each pose image against its admonition background before finalizing colors.** Open the PNG and look for fine pale details — confetti sparkles, glow, LED highlights, thin white outlines. If the pose has pale elements (the celebration pose almost always does), the admonition background must be dark enough that those details remain visible; flip the body text color to a light shade to compensate. If the pose is mostly dark or saturated, a light pastel background is fine. The celebration CSS block above is the canonical example of the dark-background treatment.
 
 #### Step 5b: Register the CSS in mkdocs.yml
 
