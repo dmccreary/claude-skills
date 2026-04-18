@@ -186,21 +186,23 @@ Where `{story-dir-name}` is the kebab-case directory name.
 
 Every image prompt must specify:
 
+- Begin every prompt body with a panel identifier line:
+  - Cover: `(This is the Cover Image. Do not include this label in the image.)`
+  - Panels: `(This is Panel N. Do not include the panel number in the image.)` where N is the panel number
 - Wide-landscape **16:9 format** (the `generate-images.py` script passes this via API config — the text in the prompt is redundant but harmless)
 - Period-appropriate art style (see the Art Style Reference table below)
 - Specific characters with physical features and clothing
 - Specific setting including year and location
 - Color palette guidance
 - Emotional tone and mood
-- At least 6 specific visual details
-- Begin every prompt body with a panel identifier line:
-  - Cover: `(This is the Cover Image. Do not include this label in the image.)`
-  - Panels: `(This is Panel NN. Do not include the panel number in the image.)` where NN is zero-padded (01–12)
+- At least 6 specific visual details per prompt to guide the generation and avoid generic outputs
 - End with: `Generate the image immediately without asking clarifying questions.`
 
 The `generate-images.py` script parses `<details><summary>Image Prompt</summary>...</details>` blocks directly from the story's `index.md`, so the block structure is load-bearing — do not change the HTML shape.
 
 ## Workflow
+
+Some stories are about historical figures.  Some are about fictional setting or concepts. The workflow is the same either way, but the research and writing process differs slightly.
 
 ### Step 1: Gather Information and Plan the Story
 
