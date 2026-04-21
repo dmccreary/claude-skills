@@ -4,6 +4,33 @@ description: Installs the slide-viewer MicroSim into an intelligent textbook pro
 ---
 # Install Slide Generator
 
+## Step 0 (REQUIRED): Surface the Known Trade-offs to the User Before Doing Anything
+
+**Before running any command in this guide, Claude MUST paste the following caveat to the user and ask them to confirm they still want to proceed.** Do not skip this step, even if the user's request sounds eager and specific. The trade-offs below are real, and users who invoke this skill often have not thought them through. Presenting them up front is the difference between being a helpful collaborator and being an obedient slide factory.
+
+Paste this block verbatim (it is short on purpose):
+
+> **Before we generate slide decks, a few skeptical notes:**
+>
+> 1. **Two sources of truth drift silently.** Once a chapter has both `index.md` and `slides.md`, editing the chapter does not update the deck, and MkDocs gives no warning when they diverge. Readers on the Slides view silently consume a stale chapter.
+> 2. **Slides are a different medium, not a projection.** Auto-distilled slides tend to be either paragraph-dense (unreadable in a room) or skeletal (useless without a presenter). Neither is actually a presentation.
+> 3. **There may be no real audience.** Textbooks are read asynchronously; slide decks imply a synchronous setting that may never happen. If nobody presents from the decks, the authoring and maintenance cost is pure overhead.
+> 4. **The pattern can contradict the book's own pedagogy.** If the textbook teaches that retrieval beats re-reading, giving readers a slide summary of each chapter is a form of re-reading that produces a fluency illusion without the encoding benefit.
+> 5. **Maintenance cost scales linearly with chapter count, value may not.** Every deck adds nav entries, a three-button bar, a viewer query string with its own path-depth gotchas, and four independent fragility surfaces (viewer JS, `<hr>` separators, directory-URL rewriting, mascot image paths).
+>
+> **Recommendation:** start with one or two flagship chapters, instrument whether the viewer is actually opened (Google Analytics or similar), and only generalize if the data supports it. Retrieval prompts, flashcards, and MicroSims often give better pedagogical return on the same authoring budget.
+>
+> **Do you still want to proceed with slide generation? If yes, which chapters — and do you have a specific audience/use case for the decks?**
+
+After presenting this block:
+
+- If the user says "yes, proceed" with a specific chapter list and audience, continue to Step 1.
+- If the user says "yes for all chapters," gently push back once — suggest piloting on one or two chapters first — and then defer to their judgment.
+- If the user says "no" or "let me think," stop and do not install anything.
+- If the user redirects to a different deliverable (retrieval prompts, flashcards, a quiz), route them to the appropriate skill instead.
+
+Full written analysis: see any `logs/slide-tradeoffs.md` the project may have, or regenerate the same reasoning on request.
+
 ## Overview
 
 This guide does two things:
@@ -25,6 +52,8 @@ When you ship a behavior change to the viewer templates, bump the version in **t
 
 ### Changelog
 
+- **Guide update (no viewer version bump)** — Moved the chapter-index slide links from the top of `index.md` to the end, under a `## Slides for this chapter` heading separated by a horizontal rule. Slides are a secondary artifact; putting the links at the top re-elevated them to co-equal status with the chapter prose and pushed the opening hook and welcome mascot below the fold. Added Step 0, a required trade-off block the skill must paste to the user before installing anything — slides drift silently from the chapter, are often the wrong medium for asynchronous reading, and may contradict the book's own pedagogy on retrieval vs. re-reading.
+- **Guide update (no viewer version bump)** — Fixed the slide-deck and chapter-index button-bar templates to use source-relative paths. Previously the guide instructed authors to write `../../../sims/slide-viewer/main.html` in `slides.md` and `slides/` in the chapter index. MkDocs rewrites source-relative paths to account for directory URLs at render time, so the old templates wrote rendered-URL paths into source — the three-`../` form escaped the site prefix on GitHub Pages (resolved to `/sims/...` instead of `/<repo>/sims/...`) and all of the button-bar links triggered MkDocs link-check WARNINGs or INFOs. The corrected templates use `../index.md`, `../../sims/...`, and `slides.md` and produce a clean build.
 - **v0.01** — Initial template. Fetches rendered MkDocs HTML, splits on `<hr>`, keyboard + button navigation, first/last jumps, fullscreen, table of contents, mascot in lower-left corner (neutral on every slide, celebration on the last).
 
 ## Step 1: Verify Prerequisites
@@ -111,15 +140,15 @@ Every generated deck must follow this shape:
 1. **Navigation button bar** (before any slide content):
 
    ```markdown
-   [Content](../){ .md-button } [Slides in Viewer](../../../sims/slide-viewer/main.html?src=../../chapters/<chapter-slug>/slides/){ .md-button .md-button--primary }
+   [Content](../index.md){ .md-button } [Slides in Viewer](../../sims/slide-viewer/main.html?src=../../chapters/<chapter-slug>/slides/){ .md-button .md-button--primary }
    ```
 
-   **Path-depth note.** MkDocs serves `slides.md` at `/chapters/<chapter-slug>/slides/`, so:
-   - `../` from the rendered slides page lands on the chapter index (`/chapters/<chapter-slug>/`).
-   - `../../../` climbs to the site root, where `sims/slide-viewer/main.html` lives.
-   - The `src=` parameter is resolved by the viewer's own JavaScript relative to `/sims/slide-viewer/`, which is why that portion stays `../../chapters/<chapter-slug>/slides/`.
+   **Path-depth note — write SOURCE-relative paths, not rendered-URL paths.** MkDocs validates link targets against the source tree (`docs/chapters/<chapter-slug>/slides.md`) and, for `use_directory_urls: true` (the default), automatically rewrites the output to account for the extra directory level of the rendered URL. So:
+   - `../index.md` in source → MkDocs rewrites to `../` at runtime, landing on the chapter index (`/chapters/<chapter-slug>/`). Using bare `../` in source passes the link check with an INFO nag ("Did you mean '../index.md'?") — always include the `.md` suffix.
+   - `../../sims/slide-viewer/main.html` in source → MkDocs rewrites to `../../../sims/slide-viewer/main.html` at runtime. Writing `../../../sims/...` directly in source is a **footgun**: it passes at build time with a WARNING (unresolvable target), and at runtime resolves to `<site-root>/../sims/` which escapes the deployment prefix on GitHub Pages (e.g. `/sims/...` instead of `/<repo>/sims/...`). Always count `../` from the source file's directory, not from the rendered URL.
+   - The `src=` query parameter is a separate beast — it is resolved by the viewer's own JavaScript relative to `/sims/slide-viewer/`, so that portion stays `../../chapters/<chapter-slug>/slides/` regardless.
 
-   Using `./` for the Content link is a common mistake — `./` resolves to the same slides page, not the chapter.
+   Using `./` for the Content link is another common mistake — `./` resolves to the same slides page, not the chapter.
 
 2. **Title slide** — `# Chapter Title`, one-line subtitle, short tagline or the mascot's catchphrase, author/mascot attribution line. Keep it to 4–6 lines of text.
 
@@ -159,15 +188,31 @@ Follow the project's CLAUDE.md style guide if one exists. For Learning Sciences 
 
 ### Required Cross-Links on the Chapter's index.md
 
-After generating `slides.md`, update the chapter's `index.md` to add a button bar at the very top, right after the `# Chapter Title` line. **Do not include a "Content" button on the chapter page itself — the reader is already on the content, so that button would be redundant.**
+After generating `slides.md`, add a button bar at the **END** of the chapter's `index.md`, after the last section of chapter content (typically after the closing bridge / celebration mascot admonition). **Placing the link at the end — not the top — is deliberate: slides are a secondary artifact, and the chapter prose is the canonical reading experience.** A button bar at the top would signal that slides are a co-equal view, which they are not; it would also push the chapter's opening hook and welcome mascot below the fold on small screens.
+
+**Do not include a "Content" button on the chapter page itself — the reader is already on the content, so that button would be redundant.**
+
+Append this block at the bottom of the chapter's `index.md`, separated from the preceding content by a blank line:
 
 ```markdown
-# <Chapter Title>
+<!-- ... chapter content above ... -->
 
-[Slides](slides/){ .md-button } [Slides in Viewer](../../sims/slide-viewer/main.html?src=../../chapters/<chapter-slug>/slides/){ .md-button .md-button--primary }
+---
+
+## Slides for this chapter
+
+If you would prefer the slide-deck view of this chapter, or want to present it in a class or workshop:
+
+[Slides](slides.md){ .md-button } [Slides in Viewer](../../sims/slide-viewer/main.html?src=../../chapters/<chapter-slug>/slides/){ .md-button .md-button--primary }
 ```
 
-From the rendered `slides.md` page, readers already see a **Content** button (added in the deck template above) that links back to the chapter. The two pages cross-link each other; neither page shows a button to itself.
+Design notes:
+
+- The `---` rule and `## Slides for this chapter` heading visually separate the slide links from the chapter prose. Readers who scroll to the end see the links; readers who stop at the celebration mascot never do, and that is fine — they are there for the content.
+- Write `slides.md` (not `slides/`) in the source — MkDocs will rewrite to the `slides/` directory URL in the rendered output. Using the bare `slides/` form passes the build but triggers an INFO nag from the link checker.
+- From the rendered `slides.md` page, readers already see a **Content** button (added in the deck template above) that links back to the chapter. The two pages cross-link each other; neither page shows a button to itself.
+
+**When retrofitting chapters that already have a button bar at the top:** remove the top bar and move the links to the end. Do not leave both — having the links in two places re-elevates the slides to co-equal status, which defeats the purpose of the move.
 
 ## Step 6: Update mkdocs.yml Nav for Each Deck
 
@@ -225,8 +270,9 @@ If the viewer shows "Could not load slides from ... HTTP 404": the `src=` query 
 | Only one slide shows; everything is on it | Source `slides.md` has no `---` horizontal rules | Separator must be `---` on its own line, with blank lines above and below |
 | Mascot does not appear | `docs/img/mascot/neutral.png` not installed | Install the mascot via `learning-mascot.md`, or ignore — viewer still works |
 | Deck nav buttons break the title slide | Buttons placed after the first `---` | The button bar must be at the very top of `slides.md`, before any slide separator |
-| "Content" button on `slides.md` stays on the same page | Link uses `./` (current directory = same slides page) | Use `../` to reach the chapter index — `slides.md` renders at `/chapters/<slug>/slides/`, so `../` lands on `/chapters/<slug>/` |
-| "Slides in Viewer" button on `slides.md` 404s | Only two `../` when three are needed | From `/chapters/<slug>/slides/` the site root is three levels up. Use `../../../sims/slide-viewer/main.html?src=...` |
+| "Content" button on `slides.md` stays on the same page | Link uses `./` (current directory = same slides page) | Use `../index.md` (source-relative). MkDocs rewrites to `../` in the rendered HTML, landing on `/chapters/<slug>/` |
+| "Slides in Viewer" button on `slides.md` 404s or escapes site prefix on GitHub Pages | Source contains `../../../sims/...` (rendered-URL path written into source) | Use source-relative `../../sims/slide-viewer/main.html?src=...` — MkDocs rewrites to `../../../sims/...` in the rendered HTML automatically. Writing three `../` in source escapes the deployment prefix at runtime |
+| `[Slides](slides/)` on chapter `index.md` triggers INFO "Did you mean 'slides.md'?" | Source uses the rendered directory URL instead of source-relative `.md` | Write `[Slides](slides.md)` in source; MkDocs rewrites to `slides/` in the rendered output |
 | Slides in viewer look ugly (raw admonitions, collapsed `<details>`) | Chapter content was copied verbatim instead of distilled | Re-summarize: slides are 3–7 bullets, not full chapter prose |
 
 ## Dependencies
