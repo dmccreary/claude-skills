@@ -261,10 +261,9 @@ Total cost: ~500 tokens for the script + ~200 tokens for output = **~700 tokens*
 
 **Formatting rules for the assembled file:**
 
+- **ONLY level-4 headers (`####`) are allowed for glossary terms.** Do not use `##` section headers, `###` subheadings, or any other header level inside the glossary. The only `#` header in the file is the page title (`# Glossary of Terms`). Everything else is `####`.
+- **Terms must ONLY be sorted alphabetically (case-insensitive). Never group terms by category, domain, or topic.** The glossary is a flat alphabetical list — no section dividers, no category headers, no thematic groupings. Alphabetical order is the only organizational principle.
 - Do not put any `---` strings in the glossary. They are not needed.
-- Sort all terms alphabetically (case-insensitive) — the script handles this
-- Use level-4 headers (####) for term names
-- Place definition in body text (no special formatting)
 - Use "**Example:**" for examples (bold, with colon)
 - Maintain consistent spacing between entries (one blank line between entries)
 
