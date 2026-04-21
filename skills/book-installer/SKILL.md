@@ -63,6 +63,7 @@ Book Installer Features (most → least common):
 34. Kanban board - GitHub Projects board for tracking textbook development
 35. Mascot chapter updater - retrofit existing chapters with mascot admonitions
 36. About page - professional about.md with motivation, author bio, and citations
+37. Slide generator - install slide-viewer MicroSim and generate slides.md decks for chapters
 
 Type a number or feature name to install.
 
@@ -124,6 +125,7 @@ Match the user's request to the appropriate installation guide:
 | kanban, project board, kanban board, project management, github project, task board, milestones, 34 | `references/kanban-board.md` | Create GitHub Projects Kanban board for textbook development |
 | mascot chapter, update chapter, retrofit mascot, place mascot, add mascot to chapter, mascot placement, 35 | `references/mascot-chapter-updater.md` | Retrofit an existing chapter with mascot admonitions using placement rules |
 | about page, about, about.md, about this book, author bio, cite this book, citation, 36 | `references/about-page.md` | Generate professional about page with motivation, bio, and citations |
+| slide generator, slides, slide deck, slide viewer, presentation, generate slides, install slide viewer, 37 | `references/slide-generator.md` | Install the slide-viewer MicroSim and generate slides.md decks for chapters |
 
 ### Decision Tree
 
@@ -172,6 +174,9 @@ Want to retrofit an existing chapter with mascot admonitions?
 
 Want to generate a professional about page with author bio and citations?
   → YES: about-page.md
+
+Want to install a slide viewer and generate slide decks for chapters?
+  → YES: slide-generator.md
 
 Want to add a specific feature (equations, quizzes, feedback, etc.)?
   → YES: mkdocs-features.md (then follow specific feature instructions)
@@ -401,6 +406,27 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 - `project` scope on the GitHub token (`gh auth refresh -s project`)
 - Existing MkDocs project with mkdocs.yml
 
+### slide-generator.md
+
+**Purpose:** Install the slide-viewer MicroSim into an intelligent textbook project and generate presentation-style `slides.md` decks for specified chapters
+
+**Creates:**
+- `docs/sims/slide-viewer/` — viewer shell (main.html, script.js, local.css, index.md) that fetches any rendered MkDocs page URL, splits its content on `<hr>` elements, and renders one slide at a time with keyboard + button navigation
+- `docs/chapters/<slug>/slides.md` — per chapter: title slide, content slides separated by `---`, retrieval check, bridge, celebration close
+- Three-button nav bar (`Content`, `Slides`, `Slides in Viewer`) at the top of each chapter's `index.md` and its `slides.md`
+- mkdocs.yml nav restructured so each chapter with slides has `Content` / `Slides` sub-entries
+
+**Features:**
+- Viewer reads MkDocs' rendered HTML (never raw `.md` — MkDocs doesn't serve `.md` directly)
+- Mascot integration: neutral pose on every slide, celebration pose on the last slide (uses `docs/img/mascot/neutral.png` and `celebration.png` if present; silently absent otherwise)
+- First/last-slide jump buttons, `Home`/`End` keys, fullscreen, table-of-contents overlay
+- Distills chapter `index.md` into 15–28 slides following project voice/style rules
+
+**Prerequisites:**
+- Existing MkDocs Material project with `docs/chapters/` populated
+- Chapter `index.md` files with real content (not just scaffold) — guide checks line counts before generating
+- Optional: mascot installed via `learning-mascot.md`
+
 ### mascot-chapter-updater.md
 
 **Purpose:** Retrofit an existing chapter markdown file with mascot admonitions in the right places, following the placement rules from learning-mascot.md
@@ -502,6 +528,11 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 **User:** "add Sparky admonitions to chapter 2" or "place the mascot in docs/chapters/02-ohms-law/index.md"
 **Routing:** Keywords "mascot chapter", "place mascot", "add mascot to chapter" → `references/mascot-chapter-updater.md`
 **Action:** Read mascot-chapter-updater.md, survey the chapter, propose a placement plan with line numbers, wait for user confirmation, apply edits, run validate-chapter-mascots.py, and address any flags
+
+### Example 15: Install Slide Viewer and Generate Chapter Slides
+**User:** "install the slide viewer and make slides for chapters 1 and 2" or "generate slides for chapter 3"
+**Routing:** Keywords "slide", "slides", "slide viewer", "generate slides", "slide deck" → `references/slide-generator.md`
+**Action:** Read slide-generator.md, copy the slide-viewer assets into docs/sims/slide-viewer/, ask which chapters to generate decks for, create slides.md for each (title + content slides separated by `---` + retrieval check + bridge + celebration), add the three-button nav bar to each chapter's index.md, restructure the chapter's mkdocs.yml entry into Content/Slides sub-entries, and append deck links to the viewer's index.md
 
 ## Common Workflows
 
