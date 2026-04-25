@@ -486,6 +486,7 @@ Create or append to `docs/css/mascot.css`:
   /* margin: top right bottom left */
   margin: 0 .5em 0 0;
   object-fit: contain;
+  pointer-events: none;  /* prevent glightbox zoom on mascot icons */
 }
 ```
 
