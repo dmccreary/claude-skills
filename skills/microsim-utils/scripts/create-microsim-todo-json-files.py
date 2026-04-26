@@ -114,18 +114,25 @@ def extract_diagrams_from_chapter(filepath):
         bloom_verb = extract_field(details_text, "Bloom Verb")
 
         # Extract learning objective (bold or plain-text format)
+        # Case-insensitive so authors writing "Learning objective:" (lowercase 'o')
+        # are matched the same as "Learning Objective:" (Title Case).
+        # Tries (in order): bold-markdown multi-line, plain multi-line, then the
+        # single-line extract_field helper as a final fallback.
         lo_match = re.search(
             r"\*\*Learning Objective:\*\*\s*(.+?)(?:\n\n|\n\*\*)",
             details_text,
-            re.DOTALL,
+            re.DOTALL | re.IGNORECASE,
         )
         if not lo_match:
             lo_match = re.search(
                 r"^Learning Objective:\s*(.+?)(?:\n\n|\n[A-Z])",
                 details_text,
-                re.DOTALL | re.MULTILINE,
+                re.DOTALL | re.MULTILINE | re.IGNORECASE,
             )
-        learning_objective = lo_match.group(1).strip() if lo_match else None
+        if lo_match:
+            learning_objective = lo_match.group(1).strip()
+        else:
+            learning_objective = extract_field(details_text, "Learning Objective")
 
         # Extract the iframe src to see if it references a real path
         iframe_match = re.search(r'<iframe\s+src="([^"]+)"', body)
