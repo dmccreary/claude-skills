@@ -20,6 +20,7 @@ Use this skill when users request:
 - Quality scoring and standardization checks
 - Synchronizing iframe heights from JS source files
 - Setting up runtime iframe auto-resize via postMessage
+- Scaffolding MicroSim directories (main.html, index.md, metadata.json) from TODO JSON specs
 
 ## Step 1: Identify Utility Type
 
@@ -34,6 +35,7 @@ Match the user's request to the appropriate utility guide:
 | icons, add icons, favicon, logo | `references/add-icons.md` | Icon management for MicroSims |
 | index page, microsim list, grid, directory, catalog, update the microsim listings, update the list of microsims, create a grid view, generate a listing | `references/index-generator.md` | Generate index page with grid cards |
 | TODO, todo json, extract specs, diagram specs, unimplemented, create microsim todo, todo files, extract diagrams, unimplemented microsims | `scripts/create-microsim-todo-json-files.py` | Extract unimplemented diagram specs into TODO JSON files |
+| scaffold microsims, scaffold from todo, scaffold sims, create microsim stubs, generate microsim scaffolding, stub out microsims, create scaffold files, generate scaffold from json, microsim stubs from todo | `scripts/scaffold-microsims-from-todo.py` | Generate `main.html`, `index.md`, and `metadata.json` stub files for each TODO JSON spec that does not yet have an implementation |
 | fix iframe heights, sync iframe heights, correct iframe heights, iframe height, canvas height, sync heights, update iframe heights | `scripts/sync-iframe-heights.py` | Synchronize iframe heights from CANVAS_HEIGHT in JS files to sim and chapter index.md files |
 | iframe auto height, iframe auto resize, iframe postMessage, runtime iframe resize, microsim auto resize, auto-size iframe, iframe self-resize | `references/iframe-auto-height.md` | Runtime postMessage protocol so embedded MicroSims report their own height to the parent page |
 
@@ -55,6 +57,9 @@ Need to generate/update the MicroSim index page?
 Need to extract unimplemented diagram specs into TODO files?
   → YES: Run scripts/create-microsim-todo-json-files.py
 
+Need to scaffold sim directories (main.html, index.md, metadata.json) from those TODO JSON files?
+  → YES: Run scripts/scaffold-microsims-from-todo.py
+
 Need to fix, sync, or correct iframe heights?
   → YES: Run scripts/sync-iframe-heights.py
 
@@ -73,6 +78,12 @@ For Python script utilities, run the script directly:
 python /path/to/skills/microsim-utils/scripts/create-microsim-todo-json-files.py --project-dir /path/to/project
 ```
 Report the summary output to the user (chapters scanned, total specs found, already implemented, TODO files written, output directory).
+
+**Scaffold from TODO JSON:**
+```bash
+python /path/to/skills/microsim-utils/scripts/scaffold-microsims-from-todo.py --project-dir /path/to/project
+```
+Report the summary output to the user (TODO specs processed, scaffolded, skipped). Use `--force` only if the user explicitly asks to regenerate stubs; the script never overwrites an existing `main.html` regardless of `--force`.
 
 **Iframe height sync:**
 ```bash
@@ -157,6 +168,28 @@ Each guide contains:
 
 **Important:** Always pass `--project-dir` pointing to the project root (the directory containing `mkdocs.yml`). If omitted, the script walks up from its own location to find `mkdocs.yml`, which may find the wrong project.
 
+### scaffold-microsims-from-todo.py
+
+**Purpose:** Generate scaffold (stub) files for each MicroSim that has a TODO JSON spec but no implementation yet. This is the natural next step after `create-microsim-todo-json-files.py`.
+
+**Script:** `scripts/scaffold-microsims-from-todo.py --project-dir /path/to/project`
+
+**How it works:**
+- Reads each `docs/sims/TODO/<sim-id>.json`
+- For any sim-id that does NOT already have `docs/sims/<sim-id>/main.html`, creates the directory with three stub files:
+  - `main.html` — placeholder canvas with the spec embedded as a comment
+  - `index.md` — frontmatter, learning objective, iframe embed, full spec
+  - `metadata.json` — mapped from the TODO JSON
+- Skips any sim-id whose `main.html` already exists (so real implementations are never clobbered)
+
+**Flags:**
+- `--project-dir` — Project root containing `mkdocs.yml` (required or auto-detected)
+- `--force` — Overwrite existing `index.md` and `metadata.json` stubs. **Never** overwrites an existing `main.html`, even with `--force`, because that file may contain a real implementation.
+
+**Output:** Summary showing TODO specs processed, scaffolded, and skipped (already implemented).
+
+**Important:** Always pass `--project-dir` pointing to the project root. The script auto-detects by walking up from cwd to find `mkdocs.yml` if omitted.
+
 ### sync-iframe-heights.py
 
 **Purpose:** Synchronize iframe heights across MicroSim index.md files and chapter files using the `CANVAS_HEIGHT` comment in each sim's JavaScript file as the single source of truth.
@@ -227,12 +260,17 @@ message participates automatically.
 **Routing:** Keywords "TODO", "create microsim todo" → `scripts/create-microsim-todo-json-files.py`
 **Action:** Run `python scripts/create-microsim-todo-json-files.py --project-dir /path/to/project` and report results (chapters scanned, specs found, already implemented, TODO files written)
 
-### Example 5: Fix Iframe Heights
+### Example 5: Scaffold MicroSims from TODO JSON
+**User:** "scaffold the microsims" or "create the stub files for the TODO sims" or "generate scaffold files from the JSON specs"
+**Routing:** Keywords "scaffold microsims", "stub out microsims", "scaffold from todo" → `scripts/scaffold-microsims-from-todo.py`
+**Action:** Run `python scripts/scaffold-microsims-from-todo.py --project-dir /path/to/project` and report results (TODO specs processed, scaffolded, skipped). Typically follows immediately after `create-microsim-todo-json-files.py`.
+
+### Example 6: Fix Iframe Heights
 **User:** "fix the iframe heights" or "sync the iframe heights" or "correct the iframe heights"
 **Routing:** Keywords "fix iframe heights", "sync iframe heights", "correct iframe heights" → `scripts/sync-iframe-heights.py`
 **Action:** Run `python scripts/sync-iframe-heights.py --project-dir /path/to/project --verbose` and report results (sims synced, comments inserted, iframe heights updated)
 
-### Example 6: Set Up Iframe Auto-Resize
+### Example 7: Set Up Iframe Auto-Resize
 **User:** "make the iframes auto-size" or "set up iframe auto height" or "I want microsims to report their own height"
 **Routing:** Keywords "iframe auto height", "auto-size iframe", "iframe postMessage" → `references/iframe-auto-height.md`
 **Action:** Read `iframe-auto-height.md` and follow the two-part setup: paste the parent-side listener block at the top of `docs/js/extra.js`, then ensure the relevant MicroSims post `{ type: 'microsim-resize', height }` after layout settles. Confirm both sides are in place and report which sims now participate.
