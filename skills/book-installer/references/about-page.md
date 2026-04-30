@@ -184,8 +184,20 @@ This section establishes credibility. It should read as a professional bio appro
 
 **For Dan McCreary (default author — use this bio unless a different author is specified):**
 
-The headshot image if the author is Dan McCreary is here: https://github.com/dmccreary/dmccreary/blob/master/docs/img/dan-headshot-small.png
-Copy this image into the docs/img directory.
+The headshot image if the author is Dan McCreary is here: https://dmccreary.github.io/dmccreary/img/dan-headshot-small.png
+
+You can fetch the image by running this shell command.
+
+```sh
+curl https://dmccreary.github.io/dmccreary/img/dan-headshot-small.png --output docs/img/dan-headshot-small.png
+```
+
+Verify Image with this command:
+```sh
+file --mime-type -b docs/img/dan-headshot-small.png 
+```
+It should return 'image/png'
+
 
 ```markdown
 ## About the Author
