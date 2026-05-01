@@ -161,7 +161,24 @@ Consult `references/mermaid-flowchart-syntax.md` for detailed syntax guidance.
    Node["First line<br/>Second line<br/>Third line"]:::processNode
    ```
 
-7. **Avoid these characters inside node labels** — they break the Mermaid parser:
+7. **Subgraph titles require `subGraphTitleMargin`:** Whenever the diagram
+   contains a `subgraph` with a title, you MUST add the following property to
+   the `mermaid.initialize` flowchart config so the title has room to render
+   without overlapping the cluster border or the nodes inside it:
+
+   ```js
+   subGraphTitleMargin: { top: 10, bottom: 14 }
+   ```
+
+   Without this margin, Mermaid renders the subgraph title flush against the
+   cluster's top edge — it can collide with the rect's stroke and visually
+   merge with the first node inside the cluster. This is a silent layout
+   bug: nothing errors, the diagram just looks wrong, and the cause is far
+   from the symptom. Apply the rule even on diagrams with a single subgraph;
+   the cost is two extra lines of config and the failure mode is invisible
+   until a reader points it out.
+
+8. **Avoid these characters inside node labels** — they break the Mermaid parser:
 
    | Character | Problem | Safe alternative |
    |-----------|---------|-----------------|
@@ -609,7 +626,12 @@ Here is a complete template demonstrating the tooltip implementation:
             flowchart: {
                 useMaxWidth: true,
                 htmlLabels: true,
-                curve: 'basis'
+                curve: 'basis',
+                // Required whenever the diagram contains a `subgraph` with a
+                // title — leaves room above the title so it doesn't collide
+                // with the cluster border. Safe to keep on diagrams without
+                // subgraphs (no visible effect).
+                subGraphTitleMargin: { top: 10, bottom: 14 }
             }
         });
     </script>
