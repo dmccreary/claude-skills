@@ -129,6 +129,18 @@ extra:
   # Suppress the "Made with Material for MkDocs" footer line
   generator: false
 
+  # MicroSim build-status indicators shown next to nav entries.
+  # The status value is set per-page in the index.md frontmatter:
+  #   status: scaffold | built | approved
+  # Colors are defined as CSS custom properties in docs/css/extra.css.
+  # Note: `theme.icon.status` is a Material Insiders feature and is silently
+  # ignored on community Material. Do not add it — the CSS-variable approach
+  # in extra.css is the load-bearing piece on the community edition.
+  status:
+    scaffold: Scaffold — placeholder, not yet implemented
+    built: Built — implementation complete, awaiting review
+    approved: Approved — tested and approved
+
   # Intelligent-textbook URI scheme (see
   # https://dmccreary.github.io/intelligent-textbooks/uri-scheme/)
   schema: https://dmccreary.github.io/intelligent-textbooks/ns/textbook/v1

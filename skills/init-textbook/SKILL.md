@@ -269,6 +269,55 @@ sensibly:
   by default, easily swapped) and lets the user opt into dark mode later
   via book-installer if they want it.
 
+## MicroSim Status Indicators
+
+Every scaffolded book ships with a colored status indicator wired into the
+left nav for `docs/sims/<sim>/index.md` pages. The vocabulary is fixed at
+three values and the indicator is glanceable at a distance:
+
+| Status     | Color  | Meaning                                            |
+|------------|--------|----------------------------------------------------|
+| `scaffold` | red    | Spec exists; no implementation yet.                |
+| `built`    | orange | Implementation exists; not yet reviewed by author. |
+| `approved` | green  | Author tested it and approved it for learners.     |
+
+How to use the vocabulary:
+
+- **`scaffold`** — every MicroSim `index.md` should be born with
+  `status: scaffold` in its frontmatter. The `microsim-generator` skill (and
+  any sim-scaffolding skill that follows this convention) sets this when
+  it first writes the file.
+- **`built`** — once a generator writes a real implementation (substantive
+  HTML/JS in the sim directory, not just a placeholder), it should bump the
+  status to `built`. The book author still needs to sign off.
+- **`approved`** — the human author flips this manually after they've
+  loaded the sim, exercised the controls, and confirmed the learning value.
+  Generators should never auto-advance to `approved`.
+
+The plumbing is already in place after `init-textbook` runs:
+
+- `mkdocs.yml` has `extra.status` declaring the three names with tooltip
+  text (Material won't render the indicator unless the name is registered
+  here).
+- `docs/css/extra.css` defines `--md-status--scaffold`, `--md-status--built`,
+  and `--md-status--approved` as CSS custom properties holding inline SVG
+  data URIs, plus the `:after` rules that paint them red/orange/green.
+
+**Do not add `theme.icon.status` to `mkdocs.yml`.** The Material docs make
+this look like the right knob for setting status icons; on the community
+edition it is silently ignored and the indicator falls back to a generic
+"i in a circle" icon with no build-time warning. The CSS-variable approach
+in `extra.css` is what actually works on community Material and is the
+load-bearing piece. (This footgun cost an afternoon to track down on the
+xapi-course book — see `xapi-course/logs/microsim-status-icons.md` for the
+full incident report.)
+
+If a future book wants a fourth status (e.g. `in-review`) or different
+colors, the pattern is: add an `extra.status.<name>` entry to `mkdocs.yml`,
+and add a matching `--md-status--<name>` CSS variable + `.md-status--<name>:after`
+rule + `.md-status--<name>:hover:after` rule to `extra.css`. Keep the two
+files in sync — adding only one half is the failure mode.
+
 ## Footgun Avoidance
 
 - **Never overwrite an existing `mkdocs.yml`.** The Step 1 check is

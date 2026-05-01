@@ -9,7 +9,7 @@ human-readable classifierName values in the output. Without this file,
 taxonomy IDs will be used as fallback (which is usually wrong).
 """
 
-VERSION = "0.03"
+VERSION = "0.04"
 
 import csv
 import json
@@ -32,31 +32,44 @@ def csv_to_json(csv_path: str, json_path: str, color_config: dict = None,
         taxonomy_names: Dictionary mapping taxonomy IDs to human-readable names.
                        STRONGLY RECOMMENDED for custom taxonomies.
     """
-    # Default taxonomy group colors for visualization
-    # Uses web-safe pastel color names (no hex codes)
-    # This is designed to work with up to 17 classifiers in a taxonomy
-    # The goal is to make the colors distinct
-    # Since the background is AliceBlue, do not use that color
-    default_colors = {
-        # Numeric IDs (same mapping)
-        '1': 'MistyRose',
-        '2': 'PeachPuff',
-        '3': 'LightYellow',
-        '4': 'Honeydew',
-        '5': 'PaleTurquoise',
-        '6': 'SteelBlue',
-        '7': 'Lavender',
-        '8': 'LavenderBlush',
-        '9': 'Thistle',
-        '10': 'MintCream',
-        '11': 'LightCoral',
-        '12': 'Plum',
-        '13': 'Gainsboro',
-        '14': 'PowderBlue',
-        '15': 'PaleGreen',
-        '16': 'Aquamarine',
-        '17': 'LightPink'
-    }
+    # Default 24-color palette designed for distinct, accessible category coloring.
+    # Hues progress through subject-family groupings (cool blues for foundations,
+    # greens for architecture/dev, yellows/golds for data, blues for network/cloud,
+    # reds for security/privacy, purples for project/process/analysis, oranges
+    # and browns for the AI cluster, an accent for knowledge graphs, neutral
+    # for emerging topics) with alternating lightness so adjacent legend rows
+    # never collide. Dark backgrounds automatically get white font for contrast;
+    # light backgrounds get black. The previous all-pastel palette caused legend
+    # collisions when a project had >12 categories — this palette supports up
+    # to 24 distinct categories without color reuse.
+    # Since the background is AliceBlue, do not use that color.
+    DEFAULT_PALETTE = [
+        'SteelBlue',       # 1  cool foundations
+        'DarkSlateBlue',   # 2
+        'DarkGreen',       # 3  architecture / build
+        'LimeGreen',       # 4
+        'Gold',            # 5  data band
+        'DarkGoldenrod',   # 6
+        'Khaki',           # 7
+        'Teal',            # 8  enterprise
+        'DodgerBlue',      # 9  network / cloud
+        'LightSkyBlue',    # 10
+        'Crimson',         # 11 security / privacy
+        'DarkRed',         # 12
+        'MediumPurple',    # 13 project / process / analysis
+        'Indigo',          # 14
+        'DarkOrchid',      # 15
+        'HotPink',         # 16 user-facing
+        'OliveDrab',       # 17 service management
+        'Orange',          # 18 AI cluster
+        'Coral',           # 19
+        'Peru',            # 20
+        'SaddleBrown',     # 21
+        'Tomato',          # 22
+        'DeepPink',        # 23 accent — knowledge graphs / connective concepts
+        'DimGray',         # 24 neutral — emerging / miscellaneous
+    ]
+    default_colors = {str(i + 1): color for i, color in enumerate(DEFAULT_PALETTE)}
 
     taxonomy_colors = color_config if color_config is not None else default_colors
 
@@ -172,6 +185,21 @@ def csv_to_json(csv_path: str, json_path: str, color_config: dict = None,
     # Track taxonomies with missing human-readable names
     missing_names = []
 
+    # Dark backgrounds need white text for contrast; everything else uses black.
+    # Includes the new distinct palette plus a few legacy pastel colors retained
+    # for back-compat with older color-config.json files.
+    DARK_BACKGROUND_COLORS = {
+        'SteelBlue', 'DarkSlateBlue', 'DarkGreen', 'DarkGoldenrod', 'Teal',
+        'DodgerBlue', 'Crimson', 'DarkRed', 'MediumPurple', 'Indigo',
+        'DarkOrchid', 'OliveDrab', 'SaddleBrown', 'Tomato', 'DeepPink',
+        'DimGray',
+        # Legacy darks retained for back-compat with older color-config files
+        'Plum', 'LightCoral',
+    }
+
+    def font_color_for(color: str) -> str:
+        return 'white' if color in DARK_BACKGROUND_COLORS else 'black'
+
     for tax_id, color in taxonomy_colors.items():
         # Only include groups that are actually used
         if tax_id in used_taxonomies:
@@ -182,17 +210,11 @@ def csv_to_json(csv_path: str, json_path: str, color_config: dict = None,
             if classifier_name == tax_id:
                 missing_names.append(tax_id)
 
-            # Determine font color based on background color
-            # All pastel colors are light backgrounds, so use black text
-            # Only Plum and LightCoral might benefit from white text
-            dark_pastel_colors = ['Plum', 'LightCoral']
-            font_color = 'white' if color in dark_pastel_colors else 'black'
-
             groups[tax_id] = {
                 'classifierName': classifier_name,
                 'color': color,
                 'font': {
-                    'color': font_color
+                    'color': font_color_for(color)
                 }
             }
 
@@ -211,7 +233,7 @@ def csv_to_json(csv_path: str, json_path: str, color_config: dict = None,
                 'classifierName': classifier_name,
                 'color': color,
                 'font': {
-                    'color': 'black'
+                    'color': font_color_for(color)
                 }
             }
 
