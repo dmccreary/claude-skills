@@ -55,6 +55,8 @@ Relative to the project root the user is in:
 
 ```
 <project-root>/
+├── .gitignore                     # Python, MkDocs, OS, and editor ignores
+├── {{REPO_NAME}}.code-workspace   # VS Code workspace file
 ├── mkdocs.yml                     # rendered from assets/templates/mkdocs.yml
 ├── plugins/
 │   └── social_override.py         # MkDocs hook: per-page og:image / twitter:image override
@@ -170,6 +172,15 @@ Copy `plugins/social_override.py` as-is (no substitution needed) into
 already includes the matching `hooks:` entry pointing at this file, so MkDocs
 will run it on every page build to allow per-page `image:` frontmatter to
 override the auto-generated `og:image` / `twitter:image` social preview URL.
+
+Copy `.gitignore` as-is into `<project-root>/.gitignore`. It covers Python
+bytecode, the MkDocs `site/` build output, virtual-environment directories,
+OS files (`.DS_Store`, `Thumbs.db`), and common editor artifacts.
+
+Copy `project.code-workspace` into `<project-root>/{{REPO_NAME}}.code-workspace`,
+renaming it so the workspace file matches the project directory name. This
+lets VS Code open the project cleanly with a single double-click. No other
+substitution is needed inside the file.
 
 ### Step 5 — Verify the result builds
 
@@ -347,6 +358,8 @@ init-textbook/
 ├── SKILL.md                                   # this file
 └── assets/
     └── templates/
+        ├── .gitignore                         # Python, MkDocs, OS, editor ignores
+        ├── project.code-workspace             # VS Code workspace (renamed to {{REPO_NAME}}.code-workspace)
         ├── mkdocs.yml                         # the main config template
         ├── plugins/
         │   └── social_override.py             # og:image / twitter:image override hook
