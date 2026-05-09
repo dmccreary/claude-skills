@@ -76,6 +76,7 @@ Relative to the project root the user is in:
     │   └── extra.css              # cover-image + iframe styles
     ├── js/                        # empty — populated by book-installer features
     └── img/
+        ├── cover.png              # generic 1731×909 cover (replace with book-specific art)
         └── license.png            # CC BY-NC-SA 4.0 badge image
 ```
 
@@ -378,6 +379,7 @@ init-textbook/
             ├── css/
             │   └── extra.css
             └── img/
+                ├── cover.png                  # generic 1731×909 cover image (replace with book-specific art)
                 └── license.png                # CC BY-NC-SA 4.0 badge
 ```
 
