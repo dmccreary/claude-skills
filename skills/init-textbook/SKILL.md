@@ -56,6 +56,8 @@ Relative to the project root the user is in:
 ```
 <project-root>/
 ├── mkdocs.yml                     # rendered from assets/templates/mkdocs.yml
+├── plugins/
+│   └── social_override.py         # MkDocs hook: per-page og:image / twitter:image override
 └── docs/
     ├── index.md                   # home page
     ├── about.md                   # audience + how to read
@@ -162,6 +164,12 @@ in Step 2. Use a small inline `sed` or Python step — do not require any
 external dependencies.
 
 For `docs/img/license.png`, copy the binary as-is (no substitution).
+
+Copy `plugins/social_override.py` as-is (no substitution needed) into
+`<project-root>/plugins/social_override.py`. The `mkdocs.yml` template
+already includes the matching `hooks:` entry pointing at this file, so MkDocs
+will run it on every page build to allow per-page `image:` frontmatter to
+override the auto-generated `og:image` / `twitter:image` social preview URL.
 
 ### Step 5 — Verify the result builds
 
@@ -340,6 +348,8 @@ init-textbook/
 └── assets/
     └── templates/
         ├── mkdocs.yml                         # the main config template
+        ├── plugins/
+        │   └── social_override.py             # og:image / twitter:image override hook
         └── docs/
             ├── index.md
             ├── about.md

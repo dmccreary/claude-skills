@@ -8,6 +8,12 @@ site_description: '{{SITE_DESCRIPTION}}'
 site_author: '{{SITE_AUTHOR}}'
 site_url: 'https://{{GITHUB_USERNAME}}.github.io/{{REPO_NAME}}/'
 
+# Hooks — runs local Python before/after page processing
+# social_override.py lets per-page `image:` frontmatter override the auto-
+# generated social card URL for og:image and twitter:image meta tags.
+hooks:
+  - plugins/social_override.py
+
 # Repository
 repo_name: 'GitHub Repo'
 repo_url: 'https://github.com/{{GITHUB_USERNAME}}/{{REPO_NAME}}'
