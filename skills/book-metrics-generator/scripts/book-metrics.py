@@ -267,6 +267,95 @@ class BookMetricsGenerator:
 
         return count
 
+    def count_species_cards(self) -> Dict[str, int]:
+        """Count species cards and per-card asset coverage in docs/plants.
+
+        Returns a dict with keys:
+          total            — number of <slug>.md files in docs/plants/
+          with_illustration — cards whose docs/plants/img/<slug>-illustration.png exists
+          with_photos      — cards with at least one Wikipedia photo
+          with_quick_facts — cards whose Quick Facts table has any non-empty cells
+                             (i.e., something other than "—")
+
+        Returns all zeros if docs/plants doesn't exist (project doesn't use
+        the plant-gallery-generator skill)."""
+        plants_dir = self.docs_dir / "plants"
+        img_dir = plants_dir / "img"
+        result = {
+            "total": 0,
+            "with_illustration": 0,
+            "with_photos": 0,
+            "with_quick_facts": 0,
+        }
+        if not plants_dir.exists():
+            return result
+
+        for card in plants_dir.iterdir():
+            if not (card.is_file() and card.suffix == ".md"
+                    and card.name != "index.md"):
+                continue
+            result["total"] += 1
+            slug = card.stem
+            try:
+                text = card.read_text(encoding="utf-8")
+            except Exception:
+                continue
+            if (img_dir / f"{slug}-illustration.png").exists():
+                result["with_illustration"] += 1
+            # Photo references in the card body, e.g. ![alt](img/<slug>-1.jpg)
+            if f"{slug}-1.jpg" in text or f"{slug}-1.JPG" in text:
+                result["with_photos"] += 1
+            # Quick Facts populated: at least one DATA row (Family, Height,
+            # Bloom time, Sun, Moisture, Soil, Wildlife value) has content
+            # other than "—". The Scientific name row is auto-populated
+            # and doesn't count.
+            in_facts = False
+            data_keys = {"family", "height", "bloom time", "sun",
+                         "moisture", "soil", "wildlife value",
+                         "hardiness zone", "native range"}
+            for line in text.splitlines():
+                if line.strip().startswith("## Quick Facts"):
+                    in_facts = True
+                    continue
+                if in_facts:
+                    if line.strip().startswith("## "):
+                        break
+                    if "|" in line and "---" not in line:
+                        cells = [c.strip().strip("*").lower()
+                                 for c in line.split("|")[1:-1]]
+                        if len(cells) >= 2 and cells[0] in data_keys:
+                            value = cells[1].strip("*")
+                            if value and value != "—":
+                                result["with_quick_facts"] += 1
+                                break
+        return result
+
+    def count_host_plant_relationships(self) -> int:
+        """Approximate count of host-plant relationships documented in
+        chapter prose. Looks for the phrase 'host plant' or 'larval host'
+        appearing near a species name. Useful for tracking pollinator-
+        ecology coverage in textbooks.
+
+        Returns 0 if no chapters use the convention. This is a soft
+        metric — exact counts require a pollinator-host-plant matrix
+        in structured data, which most textbooks don't have."""
+        if not self.chapters_dir.exists():
+            return 0
+        count = 0
+        for chapter in self.chapters_dir.iterdir():
+            if not chapter.is_dir():
+                continue
+            index = chapter / "index.md"
+            if not index.exists():
+                continue
+            try:
+                text = index.read_text(encoding="utf-8").lower()
+            except Exception:
+                continue
+            count += text.count("host plant")
+            count += text.count("larval host")
+        return count
+
     def count_words_in_file(self, markdown_file: Path) -> int:
         """Count words in a single markdown file.
 
@@ -428,6 +517,8 @@ class BookMetricsGenerator:
         total_words = self.count_total_words()
         links = self.count_all_links()
         equivalent_pages = self.calculate_equivalent_pages(total_words, diagrams, microsims)
+        species = self.count_species_cards()
+        host_relationships = self.count_host_plant_relationships()
 
         # Build markdown table
         md = "# Book Metrics\n\n"
@@ -448,6 +539,23 @@ class BookMetricsGenerator:
         md += f"| Links | {links} | - | Hyperlinks in markdown format |\n"
         md += f"| Equivalent Pages | {equivalent_pages} | - | Estimated pages (250 words/page + visuals) |\n"
 
+        # Botany / species-card metrics — only show if the project uses
+        # the plant-gallery-generator (i.e., docs/plants/ exists)
+        if species["total"] > 0:
+            md += f"| Species Cards | {species['total']} | [Plants](../plants/index.md) | Per-species reference pages |\n"
+            md += (f"| Cards w/ Illustration | {species['with_illustration']} "
+                   f"({species['with_illustration'] * 100 // species['total']}%) "
+                   f"| - | Botanical plates available |\n")
+            md += (f"| Cards w/ Photos | {species['with_photos']} "
+                   f"({species['with_photos'] * 100 // species['total']}%) "
+                   f"| - | Wikipedia/Wikimedia photo present |\n")
+            md += (f"| Cards w/ Quick Facts | {species['with_quick_facts']} "
+                   f"({species['with_quick_facts'] * 100 // species['total']}%) "
+                   f"| - | Trait data populated (not just dashes) |\n")
+            if host_relationships > 0:
+                md += (f"| Host-plant Mentions | {host_relationships} "
+                       f"| - | Pollinator-host coverage signal |\n")
+
         md += "\n## Metrics Explanation\n\n"
         md += "- **Chapters**: Count of chapter directories containing index.md files\n"
         md += "- **Concepts**: Number of rows in learning-graph.csv\n"
@@ -460,6 +568,13 @@ class BookMetricsGenerator:
         md += "- **Total Words**: All words in markdown files (excluding code blocks and URLs)\n"
         md += "- **Links**: Markdown-formatted links `[text](url)`\n"
         md += "- **Equivalent Pages**: Based on 250 words/page + 0.25 page/diagram + 0.5 page/MicroSim\n"
+        if species["total"] > 0:
+            md += "- **Species Cards**: Files in docs/plants/ (excluding index.md)\n"
+            md += "- **Cards w/ Illustration**: Cards whose docs/plants/img/<slug>-illustration.png exists\n"
+            md += "- **Cards w/ Photos**: Cards referencing at least one <slug>-1.jpg photo\n"
+            md += "- **Cards w/ Quick Facts**: Cards whose Quick Facts table has at least one populated row (not just em-dashes)\n"
+            if host_relationships > 0:
+                md += "- **Host-plant Mentions**: Occurrences of 'host plant' or 'larval host' in chapters — soft signal of pollinator-ecology coverage\n"
 
         return md
 
