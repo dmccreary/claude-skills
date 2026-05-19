@@ -77,7 +77,35 @@ Replace placeholders in the template:
 - `{FAQ_COUNT}` - Count of questions in faq.md
 - `{QUIZ_COUNT}` - Count of quiz.md files
 
-### Step 5: Update Navigation
+### Step 5: Ensure Emoji Support
+
+Check whether `pymdownx.emoji` is already in `markdown_extensions` in `mkdocs.yml`:
+
+```bash
+grep -n "pymdownx.emoji" mkdocs.yml
+```
+
+If the grep returns nothing, add the extension now. Emoji support is required for the
+`:white_check_mark:` and `:x:` status icons in the generated checklist to render
+correctly — without it they appear as raw text.
+
+**Footgun warning:** adding `- pymdownx.emoji` as a bare entry (no sub-keys) silently
+falls back to a no-op generator, so shortcodes still render as plain text with no error
+message. Both sub-keys are required.
+
+Add these three lines to the `markdown_extensions` block in `mkdocs.yml`:
+
+```yaml
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+```
+
+Place them alongside the other `pymdownx.*` extensions (order within the block does not
+matter). No additional Python packages are needed — `material.extensions.emoji` ships
+with `mkdocs-material`.
+
+### Step 6: Update Navigation
 
 Add to `mkdocs.yml` navigation if not present:
 
