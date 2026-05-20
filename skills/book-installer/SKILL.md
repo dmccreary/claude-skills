@@ -29,6 +29,7 @@ Book Installer Features (most → least common):
  1. Simple mkdocs.yml template - Minimal starter config for new projects
  2. Site logo - Add custom logo to header
  3. Favicon - Browser tab/bookmark icon
+ 3b. Generate favicon from mascot - Auto-generate favicon.ico from neutral.png mascot image
  4. Cover image & social preview - Home page image + og:image metadata
  4b. Generate cover image - Auto-generate cover using AI (API or ChatGPT)
  5. Math equations - KaTeX (recommended) or MathJax
@@ -111,6 +112,7 @@ Match the user's request to the appropriate installation guide:
 | cover image, home page, social media, og:image, montage, book cover, index page | `references/home-page-template.md` | Create home page with cover image and social metadata |
 | logo, site logo, branding, upper left, header icon | `references/mkdocs-features.md` | Add custom logo with AI prompt examples |
 | favicon, browser tab, bookmark icon, .ico | `references/mkdocs-features.md` | Add favicon with AI prompt examples |
+| generate favicon, favicon from mascot, mascot favicon, favicon.ico from png, create favicon | `references/favicon-generator.md` | Generate favicon.ico from neutral.png mascot using Python |
 | math, equations, latex, mathjax, katex | `references/mkdocs-features.md` | Add math equation support |
 | feature checklist, generate feature checklist, feature status, what features | `references/feature-checklist-generator.md` | Auto-detect and document implemented features |
 | quiz, quizzes, assessment, multiple choice | `references/mkdocs-features.md` | Add interactive quizzes |
@@ -153,6 +155,9 @@ Creating a cover image MANUALLY or setting up home page with social metadata?
 
 Want to generate a feature checklist showing what's implemented?
   → YES: feature-checklist-generator.md
+
+Want to GENERATE a favicon.ico automatically from the mascot's neutral.png?
+  → YES: favicon-generator.md (runs scripts/generate-favicon.py via Python/Pillow)
 
 Want to add branding (logo, favicon, cover image)?
   → YES: mkdocs-features.md (Branding Features section)
@@ -390,6 +395,25 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 - Existing MkDocs project with chapters in `docs/chapters/`
 - Python `textstat` library (`pip install textstat`)
 
+### favicon-generator.md
+
+**Purpose:** Generate a web-compliant multi-resolution `favicon.ico` from the mascot's `neutral.png`
+
+**Creates:**
+- `docs/img/favicon.ico` — multi-resolution icon (16, 32, 48, 64, 128, 256 px) embedded in a single `.ico` file
+
+**Uses script:** `scripts/generate-favicon.py`
+
+**How it works:**
+- Detects the bounding box of non-transparent pixels (trims invisible padding)
+- Centers the visible content on a square canvas with configurable padding
+- Downscales to each favicon size using Lanczos resampling
+- Supports transparent or white background canvas
+
+**Prerequisites:**
+- Mascot image at `docs/img/mascot/neutral.png` (image need not be square)
+- Python `Pillow` library (`pip install Pillow`)
+
 ### cover-image-generator.md
 
 **Purpose:** Auto-generate cover images using the generate-cover.sh script
@@ -555,7 +579,12 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 **Routing:** Keywords "mascot chapter", "place mascot", "add mascot to chapter" → `references/mascot-chapter-updater.md`
 **Action:** Read mascot-chapter-updater.md, survey the chapter, propose a placement plan with line numbers, wait for user confirmation, apply edits, run validate-chapter-mascots.py, and address any flags
 
-### Example 15: Install Slide Viewer and Generate Chapter Slides
+### Example 15: Generate Favicon from Mascot
+**User:** "generate favicon from mascot" or "create favicon.ico from neutral.png"
+**Routing:** Keywords "generate favicon", "mascot favicon", "favicon from mascot" → `references/favicon-generator.md`
+**Action:** Read favicon-generator.md, verify `docs/img/mascot/neutral.png` exists and Pillow is installed, run `scripts/generate-favicon.py` from the project root, then update `theme.favicon` in mkdocs.yml to `img/favicon.ico`
+
+### Example 16: Install Slide Viewer and Generate Chapter Slides
 **User:** "install the slide viewer and make slides for chapters 1 and 2" or "generate slides for chapter 3"
 **Routing:** Keywords "slide", "slides", "slide viewer", "generate slides", "slide deck" → `references/slide-generator.md`
 **Action:** Read slide-generator.md, copy the slide-viewer assets into docs/sims/slide-viewer/, ask which chapters to generate decks for, create slides.md for each (title + content slides separated by `---` + retrieval check + bridge + celebration), add the three-button nav bar to each chapter's index.md, restructure the chapter's mkdocs.yml entry into Content/Slides sub-entries, and append deck links to the viewer's index.md
