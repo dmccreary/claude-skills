@@ -2,11 +2,19 @@
 # bk-install-social-override-plugin
 #
 # Installs the social_override hook for mkdocs-material into the current
-# directory. The hook replaces the social plugin's auto-generated
-# og:image / twitter:image meta tags with a custom image URL taken from
-# each page's `image:` frontmatter field, so you can use real cover
-# images for LinkedIn / Twitter / Slack previews instead of the
-# generic Material-generated cards.
+# directory. The hook injects og:title, og:description, og:image,
+# og:type, og:url, twitter:card, twitter:title, twitter:description,
+# and twitter:image meta tags on every page, using each page's
+# `title:`, `description:`, and `image:` frontmatter (with site-wide
+# fallbacks to `site_name`, `site_description`, and `img/cover.png`).
+#
+# This is the default social-preview path for intelligent textbooks
+# because it has NO system dependencies — unlike the full
+# `mkdocs-material[imaging]` social plugin, which requires Cairo.
+# When that plugin IS enabled alongside this hook, the hook also
+# replaces the plugin's auto-generated /assets/images/social/ image
+# URLs with the declared cover image, so social shares brand the book
+# rather than a per-page generated card.
 #
 # This installer uses the mkdocs `hooks:` mechanism (a file-path
 # reference in mkdocs.yml), NOT a Python entry-point plugin. Reason:
@@ -17,6 +25,9 @@
 # landed first in sys.meta_path — usually the wrong one. The `hooks:`
 # mechanism loads a file by absolute path and sidesteps the collision
 # entirely.
+#
+# See skills/book-installer/references/social-media-preview.md for the
+# canonical reference.
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -96,70 +107,89 @@ mkdir -p plugins
 # Create the hook file (module-level functions, NOT a BasePlugin subclass)
 echo -e "${GREEN}✓${NC} Creating plugins/social_override.py..."
 cat > plugins/social_override.py << 'EOL'
-"""MkDocs hook that replaces the social plugin's auto-generated og:image
-and twitter:image meta tags with a custom image URL from a page's
-`image:` frontmatter field.
+"""MkDocs hook that injects Open Graph and Twitter Card meta tags into
+every rendered page using the page's frontmatter.
 
-Loaded via the `hooks:` entry in mkdocs.yml, not as a plugin — this
+Loaded via the `hooks:` entry in mkdocs.yml, not as a plugin -- this
 avoids collisions with other projects that also install a package
 called `social_override` or a top-level module called `plugins`.
 
-Usage:
-    In mkdocs.yml, add at the top level (NOT under `plugins:`):
+Frontmatter fields read (per page):
+    title         -- falls back to the H1/page.title
+    description   -- falls back to site_description
+    image         -- path under docs/ (e.g. img/cover.png); falls back to
+                     site-wide default `img/cover.png`
 
-        hooks:
-          - plugins/social_override.py
+The hook emits absolute URLs by joining `site_url` with the image path,
+so the og:image / twitter:image tags work for crawlers and the
+bk-check-social-cover verifier (which HEAD-requests the image URL).
 
-    Make sure `social` is in your plugins list so the default cards
-    still get generated (this hook only rewrites the emitted meta
-    tags; pages without an `image:` frontmatter field fall through
-    to the generated card).
-
-    Then on any page you want a custom preview image:
-
-        ---
-        title: My Page
-        image: img/my-custom-social-card.png
-        ---
+If the social plugin (mkdocs-material[imaging]) is enabled, this hook
+also replaces its auto-generated /assets/images/social/ tags with the
+declared cover image.
 """
 
 import re
 
+DEFAULT_IMAGE = "img/cover.png"
 
-def on_page_context(context, page, config, **kwargs):
-    """Stash the custom image path on the page for the post_page hook."""
-    if page.meta and 'image' in page.meta:
-        page.custom_image = page.meta['image']
-    return context
+
+def _absolute_image_url(site_url, image_path):
+    if image_path.startswith(("http://", "https://")):
+        return image_path
+    return site_url.rstrip("/") + "/" + image_path.lstrip("/")
+
+
+def _meta_tag(prop, content, attr="property"):
+    return f'<meta {attr}="{prop}" content="{content}">'
 
 
 def on_post_page(html, page, config, **kwargs):
-    """Replace the social plugin's generated og:image / twitter:image
-    tags with the page's custom cover image URL."""
-    if not hasattr(page, 'custom_image'):
+    site_url = config.get("site_url") or ""
+    if not site_url:
         return html
 
-    site_url = config['site_url'].rstrip('/')
-    image_path = '/' + page.custom_image.lstrip('/')
-    full_image_url = site_url + image_path
+    title = (page.meta or {}).get("title") or page.title or config.get("site_name", "")
+    description = (page.meta or {}).get("description") or config.get("site_description", "")
+    image = (page.meta or {}).get("image") or DEFAULT_IMAGE
+    image_url = _absolute_image_url(site_url, image)
 
-    # og:image uses property=
-    og_pattern = re.compile(r'<meta\s+property="og:image"[^>]*?>')
-    for tag in og_pattern.findall(html):
-        if '/assets/images/social/' in tag:
-            new_tag = f'<meta property="og:image" content="{full_image_url}">'
-            html = html.replace(tag, new_tag)
-
-    # Material emits twitter:image with property= (not name=), so match both
-    twitter_pattern = re.compile(
-        r'<meta\s+(?:property|name)="twitter:image"[^>]*?>'
+    # Replace social-plugin-emitted /assets/images/social/ tags first.
+    og_social = re.compile(
+        r'<meta\s+property="og:image"\s+content="[^"]*/assets/images/social/[^"]*"[^>]*>'
     )
-    for tag in twitter_pattern.findall(html):
-        if '/assets/images/social/' in tag:
-            # Preserve whichever attribute style was in the original tag
-            attr = 'property' if 'property=' in tag else 'name'
-            new_tag = f'<meta {attr}="twitter:image" content="{full_image_url}">'
-            html = html.replace(tag, new_tag)
+    html = og_social.sub(_meta_tag("og:image", image_url), html)
+
+    tw_social = re.compile(
+        r'<meta\s+(?:property|name)="twitter:image"\s+content="[^"]*/assets/images/social/[^"]*"[^>]*>'
+    )
+    html = tw_social.sub(_meta_tag("twitter:image", image_url, attr="name"), html)
+
+    # Inject any tags that are still missing, immediately before </head>.
+    injections = []
+    if not re.search(r'<meta\s+property="og:title"', html):
+        injections.append(_meta_tag("og:title", title))
+    if not re.search(r'<meta\s+property="og:description"', html):
+        injections.append(_meta_tag("og:description", description))
+    if not re.search(r'<meta\s+property="og:image"', html):
+        injections.append(_meta_tag("og:image", image_url))
+    if not re.search(r'<meta\s+property="og:type"', html):
+        injections.append(_meta_tag("og:type", "website"))
+    if not re.search(r'<meta\s+property="og:url"', html):
+        page_url = site_url.rstrip("/") + "/" + (page.url or "").lstrip("/")
+        injections.append(_meta_tag("og:url", page_url))
+
+    if not re.search(r'<meta\s+(?:property|name)="twitter:card"', html):
+        injections.append(_meta_tag("twitter:card", "summary_large_image", attr="name"))
+    if not re.search(r'<meta\s+(?:property|name)="twitter:title"', html):
+        injections.append(_meta_tag("twitter:title", title, attr="name"))
+    if not re.search(r'<meta\s+(?:property|name)="twitter:description"', html):
+        injections.append(_meta_tag("twitter:description", description, attr="name"))
+    if not re.search(r'<meta\s+(?:property|name)="twitter:image"', html):
+        injections.append(_meta_tag("twitter:image", image_url, attr="name"))
+
+    if injections:
+        html = html.replace("</head>", "  " + "\n  ".join(injections) + "\n</head>", 1)
 
     return html
 EOL
@@ -170,34 +200,47 @@ echo -e "${GREEN}Installation complete!${NC}"
 echo ""
 echo -e "${YELLOW}Next steps:${NC}"
 echo ""
-echo "1. In mkdocs.yml, make sure the Material social plugin is enabled"
-echo "   (under plugins:) and add a top-level hooks: block:"
-echo ""
-echo -e "${BLUE}plugins:${NC}"
-echo "  - search"
-echo -e "  ${GREEN}- social${NC}"
+echo "1. In mkdocs.yml, add a top-level 'hooks:' block (peer of 'plugins:',"
+echo "   NOT nested under it):"
 echo ""
 echo -e "${BLUE}hooks:${NC}"
 echo -e "  ${GREEN}- plugins/social_override.py${NC}"
 echo ""
-echo "   IMPORTANT: 'hooks:' is a TOP-LEVEL key in mkdocs.yml. Do NOT"
-echo "   put it under 'plugins:' — that's a different mechanism."
+echo "   The Material 'social' plugin is OPTIONAL. This hook works on its"
+echo "   own and has no Cairo dependency. If 'social' is also enabled, the"
+echo "   hook will automatically replace its generated /assets/images/social/"
+echo "   URLs with your declared cover image."
 echo ""
-echo "2. Add a custom social preview image to any page's frontmatter:"
+echo "2. Make sure 'site_url:' is set in mkdocs.yml (the hook emits absolute"
+echo "   URLs by joining site_url + image path)."
+echo ""
+echo "3. Confirm docs/index.md frontmatter declares title, description, and"
+echo "   image (relative to docs/):"
 echo ""
 echo -e "${BLUE}---${NC}"
-echo "title: My Page"
-echo -e "${GREEN}image: img/my-custom-social-card.png${NC}"
+echo "title: My Book — Subtitle (aim for 40-60 chars)"
+echo "description: One- or two-sentence book description (55-200 chars)."
+echo -e "${GREEN}image: img/cover.png${NC}"
 echo -e "${BLUE}---${NC}"
 echo ""
-echo "   Pages without an 'image:' field fall through to the default"
-echo "   Material-generated social card — no change in behavior."
+echo "   The hook defaults image to 'img/cover.png' site-wide, so chapter"
+echo "   pages can omit 'image:' and still get the book cover for unfurls."
 echo ""
-echo "3. Rebuild with 'mkdocs build' and verify by grepping the output:"
+echo "4. Rebuild and verify all nine social meta tags are emitted:"
 echo ""
-echo -e "${BLUE}   grep 'og:image' site/index.html${NC}"
+echo -e "${BLUE}   mkdocs build${NC}"
+echo -e "${BLUE}   grep -E '<meta\\s+(property|name)=\"(og|twitter)' site/index.html${NC}"
 echo ""
-echo "   The og:image content should point to your custom image, NOT to"
-echo "   /assets/images/social/index.png."
+echo "   Expected: og:title, og:description, og:image, og:type, og:url,"
+echo "   twitter:card, twitter:title, twitter:description, twitter:image."
+echo "   og:image and twitter:image URLs should be absolute (start with"
+echo "   site_url)."
+echo ""
+echo "5. After 'mkdocs gh-deploy', verify the live site:"
+echo ""
+echo -e "${BLUE}   ~/.local/bin/bk-check-social-cover <project-name>${NC}"
+echo ""
+echo "   The verifier requires the image basename to be exactly 'cover.png'"
+echo "   and HEAD-requests the URL to confirm it returns HTTP 200."
 echo ""
 echo -e "${BLUE}════════════════════════════════════════════════════════════════${NC}"
