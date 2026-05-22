@@ -1,39 +1,44 @@
 # Social Media Preview Hook
 
-Install an MkDocs hook that emits Open Graph and Twitter Card meta tags
-(`og:title`, `og:description`, `og:image`, `twitter:*`) on every page —
-without requiring Cairo / `mkdocs-material[imaging]`.
+Install an MkDocs hook that overrides `og:image` and `twitter:image` with
+a page's `image:` frontmatter value. The hook is a no-op on pages that
+don't declare `image:` — those keep whatever `mkdocs-material` (or the
+optional `social` plugin) emits by default.
 
 ## When to Use This Reference
 
 Use this guide when the user asks for any of:
 
 - "social media preview", "social card", "social meta tags"
-- "og:image", "og:title", "og:description", "Open Graph"
-- "Twitter Card", "Twitter image"
+- "og:image", "Open Graph image override"
+- "Twitter Card image", "Twitter image"
 - "LinkedIn preview", "Facebook preview", "Slack unfurl"
 - A failing `bk-check-social-cover` run
 
-This is the **default** social-preview approach for intelligent textbooks.
-The full `social` plugin (`mkdocs-material[imaging]`) auto-generates card
-images per page, but it requires Cairo, which most macOS/Linux dev
-environments don't have installed. The hook approach below has no system
-dependencies and works on every install of `mkdocs-material`.
+This hook complements `mkdocs-material`'s built-in social meta tags
+(`og:title`, `og:description`, `og:url`, `twitter:card`, etc., which
+Material emits on its own). The hook's only job is to swap the image URL
+on pages where the author has supplied a custom cover via frontmatter.
+
+For projects that need per-page auto-generated card images, the full
+`social` plugin (`mkdocs-material[imaging]`) does that, but it requires
+Cairo. This hook works alongside it (replacing the generated
+`/assets/images/social/...` image with the declared cover when both are
+present), or stands alone with no system dependencies.
 
 ## Prerequisites
 
 - Existing MkDocs Material project with `site_url:` set in `mkdocs.yml`
-- `docs/index.md` with `title:` and `description:` frontmatter (typically
-  already installed via `home-page-template.md`)
-- A cover image at `docs/img/cover.png`. **The basename MUST be `cover.png`** —
-  the verifier (`~/.local/bin/bk-check-social-cover`) hard-fails on any other
-  filename. Resize/rename existing covers if needed.
+- A cover image at `docs/img/cover.png` if the home page (or any other
+  page) should have a custom preview. **The basename MUST be `cover.png`**
+  for `bk-check-social-cover` to pass — the verifier hard-fails on any
+  other filename. Resize/rename existing covers if needed.
 
 ## What This Installs
 
 | File | Purpose |
 |------|---------|
-| `plugins/social_override.py` | Hook that injects/replaces og:* and twitter:* meta tags |
+| `plugins/social_override.py` | Hook that overrides og:image / twitter:image when a page declares `image:` |
 | `mkdocs.yml` (edited) | Adds a top-level `hooks:` entry loading the file above |
 
 The hook is loaded via MkDocs' `hooks:` config option, **not** as a plugin.
@@ -48,89 +53,59 @@ Create `plugins/social_override.py` at the project root (NOT under `docs/`).
 Use exactly this content:
 
 ```python
-"""MkDocs hook that injects Open Graph and Twitter Card meta tags into
-every rendered page using the page's frontmatter.
+"""MkDocs hook that overrides og:image and twitter:image with a page's
+`image:` frontmatter value.
+
+Behavior:
+    - If the page has `image:` in its frontmatter, og:image and
+      twitter:image are set to site_url + image (absolute URL).
+    - If the page has no `image:`, the hook is a no-op. All meta tags
+      emitted by mkdocs-material (and by the social plugin, if enabled)
+      pass through unchanged.
+
+The cover image (img/cover.png) is therefore used ONLY for pages that
+declare it explicitly -- typically docs/index.md. There is no site-wide
+default.
 
 Loaded via the `hooks:` entry in mkdocs.yml, not as a plugin -- this
 avoids collisions with other projects that also install a package
 called `social_override` or a top-level module called `plugins`.
-
-Frontmatter fields read (per page):
-    title         -- falls back to the H1/page.title
-    description   -- falls back to site_description
-    image         -- path under docs/ (e.g. img/cover.png); falls back to
-                     site-wide default `img/cover.png`
-
-The hook emits absolute URLs by joining `site_url` with the image path,
-so the og:image / twitter:image tags work for crawlers and the
-bk-check-social-cover verifier (which HEAD-requests the image URL).
-
-If the social plugin (mkdocs-material[imaging]) is enabled, this hook
-also replaces its auto-generated /assets/images/social/ tags with the
-declared cover image.
 """
 
 import re
 
-DEFAULT_IMAGE = "img/cover.png"
-
-
-def _absolute_image_url(site_url, image_path):
-    if image_path.startswith(("http://", "https://")):
-        return image_path
-    return site_url.rstrip("/") + "/" + image_path.lstrip("/")
-
-
-def _meta_tag(prop, content, attr="property"):
-    return f'<meta {attr}="{prop}" content="{content}">'
-
 
 def on_post_page(html, page, config, **kwargs):
+    image = (page.meta or {}).get("image")
+    if not image:
+        return html
+
     site_url = config.get("site_url") or ""
     if not site_url:
         return html
 
-    title = (page.meta or {}).get("title") or page.title or config.get("site_name", "")
-    description = (page.meta or {}).get("description") or config.get("site_description", "")
-    image = (page.meta or {}).get("image") or DEFAULT_IMAGE
-    image_url = _absolute_image_url(site_url, image)
+    if image.startswith(("http://", "https://")):
+        image_url = image
+    else:
+        image_url = site_url.rstrip("/") + "/" + image.lstrip("/")
 
-    # Replace social-plugin-emitted /assets/images/social/ tags first.
-    og_social = re.compile(
-        r'<meta\s+property="og:image"\s+content="[^"]*/assets/images/social/[^"]*"[^>]*>'
+    og_tag = f'<meta property="og:image" content="{image_url}">'
+    og_pattern = re.compile(
+        r'<meta\s+property="og:image"\s+content="[^"]*"[^>]*>'
     )
-    html = og_social.sub(_meta_tag("og:image", image_url), html)
+    if og_pattern.search(html):
+        html = og_pattern.sub(og_tag, html, count=1)
+    else:
+        html = html.replace("</head>", f"  {og_tag}\n</head>", 1)
 
-    tw_social = re.compile(
-        r'<meta\s+(?:property|name)="twitter:image"\s+content="[^"]*/assets/images/social/[^"]*"[^>]*>'
+    tw_tag = f'<meta name="twitter:image" content="{image_url}">'
+    tw_pattern = re.compile(
+        r'<meta\s+(?:property|name)="twitter:image"\s+content="[^"]*"[^>]*>'
     )
-    html = tw_social.sub(_meta_tag("twitter:image", image_url, attr="name"), html)
-
-    # Inject any tags that are still missing, immediately before </head>.
-    injections = []
-    if not re.search(r'<meta\s+property="og:title"', html):
-        injections.append(_meta_tag("og:title", title))
-    if not re.search(r'<meta\s+property="og:description"', html):
-        injections.append(_meta_tag("og:description", description))
-    if not re.search(r'<meta\s+property="og:image"', html):
-        injections.append(_meta_tag("og:image", image_url))
-    if not re.search(r'<meta\s+property="og:type"', html):
-        injections.append(_meta_tag("og:type", "website"))
-    if not re.search(r'<meta\s+property="og:url"', html):
-        page_url = site_url.rstrip("/") + "/" + (page.url or "").lstrip("/")
-        injections.append(_meta_tag("og:url", page_url))
-
-    if not re.search(r'<meta\s+(?:property|name)="twitter:card"', html):
-        injections.append(_meta_tag("twitter:card", "summary_large_image", attr="name"))
-    if not re.search(r'<meta\s+(?:property|name)="twitter:title"', html):
-        injections.append(_meta_tag("twitter:title", title, attr="name"))
-    if not re.search(r'<meta\s+(?:property|name)="twitter:description"', html):
-        injections.append(_meta_tag("twitter:description", description, attr="name"))
-    if not re.search(r'<meta\s+(?:property|name)="twitter:image"', html):
-        injections.append(_meta_tag("twitter:image", image_url, attr="name"))
-
-    if injections:
-        html = html.replace("</head>", "  " + "\n  ".join(injections) + "\n</head>", 1)
+    if tw_pattern.search(html):
+        html = tw_pattern.sub(tw_tag, html, count=1)
+    else:
+        html = html.replace("</head>", f"  {tw_tag}\n</head>", 1)
 
     return html
 ```
@@ -144,24 +119,29 @@ peer of `plugins:`, not a child).
 
 ```yaml
 # Hooks -- loaded as raw Python modules, not plugins (avoids name collisions).
-# `plugins/social_override.py` injects og:title, og:description, og:image and
-# twitter:* meta tags on every page using the page's frontmatter `image:` (and
-# falling back to `img/cover.png` site-wide). When the optional `social` plugin
-# is enabled, the same hook replaces its auto-generated
-# /assets/images/social/ tags with the declared cover image.
+# `plugins/social_override.py` overrides og:image and twitter:image with the
+# page's `image:` frontmatter value when present. Pages without `image:` are
+# untouched -- mkdocs-material's default meta tags (and the social plugin's
+# generated card, if enabled) pass through.
 hooks:
   - plugins/social_override.py
 ```
 
-### Step 3: Confirm `docs/index.md` Frontmatter
+### Step 3: Add `image:` Frontmatter to Pages That Need It
 
-The home page should declare `image:` (relative to `docs/`). If the project
-was scaffolded by `home-page-template.md`, this is already the case:
+Only pages that declare `image:` in their frontmatter get a custom social
+preview. For most intelligent textbooks this means the home page
+(`docs/index.md`) and nothing else — sharing a chapter URL on Slack should
+still brand the unfurl with the book cover, which happens naturally because
+chapter pages don't override the image, and Material's defaults take over.
+
+If the project was scaffolded by `home-page-template.md`, the home page
+frontmatter already declares `image: img/cover.png`:
 
 ```yaml
 ---
 title: {{Book Title}}
-description: {{One- or two-sentence book description, 55-200 chars optimal.}}
+description: {{One- or two-sentence book description.}}
 image: img/cover.png
 hide:
   - toc
@@ -170,27 +150,26 @@ hide:
 
 Notes:
 
-- The hook reads only the `image:` key. Older templates also include
-  `og:image:` and `twitter:image:` — those are harmless but unused by the
-  hook. Don't strip them; they make the frontmatter self-documenting.
-- **Title length:** the bk-check-social-cover verifier wants `og:title` in
-  the 40-60 character range. If the bare book name is shorter, expand the
-  frontmatter title (e.g. `Psychology — An AP-Level Intelligent Textbook`).
-  The hook trusts the frontmatter, so this is the only place to fix it.
-- **Description length:** target 55-200 chars. The home-page-template's
-  default `site_description` is usually already in range.
+- The hook reads only the `image:` key. `og:title`, `og:description`,
+  `og:url`, `twitter:card`, `twitter:title`, and `twitter:description` are
+  emitted by mkdocs-material's own templates (and by the social plugin when
+  enabled) — not by this hook. To change those values, edit the page's
+  `title:` / `description:` frontmatter or the project's `site_name:` /
+  `site_description:`.
+- Older templates may also include `og:image:` and `twitter:image:` keys —
+  those are harmless but unused. The hook only looks at `image:`.
 
 ### Step 4: Build and Verify Locally
 
 ```bash
 mkdocs build
-grep -E '<meta\s+(property|name)="(og|twitter)' site/index.html
+grep -E '(og|twitter):image' site/index.html
 ```
 
-Expected output: nine meta tags — `og:title`, `og:description`, `og:image`,
-`og:type`, `og:url`, `twitter:card`, `twitter:title`, `twitter:description`,
-`twitter:image`. The `og:image` and `twitter:image` URLs should be absolute
-(start with `site_url`).
+The `og:image` and `twitter:image` URLs on a page with `image:` frontmatter
+should be absolute (start with `site_url`) and point at the declared image.
+On a page without `image:` frontmatter, you'll see whatever Material emits
+by default — which is the correct behavior.
 
 ### Step 5: Run the Cover-Page Verifier
 
@@ -250,13 +229,18 @@ plumbing:
 
 ## Best Practices
 
-### Always Pair the Hook with a Cover Image
+### Pair the Hook with a Cover Image Only Where You Want One
 
-The hook is inert without `docs/img/cover.png`. If the project doesn't have
-one yet, route the user to `cover-image-generator.md` first, then install
-this hook.
+The hook is opt-in per page: it only acts on pages whose frontmatter
+declares `image:`. If the project doesn't have a cover image yet but you
+want one on the home page, route the user to `cover-image-generator.md`
+first, then add `image: img/cover.png` to `docs/index.md`.
 
-### Don't Mix With the Social Plugin Unless Cairo Is Confirmed
+A project that never declares `image:` on any page is a valid state — the
+hook is installed but inert, and Material's default social meta tags
+(or the social plugin's generated cards) take over for every page.
+
+### Compatibility with the Material Social Plugin
 
 The `mkdocs-material[imaging]` `social` plugin generates per-page card
 images but requires Cairo (`brew install cairo` on macOS, plus
@@ -264,27 +248,26 @@ images but requires Cairo (`brew install cairo` on macOS, plus
 social plugin without Cairo present, every build fails with a
 `cairosvg` import error.
 
-The hook in this guide is **the safer default**. Only enable the `social`
-plugin when:
+This hook works fine alongside the social plugin or without it:
 
-1. Cairo is installed and confirmed working (`python -c "import cairo"`).
-2. The user explicitly wants per-page generated cards (rare).
+- **Without the social plugin:** the hook overrides only `og:image` /
+  `twitter:image` on pages that declare `image:`. Other social meta tags
+  use Material's defaults.
+- **With the social plugin:** the hook still overrides on pages that
+  declare `image:` (replacing the plugin's generated card URL with the
+  declared image). Pages without `image:` keep the per-page generated
+  card.
 
-When both are enabled, the hook automatically swaps the plugin's
-`/assets/images/social/...` URLs for the declared `cover.png`. That's the
-right behavior for an intelligent textbook — students share the *book*, not
-individual pages.
+For most intelligent textbooks, the social plugin isn't needed — declaring
+`image: img/cover.png` only on the home page is enough, since that's the
+URL most often shared.
 
-### One Image Per Book (Not Per Page)
+### Override Per Page, Not Globally
 
-The hook defaults every page's `og:image` to the same `cover.png`. This is
-intentional: when a chapter URL is shared on Slack/LinkedIn, the cover image
-brands the unfurl with the book identity rather than a chapter-specific
-graphic.
-
-If a chapter genuinely needs its own preview image (rare), add `image:
-img/chapters/01-foo.png` to that chapter's frontmatter. The hook picks it
-up automatically.
+The hook is per-page-explicit by design. To override the preview image on
+a specific page, add `image:` to that page's frontmatter. Pages without
+`image:` are not touched, so chapter URLs unfurl using whatever Material /
+the social plugin emit on their own.
 
 ### Don't Hand-Edit the Generated HTML
 
@@ -300,14 +283,16 @@ silently ignore unknown keys. Authors who add `og:image: /img/cover.png`
 to frontmatter and inspect the rendered HTML often find no meta tag and
 assume MkDocs is broken.
 
-It isn't — there's just no code emitting the tag. This hook is the missing
-piece. If a verifier finds no og:image after install, double-check that
-the `hooks:` block actually loads `plugins/social_override.py`.
+The fix is to use the plain `image:` key (no colons in the key name) that
+this hook actually reads. `og:image:` and `twitter:image:` in frontmatter
+are no-ops.
 
 ## Troubleshooting
 
-### "No meta tags in output, hook seems silent"
+### "og:image isn't being overridden on my home page"
 
+- Confirm `docs/index.md` frontmatter has `image: img/cover.png` (the
+  plain `image:` key, not `og:image:` or `twitter:image:`).
 - Confirm the `hooks:` block is at the top level of `mkdocs.yml`, not
   nested under `plugins:`.
 - Confirm the file is at `plugins/social_override.py` relative to
@@ -321,20 +306,19 @@ the `hooks:` block actually loads `plugins/social_override.py`.
   production URL (e.g. `https://dmccreary.github.io/<project>/`), not a
   localhost address.
 
-### "Title is too short" warning from bk-check-social-cover
+### "Title is too short / description missing" warning from bk-check-social-cover
 
-This is a content fix, not a hook bug. Expand the `title:` frontmatter on
-`docs/index.md` to land in the 40-60 char range. Example:
+These are content fixes, not hook bugs — this hook does not control
+`og:title` or `og:description`. Those come from Material's defaults
+(driven by `site_name`, `site_description`, and per-page `title:` /
+`description:` frontmatter), or from the social plugin when enabled.
+Edit `mkdocs.yml` or the page's frontmatter to fix.
 
-```yaml
-title: Psychology — An AP-Level Intelligent Textbook
-```
+### "I want a different preview image on a specific chapter"
 
-### "I want per-page descriptions but they're not showing"
-
-Each page's `description:` frontmatter is read by the hook. If a chapter
-has no `description:`, the hook falls back to `site_description`. Add a
-`description:` to the chapter frontmatter to fix.
+Add `image: img/chapters/01-foo.png` (or any path under `docs/`) to that
+chapter's frontmatter. The hook picks it up automatically. Pages without
+`image:` keep Material's default behavior.
 
 ## Related References
 
