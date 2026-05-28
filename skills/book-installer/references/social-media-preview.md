@@ -238,6 +238,53 @@ plumbing:
 ~/.local/bin/bk-check-social-cover https://<user>.github.io/<project>/
 ```
 
+## Forcing a Social Cache Refresh
+
+When a preview image is wrong on a *deployed* site — typically because an
+earlier deploy shipped the broken value and someone already shared the URL
+— fixing the hook and redeploying is not enough. LinkedIn, Facebook, and
+Slack cache `og:image` per URL for days or weeks. Future shares of the
+same URL keep pulling the cached (broken) preview until the cache is
+explicitly invalidated.
+
+### Verify the Fix Is Actually Live First
+
+Before fighting any cache, confirm the deployed HTML is correct.
+Otherwise the scrapers will re-cache the broken value and you'll be back
+where you started:
+
+```bash
+curl -s https://<user>.github.io/<project>/ | grep -E '(og|twitter):image'
+~/.local/bin/bk-check-social-cover <project>
+```
+
+`og:image` should point at the intended `cover.png` and the verifier
+should exit 0. Only then run the per-platform refresh below.
+
+### Per-Platform Cache Invalidation
+
+| Platform | Tool | URL |
+|----------|------|-----|
+| LinkedIn | Post Inspector | https://www.linkedin.com/post-inspector/inspect/ |
+| Facebook / Threads | Sharing Debugger | https://developers.facebook.com/tools/debug/ |
+| X (Twitter) | Card Validator (legacy but still triggers a re-fetch) | https://cards-dev.twitter.com/validator |
+| Slack | Re-unfurl the link in any channel after deleting the prior message; Slack caches per-message, not per-URL | — |
+
+Paste the page URL into the inspector and click Inspect / Scrape Again /
+Preview. The platform re-fetches the page, replaces its cached metadata,
+and subsequent shares of that URL use the new image.
+
+### Cache-Bust with a Query String (Fallback)
+
+If a platform still serves stale metadata after the inspector run
+(LinkedIn occasionally does this for ~24 hours), share the URL with a
+throwaway query parameter, e.g. `https://<user>.github.io/<project>/?v=2`.
+Crawlers treat that as a new URL and fetch fresh metadata. Bump the value
+again if needed.
+
+This is a workaround, not a fix — the canonical URL will catch up on its
+own once the platform's TTL expires.
+
 ## Best Practices
 
 ### Pair the Hook with a Cover Image Only Where You Want One
