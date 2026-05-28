@@ -59,14 +59,11 @@ def make_square_canvas(cropped, padding_pct, bg_color):
     pad = max(1, int(content_size * padding_pct / 100))
     canvas_size = content_size + 2 * pad
 
+    Image = __import__("PIL.Image", fromlist=["Image"])
     if bg_color == "white":
-        canvas = __import__("PIL.Image", fromlist=["Image"]).Image.new(
-            "RGBA", (canvas_size, canvas_size), (255, 255, 255, 255)
-        )
+        canvas = Image.new("RGBA", (canvas_size, canvas_size), (255, 255, 255, 255))
     else:
-        canvas = __import__("PIL.Image", fromlist=["Image"]).Image.new(
-            "RGBA", (canvas_size, canvas_size), (0, 0, 0, 0)
-        )
+        canvas = Image.new("RGBA", (canvas_size, canvas_size), (0, 0, 0, 0))
 
     paste_x = (canvas_size - cw) // 2
     paste_y = (canvas_size - ch) // 2
