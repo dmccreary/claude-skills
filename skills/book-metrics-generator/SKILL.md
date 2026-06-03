@@ -58,7 +58,12 @@ Optional components that enhance metrics:
 - `docs/glossary.md` - For glossary term counting
 - `docs/faq.md` - For FAQ counting
 - `docs/sims/` - For MicroSim counting
-- Chapter-level `quiz.md` files - For quiz question counting
+- `docs/stories/` - For story counting (story subdirectories with index.md)
+- `docs/img/mascot/` - For mascot pose counting
+- `docs/appendices/` (or `appendicies/`) - For appendix page counting
+- Chapter-level `quiz.md` files - For quiz and quiz-question counting
+- Chapter-level `references.md` files - For reference counting
+- `mkdocs.yml` `extra.development_stage` (or course-description.md) - For development stage
 
 ## Usage
 
@@ -110,18 +115,33 @@ python3 scripts/book-metrics.py docs
 
 ## Book Metrics Collected
 
-The **book-metrics.md** file contains a four-column table with the following metrics:
+The **book-metrics.md** file opens with a **Book Composition** table covering the
+twelve tracked elements of an intelligent textbook, each labeled *Required*,
+*Recommended*, or *Optional* (a required element that is still missing is flagged
+with ⚠️):
+
+| # | Element | Status | Source |
+|---|---------|--------|--------|
+| 1 | Concepts | Required | Rows in learning-graph.csv |
+| 2 | Chapters | Required | Chapter directories with index.md |
+| 3 | MicroSims | Recommended | Directories in docs/sims/ with index.md |
+| 4 | Stories | Optional | Story directories in docs/stories/ with index.md |
+| 5 | Chapter Quizzes | Recommended | Chapters with a quiz.md (plus total questions) |
+| 6 | Chapter References | Recommended | Chapters with references.md (plus total references) |
+| 7 | Glossary Terms | Recommended | H4 headers in glossary.md |
+| 8 | FAQs | Recommended | H3 headers in faq.md |
+| 9 | Words | Required | Words across student-facing markdown |
+| 10 | Mascot | Optional | Image poses in docs/img/mascot/ |
+| 11 | Appendices | Optional | Pages in appendices/ (excluding index.md) |
+| 12 | Development Stage | Required | mkdocs.yml `extra.development_stage` or course-description.md |
+
+A second **Student-Facing Content Metrics** table provides the deeper content
+counts:
 
 | Category | Metric | Description |
 |----------|--------|-------------|
-| Structure | Chapters | Count of chapter directories with index.md files |
-| Learning | Concepts | Number of concepts in learning-graph.csv |
-| Learning | Glossary Terms | Count of defined terms (H2/H3 headers in glossary.md) |
-| Learning | FAQs | Number of FAQ items (H2 headers in faq.md) |
-| Assessment | Quiz Questions | Total quiz questions across all chapters |
 | Visual | Diagrams | Count of H4 headers starting with "#### Diagram:" |
 | Technical | Equations | LaTeX expressions using $ and $$ delimiters |
-| Interactive | MicroSims | Directories in docs/sims/ with index.md files |
 | Content | Total Words | All words in markdown files (excluding code and URLs) |
 | Content | Links | Markdown-formatted hyperlinks [text](url) |
 | Estimation | Equivalent Pages | Calculated pages based on words + visuals |
@@ -149,7 +169,11 @@ The **chapter-metrics.md** file contains a table with these columns:
 | Name | Chapter title extracted from index.md H1 header |
 | Sections | Count of H2 and H3 headers in chapter markdown files |
 | Diagrams | Count of "#### Diagram:" headers in chapter |
+| Equations | LaTeX expressions in the chapter |
 | Words | Total word count for all markdown in the chapter |
+| Links | Markdown-formatted hyperlinks in the chapter |
+| Quiz | Number of quiz questions in the chapter's quiz.md (0 if none) |
+| Refs | Number of references in the chapter's references.md (0 if none) |
 
 This table enables quick identification of:
 - Chapters with insufficient content
@@ -165,9 +189,15 @@ The Python script uses these patterns to count elements:
 
 - **Chapters**: Directories in `docs/chapters/` containing `index.md`
 - **Concepts**: Rows in `docs/learning-graph/learning-graph.csv` (excluding header)
-- **Glossary Terms**: `^##` and `^###` patterns in `glossary.md`
-- **FAQs**: `^##` pattern in `faq.md`
-- **Quiz Questions**: `^##` pattern in all `quiz.md` files
+- **Glossary Terms**: `^####` headers in `glossary.md`
+- **FAQs**: `^###` headers (not `####`) in `faq.md`
+- **Quiz Questions**: `^####\s+\d+\.` and legacy `^##` patterns in all `quiz.md` files
+- **Chapter Quizzes**: Chapter directories containing a `quiz.md` file
+- **Chapter References**: Chapter directories containing a `references.md` file; references counted via `^\s*\d+\.\s+` numbered list items
+- **Stories**: Subdirectories in `docs/stories/` with `index.md`
+- **Mascot**: Image files (png/jpg/jpeg/gif/svg/webp) in `docs/img/mascot/`
+- **Appendices**: Markdown pages (and subdirs with `index.md`) in `docs/appendices/` or `docs/appendicies/`, excluding `index.md`
+- **Development Stage**: `development[-_]stage:` value in `mkdocs.yml`, then `course-description.md`; "Not specified" if absent
 - **Diagrams**: `^####\s+Diagram:` pattern (multiline flag)
 - **Equations**: `\$[^$]+\$` (inline) and `\$\$[^$]+\$\$` (display)
 - **MicroSims**: Subdirectories in `docs/sims/` with `index.md`
@@ -376,15 +406,23 @@ The Python script is designed for extensibility - new metrics can be added by im
 
 ## Example Output
 
-### Book Metrics Table Sample
+### Book Composition Table Sample
 
 ```markdown
-| Metric Name | Value | Link | Notes |
-|-------------|-------|------|-------|
-| Chapters | 12 | [Chapters](../chapters/) | Number of chapter directories |
-| Concepts | 200 | [Learning Graph](learning-graph.csv) | Concepts from learning graph |
-| Total Words | 45,000 | - | Words in all markdown files |
-| Equivalent Pages | 195 | - | Estimated pages (250 words/page + visuals) |
+| # | Element | Value | Status | Notes |
+|---|---------|-------|--------|-------|
+| 1 | Concepts | 200 | Required | Concepts from learning graph |
+| 2 | Chapters | 12 | Required | Chapter directories with index.md |
+| 3 | MicroSims | 18 | Recommended | Interactive simulations in docs/sims/ |
+| 4 | Stories | 2 | Optional | Graphic-novel narratives in docs/stories/ |
+| 5 | Chapter Quizzes | 12 / 12 | Recommended | Chapters with a quiz.md (120 questions total) |
+| 6 | Chapter References | 12 / 12 | Recommended | Chapters with references.md (120 references total) |
+| 7 | Glossary Terms | 200 | Recommended | Defined terms in glossary.md |
+| 8 | FAQs | 40 | Recommended | Questions in faq.md |
+| 9 | Words | 45,000 | Required | Words across student-facing markdown |
+| 10 | Mascot | 7 | Optional | Mascot image poses in docs/img/mascot/ |
+| 11 | Appendices | 3 | Optional | Appendix pages |
+| 12 | Development Stage | Not specified | Required ⚠️ | From mkdocs.yml or course-description.md |
 ```
 
 ### Chapter Metrics Table Sample

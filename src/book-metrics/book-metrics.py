@@ -17,7 +17,7 @@ from typing import Dict, List, Tuple, Any
 from datetime import datetime
 
 # Version of the Book Metrics Generator
-VERSION = "0.05"
+VERSION = "0.06"
 
 
 class BookMetricsGenerator:
@@ -36,8 +36,22 @@ class BookMetricsGenerator:
         self.chapters_dir = self.docs_dir / "chapters"
         self.learning_graph_dir = self.docs_dir / "learning-graph"
         self.sims_dir = self.docs_dir / "sims"
+        self.stories_dir = self.docs_dir / "stories"
+        self.mascot_dir = self.docs_dir / "img" / "mascot"
         self.glossary_file = self.docs_dir / "glossary.md"
         self.faq_file = self.docs_dir / "faq.md"
+        self.course_description_file = self.docs_dir / "course-description.md"
+        # mkdocs.yml lives in the project root, one level above docs/
+        self.mkdocs_file = self.docs_dir.parent / "mkdocs.yml"
+
+        # Appendices directory - accept the correct spelling and the common
+        # "appendicies" misspelling found in some textbook repos.
+        self.appendices_dir = None
+        for candidate in ("appendices", "appendicies"):
+            candidate_dir = self.docs_dir / candidate
+            if candidate_dir.exists():
+                self.appendices_dir = candidate_dir
+                break
 
     def _is_excluded_path(self, path: Path) -> bool:
         """Check if a path is in an excluded directory.
@@ -311,6 +325,150 @@ class BookMetricsGenerator:
 
         return count
 
+    def count_stories(self) -> int:
+        """Count stories in docs/stories.
+
+        Each story is a subdirectory containing an index.md file (e.g.
+        docs/stories/gregor-mendel/index.md). The top-level index.md and any
+        "story ideas" markdown files are not counted.
+
+        Returns:
+            Number of story directories
+        """
+        if not self.stories_dir.exists():
+            return 0
+
+        count = 0
+        for item in self.stories_dir.iterdir():
+            if item.is_dir() and (item / "index.md").exists():
+                count += 1
+
+        return count
+
+    def count_chapter_quizzes(self) -> int:
+        """Count chapters that have a quiz.md file.
+
+        This is distinct from the total number of quiz questions - it reports
+        how many chapters provide a quiz at all.
+
+        Returns:
+            Number of chapters with a quiz.md file
+        """
+        if not self.chapters_dir.exists():
+            return 0
+
+        count = 0
+        for chapter_dir in self.chapters_dir.iterdir():
+            if chapter_dir.is_dir() and (chapter_dir / "quiz.md").exists():
+                count += 1
+
+        return count
+
+    def count_chapter_references(self) -> Tuple[int, int]:
+        """Count chapter reference files and total reference entries.
+
+        References live in a references.md file inside each chapter directory.
+        Each reference is a numbered list item (e.g. "1. [Title](url) - ...").
+
+        Returns:
+            Tuple of (number of chapters with references.md, total reference entries)
+        """
+        if not self.chapters_dir.exists():
+            return 0, 0
+
+        files = 0
+        total_entries = 0
+        for chapter_dir in self.chapters_dir.iterdir():
+            if not chapter_dir.is_dir():
+                continue
+            ref_file = chapter_dir / "references.md"
+            if not ref_file.exists():
+                continue
+            files += 1
+            try:
+                with open(ref_file, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    # Count numbered list items (e.g. "1. ", "12. ")
+                    total_entries += len(re.findall(r'^\s*\d+\.\s+', content, re.MULTILINE))
+            except Exception as e:
+                print(f"Warning: Could not read {ref_file}: {e}")
+
+        return files, total_entries
+
+    def count_appendices(self) -> int:
+        """Count appendix pages in the appendices directory.
+
+        Counts markdown files (excluding index.md) in docs/appendices/ (or the
+        "appendicies" misspelling). Subdirectories with their own index.md are
+        also counted as a single appendix each.
+
+        Returns:
+            Number of appendix pages
+        """
+        if not self.appendices_dir:
+            return 0
+
+        count = 0
+        for item in self.appendices_dir.iterdir():
+            if item.is_file() and item.suffix == ".md" and item.name != "index.md":
+                count += 1
+            elif item.is_dir() and (item / "index.md").exists():
+                count += 1
+
+        return count
+
+    def count_mascot_images(self) -> int:
+        """Count mascot image files in docs/img/mascot.
+
+        A mascot is optional. Books that have one typically provide several
+        emotional-state poses (welcome, thinking, warning, celebration, etc.).
+
+        Returns:
+            Number of mascot image files (png/jpg/jpeg/gif/svg/webp)
+        """
+        if not self.mascot_dir.exists():
+            return 0
+
+        image_exts = {'.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp'}
+        count = 0
+        for item in self.mascot_dir.iterdir():
+            if item.is_file() and item.suffix.lower() in image_exts:
+                count += 1
+
+        return count
+
+    def get_development_stage(self) -> str:
+        """Determine the book's development stage.
+
+        Looks for a `development_stage` (or `development-stage`) value, first in
+        mkdocs.yml (typically under the `extra:` block) and then in the
+        course-description.md front matter. Returns "Not specified" when no
+        value is found so the author knows to record one.
+
+        Returns:
+            The development stage string, or "Not specified"
+        """
+        stage_pattern = re.compile(
+            r'^\s*development[-_]stage:\s*(.+?)\s*$',
+            re.MULTILINE | re.IGNORECASE
+        )
+
+        for source in (self.mkdocs_file, self.course_description_file):
+            if not source.exists():
+                continue
+            try:
+                with open(source, 'r', encoding='utf-8') as f:
+                    content = f.read()
+            except Exception as e:
+                print(f"Warning: Could not read {source}: {e}")
+                continue
+            match = stage_pattern.search(content)
+            if match:
+                # Strip surrounding quotes if present
+                return match.group(1).strip().strip('"').strip("'")
+
+        return "Not specified"
+
     def count_words_in_file(self, markdown_file: Path) -> int:
         """Count words in a single markdown file.
 
@@ -460,6 +618,19 @@ class BookMetricsGenerator:
             words += self.count_words_in_file(md_file)
             links += self.count_links_in_file(md_file)
 
+        # Quiz questions and references for this chapter
+        quiz_file = chapter_dir / "quiz.md"
+        quiz_questions = self._count_quiz_in_file(quiz_file) if quiz_file.exists() else 0
+
+        ref_file = chapter_dir / "references.md"
+        references = 0
+        if ref_file.exists():
+            try:
+                with open(ref_file, 'r', encoding='utf-8') as f:
+                    references = len(re.findall(r'^\s*\d+\.\s+', f.read(), re.MULTILINE))
+            except Exception as e:
+                print(f"Warning: Could not read {ref_file}: {e}")
+
         return {
             'number': chapter['number'],
             'name': chapter['name'],
@@ -467,7 +638,9 @@ class BookMetricsGenerator:
             'diagrams': diagrams,
             'equations': equations,
             'words': words,
-            'links': links
+            'links': links,
+            'quiz_questions': quiz_questions,
+            'references': references
         }
 
     def get_aggregated_chapter_metrics(self) -> Dict[str, int]:
@@ -506,6 +679,12 @@ class BookMetricsGenerator:
         glossary_terms = self.count_glossary_terms()
         faqs = self.count_faqs()
         quiz_questions = self.count_quiz_questions()
+        chapter_quizzes = self.count_chapter_quizzes()
+        ref_files, ref_entries = self.count_chapter_references()
+        stories = self.count_stories()
+        appendices = self.count_appendices()
+        mascot_images = self.count_mascot_images()
+        development_stage = self.get_development_stage()
         diagrams = self.count_all_diagrams(exclude_non_content=True)
         equations = self.count_all_equations(exclude_non_content=True)
         microsims = self.count_microsims()
@@ -519,6 +698,13 @@ class BookMetricsGenerator:
         # Get current timestamp
         timestamp = datetime.now().strftime("%B %d, %Y at %I:%M %p")
 
+        # Helper: flag required elements that are still empty/unset
+        def status_cell(label: str, value, empty) -> str:
+            """Return the status text, adding a ⚠️ when a required element is missing."""
+            if label == "Required" and value in empty:
+                return "Required ⚠️"
+            return label
+
         # Build markdown table
         md = "# Book Metrics\n\n"
         md += f"**Generated by**: Book Metrics Python Program v{VERSION}  \n"
@@ -527,17 +713,24 @@ class BookMetricsGenerator:
         md += "**Note**: Student-facing content metrics exclude `prompts/` and `learning-graph/` directories. "
         md += "Chapter-only metrics show what students see in the main chapters.\n\n"
 
-        md += "## Overall Metrics\n\n"
-        md += "| Metric Name | Value | Link | Notes |\n"
-        md += "|-------------|-------|------|-------|\n"
-
-        # Add rows
-        md += f"| Chapters | {chapter_count} | [Chapters](../chapters/index.md) | Number of chapter directories |\n"
-        md += f"| Concepts | {concepts} | [Concept List](./concept-list.md) | Concepts from learning graph |\n"
-        md += f"| Glossary Terms | {glossary_terms} | [Glossary](../glossary.md) | Defined terms |\n"
-        md += f"| FAQs | {faqs} | [FAQ](../faq.md) | Frequently asked questions |\n"
-        md += f"| Quiz Questions | {quiz_questions} | - | Questions across all chapters |\n"
-        md += f"| MicroSims | {microsims} | [Simulations](../sims/index.md) | Interactive MicroSims |\n"
+        md += "## Book Composition\n\n"
+        md += "The twelve tracked elements of an intelligent textbook. The **Status** column "
+        md += "shows whether each element is *Required*, *Recommended*, or *Optional*; a ⚠️ marks "
+        md += "a required element that is still missing.\n\n"
+        md += "| # | Element | Value | Status | Notes |\n"
+        md += "|---|---------|-------|--------|-------|\n"
+        md += f"| 1 | Concepts | {concepts} | {status_cell('Required', concepts, (0,))} | Concepts from learning graph |\n"
+        md += f"| 2 | Chapters | {chapter_count} | {status_cell('Required', chapter_count, (0,))} | Chapter directories with index.md |\n"
+        md += f"| 3 | MicroSims | {microsims} | Recommended | Interactive simulations in docs/sims/ |\n"
+        md += f"| 4 | Stories | {stories} | Optional | Graphic-novel narratives in docs/stories/ |\n"
+        md += f"| 5 | Chapter Quizzes | {chapter_quizzes} / {chapter_count} | Recommended | Chapters with a quiz.md ({quiz_questions} questions total) |\n"
+        md += f"| 6 | Chapter References | {ref_files} / {chapter_count} | Recommended | Chapters with references.md ({ref_entries} references total) |\n"
+        md += f"| 7 | Glossary Terms | {glossary_terms} | Recommended | Defined terms in glossary.md |\n"
+        md += f"| 8 | FAQs | {faqs} | Recommended | Questions in faq.md |\n"
+        md += f"| 9 | Words | {total_words:,} | {status_cell('Required', total_words, (0,))} | Words across student-facing markdown |\n"
+        md += f"| 10 | Mascot | {mascot_images if mascot_images else 'None'} | Optional | Mascot image poses in docs/img/mascot/ |\n"
+        md += f"| 11 | Appendices | {appendices} | Optional | Appendix pages |\n"
+        md += f"| 12 | Development Stage | {development_stage} | {status_cell('Required', development_stage, ('Not specified',))} | From mkdocs.yml or course-description.md |\n"
 
         md += "\n## Student-Facing Content Metrics\n\n"
         md += "Excludes administrative directories (`prompts/`, `learning-graph/`).\n\n"
@@ -550,13 +743,19 @@ class BookMetricsGenerator:
         md += f"| Equivalent Pages | {equivalent_pages} | {self.calculate_equivalent_pages(chapter_aggregated['words'], chapter_aggregated['diagrams'], microsims)} | Estimated pages (250 words/page + visuals) |\n"
 
         md += "\n## Metrics Explanation\n\n"
-        md += "### Structural Metrics\n\n"
-        md += "- **Chapters**: Count of chapter directories containing index.md files\n"
-        md += "- **Concepts**: Number of rows in learning-graph.csv\n"
-        md += "- **Glossary Terms**: H4 headers in glossary.md\n"
-        md += "- **FAQs**: H3 headers in faq.md\n"
-        md += "- **Quiz Questions**: H4 headers with numbered questions (e.g., '#### 1.') or H2 headers in quiz.md files\n"
-        md += "- **MicroSims**: Directories in docs/sims/ with index.md files\n\n"
+        md += "### Book Composition Elements\n\n"
+        md += "- **Concepts** *(required)*: Number of rows in learning-graph.csv\n"
+        md += "- **Chapters** *(required)*: Count of chapter directories containing index.md files\n"
+        md += "- **MicroSims** *(recommended)*: Directories in docs/sims/ with index.md files\n"
+        md += "- **Stories** *(optional)*: Story directories in docs/stories/ with index.md files\n"
+        md += "- **Chapter Quizzes** *(recommended)*: Chapters containing a quiz.md file (with total quiz questions in the notes)\n"
+        md += "- **Chapter References** *(recommended)*: Chapters containing a references.md file (with total reference entries in the notes)\n"
+        md += "- **Glossary Terms** *(recommended)*: H4 headers in glossary.md\n"
+        md += "- **FAQs** *(recommended)*: H3 headers in faq.md\n"
+        md += "- **Words** *(required)*: All words in student-facing markdown files (excluding code blocks and URLs)\n"
+        md += "- **Mascot** *(optional)*: Image files (poses) in docs/img/mascot/\n"
+        md += "- **Appendices** *(optional)*: Pages in the appendices/ directory (excluding index.md)\n"
+        md += "- **Development Stage** *(required)*: `development_stage` value in mkdocs.yml (or course-description.md); shows 'Not specified' if absent\n\n"
 
         md += "### Content Metrics\n\n"
         md += "- **Diagrams**: H4 headers starting with '#### Diagram:'\n"
@@ -597,8 +796,8 @@ class BookMetricsGenerator:
         md += f"**Generated by**: Book Metrics Python Program v{VERSION}  \n"
         md += f"**Generated on**: {timestamp}\n\n"
         md += "This file contains chapter-by-chapter metrics for student-facing content.\n\n"
-        md += "| Chapter | Name | Sections | Diagrams | Equations | Words | Links |\n"
-        md += "|---------|------|----------|----------|-----------|-------|-------|\n"
+        md += "| Chapter | Name | Sections | Diagrams | Equations | Words | Links | Quiz | Refs |\n"
+        md += "|---------|------|----------|----------|-----------|-------|-------|------|------|\n"
 
         # Add rows for each chapter
         for chapter in chapters:
@@ -606,7 +805,7 @@ class BookMetricsGenerator:
             # Create link to chapter index.md (relative to learning-graph directory)
             chapter_dir_name = chapter['path'].name
             chapter_link = f"[{metrics['name']}](../chapters/{chapter_dir_name}/index.md)"
-            md += f"| {metrics['number']} | {chapter_link} | {metrics['sections']} | {metrics['diagrams']} | {metrics['equations']} | {metrics['words']:,} | {metrics['links']} |\n"
+            md += f"| {metrics['number']} | {chapter_link} | {metrics['sections']} | {metrics['diagrams']} | {metrics['equations']} | {metrics['words']:,} | {metrics['links']} | {metrics['quiz_questions']} | {metrics['references']} |\n"
 
         md += "\n## Metrics Explanation\n\n"
         md += "- **Chapter**: Chapter number (leading zeros removed)\n"
@@ -616,6 +815,8 @@ class BookMetricsGenerator:
         md += "- **Equations**: LaTeX expressions using $ and $$ delimiters\n"
         md += "- **Words**: Word count across all markdown files in the chapter\n"
         md += "- **Links**: Markdown-formatted links `[text](url)`\n"
+        md += "- **Quiz**: Number of quiz questions in the chapter's quiz.md (0 if none)\n"
+        md += "- **Refs**: Number of references in the chapter's references.md (0 if none)\n"
 
         return md
 
@@ -663,7 +864,13 @@ def main():
     generator.generate_metrics()
 
     print(f"\n✅ Book metrics generation version {VERSION} complete!")
-    print("\nUpdates in v0.05:")
+    print("\nUpdates in v0.06:")
+    print("  - Added a Book Composition table tracking all 12 textbook elements")
+    print("    with a Required/Recommended/Optional status for each")
+    print("  - New elements: Stories, Chapter Quizzes, Chapter References,")
+    print("    Mascot, Appendices, and Development Stage")
+    print("  - Chapter metrics now include per-chapter Quiz and Refs columns")
+    print("\nPrevious updates (v0.05):")
     print("  - Fixed FAQ counting to correctly match H3 headers only (not H4+)")
     print("\nPrevious updates (v0.04):")
     print("  - Added version number and human-readable timestamp to reports")
