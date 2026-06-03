@@ -215,7 +215,7 @@ These use Claude Code skills to generate content:
 
 1. **Glossary** - Use the glossary-generator skill to create searchable definitions
 2. **FAQ** - Use the faq-generator skill to answer common student questions
-3. **Book metrics** - Use the book-metrics-generator skill to track completeness
+3. **Book metrics** - Use book-installer's book-metrics guide (or `bk-generate-book-metrics`) to track completeness
 4. **Per-chapter quizzes** - Use the quiz-generator skill for auto-graded practice
 
 ### High Effort, Transformative

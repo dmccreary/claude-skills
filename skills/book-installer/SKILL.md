@@ -68,6 +68,7 @@ Book Installer Features (most → least common):
 37. Slide generator - install slide-viewer MicroSim and generate slides.md decks for chapters
 38. Reading level analysis - Flesch-Kincaid grade level report for all chapters
 39. Generate all supplementary content - glossary, FAQ, per-chapter quizzes & references, book metrics, diagram reports, about page, landing page, README
+40. Book metrics report - chapters, concepts, glossary/FAQ counts, quiz & reference totals, diagrams, equations, MicroSims, word count & equivalent pages (book-metrics.md + chapter-metrics.md)
 
 Type a number or feature name to install.
 
@@ -135,6 +136,7 @@ Match the user's request to the appropriate installation guide:
 | slide generator, slides, slide deck, slide viewer, presentation, generate slides, install slide viewer, 37 | `references/slide-generator.md` | Install the slide-viewer MicroSim and generate slides.md decks for chapters |
 | reading level, readability, flesch kincaid, grade level, reading analysis, 38 | `references/reading-level-analysis.md` | Analyze chapter reading level consistency |
 | generate all supplementary content, supplementary content, complete the book, finish the book, book completion, generate glossary faq quiz, generate all content, all supplementary, 39 | `references/supplementary-content-generator.md` | Generate glossary, FAQ, per-chapter quizzes & references, book metrics, diagram reports, about page, landing page, and README in one coordinated workflow |
+| book metrics, generate metrics, book-metrics, chapter metrics, content statistics, word count, page count, equivalent pages, book composition, metrics report, 40 | `references/book-metrics.md` | Generate book-metrics.md, chapter-metrics.md, and the metrics block in book-metadata.json via bk-generate-book-metrics |
 
 ### Decision Tree
 
@@ -199,6 +201,10 @@ Want to analyze reading level consistency across chapters?
 
 Want to generate all supplementary content in one pass (glossary, FAQ, per-chapter quizzes & references, book metrics, diagram reports, about page, landing page, README)?
   → YES: supplementary-content-generator.md
+
+Want to generate book metrics only (chapters, concepts, word/page counts,
+diagram/MicroSim/quiz totals) into book-metrics.md and chapter-metrics.md?
+  → YES: book-metrics.md
 
 Want to add a specific feature (equations, quizzes, feedback, etc.)?
   → YES: mkdocs-features.md (then follow specific feature instructions)
@@ -425,6 +431,27 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 **Prerequisites:**
 - Existing MkDocs project with chapters in `docs/chapters/`
 - Python `textstat` library (`pip install textstat`)
+
+### book-metrics.md
+
+**Purpose:** Generate comprehensive book-wide and per-chapter metrics for an intelligent textbook
+
+**Creates:**
+- `docs/learning-graph/book-metrics.md` — Book Composition + Student-Facing Content Metrics tables
+- `docs/learning-graph/chapter-metrics.md` — per-chapter breakdown
+- merges a `metrics` block of book-wide totals into `docs/learning-graph/book-metadata.json` (author fields preserved)
+
+**Uses script:** `bk-generate-book-metrics` (resolves `$BK_HOME/src/book-metrics/book-metrics.py`); fallback `python3 "$BK_HOME/src/book-metrics/book-metrics.py" docs`
+
+**Features:**
+- Tracks all 12 book-composition elements with Required/Recommended/Optional status
+- Counts concepts, chapters, MicroSims, stories, glossary terms, FAQs, quiz questions, references, diagrams, equations, words, links, appendices, mascot poses
+- Estimates equivalent printed pages and records the development stage
+- Produces the totals the intelligent-textbooks case-studies index displays
+
+**Prerequisites:**
+- Existing MkDocs project with chapters in `docs/chapters/`
+- `$BK_HOME` exported and `bk-generate-book-metrics` on `$PATH`
 
 ### favicon-generator.md
 
@@ -656,6 +683,11 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 **User:** "install the slide viewer and make slides for chapters 1 and 2" or "generate slides for chapter 3"
 **Routing:** Keywords "slide", "slides", "slide viewer", "generate slides", "slide deck" → `references/slide-generator.md`
 **Action:** Read slide-generator.md, copy the slide-viewer assets into docs/sims/slide-viewer/, ask which chapters to generate decks for, create slides.md for each (title + content slides separated by `---` + retrieval check + bridge + celebration), add the three-button nav bar to each chapter's index.md, restructure the chapter's mkdocs.yml entry into Content/Slides sub-entries, and append deck links to the viewer's index.md
+
+### Example 18: Generate Book Metrics
+**User:** "generate book metrics" or "how many words/chapters/MicroSims does this book have" or "40"
+**Routing:** Keywords "book metrics", "generate metrics", "metrics report", "40" → `references/book-metrics.md`
+**Action:** Read book-metrics.md, run `bk-generate-book-metrics` from the project root (or the `python3 "$BK_HOME/src/book-metrics/book-metrics.py" docs` fallback), confirm `book-metrics.md`, `chapter-metrics.md`, and the `metrics` block in `book-metadata.json` were written, and add the two reports to the Learning Graph nav in `mkdocs.yml` if not already present.
 
 ## Common Workflows
 

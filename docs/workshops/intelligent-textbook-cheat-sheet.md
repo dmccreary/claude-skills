@@ -45,7 +45,7 @@ bk-list-skills            # List available skills
 | 8 | Chapter Content | `/skill chapter-content-generator` |
 | 9 | MicroSim Creation | `/skill microsim-p5` |
 | 10 | Glossary & FAQ | `/skill glossary-generator` then `/skill faq-generator` |
-| 11 | Quality Metrics | `/skill book-metrics-generator` |
+| 11 | Quality Metrics | `bk-generate-book-metrics` (or `/skill book-installer` → book metrics) |
 | 12 | Site Deployment | `mkdocs gh-deploy` |
 
 ## 4. Key File Locations

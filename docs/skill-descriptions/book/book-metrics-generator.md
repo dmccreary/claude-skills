@@ -52,14 +52,23 @@ The book-metrics.md file includes sections for:
 
 ## Shell Script Access
 
-For efficiency, the skill can also be run directly via shell script:
+!!! note "Now part of book-installer"
+    Book metrics is no longer a standalone skill — the capability now lives as
+    the **book-metrics** guide inside the `book-installer` meta-skill. Invoke
+    `book-installer` and ask for book metrics, or run the shell wrapper below.
+
+For efficiency, you can run the metrics generator directly via the shell wrapper:
 
 ```bash
-~/.claude/skills/book-metrics-generator/scripts/book-metrics-generator.sh
+bk-generate-book-metrics
 ```
+
+This wrapper runs `$BK_HOME/src/book-metrics/book-metrics.py` against the
+project's `docs/` directory. If it is not on your `$PATH`, use the fallback
+`python3 "$BK_HOME/src/book-metrics/book-metrics.py" docs`.
 
 ## Integration
 
-This skill is typically used after significant content development or as part of
-regular project status reporting. It works with any MkDocs Material-based
+Book metrics is typically generated after significant content development or as
+part of regular project status reporting. It works with any MkDocs Material-based
 intelligent textbook following the standard structure.

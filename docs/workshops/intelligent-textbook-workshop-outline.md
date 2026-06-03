@@ -200,7 +200,7 @@ The remainder of this class is "Supplementary Materials"
 - Chapter-level metrics
 - Quality score interpretation
 
-**Demo:** Use `/skill book-metrics-generator` to create comprehensive metrics report
+**Demo:** Run `bk-generate-book-metrics` (or `/skill book-installer` → book metrics) to create a comprehensive metrics report
 
 #### 5.2 Site Building & Deployment (5 min)
 - MkDocs build process

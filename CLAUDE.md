@@ -20,13 +20,12 @@ claude-skills/
 │   ├── archived/                    # Archived skills (consolidated into meta-skills)
 │   │
 │   │ # Meta-Skills (consolidate multiple sub-skills)
-│   ├── book-installer/              # Routes to: mkdocs-template, learning-graph-viewer, skill-tracker
+│   ├── book-installer/              # Routes to: mkdocs-template, learning-graph-viewer, skill-tracker, book-metrics, etc.
 │   ├── microsim-generator/          # Routes to: p5, chartjs, timeline, map, vis-network, mermaid, etc.
 │   ├── microsim-utils/              # Routes to: standardization, screen-capture, add-icons, index-generator
 │   │
 │   │ # Book Generation Skills
 │   ├── book-chapter-generator/      # Designs chapter structure from learning graph
-│   ├── book-metrics-generator/      # Analyzes book content and generates metrics
 │   ├── chapter-content-generator/   # Generates detailed chapter content
 │   ├── course-description-analyzer/ # Validates course descriptions
 │   ├── diagram-reports-generator/   # Creates diagram/MicroSim reports
@@ -79,7 +78,7 @@ Claude Code has a **maximum limit of 30 skills** that can be loaded at once. To 
 
 | Meta-Skill | Sub-Skills (in `references/` folder) | Purpose |
 |------------|--------------------------------------|---------|
-| `book-installer` | mkdocs-template, learning-graph-viewer, skill-tracker | Project setup and infrastructure |
+| `book-installer` | mkdocs-template, learning-graph-viewer, skill-tracker, book-metrics, and many more (see its routing table) | Project setup, infrastructure, and book reporting |
 | `microsim-generator` | p5, chartjs, timeline, map, vis-network, mermaid, plotly, venn, bubble, causal-loop, comparison-table, celebration | Creates MicroSims with various JS libraries |
 | `microsim-utils` | standardization, screen-capture, add-icons, index-generator | MicroSim maintenance utilities |
 
@@ -267,7 +266,7 @@ Session logs document the specification, instructional design decisions, technic
 
 Building an intelligent textbook follows this 12-step process using multiple skills:
 
-1. **Course Description** (`course-description-analyzer`) → 2. **Bloom's Taxonomy Integration** → 3. **Concept Enumeration** (200 concepts) → 4. **Concept Dependencies** (DAG) → 5. **Concept Taxonomy** (`learning-graph-generator`) → 6. **Learning Graph Visualization** (`book-installer` → learning-graph-viewer) → 7. **Chapter Structure** (`book-chapter-generator`) → 8. **Content Generation** (`chapter-content-generator`) → 9. **MicroSim Creation** (`microsim-generator`) → 10. **Supporting Content** (`glossary-generator`, `faq-generator`, `quiz-generator`) → 11. **Quality Assurance** (`book-metrics-generator`, `microsim-utils`) → 12. **Deployment** (mkdocs gh-deploy)
+1. **Course Description** (`course-description-analyzer`) → 2. **Bloom's Taxonomy Integration** → 3. **Concept Enumeration** (200 concepts) → 4. **Concept Dependencies** (DAG) → 5. **Concept Taxonomy** (`learning-graph-generator`) → 6. **Learning Graph Visualization** (`book-installer` → learning-graph-viewer) → 7. **Chapter Structure** (`book-chapter-generator`) → 8. **Content Generation** (`chapter-content-generator`) → 9. **MicroSim Creation** (`microsim-generator`) → 10. **Supporting Content** (`glossary-generator`, `faq-generator`, `quiz-generator`) → 11. **Quality Assurance** (`book-installer` → book-metrics, `microsim-utils`) → 12. **Deployment** (mkdocs gh-deploy)
 
 ## Common Development Tasks
 

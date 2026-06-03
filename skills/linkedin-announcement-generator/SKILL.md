@@ -524,7 +524,7 @@ A high-quality LinkedIn announcement should:
 
 **Issue:** Metrics not found in book-metrics.md
 
-**Solution:** Run the book-metrics-generator skill first to create the metrics file
+**Solution:** Generate the metrics first — run `bk-generate-book-metrics` (or invoke `book-installer` and request the book-metrics guide) to create the metrics file
 
 **Issue:** Site URL not available
 
@@ -540,7 +540,7 @@ A high-quality LinkedIn announcement should:
 
 ## Related Skills
 
-- **book-metrics-generator** - Generates the metrics file used by this skill
+- **book-installer (book-metrics guide)** / `bk-generate-book-metrics` - Generates the metrics file used by this skill
 - **readme-generator** - Creates GitHub README with similar content
 - **intelligent-textbook** - The workflow that creates the textbook itself
 

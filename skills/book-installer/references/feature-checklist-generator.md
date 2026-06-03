@@ -247,7 +247,7 @@ If a feature shows as `:white_check_mark:` but isn't working:
 
 This feature works well with:
 
-- **book-metrics-generator** - For detailed content statistics
+- **book-metrics** (book-installer guide / `bk-generate-book-metrics`) - For detailed content statistics
 - **glossary-generator** - To implement missing glossary
 - **faq-generator** - To implement missing FAQ
 - **quiz-generator** - To implement missing quizzes

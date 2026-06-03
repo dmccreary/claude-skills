@@ -410,11 +410,11 @@ You should see output similar to:
 
 ```
 book-chapter-generator          glossary-generator              moving-rainbow
-book-metrics-generator          book-installer                  pi-keys-generator
-chapter-content-generator       learning-graph-generator        quiz-generator
-concept-classifier              linkedin-announcement-generator readme-generator
-faq-generator                   microsim-generator              reference-generator
-                                microsim-utils                  skill-creator
+book-installer                  learning-graph-generator        pi-keys-generator
+chapter-content-generator       linkedin-announcement-generator quiz-generator
+concept-classifier              microsim-generator              readme-generator
+faq-generator                   microsim-utils                  reference-generator
+                                                                skill-creator
 ```
 
 !!! success "Expected Result"
