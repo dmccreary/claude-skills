@@ -12,12 +12,13 @@ Usage:
 
 import re
 import csv
+import json
 from pathlib import Path
 from typing import Dict, List, Tuple, Any
 from datetime import datetime
 
 # Version of the Book Metrics Generator
-VERSION = "0.06"
+VERSION = "0.07"
 
 
 class BookMetricsGenerator:
@@ -323,6 +324,95 @@ class BookMetricsGenerator:
             if item.is_dir() and (item / "index.md").exists():
                 count += 1
 
+        return count
+
+    def count_species_cards(self) -> Dict[str, int]:
+        """Count species cards and per-card asset coverage in docs/plants.
+
+        Returns a dict with keys:
+          total            — number of <slug>.md files in docs/plants/
+          with_illustration — cards whose docs/plants/img/<slug>-illustration.png exists
+          with_photos      — cards with at least one Wikipedia photo
+          with_quick_facts — cards whose Quick Facts table has any non-empty cells
+                             (i.e., something other than "—")
+
+        Returns all zeros if docs/plants doesn't exist (project doesn't use
+        the plant-gallery-generator skill)."""
+        plants_dir = self.docs_dir / "plants"
+        img_dir = plants_dir / "img"
+        result = {
+            "total": 0,
+            "with_illustration": 0,
+            "with_photos": 0,
+            "with_quick_facts": 0,
+        }
+        if not plants_dir.exists():
+            return result
+
+        for card in plants_dir.iterdir():
+            if not (card.is_file() and card.suffix == ".md"
+                    and card.name != "index.md"):
+                continue
+            result["total"] += 1
+            slug = card.stem
+            try:
+                text = card.read_text(encoding="utf-8")
+            except Exception:
+                continue
+            if (img_dir / f"{slug}-illustration.png").exists():
+                result["with_illustration"] += 1
+            # Photo references in the card body, e.g. ![alt](img/<slug>-1.jpg)
+            if f"{slug}-1.jpg" in text or f"{slug}-1.JPG" in text:
+                result["with_photos"] += 1
+            # Quick Facts populated: at least one DATA row (Family, Height,
+            # Bloom time, Sun, Moisture, Soil, Wildlife value) has content
+            # other than "—". The Scientific name row is auto-populated
+            # and doesn't count.
+            in_facts = False
+            data_keys = {"family", "height", "bloom time", "sun",
+                         "moisture", "soil", "wildlife value",
+                         "hardiness zone", "native range"}
+            for line in text.splitlines():
+                if line.strip().startswith("## Quick Facts"):
+                    in_facts = True
+                    continue
+                if in_facts:
+                    if line.strip().startswith("## "):
+                        break
+                    if "|" in line and "---" not in line:
+                        cells = [c.strip().strip("*").lower()
+                                 for c in line.split("|")[1:-1]]
+                        if len(cells) >= 2 and cells[0] in data_keys:
+                            value = cells[1].strip("*")
+                            if value and value != "—":
+                                result["with_quick_facts"] += 1
+                                break
+        return result
+
+    def count_host_plant_relationships(self) -> int:
+        """Approximate count of host-plant relationships documented in
+        chapter prose. Looks for the phrase 'host plant' or 'larval host'
+        appearing near a species name. Useful for tracking pollinator-
+        ecology coverage in textbooks.
+
+        Returns 0 if no chapters use the convention. This is a soft
+        metric — exact counts require a pollinator-host-plant matrix
+        in structured data, which most textbooks don't have."""
+        if not self.chapters_dir.exists():
+            return 0
+        count = 0
+        for chapter in self.chapters_dir.iterdir():
+            if not chapter.is_dir():
+                continue
+            index = chapter / "index.md"
+            if not index.exists():
+                continue
+            try:
+                text = index.read_text(encoding="utf-8").lower()
+            except Exception:
+                continue
+            count += text.count("host plant")
+            count += text.count("larval host")
         return count
 
     def count_stories(self) -> int:
@@ -692,6 +782,10 @@ class BookMetricsGenerator:
         links = self.count_all_links(exclude_non_content=True)
         equivalent_pages = self.calculate_equivalent_pages(total_words, diagrams, microsims)
 
+        # Botany / species-card metrics (only rendered when docs/plants/ exists)
+        species = self.count_species_cards()
+        host_relationships = self.count_host_plant_relationships()
+
         # Get chapter-aggregated metrics for comparison
         chapter_aggregated = self.get_aggregated_chapter_metrics()
 
@@ -742,6 +836,28 @@ class BookMetricsGenerator:
         md += f"| Links | {links} | {chapter_aggregated['links']} | Hyperlinks in markdown format |\n"
         md += f"| Equivalent Pages | {equivalent_pages} | {self.calculate_equivalent_pages(chapter_aggregated['words'], chapter_aggregated['diagrams'], microsims)} | Estimated pages (250 words/page + visuals) |\n"
 
+        # Botany / species-card metrics — only shown when the project uses the
+        # plant-gallery-generator (i.e., docs/plants/ exists)
+        if species["total"] > 0:
+            md += "\n## Species Card Coverage\n\n"
+            md += "Botany textbooks built with the plant-gallery-generator track per-species "
+            md += "reference cards and their asset coverage.\n\n"
+            md += "| Metric | Value | Notes |\n"
+            md += "|--------|-------|-------|\n"
+            md += f"| Species Cards | {species['total']} | Per-species reference pages in docs/plants/ |\n"
+            md += (f"| Cards w/ Illustration | {species['with_illustration']} "
+                   f"({species['with_illustration'] * 100 // species['total']}%) "
+                   f"| Botanical plate available |\n")
+            md += (f"| Cards w/ Photos | {species['with_photos']} "
+                   f"({species['with_photos'] * 100 // species['total']}%) "
+                   f"| Wikipedia/Wikimedia photo present |\n")
+            md += (f"| Cards w/ Quick Facts | {species['with_quick_facts']} "
+                   f"({species['with_quick_facts'] * 100 // species['total']}%) "
+                   f"| Trait data populated (not just dashes) |\n")
+            if host_relationships > 0:
+                md += (f"| Host-plant Mentions | {host_relationships} "
+                       f"| Pollinator-host coverage signal |\n")
+
         md += "\n## Metrics Explanation\n\n"
         md += "### Book Composition Elements\n\n"
         md += "- **Concepts** *(required)*: Number of rows in learning-graph.csv\n"
@@ -763,6 +879,16 @@ class BookMetricsGenerator:
         md += "- **Total Words**: All words in markdown files (excluding code blocks and URLs)\n"
         md += "- **Links**: Markdown-formatted links `[text](url)`\n"
         md += "- **Equivalent Pages**: Based on 250 words/page + 0.25 page/diagram + 0.5 page/MicroSim\n\n"
+
+        if species["total"] > 0:
+            md += "### Species Card Coverage\n\n"
+            md += "- **Species Cards**: Files in docs/plants/ (excluding index.md)\n"
+            md += "- **Cards w/ Illustration**: Cards whose docs/plants/img/<slug>-illustration.png exists\n"
+            md += "- **Cards w/ Photos**: Cards referencing at least one <slug>-1.jpg photo\n"
+            md += "- **Cards w/ Quick Facts**: Cards whose Quick Facts table has at least one populated row (not just em-dashes)\n"
+            if host_relationships > 0:
+                md += "- **Host-plant Mentions**: Occurrences of 'host plant' or 'larval host' in chapters — soft signal of pollinator-ecology coverage\n"
+            md += "\n"
 
         md += "### Column Explanations\n\n"
         md += "- **All Content**: Includes all student-facing content (chapters, glossary, FAQ, sims, etc.) but excludes administrative directories\n"
@@ -820,8 +946,108 @@ class BookMetricsGenerator:
 
         return md
 
+    def collect_book_totals(self) -> Dict[str, Any]:
+        """Collect the book-wide total metrics used in the case-studies index.
+
+        These are the same totals shown in the intelligent-textbooks
+        case-studies cards (e.g. "200 Concepts · 12 Chapters · 18 MicroSims ·
+        171K Words · 200 Glossary Terms"). Only book-level totals are
+        returned here - per-chapter breakdowns are intentionally excluded.
+
+        Returns:
+            Dict of metric name -> total value (ints, plus the development
+            stage string). Botany species-card totals are included only when
+            the project has a docs/plants/ directory.
+        """
+        chapter_count, _ = self.count_chapters()
+        ref_files, ref_entries = self.count_chapter_references()
+        diagrams = self.count_all_diagrams(exclude_non_content=True)
+        microsims = self.count_microsims()
+        total_words = self.count_total_words(exclude_non_content=True)
+
+        totals = {
+            "concepts": self.count_concepts(),
+            "chapters": chapter_count,
+            "microsims": microsims,
+            "stories": self.count_stories(),
+            "glossaryTerms": self.count_glossary_terms(),
+            "faqs": self.count_faqs(),
+            "quizQuestions": self.count_quiz_questions(),
+            "chapterQuizzes": self.count_chapter_quizzes(),
+            "chapterReferences": ref_files,
+            "references": ref_entries,
+            "diagrams": diagrams,
+            "equations": self.count_all_equations(exclude_non_content=True),
+            "words": total_words,
+            "links": self.count_all_links(exclude_non_content=True),
+            "appendices": self.count_appendices(),
+            "mascotImages": self.count_mascot_images(),
+            "developmentStage": self.get_development_stage(),
+            "equivalentPages": self.calculate_equivalent_pages(
+                total_words, diagrams, microsims),
+        }
+
+        # Include species-card totals only for botany projects (docs/plants/)
+        species = self.count_species_cards()
+        if species["total"] > 0:
+            totals["speciesCards"] = species["total"]
+            totals["speciesCardsWithIllustration"] = species["with_illustration"]
+            totals["speciesCardsWithPhotos"] = species["with_photos"]
+            totals["speciesCardsWithQuickFacts"] = species["with_quick_facts"]
+
+        return totals
+
+    def update_book_metadata(self, output_dir: Path = None) -> None:
+        """Create or update book-metadata.json with the book's total metrics.
+
+        The learning-graph-generator workflow creates book-metadata.json with
+        descriptive fields (title, description, creator, cover image, etc.).
+        This method PRESERVES those author-supplied fields and adds/updates a
+        single `metrics` object holding the book-wide totals used in the
+        intelligent-textbooks case-studies index. Per-chapter metrics are never
+        written here - only totals like chapter count, quiz count, FAQ count.
+
+        If the existing file cannot be parsed as JSON it is left untouched (we
+        never clobber the author's metadata) and a warning is printed.
+
+        Args:
+            output_dir: Directory containing book-metadata.json
+                        (defaults to the learning-graph directory)
+        """
+        if output_dir is None:
+            output_dir = self.learning_graph_dir
+
+        metadata_file = output_dir / "book-metadata.json"
+
+        # Load existing metadata so author-supplied fields survive the update
+        data: Dict[str, Any] = {}
+        if metadata_file.exists():
+            try:
+                with open(metadata_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+            except Exception as e:
+                print(f"⚠️  Could not parse {metadata_file} ({e}); leaving it "
+                      f"untouched to avoid losing author metadata.")
+                return
+            if not isinstance(data, dict):
+                print(f"⚠️  {metadata_file} is not a JSON object; leaving it "
+                      f"untouched.")
+                return
+
+        # Merge: replace only the metrics block + provenance, keep everything
+        # else the author put in book-metadata.json.
+        data["metrics"] = self.collect_book_totals()
+        data["metricsGeneratedBy"] = f"Book Metrics Python Program v{VERSION}"
+        data["metricsGeneratedOn"] = datetime.now().strftime(
+            "%B %d, %Y at %I:%M %p")
+
+        with open(metadata_file, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+            f.write("\n")
+        print(f"✅ Updated {metadata_file}")
+
     def generate_metrics(self, output_dir: Path = None):
-        """Generate both metrics files.
+        """Generate both metrics files and update book-metadata.json.
 
         Args:
             output_dir: Directory to write files to (defaults to learning-graph directory)
@@ -846,6 +1072,9 @@ class BookMetricsGenerator:
             f.write(chapter_metrics_content)
         print(f"✅ Generated {chapter_metrics_file}")
 
+        # Create or update book-metadata.json with book-wide totals
+        self.update_book_metadata(output_dir)
+
 
 def main():
     """Main entry point."""
@@ -864,7 +1093,14 @@ def main():
     generator.generate_metrics()
 
     print(f"\n✅ Book metrics generation version {VERSION} complete!")
-    print("\nUpdates in v0.06:")
+    print("\nUpdates in v0.07:")
+    print("  - Create/update docs/learning-graph/book-metadata.json with the")
+    print("    book-wide totals used in the case-studies index (concepts,")
+    print("    chapters, MicroSims, stories, words, glossary, quiz, FAQ, etc.)")
+    print("  - Author-supplied fields in book-metadata.json are preserved;")
+    print("    only the `metrics` block is added/updated (no per-chapter data)")
+    print("  - Re-added optional species-card coverage metrics for botany books")
+    print("\nPrevious updates (v0.06):")
     print("  - Added a Book Composition table tracking all 12 textbook elements")
     print("    with a Required/Recommended/Optional status for each")
     print("  - New elements: Stories, Chapter Quizzes, Chapter References,")

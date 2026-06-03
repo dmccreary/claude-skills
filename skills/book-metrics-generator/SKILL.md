@@ -7,10 +7,11 @@ description: This skill generates comprehensive metrics reports for intelligent 
 
 ## Overview
 
-This skill automates the generation of comprehensive metrics for intelligent textbooks. It analyzes the entire textbook structure and content to produce two detailed reports:
+This skill automates the generation of comprehensive metrics for intelligent textbooks. It analyzes the entire textbook structure and content to produce three outputs:
 
 1. **book-metrics.md** - Overall book statistics with links to relevant sections
 2. **chapter-metrics.md** - Chapter-by-chapter breakdown in tabular format
+3. **book-metadata.json** - Machine-readable book-wide totals (created or updated in place, preserving any author-supplied fields) for use in the intelligent-textbooks case-studies index
 
 The metrics provide quantitative insights into content volume, educational components, and interactive elements, helping authors track progress and identify areas needing attention.
 
@@ -87,6 +88,7 @@ bash /path/to/skill/scripts/book-metrics-generator.sh
 3. Review the generated files:
    - `docs/learning-graph/book-metrics.md`
    - `docs/learning-graph/chapter-metrics.md`
+   - `docs/learning-graph/book-metadata.json` (created or updated in place)
 
 4. Update `mkdocs.yml` navigation to include the new metrics files:
 
@@ -158,6 +160,67 @@ Assumptions:
 - 250 words per printed page
 - Each diagram occupies 0.25 page
 - Each MicroSim occupies 0.5 page
+
+## Book Metadata JSON
+
+In addition to the two markdown reports, the script creates or updates
+`docs/learning-graph/book-metadata.json`. This is the same file that is
+created when the learning graph is generated; it holds descriptive fields for
+the book (title, description, creator, cover image, repository, license, etc.).
+
+Each time the metrics script runs it **merges** a single `metrics` object into
+that file and stamps two provenance fields, **without disturbing any of the
+author-supplied fields**:
+
+```json
+{
+  "title": "My Intelligent Textbook",
+  "description": "...",
+  "creator": "Author Name",
+  "metrics": {
+    "concepts": 200,
+    "chapters": 12,
+    "microsims": 18,
+    "stories": 2,
+    "glossaryTerms": 200,
+    "faqs": 40,
+    "quizQuestions": 120,
+    "chapterQuizzes": 12,
+    "chapterReferences": 12,
+    "references": 120,
+    "diagrams": 30,
+    "equations": 45,
+    "words": 45000,
+    "links": 300,
+    "appendices": 3,
+    "mascotImages": 7,
+    "developmentStage": "Complete",
+    "equivalentPages": 250
+  },
+  "metricsGeneratedBy": "Book Metrics Python Program v0.07",
+  "metricsGeneratedOn": "June 03, 2026 at 10:13 AM"
+}
+```
+
+These are the book-wide totals that feed the case-study cards in the
+[intelligent-textbooks](https://github.com/dmccreary/intelligent-textbooks)
+`docs/case-studies/index.md` page (e.g. "200 Concepts · 12 Chapters · 18
+MicroSims · 45K Words · 200 Glossary Terms").
+
+**Rules the script follows for `book-metadata.json`:**
+
+- **Only book-wide totals** go in the `metrics` object. Per-chapter
+  breakdowns are intentionally excluded — those live only in
+  `chapter-metrics.md`.
+- **Author fields are preserved.** Only the `metrics` block and the two
+  `metricsGenerated*` provenance fields are written; everything else the
+  author put in the file is left untouched.
+- **Botany books** (those with a `docs/plants/` directory) additionally get
+  `speciesCards`, `speciesCardsWithIllustration`, `speciesCardsWithPhotos`,
+  and `speciesCardsWithQuickFacts` totals.
+- **Safety:** if the existing `book-metadata.json` cannot be parsed as a JSON
+  object, the script leaves it untouched and prints a warning rather than
+  risk clobbering the author's metadata.
 
 ## Chapter Metrics Collected
 
