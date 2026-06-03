@@ -493,7 +493,6 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 
 **Produces (in execution order):**
 - `docs/about.md` — professional about page (via `about-page.md` reference)
-- `README.md` — GitHub-facing README (via `readme-generator` skill)
 - `docs/glossary.md` — ISO 11179-compliant glossary (via `glossary-generator` skill)
 - `docs/faq.md` — ≥ 30-question FAQ (via `faq-generator` skill)
 - `docs/chapters/*/quiz.md` — per-chapter quizzes (via `quiz-generator` skill)
@@ -501,10 +500,11 @@ See the [URI Scheme documentation](https://dmccreary.github.io/intelligent-textb
 - `docs/img/cover.png` — book cover image + social-preview hook (via `cover-image-generator.md` + `social-media-preview.md`)
 - Book metrics report (via `bk-generate-book-metrics` script)
 - Diagram reports (via `bk-diagram-reports` script)
+- `README.md` — GitHub-facing README after metrics, so it can embed content counts (via `readme-generator` skill)
 - `docs/index.md` — main landing page last, so it can link to all of the above (via `home-page-template.md`)
 - Updated `mkdocs.yml` nav entries for all generated files
 
-**Execution order:** about → README → glossary → FAQ → quizzes → references → cover image → metrics → diagram reports → landing page → nav update → verification
+**Execution order:** about → glossary → FAQ → quizzes → references → cover image → metrics → diagram reports → README → landing page → nav update → verification
 
 **Model guidance:** All text-generation steps use Sonnet. Any MicroSim created during this workflow must use `claude-opus-4-7` with `high` thinking — Opus is significantly better at the coding and spatial reasoning MicroSims require.
 

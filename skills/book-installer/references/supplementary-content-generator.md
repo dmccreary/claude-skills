@@ -72,27 +72,7 @@ Add to `mkdocs.yml` nav if not already present:
 
 ---
 
-## Step 3: Generate README.md
-
-**Target:** `README.md` (project root)
-
-Invoke the `readme-generator` skill to create a GitHub-facing README. This is separate from the MkDocs site and is what visitors see on the GitHub repository page.
-
-```
-Invoke the readme-generator skill for this project.
-```
-
-The README should include:
-- Book title and one-paragraph description
-- Live site link (from `site_url` in mkdocs.yml)
-- Topics / tags (from learning graph taxonomy)
-- Quick-start instructions (how to run locally, how to contribute)
-- License badge and link
-- Screenshot or cover image
-
----
-
-## Step 4: Generate the Glossary
+## Step 3: Generate the Glossary
 
 **Target:** `docs/glossary.md`
 
@@ -115,7 +95,7 @@ Add to `mkdocs.yml` nav if not already present:
 
 ---
 
-## Step 5: Generate the FAQ
+## Step 4: Generate the FAQ
 
 **Target:** `docs/faq.md`
 
@@ -138,7 +118,7 @@ Add to `mkdocs.yml` nav if not already present:
 
 ---
 
-## Step 6: Generate Per-Chapter Quizzes
+## Step 5: Generate Per-Chapter Quizzes
 
 **Target:** `docs/chapters/<chapter-slug>/quiz.md` for each chapter
 
@@ -165,7 +145,7 @@ If the chapter already has a `quiz.md`, skip it (or append if user said "append"
 
 ---
 
-## Step 7: Generate Per-Chapter References
+## Step 6: Generate Per-Chapter References
 
 **Target:** `docs/chapters/<chapter-slug>/references.md` for each chapter
 
@@ -191,7 +171,7 @@ After creating each `references.md`, add a **References** sub-entry to the chapt
 
 ---
 
-## Step 8: Generate the Cover Image
+## Step 7: Generate the Cover Image
 
 **Target:** `docs/img/cover.png`
 
@@ -215,7 +195,7 @@ After the image is generated:
 
 ---
 
-## Step 9: Run Book Metrics
+## Step 8: Run Book Metrics
 
 **Script:** `bk-generate-book-metrics`
 
@@ -236,7 +216,7 @@ bk-generate-book-metrics is not found. Install it from the claude-skills scripts
 
 ---
 
-## Step 10: Run Diagram Reports
+## Step 9: Run Diagram Reports
 
 **Script:** `bk-diagram-reports`
 
@@ -250,7 +230,30 @@ This script audits all MicroSims and diagrams in the project and generates a rep
 - Diagram Reports: diagram-reports.md
 ```
 
-If the script is not found in PATH, remind the user to install it similarly to Step 9.
+If the script is not found in PATH, remind the user to install it similarly to Step 8.
+
+---
+
+## Step 10: Generate README.md
+
+**Target:** `README.md` (project root)
+
+The README is generated after the metrics scripts so it can incorporate accurate counts: number of chapters, MicroSims, glossary terms, FAQ entries, and any summary statistics produced by `bk-generate-book-metrics` and `bk-diagram-reports`.
+
+Invoke the `readme-generator` skill to create a GitHub-facing README. This is separate from the MkDocs site and is what visitors see on the GitHub repository page.
+
+```
+Invoke the readme-generator skill for this project.
+```
+
+The README should include:
+- Book title and one-paragraph description
+- Live site link (from `site_url` in mkdocs.yml)
+- Topics / tags (from learning graph taxonomy)
+- Content summary stats: chapters, MicroSims, glossary terms, FAQ entries (from metrics output)
+- Quick-start instructions (how to run locally, how to contribute)
+- License badge and link
+- Cover image (`docs/img/cover.png`)
 
 ---
 
@@ -258,7 +261,7 @@ If the script is not found in PATH, remind the user to install it similarly to S
 
 **Target:** `docs/index.md`
 
-The landing page is generated last so it can include links and highlights drawn from all the supplementary content produced in earlier steps: glossary term count, FAQ question count, number of MicroSims, cover image, about-page link, and so on.
+The landing page is generated last so it can include links and highlights drawn from all the supplementary content produced in earlier steps: glossary term count, FAQ question count, number of MicroSims, cover image, metrics summary, about-page link, and README-aligned stats.
 
 If the home page is a stub (< 30 lines) or the user chose overwrite, generate it using the `home-page-template` reference:
 
@@ -328,14 +331,14 @@ Report the results to the user. For any MISSING item, offer to generate it now.
 | Step | Artifact | Skill / Script | Model |
 |------|----------|----------------|-------|
 | 2 | `docs/about.md` | `references/about-page.md` | Sonnet |
-| 3 | `README.md` | `readme-generator` skill | Sonnet |
-| 4 | `docs/glossary.md` | `glossary-generator` skill | Sonnet |
-| 5 | `docs/faq.md` | `faq-generator` skill | Sonnet |
-| 6 | Per-chapter `quiz.md` | `quiz-generator` skill | Sonnet |
-| 7 | Per-chapter `references.md` | `reference-generator` skill | Sonnet |
-| 8 | `docs/img/cover.png` | `references/cover-image-generator.md` | Sonnet (+ AI image tool) |
-| 9 | `docs/book-metrics.md` | `bk-generate-book-metrics` script | — |
-| 10 | `docs/diagram-reports.md` | `bk-diagram-reports` script | — |
+| 3 | `docs/glossary.md` | `glossary-generator` skill | Sonnet |
+| 4 | `docs/faq.md` | `faq-generator` skill | Sonnet |
+| 5 | Per-chapter `quiz.md` | `quiz-generator` skill | Sonnet |
+| 6 | Per-chapter `references.md` | `reference-generator` skill | Sonnet |
+| 7 | `docs/img/cover.png` | `references/cover-image-generator.md` | Sonnet (+ AI image tool) |
+| 8 | `docs/book-metrics.md` | `bk-generate-book-metrics` script | — |
+| 9 | `docs/diagram-reports.md` | `bk-diagram-reports` script | — |
+| 10 | `README.md` | `readme-generator` skill | Sonnet |
 | 11 | `docs/index.md` | `references/home-page-template.md` | Sonnet |
 | 12 | `mkdocs.yml` nav | Manual edit | — |
 | 13 | Verification | Bash check | — |
@@ -347,7 +350,8 @@ Report the results to the user. For any MISSING item, offer to generate it now.
 ## Tips
 
 - **Run in phases**: If the book has many chapters, generate quizzes and references for one or two chapters first to confirm quality, then batch the rest.
-- **Glossary before FAQ**: The FAQ generator produces better output when it can reference glossary definitions, so always run Step 4 before Step 5.
-- **Cover before landing page**: Steps 8 then 11 are ordered intentionally — the landing page references the cover image and the stat counts from earlier steps.
+- **Glossary before FAQ**: The FAQ generator produces better output when it can reference glossary definitions, so always run Step 3 before Step 4.
+- **Metrics before README and landing page**: Steps 8–9 run before Steps 10–11 intentionally — both the README and landing page embed content counts from the metrics output.
+- **Cover before landing page**: Step 7 runs before Step 11 so the landing page can reference `docs/img/cover.png` directly.
 - **Check bk scripts in PATH**: Both `bk-generate-book-metrics` and `bk-diagram-reports` must be installed in a directory on `$PATH`. If missing, skip and note it in the verification report.
 - **Nav ordering**: Place Glossary and FAQ near the end of the nav, after all chapters. About page goes last.
