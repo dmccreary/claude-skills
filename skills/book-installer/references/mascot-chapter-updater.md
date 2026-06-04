@@ -139,7 +139,7 @@ standard form:
 
 ```markdown
 !!! mascot-welcome "Welcome to Chapter N"
-    <img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Sparky waving welcome">
+    ![Sparky waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
     One to three sentences of in-character introduction. Include the
     mascot's voice and catchphrase where it fits naturally.
 ```
@@ -172,7 +172,7 @@ The script reports:
 - Count by type (flags if more than one `mascot-welcome` or `mascot-celebration`).
 - Back-to-back placements (flags with line numbers).
 - Admonitions with suspicious body text (too short, too long, or missing
-  the `<img>` tag).
+  the mascot image).
 
 Address every flag before considering the chapter complete.
 

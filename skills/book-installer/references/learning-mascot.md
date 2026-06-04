@@ -568,7 +568,7 @@ Create or append to `docs/css/mascot.css`:
 **IMPORTANT design rules:**
 
 - **Never** put mascot icons in the admonition title bar (no `::before` pseudo-elements with mascot images)
-- **Always** place mascot images in the admonition body using `<img class="mascot-admonition-img">`
+- **Always** place mascot images in the admonition body using Markdown image syntax: `![alt](path){ class="mascot-admonition-img" }` — never HTML `<img>` tags
 - The title bar is clean text only — the default MkDocs icon is hidden via `display: none`
 - **Contrast-check each pose image against its admonition background before finalizing colors.** Open the PNG and look for fine pale details — confetti sparkles, glow, LED highlights, thin white outlines. If the pose has pale elements (the celebration pose almost always does), the admonition background must be dark enough that those details remain visible; flip the body text color to a light shade to compensate. If the pose is mostly dark or saturated, a light pastel background is fine. The celebration CSS block above is the canonical example of the dark-background treatment.
 
@@ -594,48 +594,48 @@ markdown_extensions:
 
 ### Step 6: Usage in Chapter Markdown
 
-Authors use standard admonition syntax with the custom types. The mascot image is placed as an `<img>` tag floated left inside the admonition body (requires `md_in_html` extension):
+Authors use standard admonition syntax with the custom types. The mascot image is placed using Markdown image syntax with the `attr_list` extension (already in the required extensions list):
 
-**IMPORTANT: Image paths** — The `<img>` `src` path is relative to the rendered page URL, not the markdown file. Because MkDocs uses directory URLs (e.g., `chapters/01-intro/` renders as `chapters/01-intro/index.html`), you must count directories from the page to `docs/img/mascot/`. For a chapter page at `chapters/01-intro/index.md`, use `../../img/mascot/`. For a page at `learning-graph/mascot-test.md`, use `../../img/mascot/`.
+**IMPORTANT: Image paths** — The image path is relative to the rendered page URL, not the markdown file. Because MkDocs uses directory URLs (e.g., `chapters/01-intro/` renders as `chapters/01-intro/index.html`), you must count directories from the page to `docs/img/mascot/`. For a chapter page at `chapters/01-intro/index.md`, use `../../img/mascot/`. For a page at `learning-graph/mascot-test.md`, use `../../img/mascot/`.
 
 ```markdown
 !!! mascot-neutral "A Note from {{CHARACTER_NAME}}"
-    <img src="../../img/mascot/neutral.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} neutral pose">
+    ![{{CHARACTER_NAME}} neutral pose](../../img/mascot/neutral.png){ class="mascot-admonition-img" }
     Use this for general sidebars, introductions, or any content
     that doesn't call for a specific emotional tone.
 
 !!! mascot-welcome "Welcome!"
-    <img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} waving welcome">
+    ![{{CHARACTER_NAME}} waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
     In this chapter, we'll discover how to solve equations
     of the form ax² + bx + c = 0. Get ready for some
     powerful mathematical tools!
 
 !!! mascot-thinking "Key Insight"
-    <img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} thinking">
+    ![{{CHARACTER_NAME}} thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
     Notice that every quadratic equation has at most two
     solutions. This connects directly to the degree of the
     polynomial!
 
 !!! mascot-tip "{{CHARACTER_NAME}}'s Tip"
-    <img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} giving a tip">
+    ![{{CHARACTER_NAME}} giving a tip](../../img/mascot/tip.png){ class="mascot-admonition-img" }
     Always check your answers by substituting back into
     the original equation. It only takes a moment and
     catches most errors!
 
 !!! mascot-warning "Common Mistake"
-    <img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} warning">
+    ![{{CHARACTER_NAME}} warning](../../img/mascot/warning.png){ class="mascot-admonition-img" }
     Don't forget to account for the negative sign when
     using the quadratic formula. The ± means you need
     to solve BOTH cases!
 
 !!! mascot-encourage "You Can Do This!"
-    <img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} encouraging">
+    ![{{CHARACTER_NAME}} encouraging](../../img/mascot/encouraging.png){ class="mascot-admonition-img" }
     Factoring can feel tricky at first. That's completely
     normal! With practice, you'll start seeing patterns
     everywhere.
 
 !!! mascot-celebration "Great Progress!"
-    <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} celebrating">
+    ![{{CHARACTER_NAME}} celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You've now mastered the quadratic formula! This is
     one of the most important tools in all of algebra.
 ```
@@ -686,8 +686,8 @@ others in the same turn so they stay in sync.
 Always place mascot images in the admonition body, never in the title bar:
 
     !!! mascot-welcome "Title Here"
-        <img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} waving welcome">
-        Admonition text goes here after the img tag.
+        ![{{CHARACTER_NAME}} waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+        Admonition text goes here after the image.
 
 ### Placement Rules
 
@@ -767,31 +767,31 @@ Here is what is a example of what is in this test file:
 This page shows all mascot admonition styles for reference.
 
 !!! mascot-neutral "General Note"
-    <img src="../../img/mascot/neutral.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} neutral pose">
+    ![{{CHARACTER_NAME}} neutral pose](../../img/mascot/neutral.png){ class="mascot-admonition-img" }
     This is the neutral style, used for general sidebars or introductions.
 
 !!! mascot-welcome "Welcome!"
-    <img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} waving welcome">
+    ![{{CHARACTER_NAME}} waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
     This is the welcome style, used at chapter openings.
 
 !!! mascot-thinking "Key Insight"
-    <img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} thinking">
+    ![{{CHARACTER_NAME}} thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
     This is the thinking style, used for key concepts.
 
 !!! mascot-tip "Helpful Tip"
-    <img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} giving a tip">
+    ![{{CHARACTER_NAME}} giving a tip](../../img/mascot/tip.png){ class="mascot-admonition-img" }
     This is the tip style, used for hints and advice.
 
 !!! mascot-warning "Watch Out!"
-    <img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} warning">
+    ![{{CHARACTER_NAME}} warning](../../img/mascot/warning.png){ class="mascot-admonition-img" }
     This is the warning style, used for common mistakes.
 
 !!! mascot-celebration "Well Done!"
-    <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} celebrating">
+    ![{{CHARACTER_NAME}} celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     This is the celebration style, used for achievements.
 
 !!! mascot-encourage "Keep Going!"
-    <img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="{{CHARACTER_NAME}} encouraging">
+    ![{{CHARACTER_NAME}} encouraging](../../img/mascot/encouraging.png){ class="mascot-admonition-img" }
     This is the encouraging style, used for difficult content.
 ```
 
@@ -848,8 +848,8 @@ The `CLAUDE.md` file at the project root MUST also contain a **Mascot File Index
 
 ```markdown
 !!! mascot-TYPE "Title Text"
-    <img src="PATH/TO/mascot/POSE.png" class="mascot-admonition-img" alt="Description">
-    Body text goes here after the img tag.
+    ![Description](PATH/TO/mascot/POSE.png){ class="mascot-admonition-img" }
+    Body text goes here after the image.
 ```
 
 ## Troubleshooting

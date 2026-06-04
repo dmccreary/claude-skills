@@ -135,7 +135,7 @@ If the project has a mascot, add a mascot-tip admonition in the "Tips for Using 
 
 ```markdown
 !!! mascot-tip "{{MASCOT_SHORT_NAME}}'s Tip: Embed MicroSims Anywhere!"
-    <img src="../img/mascot/tip.png" class="mascot-admonition-img" alt="{{MASCOT_SHORT_NAME}} shares a tip">
+    ![{{MASCOT_SHORT_NAME}} shares a tip](../img/mascot/tip.png){ class="mascot-admonition-img" }
     You can add any MicroSim to **any web page** — a Google Site, a
     WordPress blog, an LMS like Canvas or Schoology, or even a plain
     HTML file. Just paste a single line of HTML:

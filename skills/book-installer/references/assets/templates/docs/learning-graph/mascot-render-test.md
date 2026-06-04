@@ -22,31 +22,31 @@ Note that the images have a dashed blue border around them so you can clearly se
 
 
 !!! mascot-neutral "A Note from {MASCOT_NAME}"
-    <img src="../../img/mascot/neutral.png" class="mascot-admonition-img" alt="{MASCOT_NAME} notes">
+    ![{MASCOT_NAME} notes](../../img/mascot/neutral.png){ class="mascot-admonition-img" }
     Here is a friendly note from {MASCOT_NAME}.
 
 !!! mascot-welcome "{MASCOT_NAME} Welcomes You!"
-    <img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="{MASCOT_NAME} welcomes you">
+    ![{MASCOT_NAME} welcomes you](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
     Welcome, friend!
 
 !!! mascot-thinking "{MASCOT_NAME} Key Insight"
-    <img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="{MASCOT_NAME} is thinking">
+    ![{MASCOT_NAME} is thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
     Let's think this through together!
 
 !!! mascot-tip "{MASCOT_NAME}'s Tip"
-    <img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="{MASCOT_NAME} shares a tip">
+    ![{MASCOT_NAME} shares a tip](../../img/mascot/tip.png){ class="mascot-admonition-img" }
     Here is a helpful suggestion.
 
 !!! mascot-warning "{MASCOT_NAME} Gentle Warning of Common Mistake"
-    <img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="{MASCOT_NAME} warns you">
+    ![{MASCOT_NAME} warns you](../../img/mascot/warning.png){ class="mascot-admonition-img" }
     Watch out for this one!  It can be tricky!
 
 !!! mascot-encourage "You've Got This!"
-    <img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="{MASCOT_NAME} encourages you">
+    ![{MASCOT_NAME} encourages you](../../img/mascot/encouraging.png){ class="mascot-admonition-img" }
     You can do it!  I have faith in you!
 
 !!! mascot-celebration "Excellent Work!"
-    <img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="{MASCOT_NAME} celebrates">
+    ![{MASCOT_NAME} celebrates](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Congratulations!  You made it!
 
 
