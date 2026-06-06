@@ -69,13 +69,33 @@ def scan_sims(project_dir, verbose=False):
     return entries
 
 
+def _yaml_nav_key(title):
+    """Quote a nav title for YAML if it contains characters that would break it.
+
+    The nav entry ``- Title: path`` is a single-key mapping; a title containing
+    a colon (e.g. ``Clinical Protocol Workflow: Chest Pain``), a ``#``, leading
+    whitespace, or a YAML indicator character must be quoted or the file fails
+    to parse.
+    """
+    needs_quote = (
+        ":" in title
+        or "#" in title
+        or title != title.strip()
+        or (title[:1] in "-?&*!|>%@`\"'[]{},")
+    )
+    if not needs_quote:
+        return title
+    escaped = title.replace("\\", "\\\\").replace('"', '\\"')
+    return f'"{escaped}"'
+
+
 def rebuild_nav_section(entries, indent="    "):
     """Build the MicroSims nav YAML lines."""
     lines = []
     lines.append("  - MicroSims:")
     lines.append(f"{indent}- List of MicroSims: sims/index.md")
     for title, path in entries:
-        lines.append(f"{indent}- {title}: {path}")
+        lines.append(f"{indent}- {_yaml_nav_key(title)}: {path}")
     return lines
 
 
