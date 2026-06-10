@@ -1,6 +1,6 @@
 ---
 name: chapter-content-generator
-description: This skill generates comprehensive chapter content for intelligent textbooks after the book-chapter-generator skill has created the chapter structure. Use this skill when a chapter index.md file exists with title, summary, and concept list, and detailed educational content needs to be generated at the appropriate reading level with rich non-text elements including diagrams, infographics, and MicroSims. (project, gitignored)
+description: This skill generates comprehensive chapter content for intelligent textbooks after the book-chapter-generator skill has created the chapter structure. Use this skill when a chapter index.md file exists with title, summary, and concept list, and detailed educational content needs to be generated at the appropriate reading level with rich non-text elements including diagrams, infographics, and MicroSims. (project, gitignored).  If the CONTENT-GENERATION-GUIDE.md file exists, use it as a reference for content generation.
 ---
 
 # Chapter Content Generator
@@ -11,8 +11,8 @@ description: This skill generates comprehensive chapter content for intelligent 
 
 This skill generates detailed educational content for individual textbook chapters, transforming chapter outlines (title, summary, concept list) into comprehensive learning material with appropriate reading level, rich visual elements, and interactive components. The skill is designed to run after the `book-chapter-generator` skill has created the chapter structure.
 
-**Version 0.08 Features:**
-- **Mascot self-introduction in Chapter 1** - When the project CLAUDE.md defines a pedagogical mascot, the FIRST mascot admonition in Chapter 1 must be a self-introduction that names the mascot and enumerates each of the six pose-roles the mascot will play across the book. This sets reader expectations for every later chapter (see Step 2.4, principle 4)
+**Version 0.09 Features:**
+- **Mascot self-introduction in Chapter 1** - When the project CONTENT-GENERATION-GUIDE.md defines a pedagogical mascot, the FIRST mascot admonition in Chapter 1 must be a self-introduction that names the mascot and enumerates each of the six pose-roles the mascot will play across the book. This sets reader expectations for every later chapter (see Step 2.4, principle 4)
 
 **Version 0.07 Features:**
 - **Instructional scaffolding** - Define-before-display rules ensure terms are explained before diagrams use them, code parameters are explained before code examples, and tables reinforce rather than introduce concepts (see Step 2.4, principle 3)
@@ -79,8 +79,8 @@ Read and cache these files for all agents:
 
 1. **Course Description** (`docs/course-description.md`)
    - Extract target audience and reading level
-   - Note course objectives and tone guidelines in the project CLAUDE.md
-   - Identify any mascot or narrative elements (e.g., Delta in calculus) in the project CLAUDE.md
+   - Note course objectives and tone guidelines in the project CONTENT-GENERATION-GUIDE.md
+   - Identify any mascot or narrative elements (e.g., Delta in calculus) in the project CONTENT-GENERATION-GUIDE.md
 
 2. **Learning Graph** (`docs/learning-graph/learning-graph.json` and/or `learning-graph.csv`)
    - Load concept list with dependencies
@@ -126,9 +126,9 @@ Read and cache these files for all agents:
    - In most cases the glossary is created after the content is generated
    - Note which concepts have glossary entries
 
-4. **Project CLAUDE.md** (if exists)
+4. **Project CONTENT-GENERATION-GUIDE.md** (if exists)
    - Load project-specific guidelines
-   - Note any mascot specifications, tone requirements, or special formatting
+   - Note any reading level, mascot specifications, tone requirements, or special formatting
 
 5. **Chapter List** (scan `docs/chapters/` directory)
    - Enumerate all chapter directories
@@ -272,7 +272,7 @@ COURSE CONTEXT:
 - Course: [course name]
 - Target audience: [audience]
 - Reading level: [level] - [characteristics]
-- Tone: [tone guidelines from course description or CLAUDE.md]
+- Tone: [tone guidelines from course description or CONTENT-GENERATION-GUIDE.md]
 
 CONTENT GUIDELINES:
 - No more than 4 paragraphs of pure text without a non-text element
@@ -286,10 +286,10 @@ SCAFFOLDING (CRITICAL):
 - Tables must summarize concepts already explained — never introduce new concepts via tables
 - Add bridging sentences before complex elements ("Before we examine this diagram, let's define...")
 
-MASCOT (if a mascot is defined in CLAUDE.md):
+MASCOT (if a mascot is defined in CONTENT-GENERATION-GUIDE.md):
 - If you are processing CHAPTER 1, the FIRST mascot admonition must be a self-introduction: state the mascot's name, list every pose-role the mascot plays across the book, and end with a contract sentence that the mascot is a signal not decoration. See Step 2.4 principle 4 for the exact pattern.
 - For chapters 2 and beyond, open with a normal mascot-welcome admonition that gets straight into chapter-specific content. Do NOT repeat the self-introduction.
-- Respect the mascot frequency rules in the project CLAUDE.md (typically 5–6 admonitions per chapter, never back-to-back, exactly one welcome at start and one celebration at end).
+- Respect the mascot frequency rules in the project CONTENT-GENERATION-GUIDE.md (typically 5–6 admonitions per chapter, never back-to-back, exactly one welcome at start and one celebration at end).
 
 NON-TEXT ELEMENTS:
 - Markdown lists and tables: embed directly (blank line before)
@@ -311,7 +311,7 @@ title: [Chapter Title]
 description: [Short description]
 generated_by: claude skill chapter-content-generator
 date: [YYYY-MM-DD HH:MM:SS]
-version: 0.08
+version: 0.09
 ---
 
 REPORT when done:
@@ -419,15 +419,15 @@ Generate comprehensive educational content based on the chapter outline, concept
 
 4. **Mascot self-introduction in Chapter 1 (MANDATORY when a mascot is defined):**
 
-   If the project CLAUDE.md defines a pedagogical mascot, the **first mascot admonition in Chapter 1** is not a normal welcome — it is a **self-introduction** that orients the reader to the mascot's role for the rest of the book. This sets reader expectations once, so every later chapter can use the mascot without re-explaining what it is.
+   If the project CONTENT-GENERATION-GUIDE.md defines a pedagogical mascot, the **first mascot admonition in Chapter 1** is not a normal welcome — it is a **self-introduction** that orients the reader to the mascot's role for the rest of the book. This sets reader expectations once, so every later chapter can use the mascot without re-explaining what it is.
 
    The self-introduction admonition must:
 
    - Use the `mascot-welcome` admonition type (it doubles as the chapter-opening welcome).
-   - Have the mascot **state its name, species/type, and one personality detail** in a warm first-person voice. Match the tone the project CLAUDE.md prescribes (playful, formal, dry, etc.).
+   - Have the mascot **state its name, species/type, and one personality detail** in a warm first-person voice. Match the tone the project CONTENT-GENERATION-GUIDE.md prescribes (playful, formal, dry, etc.).
    - **Enumerate every pose-role** the mascot will use across the book as a numbered list, in the order they typically appear during a chapter (welcome → think → tip → warn → encourage → celebrate is the standard six-pose set). Each list item is one short sentence describing *what the mascot does in that pose*, not what the pose looks like.
    - **End with a contract sentence** — something like "If I'm not doing one of those six things, I'm not in the chapter." — so the reader understands the mascot is used with restraint and is a *signal*, not decoration.
-   - Read the project CLAUDE.md mascot-rules section (if present) to extract the exact pose names, filenames, and roles. Do not invent poses the project does not define.
+   - Read the project CONTENT-GENERATION-GUIDE.md mascot-rules section (if present) to extract the exact pose names, filenames, and roles. Do not invent poses the project does not define.
 
    Do this **only in Chapter 1, only on the mascot's very first appearance**, and never again. Chapters 2+ open with a normal `mascot-welcome` admonition that gets straight into chapter-specific content.
 
@@ -732,7 +732,7 @@ Load this reference when determining how to write content at the appropriate rea
 
 14. **Emoji discipline:** Use emoji only when they signal a metaphor the chapter teaches. Decorative emoji compete with the textbook's mascot and the bold-and-define vocabulary pattern — leave them out. Per Mayer's coherence principle, decorative visuals measurably reduce retention even when students find them friendly. Engagement is not the same as learning.
 
-15. **Mascot self-introduction in Chapter 1:** When the project CLAUDE.md defines a mascot, the very first mascot admonition in Chapter 1 must introduce the mascot by name and enumerate every pose-role the mascot will play across the book. This is a one-time orientation that sets reader expectations, so chapters 2+ never need to re-explain the mascot. Skip this if no mascot is defined. See Step 2.4 principle 4 for the canonical pattern.
+15. **Mascot self-introduction in Chapter 1:** When the project CONTENT-GENERATION-GUIDE.md defines a mascot, the very first mascot admonition in Chapter 1 must introduce the mascot by name and enumerate every pose-role the mascot will play across the book. This is a one-time orientation that sets reader expectations, so chapters 2+ never need to re-explain the mascot. Skip this if no mascot is defined. See Step 2.4 principle 4 for the canonical pattern.
 
 ## Common Pitfalls to Avoid
 
@@ -757,7 +757,7 @@ Load this reference when determining how to write content at the appropriate rea
 **Mascot Usage:**
 - ❌ Chapter 1's first mascot admonition skips the self-introduction and goes straight into chapter content
 - ❌ Chapters 2+ repeat the mascot self-introduction (it should appear exactly once, in Chapter 1)
-- ❌ Inventing pose-roles the project CLAUDE.md does not define
+- ❌ Inventing pose-roles the project CONTENT-GENERATION-GUIDE.md does not define
 - ❌ Treating the mascot as decoration rather than a signal (5–6 admonitions per chapter is the documented ceiling)
 - ✅ Chapter 1's first mascot admonition is a self-introduction listing every pose-role the mascot plays
 - ✅ Chapters 2+ open with a normal mascot-welcome that gets straight into content
@@ -802,7 +802,7 @@ Load this reference when determining how to write content at the appropriate rea
 
 1. Captures start time
 2. Notifies: "Chapter Content Generator Skill v0.06 running in parallel mode."
-3. Reads shared context (course description, learning graph, glossary, CLAUDE.md)
+3. Reads shared context (course description, learning graph, glossary, CONTENT-GENERATION-GUIDE.md)
 4. Determines reading level (e.g., Senior High)
 5. Scans chapter directories, finds 23 chapters needing content
 6. Plans batches: 6 agents, ~4 chapters each

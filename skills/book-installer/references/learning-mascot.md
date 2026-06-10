@@ -1,6 +1,6 @@
 ---
 name: learning-mascot
-description: Guides users through designing a pedagogical agent (learning mascot) for their intelligent textbook, generating AI image prompts, and implementing the mascot using custom CSS admonitions with body-floated images.
+description: Guides users through designing a pedagogical agent (learning mascot) for their intelligent textbook, generating AI image prompts, and implementing the mascot using custom CSS admonitions with body-floated images.  Also describes how the CONTENT-GENERATION-GUIDE.md is created.
 ---
 
 # Learning Mascot (Pedagogical Agent)
@@ -225,6 +225,13 @@ The character sheet lives alongside the pose images in `docs/img/mascot/` so any
 Create a set of prompts for generating consistent mascot images. **Each prompt must be fully self-contained** — include the complete base character description in every prompt so they can be used independently without copying a separate base block.
 
 #### Base Character Prompt
+
+Always put this text at the start of the docs/img/mascot/image-prompt.md file
+
+```
+I am about to ask you to generate seven different poses for a book mascot.
+Please use a consistent drawing style for all seven images.
+```
 
 This is the core description to include in every pose prompt:
 
@@ -640,9 +647,9 @@ Authors use standard admonition syntax with the custom types. The mascot image i
     one of the most important tools in all of algebra.
 ```
 
-### Step 7: Add Character Guidelines to CLAUDE.md
+### Step 7: Add Character Guidelines to CONTENT-GENERATION-GUIDE.md
 
-To ensure consistent mascot usage across AI-generated content, add a section to the project's `CLAUDE.md`. The section MUST include a **Mascot File Index** that links to every textbook file this skill produces, so future agents working in the repo can find the canonical artifacts in one lookup instead of re-discovering them via globbing.
+To ensure consistent mascot usage across AI-generated content, add a section to the project's `CONTENT-GENERATION-GUIDE.md`. The section MUST include a **Mascot File Index** that links to every textbook file this skill produces, so future agents working in the repo can find the canonical artifacts in one lookup instead of re-discovering them via globbing.
 
 ```markdown
 ## Learning Mascot: {{CHARACTER_NAME}} the {{SPECIES}}
@@ -828,7 +835,7 @@ docs/
     └── mascot-test.md           # Mascot rendering test page
 ```
 
-The `CLAUDE.md` file at the project root MUST also contain a **Mascot File Index** linking to each of the files above (see Step 7). The index lets future agents find every mascot artifact in one lookup.
+The `CONTENT-GENERATION-GUIDE.md` file at the project root MUST also contain a **Mascot File Index** linking to each of the files above (see Step 7). The index lets future agents find every mascot artifact in one lookup.
 
 ### Admonition Types
 
@@ -851,6 +858,17 @@ The `CLAUDE.md` file at the project root MUST also contain a **Mascot File Index
     ![Description](PATH/TO/mascot/POSE.png){ class="mascot-admonition-img" }
     Body text goes here after the image.
 ```
+
+## Step 10: Update the CLAUDE.md File
+
+After the `CONTENT-GENERATION-GUIDE.md` has been created, add the following to the CLAUDE.md file:
+
+```
+Before generating content for the chapters, lesson plans, quizzes, FAQ or other student facing text,
+read the `CONTENT-GENERATION-GUIDE.md` file.  Note that the teacher guide or instructor guide or
+other instructor facing content does not need to use the mascots described in the CONTENT-GENERATION-GUIDE.md
+```
+
 
 ## Troubleshooting
 
