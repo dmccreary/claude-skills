@@ -31,7 +31,7 @@
 
 | Field | Type | Required | Default | Description |
 |-------|------|----------|---------|-------------|
-| `title` | string | Yes | — | Display title shown above the diagram |
+| `title` | string | Yes | — | Display title; `diagram.js` renders it as an `<h1>` above the diagram and uses it as the image `alt` text. Do **not** also bake it into the image or add it as an `index.md` body `# Title` H1 (see SKILL.md → Title Rendering) |
 | `orientation` | string | Yes | — | `"landscape"` or `"portrait"` |
 | `image` | string | Yes | — | Filename of the diagram image (must be in same directory) |
 | `layout` | string | No | `"side-panel"` | `"side-panel"`, `"top-bottom"`, or `"dual-panel"` |

@@ -81,7 +81,7 @@ Create `docs/sims/{sim-id}/image-prompt.md` with a detailed prompt for the text-
 
 **Critical rules for all image prompts:**
 
-1. **NO TEXT IN THE IMAGE** — The image must contain absolutely no text, labels, arrows, callout lines, numbers, or annotation marks of any kind. All labeling is handled by diagram.js.
+1. **NO TEXT IN THE IMAGE** — The image must contain absolutely no text, labels, arrows, callout lines, numbers, or annotation marks of any kind — **including the diagram's title or any heading** (the engine renders the title as an `<h1>`; see [Title Rendering](#title-rendering)). All labeling is handled by diagram.js.
 2. Specify exact dimensions, background color, and art style
 3. Describe each structure with precise position, color, shape, and size
 4. Use percentage-based positioning (e.g., "centered at 40% from left, 30% from top")
@@ -106,7 +106,7 @@ Create `docs/sims/{sim-id}/main.html` using the template in `assets/main-templat
 
 Create `docs/sims/{sim-id}/index.md` with documentation and an embedded iframe. Include:
 
-- Title with `hide: toc` frontmatter
+- A frontmatter `title:` (drives the page `<title>`, nav label, and social cards) plus `hide: toc`. **Do not add a `# Title` H1 in the page body** — `diagram.js` already renders the title as an `<h1>` inside the iframe, so a body H1 would show the title twice. See [Title Rendering](#title-rendering).
 - Embedded iframe (`height="640px" width="100%"`)
 - Fullscreen link
 - Usage instructions for explore, quiz, and edit modes
@@ -219,9 +219,31 @@ vertical space and places mode buttons where users expect them after
 viewing the diagram. The `main-template.html` asset already follows this
 order.
 
+## Title Rendering
+
+`diagram.js` renders the diagram title for you: `injectTitle()` inserts an
+`<h1 class="sim-title">` above the diagram inside `main.html`, using the
+`title` field from `data.json`. Because the engine owns the title, it must
+appear in exactly one place. Guard against the two ways it gets duplicated:
+
+1. **No title text baked into the generated image.** This is part of the "no
+   text in the image" rule, but the title/heading is the single most common
+   thing an image generator adds anyway. A baked-in title would sit on the
+   illustration *and* be repeated by the engine's `<h1>`. Regenerate if the
+   image comes back with a title.
+2. **No `# Title` H1 in the `index.md` body.** The standalone page embeds
+   `main.html`, which already shows the engine's `<h1>`, so a markdown H1 above
+   the iframe would display the title twice. Put the title only in the
+   `index.md` frontmatter `title:` — that drives the page `<title>`, nav label,
+   and social cards, not a visible body heading.
+
+`data.json.title` stays as the single source of the title: it feeds the engine's
+`<h1>` and the image `alt` text, so keep it — it is never the visible duplicate.
+
 ## Common Pitfalls
 
-- **Text in generated images** — Always verify the image has NO text, labels, or arrows. Regenerate if the LLM adds annotations.
+- **Text in generated images** — Always verify the image has NO text, labels, arrows, or **title/heading**. Regenerate if the LLM adds annotations.
+- **Duplicate title** — The title must appear exactly once. `diagram.js` injects an `<h1>` from `data.json.title`, so the image must have no baked-in title and `index.md` must have no `# Title` body H1 (use the frontmatter `title:` only). See [Title Rendering](#title-rendering).
 - **Marker overlap** — Keep callout positions at least 5-8% apart. Use edit mode to fine-tune.
 - **Missing shared-libs** — Verify `docs/sims/shared-libs/diagram.js` and `style.css` exist before testing.
 - **Forgetting exclude_docs** — The `image-prompt.md` file will cause mkdocs build warnings if not excluded.

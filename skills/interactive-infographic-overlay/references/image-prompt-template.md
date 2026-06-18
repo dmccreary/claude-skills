@@ -12,9 +12,10 @@ Please generate a new image.
 ## Critical Rule
 
 **This image must contain absolutely no text, labels, arrows, callout lines, or
-annotation marks of any kind.** All labeling will be added as an interactive HTML
-overlay from a separate data file. Any embedded text will conflict with the overlay
-system and must not appear.
+annotation marks of any kind — including the diagram's title or any heading.** All
+labeling (and the title) will be added as an interactive HTML overlay from a
+separate data file. Any embedded text — a title most of all — will conflict with
+the overlay system and must not appear.
 
 ---
 
