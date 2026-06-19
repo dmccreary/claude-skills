@@ -261,6 +261,7 @@ nav:
 
   - Workshops:
     - List of Workshops: workshops/index.md
+    - Fast Start with Claude Desktop: workshops/fast-start-with-claude-desktop.md
     - Two Hour Workshop: workshops/intelligent-textbook-workshop-outline.md
     - Workshop Cheat Sheet: workshops/intelligent-textbook-cheat-sheet.md
     - Tips and Tricks: workshops/tips-and-tricks.md

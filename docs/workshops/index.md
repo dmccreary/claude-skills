@@ -1,5 +1,7 @@
 # List of Workshops and Resources
 
+[Fast Start with Claude Desktop](./fast-start-with-claude-desktop.md) - A friendly overview of how we get you started: where and when we meet, the two things to have ready (a Claude Pro account and a draft course description), and the steps we walk through together.
+
 [Workshop Pre-work](./workshop-prework.md) - These steps should be done BEFORE you attend
 the workshop.  They typically take about 30-minutes on a Mac or Linux system and 2-3 hours on
 a Windows system.  You must have 10GB free space and had admin rights on your computer.
