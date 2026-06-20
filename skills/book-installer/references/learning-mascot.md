@@ -240,10 +240,10 @@ Please generate a new pose for [NAME] the [SPECIES].
 A [ART_STYLE] illustration of [NAME] the [SPECIES], a friendly pedagogical mascot
 for a [SUBJECT] textbook. [NAME] is [COLOR_DESCRIPTION], wearing [ACCESSORIES].
 [NAME] has [EXPRESSION]. The character is [SIZE_DESCRIPTION].
-Style: [ART_STYLE], clean lines, transparent background,
+Style: [ART_STYLE], clean lines, transparent background with alpha channel,
 suitable for embedding in educational content. No text in image.
 
-Please generate a new png image now with a fully transparent background now.
+Please generate a new RGBA PNG image now with a fully transparent alpha-channel background.
 
 ```
 
@@ -259,8 +259,8 @@ rest naturally at their sides with no specific gesture. The pose is balanced
 and unassuming — suitable as a general-purpose or default illustration.
 Filename: neutral.png
 
-Please generate a new png image now with a fully transparent background now.
-The background MUST be fully transparent.  DO NOT use a white, black or a checkered background.
+Please generate a new RGBA PNG image now with a fully transparent alpha-channel background.
+The background MUST be fully transparent with an alpha channel.  DO NOT use a white, black or a checkered background.
 
 
 **2. Welcome/Introduction Pose** (chapter openings)
@@ -272,8 +272,8 @@ facing the viewer with a warm, welcoming expression.
 The pose suggests "welcome" and "let's get started."
 Filename: welcome.png
 
-Please generate a new png image now with a fully transparent background now.
-The background MUST be fully transparent.  
+Please generate a new RGBA PNG image now with a fully transparent alpha-channel background.
+The background MUST be fully transparent with an alpha channel.
 DO NOT use a white, black or a checkered background.
 
 
@@ -286,8 +286,8 @@ with a small lightbulb or thought bubble above their head.
 The pose suggests deep thinking and discovery.
 Filename: thinking.png
 
-Please generate a new png image now with a fully transparent background now.
-The background MUST be fully transparent.  DO NOT use a white, black or a checkered background.
+Please generate a new RGBA PNG image now with a fully transparent alpha-channel background.
+The background MUST be fully transparent with an alpha channel.  DO NOT use a white, black or a checkered background.
 
 
 **4. Pointing/Tip Pose** (tips and hints)
@@ -299,8 +299,8 @@ as if sharing an important tip. Expression is helpful and knowing.
 A small star or sparkle near the pointing gesture.
 Filename: tip.png
 
-Please generate a new png image now with a fully transparent background now.
-The background MUST be fully transparent.  DO NOT use a white, black or a checkered background.
+Please generate a new RGBA PNG image now with a fully transparent alpha-channel background.
+The background MUST be fully transparent with an alpha channel.  DO NOT use a white, black or a checkered background.
 
 
 **5. Warning/Caution Pose** (warnings and pitfalls)
@@ -312,8 +312,8 @@ or "be careful" gesture. Expression is concerned but caring.
 A small exclamation mark or caution symbol nearby.
 Filename: warning.png
 
-Please generate a new png image now with a fully transparent background now.
-The background MUST be fully transparent.  DO NOT use a white, black or a checkered background.
+Please generate a new RGBA PNG image now with a fully transparent alpha-channel background.
+The background MUST be fully transparent with an alpha channel.  DO NOT use a white, black or a checkered background.
 
 
 **6. Encouraging Pose** (difficult sections)
@@ -325,8 +325,8 @@ with a reassuring, supportive smile. The pose radiates confidence
 and "you can do it" energy.
 Filename: encouraging.png
 
-Please generate a new png image now with a fully transparent background now.
-The background MUST be fully transparent.  DO NOT use a white, black or a checkered background.
+Please generate a new RGBA PNG image now with a fully transparent alpha-channel background.
+The background MUST be fully transparent with an alpha channel.  DO NOT use a white, black or a checkered background.
 
 
 **7. Celebration Pose** (achievements, chapter completion)
@@ -338,8 +338,8 @@ in celebration. Expression is joyful and proud.
 Small confetti or stars around the character.
 Filename: celebration.png
 
-Please generate a new png image now with a fully transparent background now.
-The background MUST be fully transparent.  DO NOT use a white, black or a checkered background.
+Please generate a new RGBA PNG image now with a fully transparent alpha-channel background.
+The background MUST be fully transparent with an alpha channel.  DO NOT use a white, black or a checkered background.
 
 
 #### Example: Complete Prompt Set for "Otto the Owl"
@@ -403,7 +403,7 @@ mkdir -p docs/img/mascot
 
 Required specifications:
 
-- Format: PNG with transparent background
+- Format: RGBA PNG with fully transparent alpha-channel background
 - Dimensions: 200x200 to 400x400 pixels for display
 - File size: Under 100KB per image for web performance
 
