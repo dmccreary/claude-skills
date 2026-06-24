@@ -1,13 +1,6 @@
 ---
 name: register-book-analytics
-description: >-
-  Register an intelligent textbook / MkDocs site with Google Analytics and wire the
-  Measurement ID into mkdocs.yml, then build, verify, commit and deploy. Use this skill
-  whenever the user wants to "register a book/site with Google Analytics", "add GA to
-  mkdocs", "set up analytics for a new book", "get a G- tracking ID into mkdocs.yml", or
-  asks to onboard a new MkDocs Material documentation site to Google Analytics 4. Trigger
-  even if the user only mentions adding a tracking ID, GA4, a measurement ID, or analytics
-  for a docs site built with MkDocs Material.
+description: Wires Google Analytics 4 into an MkDocs Material site — creates a GA4 property, writes the Measurement ID into mkdocs.yml, verifies the tag, and deploys. Use when adding analytics to a textbook for the first time.
 ---
 
 # Register a Book with Google Analytics (MkDocs Material)

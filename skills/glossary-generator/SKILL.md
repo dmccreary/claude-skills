@@ -1,6 +1,6 @@
 ---
 name: glossary-generator
-description: This skill automatically generates a comprehensive glossary of terms from a learning graph's concept list, ensuring each definition is precise, concise, distinct, non-circular, and free of business rules. Use this skill when creating a glossary for an intelligent textbook after the learning graph concept list has been finalized.
+description: Generates a glossary from the learning graph's concept list with ISO 11179-compliant definitions (precise, concise, non-circular). Use after the learning graph concept list is finalized.
 ---
 
 # Glossary Generator

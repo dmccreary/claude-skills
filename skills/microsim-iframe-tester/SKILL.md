@@ -1,6 +1,6 @@
 ---
 name: microsim-iframe-tester
-description: Test whether MicroSim controls (buttons, sliders, dropdowns) are fully visible inside their iframe without being clipped. Uses Playwright to load each MicroSim's main.html, measure actual content height, and compare against the iframe height declared in index.md. Use this skill whenever the user mentions iframe height testing, MicroSim visibility checking, controls being cut off, iframe sizing, or wants to verify that MicroSims render correctly at their configured heights. Also trigger when the user says things like "check if my sims fit", "are the controls visible", "test iframe heights", or "fix clipped controls".
+description: Tests whether MicroSim controls are fully visible inside their iframe by measuring actual content height against the declared height in index.md. Use when controls appear clipped or to audit iframe sizing across all MicroSims.
 ---
 
 # MicroSim Iframe Height Tester

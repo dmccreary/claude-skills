@@ -1,6 +1,6 @@
 ---
 name: reference-generator
-description: This skill generates curated, high-quality reference lists for textbooks with 10 references per chapter. References prioritize Wikipedia for reliability, include detailed relevance descriptions, and are stored in separate references.md files for token efficiency. Use this skill when working with intelligent textbooks that need academic references.
+description: Generates 10 curated academic references per chapter, prioritizing Wikipedia with relevance descriptions, stored in chapter references.md files. Use when an intelligent textbook chapter needs citations.
 ---
 
 # Reference Generator

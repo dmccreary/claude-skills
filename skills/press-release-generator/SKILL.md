@@ -1,6 +1,6 @@
 ---
 name: press-release-generator
-description: Generates a professional, AP-style press release announcing an intelligent textbook, course, or major content milestone — inverted-pyramid structure with a real news hook, dateline, headline, lead, attributed quotes, an "About" boilerplate, a media-contact block, and the ### end mark. Reuses the book-metrics extraction pattern (docs/learning-graph/book-metrics.json + mkdocs.yml + docs/course-description.md) but produces a formal release for newsrooms and advocacy press rather than a social-media post. Use this skill whenever the user asks for a press release, news release, media release, media advisory, press statement, or "announcement for the press/media," or says they want to pitch a textbook to journalists, local newspapers, education trade press, or an advocacy newsletter — even if they don't say the exact words "press release." Distinct from linkedin-announcement-generator (social post) and readme-generator (GitHub docs).
+description: Generates an AP-style press release for an intelligent textbook or course milestone — headline, lead, attributed quotes, boilerplate, and media-contact block. Use when pitching to journalists or education trade press; distinct from linkedin-announcement-generator (social post) and readme-generator (GitHub docs).
 license: MIT
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: microsim-layout-reviewer
-description: 'Review a MicroSim''s visual layout using Claude Vision — screenshot at the declared iframe height, walk a checklist (clipped labels, overlapping controls, panel overflow, low contrast, draw-order, library-specific bugs), patch source, re-verify. Library-agnostic — p5.js, Mermaid, Chart.js, vis-network, Leaflet. Use to QA a layout or fix something that "looks off" in a screenshot — also proactively after generating a new MicroSim. Triggers — "review the layout", "labels clipped", "why cut off". Complements microsim-iframe-tester.'
+description: Reviews a MicroSim's visual layout using Claude Vision — screenshots at the declared iframe height and checks for clipped labels, overlapping controls, and library-specific rendering bugs. Use after generating a new MicroSim or when something looks off.
 ---
 
 # MicroSim Layout Reviewer

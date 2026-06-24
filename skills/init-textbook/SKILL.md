@@ -1,6 +1,6 @@
 ---
 name: init-textbook
-description: Scaffolds a new intelligent textbook project from scratch — creates mkdocs.yml, the docs/ directory tree, contact.md, license.md (CC BY-NC-SA 4.0), license.png badge, and starter index/about/course-description pages. Use this skill at the very start of a new textbook project, before any chapters, learning graph, or MicroSims exist. Trigger on phrases like "init textbook", "initialize textbook", "new textbook project", "scaffold a textbook", "set up a new book", or when the user is in an empty directory and asks to start building an intelligent textbook. After scaffolding, route the user to the book-installer skill to layer on optional features (math, mascot, slide viewer, learning graph viewer, etc.).
+description: Scaffolds a new intelligent textbook project from scratch — mkdocs.yml, docs/ directory tree, starter pages, and license files. Use at the very start of a new project, before chapters, learning graph, or MicroSims exist.
 ---
 
 # init-textbook

@@ -1,12 +1,6 @@
 ---
 name: chapter-image-enhancer
-description: >
-  Add freely-licensed maps, photos, and diagrams to textbook chapters by finding images
-  from Wikimedia Commons and US government sources, downloading and optimizing them, and
-  inserting them with proper captions and attribution. Use this skill whenever a user wants
-  to add visuals, images, photos, or maps to a chapter, make a chapter more visual, or says
-  a chapter needs pictures. Also trigger when the user mentions "chapter images", "add photos",
-  "find images for", "visual enhancement", or "image credits".
+description: Adds freely-licensed maps and photos to textbook chapters by sourcing from Wikimedia Commons and US government archives, then inserting them with captions and proper attribution.
 ---
 
 # Chapter Image Enhancer

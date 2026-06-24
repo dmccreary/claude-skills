@@ -1,6 +1,6 @@
 ---
 name: verified-infographic-generator
-description: Generates fact-checked infographic posters by separating claim verification from image rendering. Claude plans the content, verifies every statistic against peer-reviewed sources via web search, gets user approval, and only then hands a locked prompt to a text-to-image model. Use this skill whenever the user asks for a poster, infographic, or data visualization that contains numeric claims, statistics, or cited studies — especially comparison ("versus") posters, which invite fabricated mirror-statistics. Trigger phrases include "make a poster about X", "create an infographic comparing X and Y", "generate a data visualization of...", "design a poster that shows...". Skip only for purely decorative images or when the user supplies pre-verified data and just needs layout help.
+description: Generates fact-checked infographic posters by verifying every statistic against peer-reviewed sources before producing the image prompt. Use for any poster or infographic containing numeric claims or cited data; skip for purely decorative images.
 ---
 
 # Verified Infographic Generator

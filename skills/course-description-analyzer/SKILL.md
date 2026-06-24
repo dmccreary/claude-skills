@@ -1,6 +1,6 @@
 ---
 name: course-description-analyzer
-description: This skill analyzes or creates course descriptions for intelligent textbooks by checking for completeness of required elements (title, audience, prerequisites, topics, Bloom's Taxonomy outcomes) and providing quality scores with improvement suggestions. Use this skill when working with course descriptions in /docs/course-description.md that need validation or creation for learning graph generation.
+description: Validates or creates a course description for an intelligent textbook, scoring completeness against required elements (title, audience, prerequisites, topics, Bloom's Taxonomy outcomes). Use before running the learning-graph-generator.
 ---
 
 # Course Description Analyzer

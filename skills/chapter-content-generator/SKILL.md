@@ -1,6 +1,6 @@
 ---
 name: chapter-content-generator
-description: This skill generates comprehensive chapter content for intelligent textbooks after the book-chapter-generator skill has created the chapter structure. Use this skill when a chapter index.md file exists with title, summary, and concept list, and detailed educational content needs to be generated at the appropriate reading level with rich non-text elements including diagrams, infographics, and MicroSims. (project, gitignored).  If the CONTENT-GENERATION-GUIDE.md file exists, use it as a reference for content generation.
+description: Generates detailed chapter content for an intelligent textbook — text, diagrams, MicroSims, and exercises at the appropriate Bloom's level. Use when a chapter's index.md exists with title, summary, and concept list.
 ---
 
 # Chapter Content Generator

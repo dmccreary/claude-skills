@@ -1,6 +1,6 @@
 ---
 name: story-generator
-description: This skill generates graphic novel narratives about scientists, mathematicians, engineers, inventors, and other historical figures in science and technology, designed for intelligent textbooks. It creates compelling, historically accurate stories with embedded image prompts and can also generate the panel images automatically via the Google Gemini API. Default length is 12 panels plus a cover, but the panel count is configurable via the `--panels N` argument (typical range: 4–16). Use this skill when the user wants to add a new historical-figure or fictional-case-study story to a textbook's Stories section, or when creating educational graphic novel content. Also use this skill when the user says "give me some ideas for graphic-novel stories" to generate a curated list of story ideas tailored to the textbook's subject matter.
+description: Generates illustrated graphic novel narratives about scientists, mathematicians, and historical figures for intelligent textbooks, with image prompts for each panel. Use when adding historical-figure or case-study stories to a textbook's Stories section.
 ---
 
 # Story Generator

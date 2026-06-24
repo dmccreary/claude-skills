@@ -1,15 +1,6 @@
 ---
 name: textbook-to-presentation-generator
-description: >
-  Generate a compelling PowerPoint lecture presentation from an intelligent textbook 
-  (MkDocs project with chapters, learning graph, and course description). The presentation 
-  embodies McLuhan's "the medium IS the message" — every slide exemplifies the principle 
-  it teaches. Uses pptxgenjs to create .pptx files with speaker notes, visual design, and 
-  4-act storytelling structure. Use this skill whenever the user wants to create a 
-  presentation, lecture deck, slide deck, or PowerPoint from a textbook, course, or 
-  educational content. Also use when converting book content into presentation format, 
-  or when the user says "create slides", "make a deck", "build a presentation", 
-  "lecture slides", or "presentation from the textbook".
+description: Generates a lecture PowerPoint from an intelligent textbook using pptxgenjs — visual design, 4-act storytelling structure, and speaker notes. Use when converting a textbook into slides for classroom delivery.
 ---
 
 # Presentation Generator

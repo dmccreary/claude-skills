@@ -1,6 +1,7 @@
 ---
 name: book-chapter-generator
-description: This skill generates a structured chapter outline for intelligent textbooks by analyzing course descriptions, learning graphs, and concept dependencies. Use this skill after the learning graph has been created and before generating chapter content, to design an optimal chapter structure that respects concept dependencies and distributes content evenly across all of the chapter in a book.
+description: Designs the chapter structure for an intelligent textbook by analyzing the learning graph and concept dependencies. Use after the learning graph is complete and before generating chapter content.
+model: sonnet
 ---
 
 # Book Chapter Generator

@@ -1,6 +1,6 @@
 ---
 name: quiz-generator
-description: This skill generates interactive multiple-choice quizzes for each chapter of an intelligent textbook, with questions aligned to specific concepts from the learning graph and distributed across Bloom's Taxonomy cognitive levels to assess student understanding effectively. Uses serial execution (one agent) for token efficiency. Use this skill after chapter content has been written and the learning graph exists.
+description: Generates multiple-choice quiz questions for each chapter, aligned to the learning graph and distributed across Bloom's Taxonomy levels. Use after chapter content and the learning graph both exist.
 license: MIT
 ---
 

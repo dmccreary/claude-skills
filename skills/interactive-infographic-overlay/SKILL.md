@@ -1,6 +1,6 @@
 ---
 name: interactive-infographic-overlay
-description: This skill generates a complete interactive diagram MicroSim directory with a text-to-image prompt, data.json overlay file, main.html, index.md, and mkdocs.yml integration. Use this skill when an intelligent textbook chapter specifies a diagram overlay MicroSim that needs a scientific illustration with interactive callout labels, explore/quiz modes, and an edit mode for calibrating marker positions. The skill produces annotation-free image prompts and data.json files compatible with the shared diagram.js library.
+description: Generates an interactive diagram MicroSim with numbered callout markers or rectangular zones over a scientific illustration, supporting explore, quiz, and edit modes. Use for anatomy diagrams, labeled components, or comparison posters needing interactive annotations.
 ---
 # Interactive Infographic Overlay Generator
 

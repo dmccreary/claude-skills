@@ -1,6 +1,6 @@
 ---
 name: faq-generator
-description: This skill generates a comprehensive set of Frequently Asked Questions (FAQs) from the course description, course content, learning graphs, concept lists, MicroSims, and glossary terms to help students understand common questions and prepare content for chatbot integration. Use this skill after course description, learning graph, glossary, and at least 30% of chapter content exist.
+description: Generates a FAQ set for an intelligent textbook from course content, learning graph, and glossary terms. Use after the learning graph and glossary exist and at least 30% of chapters are written.
 license: MIT
 ---
 

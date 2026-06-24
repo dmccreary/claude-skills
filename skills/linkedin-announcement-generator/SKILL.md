@@ -1,6 +1,6 @@
 ---
 name: linkedin-announcement-generator
-description: This skill generates professional LinkedIn announcement text for intelligent textbooks by analyzing book metrics, chapter content, and learning resources to create engaging posts with key statistics, hashtags, and links to the published site. Use this skill when you need to create social media announcements about textbook completion or major milestones.
+description: Generates a LinkedIn post announcing an intelligent textbook milestone by pulling book metrics, chapter count, and key statistics. Use when announcing textbook completion or major content milestones on social media.
 license: MIT
 ---
 

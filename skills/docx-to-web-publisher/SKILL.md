@@ -1,17 +1,6 @@
 ---
 name: docx-to-web-publisher
-description: >
-  Converts .docx research papers, briefs, and reports into structured HTML/JSX
-  pages and publishes them as content items in a Next.js website. Preserves
-  document structure (headings, tables, bullet lists, callout boxes) as styled
-  React components. Handles the full pipeline: extract content from .docx,
-  create a rich content component, register in the site's data catalog, extend
-  the detail page, update the knowledge graph, and generate a cover image.
-  Use this skill whenever the user wants to publish a Word document, research
-  paper, technical brief, investor memo, or report as a web page on their
-  Next.js site. Also triggers on "convert docx to web", "publish this paper",
-  "add this document to the site", "turn this Word doc into a page", or
-  "publish research brief".
+description: Converts .docx files (papers, briefs, reports) into styled React component pages in a Next.js content-catalog site. Use when publishing a Word document as a structured web page.
 ---
 
 # docx-to-web Publisher

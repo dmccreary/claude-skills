@@ -1,6 +1,6 @@
 ---
 name: diagram-reports-generator
-description: This skill generates comprehensive diagram and MicroSim reports for the geometry course by analyzing chapter markdown files and creating table and detail reports. Use this skill when working with an intelligent textbook (specifically geometry-course) that needs updated visualization of all diagrams and MicroSims across chapters, including their status, difficulty, Bloom's Taxonomy levels, and UI complexity.
+description: Generates a status report of all diagrams and MicroSims across an intelligent textbook's chapters, including difficulty, Bloom's level, and UI complexity. Use to audit visualization coverage before a content review.
 ---
 
 # Diagram Reports Generator
