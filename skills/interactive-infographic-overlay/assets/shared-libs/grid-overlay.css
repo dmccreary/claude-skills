@@ -1,0 +1,361 @@
+/* grid-overlay.css — Styles for GridDiagramSim interactive infographic overlays */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f0f4f8;
+  color: #1a1a1a;
+  padding: 8px;
+}
+
+/* ── Controls bar ────────────────────────────────────────────────────────── */
+#controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 10px 0 8px;
+  flex-wrap: wrap;
+}
+
+.mode-btn {
+  padding: 4px 18px;
+  border: 2px solid #bbb;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.15s;
+}
+.mode-btn:hover  { border-color: #1389A6; color: #1389A6; }
+.mode-btn.active { background: #1389A6; color: white; border-color: #1389A6; }
+
+#edit-badge {
+  display: none;
+  background: #C45C2A;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+#quiz-score {
+  margin-left: auto;
+  font-size: 13px;
+  color: #555;
+}
+#quiz-score strong { color: #1a1a1a; }
+
+/* ── Image wrapper + overlay ─────────────────────────────────────────────── */
+#image-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.grid-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#zone-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+/* ── Zone rectangles ─────────────────────────────────────────────────────── */
+.grid-zone {
+  position: absolute;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  /* --zone-color set inline by JS */
+}
+
+/* Chip label at top-center of zone */
+.zone-chip {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--zone-color, #1389A6);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+}
+
+/* Hover state — explore mode */
+.grid-zone.zone-hover {
+  background: color-mix(in srgb, var(--zone-color, #1389A6) 15%, transparent);
+  border-color: var(--zone-color, #1389A6);
+}
+.grid-zone.zone-hover .zone-chip { opacity: 1; }
+
+/* Active (clicked) state — explore mode */
+.grid-zone.zone-active {
+  background: color-mix(in srgb, var(--zone-color, #1389A6) 20%, transparent);
+  border-color: var(--zone-color, #1389A6);
+  border-width: 3px;
+}
+.grid-zone.zone-active .zone-chip { opacity: 1; }
+
+/* Quiz: dimmed (unanswered) */
+.grid-zone.zone-dimmed {
+  background: rgba(0,0,0,0.08);
+  border-color: transparent;
+  cursor: crosshair;
+}
+.grid-zone.zone-dimmed .zone-chip { opacity: 0; }
+
+/* Quiz: correct answer */
+.grid-zone.zone-correct {
+  background: rgba(45,138,78,0.25);
+  border-color: #2D8A4E;
+  border-width: 3px;
+}
+.grid-zone.zone-correct .zone-chip { opacity: 1; background: #2D8A4E; }
+
+/* Quiz: wrong answer flash */
+.grid-zone.zone-incorrect {
+  animation: zone-shake 0.35s ease;
+  background: rgba(192,32,32,0.2);
+}
+
+/* Quiz: revealed (correct, keep visible) */
+.grid-zone.zone-revealed {
+  background: rgba(45,138,78,0.15);
+  border-color: #2D8A4E;
+}
+.grid-zone.zone-revealed .zone-chip { opacity: 1; background: #2D8A4E; }
+
+@keyframes zone-shake {
+  0%,100% { transform: translateX(0); }
+  25%      { transform: translateX(-4px); }
+  75%      { transform: translateX(4px); }
+}
+
+/* ── Edit mode corner handles ────────────────────────────────────────────── */
+.edit-zone { border: 2px dashed #C45C2A !important; cursor: default; }
+
+.corner-handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #C45C2A;
+  border: 2px solid white;
+  border-radius: 2px;
+  cursor: grab;
+  z-index: 20;
+}
+.corner-handle:active { cursor: grabbing; }
+.corner-tl { top: -6px;  left: -6px; }
+.corner-tr { top: -6px;  right: -6px; }
+.corner-bl { bottom: -6px; left: -6px; }
+.corner-br { bottom: -6px; right: -6px; }
+
+/* ── Detail panel ────────────────────────────────────────────────────────── */
+#detail-panel {
+  margin-top: 10px;
+  min-height: 80px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 14px 18px;
+}
+
+#panel-prompt {
+  color: #999;
+  font-style: italic;
+  font-size: 13px;
+}
+
+#panel-content { display: none; }
+
+#panel-label {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2A2E3A;
+  margin-bottom: 4px;
+}
+
+#panel-summary {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+#panel-facts {
+  list-style: disc;
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #333;
+}
+#panel-facts li { margin-bottom: 2px; }
+
+/* ── Quiz question display ───────────────────────────────────────────────── */
+#quiz-question {
+  display: none;
+  margin-top: 10px;
+  background: #EEF6FF;
+  border-left: 4px solid #1389A6;
+  padding: 12px 16px;
+  border-radius: 0 6px 6px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1a1a1a;
+}
+
+.quiz-prompt-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #1389A6;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.quiz-wrong-msg {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: #FDECEA;
+  border-left: 3px solid #C02020;
+  border-radius: 0 4px 4px 0;
+  font-size: 13px;
+  color: #7B1010;
+}
+
+.quiz-complete {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── "Correct!" celebration modal (quiz mode) ────────────────────────────── */
+#correct-modal {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 40, 25, 0.55);
+  z-index: 40;
+  animation: modal-fade 0.18s ease;
+}
+#correct-modal.show { display: flex; }
+
+.correct-modal-panel {
+  background: white;
+  border-radius: 16px;
+  padding: 22px 40px 26px;
+  text-align: center;
+  box-shadow: 0 10px 34px rgba(0,0,0,0.4);
+  max-width: 80%;
+  animation: modal-pop 0.32s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.correct-star {
+  font-size: 64px;
+  line-height: 1;
+  color: #F5B301;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  animation: star-spin 0.55s ease;
+}
+
+.correct-heading {
+  font-size: 28px;
+  font-weight: 800;
+  color: #2D8A4E;
+  margin: 8px 0 18px;
+}
+
+.correct-ok-btn {
+  padding: 8px 38px;
+  background: #2D8A4E;
+  color: white;
+  border: none;
+  border-radius: 22px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.correct-ok-btn:hover  { background: #1f6b3a; }
+.correct-ok-btn:focus  { outline: 3px solid rgba(45,138,78,0.4); outline-offset: 2px; }
+
+@keyframes modal-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modal-pop  { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes star-spin  { from { transform: rotate(-180deg) scale(0); } to { transform: rotate(0) scale(1); } }
+
+/* ── Edit panel (edit mode only) ─────────────────────────────────────────── */
+#edit-panel {
+  display: none;
+  margin-top: 10px;
+  background: #1e1e2e;
+  border-radius: 6px;
+  padding: 12px 14px;
+  color: #cdd6f4;
+}
+#edit-panel h3 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #89b4fa;
+  margin-bottom: 8px;
+}
+#coord-display {
+  font-family: monospace;
+  font-size: 12px;
+  color: #a6e3a1;
+  min-height: 18px;
+  margin-bottom: 8px;
+}
+#json-output {
+  width: 100%;
+  height: 200px;
+  font-family: monospace;
+  font-size: 11px;
+  background: #11111b;
+  color: #cdd6f4;
+  border: 1px solid #45475a;
+  border-radius: 4px;
+  padding: 6px;
+  resize: vertical;
+}
+#edit-actions { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+#copy-json-btn {
+  padding: 5px 14px;
+  background: #89b4fa;
+  color: #1e1e2e;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+}
+#copy-json-btn:hover { background: #74c7ec; }
+#copy-confirm { font-size: 12px; color: #a6e3a1; }
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  #panel-label { font-size: 15px; }
+  #panel-facts { font-size: 12px; }
+  #quiz-question { font-size: 13px; }
+}

@@ -57,17 +57,17 @@ If there is, run the Python script that removes the extra padding.
 
 <div class="grid cards" markdown>
 1. Welcome
-![](../img/mascot/welcome.png){ width="150px"}
+![](../../img/mascot/welcome.png){ width="150px"}
 2. Thinking
-![](../img/mascot/thinking.png){ width="150px"}
+![](../../img/mascot/thinking.png){ width="150px"}
 3. Tip
-![](../img/mascot/tip.png){ width="150px"}
+![](../../img/mascot/tip.png){ width="150px"}
 4. Warning
-![](../img/mascot/warning.png){ width="150px"}
+![](../../img/mascot/warning.png){ width="150px"}
 5. Encouraging
-![](../img/mascot/encouraging.png){ width="150px"}
+![](../../img/mascot/encouraging.png){ width="150px"}
 6. Celebration
-![](../img/mascot/celebration.png){ width="150px"}
+![](../../img/mascot/celebration.png){ width="150px"}
 7. Neutral
-![](../img/mascot/neutral.png){ width="150px"}
+![](../../img/mascot/neutral.png){ width="150px"}
 </div>

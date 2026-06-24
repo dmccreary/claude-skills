@@ -1,0 +1,455 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: aliceblue;
+  color: #1a1a1a;
+  padding: 8px;
+}
+
+.sim-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #123b12;
+  margin-bottom: 10px;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+/* ── Controls bar ───────────────────────────────────── */
+#controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 12px 0 6px;
+  flex-wrap: wrap;
+}
+
+.mode-btn {
+  padding: 4px 16px;
+  border: 2px solid #bbb;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.15s;
+}
+.mode-btn:hover   { border-color: #3a7a3a; color: #3a7a3a; }
+.mode-btn.active  { background: #3a7a3a; color: white; border-color: #3a7a3a; }
+.mode-btn:disabled { opacity: 0.4; cursor: default; }
+
+#edit-badge {
+  background: #C45C2A;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+#quiz-score {
+  margin-left: auto;
+  font-size: 13px;
+  color: #555;
+}
+#quiz-score strong { color: #1a1a1a; }
+
+/* ── Main layout: image left, label list right ──────── */
+#layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 65fr 35fr;
+  align-items: stretch;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* SVG leader-line overlay — spans the full #layout */
+#leaders-svg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 7;
+  overflow: visible;
+}
+
+/* ── Left: diagram ──────────────────────────────────── */
+#diagram-wrapper {
+  position: relative;
+  line-height: 0;
+  align-self: start;   /* never stretch beyond image height; keeps markers-layer ≡ image */
+}
+
+#diagram-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#markers-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.marker {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #3a7a3a;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  pointer-events: all;
+  border: 2px solid white;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.35);
+  transition: transform 0.12s, background 0.12s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  z-index: 10;
+}
+.marker:hover,
+.marker.active       { background: #1f5c1f; transform: translate(-50%,-50%) scale(1.25); }
+.marker.quiz-unknown { background: #777; cursor: crosshair; }
+.marker.correct      { background: #2A8040; transform: translate(-50%,-50%) scale(1.2); }
+.marker.incorrect    { background: #C02020; animation: shake 0.35s ease; }
+.marker.edit-mode              { background: #C45C2A; cursor: grab; }
+.marker.edit-mode:active       { cursor: grabbing; }
+/* Disable hover-scale and transition during drag calibration */
+.marker.edit-mode,
+.marker.edit-mode:hover        { transform: translate(-50%, -50%); transition: none; }
+
+@keyframes shake {
+  0%,100% { transform: translate(-50%,-50%) translateX(0); }
+  25%      { transform: translate(-50%,-50%) translateX(-5px); }
+  75%      { transform: translate(-50%,-50%) translateX(5px); }
+}
+
+/* ── Right: label panel ─────────────────────────────── */
+#label-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 6px 10px 6px 14px;
+  border-left: 1px solid #e8e8e8;
+  background: #fafafa;
+  z-index: 6; /* above SVG so labels are clickable */
+  position: relative;
+}
+
+.label-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.label-row:hover  { background: #e8f4e8; }
+.label-row.active { background: #d2ecd2; }
+.label-row.correct-row { background: #c8ecd0; }
+
+.label-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3a7a3a;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.label-row.active   .label-num { background: #1f5c1f; }
+.label-row.correct-row .label-num { background: #2A8040; }
+
+.label-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.2;
+  transition: color 0.15s;
+}
+/* Quiz mode: text is visually hidden but preserves layout */
+.label-text.quiz-hidden {
+  color: transparent;
+  background: #ddd;
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+/* ── Label reorder (edit mode) ──────────────────────── */
+.drag-handle {
+  display: none;
+  align-items: center;
+  color: #bbb;
+  font-size: 15px;
+  line-height: 1;
+  padding-right: 2px;
+  cursor: grab;
+  flex-shrink: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+.drag-handle:active { cursor: grabbing; }
+.label-row.reorder-enabled .drag-handle { display: flex; }
+.label-row.dragging { opacity: 0.25; }
+
+/* Color swatch + hint — edit mode calibration aids */
+.label-row.reorder-enabled { flex-wrap: wrap; }
+
+.color-swatch {
+  display: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,0,0,0.25);
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.label-row.reorder-enabled .color-swatch { display: block; }
+
+.label-hint {
+  display: none;
+  font-size: 10px;
+  color: #888;
+  font-style: italic;
+  line-height: 1.3;
+  flex: 0 0 100%;
+  padding-left: 34px; /* aligns under .label-text */
+  margin-top: 1px;
+}
+.label-row.reorder-enabled .label-hint { display: block; }
+
+.reorder-indicator {
+  height: 2px;
+  background: #3a7a3a;
+  border-radius: 1px;
+  margin: 0 6px;
+  pointer-events: none;
+}
+
+/* ── Top-bottom layout ──────────────────────────────── */
+#layout.top-bottom-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.label-panel-strip {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px 10px;
+  min-height: 52px;
+  align-items: center;
+  background: #fafafa;
+  z-index: 6;
+  position: relative;
+}
+
+#label-panel-top {
+  border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+#label-panel-bottom {
+  border-radius: 0 0 6px 6px;
+  border-top: 1px solid #e8e8e8;
+}
+
+/* Chips don't need full-width flex-wrap in top-bottom */
+.top-bottom-layout .label-row { width: auto; }
+.top-bottom-layout .label-hint { flex: unset; width: auto; padding-left: 4px; }
+
+/* Panel toggle button (↓ / ↑) — shown only in edit mode */
+.panel-toggle-btn {
+  display: none;
+  background: #3a7a3a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.panel-toggle-btn:hover { background: #1f5c1f; }
+.label-row.reorder-enabled .panel-toggle-btn { display: block; }
+
+/* Vertical insertion bar for horizontal drag-reorder */
+.reorder-indicator-v {
+  display: inline-block;
+  width: 2px;
+  min-height: 32px;
+  align-self: stretch;
+  background: #3a7a3a;
+  border-radius: 1px;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+/* ── Dual-panel layout (labels left + right) ────────── */
+#layout.dual-panel-layout {
+  grid-template-columns: 22fr 56fr 22fr;
+}
+
+.label-panel-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 6px 10px;
+  background: #fafafa;
+  z-index: 6;
+  position: relative;
+}
+
+#label-panel-left {
+  border-right: 1px solid #e8e8e8;
+  border-radius: 6px 0 0 6px;
+}
+
+/* Left panel: number circle on the RIGHT (nearest the image),
+   text right-aligned for easier visual tracking of leader lines. */
+#label-panel-left .label-row .drag-handle { order: 0; }
+#label-panel-left .label-row .label-text  { order: 1; text-align: right; flex: 1; }
+#label-panel-left .label-row .color-swatch { order: 2; margin-left: 0; }
+#label-panel-left .label-row .label-num   { order: 3; }
+#label-panel-left .label-hint {
+  text-align: right;
+  padding-left: 0;
+  padding-right: 34px;
+}
+
+#label-panel-right {
+  border-left: 1px solid #e8e8e8;
+  border-radius: 0 6px 6px 0;
+}
+
+/* ── Infobox ────────────────────────────────────────── */
+#infobox {
+  margin-top: 8px;
+  min-height: 110px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 12px 16px;
+}
+
+#infobox-prompt {
+  color: #999;
+  font-style: italic;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+#infobox-content { display: none; }
+
+#infobox-label {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 5px;
+}
+#infobox-label.correct-label { color: #2A8040; }
+#infobox-label.prompt-label  { color: #3a7a3a; }
+
+#infobox-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+#infobox-ap-tip {
+  display: none;
+  background: #FFF8E0;
+  border-left: 3px solid #F5A623;
+  padding: 6px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 0 4px 4px 0;
+}
+#infobox-ap-tip strong { color: #8B6000; }
+
+#quiz-restart {
+  display: none;
+  margin-top: 8px;
+  padding: 5px 16px;
+  background: #3a7a3a;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+#quiz-restart:hover { background: #1f5c1f; }
+
+/* ── Edit panel ─────────────────────────────────────── */
+#edit-panel {
+  display: none;
+  margin-top: 8px;
+  background: #1e1e2e;
+  border-radius: 6px;
+  padding: 12px 14px;
+  color: #cdd6f4;
+}
+#edit-panel h3 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #89b4fa;
+  margin-bottom: 8px;
+}
+#coord-display {
+  font-family: monospace;
+  font-size: 12px;
+  color: #a6e3a1;
+  min-height: 18px;
+  margin-bottom: 8px;
+}
+#json-output {
+  width: 100%;
+  height: 180px;
+  font-family: monospace;
+  font-size: 11px;
+  background: #11111b;
+  color: #cdd6f4;
+  border: 1px solid #45475a;
+  border-radius: 4px;
+  padding: 6px;
+  resize: vertical;
+}
+#edit-actions { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+#copy-json-btn {
+  padding: 5px 14px;
+  background: #89b4fa;
+  color: #1e1e2e;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+}
+#copy-json-btn:hover { background: #74c7ec; }
+#copy-confirm { font-size: 12px; color: #a6e3a1; }

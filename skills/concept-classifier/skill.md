@@ -1,6 +1,6 @@
 ---
 name: concept-classifier
-description: Create an interactive classification quiz MicroSim using p5.js where students read scenarios and classify them into the correct category from multiple choice options. Uses a data.json file for easy question editing. Ideal for teaching students to recognize patterns, identify types, or categorize examples across any subject domain.
+description: Creates a p5.js MicroSim where students read scenarios and sort them into the correct category. Use for any subject where learners need to recognize patterns, identify types, or categorize examples.
 ---
 
 # Concept Classifier Quiz MicroSim Skill

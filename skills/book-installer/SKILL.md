@@ -1,6 +1,7 @@
 ---
 name: book-installer
 description: Installs and configures project infrastructure including MkDocs Material intelligent textbook templates, learning graph viewers, and skill tracking systems. Routes to the appropriate installation guide based on what the user needs to set up.
+model: sonnet
 ---
 
 # Book Installer
