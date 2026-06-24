@@ -52,10 +52,9 @@ claude-skills/
 │
 ├── docs/                          # MkDocs documentation site
 ├── scripts/                       # Utility scripts
-│   ├── install-claude-skills.sh  # Creates symlinks to ~/.claude/skills/
-│   ├── list-skills.sh            # Lists available skills
-│   └── list-skills-format.sh     # Outputs skills in various formats
+│   └── install-claude-skills.sh  # Creates symlinks to ~/.claude/skills/
 ├── commands/                      # Slash commands
+│   ├── ibook.md                  # /ibook runbook command
 │   └── skills.md                 # /skills command definition
 └── mkdocs.yml                    # MkDocs configuration
 ```
@@ -275,12 +274,7 @@ Building an intelligent textbook follows this 12-step process using multiple ski
 
 ### Working with Skills
 
-**List available skills:**
-```bash
-./scripts/list-skills.sh
-# or
-./scripts/list-skills-format.sh json  # outputs JSON
-```
+**List available skills:** just ask Claude — skill names and descriptions are injected into context at session start at zero token cost.
 
 **Install skills globally (for all projects):**
 ```bash

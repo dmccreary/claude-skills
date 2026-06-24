@@ -78,7 +78,6 @@ set -gx PATH $HOME/.local/bin $PATH
 All `bk*` scripts require `$BK_HOME` to be set and provide consistent colored output with comprehensive error checking.
 
 **Skill Management:**
-- `bk-list-skills` - List available Claude skills
 - `bk-analyze-skill-usage` - Generate skill usage analysis report
 - `bk-install-skills` - Install skills to ~/.claude/skills
 
@@ -153,38 +152,6 @@ bk-install-skills
 - Links all skill directories
 - Reports installed skills with count
 - Checks for broken symlinks and suggests fixes
-
-### bk-list-skills
-
-Lists all available Claude skills from three locations: source (BK_HOME/skills), user (~/.claude/skills), and project (.claude/skills).
-
-**Requirements:** `$BK_HOME` must be set
-
-**Usage:**
-```bash
-bk-list-skills                    # Default: names with locations
-bk-list-skills --full             # Detailed descriptions
-bk-list-skills --names-only       # Just skill names
-bk-list-skills --json             # JSON format
-```
-
-**Features:**
-- Shows skills from source repository, global install, and project
-- Color-coded output by location
-- Counts skills from all three locations
-- JSON output includes all metadata
-
-**Example output:**
-```
-faq-generator (source, global)
-glossary-generator (source, global)
-learning-graph-generator (source, global)
-
-Skill locations:
-  source  - Skills from $HOME/Documents/ws/claude-skills/skills
-  global  - Installed skills in ~/.claude/skills
-  project - Project-specific skills in .claude/skills
-```
 
 ### bk-analyze-skill-usage
 
