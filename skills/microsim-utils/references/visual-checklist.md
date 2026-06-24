@@ -96,7 +96,7 @@ the boundary line.
 
 ### 2.7 Control region bottom boundary
 No control extends below `canvasHeight`. (This is the failure mode that
-`microsim-iframe-tester` catches with bounding boxes, but verify it
+the `iframe-tester` utility catches with bounding boxes, but verify it
 visually too — sometimes a button label wraps to two lines and the
 bounding box doesn't reflect that.)
 

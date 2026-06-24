@@ -1,6 +1,6 @@
 ---
 name: microsim-utils
-description: Utility tools for MicroSim management including quality validation, screenshot capture, icon management, index page generation, and iframe height synchronization. Routes to the appropriate utility based on the task needed.
+description: Utility tools for MicroSim management including quality validation, screenshot capture, icon management, index page generation, iframe height synchronization, iframe control-visibility testing, and visual layout review. Routes to the appropriate utility based on the task needed.
 ---
 
 # MicroSim Utilities
@@ -21,6 +21,8 @@ Use this skill when users request:
 - Synchronizing iframe heights from JS source files
 - Setting up runtime iframe auto-resize via postMessage
 - Scaffolding MicroSim directories (main.html, index.md, metadata.json) from TODO JSON specs
+- Testing whether interactive controls are fully visible inside the iframe (Playwright)
+- Reviewing a MicroSim's visual layout for rendering defects (Claude Vision)
 
 ## Step 1: Identify Utility Type
 
@@ -38,6 +40,8 @@ Match the user's request to the appropriate utility guide:
 | scaffold microsims, scaffold from todo, scaffold sims, create microsim stubs, generate microsim scaffolding, stub out microsims, create scaffold files, generate scaffold from json, microsim stubs from todo | `scripts/scaffold-microsims-from-todo.py` | Generate `main.html`, `index.md`, and `metadata.json` stub files for each TODO JSON spec that does not yet have an implementation |
 | fix iframe heights, sync iframe heights, correct iframe heights, iframe height, canvas height, sync heights, update iframe heights | `scripts/sync-iframe-heights.py` | Synchronize iframe heights from CANVAS_HEIGHT in JS files to sim and chapter index.md files |
 | iframe auto height, iframe auto resize, iframe postMessage, runtime iframe resize, microsim auto resize, auto-size iframe, iframe self-resize | `references/iframe-auto-height.md` | Runtime postMessage protocol so embedded MicroSims report their own height to the parent page |
+| test iframe, controls clipped, controls cut off, are controls visible, test iframe heights, verify controls fit, check if sims fit, iframe visibility | `references/iframe-tester.md` (runs `scripts/test-iframe-heights.py`) | Playwright check that every interactive control is fully visible inside the iframe at its declared height |
+| review layout, layout review, looks off, looks wrong, clipped labels, overlapping controls, residual stroke, draw order, visual QA, review the sim | `references/layout-reviewer.md` | Claude Vision review of a sim's rendered layout — walks a checklist, diagnoses defects, patches source |
 
 ### Decision Tree
 
@@ -65,7 +69,23 @@ Need to fix, sync, or correct iframe heights?
 
 Need iframes to auto-resize at runtime via postMessage?
   → YES: references/iframe-auto-height.md
+
+Need to verify interactive controls are fully visible inside the iframe?
+  → YES: references/iframe-tester.md (runs scripts/test-iframe-heights.py)
+
+Need to review whether a sim's rendered layout looks right (not just fits)?
+  → YES: references/layout-reviewer.md
 ```
+
+### Iframe-height utilities at a glance
+
+Three utilities touch iframe height — they are complementary, not redundant:
+
+| Utility | Question it answers | Tool |
+|---------|--------------------|------|
+| `scripts/sync-iframe-heights.py` | "Do all embeds use the JS `CANVAS_HEIGHT`?" (build-time) | Python |
+| `references/iframe-tester.md` | "Do the controls actually fit at that height?" (geometric) | Playwright |
+| `references/layout-reviewer.md` | "Does the rendering *inside* the canvas look right?" (visual) | Claude Vision |
 
 ## Step 2: Load the Matched Guide or Run the Script
 
@@ -238,6 +258,54 @@ without conflict.
 `docs/js/extra.js`, then any MicroSim that posts the `microsim-resize`
 message participates automatically.
 
+### iframe-tester.md
+
+**Purpose:** Verify that every interactive control (button, slider, dropdown,
+checkbox) is fully visible inside the iframe at its declared height — a
+geometric check using a real headless browser.
+
+**Script:** `scripts/test-iframe-heights.py` (Playwright)
+
+**How it works:**
+- Finds all MicroSim directories under `docs/sims/`
+- Reads each `index.md` to get the declared iframe height
+- Loads `main.html` in a viewport constrained to that height
+- Checks every interactive element's bounding box against the iframe boundary
+- Reports PASS/FAIL with a suggested height for failures
+
+**Prerequisites:** `pip install playwright && playwright install chromium`
+
+**When to use:** controls appear clipped at the bottom of a sim, or auditing
+iframe sizing across all sims after a batch generation. Complements
+`sync-iframe-heights.py` (which propagates the height) — run the tester to
+confirm the propagated height actually works.
+
+> A legacy Node.js version was retired during consolidation; the Python script
+> is the only supported implementation.
+
+### layout-reviewer.md
+
+**Purpose:** Review a sim's *rendered* layout with Claude Vision — catches
+defects geometric checks miss: clipped row labels, overlapping controls, text
+rendered with residual strokes, panel overflow, low-contrast labels, draw-order
+bugs, and library-specific rendering issues.
+
+**Tool:** Claude Vision (reads the screenshot PNG directly) + `bk-capture-screenshot`
+
+**How it works:**
+- Reads the iframe height from `index.md`, captures a screenshot at that height
+- Walks `references/visual-checklist.md` item by item (PASS / FAIL / N/A)
+- For each FAIL, consults `references/common-fixes.md` and applies the smallest
+  patch
+- Re-captures and re-walks; stops after 3 review-patch cycles
+
+**Reference files:** `references/visual-checklist.md` (every item to inspect),
+`references/common-fixes.md` (symptom → root cause → edit).
+
+**When to use:** right after generating a new sim (proactive QA), or when the
+iframe height is correct but something *inside* the canvas looks wrong. For
+"controls clipped at the edge" only, run `iframe-tester.md` first.
+
 ## Examples
 
 ### Example 1: Quality Check
@@ -275,12 +343,24 @@ message participates automatically.
 **Routing:** Keywords "iframe auto height", "auto-size iframe", "iframe postMessage" → `references/iframe-auto-height.md`
 **Action:** Read `iframe-auto-height.md` and follow the two-part setup: paste the parent-side listener block at the top of `docs/js/extra.js`, then ensure the relevant MicroSims post `{ type: 'microsim-resize', height }` after layout settles. Confirm both sides are in place and report which sims now participate.
 
+### Example 8: Test Iframe Control Visibility
+**User:** "check if my sims fit" or "are the controls visible" or "test iframe heights"
+**Routing:** Keywords "check if sims fit", "controls visible", "test iframe heights" → `references/iframe-tester.md`
+**Action:** Read `iframe-tester.md`, ensure Playwright is installed, then run `python3 scripts/test-iframe-heights.py --sims-dir docs/sims` and present the PASS/FAIL table. Offer to fix failing heights.
+
+### Example 9: Review a Sim's Visual Layout
+**User:** "this sim looks off" or "review the layout" or "the labels look clipped"
+**Routing:** Keywords "looks off", "review layout", "clipped labels" → `references/layout-reviewer.md`
+**Action:** Read `layout-reviewer.md`, capture a screenshot at the sim's iframe height, read the PNG with Claude Vision, walk `visual-checklist.md`, and patch defects per `common-fixes.md` (max 3 cycles).
+
 ## Common Workflows
 
 ### After Creating New MicroSim
 1. Run `standardization.md` to validate quality
 2. Run `~/.local/bin/bk-capture-screenshot <microsim-path>` to create preview image
-3. Run `index-generator.md` to add to index page
+3. Run `references/layout-reviewer.md` (Claude Vision) to catch rendering defects
+4. Run `references/iframe-tester.md` (Playwright) to confirm controls fit at the iframe height
+5. Run `index-generator.md` to add to index page
 
 ### Bulk Quality Audit
 Use `standardization.md` to audit all MicroSims in a project and generate a quality report.

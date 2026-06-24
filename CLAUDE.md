@@ -25,7 +25,7 @@ claude-skills/
 │   │ # Meta-Skills (consolidate multiple sub-skills)
 │   ├── book-installer/              # Routes to: mkdocs-template, learning-graph-viewer, skill-tracker, book-metrics, etc.
 │   ├── microsim-generator/          # Routes to: p5, chartjs, timeline, map, vis-network, mermaid, etc.
-│   ├── microsim-utils/              # Routes to: standardization, screen-capture, add-icons, index-generator
+│   ├── microsim-utils/              # Routes to: standardization, screen-capture, add-icons, index-generator, iframe-tester, layout-reviewer
 │   │
 │   │ # Book Generation Skills
 │   ├── book-chapter-generator/      # Designs chapter structure from learning graph
@@ -83,7 +83,7 @@ Claude Code has a **maximum limit of 30 skills** that can be loaded at once. To 
 |------------|--------------------------------------|---------|
 | `book-installer` | mkdocs-template, learning-graph-viewer, skill-tracker, book-metrics, and many more (see its routing table) | Project setup, infrastructure, and book reporting |
 | `microsim-generator` | p5, chartjs, timeline, map, vis-network, mermaid, plotly, venn, bubble, causal-loop, comparison-table, celebration | Creates MicroSims with various JS libraries |
-| `microsim-utils` | standardization, screen-capture, add-icons, index-generator | MicroSim maintenance utilities |
+| `microsim-utils` | standardization, screen-capture, add-icons, index-generator, iframe-auto-height, iframe-tester, layout-reviewer | MicroSim maintenance, QA, and layout review |
 
 **How meta-skills work:**
 1. User invokes the meta-skill (e.g., `microsim-generator`)
