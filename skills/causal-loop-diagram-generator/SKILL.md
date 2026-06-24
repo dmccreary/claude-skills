@@ -1,6 +1,7 @@
 ---
 name: causal-loop-diagram-generator
-description: Generate complete causal-loop-diagram (CLD) infrastructure for an MkDocs Material site — a progressive build-up article that introduces each reinforcing and balancing loop in its own interactive vis-network diagram, plus the shared cld-viewer for fullscreen exploration. Use this skill whenever the user wants a CLD article, a systems-thinking diagram, a feedback-loop diagram, an article about reinforcing or balancing loops, a "limits to growth" or "tragedy of the commons" or other systems archetype, or any time they describe a topic where one runaway dynamic competes with stabilizing forces (AI scaling, supply chain bullwhip, climate feedback, addiction, virality). Also use when the user mentions "make me a CLD", "draw the loops", "model the dynamics", "show the system", or asks to extend an existing CLD article with a new loop. The skill produces interactive, draggable, vis-network-based diagrams — NOT static images, NOT mermaid, NOT ASCII art.
+description: Creates interactive causal-loop diagram (CLD) articles for MkDocs Material sites. Use when the user wants to visualize feedback loops, systems archetypes (reinforcing/balancing loops, limits to growth, tragedy of the commons), or any topic with competing runaway and stabilizing dynamics. Produces vis-network diagrams — not static images or Mermaid.
+model: sonnet
 ---
 
 # Causal Loop Diagram Generator
