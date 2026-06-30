@@ -1,0 +1,82 @@
+{
+  "skill_name": "docker-python-lab",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add a Docker Python lab to docs/intermediate/22-lists-docker.md that teaches list operations. Include three labs: one showing how to create and print a list, one showing append/remove, and one showing list comprehensions. Make sure the shared CSS and JS are wired up in mkdocs.yml.",
+      "expected_output": "A markdown file with three docker lab blocks (suffixes 1, 2, 3), correct element IDs, working onclick handlers, a 'start the service' instruction, and verification that docker-lab.css/js are in mkdocs.yml.",
+      "assertions": [
+        {
+          "name": "three_labs_present",
+          "description": "File contains exactly three docker lab divs with suffixes 1, 2, and 3"
+        },
+        {
+          "name": "correct_element_ids",
+          "description": "Every lab has docker-lab-N, docker-code-N, docker-editor-N, docker-buttons-N, docker-run-N, docker-reset-N, docker-output-N for N in 1,2,3"
+        },
+        {
+          "name": "correct_onclick_handlers",
+          "description": "Run buttons use runDocker('N') and Reset buttons use resetDocker('N') with matching suffix"
+        },
+        {
+          "name": "service_instruction_present",
+          "description": "Page includes instruction to run bash scripts/run-python-docker.sh before using labs"
+        },
+        {
+          "name": "no_inline_css_or_js",
+          "description": "Page does not contain <style> or <script> blocks — all styling/logic comes from shared files"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Create a single Docker Python lab for a new page docs/intermediate/23-strings-docker.md that shows string methods. The starter code should demonstrate upper(), lower(), split(), and join(). Include experiment suggestions.",
+      "expected_output": "A markdown file with one docker lab block (suffix 1), starter code demonstrating four string methods, experiment suggestions, and a service startup reminder.",
+      "assertions": [
+        {
+          "name": "single_lab_suffix_1",
+          "description": "File contains exactly one docker lab using suffix '1'"
+        },
+        {
+          "name": "demonstrates_string_methods",
+          "description": "Starter code includes upper(), lower(), split(), and join() calls"
+        },
+        {
+          "name": "has_experiments_section",
+          "description": "Page includes experiment suggestions after the lab"
+        },
+        {
+          "name": "no_input_calls",
+          "description": "Starter code does not use input() — Docker runner has no stdin"
+        },
+        {
+          "name": "textarea_has_no_leading_indentation",
+          "description": "Python code inside the textarea starts at column 0, not indented under the HTML tags"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I already have docs/intermediate/24-functions-docker.md with one docker lab (suffix 1) about defining functions. Add a second lab (suffix 2) that shows a recursive function for factorial, and a third lab (suffix 3) that shows a function with default arguments.",
+      "expected_output": "Two new docker lab blocks appended to the existing page with suffixes 2 and 3, each with correct IDs and onclick handlers. Lab 2 demonstrates recursion (factorial), Lab 3 demonstrates default arguments.",
+      "assertions": [
+        {
+          "name": "new_labs_have_suffixes_2_and_3",
+          "description": "File now contains docker lab divs with suffixes 2 and 3"
+        },
+        {
+          "name": "factorial_in_lab_2",
+          "description": "Lab 2 starter code defines and calls a factorial function using recursion"
+        },
+        {
+          "name": "default_args_in_lab_3",
+          "description": "Lab 3 starter code demonstrates a function with at least one default parameter"
+        },
+        {
+          "name": "no_suffix_collision",
+          "description": "No element IDs are duplicated — suffix 1 elements still present, suffix 2 and 3 are new"
+        }
+      ]
+    }
+  ]
+}
