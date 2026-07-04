@@ -1,0 +1,29 @@
+{
+  "assertions": [
+    {
+      "text": "three_labs_present",
+      "passed": true,
+      "evidence": "Found lab suffixes: ['1', '2', '3']"
+    },
+    {
+      "text": "correct_element_ids",
+      "passed": true,
+      "evidence": "All 21 element IDs present"
+    },
+    {
+      "text": "correct_onclick_handlers",
+      "passed": true,
+      "evidence": "All onclick handlers correct"
+    },
+    {
+      "text": "service_instruction_present",
+      "passed": true,
+      "evidence": "Found run-python-docker.sh reference"
+    },
+    {
+      "text": "no_inline_css_or_js",
+      "passed": true,
+      "evidence": "Has <style>: False, Has <script>: False"
+    }
+  ]
+}

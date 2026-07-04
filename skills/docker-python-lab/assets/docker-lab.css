@@ -1,0 +1,135 @@
+/* docker-lab.css — shared styles for all Docker Python labs.
+ *
+ * Labs use IDs with a string suffix: docker-lab-1, docker-code-1, etc.
+ * Attribute-prefix selectors ([id^="..."]) style every lab on any page
+ * automatically — no per-page CSS needed.
+ *
+ * JS counterpart: docs/js/docker-lab.js
+ * Service:        scripts/run-python-docker.sh  (port 5001)
+ */
+
+/* ── Lab container ─────────────────────────────────────────────────────────── */
+
+[id^="docker-lab-"] {
+  border: 2px solid #642580;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 1.5em 0;
+  background: #fafafa;
+}
+
+[id^="docker-editor-"] {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Code textarea ─────────────────────────────────────────────────────────── */
+
+[id^="docker-code-"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+  border: 2px solid #642580;
+  border-radius: 6px 6px 0 0;
+  background: #1e1e2e;
+  color: #cdd6f4;
+  resize: vertical;
+  box-sizing: border-box;
+  tab-size: 4;
+}
+
+[id^="docker-code-"]:focus {
+  outline: none;
+  border-color: #41BAC1;
+}
+
+/* ── Button row ────────────────────────────────────────────────────────────── */
+
+[id^="docker-buttons-"] {
+  display: flex;
+  gap: 8px;
+}
+
+[id^="docker-run-"] {
+  padding: 8px 20px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #642580;
+  color: white;
+}
+[id^="docker-run-"]:hover    { background: #7a2f9e; }
+[id^="docker-run-"]:disabled { background: #a07ab8; cursor: not-allowed; }
+
+[id^="docker-reset-"] {
+  padding: 8px 20px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #41BAC1;
+  color: white;
+}
+[id^="docker-reset-"]:hover { background: #2fa8b0; }
+
+/* ── Output area ───────────────────────────────────────────────────────────── */
+
+.docker-output {
+  margin: 0;
+  padding: 10px;
+  min-height: 36px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'Courier New', monospace;
+  color: #222;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.docker-error   { color: #c0392b; }
+.docker-running { color: #888; font-style: italic; }
+
+/* ── Timing lab table (Lab 4 / runDockerTimed) ─────────────────────────────── */
+
+#docker-timing-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+#docker-timing-table th {
+  background: #642580;
+  color: white;
+  padding: 6px 10px;
+  text-align: left;
+}
+
+#docker-timing-table td {
+  padding: 5px 10px;
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: middle;
+}
+
+#docker-timing-table tr:nth-child(odd) td { background: #f9f5fc; }
+
+.timing-bar {
+  height: 14px;
+  border-radius: 3px;
+  background: #642580;
+  min-width: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Phase colours — teal for network, orange for startup, green for execution */
+#bar-network-send   { background: #41BAC1; }
+#bar-startup        { background: #e67e22; }
+#bar-exec           { background: #27ae60; }
+#bar-network-return { background: #41BAC1; }

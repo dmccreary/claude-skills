@@ -1,0 +1,29 @@
+{
+  "assertions": [
+    {
+      "text": "single_lab_suffix_1",
+      "passed": false,
+      "evidence": "Found lab suffixes: ['1', '2', '3', '4']"
+    },
+    {
+      "text": "demonstrates_string_methods",
+      "passed": true,
+      "evidence": "Found: ['upper()', 'lower()', 'split()', 'join(']; Missing: []"
+    },
+    {
+      "text": "has_experiments_section",
+      "passed": true,
+      "evidence": "Experiment suggestions found"
+    },
+    {
+      "text": "no_input_calls",
+      "passed": true,
+      "evidence": "No input() calls found"
+    },
+    {
+      "text": "textarea_has_no_leading_indentation",
+      "passed": true,
+      "evidence": "All textarea code starts at column 0"
+    }
+  ]
+}

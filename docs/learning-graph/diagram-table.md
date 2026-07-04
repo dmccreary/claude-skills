@@ -5,13 +5,13 @@ hide:
 
 # Diagram and MicroSim Table
 
-**Total Visual Elements:** 76
+**Total Visual Elements:** 75
 **Diagrams:** 0
-**MicroSims:** 76
+**MicroSims:** 75
 
 ## Summary by Difficulty
 
-- **Easy:** 11
+- **Easy:** 10
 - **Medium:** 47
 - **Hard:** 15
 - **Very Hard:** 3
@@ -22,11 +22,10 @@ hide:
 |---------|---------------|--------|------|--------------|-------------|------------|-----------------------|
 | 1 | [Claude Code Workflow Diagram](../chapters/01-intro-ai-intelligent-textbooks/index.md#diagram-claude-code-workflow-diagram) |  | Microsim | Not specified | 0 | Medium |  |
 | 1 | [Evolution of AI Approaches Timeline](../chapters/01-intro-ai-intelligent-textbooks/index.md#diagram-evolution-of-ai-approaches-timeline) |  | Microsim | Not specified | 2 | Medium |  |
-| 1 | [Five Levels of Textbook Intelligence Visual Model](../chapters/01-intro-ai-intelligent-textbooks/index.md#diagram-five-levels-of-textbook-intelligence-visual-model) |  | Microsim | Not specified | 0 | Easy |  |
 | 1 | [Interactive Learning Element Types Comparison](../chapters/01-intro-ai-intelligent-textbooks/index.md#diagram-interactive-learning-element-types-comparison) |  | Microsim | Not specified | 1 | Medium |  |
 | 1 | [Prompt Engineering Iterative Refinement Workflow](../chapters/01-intro-ai-intelligent-textbooks/index.md#diagram-prompt-engineering-iterative-refinement-workflow) |  | Microsim | Not specified | 0 | Easy |  |
 | 1 | [Transformer Architecture Diagram](../chapters/01-intro-ai-intelligent-textbooks/index.md#diagram-transformer-architecture-diagram) |  | Microsim | Not specified | 2 | Medium |  |
-| 2 | [4-Hour Token Window Visualization](../chapters/02-getting-started-claude-skills/index.md#diagram-4-hour-token-window-visualization) |  | Microsim | Not specified | 0 | Easy |  |
+| 2 | [5-Hour Token Window Visualization](../chapters/02-getting-started-claude-skills/index.md#diagram-5-hour-token-window-visualization) |  | Microsim | Not specified | 0 | Easy |  |
 | 2 | [Iterative Prompt Refinement Metrics](../chapters/02-getting-started-claude-skills/index.md#diagram-iterative-prompt-refinement-metrics) |  | Microsim | Not specified | 0 | Medium |  |
 | 2 | [Skill File Anatomy Diagram](../chapters/02-getting-started-claude-skills/index.md#diagram-skill-file-anatomy-diagram) |  | Microsim | Not specified | 1 | Medium |  |
 | 2 | [Skill Installation Locations and Priority](../chapters/02-getting-started-claude-skills/index.md#diagram-skill-installation-locations-and-priority) |  | Microsim | Not specified | 0 | Medium |  |
@@ -57,8 +56,8 @@ hide:
 | 6 | [DAG Validation Algorithm Visualization](../chapters/06-learning-graph-quality-validation/index.md#diagram-dag-validation-algorithm-visualization) |  | Microsim | Not specified | 0 | Medium | vis-network<br>(98)<br>mermaid-generator<br>(85)<br>microsim-p5<br>(75) |
 | 6 | [Learning Graph Quality Score Calculator MicroSim](../chapters/06-learning-graph-quality-validation/index.md#diagram-learning-graph-quality-score-calculator-microsim) |  | Microsim | Not specified | 21 | Very Hard | microsim-p5<br>(92)<br>chartjs-generator<br>(65)<br>vis-network<br>(20) |
 | 6 | [Linear Chain vs Network Structure Comparison](../chapters/06-learning-graph-quality-validation/index.md#diagram-linear-chain-vs-network-structure-comparison) |  | Microsim | Not specified | 0 | Medium | vis-network<br>(95)<br>mermaid-generator<br>(82)<br>microsim-p5<br>(78) |
-| 6 | [Terminal Nodes Identification Chart](../chapters/06-learning-graph-quality-validation/index.md#diagram-terminal-nodes-identification-chart) |  | Microsim | Not specified | 0 | Medium | chartjs-generator<br>(97)<br>bubble-chart-generator<br>(80)<br>microsim-p5<br>(72) |
 | 6 | [Taxonomy Distribution Pie Chart](../chapters/06-learning-graph-quality-validation/index.md#diagram-taxonomy-distribution-pie-chart) |  | Microsim | Not specified | 0 | Medium | chartjs-generator<br>(98)<br>microsim-p5<br>(68)<br>venn-diagram-generator<br>(15) |
+| 6 | [Terminal Nodes Identification Chart](../chapters/06-learning-graph-quality-validation/index.md#diagram-terminal-nodes-identification-chart) |  | Microsim | Not specified | 0 | Medium | chartjs-generator<br>(97)<br>bubble-chart-generator<br>(80)<br>microsim-p5<br>(72) |
 | 7 | [Adding Taxonomy to CSV Workflow Diagram](../chapters/07-taxonomy-data-formats/index.md#diagram-adding-taxonomy-to-csv-workflow-diagram) |  | Microsim | Not specified | 0 | Medium | mermaid-generator<br>(94)<br>microsim-p5<br>(75)<br>vis-network<br>(45) |
 | 7 | [CSV to JSON Conversion Mapping Diagram](../chapters/07-taxonomy-data-formats/index.md#diagram-csv-to-json-conversion-mapping-diagram) |  | Microsim | Not specified | 0 | Medium | mermaid-generator<br>(90)<br>microsim-p5<br>(78)<br>chartjs-generator<br>(20) |
 | 7 | [Color Accessibility Checker MicroSim](../chapters/07-taxonomy-data-formats/index.md#diagram-color-accessibility-checker-microsim) |  | Microsim | Not specified | 12 | Hard | microsim-p5<br>(95)<br>chartjs-generator<br>(25)<br>vis-network<br>(10) |

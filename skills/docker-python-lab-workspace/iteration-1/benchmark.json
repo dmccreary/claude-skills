@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "skill_name": "docker-python-lab",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-06-30T03:18:42Z",
+    "evals_run": [],
+    "runs_per_configuration": 3
+  },
+  "runs": [],
+  "run_summary": {
+    "delta": {
+      "pass_rate": "+0.00",
+      "time_seconds": "+0.0",
+      "tokens": "+0"
+    }
+  },
+  "notes": []
+}

@@ -1,0 +1,24 @@
+{
+  "assertions": [
+    {
+      "text": "new_labs_have_suffixes_2_and_3",
+      "passed": true,
+      "evidence": "Found lab suffixes: ['1', '2', '3']"
+    },
+    {
+      "text": "factorial_in_lab_2",
+      "passed": true,
+      "evidence": "code-2 has factorial: True, recursive call: True"
+    },
+    {
+      "text": "default_args_in_lab_3",
+      "passed": true,
+      "evidence": "code-3 has default parameter: True"
+    },
+    {
+      "text": "no_suffix_collision",
+      "passed": true,
+      "evidence": "Duplicates: []; Lab-1 present: True"
+    }
+  ]
+}

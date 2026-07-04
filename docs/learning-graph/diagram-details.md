@@ -1,12 +1,12 @@
 # Diagram and MicroSim Details
 
-**Total Visual Elements:** 76
+**Total Visual Elements:** 75
 **Diagrams:** 0
-**MicroSims:** 76
+**MicroSims:** 75
 
 ## Chapter 1: Intro Ai Intelligent Textbooks
 
-**Total elements:** 6
+**Total elements:** 5
 
 ### [Claude Code Workflow Diagram](../chapters/01-intro-ai-intelligent-textbooks/index.md#diagram-claude-code-workflow-diagram)
 - **Type:** Microsim
@@ -29,17 +29,6 @@
 1. timeline-generator (Score: 98/100) - Perfect match for chronological events with specific dates, includes zoom/pan, category filtering, and event detail panels - exactly what this specification requires
 2. chartjs-generator (Score: 45/100) - Could represent timeline as line chart but lacks specialized date handling, zoom controls, and temporal-specific features
 3. microsim-p5 (Score: 55/100) - Could build custom timeline but timeline-generator already provides optimized solution for this exact use case
-
-### [Five Levels of Textbook Intelligence Visual Model](../chapters/01-intro-ai-intelligent-textbooks/index.md#diagram-five-levels-of-textbook-intelligence-visual-model)
-- **Type:** Microsim
-- **Bloom's Taxonomy:** Not specified
-- **UI Elements:** 0
-- **Difficulty:** Easy
-
-**MicroSim Generator Recommendations:**
-1. microsim-p5 (Score: 85/100) - Best for custom pyramid/staircase visualization with cumulative capabilities shown, allows creative geometric shapes and gradients
-2. mermaid-generator (Score: 70/100) - Could use block diagram or flowchart to show hierarchical levels but lacks pyramid/staircase styling
-3. chartjs-generator (Score: 40/100) - Could use stacked bar chart but doesn't capture pyramid metaphor effectively
 
 ### [Interactive Learning Element Types Comparison](../chapters/01-intro-ai-intelligent-textbooks/index.md#diagram-interactive-learning-element-types-comparison)
 - **Type:** Microsim
@@ -78,7 +67,7 @@
 
 **Total elements:** 7
 
-### [4-Hour Token Window Visualization](../chapters/02-getting-started-claude-skills/index.md#diagram-4-hour-token-window-visualization)
+### [5-Hour Token Window Visualization](../chapters/02-getting-started-claude-skills/index.md#diagram-5-hour-token-window-visualization)
 - **Type:** Microsim
 - **Bloom's Taxonomy:** Not specified
 - **UI Elements:** 0
@@ -435,17 +424,6 @@
 2. mermaid-generator (82/100) - Can create side-by-side graph diagrams with different layouts
 3. microsim-p5 (78/100) - Force-directed graph layout possible but requires physics simulation coding
 
-### [Terminal Nodes Identification Chart](../chapters/06-learning-graph-quality-validation/index.md#diagram-terminal-nodes-identification-chart)
-- **Type:** Microsim
-- **Bloom's Taxonomy:** Not specified
-- **UI Elements:** 0
-- **Difficulty:** Medium
-
-**MicroSim Generator Recommendations:**
-1. chartjs-generator (97/100) - Scatter plot chart type directly supports indegree vs outdegree visualization
-2. bubble-chart-generator (80/100) - Could add third dimension (concept importance) via bubble size
-3. microsim-p5 (72/100) - Custom scatter plot possible with manual axis and point rendering
-
 ### [Taxonomy Distribution Pie Chart](../chapters/06-learning-graph-quality-validation/index.md#diagram-taxonomy-distribution-pie-chart)
 - **Type:** Microsim
 - **Bloom's Taxonomy:** Not specified
@@ -456,6 +434,17 @@
 1. chartjs-generator (98/100) - Pie chart with percentage labels and color coding is primary Chart.js use case
 2. microsim-p5 (68/100) - Custom pie rendering possible but Chart.js provides better built-in features
 3. venn-diagram-generator (15/100) - Designed for overlapping sets, not category distribution
+
+### [Terminal Nodes Identification Chart](../chapters/06-learning-graph-quality-validation/index.md#diagram-terminal-nodes-identification-chart)
+- **Type:** Microsim
+- **Bloom's Taxonomy:** Not specified
+- **UI Elements:** 0
+- **Difficulty:** Medium
+
+**MicroSim Generator Recommendations:**
+1. chartjs-generator (97/100) - Scatter plot chart type directly supports indegree vs outdegree visualization
+2. bubble-chart-generator (80/100) - Could add third dimension (concept importance) via bubble size
+3. microsim-p5 (72/100) - Custom scatter plot possible with manual axis and point rendering
 
 ## Chapter 7: Taxonomy Data Formats
 
