@@ -199,6 +199,9 @@ nav:
     - VS Code Interface Layout for Textbook Development: sims/vs-code-interface-layout-for-textbook-development/index.md
     - "Worked Example: Determining Reading Level from Course Description": sims/worked-example-determining-reading-level-from-course-description/index.md
 
+  - Slides:
+    - List of Slide Decks: slides/index.md
+    - "Claude Skills for Intelligent Textbooks: Overview": slides/claude-skills-overview/index.md
 
 
   - Learning Graph:

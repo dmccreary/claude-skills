@@ -6,6 +6,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8765", "--directory", "docs/sims"],
       "port": 8765
+    },
+    {
+      "name": "slides-preview",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8766", "--directory", "docs/slides"],
+      "port": 8766
     }
   ]
 }

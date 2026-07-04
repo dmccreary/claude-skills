@@ -1,0 +1,22 @@
+{
+  "title": "Claude Skills for Intelligent Textbooks: Overview",
+  "description": "A 10-slide tour of the claude-skills repo — purpose, pipeline, learning graphs, token efficiency, and how to get started.",
+  "creator": "Dan McCreary",
+  "date": "2026-07-04",
+  "type": "Slide Deck",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "publisher": "Claude Skills Repository",
+  "framework": "MARP (Markdown Presentation Ecosystem)",
+  "theme": "default",
+  "slideCount": 10,
+  "sourceDocument": null,
+  "tags": [
+    "claude-skills",
+    "intelligent-textbooks",
+    "learning-graph",
+    "mkdocs-material",
+    "overview"
+  ]
+}
