@@ -41,6 +41,7 @@ claude-skills/
 │   │   ├── add-taxonomy.py        # Adds taxonomy column to CSV
 │   │   └── taxonomy-distribution.py # Generates taxonomy reports
 │   ├── linkedin-announcement-generator/ # Creates LinkedIn posts for books
+│   ├── marp-generator/              # Generates MARP slide decks (docs/slides/)
 │   ├── quiz-generator/             # Generates Bloom's Taxonomy-aligned quizzes
 │   ├── readme-generator/           # Creates GitHub README files
 │   ├── reference-generator/        # Generates curated reference lists
