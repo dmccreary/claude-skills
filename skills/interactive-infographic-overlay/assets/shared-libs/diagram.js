@@ -113,7 +113,7 @@ class DiagramSim {
       let longest = this.data.callouts[0];
       let maxLen  = 0;
       for (const c of this.data.callouts) {
-        const len = (c.description || '').length + (c.ap_tip || '').length;
+        const len = (c.description || '').length + (c.tip || '').length;
         if (len > maxLen) { maxLen = len; longest = c; }
       }
 
@@ -124,8 +124,8 @@ class DiagramSim {
       if (contentEl) contentEl.style.display = 'block';
       labelEl.textContent = longest.label || '';
       descEl.textContent  = longest.description || '';
-      if (tipEl && longest.ap_tip) {
-        tipEl.textContent   = longest.ap_tip;
+      if (tipEl && longest.tip) {
+        tipEl.textContent   = longest.tip;
         tipEl.style.display = 'block';
       }
 
@@ -584,8 +584,8 @@ class DiagramSim {
     document.getElementById('infobox-desc').textContent = callout.description;
 
     const tipEl = document.getElementById('infobox-ap-tip');
-    if (callout.ap_tip) {
-      tipEl.innerHTML    = '<strong>college placement Exam Tip:</strong> ' + callout.ap_tip;
+    if (callout.tip) {
+      tipEl.innerHTML    = '<strong>Tip:</strong> ' + callout.tip;
       tipEl.style.display = 'block';
     } else {
       tipEl.style.display = 'none';
@@ -682,8 +682,8 @@ class DiagramSim {
       document.getElementById('infobox-desc').textContent = target.description;
 
       const tipEl = document.getElementById('infobox-ap-tip');
-      if (target.ap_tip) {
-        tipEl.innerHTML    = '<strong>college placement Exam Tip:</strong> ' + target.ap_tip;
+      if (target.tip) {
+        tipEl.innerHTML    = '<strong>Tip:</strong> ' + target.tip;
         tipEl.style.display = 'block';
       }
 

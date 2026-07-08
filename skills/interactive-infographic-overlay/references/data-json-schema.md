@@ -19,7 +19,7 @@
       "color": "#8E44AD",
       "hint": "Visual hint describing what the structure looks like",
       "description": "Educational description of the structure and its function.",
-      "ap_tip": "Optional exam tip or advanced detail"
+      "tip": "Optional tip or advanced detail"
     }
   ]
 }
@@ -50,7 +50,7 @@
 | `panel` | string | Layout-dependent | Which label strip holds this callout. `top-bottom`: `"top"` or `"bottom"`. `dual-panel`: `"left"` or `"right"`. Omit for `side-panel`. Assign by proximity — see [Panel Assignment](#panel-assignment-top-bottom--dual-panel) |
 | `hint` | string | Yes | Visual description for quiz mode — describes what the structure looks like without naming it |
 | `description` | string | Yes | Full educational description shown in explore mode |
-| `ap_tip` | string | No | Exam tip or advanced detail (omit field entirely if not needed) |
+| `tip` | string | No | Tip or advanced detail (omit field entirely if not needed) |
 
 ## Position Guidelines
 
@@ -122,7 +122,7 @@ Use distinct colors to make markers easily identifiable:
       "color": "#8E44AD",
       "hint": "Large round purple structure near the center of the cell.",
       "description": "The control center of the cell, enclosed by a double-membrane nuclear envelope with pores. Contains DNA organized into chromosomes.",
-      "ap_tip": "Do not confuse the nucleus with the nucleolus — the nucleolus is a dense region inside the nucleus."
+      "tip": "Do not confuse the nucleus with the nucleolus — the nucleolus is a dense region inside the nucleus."
     },
     {
       "id": 2,
@@ -133,7 +133,7 @@ Use distinct colors to make markers easily identifiable:
       "color": "#E67E22",
       "hint": "Thin outer boundary line enclosing the entire cell.",
       "description": "The flexible outer boundary made of a phospholipid bilayer with embedded proteins. Controls what enters and exits the cell.",
-      "ap_tip": "The cell membrane is selectively permeable — small nonpolar molecules cross freely."
+      "tip": "The cell membrane is selectively permeable — small nonpolar molecules cross freely."
     }
   ]
 }
