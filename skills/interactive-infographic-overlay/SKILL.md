@@ -131,6 +131,31 @@ Create `docs/sims/{sim-id}/data.json` with the overlay data. See `references/dat
 - Space markers at least 5-8% apart to avoid overlap
 - Use the `?edit=true` URL parameter to calibrate positions after image generation
 
+**Panel assignment (`top-bottom` and `dual-panel` layouts only):**
+
+For these layouts each callout needs a `panel` field that decides which label
+strip it lives in. **Assign it by proximity — send every label to the strip
+nearest its marker. Never use an alternating / odd-even (parity) pattern.** The
+leader line's length is dominated by the gap between the marker and its label
+strip, so a parity pattern scatters labels far from their structures and makes
+the lines cross; proximity assignment keeps them short and readable.
+
+- **`top-bottom`** (top strip above the image, bottom strip below): sort the
+  callouts by `y` (0 = top of image). Give the upper half (smallest `y`)
+  `"panel": "top"` and the lower half `"panel": "bottom"`. With an odd count,
+  put the extra label on `top`. Splitting at the median keeps the two strips
+  balanced (so neither is overcrowded) while still placing each label on the
+  edge closest to its marker. Then, **within each strip, list the callouts
+  left-to-right by ascending `x`** so the leader lines don't cross.
+- **`dual-panel`** (left strip | image | right strip): the same idea rotated 90°.
+  Sort by `x`, give the left half `"panel": "left"` and the right half
+  `"panel": "right"`, and order each side top-to-bottom by ascending `y`.
+- **`side-panel`**: omit `panel` entirely — there is only one label panel.
+
+Tip: if you also number the callouts (`id`) in the same geometric order you use
+for panels — e.g. top-to-bottom for `top-bottom` — the low ids naturally land on
+`top` and the labels read in order, so the numbering and the proximity rule agree.
+
 ### Step 5: Generate main.html
 
 Create `docs/sims/{sim-id}/main.html` using the template in `assets/main-template.html`. Replace `{TITLE}`, `{IMAGE_FILENAME}`, and `{ALT_TEXT}` with the actual values.

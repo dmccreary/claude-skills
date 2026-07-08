@@ -47,6 +47,7 @@
 | `y` | number | Yes | Vertical position as percentage (0-100) of image height |
 | `radius` | number | Yes | Marker circle radius in relative units (typically 3-6) |
 | `color` | string | Yes | Hex color for the marker (e.g., `"#8E44AD"`) |
+| `panel` | string | Layout-dependent | Which label strip holds this callout. `top-bottom`: `"top"` or `"bottom"`. `dual-panel`: `"left"` or `"right"`. Omit for `side-panel`. Assign by proximity — see [Panel Assignment](#panel-assignment-top-bottom--dual-panel) |
 | `hint` | string | Yes | Visual description for quiz mode — describes what the structure looks like without naming it |
 | `description` | string | Yes | Full educational description shown in explore mode |
 | `ap_tip` | string | No | Exam tip or advanced detail (omit field entirely if not needed) |
@@ -58,6 +59,34 @@
 - Place markers at the visual center of each structure
 - Space markers at least 5-8 percentage points apart to avoid overlap
 - Initial positions are estimates — use `?edit=true` to calibrate after image generation
+
+## Panel Assignment (top-bottom / dual-panel)
+
+The `panel` field is required for the `top-bottom` and `dual-panel` layouts and
+omitted for `side-panel`. It decides which label strip a callout sits in.
+
+**Assign `panel` by proximity — put each label in the strip nearest its marker.
+Never assign by an alternating / odd-even (parity) pattern.** In `top-bottom` the
+leader line's length is dominated by the vertical gap between the marker and its
+strip (the top strip sits above the image, the bottom strip below), so a parity
+pattern drags labels far from their structures and crosses the lines.
+
+Rule for `top-bottom`:
+
+1. Sort callouts by `y` (0 = top of image).
+2. Upper half (smallest `y`) → `"panel": "top"`; lower half → `"panel": "bottom"`.
+   For an odd count the extra label goes on `top`. Splitting at the median keeps
+   the strips balanced while every label lands on its closer edge.
+3. Within each strip, order callouts left-to-right by ascending `x` so leaders
+   don't cross.
+
+Rule for `dual-panel` (same idea, rotated): sort by `x`; left half → `"left"`,
+right half → `"right"`; order each side top-to-bottom by ascending `y`.
+
+```json
+{ "id": 1, "label": "…", "x": 12, "y": 18, "panel": "top",    "…": "…" }
+{ "id": 7, "label": "…", "x": 61, "y": 82, "panel": "bottom", "…": "…" }
+```
 
 ## Recommended Color Palette
 
