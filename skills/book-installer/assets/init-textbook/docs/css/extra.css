@@ -1,0 +1,101 @@
+.md-header__button.md-logo {
+    margin: 0;
+    padding: 0;
+}
+.md-header__button.md-logo img, .md-header__button.md-logo svg {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+    background-color: #aaaaaa;
+    border-radius: 50%;
+    padding: 4px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* Container to control the iframe size and scaling */
+.iframe-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Iframe styles */
+  iframe {
+    width: 100%;
+    border: solid 2px blue;
+  }
+
+  /* if a div with <div class="upper-alpha"> wraps a list, then number A.B.C.D etc */
+  /* this requires that the markdown extension md_in_html is enabled in the mkdocs.yml file */
+  .upper-alpha ol {
+    list-style-type: upper-alpha;
+  }
+
+/* Styling for the Copy Button */
+.admonition.prompt {
+  position: relative;
+}
+
+.admonition.prompt .copy-button {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  background-color: #0056d6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.3rem 0.3rem;
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+
+.admonition.prompt .copy-button:hover {
+  background-color: #0041a4; /* Darker blue on hover */
+}
+
+/* MicroSim build-status indicators in the nav.
+   Material Community renders <span class="md-status md-status--<name>"> as
+   an empty span and paints the icon via a CSS `mask-image` driven by the
+   --md-status--<name> custom property. Material only ships variables for
+   `new`, `deprecated`, and `encrypted`, so we define our own here.
+   The visible color comes from the :after background-color, NOT from `color`,
+   because the SVG is applied as a mask.
+
+   Footgun warning: do NOT add `theme.icon.status` to mkdocs.yml to try to
+   set these icons — that key is silently Insiders-only on the Material
+   community edition and the icons will fall back to the generic "i in a
+   circle" indicator with no warning at build time. The CSS variables below
+   are the load-bearing piece on community Material. */
+:root {
+  /* Filled circle (Material Design Icons "circle") */
+  --md-status--scaffold: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2Z"/></svg>');
+  --md-status--built: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2Z"/></svg>');
+  /* Check-circle (Material Design Icons "check-circle") */
+  --md-status--approved: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/></svg>');
+}
+
+.md-status--scaffold:after {
+  background-color: #d32f2f; /* red — scaffold, not yet implemented */
+  -webkit-mask-image: var(--md-status--scaffold);
+          mask-image: var(--md-status--scaffold);
+}
+.md-status--built:after {
+  background-color: #f57c00; /* orange — built, awaiting review */
+  -webkit-mask-image: var(--md-status--built);
+          mask-image: var(--md-status--built);
+}
+.md-status--approved:after {
+  background-color: #388e3c; /* green — approved */
+  -webkit-mask-image: var(--md-status--approved);
+          mask-image: var(--md-status--approved);
+}
+
+/* Material's default :hover rule swaps the background to currentcolor (the
+   nav text color) which would erase our reds/oranges/greens. Pin the hover
+   color to a darker shade of the status color instead.
+   Use a same-hue darken (e.g. Orange 700 → Orange 800), not a value drop
+   that crosses into a redder hue (Orange 700 → Orange 900 reads as red). */
+.md-status--scaffold:hover:after { background-color: #b71c1c; }
+.md-status--built:hover:after    { background-color: #ef6c00; }
+.md-status--approved:hover:after { background-color: #1b5e20; }
