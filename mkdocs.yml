@@ -59,7 +59,7 @@ nav:
   - Skill Descriptions:
     - Overview of Skills: skill-descriptions/index.md
 
-    - Book Generation Skills:
+    - Book Skill Pages (Legacy):
       - Overview: skill-descriptions/book/index.md
       - 1 Install MkDocs Template: skill-descriptions/book/install-mkdocs-template.md
       - 2 Course Description Analyzer: skill-descriptions/book/course-description-analyzer.md
@@ -77,7 +77,7 @@ nav:
       - 14 LinkedIn Announcement Generator: skill-descriptions/book/linkedin-announcement-generator.md
       - 15 Book Installer: skill-descriptions/book/book-installer.md
 
-    - MicroSim Generation Skills:
+    - MicroSim Skill Pages (Legacy):
       - Overview: skill-descriptions/microsims/index.md
       - MicroSims p5 Generator: skill-descriptions/microsims/microsim-p5.md
       - Chart Generator: skill-descriptions/microsims/chartjs-generator.md
@@ -97,7 +97,7 @@ nav:
       - Comparison Table: skill-descriptions/microsims/comparison-table-generator.md
       - Concept Classifier: skill-descriptions/microsims/concept-classifier.md
 
-    - Specialized Skills:
+    - Specialized Skill Pages (Legacy):
       - Overview: skill-descriptions/specialized-skills/index.md
       - Moving Rainbow: skill-descriptions/specialized-skills/moving-rainbow.md
       - Install Skill Tracker: skill-descriptions/specialized-skills/install-skill-tracker.md
