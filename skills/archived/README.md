@@ -18,3 +18,7 @@ rerun the installer.
 | `diagram-reports-generator` | `microsim-utils` → `references/diagram-reports.md` | diagram report, visualization coverage, audit diagrams/microsims |
 | `init-textbook` | `book-installer` → `references/init-textbook.md` (feature 0) | init textbook, scaffold textbook, brand new book, empty directory |
 | `register-book-analytics` | `book-installer` → `references/google-analytics.md` (feature 25) | google analytics, GA4, measurement id, G-* |
+| `readme-generator` | `book-publisher` → `references/readme-guide.md` | readme, github readme, badges |
+| `linkedin-announcement-generator` | `book-publisher` → `references/linkedin-post-guide.md` | linkedin post, announcement, milestone |
+| `linkedin-carousel-generator` | `book-publisher` → `references/linkedin-carousel-guide.md` | linkedin carousel, document post, slideshow post |
+| `press-release-generator` | `book-publisher` → `references/press-release-guide.md` | press release, media pitch, journalists, AP style |

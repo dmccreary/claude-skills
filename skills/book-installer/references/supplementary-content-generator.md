@@ -242,10 +242,10 @@ If the script is not found in PATH, remind the user to install it similarly to S
 
 The README is generated after the metrics scripts so it can incorporate accurate counts: number of chapters, MicroSims, glossary terms, FAQ entries, and any summary statistics produced by `bk-generate-book-metrics` and `bk-diagram-reports`.
 
-Invoke the `readme-generator` skill to create a GitHub-facing README. This is separate from the MkDocs site and is what visitors see on the GitHub repository page.
+Invoke the `book-publisher` skill's readme route to create a GitHub-facing README. This is separate from the MkDocs site and is what visitors see on the GitHub repository page.
 
 ```
-Invoke the readme-generator skill for this project.
+Invoke the book-publisher skill (readme route) for this project.
 ```
 
 The README should include:
@@ -340,7 +340,7 @@ Report the results to the user. For any MISSING item, offer to generate it now.
 | 7 | `docs/img/cover-image-prompt.md` (`docs/img/cover.png` only if requested) | `references/cover-image-generator.md` | Sonnet (+ AI image tool if auto-generation is requested) |
 | 8 | `docs/book-metrics.md` | `bk-generate-book-metrics` script | — |
 | 9 | `docs/diagram-reports.md` | `bk-diagram-reports` script | — |
-| 10 | `README.md` | `readme-generator` skill | Sonnet |
+| 10 | `README.md` | `book-publisher` skill (readme route) | Sonnet |
 | 11 | `docs/index.md` | `references/home-page-template.md` | Sonnet |
 | 12 | `mkdocs.yml` nav | Manual edit | — |
 | 13 | Verification | Bash check | — |
