@@ -1,5 +1,11 @@
 # Book Generation Skills
 
+!!! warning "Legacy snapshot"
+    These per-skill pages describe the skills as they existed **before the
+    2026-07 consolidation** into meta-skills. They are kept so existing links
+    keep working. For the current 14-skill architecture and routing tables,
+    see the [Skill Descriptions overview](../index.md).
+
 ### 1. Book Installer (Meta-Skill)
 A consolidated installation skill that handles all project setup tasks including MkDocs Material template creation, learning graph viewer installation, skill usage tracking, and home page/cover image configuration. Routes to the appropriate installation guide based on your request.
 [Read full description](./book-installer.md)

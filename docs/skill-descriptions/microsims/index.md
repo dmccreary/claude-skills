@@ -1,5 +1,11 @@
 # Educational MicroSim Skills
 
+!!! warning "Legacy snapshot"
+    These per-skill pages describe the skills as they existed **before the
+    2026-07 consolidation** into meta-skills. They are kept so existing links
+    keep working. For the current 14-skill architecture and routing tables,
+    see the [Skill Descriptions overview](../index.md).
+
 Educational MicroSims are lightweight, interactive educational simulations designed for browser-based learning.
 MicroSims are designed to run in a rectangular `iframe` placed within a page of a textbook.
 The default height of a MicroSim is 500px and they are designed to be width-responsive so they
