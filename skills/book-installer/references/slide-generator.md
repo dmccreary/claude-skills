@@ -62,7 +62,7 @@ When you ship a behavior change to the viewer templates, bump the version in **t
 ls mkdocs.yml docs/chapters/ 2>&1
 ```
 
-If either is missing, the project isn't a MkDocs Material textbook yet — run the `mkdocs-template.md` guide first.
+If either is missing, the project isn't a MkDocs Material textbook yet — run the `init-textbook.md` guide (feature 0) first.
 
 Optional but recommended — if the project has a mascot installed, the viewer will use `neutral.png` and `celebration.png` automatically:
 

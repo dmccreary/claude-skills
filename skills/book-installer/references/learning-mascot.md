@@ -23,7 +23,7 @@ This skill helps users design and implement a pedagogical agent — a visual mas
 
 ## Prerequisites
 
-- Existing MkDocs Material project (use `mkdocs-template.md` first if needed)
+- Existing MkDocs Material project (use `init-textbook.md` — feature 0 — first if needed)
 - Access to an AI image generator (ChatGPT/DALL-E, Midjourney, Stable Diffusion, or similar)
 - Course description or learning graph to inform mascot theme
 

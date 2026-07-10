@@ -675,5 +675,5 @@ If the project doesn't have certain features, remove those sections entirely rat
 ## Related Skills
 
 - `learning-mascot.md` — Design and implement a pedagogical agent
-- `mkdocs-template.md` — Create a new intelligent textbook project
+- `init-textbook.md` — Create a new intelligent textbook project (feature 0)
 - `mkdocs-features.md` — Add features to an existing project

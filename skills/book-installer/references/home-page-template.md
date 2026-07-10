@@ -17,7 +17,7 @@ This skill creates a professional home page for intelligent textbooks with cover
 
 ## Prerequisites
 
-- Existing MkDocs Material project (use `mkdocs-template.md` first if needed)
+- Existing MkDocs Material project (use `init-textbook.md` — feature 0 — first if needed)
 - Access to an AI image generator (ChatGPT/DALL-E, Midjourney, or similar)
 - Course/book description and key themes identified
 
@@ -338,6 +338,6 @@ hide:
 
 ## Related Skills
 
-- `mkdocs-template.md` - Create new MkDocs project structure
+- `init-textbook.md` - Create new MkDocs project structure (feature 0)
 - `learning-graph-viewer.md` - Add interactive learning graph
 - `book-publisher` (linkedin-post route) - Create social media announcements

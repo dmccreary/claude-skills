@@ -362,4 +362,4 @@ After generating the file:
 - `home-page-template.md` - Home page with cover image and social metadata
 - `learning-mascot.md` - Design and implement the pedagogical mascot
 - `instructors-guide.md` - Comprehensive teacher's guide
-- `mkdocs-template.md` - Bootstrap the MkDocs project structure
+- `init-textbook.md` - Bootstrap the MkDocs project structure (feature 0)
