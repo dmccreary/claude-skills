@@ -217,7 +217,7 @@ After the score is calculated, it must be written to the index.md metadata `qual
 
 ## Resources
 
-### assets/metadata-schema.json
+### assets/microsim-schema.json
 
 JSON Schema for validating MicroSim metadata.json files against Dublin Core standards. This schema defines:
 - Required fields (9 core Dublin Core elements)

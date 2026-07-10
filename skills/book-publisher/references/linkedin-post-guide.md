@@ -525,40 +525,6 @@ The skill can be customized to:
 - Research backing
 - Awards or recognition
 
-## Supporting Scripts
-
-Metrics come straight from the canonical `book-metrics.json` — no markdown
-parsing required. A small helper only needs to load the JSON and the site
-config:
-
-**`scripts/linkedin-metrics-extractor.py`**
-
-```python
-#!/usr/bin/env python3
-"""Load canonical metrics + site config for LinkedIn announcements."""
-
-import json
-import yaml
-
-def load_book_metrics(metrics_json="docs/learning-graph/book-metrics.json"):
-    """Return the `metrics` dict from the canonical book-metrics.json."""
-    with open(metrics_json, encoding="utf-8") as f:
-        return json.load(f)["metrics"]
-
-def extract_site_config(mkdocs_file):
-    """Parse mkdocs.yml and return site metadata (name, url, description)."""
-    # Implementation: Load YAML and extract site_name, site_url, etc.
-    pass
-
-def format_number(n):
-    """Format numbers for readability (e.g., 225182 -> 225,000)."""
-    # Implementation: Round and format large numbers
-    pass
-
-# Usage:
-# python linkedin-metrics-extractor.py docs/learning-graph/book-metrics.json mkdocs.yml
-```
-
 ## Quality Standards
 
 A high-quality LinkedIn announcement should:

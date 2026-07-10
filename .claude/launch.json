@@ -12,12 +12,6 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8766", "--directory", "docs/slides"],
       "port": 8766
-    },
-    {
-      "name": "templates-preview",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8767", "--directory", "skills/microsim-generator/assets/templates"],
-      "port": 8767
     }
   ]
 }

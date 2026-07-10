@@ -50,12 +50,15 @@ Before starting, ensure you have:
    - `docs/learning-graph/concept-list.md` or `learning-graph.json` (optional, improves montage quality)
    - `docs/sims/*/*.png` MicroSim screenshots (optional, improves montage quality)
 
-2. **Only needed if the user requests auto-generation**: the `generate-cover.sh`
+2. **Only needed if the user requests auto-generation**: `$BK_HOME` exported (the
+   user's profile sets it to the `claude-skills` checkout) and the `generate-cover.sh`
    script at:
    ```
-   ~/.claude/skills/claude-skills/src/image-generation/generate-cover.sh
+   $BK_HOME/src/image-generation/generate-cover.sh
    ```
-   Or the full path to the claude-skills repository.
+   This script lives in the `claude-skills` repo itself, not inside a skill directory
+   (only `skills/*` is symlinked into `~/.claude/skills/`), so it must be reached via
+   `$BK_HOME` rather than a path under `~/.claude/skills/`.
 
 ## Workflow: Generating the Prompt
 
@@ -260,7 +263,7 @@ This is the fastest, fully automated option.
 cd /path/to/project
 
 # Run the script with no flags
-~/.claude/skills/claude-skills/src/image-generation/generate-cover.sh
+"$BK_HOME/src/image-generation/generate-cover.sh"
 ```
 
 The script will:
@@ -288,7 +291,7 @@ For users with ChatGPT Pro on macOS.
 cd /path/to/project
 
 # Run with --open-browser flag
-~/.claude/skills/claude-skills/src/image-generation/generate-cover.sh --open-browser
+"$BK_HOME/src/image-generation/generate-cover.sh" --open-browser
 ```
 
 The script will:
@@ -316,7 +319,7 @@ For users with ChatGPT Pro on non-macOS systems.
 cd /path/to/project
 
 # Run with --local-prompt flag
-~/.claude/skills/claude-skills/src/image-generation/generate-cover.sh --local-prompt
+"$BK_HOME/src/image-generation/generate-cover.sh" --local-prompt
 ```
 
 The script will:
