@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>{{TITLE}}</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- D3.js and venn.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/venn.js@0.2.20/venn.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>{{TITLE}}</h1>
+        <p class="subtitle">{{SUBTITLE}}</p>
+        <p class="description">{{DESCRIPTION}}</p>
+
+        <div id="venn-diagram"></div>
+        <div id="tooltip" class="venn-tooltip"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

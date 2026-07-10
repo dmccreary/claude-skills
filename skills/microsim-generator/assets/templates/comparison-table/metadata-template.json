@@ -1,0 +1,103 @@
+{
+    "$schema": "../shared/microsim-metadata-schema.json",
+    "microsim": {
+        "dublinCore": {
+            "title": "{{TITLE}}",
+            "creator": ["{{CREATOR}}"],
+            "subject": ["comparison", "{{SUBJECT_1}}", "{{SUBJECT_2}}"],
+            "description": "{{DESCRIPTION}}",
+            "publisher": "{{PUBLISHER}}",
+            "date": "{{DATE}}",
+            "type": "Educational MicroSim",
+            "format": "text/html",
+            "language": "en",
+            "rights": "CC BY-NC-SA 4.0"
+        },
+        "search": {
+            "tags": ["comparison-table", "{{TAG_1}}", "{{TAG_2}}"],
+            "searchKeywords": ["{{KEYWORD_1}}", "{{KEYWORD_2}}"],
+            "visualizationType": ["comparison-table", "data-table"],
+            "interactionLevel": "low",
+            "complexity": 2,
+            "relatedConcepts": ["{{CONCEPT_1}}", "{{CONCEPT_2}}"],
+            "applicationDomains": ["education", "decision-making"]
+        },
+        "educational": {
+            "gradeLevel": ["{{GRADE_LEVEL}}"],
+            "subjectArea": ["{{SUBJECT_AREA}}"],
+            "topic": ["{{TOPIC_1}}", "{{TOPIC_2}}"],
+            "learningObjectives": [
+                "{{LEARNING_OBJECTIVE_1}}",
+                "{{LEARNING_OBJECTIVE_2}}"
+            ],
+            "bloomsTaxonomy": ["Understand", "Analyze", "Evaluate"],
+            "prerequisites": [],
+            "duration": {
+                "typical": 5,
+                "range": {"min": 3, "max": 10}
+            },
+            "difficulty": "Beginner"
+        },
+        "technical": {
+            "framework": "vanilla-js",
+            "version": "1.0.0",
+            "canvasDimensions": {
+                "width": 900,
+                "height": 470,
+                "responsive": true
+            },
+            "dependencies": [],
+            "browserCompatibility": ["Chrome 90+", "Firefox 88+", "Safari 14+", "Edge 90+"],
+            "performance": {
+                "memoryUsage": "low",
+                "loadTime": 300
+            },
+            "deviceRequirements": {
+                "minScreenWidth": 320,
+                "touchSupport": true,
+                "keyboardRequired": false,
+                "mouseRequired": false,
+                "networkRequired": false
+            },
+            "accessibility": {
+                "screenReader": false,
+                "keyboardNavigation": false,
+                "colorContrast": true,
+                "altText": true
+            }
+        },
+        "userInterface": {
+            "layoutType": "responsive-width",
+            "layoutPattern": "comparison-table-with-legend",
+            "colorScheme": {
+                "drawingArea": "white",
+                "controlArea": "aliceblue",
+                "accent": "#22c55e",
+                "text": "#333"
+            },
+            "controls": [],
+            "visualElements": [
+                {
+                    "type": "table",
+                    "description": "Side-by-side comparison of items across rated criteria",
+                    "interactive": true
+                },
+                {
+                    "type": "star-rating",
+                    "description": "1-5 star color-coded rating per criterion",
+                    "interactive": false
+                },
+                {
+                    "type": "badge",
+                    "description": "Difficulty/category badge (Easy/Medium/Hard)",
+                    "interactive": false
+                },
+                {
+                    "type": "tooltip",
+                    "description": "Hover tooltip with item description",
+                    "interactive": true
+                }
+            ]
+        }
+    }
+}

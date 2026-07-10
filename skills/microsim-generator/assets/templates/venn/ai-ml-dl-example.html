@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI, Machine Learning, and Data Science</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/venn.js@0.2.20/venn.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>AI, Machine Learning, and Data Science</h1>
+        <p class="subtitle">Interactive Venn Diagram</p>
+        <p class="description">Explore how three closely related fields overlap. Hover over any region to see what it represents.</p>
+
+        <div id="venn-diagram"></div>
+        <div id="tooltip" class="venn-tooltip"></div>
+    </div>
+
+    <script>
+        var sets = [
+          {sets: ['AI'], size: 120},
+          {sets: ['Machine Learning'], size: 100},
+          {sets: ['Data Science'], size: 110},
+          {sets: ['AI', 'Machine Learning'], size: 70},
+          {sets: ['AI', 'Data Science'], size: 60},
+          {sets: ['Machine Learning', 'Data Science'], size: 65},
+          {sets: ['AI', 'Machine Learning', 'Data Science'], size: 50}
+        ];
+
+        var colorScheme = [
+          {set: 'AI', color: '#667eea'},
+          {set: 'Machine Learning', color: '#764ba2'},
+          {set: 'Data Science', color: '#f093fb'}
+        ];
+
+        var definitions = {
+            'AI': 'Systems that simulate human intelligence and decision-making',
+            'Machine Learning': 'Algorithms that learn patterns from data without explicit programming',
+            'Data Science': 'Field combining statistics, analysis, and domain expertise to extract insights',
+            'AI,Machine Learning': 'ML is a core approach within AI for building intelligent systems',
+            'AI,Data Science': 'AI techniques applied to data analysis and predictive modeling',
+            'Data Science,Machine Learning': 'ML provides the algorithms that data scientists use for analysis',
+            'AI,Data Science,Machine Learning': 'The intersection where intelligent systems learn from data'
+        };
+
+        function getDefinition(setNames) {
+            var key = setNames.slice().sort().join(',');
+            return definitions[key] || setNames.join(' ∩ ');
+        }
+
+        var chart = venn.VennDiagram().width(600).height(450);
+        var div = d3.select('#venn-diagram');
+        div.datum(sets).call(chart);
+
+        colorScheme.forEach(function (entry) {
+            div.selectAll('.venn-circle path')
+                .filter(function (d) { return d.sets.length === 1 && d.sets[0] === entry.set; })
+                .style('fill', entry.color)
+                .style('fill-opacity', 0.7)
+                .style('stroke', entry.color)
+                .style('stroke-width', 2);
+        });
+
+        var tooltip = d3.select('#tooltip');
+
+        div.selectAll('.venn-area')
+            .on('mouseover', function (event, d) {
+                d3.select(this).select('path').style('stroke-width', 3);
+                tooltip.style('left', event.pageX + 15 + 'px')
+                    .style('top', event.pageY + 15 + 'px')
+                    .classed('visible', true)
+                    .html(getDefinition(d.sets));
+            })
+            .on('mousemove', function (event) {
+                tooltip.style('left', event.pageX + 15 + 'px').style('top', event.pageY + 15 + 'px');
+            })
+            .on('mouseout', function () {
+                d3.select(this).select('path').style('stroke-width', 2);
+                tooltip.classed('visible', false);
+            });
+    </script>
+</body>
+</html>

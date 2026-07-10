@@ -147,11 +147,11 @@ mkdir -p /docs/sims/[diagram-name]
 
 ### Step 4: Generate Files from Templates
 
-Use the template files in `assets/template/` as a starting point. Replace all placeholders with actual content.
+Use the template files in `assets/templates/venn/` as a starting point. Replace all placeholders with actual content.
 
 #### 4.1 Create script.js
 
-Copy `assets/template/script.js` and replace placeholders:
+Copy `assets/templates/venn/script.js` and replace placeholders:
 
 - `{{VENN_DATA}}`: Replace with the actual sets array (from Step 2)
 - `{{COLOR_SCHEME}}`: Replace with color configuration array
@@ -222,7 +222,7 @@ function getDefinition(sets) {
 
 #### 4.2 Create main.html
 
-Copy `assets/template/main.html` and replace these placeholders:
+Copy `assets/templates/venn/main-template.html` and replace these placeholders:
 
 - `{{TITLE}}`: Diagram title (e.g., "Programming Languages Comparison")
 - `{{SUBTITLE}}`: Brief subtitle (e.g., "Interactive Venn Diagram")
@@ -236,7 +236,7 @@ The main.html template already includes:
 
 #### 4.3 Create style.css
 
-Copy `assets/template/style.css` directly - **no modifications needed** unless custom styling is requested.
+Copy `assets/templates/venn/style.css` directly - **no modifications needed** unless custom styling is requested.
 
 The default stylesheet ensures:
 - 16px minimum font size for accessibility
@@ -247,7 +247,7 @@ The default stylesheet ensures:
 
 #### 4.4 Create index.md
 
-Copy `assets/template/index.md` and replace placeholders:
+Copy `assets/templates/venn/index-template.md` and replace placeholders:
 
 - `{{TITLE}}`: Same as main.html title
 - `{{META_DESCRIPTION}}`: SEO-friendly description (1 sentence)
@@ -266,7 +266,7 @@ Copy `assets/template/index.md` and replace placeholders:
 
 #### 4.5 Create metadata.json
 
-Copy `assets/template/metadata.json` and replace placeholders:
+Copy `assets/templates/venn/metadata-template.json` and replace placeholders:
 
 - `{{TITLE}}`: Diagram title
 - `{{DESCRIPTION}}`: Brief description (2-3 sentences)
@@ -600,15 +600,15 @@ var sets = [
 ### Bundled References
 
 - **`references/venn-js-reference.md`**: Comprehensive venn.js guide with examples, data formats, styling options, color palettes, and troubleshooting
-- **`ai-ml-dl-examplejs.js`**: Complete working example demonstrating educational tooltips with definitions for AI, ML, and Deep Learning relationships. Shows proper implementation of the definitions pattern.
+- **`assets/templates/venn/ai-ml-dl-example.html`**: Complete working example demonstrating educational tooltips with definitions for AI, Machine Learning, and Data Science relationships. Shows proper implementation of the definitions pattern.
 
 ### Bundled Templates
 
-- **`assets/template/main.html`**: Standalone HTML diagram template with CDN links
-- **`assets/template/style.css`**: Responsive stylesheet with tooltip and print styles
-- **`assets/template/script.js`**: Interactive venn.js initialization with tooltips
-- **`assets/template/index.md`**: MkDocs integration template
-- **`assets/template/metadata.json`**: Dublin Core metadata template
+- **`assets/templates/venn/main-template.html`**: Standalone HTML diagram template with CDN links
+- **`assets/templates/venn/style.css`**: Responsive stylesheet with tooltip and print styles
+- **`assets/templates/venn/script.js`**: Interactive venn.js initialization with tooltips
+- **`assets/templates/venn/index-template.md`**: MkDocs integration template
+- **`assets/templates/venn/metadata-template.json`**: Dublin Core metadata template
 
 ### External Resources
 

@@ -4,8 +4,6 @@ This reference document provides detailed matching criteria for all available Mi
 
 ## Recent Updates
 
-**Version Check:** This file is version-controlled on GitHub. Use `scripts/check-version.py` to verify you have the latest version.
-
 - **2026-01-27**: Added html-table-generator for interactive matrix comparisons with clickable cells and sliding detail panels
 - **2025-11-17**: Initial release with 9 MicroSim generators
   - Added: microsim-p5, chartjs-generator, math-function-plotter-plotly

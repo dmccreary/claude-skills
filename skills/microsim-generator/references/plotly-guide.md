@@ -82,16 +82,17 @@ docs/sims/[microsim-name]/
 
 ### Step 3: Generate main.html
 
-Use the template from `assets/template-iframe-main.html` and replace placeholders:
+Use the template from `assets/templates/plotly/main-template.html` and replace placeholders:
 
 **Placeholder replacements:**
 
 - `{{TITLE}}` → Full title (e.g., "Sine Function Visualization")
 - `{{SUBTITLE}}` → Function expression or description (e.g., "y = sin(x)")
-- `{{X_MIN}}` → Minimum x value (e.g., -6.28)
-- `{{X_MAX}}` → Maximum x value (e.g., 6.28)
-- `{{X_STEP}}` → Slider step size (e.g., 0.01)
-- `{{INITIAL_X}}` → Initial slider position (e.g., 0)
+- `{{SLIDER_LABEL}}` → Label shown above the slider (e.g., "x")
+- `{{SLIDER_MIN}}` → Minimum slider value — matches the domain minimum (e.g., -6.28)
+- `{{SLIDER_MAX}}` → Maximum slider value — matches the domain maximum (e.g., 6.28)
+- `{{SLIDER_STEP}}` → Slider step size (e.g., 0.01)
+- `{{INITIAL_VALUE}}` → Initial slider position (e.g., 0)
 
 **Key features to preserve:**
 
@@ -102,7 +103,7 @@ Use the template from `assets/template-iframe-main.html` and replace placeholder
 
 ### Step 4: Generate style.css
 
-Use the template from `assets/template-iframe-style.css`.
+Use the template from `assets/templates/plotly/style.css`.
 
 **Critical requirements:**
 
@@ -117,22 +118,25 @@ Use the template from `assets/template-iframe-style.css`.
 
 ### Step 5: Generate script.js
 
-Use the template from `assets/template-script.js` and replace placeholders:
+Use the template from `assets/templates/plotly/script.js`. Unlike the other templates in this
+skill, this file has no `{{PLACEHOLDER}}` tokens — it is a working example (the sine function)
+that you edit directly:
 
-**Placeholder replacements:**
+**Edits to make:**
 
-- `{{FUNCTION_JS}}` → JavaScript function definition
+- The `f(x)` function body → replace `return Math.sin(x);` with the requested function:
   ```javascript
   function f(x) {
-      return Math.sin(x);  // Example
+      return Math.sin(x);  // Replace with the requested function
   }
   ```
-- `{{X_MIN}}`, `{{X_MAX}}` → Domain limits
-- `{{Y_MIN}}`, `{{Y_MAX}}` → Range limits (or calculate automatically)
-- `{{FUNCTION_LABEL}}` → Legend label (e.g., "y = sin(x)")
-- `{{X_LABEL}}` → X-axis label (default: "x")
-- `{{Y_LABEL}}` → Y-axis label (default: "y")
-- `{{FILENAME}}` → Export filename (e.g., "sine-function")
+- The `config` object at the top of the file:
+  - `xMin`, `xMax` → domain limits
+  - `yMin`, `yMax` → range limits (or leave as-is and auto-calculate — see below)
+  - `numPoints` → sample count for the curve (500 default; keep under 2000)
+  - `initialX` → starting slider position
+  - `xAxisLabel`, `yAxisLabel` → axis labels (default: "x", "y = f(x)")
+  - `functionName`, `pointName` → legend labels for the curve and the interactive point
 
 **Function conversion guide:**
 
@@ -166,7 +170,7 @@ const yMax = Math.max(...yValues) * 1.1;
 
 ### Step 6: Create index.md Documentation
 
-Use the template from `assets/template-index.md` and customize:
+Use the template from `assets/templates/plotly/index-template.md` and customize:
 
 **Required sections:**
 
@@ -202,7 +206,9 @@ Use the template from `assets/template-index.md` and customize:
 
 ### Step 7: Create metadata.json
 
-Use the template from `assets/template-metadata.json`:
+Use the template from `assets/templates/plotly/metadata-template.json`. It conforms to the
+repository-wide schema at `assets/templates/shared/microsim-metadata-schema.json`, so these
+fields live under `microsim.dublinCore`, not at the top level.
 
 **Required Dublin Core fields:**
 

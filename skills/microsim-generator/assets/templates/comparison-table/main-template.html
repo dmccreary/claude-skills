@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>{{TITLE}}</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>{{TITLE}}</h2>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>{{RATING_COLUMN_1_LABEL}}</th>
+                    <th>{{RATING_COLUMN_2_LABEL}}</th>
+                    <th>{{DIFFICULTY_COLUMN_LABEL}}</th>
+                    <th>{{DESCRIPTION_COLUMN_LABEL}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--
+                  Repeat this <tr> once per compared item. The first row's
+                  tooltip is forced below the cell via .first-row (see
+                  style.css) so it never hides behind the <thead>.
+                -->
+                <tr class="first-row" data-tooltip="{{ITEM_1_TOOLTIP_DESCRIPTION}}">
+                    <td class="item-cell">
+                        <img src="logos/{{ITEM_1_LOGO_FILENAME}}" alt="{{ITEM_1_NAME}} logo" class="item-logo">
+                        <span>{{ITEM_1_NAME}}</span>
+                    </td>
+                    <td class="rating">
+                        <span class="stars stars-4">★★★★</span><span class="stars-empty">★</span>
+                    </td>
+                    <td class="rating">
+                        <span class="stars stars-5">★★★★★</span>
+                    </td>
+                    <td>
+                        <span class="difficulty easy">Easy</span>
+                    </td>
+                    <td class="description-cell">{{ITEM_1_DESCRIPTION}}</td>
+                </tr>
+
+                <tr data-tooltip="{{ITEM_2_TOOLTIP_DESCRIPTION}}">
+                    <td class="item-cell">
+                        <img src="logos/{{ITEM_2_LOGO_FILENAME}}" alt="{{ITEM_2_NAME}} logo" class="item-logo">
+                        <span>{{ITEM_2_NAME}}</span>
+                    </td>
+                    <td class="rating">
+                        <span class="stars stars-3">★★★</span><span class="stars-empty">★★</span>
+                    </td>
+                    <td class="rating">
+                        <span class="stars stars-2">★★</span><span class="stars-empty">★★★</span>
+                    </td>
+                    <td>
+                        <span class="difficulty medium">Medium</span>
+                    </td>
+                    <td class="description-cell">{{ITEM_2_DESCRIPTION}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="legend">
+            <span class="legend-item"><span class="difficulty easy">Easy</span> {{EASY_LEGEND_TEXT}}</span>
+            <span class="legend-item"><span class="difficulty medium">Medium</span> {{MEDIUM_LEGEND_TEXT}}</span>
+            <span class="legend-item"><span class="difficulty hard">Hard</span> {{HARD_LEGEND_TEXT}}</span>
+        </div>
+
+        <p class="source">{{SOURCE_CITATION}}</p>
+    </div>
+</body>
+</html>

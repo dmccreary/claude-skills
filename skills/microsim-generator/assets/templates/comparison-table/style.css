@@ -1,0 +1,207 @@
+/*
+ * Comparison Table MicroSim Template - Responsive Styling
+ * Designed for iframe embedding with minimal padding and margins
+ * Target: <iframe src="main.html" height="470px" width="100%" scrolling="no"></iframe>
+ *
+ * Lessons learned:
+ * - Tooltips are pure CSS (content: attr(data-tooltip)) so no JS is needed.
+ * - The first row's tooltip must render BELOW the row, not above, or the
+ *   thead clips it. See the `.first-row` override at the bottom of this file.
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background-color: aliceblue;
+    color: #333;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: visible;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+    /* Fixed row height keeps logos aligned across rows */
+    height: 52px;
+}
+
+.comparison-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+    font-size: 14px;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.item-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.item-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.description-cell {
+    font-size: 14px;
+    color: #444;
+}
+
+/* Star rating color system - 5 color scale */
+.stars {
+    letter-spacing: 1px;
+}
+
+.stars-empty {
+    color: #dcdcdc;
+    letter-spacing: 1px;
+}
+
+.stars-5 { color: #22c55e; } /* Excellent */
+.stars-4 { color: #84cc16; } /* Very Good */
+.stars-3 { color: #f59e0b; } /* Good/Average */
+.stars-2 { color: #f97316; } /* Below Average */
+.stars-1 { color: #ef4444; } /* Poor */
+
+/* Difficulty / category badges */
+.difficulty {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+}
+
+.difficulty.easy   { background-color: #22c55e; }
+.difficulty.medium { background-color: #f59e0b; }
+.difficulty.hard   { background-color: #ef4444; }
+
+/* Legend */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #555;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.source {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 12px;
+    color: #6c757d;
+}
+
+/* Pure CSS hover tooltips, keyed off data-tooltip on the <tr> */
+.comparison-table tbody tr {
+    position: relative;
+    cursor: default;
+}
+
+.comparison-table tbody tr[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+    background-color: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: normal;
+    max-width: 260px;
+    width: max-content;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* First-row fix: the header sits directly above this row, so flip the
+   tooltip to render below the row instead of above it. */
+.comparison-table tbody tr.first-row[data-tooltip]:hover::after {
+    bottom: auto;
+    top: 100%;
+    margin-bottom: 0;
+    margin-top: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 3px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 8px 8px;
+        font-size: 13px;
+    }
+
+    .item-logo {
+        width: 24px;
+        height: 24px;
+    }
+
+    .comparison-table tbody tr[data-tooltip]:hover::after {
+        max-width: 180px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    .legend {
+        font-size: 12px;
+        gap: 10px;
+    }
+}

@@ -53,7 +53,7 @@ docs/sims/[microsim-name]/
 
 ### Step 3: Generate main.html
 
-Use the template in `assets/main-template.html` as the base. Key customization points:
+Use the template in `assets/templates/comparison-table/main-template.html` as the base. Key customization points:
 
 1. **Title**: Update the `<title>` and `<h2>` elements
 2. **Table Headers**: Customize the `<thead>` columns
@@ -85,7 +85,7 @@ Star color classes:
 
 ### Step 4: Generate style.css
 
-Copy the template from `assets/style-template.css`. The CSS includes:
+Copy the template from `assets/templates/comparison-table/style.css`. The CSS includes:
 
 - Star rating color system (5-color scale)
 - Difficulty badge styling (easy/medium/hard)
@@ -101,7 +101,7 @@ Customization may be needed for:
 
 ### Step 5: Create index.md
 
-Use the template in `assets/index-template.md` to create documentation that includes:
+Use the template in `assets/templates/comparison-table/index-template.md` to create documentation that includes:
 
 1. **YAML Frontmatter**: title, description, quality_score
 2. **Title**: Level 1 header matching the table title
@@ -114,24 +114,9 @@ Use the template in `assets/index-template.md` to create documentation that incl
 
 ### Step 6: Create metadata.json
 
-Create Dublin Core metadata following the schema in `assets/metadata-schema.json`:
-
-```json
-{
-  "title": "Comparison Table Title",
-  "description": "Interactive comparison table showing...",
-  "creator": "Author Name",
-  "date": "YYYY-MM-DD",
-  "subject": ["comparison", "keyword1", "keyword2"],
-  "type": "Interactive Simulation",
-  "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY-NC-SA 4.0",
-  "educationalLevel": "High School",
-  "learningResourceType": "comparison table",
-  "library": "CSS (no JavaScript library)"
-}
-```
+Copy `assets/templates/comparison-table/metadata-template.json` and replace placeholders. It
+conforms to the repository-wide schema at `assets/templates/shared/microsim-metadata-schema.json`
+(the same schema used by every other MicroSim library — chartjs, p5, plotly, map, vis-network).
 
 ### Step 7: Add Logo Files
 
@@ -200,24 +185,23 @@ For new column types, add appropriate CSS classes.
 
 ## Resources
 
-### assets/main-template.html
+### assets/templates/comparison-table/main-template.html
 
 Complete HTML template for the comparison table with:
-- Comprehensive HTML comments explaining each section
-- Sample data rows demonstrating all patterns
+- Sample data rows demonstrating the item, rating, badge, and description cell patterns
 - Proper tooltip structure with data-tooltip attributes
 - Legend and source attribution sections
 
-### assets/style-template.css
+### assets/templates/comparison-table/style.css
 
 Complete CSS stylesheet including:
-- Documented lessons learned section
+- Documented lessons-learned comments (pure-CSS tooltips, first-row fix)
 - Star rating color classes
 - Difficulty badge styling
 - Tooltip system with first-row fix
 - Responsive breakpoints
 
-### assets/index-template.md
+### assets/templates/comparison-table/index-template.md
 
 Documentation template following microsim-standardization standards:
 - YAML frontmatter with SEO fields
@@ -225,13 +209,10 @@ Documentation template following microsim-standardization standards:
 - Section structure for educational content
 - Learning objectives template
 
-### assets/metadata-schema.json
+### assets/templates/comparison-table/metadata-template.json
 
-JSON Schema for validating metadata.json files (copied from microsim-standardization skill).
-
-### assets/metadata-template.json
-
-Sample metadata.json with all Dublin Core fields.
+Sample metadata.json with all Dublin Core fields, conforming to the shared schema at
+`assets/templates/shared/microsim-metadata-schema.json`.
 
 ## Notes
 

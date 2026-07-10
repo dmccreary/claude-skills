@@ -101,7 +101,7 @@ Note: Do not add the frameborder attribute to the iframe.  The site-wide CSS is 
 - If missing: Add TODO to create `metadata.json` with Dublin Core metadata
 
 #### 7. Metadata.json Schema Validation
-- Validate `metadata.json` against the Dublin Core schema in `assets/metadata-schema.json`
+- Validate `metadata.json` against the Dublin Core schema in `assets/microsim-schema.json`
 - Required Dublin Core fields:
   - `title` - MicroSim name
   - `description` - Purpose and functionality
