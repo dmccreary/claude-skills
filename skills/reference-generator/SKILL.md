@@ -161,10 +161,12 @@ Add a link at the end of each chapter's `index.md`:
 
 ### Step 7: Update mkdocs.yml Navigation
 
-Add references to the navigation for each chapter:
+Nest an `Annotated References:` entry under each chapter in `mkdocs.yml`,
+following the canonical nav-editing rules (read-before-write, serialize
+edits, `Content:` label for the chapter page) in
+`$HOME/.claude/skills/book-installer/references/mkdocs-nav-editing.md`:
 
 ```yaml
-- Chapters:
   - 1. Chapter Name:
     - Content: chapters/01-chapter-folder/index.md
     - Quiz: chapters/01-chapter-folder/quiz.md

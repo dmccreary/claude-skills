@@ -278,7 +278,7 @@ Aim for 80%+ coverage of Priority 1 concepts.
 
 #### Step 4: Generate Questions by Bloom's Level
 
-For each concept selected for testing, generate question at appropriate Bloom's level following target distribution.
+For each concept selected for testing, generate question at appropriate Bloom's level following target distribution. For per-level action verbs and question-writing guidance, read the canonical reference `$HOME/.claude/skills/chapter-content-generator/references/blooms-taxonomy.md`.
 
 **IMPORTANT FORMATTING REQUIREMENT:**
 
@@ -690,34 +690,19 @@ Perform comprehensive validation across all generated quizzes:
 
 #### Step 14: Update Site Navigation
 
-Update `mkdocs.yml` to include quizzes in each chapter directory:
+Nest a `Quiz:` entry under each chapter in `mkdocs.yml`, and add the
+`Quiz Generation Report:` under `Learning Graph:`. Follow the canonical
+nav-editing rules in
+`$HOME/.claude/skills/book-installer/references/mkdocs-nav-editing.md` —
+in particular: read-before-write, **serialize nav edits when quizzes are
+generated for many chapters in parallel** (apply all nav changes in one edit
+at the end), label the chapter page `Content:`, and never put the string
+"Chapter" in the label:
 
 ```yml
-nav:
-  ...
-  - Chapters:
-    - Overview: chapters/index.md
     - 1. Introduction to AI and Intelligent Textbooks:
       - Content: chapters/01-intro-ai-intelligent-textbooks/index.md
       - Quiz: chapters/01-intro-ai-intelligent-textbooks/quiz.md
-    - 2. Getting Started with Claude and Skills:
-      - Content: chapters/02-getting-started-claude-skills/index.md
-      - Quiz: chapters/02-getting-started-claude-skills/quiz.md
-    - 3. Course Design and Educational Theory:
-      - Content: chapters/03-course-design-educational-theory/index.md
-      - Quiz: chapters/03-course-design-educational-theory/quiz.md
-```
-
-Note that the string "Chapter" should **not** be placed in the main chapter content label that points to the index.md file.
-
-Also update `mkdocs.yml` to include quiz quality reports:
-
-```yml
-nav:
-  ...
-  Learning Graph:
-    ...
-    Quiz Generation Report: learning-graph/quiz-generation-report.md
 ```
 
 #### Step 15: Capture End Time and Write Session Log

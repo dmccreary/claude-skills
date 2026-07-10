@@ -141,7 +141,10 @@ Read and analyze all content sources to identify common question patterns:
 
 ### Step 3: Generate Question Categories
 
-Create 6 standard categories aligned with learning progression:
+Create 6 standard categories aligned with learning progression. For detailed
+guidance on writing questions at each Bloom's level (question starters, answer
+characteristics, common mistakes), read the canonical reference
+`$HOME/.claude/skills/chapter-content-generator/references/blooms-taxonomy.md`.
 
 **1. Getting Started Questions (10-15 questions)**
 
@@ -592,34 +595,11 @@ Perform comprehensive validation:
 
 ### Step 10: Update Navigation Section in mkdocs.yml (Optional)
 
-If FAQ not in `mkdocs.yml`:
-
-1. Read `mkdocs.yml`
-2. Check if "FAQ: faq.md" exists in nav
-3. If missing, add in appropriate location (typically near end of the nav structure)
-4. Preserve existing structure
-
-```yml
-nav:
-...
-  - FAQ: faq.md
-  - Glossary: glossary.md
-  - License: license.md
-  - References: references.md
-  - Contact: contact.md
-```
-
-If quality reports were created in the learning-graph directory
-also add these to the mkdocs.yml file in appropriate places.
-
-```yml
-nav:
-  ...
-  - Learning Graph:
-    ...
-    - FAQ Quality Report: learning-graph/faq-quality-report.md
-    - FAQ Coverage Gaps: learning-graph/faq-coverage-gaps.md
-```
+If `- FAQ: faq.md` is not yet in the `nav:`, add it near the end (adjacent to
+Glossary), and add any quality reports under `Learning Graph:`
+(`faq-quality-report.md`, `faq-coverage-gaps.md`). Follow the canonical
+nav-editing rules in
+`$HOME/.claude/skills/book-installer/references/mkdocs-nav-editing.md`.
 
 ## Quality Scoring Reference
 

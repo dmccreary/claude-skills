@@ -541,6 +541,7 @@ Make SURE to put the level 4 header with the prefix `#### Diagram:` before the d
    - **Analyzing:** Breaking down information into parts to understand its structure and relationships, and drawing comparisons.
    - **Evaluating:** Making judgments about information based on set criteria or standards, requiring critical thinking and justification.
    - **Creating:** Producing new or original work by combining elements to form a novel whole or solution.
+- For the per-level action-verb lists and detailed question-writing guidance, read the canonical reference `references/blooms-taxonomy.md` (also used by faq-generator and quiz-generator).
 
 #### Step 2.5: Verify Completeness
 

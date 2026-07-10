@@ -323,12 +323,9 @@ Perform final validation:
 
 ### Step 9: Update Navigation (Optional)
 
-If `mkdocs.yml` does not already include the glossary:
-
-1. Read `mkdocs.yml`
-2. Check if "Glossary: glossary.md" exists in nav section
-3. If missing, add it in an appropriate location
-4. Preserve existing navigation structure
+If `- Glossary: glossary.md` is not yet in the `nav:` of `mkdocs.yml`, add it
+near the end (before License/Contact), following the canonical nav-editing
+rules in `$HOME/.claude/skills/book-installer/references/mkdocs-nav-editing.md`.
 
 ### Step 10: Generate Cross-Reference Index (Optional)
 

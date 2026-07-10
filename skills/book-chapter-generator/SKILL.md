@@ -363,26 +363,18 @@ TODO: Generate Chapter Content
 
 #### 4.5 Update MkDocs Navigation
 
-After creating all chapter files, update `mkdocs.yml` to include the chapters in navigation.
-Note that the navigation bar is not very wide, so we don't spell out the name "Chapter X" in the nav bar.
-We only need to put the number since the "Chapters:" label is above the list of chapters.
+After creating all chapter files, add the chapters to the `Chapters:` section of
+`mkdocs.yml`. Follow the canonical nav-editing rules (read-before-write,
+serialize edits, only touch your section, number-only chapter labels) in
+`$HOME/.claude/skills/book-installer/references/mkdocs-nav-editing.md`.
 
 ```yaml
-nav:
-  - Home: index.md
-  - Course Description: course-description.md
   - Chapters:
     - List of Chapters: chapters/index.md
     - 1. [Chapter 1 Title]: chapters/01-[url-path-name]/index.md
     - 2. [Chapter 2 Title]: chapters/02-[url-path-name]/index.md
-    - 3. [Chapter 3 Title]: chapters/03-[url-path-name]/index.md
     # ... continue for all chapters
-  - Learning Graph:
-    - Introduction: learning-graph/index.md
-    # ... existing learning graph pages
 ```
-
-**Note:** Only update the `Chapters:` section. Do not remove or modify other navigation entries.
 
 #### 4.6 Confirm Completion
 
