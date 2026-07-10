@@ -570,9 +570,12 @@ Use a JSON linter or validator before running schema validation.
 - [Creative Commons Licenses](https://creativecommons.org/licenses/) - Open content licenses
 - [MicroSim Pattern Documentation](https://github.com/dmccreary/claude-skills/blob/main/README.md) - Repository-specific MicroSim guidelines
 
-## Skill Location
+## Guide Location
 
-`skills/microsim-standardization/SKILL.md`
+`skills/microsim-utils/references/standardization.md`
+
+This was formerly the standalone `microsim-standardization` skill; it is now a guide
+inside the `microsim-utils` meta-skill.
 
 ## Notes
 

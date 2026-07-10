@@ -567,6 +567,9 @@ The iframe will automatically embed within the page with proper responsive behav
 - [MicroSim Standardization](microsim-standardization.md)
 - [Dublin Core Metadata](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)
 
-## Skill Location
+## Guide Location
 
-`skills/math-function-plotter-plotly/SKILL.md`
+`skills/microsim-generator/references/plotly-guide.md`
+
+This was formerly the standalone `math-function-plotter-plotly` skill; it is now a guide
+inside the `microsim-generator` meta-skill.

@@ -34,7 +34,7 @@ When scoring, consider:
 
 ### 1. microsim-p5
 
-**Skill Location**: `skills/microsim-generator/references/p5-guide.md`
+**Guide Location**: `skills/microsim-generator/references/p5-guide.md`
 
 **Primary Use Cases:**
 - Custom animations and simulations
@@ -82,7 +82,7 @@ When scoring, consider:
 
 ### 2. chartjs-generator
 
-**Skill Location**: `skills/microsim-generator/references/chartjs-guide.md`
+**Guide Location**: `skills/microsim-generator/references/chartjs-guide.md`
 
 **Primary Use Cases:**
 - Standard statistical charts
@@ -140,7 +140,7 @@ When scoring, consider:
 
 ### 3. math-function-plotter-plotly
 
-**Skill Location**: `skills/microsim-generator/references/plotly-guide.md`
+**Guide Location**: `skills/microsim-generator/references/plotly-guide.md`
 
 **Primary Use Cases:**
 - Mathematical function plots
@@ -199,7 +199,7 @@ When scoring, consider:
 
 ### 4. mermaid-generator
 
-**Skill Location**: `skills/microsim-generator/references/mermaid-guide.md`
+**Guide Location**: `skills/microsim-generator/references/mermaid-guide.md`
 
 **Primary Use Cases:**
 - Flowcharts and process diagrams
@@ -263,7 +263,7 @@ When scoring, consider:
 
 ### 5. vis-network
 
-**Skill Location**: `skills/microsim-generator/references/vis-network-guide.md`
+**Guide Location**: `skills/microsim-generator/references/vis-network-guide.md`
 
 **Primary Use Cases:**
 - Network diagrams (nodes and edges)
@@ -319,7 +319,7 @@ When scoring, consider:
 
 ### 6. timeline-generator
 
-**Skill Location**: `skills/microsim-generator/references/timeline-guide.md`
+**Guide Location**: `skills/microsim-generator/references/timeline-guide.md`
 
 **Primary Use Cases:**
 - Historical timelines
@@ -374,7 +374,7 @@ When scoring, consider:
 
 ### 7. map-generator
 
-**Skill Location**: `skills/microsim-generator/references/map-guide.md`
+**Guide Location**: `skills/microsim-generator/references/map-guide.md`
 
 **Primary Use Cases:**
 - Geographic visualizations
@@ -430,7 +430,7 @@ When scoring, consider:
 
 ### 8. venn-diagram-generator
 
-**Skill Location**: `skills/microsim-generator/references/venn-guide.md`
+**Guide Location**: `skills/microsim-generator/references/venn-guide.md`
 
 **Primary Use Cases:**
 - Set theory visualizations
@@ -484,7 +484,7 @@ When scoring, consider:
 
 ### 9. bubble-chart-generator
 
-**Skill Location**: `skills/microsim-generator/references/bubble-guide.md`
+**Guide Location**: `skills/microsim-generator/references/bubble-guide.md`
 
 **Primary Use Cases:**
 - Priority matrices (2x2 grids)
@@ -538,7 +538,7 @@ When scoring, consider:
 
 ### 10. html-table-generator
 
-**Skill Location**: `skills/microsim-generator/references/html-table.md`
+**Guide Location**: `skills/microsim-generator/references/html-table.md`
 
 **Primary Use Cases:**
 - Framework comparison matrices
@@ -596,7 +596,7 @@ When scoring, consider:
 
 ### 11. causal-loop-generator
 
-**Skill Location**: `skills/microsim-generator/references/causal-loop-guide.md`
+**Guide Location**: `skills/microsim-generator/references/causal-loop-guide.md`
 
 **Primary Use Cases:** Causal loop diagrams (CLDs), feedback loops, systems archetypes (reinforcing/balancing loops, limits to growth, tragedy of the commons), multi-loop systems-thinking articles with a full-system view.
 
@@ -613,7 +613,7 @@ When scoring, consider:
 
 ### 12. concept-classifier-generator
 
-**Skill Location**: `skills/microsim-generator/references/concept-classifier-guide.md`
+**Guide Location**: `skills/microsim-generator/references/concept-classifier-guide.md`
 
 **Primary Use Cases:** Classification quizzes where students read a scenario and sort it into the correct category — bias identification, fallacy spotting, taxonomy sorting, pattern recognition drills.
 
@@ -628,7 +628,7 @@ When scoring, consider:
 
 ### 13. infographic-overlay-generator
 
-**Skill Location**: `skills/microsim-generator/references/infographic-overlay-guide.md`
+**Guide Location**: `skills/microsim-generator/references/infographic-overlay-guide.md`
 
 **Primary Use Cases:** Interactive labeled illustrations — anatomy/structure diagrams with numbered callout markers (explore/quiz/edit modes) or comparison posters with rectangular hover zones, rendered over an AI-generated annotation-free image.
 
@@ -643,7 +643,7 @@ When scoring, consider:
 
 ### 14. docker-python-lab-generator
 
-**Skill Location**: `skills/microsim-generator/references/docker-python-lab-guide.md`
+**Guide Location**: `skills/microsim-generator/references/docker-python-lab-guide.md`
 
 **Primary Use Cases:** Runnable Python code blocks embedded in textbook pages — code editor, Run/Reset buttons, output area; code executes in an isolated Docker container via a local service.
 
