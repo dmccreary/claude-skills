@@ -1,5 +1,10 @@
 # Image Prompt Template
 
+> Sibling template: for **fact-checked infographic posters** (where verified text IS
+> rendered into the image from a locked layout spec), use the book-media-generator
+> skill's `references/poster-image-prompt.md` instead. Both share the core rule for
+> illustrations: no unapproved text or annotation marks in the generated image.
+
 Use this template when generating the `image-prompt.md` file for a diagram overlay MicroSim.
 
 ## Template

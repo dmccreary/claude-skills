@@ -1,0 +1,63 @@
+# Claim Plan — Phase 1 Output
+#
+# The Claim Plan is the first artifact in the pipeline. It captures WHAT the
+# poster is trying to say, BEFORE any source-hunting or layout work begins.
+#
+# Fill this out from the user's intake conversation. Every claim listed here
+# becomes a row in the Verification Report (Phase 3). If a claim can't be
+# verified, it is either softened or removed — never fabricated.
+
+poster:
+  slug: example-slug              # kebab-case; also the output directory name
+  title: "Working Title of the Poster"
+  audience: "grade 9-12 students" # e.g., general public, policy maker, researcher
+  purpose: >
+    One-paragraph description of what this poster is for and where it will
+    be displayed or published.
+
+  format:
+    orientation: landscape        # landscape | portrait | square
+    dimensions: "1200x680"        # pixel dimensions
+    style: "clean modern editorial infographic"
+
+  comparison_structure:
+    type: versus                  # versus | single-subject | timeline | process | none
+    left_label: "Subject A"
+    right_label: "Subject B"
+    symmetry_warning: true        # set true for any "vs." layout to flag fabrication risk
+    symmetry_note: >
+      Explicit reminder: if one side has fewer verified claims than the other,
+      render asymmetric. Do NOT invent mirror-statistics to balance the layout.
+
+# List 5-10 factual claims the poster must make. Keep each claim narrow and
+# testable. A good claim is one a reviewer could say "that is / isn't supported
+# by source X" about.
+claims:
+  - claim_id: example_claim_1
+    subject: "well-being in biophilic offices"
+    expected_direction: positive  # positive | negative | neutral
+    metric_type: percentage       # percentage | count | range | duration | qualitative
+    prominence: hero              # hero | supporting | footnote
+    initial_phrasing: "Biophilic offices increase self-reported well-being."
+    notes: >
+      User mentioned the Human Spaces 2015 report as a likely source. Verify
+      in Phase 2.
+
+  - claim_id: example_claim_2
+    subject: "cortisol response in natural environments"
+    expected_direction: negative
+    metric_type: qualitative      # flagged qualitative from the start — the user was not sure a clean % exists
+    prominence: supporting
+    initial_phrasing: "Exposure to nature reduces cortisol (stress hormone) levels."
+    notes: >
+      Forest-bathing meta-analyses exist (Antonelli et al. 2019). Do not
+      commit to a specific percentage until Phase 3.
+
+# Known references the user wants us to try to incorporate. These get
+# first priority in Phase 2 but are not automatically accepted.
+suggested_sources:
+  - name: "Human Spaces / Interface (2015)"
+    url_hint: "interface.com/humanspaces"
+  - name: "Browning, Ryan & Clancy (2014), 14 Patterns of Biophilic Design"
+    url_hint: "terrapinbrightgreen.com"
+    caveat: "This is a meta-synthesis, not a primary empirical source. Do not cite it as the origin of a specific percentage."

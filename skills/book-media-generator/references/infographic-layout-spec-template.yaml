@@ -1,0 +1,128 @@
+# Layout Spec — Phase 5 Output
+#
+# Every text element that appears in the final poster is declared here. Every
+# factual element must reference a `source_id` from the Verification Report.
+# Decorative elements (titles, captions, column headers) are tagged
+# `factual: false` and do not need a source.
+#
+# This file is the last place numbers are touched. Phase 6 (prompt assembly)
+# copies text from here verbatim — it does not re-author.
+
+poster:
+  slug: example-slug
+  dimensions: "1200x680"
+  orientation: landscape
+  background: "#FAFAF7"
+  border: "1px solid #D4E3D6"
+
+palette:
+  primary: "#2E5E3E"        # forest green
+  accent: "#E8F3EC"         # mint
+  neutral: "#6B6B6B"        # warm gray
+  text: "#1A1A1A"
+
+typography:
+  heading_font: "Inter Bold"
+  body_font: "Inter Regular"
+  heading_size_pt: 32
+  body_size_pt: 12
+
+elements:
+
+  # -- Non-factual design elements --
+
+  - id: main_title
+    type: heading
+    factual: false
+    text: "THE EVIDENCE: BIOPHILIC SPACES IMPROVE WELL-BEING AT WORK"
+    position: top_center
+    style: "bold, forest-green"
+
+  - id: subtitle
+    type: subheading
+    factual: false
+    text: "A review of peer-reviewed findings on nature-inclusive workplace design"
+    position: below_main_title
+    style: "italic, muted gray, small"
+
+  # -- Factual claim rows. Every row references a source_id. --
+
+  - id: metric_wellbeing
+    type: metric_row
+    factual: true
+    source_id: human_spaces_2015       # must match a verified claim in the report
+    label: "Well-being"
+    descriptor: "Self-reported increase (Human Spaces, 2015)"
+    value: "+15%"
+    icon: "smiley"
+    bar_fill_pct: 75
+    column: left
+
+  - id: metric_cortisol
+    type: metric_row
+    factual: true
+    source_id: antonelli_2019
+    label: "Stress Reduction"
+    descriptor: "Cortisol reduction with nature exposure (Antonelli et al., 2019)"
+    value: "Significant"                # QUALITATIVE — no fake percentage
+    icon: "leaf"
+    bar_fill_pct: 60
+    column: left
+
+  - id: metric_recovery
+    type: metric_row
+    factual: true
+    source_id: ulrich_1984
+    label: "Surgical Recovery"
+    descriptor: "Shorter hospital stay, fewer analgesics (Ulrich, 1984)"
+    value: "-8.5% days"                 # actual measured effect, not rounded marketing number
+    icon: "heart"
+    bar_fill_pct: 55
+    column: left
+
+  # -- Asymmetric right column. Only 2 verified claims, NOT 5. --
+  # No invented mirror-statistics.
+
+  - id: conventional_sick_days
+    type: metric_row
+    factual: true
+    source_id: uk_gbc_2016
+    label: "Sick Leave"
+    descriptor: "More sick days with limited daylight access (UK GBC, 2016)"
+    value: "+18% days"
+    icon: "shield"
+    bar_fill_pct: 40
+    column: right
+
+  - id: conventional_attention
+    type: metric_row
+    factual: true
+    source_id: kaplan_1995
+    label: "Attention Restoration"
+    descriptor: "Reduced without nature exposure (Kaplan, 1995)"
+    value: "Reduced"                    # QUALITATIVE
+    icon: "brain"
+    bar_fill_pct: 35
+    column: right
+
+  # -- Footer: full source list, machine-assembled from source_ids above --
+
+  - id: footer_sources
+    type: footer
+    factual: true
+    position: bottom_center
+    style: "small dark-green, two lines"
+    sources_rendered_from:
+      - human_spaces_2015
+      - antonelli_2019
+      - ulrich_1984
+      - uk_gbc_2016
+      - kaplan_1995
+
+# Integrity check — Phase 6 will refuse to assemble the prompt if any
+# factual element has no source_id, or if any source_id does not appear in
+# the Verification Report.
+integrity_checks:
+  require_source_id_for_factual: true
+  require_sources_in_report: true
+  allow_asymmetric_columns: true
