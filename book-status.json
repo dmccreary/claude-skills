@@ -1,0 +1,755 @@
+{
+  "project": {
+    "title": "Claude Skills for Intelligent Textbooks",
+    "subtitle": "Auto-scanned intelligent textbook",
+    "author": "Dan McCreary",
+    "costPerMTokens": 15,
+    "sessionBudget": {
+      "pro": 900000,
+      "max": 3500000
+    }
+  },
+  "sections": {
+    "scaffold": {
+      "status": "published",
+      "tokensTarget": 2000,
+      "tokensDone": 2000
+    },
+    "course-description": {
+      "status": "published",
+      "tokensTarget": 4000,
+      "tokensDone": 1217
+    },
+    "learning-graph": {
+      "status": "published",
+      "tokensTarget": 20000,
+      "tokensDone": 20000
+    },
+    "chapter-structure": {
+      "status": "published",
+      "tokensTarget": 15000,
+      "tokensDone": 15000
+    },
+    "chapter-content": {
+      "countLabel": "17 chapters",
+      "children": [
+        {
+          "n": 1,
+          "title": "Introduction to AI and Intelligent Textbooks",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 2,
+          "title": "Getting Started with Claude and Skills",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 3,
+          "title": "Course Design and Educational Theory",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 4,
+          "title": "Introduction to Learning Graphs",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 5,
+          "title": "Concept Enumeration and Dependencies",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 6,
+          "title": "Learning Graph Quality and Validation",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 7,
+          "title": "Taxonomy and Data Formats",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 8,
+          "title": "MkDocs Platform and Documentation",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 9,
+          "title": "Claude Skills Architecture and Development",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 10,
+          "title": "Content Creation Workflows",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 11,
+          "title": "Educational Resources and Assessment",
+          "status": "reviewed",
+          "tokens": 13377
+        },
+        {
+          "n": 12,
+          "title": "Interactive Elements and MicroSims",
+          "status": "reviewed",
+          "tokens": 10337
+        },
+        {
+          "n": 13,
+          "title": "Development Tools, Version Control, and Deployment",
+          "status": "reviewed",
+          "tokens": 10696
+        },
+        {
+          "n": 14,
+          "title": "Running Claude on the Raspberry Pi",
+          "status": "not-started",
+          "tokens": 10000
+        },
+        {
+          "n": 15,
+          "title": "Installing Claude on Windows Systems for Linux (WSL)",
+          "status": "not-started",
+          "tokens": 10000
+        },
+        {
+          "n": 16,
+          "title": "User Global Claude",
+          "status": "not-started",
+          "tokens": 10000
+        },
+        {
+          "n": 17,
+          "title": "Parallel Execution of Tasks",
+          "status": "not-started",
+          "tokens": 10000
+        }
+      ]
+    },
+    "chapter-images": {
+      "status": "drafted",
+      "tokensTarget": 8000,
+      "tokensDone": 3600
+    },
+    "microsims": {
+      "countLabel": "94 simulations",
+      "children": [
+        {
+          "n": 1,
+          "title": "4-Hour Token Window Visualization",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 2,
+          "title": "5-Hour Token Window Visualization",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 3,
+          "title": "Adding Taxonomy to CSV Workflow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 4,
+          "title": "Admonition Types Interactive Reference",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 5,
+          "title": "Algorithm Visualization with Step Controls MicroSim",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 6,
+          "title": "Average Dependencies Distribution Bar Chart",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 7,
+          "title": "Basic MicroSim Template Structure",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 8,
+          "title": "Bloom's Taxonomy 1956 vs 2001 Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 9,
+          "title": "Bloom's Taxonomy Application Distribution in Quality Courses",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 10,
+          "title": "Bloom's Taxonomy Distribution Analyzer Chart",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 11,
+          "title": "Book Build Workflow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 12,
+          "title": "Book Levels MicroSim",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 13,
+          "title": "Certificate of Completion Generator",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 14,
+          "title": "Chapter Content Generation Workflow Timeline",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 15,
+          "title": "Chapter Index File Structure",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 16,
+          "title": "Chapter Organization Workflow Diagram",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 17,
+          "title": "Claude Code Memory Layers",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 18,
+          "title": "Evolution of AI: From Neural Networks to Claude Code",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 19,
+          "title": "Claude Code T-Shirt Design - Workflow Diagram",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 20,
+          "title": "Claude Code Workflow Diagram",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 21,
+          "title": "Color Accessibility Checker MicroSim",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 22,
+          "title": "Color Wheel with Named Colors",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 23,
+          "title": "Command-Line Interface Basics Interactive Infographic",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 24,
+          "title": "Concept Count by Course Duration",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 25,
+          "title": "Concept Depth Distribution Analysis",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 26,
+          "title": "Concept Granularity Spectrum Visualization",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 27,
+          "title": "Concept Label Length Optimization",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 28,
+          "title": "Concept Label Quality Checklist",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 29,
+          "title": "Concept Label Length Histogram",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 30,
+          "title": "ConceptID vs ConceptLabel Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 31,
+          "title": "Course Description Quality Rubric Visualization",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 32,
+          "title": "Course Description Quality Impact on Workflow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 33,
+          "title": "Cover Image Generation Workflow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 34,
+          "title": "CSV File Format Example with Validation",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 35,
+          "title": "CSV to JSON Conversion Mapping Diagram",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 36,
+          "title": "DAG vs Cyclic Graph Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 37,
+          "title": "Dependency Mapping Decision Tree",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 38,
+          "title": "Dependency Mapping Workflow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 39,
+          "title": "Dependency Pattern Examples",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 40,
+          "title": "Dublin Core Metadata Field Reference Card",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 41,
+          "title": "Evolution of AI Approaches Timeline",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 42,
+          "title": "FAQ Question Pattern Analysis Workflow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 43,
+          "title": "Five Levels of Textbook Intelligence Visual Model",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 44,
+          "title": "Git Branching and Merging Visualization MicroSim",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 45,
+          "title": "Git Workflow for Skill Development",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 46,
+          "title": "Learning Graph Color Test",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 47,
+          "title": "Learning Graph Viewer",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 48,
+          "title": "Grid Overlay Test",
+          "status": "drafted",
+          "tokens": 5000
+        },
+        {
+          "n": 49,
+          "title": "Install Book Environment Dependencies",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 50,
+          "title": "Interactive Directory Navigation Practice MicroSim",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 51,
+          "title": "Interactive Exercise Generator MicroSim",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 52,
+          "title": "Interactive Learning Element Types Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 53,
+          "title": "Interactive Quiz Question Constructor MicroSim",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 54,
+          "title": "ISO 11179 Principles Comparison Table Infographic",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 55,
+          "title": "Iterative Prompt Refinement Metrics",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 56,
+          "title": "Learning Graph JSON Schema",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 57,
+          "title": "Learning Graph Quality Score Calculator MicroSim",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 58,
+          "title": "Learning Graph Structure Visualization",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 59,
+          "title": "Linear Chain vs Network Structure Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 60,
+          "title": "Lower-Order vs Higher-Order Thinking Skills",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 61,
+          "title": "Material Theme Features Interactive Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 62,
+          "title": "MicroSim Design Quality Checklist",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 63,
+          "title": "MicroSim File Relationship Diagram",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 64,
+          "title": "MkDocs Build Process Workflow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 65,
+          "title": "MkDocs GitHub Pages Deployment Workflow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 66,
+          "title": "Terminal Nodes Identification Chart",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 67,
+          "title": "p5.js Architecture and Execution Model",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 68,
+          "title": "Permission Bits Visual Infographic",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 69,
+          "title": "Prompt Engineering Iterative Refinement Workflow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 70,
+          "title": "Python Learning Graph Processing Pipeline",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 71,
+          "title": "Responsive Iframe Embedding MicroSim",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 72,
+          "title": "Security Zones Diagram",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 73,
+          "title": "Sine Function Visualization",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 74,
+          "title": "Skill Context Window",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 75,
+          "title": "Skill Directory Structure",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 76,
+          "title": "Skill File Anatomy Diagram",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 77,
+          "title": "Skill Development Priority Matrix Visualization",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 78,
+          "title": "Skill Installation Locations and Priority",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 79,
+          "title": "Skill Installation Workflow",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 80,
+          "title": "Skill Invocation and Execution Lifecycle",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 81,
+          "title": "Skill Package Contents Checklist",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 82,
+          "title": "Skill Permission Matrix",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 83,
+          "title": "Skill Testing Workflow Diagram",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 84,
+          "title": "Skills vs Commands Decision Tree",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 85,
+          "title": "Taxonomy Distribution Pie Chart",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 86,
+          "title": "Terminal Workflow for Textbook Development",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 87,
+          "title": "Major World Cities",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 88,
+          "title": "Three-Color DFS Cycle Detection",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 89,
+          "title": "Token Consumption Timeline for Complete Textbook Project",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 90,
+          "title": "Topic-to-Concept Expansion Example",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 91,
+          "title": "Topic-to-Concept Expansion Process",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 92,
+          "title": "Transformer Architecture Diagram",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 93,
+          "title": "VS Code Interface Layout for Textbook Development",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 94,
+          "title": "Worked Example: Determining Reading Level from Course Description",
+          "status": "published",
+          "tokens": 5000
+        }
+      ]
+    },
+    "glossary": {
+      "status": "published",
+      "tokensTarget": 15000,
+      "tokensDone": 9690
+    },
+    "faq": {
+      "status": "published",
+      "tokensTarget": 12000,
+      "tokensDone": 9721
+    },
+    "quiz": {
+      "status": "published",
+      "tokensTarget": 30000,
+      "tokensDone": 23122
+    },
+    "reference": {
+      "status": "not-started",
+      "tokensTarget": 20000,
+      "tokensDone": 0
+    },
+    "teachers-guide": {
+      "status": "not-started",
+      "tokensTarget": 15000,
+      "tokensDone": 0
+    },
+    "book-metrics": {
+      "status": "published",
+      "tokensTarget": 2000,
+      "tokensDone": 2000
+    },
+    "publish": {
+      "status": "published",
+      "tokensTarget": 10000,
+      "tokensDone": 10000
+    },
+    "stories": {
+      "status": "not-started",
+      "tokensTarget": 30000,
+      "tokensDone": 0
+    }
+  }
+}
