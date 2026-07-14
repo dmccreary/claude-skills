@@ -285,6 +285,15 @@ def generate_status_file(specs, project_dir, output_path, verbose=False):
             "quality_score": None,
         }
 
+        # Reused sims reference an existing MicroSim in another repo via an
+        # absolute iframe URL. They have no local docs/sims/ directory, so
+        # skip the filesystem checks and treat them as complete (terminal
+        # state), not pending.
+        if spec.get("status", "").strip().lower() == "reused":
+            entry["status"] = "reused"
+            status_entries[sid] = entry
+            continue
+
         sim_path = os.path.join(sims_dir, sid)
         if os.path.isdir(sim_path):
             html_path = os.path.join(sim_path, "main.html")
@@ -395,7 +404,7 @@ def generate_status_file(specs, project_dir, output_path, verbose=False):
 
     if verbose:
         print(f"\n{BOLD}sim-status.json summary:{RESET}")
-        for s in ["specified", "scaffolded", "implemented", "validated", "deployed"]:
+        for s in ["specified", "scaffolded", "implemented", "validated", "deployed", "reused"]:
             c = counts.get(s, 0)
             if c:
                 print(f"  {s:12s}  {c}")

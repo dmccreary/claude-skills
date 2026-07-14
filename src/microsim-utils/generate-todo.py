@@ -104,9 +104,16 @@ def generate_todo_md(specs, project_dir, output_path, verbose=False):
     """Generate the TODO.md file from extracted specs."""
     sims_dir = os.path.join(project_dir, "docs", "sims")
 
-    # Annotate each spec with filesystem status
+    # Annotate each spec with filesystem status. Specs whose in-document
+    # status is "Reused" reference an existing MicroSim in another repo via
+    # an absolute iframe URL — they have no local docs/sims/ directory, so
+    # the filesystem check would misclassify them as "specified" and they
+    # would wrongly land on the TODO list.
     for spec in specs:
-        spec["_fs_status"] = _determine_status(spec["sim_id"], sims_dir)
+        if spec.get("status", "").strip().lower() == "reused":
+            spec["_fs_status"] = "reused"
+        else:
+            spec["_fs_status"] = _determine_status(spec["sim_id"], sims_dir)
 
     # Filter to only unimplemented sims (specified or scaffolded)
     todo_specs = [s for s in specs if s["_fs_status"] in ("specified", "scaffolded")]

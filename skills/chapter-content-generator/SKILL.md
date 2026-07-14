@@ -479,6 +479,70 @@ Elements requiring diagram header and `<details markdown="1">` specification blo
 10. **Graph data models** - Entity relationships using vis-network
 11. **Causal Loop Diagrams** - used in systems thinking and explaining causality
 
+**MicroSim reuse check (REQUIRED before writing any new interactive-element specification):**
+
+Hundreds of MicroSims already exist across the dmccreary/* textbooks, indexed in the
+search-microsims catalog. Before writing a SPECIFICATION block for a MicroSim, workflow
+diagram, chart, timeline, map, or infographic, check whether an existing hosted MicroSim
+already teaches the same concept — and if so, embed it via iframe instead of specifying
+a new one that must be generated and debugged from scratch.
+
+1. **Availability check (once per session):** run
+   `test -x /Users/dan/Documents/ws/search-microsims/.venv-embeddings/bin/python && test -f /Users/dan/Documents/ws/search-microsims/data/microsims-embeddings.json && echo AVAILABLE`
+   If this does not print `AVAILABLE`, SKIP this entire reuse step for the whole session
+   and generate specifications exactly as described below. Graceful degradation — never
+   block chapter generation on the search service.
+2. **Draft the WHAT query** for the element in the embedding query format:
+   `Title: <working title> | Topic: <concept> | Subjects: <subject areas> | Grade Level: <level> | Learning Objectives: <objective with Bloom verb>`
+3. **Run the reuse search:**
+   ```
+   /Users/dan/Documents/ws/search-microsims/.venv-embeddings/bin/python \
+     /Users/dan/Documents/ws/search-microsims/src/find-similar-templates/find-similar-templates.py \
+     --mode reuse --query "<WHAT query>" --top 3 --json --quiet
+   ```
+   If the command errors or takes more than ~60 seconds, fall back to normal spec
+   generation for the rest of the session.
+4. **Decide using the top result's `recommendation` field:**
+   - `reuse` (WHAT score ≥ 0.75): emit the **Reused block** (below) instead of a
+     specification. First sanity-check that the candidate's `grade_level` and `subject`
+     fit this book; if clearly wrong (e.g., a graduate-level sim in a middle-school
+     book), treat it as `template` instead. If `docs/sims/<sim-id>/` already exists
+     locally in THIS book, embed the local sim with a relative iframe instead.
+   - `template` (0.60 ≤ WHAT score < 0.75): write a normal specification, and add one
+     line to the details block: `**Template:** <github_url of top match><br/>`
+     so the microsim-generator can use the existing sim's code as a starting point.
+   - `generate` (WHAT score < 0.60): write a normal specification as usual.
+5. **Log reuse decisions** in the chapter-generation summary: n reused, n from
+   template, n newly specified.
+
+**Reused block structure** (used instead of a specification when reusing):
+
+```markdown
+#### Diagram: [Title of the existing MicroSim]
+
+<iframe src="[fullscreen_url from the search result]" width="100%" height="500px" scrolling="no"></iframe>
+
+[Run the [Title] MicroSim fullscreen]([fullscreen_url]){ .md-button }
+
+<details markdown="1">
+<summary>[Title] (reused MicroSim)</summary>
+Type: [element-type]
+**sim-id:** [sim directory name from the source repo]<br/>
+**Library:** [framework from the search result]<br/>
+**Status:** Reused<br/>
+**Source:** [live_url from the search result]<br/>
+**Source Repo:** [github_url from the search result]
+
+Reused from the MicroSim catalog (WHAT match score [what_score]). Learning objective: [the objective as used in this chapter].
+</details>
+```
+
+The `**Status:** Reused` field is what keeps downstream batch tools from trying to
+scaffold or implement the sim: `generate-todo.py` excludes reused specs from TODO.md
+and `extract-sim-specs.py` records them as complete. `Reused` is a terminal lifecycle
+state — reused sims never advance through `specified → scaffolded → implemented →
+validated → deployed`; they are already deployed in their source repository.
+
 For each `<details markdown="1">` block element, use this structure:
 
 ```markdown
@@ -500,7 +564,7 @@ Implementation: [Technology/approach]
 The three structured fields enable machine-readable extraction by batch utilities:
 - **sim-id** — kebab-case directory name (e.g., `angle-type-explorer`), used by `extract-sim-specs.py`
 - **Library** — JavaScript library for CDN selection by `generate-sim-scaffold.py`
-- **Status** — initial lifecycle state (always `Specified` for new specs)
+- **Status** — initial lifecycle state (`Specified` for new specs; `Reused` when the reuse check matched an existing MicroSim — a terminal state that downstream batch tools skip)
 
 Do not indent any text within a `<details markdown="1">` block. Do not put any leading spaces or tabs on newlines within a `<details markdown="1">` block.
 

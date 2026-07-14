@@ -203,6 +203,11 @@ every MicroSim across the project.
 
 **Status lifecycle:** `specified` → `scaffolded` → `implemented` → `validated` → `deployed`
 
+`reused` is a terminal state outside this progression: the chapter embeds an
+existing MicroSim from another repo via an absolute iframe URL (`**Status:** Reused`
+in the details block). Reused sims are treated as complete — `generate-todo.py`
+excludes them from TODO.md and they never get scaffolded.
+
 | Status | Detection |
 |--------|-----------|
 | `specified` | Has `<details>` spec in chapter but no sim directory |
@@ -210,6 +215,7 @@ every MicroSim across the project.
 | `implemented` | JS file exists and >50 lines |
 | `validated` | quality_score >= 70 |
 | `deployed` | iframe in chapter AND validated |
+| `reused` | `**Status:** Reused` in the chapter details block (existing sim in another repo) |
 
 **Entry fields:**
 

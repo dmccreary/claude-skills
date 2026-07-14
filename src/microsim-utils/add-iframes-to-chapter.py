@@ -29,6 +29,10 @@ HEADING_RE = re.compile(
     r"^(####\s+(Diagram|Drawing):\s*(.+))$", re.MULTILINE
 )
 
+# Reused MicroSims (Status: Reused) embed absolute https:// srcs pointing at
+# another book's deployed sim. IFRAME_RE must keep matching those so no local
+# iframe gets inserted, and ABS_PATH_RE must keep matching ONLY srcs that start
+# with "/sims/" so --fix-paths never rewrites an absolute https URL.
 IFRAME_RE = re.compile(
     r'<iframe\s[^>]*src=["\']([^"\']+/sims/([^/"\']+)/main\.html)["\']',
     re.IGNORECASE,
