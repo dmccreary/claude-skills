@@ -27,18 +27,15 @@
     "network"
   ],
   "learningObjectives": [
-    "Understand the key concepts of terminal nodes identification chart",
-    "Explore terminal nodes identification chart through interactive visualization",
-    "Apply knowledge of terminal nodes identification chart to solve problems",
-    "Experiment with parameters to observe their effects on terminal nodes identification chart"
+    "Interpret a scatter plot that maps each learning-graph concept by indegree (number of prerequisites) versus outdegree (number of dependents)",
+    "Classify concepts as foundational (indegree = 0), intermediate, or terminal (outdegree = 0) from their position and color on the chart",
+    "Evaluate learning-graph health against target ranges such as 5-10% foundational, 75-90% intermediate, and 5-15% terminal concepts",
+    "Identify warning signs of poor graph connectivity, such as more than 20% terminal nodes or too few foundational entry points"
   ],
   "bloomsTaxonomy": [
-    "Remember",
     "Understand",
     "Apply",
-    "Analyze",
-    "Evaluate",
-    "Create"
+    "Analyze"
   ],
   "pedagogical": {
     "pattern": "reference",

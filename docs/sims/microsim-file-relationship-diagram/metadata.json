@@ -87,18 +87,15 @@
     "simulation"
   ],
   "learningObjectives": [
-    "Understand the key concepts of file relationship diagram",
-    "Explore file relationship diagram through interactive visualization",
-    "Apply knowledge of file relationship diagram to solve problems",
-    "Experiment with parameters to observe their effects on file relationship diagram"
+    "Identify the distinct roles of index.md, main.html, and metadata.json in a MicroSim package",
+    "Explain how the iframe element creates a security boundary that isolates simulation code from the parent MkDocs page DOM",
+    "Trace the path a student follows from MkDocs navigation through the index.md documentation page to the running p5.js simulation in main.html",
+    "Describe how Dublin Core metadata in metadata.json enables faceted search discovery and Learning Management System integration"
   ],
   "bloomsTaxonomy": [
-    "Remember",
     "Understand",
     "Apply",
-    "Analyze",
-    "Evaluate",
-    "Create"
+    "Analyze"
   ],
   "pedagogical": {
     "pattern": "exploration",

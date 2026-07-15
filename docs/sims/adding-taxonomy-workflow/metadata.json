@@ -23,10 +23,10 @@
     "interactive-demo"
   ],
   "learningObjectives": [
-    "Understand the key concepts of adding taxonomy to csv workflow",
-    "Explore adding taxonomy to csv workflow through interactive visualization",
-    "Apply knowledge of adding taxonomy to csv workflow to solve problems",
-    "Experiment with parameters to observe their effects on adding taxonomy to csv workflow"
+    "Sequence the six steps for adding taxonomy categorization to a learning graph CSV, from identifying natural categories to validating the distribution",
+    "Design 3-5 letter taxonomy abbreviations such as FOUND, BASIC, and ARCH that group concept labels by topic, domain, or complexity",
+    "Distinguish when to use the automated add-taxonomy.py keyword-matching script versus manual category assignment based on graph size and domain specialization",
+    "Evaluate a taxonomy distribution for balance using the rule that no single category should exceed 30 percent of total concepts"
   ],
   "bloomsTaxonomy": [
     "Remember",

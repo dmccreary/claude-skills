@@ -41,10 +41,11 @@
     "network"
   ],
   "learningObjectives": [
-    "Understand the mathematical concept of learning graph color test",
-    "Apply learning graph color test to solve problems",
-    "Visualize and interpret learning graph color test relationships",
-    "Test understanding of learning graph color test through interactive exercises"
+    "Evaluate whether 17 pastel web-safe colors give sufficient visual distinction between taxonomy groups in a 50-node learning graph",
+    "Identify named CSS colors such as MistyRose, PaleTurquoise, and Thistle in the legend and match them to their node groups",
+    "Explain the round-robin assignment that places nodes 1, 18, and 35 in the same color group across 17 groups",
+    "Explain why black label text is used on light pastel nodes while white text is needed on darker colors like Plum and LightCoral",
+    "Distinguish overlapping color groups by dragging nodes within the force-directed physics layout"
   ],
   "pedagogical": {
     "pattern": "demonstration",

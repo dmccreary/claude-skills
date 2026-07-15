@@ -23,9 +23,10 @@
     "interactive-demo"
   ],
   "learningObjectives": [
-    "Understand the key concepts of mkdocs build process workflow",
-    "Explore mkdocs build process workflow through interactive visualization",
-    "Apply knowledge of mkdocs build process workflow to solve problems"
+    "Sequence the stages of the MkDocs build pipeline from markdown source through plugin processing and theme application to generated HTML",
+    "Distinguish between markdown source files in the docs folder and the generated static site output in the site directory",
+    "Explain where plugins and theme templates transform content during an mkdocs build",
+    "Predict how editing a markdown file or mkdocs.yml propagates through the build pipeline to the final HTML pages"
   ],
   "bloomsTaxonomy": [
     "Remember",

@@ -53,18 +53,15 @@
     "timeline"
   ],
   "learningObjectives": [
-    "Understand the key concepts of major world cities",
-    "Explore major world cities through interactive visualization",
-    "Apply knowledge of major world cities to solve problems",
-    "Test understanding of major world cities through interactive exercises"
+    "Locate ten major world cities on an interactive Leaflet map by clicking their markers",
+    "Identify the continent to which each of the ten featured cities belongs",
+    "Compare the geographic distribution of major population centers across continents and hemispheres",
+    "Estimate a city's latitude and longitude by panning and zooming the OpenStreetMap base layer"
   ],
   "bloomsTaxonomy": [
-    "Remember",
     "Understand",
     "Apply",
-    "Analyze",
-    "Evaluate",
-    "Create"
+    "Analyze"
   ],
   "pedagogical": {
     "pattern": "assessment",

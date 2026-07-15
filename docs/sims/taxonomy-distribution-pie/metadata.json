@@ -25,18 +25,15 @@
     "map"
   ],
   "learningObjectives": [
-    "Understand the key concepts of taxonomy distribution pie chart",
-    "Explore taxonomy distribution pie chart through interactive visualization",
-    "Apply knowledge of taxonomy distribution pie chart to solve problems",
-    "Test understanding of taxonomy distribution pie chart through interactive exercises"
+    "Interpret a pie chart showing how 200 learning-graph concepts are distributed across eight taxonomy categories from foundational to advanced",
+    "Compare each category's actual percentage against its target range, such as 5-10% for foundational concepts",
+    "Evaluate taxonomy balance using quality indicators like no single category exceeding 30% of all concepts",
+    "Identify the largest and smallest categories, and toggle legend items to isolate categories of interest"
   ],
   "bloomsTaxonomy": [
-    "Remember",
     "Understand",
     "Apply",
-    "Analyze",
-    "Evaluate",
-    "Create"
+    "Analyze"
   ],
   "pedagogical": {
     "pattern": "reference",

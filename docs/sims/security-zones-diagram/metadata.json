@@ -24,10 +24,10 @@
     "simulation"
   ],
   "learningObjectives": [
-    "Understand the key concepts of security zones diagram",
-    "Explore security zones diagram through interactive visualization",
-    "Apply knowledge of security zones diagram to solve problems",
-    "Test understanding of security zones diagram through interactive exercises"
+    "Identify the three concentric security zones in the Claude skills architecture: project, skills, and system",
+    "Distinguish which files belong in each zone, from project-specific files to the global skills directory to critical system files and credentials",
+    "Explain why the system zone containing credentials and system files requires stricter access controls than the project zone",
+    "Classify a given file or directory into the correct security zone based on its sensitivity and scope"
   ],
   "bloomsTaxonomy": [
     "Remember",

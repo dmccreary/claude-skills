@@ -22,10 +22,10 @@
     "interactive-demo"
   ],
   "learningObjectives": [
-    "Understand the key concepts of skill directory structure",
-    "Explore skill directory structure through interactive visualization",
-    "Apply knowledge of skill directory structure to solve problems",
-    "Test understanding of skill directory structure through interactive exercises"
+    "Identify SKILL.md as the required entry-point file at the root of every Claude skill directory",
+    "Describe the purpose of each standard subdirectory: scripts, templates, references, and examples",
+    "Decide which subdirectory a new supporting file belongs in, such as a runnable script versus a fill-in template versus reference documentation",
+    "Reproduce the standard directory tree when scaffolding a new Claude skill"
   ],
   "bloomsTaxonomy": [
     "Remember",

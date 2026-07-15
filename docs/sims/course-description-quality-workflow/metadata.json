@@ -26,18 +26,15 @@
     "simulation"
   ],
   "learningObjectives": [
-    "Understand the key concepts of course description quality impact on workflow",
-    "Explore course description quality impact on workflow through interactive visualization",
-    "Apply knowledge of course description quality impact on workflow to solve problems",
-    "Experiment with parameters to observe their effects on course description quality impact on workflow"
+    "Explain how the course-description-analyzer quality score routes textbook generation onto the smooth green path or the rework-heavy orange path",
+    "Identify the quality thresholds where a score of 70 or higher proceeds with minimal intervention and 85 or higher yields optimal workflow efficiency",
+    "Trace the cascade of downstream effects of a low-quality description: generic concepts, manual correction, and regenerated glossary and chapter artifacts",
+    "Predict the 2-3x increase in development time incurred by proceeding with a course description scoring below 70"
   ],
   "bloomsTaxonomy": [
-    "Remember",
     "Understand",
     "Apply",
-    "Analyze",
-    "Evaluate",
-    "Create"
+    "Analyze"
   ],
   "pedagogical": {
     "pattern": "assessment",
