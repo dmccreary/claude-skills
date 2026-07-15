@@ -457,7 +457,7 @@ Interpretation of quality scores:
 The quality score should be calculated after every significant graph revision. Track scores over time to ensure your changes improve rather than degrade graph quality.
 #### Diagram: Learning Graph Quality Score Calculator MicroSim
 
-<iframe src="../../sims/learning-graph-quality-score-calculator-microsim/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/learning-graph-quality-score-calculator-microsim/main.html" width="100%" height="602px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Learning Graph Quality Score Calculator MicroSim</summary>

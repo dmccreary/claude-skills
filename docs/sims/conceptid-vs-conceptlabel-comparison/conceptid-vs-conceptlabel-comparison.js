@@ -1,4 +1,5 @@
 const rows=[
+// CANVAS_HEIGHT: 560
 ['Purpose','Unique identifier for programmatic reference','Human-readable concept name'],
 ['Format','Integer (1 to n)','String (Title Case, <=32 chars)'],
 ['Mutability','Immutable after dependencies set','Refinable during development'],

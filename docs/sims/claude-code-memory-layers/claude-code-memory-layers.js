@@ -1,4 +1,5 @@
 // Claude Code Memory Layers Infographic
+// CANVAS_HEIGHT: 600
 // An interactive visualization showing the 5 memory layers and how they load
 
 // Canvas dimensions

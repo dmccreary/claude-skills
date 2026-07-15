@@ -1,4 +1,5 @@
 const nodes = [
+// CANVAS_HEIGHT: 560
   { id: 'start', t: 'Write/Update\nSKILL.md', x: 90, y: 80, c: '#bfdbfe', shape: 'rect' },
   { id: 'invoke', t: 'Invoke Skill\nwith Test Data', x: 90, y: 180, c: '#bfdbfe', shape: 'rect' },
   { id: 'monitor', t: 'Monitor\nExecution', x: 90, y: 280, c: '#bfdbfe', shape: 'rect' },

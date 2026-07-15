@@ -1,4 +1,5 @@
 const features = [
+// CANVAS_HEIGHT: 560
   {
     name: 'Navigation',
     standard: 'Simple vertical menu with limited hierarchy.',

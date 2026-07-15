@@ -11,7 +11,7 @@ quality_score: 0
 
 # ISO 11179 Principles Comparison Table Infographic
 
-<iframe src="main.html" height="450px" width="100%" scrolling="no"></iframe>
+<iframe src="main.html" height="702px" width="100%" scrolling="no"></iframe>
 
 [Run the ISO 11179 Principles Comparison Table Infographic MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 <br/>
@@ -31,7 +31,7 @@ You can add this MicroSim to any web page by adding this to your HTML:
 
 ```html
 <iframe src="https://dmccreary.github.io/claude-skills/sims/iso-11179-principles-comparison-table-infographic/main.html"
-        height="450px"
+        height="702px"
         width="100%"
         scrolling="no"></iframe>
 ```

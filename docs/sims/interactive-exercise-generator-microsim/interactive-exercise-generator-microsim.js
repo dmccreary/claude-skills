@@ -1,4 +1,5 @@
 const levels = ['Junior High', 'Senior High', 'College', 'Graduate'];
+// CANVAS_HEIGHT: 700
 const questions = [
   { text: 'Target: middle-school coding club. Prereqs: none. Focus: basic loops and variables.', ans: 0, hint: 'Look at age and prerequisites.' },
   { text: 'Target: AP Computer Science students. Prereqs: algebra and prior coding class.', ans: 1, hint: 'AP courses are secondary education.' },

@@ -11,7 +11,7 @@ quality_score: 0
 
 # Worked Example: Determining Reading Level from Course Description
 
-<iframe src="main.html" height="450px" width="100%" scrolling="no"></iframe>
+<iframe src="main.html" height="982px" width="100%" scrolling="no"></iframe>
 
 [Run the Worked Example: Determining Reading Level from Course Description MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 <br/>
@@ -31,7 +31,7 @@ You can add this MicroSim to any web page by adding this to your HTML:
 
 ```html
 <iframe src="https://dmccreary.github.io/claude-skills/sims/worked-example-determining-reading-level-from-course-description/main.html"
-        height="450px"
+        height="982px"
         width="100%"
         scrolling="no"></iframe>
 ```

@@ -11,7 +11,7 @@ quality_score: 0
 
 # Responsive Iframe Embedding MicroSim
 
-<iframe src="main.html" height="450px" width="100%" scrolling="no"></iframe>
+<iframe src="main.html" height="682px" width="100%" scrolling="no"></iframe>
 
 [Run the Responsive Iframe Embedding MicroSim MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 <br/>
@@ -31,7 +31,7 @@ You can add this MicroSim to any web page by adding this to your HTML:
 
 ```html
 <iframe src="https://dmccreary.github.io/claude-skills/sims/responsive-iframe-embedding-microsim/main.html"
-        height="450px"
+        height="682px"
         width="100%"
         scrolling="no"></iframe>
 ```

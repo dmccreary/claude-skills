@@ -1,4 +1,5 @@
 // Course Description Quality Impact on Workflow Infographic
+// CANVAS_HEIGHT: 780
 // Interactive p5.js visualization showing how quality affects the textbook generation workflow
 
 // Canvas dimensions

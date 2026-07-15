@@ -11,7 +11,7 @@ quality_score: 0
 
 # Command-Line Interface Basics Interactive Infographic
 
-<iframe src="main.html" height="450px" width="100%" scrolling="no"></iframe>
+<iframe src="main.html" height="762px" width="100%" scrolling="no"></iframe>
 
 [Run the Command-Line Interface Basics Interactive Infographic MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 <br/>
@@ -31,7 +31,7 @@ You can add this MicroSim to any web page by adding this to your HTML:
 
 ```html
 <iframe src="https://dmccreary.github.io/claude-skills/sims/command-line-interface-basics-interactive-infographic/main.html"
-        height="450px"
+        height="762px"
         width="100%"
         scrolling="no"></iframe>
 ```

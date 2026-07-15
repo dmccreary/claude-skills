@@ -236,7 +236,7 @@ Key requirements for the `main.html` structure:
 - Ensure the simulation starts in a meaningful state
 #### Diagram: Basic MicroSim Template Structure
 
-<iframe src="../../sims/basic-microsim-template-structure/main.html" width="100%" height="780px" scrolling="no"></iframe>
+<iframe src="../../sims/basic-microsim-template-structure/main.html" width="100%" height="702px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Basic MicroSim Template Structure</summary>
@@ -368,7 +368,7 @@ For responsive designs that adapt to different screen sizes, consider using CSS 
 This wrapper uses the "padding-bottom percentage trick" where the percentage is calculated as (height/width) × 100%. For a 1000×600 simulation, that's (600/1000) × 100% = 60%. The absolutely positioned iframe then fills this responsive container.
 #### Diagram: Responsive Iframe Embedding MicroSim
 
-<iframe src="../../sims/responsive-iframe-embedding-microsim/main.html" width="100%" height="760px" scrolling="no"></iframe>
+<iframe src="../../sims/responsive-iframe-embedding-microsim/main.html" width="100%" height="682px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Responsive Iframe Embedding MicroSim</summary>
@@ -553,7 +553,7 @@ function draw() {
 Effective button design for educational purposes requires attention to labeling, feedback, and state management. Button labels should use action verbs that clearly communicate what will happen ("Start Traversal" rather than "Go"). Visual feedback such as color changes, disabled states, or confirmation messages helps students understand the effects of their actions. For toggleable buttons, the label or appearance should reflect the current state, making it clear whether clicking will enable or disable a feature.
 #### Diagram: Algorithm Visualization with Step Controls MicroSim
 
-<iframe src="../../sims/algorithm-visualization-with-step-controls-microsim/main.html" width="100%" height="720px" scrolling="no"></iframe>
+<iframe src="../../sims/algorithm-visualization-with-step-controls-microsim/main.html" width="100%" height="642px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Algorithm Visualization with Step Controls MicroSim</summary>
@@ -803,7 +803,7 @@ Designing effective educational simulations requires balancing technical capabil
 **Align with learning objectives.** Every MicroSim should map clearly to specific learning objectives from your course or chapter. The simulation should help students achieve outcomes like "explain the difference between X and Y," "predict the behavior of system Z under different conditions," or "analyze the trade-offs between approaches A and B." If you cannot articulate what learning objective a simulation addresses, reconsider whether it belongs in your textbook.
 #### Diagram: MicroSim Design Quality Checklist
 
-<iframe src="../../sims/microsim-design-quality-checklist/main.html" width="100%" height="840px" scrolling="no"></iframe>
+<iframe src="../../sims/microsim-design-quality-checklist/main.html" width="100%" height="762px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>MicroSim Design Quality Checklist</summary>

@@ -1,4 +1,5 @@
 const groups = [
+// CANVAS_HEIGHT: 760
   { t: 'Learning Design', items: ['Clear objective', 'Bloom alignment', 'Concept focus'] },
   { t: 'Interaction', items: ['Immediate feedback', 'Controls intuitive', 'Reset behavior'] },
   { t: 'Accessibility', items: ['Readable text', 'Color contrast', 'Keyboard-friendly'] },

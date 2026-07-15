@@ -175,7 +175,7 @@ Reference files should be comprehensive enough to enable implementation without 
 Effective testing and debugging practices are essential for developing reliable skills that handle edge cases, provide meaningful error messages, and produce consistent results across different contexts.
 #### Diagram: Skill Testing Workflow Diagram
 
-<iframe src="../../sims/skill-testing-workflow-diagram/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/skill-testing-workflow-diagram/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Skill Testing Workflow Diagram</summary>
@@ -452,7 +452,7 @@ Professional skill packaging ensures users can install, understand, and use skil
 7. **Installation automation** - Include scripts for common installation scenarios
 #### Diagram: Skill Package Contents Checklist
 
-<iframe src="../../sims/skill-package-contents-checklist/main.html" width="100%" height="680px" scrolling="no"></iframe>
+<iframe src="../../sims/skill-package-contents-checklist/main.html" width="100%" height="642px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Skill Package Contents Checklist</summary>

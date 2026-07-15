@@ -631,7 +631,7 @@ Clear licensing enables:
 - Compliance with institutional policies
 #### Diagram: Dublin Core Metadata Field Reference Card
 
-<iframe src="../../sims/dublin-core-metadata-field-reference-card/main.html" width="100%" height="660px" scrolling="no"></iframe>
+<iframe src="../../sims/dublin-core-metadata-field-reference-card/main.html" width="100%" height="622px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Dublin Core Metadata Field Reference Card</summary>
@@ -779,7 +779,7 @@ Relative Luminance = 0.2126 * R + 0.7152 * G + 0.0722 * B
 If luminance > 0.5, use black text; otherwise, use white text.
 #### Diagram: Color Accessibility Checker MicroSim
 
-<iframe src="../../sims/color-accessibility-checker-microsim/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/color-accessibility-checker-microsim/main.html" width="100%" height="522px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Color Accessibility Checker MicroSim</summary>
@@ -1069,7 +1069,7 @@ with open(output_file, 'w') as f:
 ```
 #### Diagram: Python Learning Graph Processing Pipeline
 
-<iframe src="../../sims/python-learning-graph-processing-pipeline/main.html" width="100%" height="660px" scrolling="no"></iframe>
+<iframe src="../../sims/python-learning-graph-processing-pipeline/main.html" width="100%" height="622px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Python Learning Graph Processing Pipeline</summary>

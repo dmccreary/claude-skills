@@ -1,4 +1,5 @@
 const cards=[
+// CANVAS_HEIGHT: 620
 ['📚','Title','Primary name of the learning graph','String, 5-10 words','Graph Databases Learning Graph','#3b82f6'],
 ['📝','Description','Detailed summary of scope and audience','String, 1-3 sentences','200-concept graph for undergraduate...','#22c55e'],
 ['👤','Creator','Primary author or maintainer','String, name and affiliation','Dr. Jane Smith, State University','#8b5cf6'],

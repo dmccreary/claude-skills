@@ -1,4 +1,5 @@
 let arr = [];
+// CANVAS_HEIGHT: 640
 let i = 0, j = 0, sortedFrom = -1, comparisons = 0;
 let autoRun = false, lastStep = 0;
 let speedSlider;

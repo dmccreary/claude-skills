@@ -11,7 +11,7 @@ quality_score: 0
 
 # VS Code Interface Layout for Textbook Development
 
-<iframe src="main.html" height="450px" width="100%" scrolling="no"></iframe>
+<iframe src="main.html" height="762px" width="100%" scrolling="no"></iframe>
 
 [Run the VS Code Interface Layout for Textbook Development MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 <br/>
@@ -31,7 +31,7 @@ You can add this MicroSim to any web page by adding this to your HTML:
 
 ```html
 <iframe src="https://dmccreary.github.io/claude-skills/sims/vs-code-interface-layout-for-textbook-development/main.html"
-        height="450px"
+        height="762px"
         width="100%"
         scrolling="no"></iframe>
 ```

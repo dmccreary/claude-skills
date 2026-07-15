@@ -1,4 +1,5 @@
 const rows = [
+// CANVAS_HEIGHT: 700
   ['Precise', 'Exact, unambiguous', '"small simulation thing"', '"single-concept interactive simulation"', 'No vague words'],
   ['Concise', 'Minimal words', '"particular level at which..."', '"grade-level complexity of text"', 'Under ~20 words'],
   ['Distinct', 'Different from similar terms', '"Chapter: a section"', '"major textbook unit for related concepts"', 'Unique differentiator'],

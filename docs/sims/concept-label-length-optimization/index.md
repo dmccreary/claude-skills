@@ -11,7 +11,7 @@ quality_score: 0
 
 # Concept Label Length Optimization
 
-<iframe src="main.html" height="450px" width="100%" scrolling="no"></iframe>
+<iframe src="main.html" height="562px" width="100%" scrolling="no"></iframe>
 
 [Run the Concept Label Length Optimization MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 <br/>
@@ -31,7 +31,7 @@ You can add this MicroSim to any web page by adding this to your HTML:
 
 ```html
 <iframe src="https://dmccreary.github.io/claude-skills/sims/concept-label-length-optimization/main.html"
-        height="450px"
+        height="562px"
         width="100%"
         scrolling="no"></iframe>
 ```

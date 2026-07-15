@@ -1,4 +1,5 @@
 const points=[
+// CANVAS_HEIGHT: 620
   {x:0.08,t:'All of Programming',zone:'coarse'},
   {x:0.18,t:'Complete Database Theory',zone:'coarse'},
   {x:0.30,t:'Everything About AI',zone:'coarse'},

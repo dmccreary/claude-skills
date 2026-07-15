@@ -11,7 +11,7 @@ quality_score: 0
 
 # Learning Graph Quality Score Calculator MicroSim
 
-<iframe src="main.html" height="450px" width="100%" scrolling="no"></iframe>
+<iframe src="main.html" height="602px" width="100%" scrolling="no"></iframe>
 
 [Run the Learning Graph Quality Score Calculator MicroSim MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 <br/>
@@ -31,7 +31,7 @@ You can add this MicroSim to any web page by adding this to your HTML:
 
 ```html
 <iframe src="https://dmccreary.github.io/claude-skills/sims/learning-graph-quality-score-calculator-microsim/main.html"
-        height="450px"
+        height="602px"
         width="100%"
         scrolling="no"></iframe>
 ```

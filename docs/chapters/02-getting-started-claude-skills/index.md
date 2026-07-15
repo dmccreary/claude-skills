@@ -110,7 +110,7 @@ The separation of metadata (YAML frontmatter) from workflow instructions (markdo
 
 #### Diagram: Skill File Anatomy Diagram
 
-<iframe src="../../sims/skill-file-anatomy-diagram/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/skill-file-anatomy-diagram/main.html" width="100%" height="622px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -291,7 +291,7 @@ the project home of your cloned git repository.
     to change all of your files and if they are not in git, there is no ability to undo these changes!
 #### Diagram: Skill Permission Matrix
 
-<iframe src="../../sims/skill-permission-matrix/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/skill-permission-matrix/main.html" width="100%" height="562px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">

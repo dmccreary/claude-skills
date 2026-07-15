@@ -11,7 +11,7 @@ quality_score: 0
 
 # Skill Package Contents Checklist
 
-<iframe src="main.html" height="450px" width="100%" scrolling="no"></iframe>
+<iframe src="main.html" height="642px" width="100%" scrolling="no"></iframe>
 
 [Run the Skill Package Contents Checklist MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 <br/>
@@ -31,7 +31,7 @@ You can add this MicroSim to any web page by adding this to your HTML:
 
 ```html
 <iframe src="https://dmccreary.github.io/claude-skills/sims/skill-package-contents-checklist/main.html"
-        height="450px"
+        height="642px"
         width="100%"
         scrolling="no"></iframe>
 ```

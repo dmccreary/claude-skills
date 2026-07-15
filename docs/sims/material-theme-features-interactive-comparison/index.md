@@ -11,7 +11,7 @@ quality_score: 0
 
 # Material Theme Features Interactive Comparison
 
-<iframe src="main.html" height="450px" width="100%" scrolling="no"></iframe>
+<iframe src="main.html" height="562px" width="100%" scrolling="no"></iframe>
 
 [Run the Material Theme Features Interactive Comparison MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 <br/>
@@ -31,7 +31,7 @@ You can add this MicroSim to any web page by adding this to your HTML:
 
 ```html
 <iframe src="https://dmccreary.github.io/claude-skills/sims/material-theme-features-interactive-comparison/main.html"
-        height="450px"
+        height="562px"
         width="100%"
         scrolling="no"></iframe>
 ```

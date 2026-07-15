@@ -253,7 +253,7 @@ The following table illustrates distractor categories and their diagnostic funct
 | Procedural Error | Exposes common implementation mistakes | Student confuses BFS and DFS traversal patterns |
 #### Diagram: Interactive Quiz Question Constructor MicroSim
 
-<iframe src="../../sims/interactive-quiz-question-constructor-microsim/main.html" width="100%" height="800px" scrolling="no"></iframe>
+<iframe src="../../sims/interactive-quiz-question-constructor-microsim/main.html" width="100%" height="722px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Interactive Quiz Question Constructor MicroSim</summary>
@@ -607,7 +607,7 @@ The terminal emulator serves as the window into the command-line world, providin
 A critical distinction between GUI and CLI workflows involves the visibility of state and operations. GUI applications typically show all available options visually, allowing users to discover functionality through exploration. Command-line tools, conversely, assume users know what they want to accomplish and provide the syntax to express it concisely, requiring external documentation or help systems (man pages, --help flags) to discover available functionality. This documentation-dependent model proves efficient for experienced users executing known workflows but demands initial investment in learning command syntax and consulting references.
 #### Diagram: Command-Line Interface Basics Interactive Infographic
 
-<iframe src="../../sims/command-line-interface-basics-interactive-infographic/main.html" width="100%" height="840px" scrolling="no"></iframe>
+<iframe src="../../sims/command-line-interface-basics-interactive-infographic/main.html" width="100%" height="762px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Command-Line Interface Basics Interactive Infographic</summary>

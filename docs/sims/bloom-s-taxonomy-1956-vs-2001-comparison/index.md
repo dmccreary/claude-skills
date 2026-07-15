@@ -11,7 +11,7 @@ quality_score: 0
 
 # Bloom's Taxonomy 1956 vs 2001 Comparison
 
-<iframe src="main.html" height="450px" width="100%" scrolling="no"></iframe>
+<iframe src="main.html" height="622px" width="100%" scrolling="no"></iframe>
 
 [Run the Bloom's Taxonomy 1956 vs 2001 Comparison MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 <br/>
@@ -31,7 +31,7 @@ You can add this MicroSim to any web page by adding this to your HTML:
 
 ```html
 <iframe src="https://dmccreary.github.io/claude-skills/sims/bloom-s-taxonomy-1956-vs-2001-comparison/main.html"
-        height="450px"
+        height="622px"
         width="100%"
         scrolling="no"></iframe>
 ```

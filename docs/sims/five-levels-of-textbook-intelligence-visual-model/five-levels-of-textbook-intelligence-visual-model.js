@@ -1,4 +1,5 @@
 const levels = [
+// CANVAS_HEIGHT: 560
   { name: "Level 1: Static Content", color: "#ef4444", caps: ["Fixed text and images", "Linear reading"] },
   { name: "Level 2: Hyperlinked Navigation", color: "#f97316", caps: ["Internal links and TOC", "Search functionality", "Includes Level 1"] },
   { name: "Level 3: Interactive Elements", color: "#eab308", caps: ["MicroSims and quizzes", "Interactive visualizations", "Includes Levels 1-2"] },

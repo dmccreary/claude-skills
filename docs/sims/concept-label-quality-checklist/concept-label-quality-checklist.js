@@ -1,4 +1,5 @@
 const criteria = [
+// CANVAS_HEIGHT: 620
   {q:'Title Case capitalization?', good:'Learning Graph Quality Metrics', bad:'learning graph quality metrics'},
   {q:'<= 32 characters?', good:'Graph Database Architecture (28)', bad:'Comprehensive Overview of Graph Database Architectures and Patterns (72)'},
   {q:'Domain-standard terminology?', good:"Bloom's Taxonomy", bad:'Educational Goal Levels'},

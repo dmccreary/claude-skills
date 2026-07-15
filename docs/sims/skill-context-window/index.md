@@ -8,7 +8,7 @@ quality_score: 100
 
 # Skill Context Window
 
-<iframe src="main.html" width="100%" height="545px" scrolling="no" style="overflow: hidden;"></iframe>
+<iframe src="main.html" width="100%" height="527px" scrolling="no" style="overflow: hidden;"></iframe>
 
 [Run the Skill Context Window MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
@@ -19,7 +19,7 @@ quality_score: 100
 You can include this MicroSim on your website using the following `iframe`:
 
 ```html
-<iframe src="https://dmccreary.github.io/claude-skills/sims/skill-context-window/main.html" width="100%" height="545px" scrolling="no" style="overflow: hidden;"></iframe>
+<iframe src="https://dmccreary.github.io/claude-skills/sims/skill-context-window/main.html" width="100%" height="527px" scrolling="no" style="overflow: hidden;"></iframe>
 ```
 
 ## Description

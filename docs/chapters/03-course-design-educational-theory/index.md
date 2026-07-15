@@ -54,7 +54,7 @@ For intelligent textbook projects, the course description quality directly impac
 
 #### Diagram: Course Description Quality Impact on Workflow
 
-<iframe src="../../sims/course-description-quality-workflow/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/course-description-quality-workflow/main.html" width="100%" height="782px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -274,7 +274,7 @@ The verb-based framework better aligns with outcome statements: "Students will a
 For AI-assisted content generation, the verb-based taxonomy enables more precise prompt engineering. Skills can be instructed to "generate examples requiring learners to evaluate trade-offs" rather than the less actionable "create evaluation content."
 #### Diagram: Bloom's Taxonomy 1956 vs 2001 Comparison
 
-<iframe src="../../sims/bloom-s-taxonomy-1956-vs-2001-comparison/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/bloom-s-taxonomy-1956-vs-2001-comparison/main.html" width="100%" height="622px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -414,7 +414,7 @@ Apply, execute, implement, use, carry out, solve, demonstrate, operate, employ, 
 Apply-level content includes worked examples with step-by-step execution, practice opportunities with varied scenarios, procedural guidance adaptable to contexts, and scaffolded problem-solving transitioning from guided to independent application.
 #### Diagram: Lower-Order vs Higher-Order Thinking Skills
 
-<iframe src="../../sims/lower-order-vs-higher-order-thinking-skills/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/lower-order-vs-higher-order-thinking-skills/main.html" width="100%" height="622px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -655,7 +655,7 @@ Assessing course description quality systematically ensures sufficient detail an
 Courses scoring below 70 should be revised before invoking learning-graph-generator, as quality deficiencies in the course description propagate through all downstream artifacts.
 #### Diagram: Course Description Quality Rubric Visualization
 
-<iframe src="../../sims/course-description-quality-rubric-visualization/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/course-description-quality-rubric-visualization/main.html" width="100%" height="622px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">

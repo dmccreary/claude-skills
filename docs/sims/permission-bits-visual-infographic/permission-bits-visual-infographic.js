@@ -1,4 +1,5 @@
 const rows = [
+// CANVAS_HEIGHT: 680
   ['rwx------', '700', 'Owner full, group/others none'],
   ['rwxr-x---', '750', 'Owner full, group read+execute'],
   ['rw-r-----', '640', 'Owner read+write, group read'],

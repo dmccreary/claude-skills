@@ -1,4 +1,5 @@
 const tree = {
+// CANVAS_HEIGHT: 640
   '/': ['docs', 'skills', 'src'],
   '/docs': ['chapters', 'sims', 'learning-graph'],
   '/docs/chapters': ['01-intro', '02-setup', '13-dev-tools'],

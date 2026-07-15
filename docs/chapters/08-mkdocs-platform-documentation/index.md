@@ -146,7 +146,7 @@ The Material theme extends MkDocs with powerful additional capabilities through 
 The theme's configuration system allows extensive customization while maintaining sensible defaults for rapid deployment. Color palettes can be customized to match institutional branding, fonts can be selected from Google Fonts or custom sources, and page layouts can be adjusted to emphasize different content types. For intelligent textbook development, the Material theme's support for mathematical notation (via MathJax or KaTeX), code syntax highlighting, and complex content hierarchies makes it particularly well-suited for technical educational content.
 #### Diagram: Material Theme Features Interactive Comparison
 
-<iframe src="../../sims/material-theme-features-interactive-comparison/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/material-theme-features-interactive-comparison/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Material Theme Features Interactive Comparison</summary>
@@ -304,7 +304,7 @@ Standard admonition types include several semantic categories:
 The `pymdownx.details` extension adds collapsible admonitions using `???` instead of `!!!`, creating interactive disclosure widgets that can be expanded by clicking. This feature is particularly valuable for optional content, detailed explanations, or supplementary information that some learners may want to skip. Collapsible admonitions help manage content density by hiding details until explicitly requested, preventing overwhelming presentation of information while keeping it accessible for learners who need additional depth.
 #### Diagram: Admonition Types Interactive Reference
 
-<iframe src="../../sims/admonition-types-interactive-reference/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/admonition-types-interactive-reference/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Admonition Types Interactive Reference</summary>
@@ -406,7 +406,7 @@ The staging area concept initially confuses new Git users but provides essential
 Git's branching model enables parallel development workflows where different aspects of a textbook can be developed simultaneously without interference. A typical intelligent textbook project might have branches for chapter development, technical editing, graphics creation, and interactive element integration, all proceeding independently until ready to merge into the main branch. This isolation prevents incomplete work from affecting others while preserving the ability to integrate finished work at any time.
 #### Diagram: Git Branching and Merging Visualization MicroSim
 
-<iframe src="../../sims/git-branching-and-merging-visualization-microsim/main.html" width="100%" height="660px" scrolling="no"></iframe>
+<iframe src="../../sims/git-branching-and-merging-visualization-microsim/main.html" width="100%" height="622px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Git Branching and Merging Visualization MicroSim</summary>

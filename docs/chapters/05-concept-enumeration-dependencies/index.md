@@ -218,7 +218,7 @@ Concept labels serve as human-readable identifiers appearing in learning graphs,
 **Avoid gerunds in favor of noun forms:** "Concept Enumeration" rather than "Enumerating Concepts"; "Dependency Mapping" rather than "Mapping Dependencies." This aligns with knowledge domain nomenclature conventions.
 #### Diagram: Concept Label Quality Checklist
 
-<iframe src="../../sims/concept-label-quality-checklist/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/concept-label-quality-checklist/main.html" width="100%" height="622px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -322,7 +322,7 @@ The 32-character constraint balances information density with usability across c
 The character count includes all letters, spaces, punctuation, and symbols. "Bloom's Taxonomy (2001)" counts as 23 characters including spaces and parentheses.
 #### Diagram: Concept Label Length Optimization
 
-<iframe src="../../sims/concept-label-length-optimization/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/concept-label-length-optimization/main.html" width="100%" height="562px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -383,7 +383,7 @@ Concept granularity—the level of detail and scope at which concepts are define
 Achieving consistent granularity across 200 concepts requires iterative refinement. The learning-graph-generator produces initial concepts at mixed granularity; manual review identifies and resolves granularity mismatches before finalizing the graph.
 #### Diagram: Concept Granularity Spectrum Visualization
 
-<iframe src="../../sims/concept-granularity-spectrum-visualization/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/concept-granularity-spectrum-visualization/main.html" width="100%" height="622px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -770,7 +770,7 @@ The Dependencies field encodes prerequisite relationships as pipe-delimited Conc
 **Reasonable fan-in:** While no hard limit exists, concepts depending on 5+ prerequisites often indicate overly advanced or insufficiently atomic concepts. Consider splitting.
 #### Diagram: ConceptID vs ConceptLabel Comparison
 
-<iframe src="../../sims/conceptid-vs-conceptlabel-comparison/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/conceptid-vs-conceptlabel-comparison/main.html" width="100%" height="562px" scrolling="no"></iframe>
 <!-- TODO:study this and figure out why a simple Markdown table might work better -->
 
 <details markdown="1">

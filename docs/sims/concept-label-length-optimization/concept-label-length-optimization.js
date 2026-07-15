@@ -1,4 +1,5 @@
 const rows=[
+// CANVAS_HEIGHT: 560
 ['Comprehensive Course Description Development',45,'Course Description',20],
 ['Learning Graph Dependency Edge Validation',45,'Dependency Edge Validation',30],
 ['MicroSim Specification and Implementation',46,'MicroSim Implementation',25],

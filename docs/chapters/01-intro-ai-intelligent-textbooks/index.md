@@ -270,7 +270,7 @@ For professional development contexts—such as this course on creating intellig
 
 This chapter uses the canonical five-level model defined in the Book Levels MicroSim.
 
-<iframe src="../../sims/book-levels/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/book-levels/main.html" width="100%" height="502px" scrolling="no"></iframe>
 
 [Run the Book Levels MicroSim Fullscreen](../../sims/book-levels/main.html){ .md-button .md-button--primary }
 

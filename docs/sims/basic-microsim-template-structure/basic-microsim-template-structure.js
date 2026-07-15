@@ -1,4 +1,5 @@
 const nodes = [
+// CANVAS_HEIGHT: 700
   ['<!DOCTYPE html>', 40, 70, '#e5e7eb'],
   ['<html>', 80, 130, '#dbeafe'],
   ['<head>', 140, 200, '#fef3c7'],
