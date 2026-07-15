@@ -2,7 +2,7 @@
 
 ## Status
 
-IMPLEMENTED - AWAITING MERGE
+RESOLVED
 
 ## Incident
 
@@ -134,6 +134,8 @@ linter result is claimed.
 
 ## Closure status
 
-The implementation and test criteria are satisfied locally. Remaining closure
-work is to record the CE Compound learning, merge the source change, verify the
-merge on `origin/main`, and restore the blocked book-publisher task.
+All closure criteria are satisfied. The source fix and CE Compound learning
+merged in PR #3, whose merged state was verified against GitHub before closure.
+The representative README scored `100/100`, every source and adjacent test
+passed, and the blocked book-publisher task was independently verified in the
+Trello `Next` list before this investigation was closed.
