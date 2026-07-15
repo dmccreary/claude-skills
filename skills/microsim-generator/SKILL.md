@@ -341,7 +341,7 @@ Each guide contains:
 
 ### 4.4 MANDATORY: Add CANVAS_HEIGHT Comment to .js File
 
-**Every .js file MUST include a `// CANVAS_HEIGHT:` comment on its own line near the top of the file (within the first 10 lines).** This is the primary source of truth for iframe height across all library types. The `fix-iframe-heights.py` / `sync-iframe-heights.py` utilities and manual height-fixing rely on it.
+**Every .js file MUST include a `// CANVAS_HEIGHT:` comment on its own line near the top of the file (within the first 10 lines).** This is the primary source of truth for iframe height across all library types. The `sync-iframe-heights.py` utility and manual height-fixing rely on it.
 
 > **No-`.js` sims:** if a sim is rendered entirely by `main.html` and ships **no `<id>.js`** (some projects author Mermaid, vis-network, or custom-HTML sims this way), there is no `.js` to hold the comment. Store the height in the sim's `metadata.json` instead, as `"canvasHeight": <integer>` — the consistent structured fallback that downstream tooling reads next after the `.js` comment. See the microsim-utils skill's `references/canvas-height-strategy.md` for the full resolution order. Everything else in this step (how to *calculate* the number, the `+2` iframe rule) is identical.
 
@@ -407,7 +407,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 1. **The comment MUST appear within the first 10 lines** of the .js file so parsing tools can find it quickly.
 2. **The value MUST be an integer** (no `px` suffix, no expressions).
-3. **The iframe height = CANVAS_HEIGHT + 2** (2px accounts for the iframe border). The `fix-iframe-heights.py` utility adds this automatically.
+3. **The iframe height = CANVAS_HEIGHT + 2** (2px accounts for the iframe border). The `sync-iframe-heights.py` utility adds this automatically.
 4. **For p5.js sims**, the CANVAS_HEIGHT value must equal `drawHeight + controlHeight` (plus `graphHeight` if present). Keep the existing named variables — the comment is a redundant-but-authoritative declaration for tooling.
 5. **When updating an existing sim**, always update the CANVAS_HEIGHT comment if you change any height-related values.
 6. **If unsure about the height**, render the sim in a browser, measure the total content height, and use that value. Err on the side of being slightly too tall (extra whitespace is better than clipped controls).
@@ -534,12 +534,12 @@ python3 $UTILS/validate-sims.py \
 
 ---
 
-## Step 6B: Fix Iframe Heights
+## Step 6B: Sync Iframe Heights
 
 **MANDATORY after implementing .js files.** Do NOT manually calculate iframe heights.
 
 ```bash
-python3 $UTILS/fix-iframe-heights.py \
+python3 $UTILS/sync-iframe-heights.py \
     --project-dir $PROJECT \
     --verbose
 ```
@@ -547,17 +547,19 @@ python3 $UTILS/fix-iframe-heights.py \
 **What this does:**
 
 - Parses each sim's `.js` file to find the `// CANVAS_HEIGHT: <value>` comment (primary source, see Step 4.4)
-- Falls back to detecting `createCanvas()` height or named height variables if the comment is missing
+- Falls back, in order, to `"canvasHeight"` in `metadata.json` (the place for sims with no `.js`), a `<!-- CANVAS_HEIGHT: -->` comment in `main.html`, then computed `drawHeight + controlHeight` from the `.js`
 - Sets the iframe height to `CANVAS_HEIGHT + 2` (2px for border)
-- Updates the `<iframe>` height attribute in each sim's `index.md` **and** in chapter files that embed the sim
+- Updates the `<iframe>` height attribute in each sim's `index.md` **and** in every page under `docs/` that embeds the sim — chapters, teacher guides, poster pages
 - Skips sims that are already correct
+
+**Use `sync-iframe-heights.py`, not `fix-iframe-heights.py`.** The latter is an own-page-only predecessor: it updates the sim's own `index.md` but silently leaves the chapter embeds inserted by Step 5 at their stale heights, so the sim looks right on its own page and clipped in the chapter.
 
 **Important:** The `// CANVAS_HEIGHT:` comment in the .js file is the single source of truth for ALL library types (p5.js, vis-network, Chart.js, Leaflet, Mermaid, etc.). If the comment is missing, add it to the .js file before running this tool — see Step 4.4 for format and calculation rules.
 
 **Fix a single sim:**
 
 ```bash
-python3 $UTILS/fix-iframe-heights.py \
+python3 $UTILS/sync-iframe-heights.py \
     --project-dir $PROJECT \
     --sim <sim-id> \
     --verbose
@@ -566,7 +568,7 @@ python3 $UTILS/fix-iframe-heights.py \
 **Dry-run first** to preview changes:
 
 ```bash
-python3 $UTILS/fix-iframe-heights.py \
+python3 $UTILS/sync-iframe-heights.py \
     --project-dir $PROJECT \
     --dry-run --verbose
 ```
@@ -605,7 +607,7 @@ playwright install chromium
 **If a sim fails:**
 
 1. Update the `// CANVAS_HEIGHT:` comment in the `.js` file to the suggested height minus 10
-2. Re-run `fix-iframe-heights.py` for that sim
+2. Re-run `sync-iframe-heights.py` for that sim
 3. Re-run the Playwright test to confirm it passes
 
 ---
@@ -707,7 +709,7 @@ explicitly reported."
 **What layout review does NOT do:**
 
 - Does not fix iframe-height clipping (content extending past the
-  iframe edge) — that's `fix-iframe-heights.py` and the iframe-tester
+  iframe edge) — that's `sync-iframe-heights.py` and the iframe-tester
   utility (`microsim-utils`) from Step 6B / 6C.
 - Does not modify approved sims (frontmatter `status: approved`).
   In this generator's flow that's irrelevant — newly-generated sims
@@ -740,7 +742,7 @@ Step 5: add-iframes-to-chapter.py → inserts/fixes iframes
   ↓
 Step 6: validate-sims.py → scores quality, fix issues
   ↓
-Step 6B: fix-iframe-heights.py → matches iframe heights to JS dimensions
+Step 6B: sync-iframe-heights.py → syncs iframe heights (own page + chapter embeds)
   ↓
 Step 6C: test-iframe-heights.py → Playwright verifies controls visible in iframe
   ↓
@@ -765,7 +767,7 @@ Step 4:  Write .js file
   ↓
 Step 6:  validate-sims.py --sim <name>
   ↓
-Step 6B: fix-iframe-heights.py --sim <name>
+Step 6B: sync-iframe-heights.py --sim <name>
   ↓
 Step 6C: test-iframe-heights.py --sim <name> → Playwright verifies controls visible
   ↓
