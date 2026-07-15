@@ -28,17 +28,16 @@
     "timeline"
   ],
   "learningObjectives": [
-    "Understand the key concepts of evolution of ai: from neural networks to claude code",
-    "Explore evolution of ai: from neural networks to claude code through interactive visualization",
-    "Apply knowledge of evolution of ai: from neural networks to claude code to solve problems",
-    "Experiment with parameters to observe their effects on evolution of ai: from neural networks to claude code"
+    "Sequence the six eras of AI development from the 1957 Perceptron through deep learning foundations, the GPU-driven computer vision revolution, transformers, large language models, Anthropic and Claude, and developer tools",
+    "Identify landmark events such as backpropagation, AlexNet and the ImageNet breakthrough, Attention Is All You Need, Constitutional AI, and the Claude Skills announcement, and place each in its decade",
+    "Explain how GPU compute, the transformer architecture, and scaling to foundation models each unlocked the era that followed",
+    "Compare the category filters to trace how the field's focus shifted from raw capability research toward safety, alignment, and practical developer tooling",
+    "Evaluate an individual event's contextual note to judge why that milestone mattered to later AI systems"
   ],
   "bloomsTaxonomy": [
     "Remember",
     "Understand",
-    "Apply",
-    "Evaluate",
-    "Create"
+    "Analyze"
   ],
   "pedagogical": {
     "pattern": "demonstration",

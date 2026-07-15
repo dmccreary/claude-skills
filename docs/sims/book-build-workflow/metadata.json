@@ -54,10 +54,11 @@
     "timeline"
   ],
   "learningObjectives": [
-    "Understand the key concepts of book build workflow",
-    "Explore book build workflow through interactive visualization",
-    "Apply knowledge of book build workflow to solve problems",
-    "Experiment with parameters to observe their effects on book build workflow"
+    "Sequence the four phases of intelligent textbook production: course description, learning graph, chapter structure, then chapter development",
+    "Explain why the learning graph must precede chapter structure, since concept dependencies determine chapter ordering",
+    "Distinguish the sequential foundation steps from the parallel chapter development that can proceed concurrently once the structure exists",
+    "Identify the Content Complete milestone as the quality gate that must be reached before glossary, FAQ, quizzes, and references are generated",
+    "Trace the two parallel completion tracks, educational resources and quality assurance, from Content Complete through to book metrics"
   ],
   "bloomsTaxonomy": [
     "Remember",

@@ -60,39 +60,18 @@
               "description": "Human-readable name for this taxonomy category"
             },
             "color": {
-              "type": "object",
-              "description": "Color styling for nodes in this group",
-              "required": ["color"],
-              "properties": {
-                "color": {
-                  "type": "string",
-                  "description": "Color value (hex code like #ff0000 or CSS color name like red)",
-                  "pattern": "^(#[0-9A-Fa-f]{6}|[a-z]+)$"
-                },
-                "colorName": {
-                  "type": "string",
-                  "description": "Human-readable color name for display in legends"
-                },
-                "font": {
-                  "type": "object",
-                  "description": "Font styling for text in nodes",
-                  "properties": {
-                    "color": {
-                      "type": "string",
-                      "description": "Font color (typically 'white' or 'black')",
-                      "pattern": "^(#[0-9A-Fa-f]{6}|[a-z]+)$"
-                    }
-                  }
-                }
-              }
+              "type": "string",
+              "description": "Color value (hex code like #ff0000 or CSS color name like DarkRed)",
+              "pattern": "^(#[0-9A-Fa-f]{6}|[A-Za-z]+)$"
             },
             "font": {
               "type": "object",
-              "description": "Additional font styling (deprecated - use color.font instead)",
+              "description": "Font styling for text in nodes",
               "properties": {
                 "color": {
                   "type": "string",
-                  "pattern": "^(#[0-9A-Fa-f]{6}|[a-z]+)$"
+                  "description": "Font color (typically 'white' or 'black')",
+                  "pattern": "^(#[0-9A-Fa-f]{6}|[A-Za-z]+)$"
                 }
               }
             }
