@@ -1,6 +1,6 @@
 # Book Metrics Layout Discovery Investigation
 
-**Status:** Remediated on branch; merge pending
+**Status:** Resolved upon merge of PR #2
 **Observed:** 2026-07-15
 **Affected component:** `src/book-metrics/book-metrics.py` v0.08
 
@@ -75,3 +75,4 @@ those false totals.
   chapter quizzes, and resolves all 17 generated chapter links.
 - The reusable failure pattern is recorded in
   `docs/solutions/logic-errors/book-metrics-layout-discovery.md`.
+- Review and merge record: https://github.com/yaniv256/dmccreary-claude-skills/pull/2
