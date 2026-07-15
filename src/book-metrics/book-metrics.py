@@ -18,7 +18,7 @@ from typing import Dict, List, Tuple, Any
 from datetime import datetime
 
 # Version of the Book Metrics Generator
-VERSION = "0.08"
+VERSION = "0.09"
 
 # Version of the book-metrics.json file format (see book-metrics.schema.json).
 # Bump only on a breaking change to the JSON structure, not on every code change.
@@ -76,35 +76,71 @@ class BookMetricsGenerator:
             return False
 
     def count_chapters(self) -> Tuple[int, List[Dict[str, Any]]]:
-        """Count number of chapter directories and collect chapter info.
+        """Discover numbered chapters and collect their source information.
+
+        Two layouts are supported:
+
+        - ``docs/chapters/01-name/index.md``
+        - ``docs/chapters/01-name.md``
+
+        If both layouts represent the same chapter number, the directory form
+        wins. This preserves the historical behavior without double counting a
+        migration that temporarily leaves both sources in place.
 
         Returns:
             Tuple of (chapter_count, list of chapter info dicts)
         """
-        chapters = []
-
         if not self.chapters_dir.exists():
             return 0, []
 
-        # Look for directories with index.md files
+        chapters = []
+        directory_chapter_numbers = set()
+
+        # Discover the historical directory layout first so it has precedence.
         for item in sorted(self.chapters_dir.iterdir()):
             if item.is_dir() and (item / "index.md").exists():
-                # Extract chapter number from directory name
                 match = re.match(r'^0*(\d+)', item.name)
                 if match:
                     chapter_num = int(match.group(1))
                     index_file = item / "index.md"
-
-                    # Read chapter title from index.md
-                    title = self._extract_title(index_file)
-
                     chapters.append({
                         'number': chapter_num,
-                        'name': title,
+                        'name': self._extract_title(index_file),
                         'path': item,
-                        'index_file': index_file
+                        'index_file': index_file,
+                        'content_files': sorted(item.rglob('*.md')),
+                        'resource_dir': item,
+                        'link_path': Path(item.name) / "index.md",
+                        'layout': 'directory',
                     })
+                    directory_chapter_numbers.add(chapter_num)
 
+        # A mature book may keep chapters as numbered Markdown files. Ignore
+        # the chapter overview and any unnumbered support files.
+        for item in sorted(self.chapters_dir.glob('*.md')):
+            match = re.match(r'^0*(\d+)[-_].*\.md$', item.name)
+            if not match:
+                continue
+
+            chapter_num = int(match.group(1))
+            if chapter_num in directory_chapter_numbers:
+                continue
+
+            chapters.append({
+                'number': chapter_num,
+                'name': self._extract_title(item),
+                'path': item,
+                'index_file': item,
+                'content_files': [item],
+                'resource_dir': None,
+                'link_path': Path(item.name),
+                'layout': 'flat-file',
+            })
+
+        chapters = sorted(
+            chapters,
+            key=lambda chapter: (chapter['number'], chapter['name']),
+        )
         return len(chapters), chapters
 
     def _extract_title(self, markdown_file: Path) -> str:
@@ -125,17 +161,33 @@ class BookMetricsGenerator:
         except Exception as e:
             print(f"Warning: Could not read {markdown_file}: {e}")
 
-        return markdown_file.parent.name
+        if markdown_file.name == "index.md":
+            return markdown_file.parent.name
+        return markdown_file.stem
 
     def count_concepts(self) -> int:
-        """Count concepts from learning-graph.csv.
+        """Count concepts from the available learning-graph inventory.
+
+        ``learning-graph.csv`` is the historical combined graph format.
+        Mature books may normalize the same information into ``concepts.csv``
+        plus separate dependency and taxonomy files.
 
         Returns:
             Number of concepts
         """
-        csv_file = self.learning_graph_dir / "learning-graph.csv"
+        csv_file = next(
+            (
+                candidate
+                for candidate in (
+                    self.learning_graph_dir / "learning-graph.csv",
+                    self.learning_graph_dir / "concepts.csv",
+                )
+                if candidate.exists()
+            ),
+            None,
+        )
 
-        if not csv_file.exists():
+        if csv_file is None:
             return 0
 
         try:
@@ -143,7 +195,7 @@ class BookMetricsGenerator:
                 reader = csv.DictReader(f)
                 return sum(1 for _ in reader)
         except Exception as e:
-            print(f"Warning: Could not read learning graph CSV: {e}")
+            print(f"Warning: Could not read concept inventory {csv_file}: {e}")
             return 0
 
     def count_glossary_terms(self) -> int:
@@ -195,12 +247,13 @@ class BookMetricsGenerator:
         if not self.chapters_dir.exists():
             return 0
 
-        # Look for quiz.md files in chapter directories
-        for chapter_dir in self.chapters_dir.iterdir():
-            if chapter_dir.is_dir():
-                quiz_file = chapter_dir / "quiz.md"
-                if quiz_file.exists():
-                    total += self._count_quiz_in_file(quiz_file)
+        for chapter in self.count_chapters()[1]:
+            chapter_dir = chapter['resource_dir']
+            if chapter_dir is None:
+                continue
+            quiz_file = chapter_dir / "quiz.md"
+            if quiz_file.exists():
+                total += self._count_quiz_in_file(quiz_file)
 
         return total
 
@@ -405,14 +458,9 @@ class BookMetricsGenerator:
         if not self.chapters_dir.exists():
             return 0
         count = 0
-        for chapter in self.chapters_dir.iterdir():
-            if not chapter.is_dir():
-                continue
-            index = chapter / "index.md"
-            if not index.exists():
-                continue
+        for chapter in self.count_chapters()[1]:
             try:
-                text = index.read_text(encoding="utf-8").lower()
+                text = chapter['index_file'].read_text(encoding="utf-8").lower()
             except Exception:
                 continue
             count += text.count("host plant")
@@ -452,8 +500,9 @@ class BookMetricsGenerator:
             return 0
 
         count = 0
-        for chapter_dir in self.chapters_dir.iterdir():
-            if chapter_dir.is_dir() and (chapter_dir / "quiz.md").exists():
+        for chapter in self.count_chapters()[1]:
+            chapter_dir = chapter['resource_dir']
+            if chapter_dir is not None and (chapter_dir / "quiz.md").exists():
                 count += 1
 
         return count
@@ -472,8 +521,9 @@ class BookMetricsGenerator:
 
         files = 0
         total_entries = 0
-        for chapter_dir in self.chapters_dir.iterdir():
-            if not chapter_dir.is_dir():
+        for chapter in self.count_chapters()[1]:
+            chapter_dir = chapter['resource_dir']
+            if chapter_dir is None:
                 continue
             ref_file = chapter_dir / "references.md"
             if not ref_file.exists():
@@ -696,29 +746,35 @@ class BookMetricsGenerator:
             Dict with chapter metrics
         """
         index_file = chapter['index_file']
-        chapter_dir = chapter['path']
+        chapter_dir = chapter['resource_dir']
 
         # Count sections in index.md
         sections = self.count_sections_in_file(index_file)
 
-        # Count diagrams, equations, words, and links in all markdown files in chapter directory
+        # Count content across the chapter's canonical source files. Directory
+        # chapters preserve recursive historical behavior; flat chapters own
+        # only their numbered Markdown file.
         diagrams = 0
         equations = 0
         words = 0
         links = 0
-        for md_file in chapter_dir.rglob('*.md'):
+        for md_file in chapter['content_files']:
             diagrams += self.count_diagrams_in_file(md_file)
             equations += self.count_equations_in_file(md_file)
             words += self.count_words_in_file(md_file)
             links += self.count_links_in_file(md_file)
 
         # Quiz questions and references for this chapter
-        quiz_file = chapter_dir / "quiz.md"
-        quiz_questions = self._count_quiz_in_file(quiz_file) if quiz_file.exists() else 0
+        quiz_file = chapter_dir / "quiz.md" if chapter_dir is not None else None
+        quiz_questions = (
+            self._count_quiz_in_file(quiz_file)
+            if quiz_file is not None and quiz_file.exists()
+            else 0
+        )
 
-        ref_file = chapter_dir / "references.md"
+        ref_file = chapter_dir / "references.md" if chapter_dir is not None else None
         references = 0
-        if ref_file.exists():
+        if ref_file is not None and ref_file.exists():
             try:
                 with open(ref_file, 'r', encoding='utf-8') as f:
                     references = len(re.findall(r'^\s*\d+\.\s+', f.read(), re.MULTILINE))
@@ -818,7 +874,7 @@ class BookMetricsGenerator:
         md += "| # | Element | Value | Status | Notes |\n"
         md += "|---|---------|-------|--------|-------|\n"
         md += f"| 1 | Concepts | {concepts} | {status_cell('Required', concepts, (0,))} | Concepts from learning graph |\n"
-        md += f"| 2 | Chapters | {chapter_count} | {status_cell('Required', chapter_count, (0,))} | Chapter directories with index.md |\n"
+        md += f"| 2 | Chapters | {chapter_count} | {status_cell('Required', chapter_count, (0,))} | Numbered chapter sources |\n"
         md += f"| 3 | MicroSims | {microsims} | Recommended | Interactive simulations in docs/sims/ |\n"
         md += f"| 4 | Stories | {stories} | Optional | Graphic-novel narratives in docs/stories/ |\n"
         md += f"| 5 | Chapter Quizzes | {chapter_quizzes} / {chapter_count} | Recommended | Chapters with a quiz.md ({quiz_questions} questions total) |\n"
@@ -864,8 +920,8 @@ class BookMetricsGenerator:
 
         md += "\n## Metrics Explanation\n\n"
         md += "### Book Composition Elements\n\n"
-        md += "- **Concepts** *(required)*: Number of rows in learning-graph.csv\n"
-        md += "- **Chapters** *(required)*: Count of chapter directories containing index.md files\n"
+        md += "- **Concepts** *(required)*: Number of rows in the discovered concept inventory CSV\n"
+        md += "- **Chapters** *(required)*: Count of numbered directory or flat-file chapter sources\n"
         md += "- **MicroSims** *(recommended)*: Directories in docs/sims/ with index.md files\n"
         md += "- **Stories** *(optional)*: Story directories in docs/stories/ with index.md files\n"
         md += "- **Chapter Quizzes** *(recommended)*: Chapters containing a quiz.md file (with total quiz questions in the notes)\n"
@@ -896,7 +952,7 @@ class BookMetricsGenerator:
 
         md += "### Column Explanations\n\n"
         md += "- **All Content**: Includes all student-facing content (chapters, glossary, FAQ, sims, etc.) but excludes administrative directories\n"
-        md += "- **Chapters Only**: Aggregated from chapter directories only - represents the core textbook content students read\n\n"
+        md += "- **Chapters Only**: Aggregated from discovered chapter sources - represents the core textbook content students read\n\n"
 
         md += "**Excluded Directories**: `prompts/`, `learning-graph/` (administrative content not visible to students)\n"
 
@@ -932,14 +988,13 @@ class BookMetricsGenerator:
         # Add rows for each chapter
         for chapter in chapters:
             metrics = self.get_chapter_metrics(chapter)
-            # Create link to chapter index.md (relative to learning-graph directory)
-            chapter_dir_name = chapter['path'].name
-            chapter_link = f"[{metrics['name']}](../chapters/{chapter_dir_name}/index.md)"
+            # Create a link relative to the learning-graph report directory.
+            chapter_link = f"[{metrics['name']}](../chapters/{chapter['link_path'].as_posix()})"
             md += f"| {metrics['number']} | {chapter_link} | {metrics['sections']} | {metrics['diagrams']} | {metrics['equations']} | {metrics['words']:,} | {metrics['links']} | {metrics['quiz_questions']} | {metrics['references']} |\n"
 
         md += "\n## Metrics Explanation\n\n"
         md += "- **Chapter**: Chapter number (leading zeros removed)\n"
-        md += "- **Name**: Chapter title from index.md\n"
+        md += "- **Name**: Chapter title from its canonical Markdown source\n"
         md += "- **Sections**: Count of H2 and H3 headers in chapter markdown files\n"
         md += "- **Diagrams**: Count of H4 headers starting with '#### Diagram:'\n"
         md += "- **Equations**: LaTeX expressions using $ and $$ delimiters\n"
@@ -1175,7 +1230,14 @@ def main():
     generator.generate_metrics()
 
     print(f"\n✅ Book metrics generation version {VERSION} complete!")
-    print("\nUpdates in v0.08:")
+    print("\nUpdates in v0.09:")
+    print("  - Recognizes numbered flat Markdown chapters as well as chapter")
+    print("    directories containing index.md, without double counting.")
+    print("  - Falls back to learning-graph/concepts.csv when a mature book")
+    print("    separates concepts from dependencies and taxonomy.")
+    print("  - Generates correct chapter metrics and report links for both")
+    print("    supported chapter layouts.")
+    print("\nPrevious updates (v0.08):")
     print("  - NEW canonical docs/learning-graph/book-metrics.json - the single")
     print("    source of truth for book-wide totals. Fully machine-owned and")
     print("    overwritten each run; validates against book-metrics.schema.json.")

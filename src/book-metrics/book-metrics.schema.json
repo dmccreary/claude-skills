@@ -20,7 +20,7 @@
     "metricsGeneratedBy": {
       "type": "string",
       "description": "Human-readable provenance string identifying the program and version that produced this file.",
-      "examples": ["Book Metrics Python Program v0.08"]
+      "examples": ["Book Metrics Python Program v0.09"]
     },
     "metricsGeneratedOn": {
       "type": "string",
@@ -64,12 +64,12 @@
         "concepts": {
           "type": "integer",
           "minimum": 0,
-          "description": "Concept rows in docs/learning-graph/learning-graph.csv (excluding the header)."
+          "description": "Concept rows in docs/learning-graph/learning-graph.csv, or concepts.csv when the combined graph file is absent (excluding the header)."
         },
         "chapters": {
           "type": "integer",
           "minimum": 0,
-          "description": "Numbered chapter directories under docs/chapters/ that contain an index.md."
+          "description": "Numbered chapter sources under docs/chapters/: directories containing index.md or flat Markdown chapter files."
         },
         "microsims": {
           "type": "integer",
