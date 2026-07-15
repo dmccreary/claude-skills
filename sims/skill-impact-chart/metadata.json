@@ -29,10 +29,10 @@
     "timeline"
   ],
   "learningObjectives": [
-    "Understand the key concepts of skill development priority matrix visualization",
-    "Explore skill development priority matrix visualization through interactive visualization",
-    "Apply knowledge of skill development priority matrix visualization to solve problems",
-    "Experiment with parameters to observe their effects on skill development priority matrix visualization"
+    "Interpret a bubble chart in which the x-axis encodes development effort, the y-axis encodes frequency of use, and bubble size encodes instance count",
+    "Classify visualization types into the four priority quadrants formed by the effort and impact midpoints at 5",
+    "Evaluate which MicroSim types to build first by locating high-impact, low-effort items in the Priority 1 quadrant",
+    "Distinguish items that still need to be built (red) from those that already exist (green) using the status color encoding"
   ],
   "bloomsTaxonomy": [
     "Remember",

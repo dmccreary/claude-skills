@@ -26,18 +26,15 @@
     "timeline"
   ],
   "learningObjectives": [
-    "Understand the key concepts of average dependencies distribution bar chart",
-    "Explore average dependencies distribution bar chart through interactive visualization",
-    "Apply knowledge of average dependencies distribution bar chart to solve problems",
-    "Experiment with parameters to observe their effects on average dependencies distribution bar chart"
+    "Interpret a histogram of prerequisite counts per concept to assess the dependency structure of a 200-concept learning graph",
+    "Identify the optimal 2-4 prerequisite range highlighted in green and the dashed average line at 3.1 dependencies per concept",
+    "Compare the mean (3.1), median (2), and mode (2) prerequisite counts to characterize the skew of the distribution",
+    "Evaluate a learning graph's health using red flags such as a flat distribution, more than 15 percent zero-prerequisite concepts, or more than 10 percent of concepts with 6 or more prerequisites"
   ],
   "bloomsTaxonomy": [
-    "Remember",
     "Understand",
     "Apply",
-    "Analyze",
-    "Evaluate",
-    "Create"
+    "Analyze"
   ],
   "pedagogical": {
     "pattern": "reference",

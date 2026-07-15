@@ -23,10 +23,10 @@
     "map"
   ],
   "learningObjectives": [
-    "Understand the key concepts of concept label length histogram",
-    "Explore concept label length histogram through interactive visualization",
-    "Apply knowledge of concept label length histogram to solve problems",
-    "Test understanding of concept label length histogram through interactive exercises"
+    "Interpret a histogram of concept label lengths across a 200-concept learning graph, including its peak at 26 characters",
+    "Identify the key summary statistics of the label distribution: mean 23.77, median 24, range 11-36 characters, and standard deviation 5.15",
+    "Calculate the compliance rate with the 32-character label guideline from the counts shown in the chart",
+    "Explain why concept labels should be concise, descriptive, and under 32 characters to remain readable as graph node labels"
   ],
   "bloomsTaxonomy": [
     "Remember",

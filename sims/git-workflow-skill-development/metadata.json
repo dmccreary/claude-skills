@@ -23,10 +23,10 @@
     "interactive-demo"
   ],
   "learningObjectives": [
-    "Understand the key concepts of git workflow for skill development",
-    "Explore git workflow for skill development through interactive visualization",
-    "Apply knowledge of git workflow for skill development to solve problems",
-    "Test understanding of git workflow for skill development through interactive exercises"
+    "Sequence the Git operations in the skill development workflow: add, commit, push, and tag",
+    "Explain the role each Git command plays in versioning a Claude skill from initial creation to published release",
+    "Identify the decision points where a skill is judged ready for publication before a release is tagged",
+    "Trace how a skill edit moves from the working directory through the staging area and local commit to the remote GitHub repository"
   ],
   "bloomsTaxonomy": [
     "Remember",

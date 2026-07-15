@@ -25,18 +25,15 @@
     "simulation"
   ],
   "learningObjectives": [
-    "Understand the key concepts of book levels",
-    "Explore book levels through interactive visualization",
-    "Apply knowledge of book levels to solve problems",
-    "Experiment with parameters to observe their effects on book levels"
+    "Identify the five levels of intelligent textbooks, from static texts through interactive, adaptive, and chatbot-enabled books to autonomous AI textbooks",
+    "Distinguish the defining features of each level, such as hyperlinks and embedded MicroSims at Level 2 versus GraphRAG chatbot tutors at Level 4",
+    "Explain why student-data privacy concerns escalate as textbooks progress from Level 3 adaptivity to Level 5 autonomy",
+    "Classify a given textbook or courseware product into the appropriate level based on its interactivity and AI capabilities"
   ],
   "bloomsTaxonomy": [
-    "Remember",
     "Understand",
     "Apply",
-    "Analyze",
-    "Evaluate",
-    "Create"
+    "Analyze"
   ],
   "pedagogical": {
     "pattern": "guided-discovery",

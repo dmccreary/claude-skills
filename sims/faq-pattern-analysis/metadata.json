@@ -23,10 +23,10 @@
     "interactive-demo"
   ],
   "learningObjectives": [
-    "Understand the key concepts of faq question pattern analysis workflow",
-    "Explore faq question pattern analysis workflow through interactive visualization",
-    "Apply knowledge of faq question pattern analysis workflow to solve problems",
-    "Test understanding of faq question pattern analysis workflow through interactive exercises"
+    "Sequence the FAQ generation workflow from extracting the concept list through question generation, answer validation, and FAQ index update",
+    "Explain how 5-10 candidate questions are generated per concept from learning graph dependencies and question-pattern searches",
+    "Distinguish automated steps from human checkpoints such as educator review of questions that fail the quality threshold",
+    "Trace the two feedback loops in the diagram: flagged questions routed to educator review and incomplete answers revised and regenerated"
   ],
   "bloomsTaxonomy": [
     "Remember",

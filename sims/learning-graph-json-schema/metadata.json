@@ -23,9 +23,10 @@
     "network"
   ],
   "learningObjectives": [
-    "Understand the key concepts of learning graph json schema",
-    "Explore learning graph json schema through interactive visualization",
-    "Apply knowledge of learning graph json schema to solve problems"
+    "Identify the four main sections of the learning graph JSON format: metadata, groups, nodes, and edges",
+    "Explain how taxonomy categories defined in the groups section supply the colors and labels applied to concept nodes in vis-network",
+    "Trace how a concept dependency is encoded as an edge connecting two node identifiers",
+    "Construct a minimal valid learning graph JSON file containing metadata, one group, and a connected set of nodes and edges"
   ],
   "bloomsTaxonomy": [
     "Remember",

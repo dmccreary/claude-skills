@@ -91,10 +91,10 @@
     "simulation"
   ],
   "learningObjectives": [
-    "Understand the key concepts of color wheel with named colors",
-    "Explore color wheel with named colors through interactive visualization",
-    "Apply knowledge of color wheel with named colors to solve problems",
-    "Experiment with parameters to observe their effects on color wheel with named colors"
+    "Identify web-safe named colors on a color wheel",
+    "Understand the relationship between hue and position on a color wheel",
+    "Compare RGB values of similar colors",
+    "Apply named colors in web design contexts"
   ],
   "bloomsTaxonomy": [
     "Remember",

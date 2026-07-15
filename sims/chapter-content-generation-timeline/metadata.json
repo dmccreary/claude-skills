@@ -27,18 +27,15 @@
     "timeline"
   ],
   "learningObjectives": [
-    "Understand the key concepts of chapter content generation workflow timeline",
-    "Explore chapter content generation workflow timeline through interactive visualization",
-    "Apply knowledge of chapter content generation workflow timeline to solve problems",
-    "Experiment with parameters to observe their effects on chapter content generation workflow timeline"
+    "Sequence the eight stages of the chapter-content-generator workflow from file validation through final reporting",
+    "Classify each color-coded stage into its workflow phase (validation, analysis, generation, quality assurance, completion) using the category filter buttons",
+    "Compare stage durations on the time-scaled timeline to explain why content generation at 60-180 seconds dominates the 2-4 minute total runtime",
+    "Estimate token consumption for a chapter by inspecting the per-stage token usage details revealed by clicking timeline items"
   ],
   "bloomsTaxonomy": [
-    "Remember",
     "Understand",
     "Apply",
-    "Analyze",
-    "Evaluate",
-    "Create"
+    "Analyze"
   ],
   "pedagogical": {
     "pattern": "demonstration",

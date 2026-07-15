@@ -24,9 +24,10 @@
     "simulation"
   ],
   "learningObjectives": [
-    "Understand the key concepts of linear chain vs network structure comparison",
-    "Explore linear chain vs network structure comparison through interactive visualization",
-    "Apply knowledge of linear chain vs network structure comparison to solve problems"
+    "Compare a linear chain learning graph with a networked structure using the side-by-side vis-network displays",
+    "Explain why a single rigid prerequisite path limits learner flexibility while cross-connections enable multiple learning pathways",
+    "Distinguish poor from good learning graph design using the criteria listed in the comparison table",
+    "Evaluate an existing learning graph for excessive linearity and recommend cross-connections that would improve it"
   ],
   "bloomsTaxonomy": [
     "Remember",

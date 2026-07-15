@@ -35,10 +35,10 @@
     "simulation"
   ],
   "learningObjectives": [
-    "Understand the key concepts of three-color dfs cycle detection",
-    "Explore three-color dfs cycle detection through interactive visualization",
-    "Apply knowledge of three-color dfs cycle detection to solve problems",
-    "Test understanding of three-color dfs cycle detection through interactive exercises"
+    "Explain the meaning of the three node colors in DFS cycle detection: white (unvisited), gray (on the current traversal stack), and black (fully explored)",
+    "Trace a depth-first search through a directed graph while nodes change color and the stack display grows and shrinks",
+    "Predict that a cycle exists when the traversal reaches a gray node that is already on the DFS stack",
+    "Explain why a learning graph must be a directed acyclic graph and how three-color DFS validates that no prerequisite cycles exist"
   ],
   "bloomsTaxonomy": [
     "Remember",

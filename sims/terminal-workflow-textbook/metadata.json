@@ -23,9 +23,10 @@
     "interactive-demo"
   ],
   "learningObjectives": [
-    "Understand the key concepts of terminal workflow for textbook development",
-    "Explore terminal workflow for textbook development through interactive visualization",
-    "Apply knowledge of terminal workflow for textbook development to solve problems"
+    "Identify the role of each of three terminals in textbook development: the mkdocs serve dev server, Python validation scripts, and Git operations",
+    "Sequence the command workflow from mkdocs serve through learning-graph validation to git commit, push, and mkdocs gh-deploy",
+    "Explain why validation scripts must pass before committing, including confirming the learning graph is a valid DAG with no circular dependencies",
+    "Distinguish pushing markdown source with git push origin main from publishing the built site with mkdocs gh-deploy"
   ],
   "bloomsTaxonomy": [
     "Remember",

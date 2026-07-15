@@ -46,17 +46,16 @@
     "simulation"
   ],
   "learningObjectives": [
-    "Understand the key concepts of install book environment dependencies",
-    "Explore install book environment dependencies through interactive visualization",
-    "Apply knowledge of install book environment dependencies to solve problems",
-    "Test understanding of install book environment dependencies through interactive exercises"
+    "Interpret a DEPENDS_ON dependency graph in which arrows point from a component to what it requires, and read it right to left to find installation order",
+    "Identify the seven layers of the environment: permissions, Unix shell and file system, Python and Node.js and Git runtimes, pip and npm package managers, MkDocs Python packages, Claude tools, and the Build Book goal",
+    "Trace backwards from the Build Book node to enumerate every component that must be installed first",
+    "Explain why pip installs mkdocs, mkdocs-material, and pymdown-extensions while npm installs Claude Code, and what each package manager requires of its runtime",
+    "Predict which downstream components break when a prerequisite such as Python 3.10 or Git is missing"
   ],
   "bloomsTaxonomy": [
-    "Remember",
     "Understand",
     "Apply",
-    "Evaluate",
-    "Create"
+    "Analyze"
   ],
   "pedagogical": {
     "pattern": "demonstration",

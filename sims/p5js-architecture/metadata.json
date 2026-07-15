@@ -25,10 +25,10 @@
     "simulation"
   ],
   "learningObjectives": [
-    "Understand the key concepts of p5.js architecture and execution model",
-    "Explore p5.js architecture and execution model through interactive visualization",
-    "Apply knowledge of p5.js architecture and execution model to solve problems",
-    "Experiment with parameters to observe their effects on p5.js architecture and execution model"
+    "Explain why setup() executes exactly once while draw() loops continuously at approximately 60 frames per second",
+    "Trace the execution order of a p5.js sketch from library load through setup() into the repeating draw() cycle",
+    "Describe how event handlers such as mousePressed() and keyPressed() run between draw() frames in response to user input",
+    "Decide whether a given piece of sketch code belongs in setup() (one-time initialization) or draw() (per-frame animation)"
   ],
   "bloomsTaxonomy": [
     "Remember",

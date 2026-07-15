@@ -35,10 +35,10 @@
     "interactive-demo"
   ],
   "learningObjectives": [
-    "Understand the mathematical concept of certificate of completion generator",
-    "Apply certificate of completion generator to solve problems",
-    "Visualize and interpret certificate of completion generator relationships",
-    "Test understanding of certificate of completion generator through interactive exercises"
+    "Identify the required fields of a certificate of completion: recipient name, course name, instructor, and completion date",
+    "Explain how a live preview re-renders the certificate from the form fields as each keystroke changes the underlying data",
+    "Compare the simple, ornate, and modern border styles and select one appropriate to a given audience and occasion",
+    "Produce a print-ready certificate in 11 by 8.5 inch landscape at actual size, or export it as a PDF for digital distribution"
   ],
   "pedagogical": {
     "pattern": "demonstration",

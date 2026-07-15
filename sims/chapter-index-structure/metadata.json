@@ -24,9 +24,10 @@
     "network"
   ],
   "learningObjectives": [
-    "Understand the key concepts of chapter index file structure",
-    "Explore chapter index file structure through interactive visualization",
-    "Apply knowledge of chapter index file structure to solve problems"
+    "Identify the required elements of a chapter index.md file: YAML frontmatter, title, summary, and concepts list",
+    "Distinguish required sections from optional elements such as prerequisites and learning objectives in the chapter outline",
+    "Trace how frontmatter, section headings, and the concept list nest within the document outline shown in the Mermaid diagram",
+    "Construct a valid chapter index.md skeleton for a new textbook chapter following the visualized structure"
   ],
   "bloomsTaxonomy": [
     "Remember",

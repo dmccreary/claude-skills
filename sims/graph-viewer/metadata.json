@@ -25,10 +25,11 @@
     "simulation"
   ],
   "learningObjectives": [
-    "Understand the key concepts of learning graph viewer",
-    "Explore learning graph viewer through interactive visualization",
-    "Apply knowledge of learning graph viewer to solve problems",
-    "Experiment with parameters to observe their effects on learning graph viewer"
+    "Locate specific concepts in a learning graph using type-ahead search that respects the active taxonomy filters",
+    "Filter graph categories on and off using the color-coded legend checkboxes and the Check All and Uncheck All buttons",
+    "Interpret the real-time node, edge, and orphan statistics as taxonomy categories are toggled",
+    "Identify orphaned concepts with no connections as evidence that a learning graph needs editing",
+    "Design a progressive study sequence by enabling foundation categories first and gradually revealing advanced topics"
   ],
   "bloomsTaxonomy": [
     "Remember",

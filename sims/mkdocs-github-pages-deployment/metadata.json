@@ -27,18 +27,16 @@
     "simulation"
   ],
   "learningObjectives": [
-    "Understand the key concepts of mkdocs github pages deployment workflow",
-    "Explore mkdocs github pages deployment workflow through interactive visualization",
-    "Apply knowledge of mkdocs github pages deployment workflow to solve problems",
-    "Test understanding of mkdocs github pages deployment workflow through interactive exercises"
+    "Sequence the eleven deployment steps from editing markdown locally to a live site served from the GitHub Pages CDN",
+    "Distinguish the roles of the main branch (markdown source) and the gh-pages branch (built HTML) in the dual-branch deployment strategy",
+    "Explain how the mkdocs gh-deploy command combines building the static site and force-pushing it to the gh-pages branch",
+    "Trace the validation loop that routes a failed mkdocs build back to local editing before any commit is pushed",
+    "Identify which workflow steps occur in each swimlane: local development, Git/GitHub, and the GitHub Pages service"
   ],
   "bloomsTaxonomy": [
-    "Remember",
     "Understand",
     "Apply",
-    "Analyze",
-    "Evaluate",
-    "Create"
+    "Analyze"
   ],
   "pedagogical": {
     "pattern": "assessment",

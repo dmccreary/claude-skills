@@ -42,9 +42,11 @@
     "interactive-demo"
   ],
   "learningObjectives": [
-    "Understand the key concepts of claude code t-shirt design - workflow diagram",
-    "Explore claude code t-shirt design - workflow diagram through interactive visualization",
-    "Apply knowledge of claude code t-shirt design - workflow diagram to solve problems"
+    "Trace the three-node left-to-right flow in which a course description is transformed by Claude Code Skills and generates a 500-page textbook",
+    "Distinguish the input, process, and output roles of the three nodes and the color coding (turquoise, Anthropic brown, purple) that signals each role",
+    "Explain why a wearable diagram needs 20px bold type, 3px strokes, and only three nodes to stay legible at 10 to 12 inches on fabric",
+    "Design a variant color scheme that keeps input, process, and output distinguishable against a dark garment",
+    "Export the diagram as SVG rather than raster so the design stays sharp at any print size"
   ],
   "bloomsTaxonomy": [
     "Remember",
