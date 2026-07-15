@@ -3,6 +3,13 @@ site
 ~$*
 .cache
 .vscode
+
+# Python bytecode. Regenerated automatically on import, never source. The
+# rules below were once scoped to mcp-servers/** only, which let __pycache__
+# dirs under plugins/, scripts/, skills/, and src/ get committed.
+__pycache__/
+*.py[cod]
+
 mcp-servers/**/*.pyc
 mcp-servers/**/__pycache__/
 mcp-servers/**/*.egg-info/
