@@ -36,7 +36,11 @@ Requires the Claude in Chrome extension connected and the user logged into Googl
    "(GMT-05:00) Chicago Time". Leave currency as USD. Click **Next**.
 4. **Business details:** open the **Industry category** dropdown, type `Education`, select
    **Jobs & Education**. Select **Small - 1 to 10 employees**. Click **Next**.
-5. **Business objectives:** check **Understand web and/or app traffic**. The action button on
+5. **Business objectives:** check both the following:
+   1. **Understand web and/or app traffic**
+   2. **View user engagement & retention**
+  
+  The action button on
    this step is labeled **Create** (not "Next") — click it to create the property.
 
 ## Step 2 — Create the Web data stream and capture the Measurement ID
