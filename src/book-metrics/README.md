@@ -6,10 +6,12 @@ This directory contains Python scripts for analyzing and generating metrics for 
 
 ### book-metrics.py
 
-Generates comprehensive metrics for intelligent textbooks, producing two reports:
+Generates comprehensive metrics for intelligent textbooks, producing four synchronized artifacts:
 
 - **book-metrics.md**: Overall statistics (chapters, concepts, glossary terms, FAQs, quiz questions, diagrams, equations, MicroSims, word counts, links)
 - **chapter-metrics.md**: Per-chapter breakdown of metrics
+- **book-metrics.json**: Canonical machine-readable totals consumed by publishing skills
+- **book-metadata.json**: Descriptive metadata with the canonical metrics mirrored in place
 
 **Usage:**
 
@@ -24,6 +26,23 @@ python /path/to/book-metrics.py /path/to/textbook/docs
 **Output:**
 - `docs/learning-graph/book-metrics.md`
 - `docs/learning-graph/chapter-metrics.md`
+- `docs/learning-graph/book-metrics.json`
+- `docs/learning-graph/book-metadata.json`
+
+### Supported textbook layouts
+
+The generator recognizes both common intelligent-textbook chapter layouts:
+
+```text
+docs/chapters/01-foundations/index.md
+docs/chapters/01-foundations.md
+```
+
+When both forms exist for the same numbered chapter, the directory form takes
+precedence so a migration is not double counted. Concept totals come from
+`docs/learning-graph/learning-graph.csv` when present, with
+`docs/learning-graph/concepts.csv` supported as the normalized inventory used by
+mature books with separate dependency and taxonomy files.
 
 ### generate-equation-list.py
 
@@ -138,5 +157,6 @@ nav:
 
 ### Report shows wrong chapter
 
-- Chapter detection relies on directory naming convention: `XX-chapter-name/`
+- Chapter detection relies on a numeric prefix: `XX-chapter-name/index.md` or
+  `XX-chapter-name.md`
 - Files outside the `chapters/` directory are grouped under "Other Content"
