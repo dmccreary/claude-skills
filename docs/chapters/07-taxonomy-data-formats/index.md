@@ -403,7 +403,7 @@ The edges array defines the directed acyclic graph structure. vis-network render
 For a 200-concept learning graph with an average of 3 dependencies per concept, expect approximately 600 edge objects in this array.
 #### Diagram: CSV to JSON Conversion Mapping Diagram
 
-<iframe src="../../sims/csv-to-json-conversion-mapping-diagram/main.html" width="100%" height="680px" scrolling="no"></iframe>
+<iframe src="../../sims/csv-to-json-conversion-mapping-diagram/main.html" width="100%" height="642px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>CSV to JSON Conversion Mapping Diagram</summary>

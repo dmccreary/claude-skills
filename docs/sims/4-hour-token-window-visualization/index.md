@@ -11,7 +11,7 @@ quality_score: 0
 
 # 4-Hour Token Window Visualization
 
-<iframe src="main.html" height="450px" width="100%" scrolling="no"></iframe>
+<iframe src="main.html" height="619px" width="100%" scrolling="no"></iframe>
 
 [Run the 4-Hour Token Window Visualization MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 <br/>
@@ -31,7 +31,7 @@ You can add this MicroSim to any web page by adding this to your HTML:
 
 ```html
 <iframe src="https://dmccreary.github.io/claude-skills/sims/4-hour-token-window-visualization/main.html"
-        height="450px"
+        height="619px"
         width="100%"
         scrolling="no"></iframe>
 ```

@@ -162,7 +162,7 @@ Effective topic listings exhibit:
 The course description for this intelligent textbooks course provides an exemplar with 25+ main topics ranging from foundational (Claude Skills architecture) through intermediate (learning graphs) to advanced (MicroSim development), demonstrating appropriate scope and progression.
 #### Diagram: Topic-to-Concept Expansion Example
 
-<iframe src="../../sims/topic-to-concept-expansion-example/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/topic-to-concept-expansion-example/main.html" width="100%" height="640px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -536,7 +536,7 @@ Create, design, construct, develop, formulate, author, generate, plan, produce, 
 Create-level content provides open-ended challenges, offers frameworks and constraints fostering structured creativity, showcases examples of creative work highlighting key features, and scaffolds complex production through phase-wise guidance.
 #### Diagram: Bloom's Taxonomy Application Distribution in Quality Courses
 
-<iframe src="../../sims/bloom-s-taxonomy-application-distribution-in-quality-courses/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/bloom-s-taxonomy-application-distribution-in-quality-courses/main.html" width="100%" height="546px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">

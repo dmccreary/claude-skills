@@ -55,7 +55,7 @@ Explore the complete interactive timeline chronicling 52 pivotal moments in AI h
 
 #### Diagram: Evolution of AI Approaches Timeline
 
-<iframe src="../../sims/evolution-of-ai-approaches-timeline/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/evolution-of-ai-approaches-timeline/main.html" width="100%" height="750px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -103,7 +103,7 @@ Key characteristics of modern LLMs include:
 - **Emergent capabilities:** Behaviors not explicitly programmed, arising from scale and training
 #### Diagram: Transformer Architecture Diagram
 
-<iframe src="../../sims/transformer-architecture-diagram/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/transformer-architecture-diagram/main.html" width="100%" height="562px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -183,7 +183,7 @@ The Claude Code interface provides several capabilities critical for intelligent
 To access Claude Code, users require an **Anthropic Claude Pro account**, which provides enhanced usage limits, priority access during high-demand periods, and access to the latest model versions. The Pro subscription operates on a usage-based model with 4-hour windows, a concept we'll explore in depth in Chapter 4.
 #### Diagram: Claude Code Workflow Diagram
 
-<iframe src="../../sims/claude-code-workflow-diagram/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/claude-code-workflow-diagram/main.html" width="100%" height="602px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -298,7 +298,7 @@ Common features:
 
 #### Diagram: Interactive Learning Element Types Comparison
 
-<iframe src="../../sims/interactive-learning-element-types-comparison/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/interactive-learning-element-types-comparison/main.html" width="100%" height="586px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -424,7 +424,7 @@ Initial prompts rarely achieve optimal results. Expert prompt engineers treat pr
 Rather than attempting to generate perfect content in a single step, sophisticated workflows separate content generation from quality assessment. Generate draft content, run quality checks (completeness, concept coverage, reading level), and refine based on evaluation results.
 #### Diagram: Prompt Engineering Iterative Refinement Workflow
 
-<iframe src="../../sims/prompt-engineering-iterative-refinement-workflow/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/prompt-engineering-iterative-refinement-workflow/main.html" width="100%" height="602px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">

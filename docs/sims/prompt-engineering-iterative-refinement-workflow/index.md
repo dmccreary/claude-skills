@@ -11,7 +11,7 @@ quality_score: 0
 
 # Prompt Engineering Iterative Refinement Workflow
 
-<iframe src="main.html" height="450px" width="100%" scrolling="no"></iframe>
+<iframe src="main.html" height="602px" width="100%" scrolling="no"></iframe>
 
 [Run the Prompt Engineering Iterative Refinement Workflow MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 <br/>
@@ -31,7 +31,7 @@ You can add this MicroSim to any web page by adding this to your HTML:
 
 ```html
 <iframe src="https://dmccreary.github.io/claude-skills/sims/prompt-engineering-iterative-refinement-workflow/main.html"
-        height="450px"
+        height="602px"
         width="100%"
         scrolling="no"></iframe>
 ```

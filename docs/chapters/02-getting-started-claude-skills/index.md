@@ -429,7 +429,7 @@ ls -la .claude/skills/
 Project-local skills take precedence over global skills with the same name, enabling project-specific customization of standard workflows.
 #### Diagram: Skill Installation Locations and Priority
 
-<iframe src="../../sims/skill-installation-locations-and-priority/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/skill-installation-locations-and-priority/main.html" width="100%" height="562px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -558,7 +558,7 @@ Generate chapter content for junior-high reading level with emphasis on concrete
 The skill receives both the general instruction and executes its standard workflow, incorporating the contextual guidance where applicable.
 #### Diagram: Skill Invocation and Execution Lifecycle
 
-<iframe src="../../sims/skill-invocation-and-execution-lifecycle/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/skill-invocation-and-execution-lifecycle/main.html" width="100%" height="642px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -714,7 +714,7 @@ The fundamental distinction between skills and commands lies in autonomy and com
 In this course, the intelligent textbook workflow relies primarily on skills due to the complexity and multi-step nature of content generation. Commands might be used for auxiliary tasks like "check-concept-coverage" or "validate-markdown-format."
 #### Diagram: Skills vs Commands Decision Tree
 
-<iframe src="../../sims/skills-vs-commands-decision-tree/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/skills-vs-commands-decision-tree/main.html" width="100%" height="622px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -805,7 +805,7 @@ Example: If you consume 50,000 tokens at 9:00 AM, those tokens remain unavailabl
 This model rewards distributed work patterns over concentrated bursts. For textbook creation workflows that may involve generating content for 13 chapters, spreading skill invocations across several sessions prevents exhausting your token budget.
 #### Diagram: 5-Hour Token Window Visualization
 
-<iframe src="../../sims/5-hour-token-window-visualization/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/5-hour-token-window-visualization/main.html" width="100%" height="619px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -942,7 +942,7 @@ Over 3-5 iterations, prompts typically converge to consistent, high-quality outp
 Converged prompts can be captured as skills or commands for reuse across projects, sharing expertise and accelerating future textbook development.
 #### Diagram: Iterative Prompt Refinement Metrics
 
-<iframe src="../../sims/iterative-prompt-refinement-metrics/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/iterative-prompt-refinement-metrics/main.html" width="100%" height="582px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">

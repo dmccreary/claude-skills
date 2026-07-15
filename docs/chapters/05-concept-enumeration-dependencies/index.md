@@ -60,7 +60,7 @@ For AI-assisted enumeration via the learning-graph-generator skill, the course d
 
 #### Diagram: Topic-to-Concept Expansion Process
 
-<iframe src="../../sims/topic-to-concept-expansion-process/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/topic-to-concept-expansion-process/main.html" width="100%" height="622px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -155,7 +155,7 @@ The target of approximately 200 concepts for a semester-length course derives fr
 The learning-graph-generator skill defaults to 200 concepts but accepts guidance in the course description. A statement like "This is an intensive 6-week boot camp" signals to generate ~100 concepts; "This is a comprehensive two-semester sequence" signals ~400 concepts split into multiple graphs.
 #### Diagram: Concept Count by Course Duration
 
-<iframe src="../../sims/concept-count-by-course-duration/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/concept-count-by-course-duration/main.html" width="100%" height="586px" scrolling="no"></iframe>
 <!-- TODO: adjust the height of the iframe -->
 
 <details markdown="1">
@@ -880,7 +880,7 @@ Anomalies suggesting quality issues:
 The analyze-graph.py script in the learning-graph-generator skill computes these distributions and flags anomalies in the quality report.
 #### Diagram: Concept Depth Distribution Analysis
 
-<iframe src="../../sims/concept-depth-distribution-analysis/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/concept-depth-distribution-analysis/main.html" width="100%" height="586px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>Concept Depth Distribution Analysis</summary>
