@@ -1,0 +1,26 @@
+name: Book media generator contract
+
+on:
+  pull_request:
+    paths:
+      - "skills/book-media-generator/**"
+      - ".github/workflows/book-media-generator-contract.yml"
+  push:
+    branches: [main]
+    paths:
+      - "skills/book-media-generator/**"
+      - ".github/workflows/book-media-generator-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  chapter-images-guide:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run chapter image guide contract tests
+        run: python -m unittest discover -s skills/book-media-generator/tests -p 'test_*.py' -v

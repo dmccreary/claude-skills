@@ -1,243 +1,253 @@
+# Chapter Image Sourcing Guide
 
-# Chapter Image Sourcing Guide (Wikimedia / Gov Archives)
+> Active replacement for the archived standalone skill `chapter-image-enhancer`.
 
-> Formerly the standalone skill `chapter-image-enhancer`.
+Use this guide to add real photographs, maps, or archival media to an intelligent
+textbook when a specific image does instructional work that the chapter's prose,
+data, or semantic diagrams cannot do as well. Zero new images is a valid and
+often preferable outcome.
 
-Add high-quality, freely-licensed images to intelligent textbook chapters. This skill finds relevant maps and photos from public domain and Creative Commons sources, downloads and optimizes them for web, inserts them at appropriate locations with captions, and adds proper attribution.
+This workflow helps collect evidence about licensing and provenance. It is not
+legal advice. When rights are unclear, do not publish the file.
 
-## When to Use
+## When To Use
 
-- A chapter is text-heavy and would benefit from maps, photos, or diagrams
-- The user asks to "add images", "make it more visual", or "find photos for" a chapter
-- A chapter covers geographic, scientific, or visual topics where images are essential
-- After chapter content is generated but before final publication
+Use this route when:
 
-## Image Source Priority
+- the user asks for sourced photographs, maps, or archival media;
+- a learner must inspect a real object, place, organism, document, or event;
+- a historical or geographic claim is materially clearer with primary visual
+  evidence; or
+- an existing external image needs a provenance and attribution audit.
 
-The skill uses only images compatible with CC BY-NC-SA 4.0 textbooks. Search in this order:
+Do not use this route merely because a chapter is text-heavy. Prefer a local
+teaching diagram, first-party screenshot, table, or interactive when it explains
+the concept better. Do not add decorative stock imagery to satisfy a quota.
 
-### Tier 1: US Government (Public Domain — No Restrictions)
+## Output Contract
 
-US federal government works are public domain and the safest to use:
+An approved image produces all of the following:
 
-- **USDA** — hardiness zone maps, soil maps, agricultural photos
-- **EPA** — ecoregion maps, environmental data visualizations
-- **USGS** — topographic maps, geological surveys, satellite imagery
-- **USFWS** — wildlife and habitat photos (Fish & Wildlife Service)
-- **US Forest Service** — forest and wilderness photos
-- **NOAA** — weather, climate, and ocean imagery
-- **NASA** — Earth observation and satellite photos
-- **NPS** — National Park Service landscape photos
-- **Library of Congress** — historical photos and maps
+1. the optimized local media file;
+2. descriptive alt text and a useful caption;
+3. a visible attribution near the image or in an adjacent credits section;
+4. a machine-readable provenance record; and
+5. verification that the rendered page, source link, attribution, dimensions,
+   and file size are correct.
 
-### Tier 2: Wikimedia Commons (CC BY or CC BY-SA)
+Store provenance in `image-credits.yml` beside the chapter images unless the
+project already has a canonical media ledger. Record at least:
 
-Wikimedia Commons hosts millions of freely-licensed educational images:
+```yaml
+- file: example.jpg
+  source_page: https://commons.wikimedia.org/wiki/File:Example.jpg
+  direct_url: https://upload.wikimedia.org/example.jpg
+  creator: Example Creator
+  license_id: CC BY 4.0
+  license_url: https://creativecommons.org/licenses/by/4.0/
+  retrieved_at: 2026-07-16
+  modifications: resized to 1200px; JPEG quality 82
+  sha256: <digest of the committed file>
+```
 
-- **CC BY 2.0/3.0/4.0** — attribution required, fully compatible
-- **CC BY-SA 2.0/3.0/4.0** — attribution + share-alike, compatible with CC BY-NC-SA
-- **CC0 / Public Domain** — no restrictions
+Do not treat a caption alone as adequate provenance. File pages and metadata can
+change; the ledger preserves what was reviewed at publication time.
 
-Avoid these licenses (incompatible with CC BY-NC-SA 4.0):
+## Source And Rights Policy
 
-- **CC BY-ND** — No Derivatives conflicts with SA
-- **All Rights Reserved** — cannot use without explicit permission
-- **CC BY-NC-ND** — No Derivatives is incompatible
+Every candidate is reviewed individually. A source being hosted by Wikimedia
+Commons or a government domain is not itself a license.
 
-### Tier 3: State Government and University Sources
+### Routine Automated Reuse
 
-State works are NOT automatically public domain (unlike federal). Check terms of use individually. Many state agencies and universities grant educational use.
+The workflow may proceed after metadata verification for:
+
+- CC0;
+- an explicit public-domain dedication or verified public-domain status; and
+- CC BY, with creator, license version, license URL, and modifications recorded.
+
+### Manual Rights Review Required
+
+Stop for project-owner review before publishing:
+
+- CC BY-SA, CC BY-NC, or CC BY-NC-SA;
+- any NoDerivatives license, including CC BY-ND and CC BY-NC-ND;
+- GFDL, multi-license, custom-license, or unknown-license files;
+- works containing identifiable people, trademarks, private property, or other
+  non-copyright restrictions relevant to the intended use; and
+- any candidate whose creator, source page, or license version is missing.
+
+Do not infer that CC BY-SA material is compatible with a CC BY-NC-SA textbook.
+Creative Commons publishes license compatibility rules at
+<https://creativecommons.org/compatible-licenses/> and explains adaptation,
+collection, and ShareAlike obligations at <https://creativecommons.org/faq/>.
+Whether an image is merely collected with a book or adapted into a larger work
+can matter, so uncertain cases require review rather than a blanket table.
+
+### Government Sources
+
+A work prepared by an officer or employee of the United States government as
+part of official duties is generally not protected by U.S. copyright under
+17 U.S.C. 105. A federal website can still host contractor, grantee, donated,
+transferred, or third-party material. Confirm authorship and the item-specific
+rights statement. The government may also own copyrights transferred to it.
+
+State, local, university, and foreign-government works are not automatically
+public domain under this rule. Review their item-specific terms.
 
 ## Workflow
 
-### Step 1: Analyze the Chapter
+### 1. Define The Teaching Job
 
-Read the chapter's `index.md` to understand:
+Read the chapter and identify a concrete learner need. For each proposed image,
+write one sentence answering:
 
-- The chapter title and main topic
-- Major H2 sections — each is a candidate for an image
-- What types of images would be most helpful (maps, photos, diagrams, charts)
-- The subject domain (geography, biology, history, etc.) to guide image search
+> What will the learner be able to notice, compare, locate, or judge because
+> this image is present?
 
-Identify 3-6 insertion points where an image would add the most value. Prioritize:
+Reject the candidate if the answer is only "the page looks more visual." Rank
+the remaining candidates against local diagrams, first-party screenshots,
+tables, and interactives. Adding no external media is a successful audit.
 
-1. Geographic topics → maps
-2. Species or organisms → photos
-3. Processes or systems → diagrams
-4. Historical topics → archival photos
-5. Locations or landmarks → landscape photos
+### 2. Find Candidate Media
 
-### Step 2: Find Images
+Prefer, in order:
 
-For each insertion point, find a suitable image.
+1. first-party evidence owned by the project;
+2. verified CC0 or public-domain collections;
+3. CC BY media with complete attribution metadata; and
+4. manually reviewed restricted or ShareAlike candidates.
 
-**Using the Wikimedia API to get correct download URLs:**
+Wikimedia Commons is useful for discovery, but Commons provides no warranty and
+asks reusers to verify each file's status. Follow its reuse guidance at
+<https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia/en>.
 
-The Wikimedia API reliably returns actual image URLs (direct curl/wget often fails due to hash-path issues):
+Use the included, tested Commons metadata helper. Supply a monitored project
+contact in the User-Agent so Wikimedia can reach the operator if the client
+misbehaves:
 
-```python
-import urllib.request, json
-
-title = "File:Example_Image.jpg"
-api_url = f"https://en.wikipedia.org/w/api.php?action=query&titles={urllib.request.quote(title)}&prop=imageinfo&iiprop=url&iiurlwidth=1280&format=json"
-req = urllib.request.Request(api_url, headers={"User-Agent": "TextbookProject/1.0 (Educational; CC-BY-NC-SA)"})
-with urllib.request.urlopen(req) as resp:
-    data = json.loads(resp.read())
-    pages = data["query"]["pages"]
-    for pid, page in pages.items():
-        if "imageinfo" in page:
-            url = page["imageinfo"][0].get("thumburl", page["imageinfo"][0]["url"])
+```bash
+python3 skills/book-media-generator/scripts/images/commons_metadata.py \
+  --title "File:Example.jpg" \
+  --contact "mailto:maintainer@example.org" \
+  --output /tmp/example-commons-metadata.json
 ```
 
-The `iiurlwidth=1280` parameter requests a pre-scaled thumbnail — this is faster than downloading the full-resolution original and resizing locally.
+The helper queries `https://commons.wikimedia.org/w/api.php` with
+`iiprop=url|extmetadata` and `formatversion=2`. It converts HTML-formatted
+extended metadata to reviewable plain text, requires a source page and creator,
+recognizes only the routine-reuse license set from this guide, and requires an
+official Creative Commons license URL for CC0 and CC BY. Other licenses stop
+with a manual-review error. HTTP 429 responses honor `Retry-After` for at most
+three attempts.
 
-**For US Government sources**, direct URLs typically work fine with curl.
+The MediaWiki `imageinfo` documentation lists `extmetadata` and related fields:
+<https://www.mediawiki.org/wiki/API:Imageinfo>.
 
-**Important**: Always verify the license before downloading. On Wikimedia Commons, check the file page for the license template. For US government images, confirm they come from a federal (not state or contractor) source.
+The API result is evidence to review, not an automatic permission decision.
+Open the source page and check for warnings, multiple licenses, special terms,
+or metadata that is only meaningful as rendered HTML.
 
-### Step 3: Download Images
+### 3. Approve Or Reject Each Candidate
 
-Create a directory for the chapter's images:
+For each candidate, verify:
 
-```
+- it satisfies the teaching job;
+- the source page identifies the creator and rights status;
+- the license permits the intended use and modifications;
+- attribution requirements can be met;
+- non-copyright restrictions have been considered; and
+- the source URL, license URL, retrieval date, and intended modifications are
+  ready for the provenance ledger.
+
+If a Commons file came from Flickr or another upstream source, review the
+Commons record and any available source history. Do not claim that one page is
+automatically authoritative if the records conflict.
+
+### 4. Download And Verify The File
+
+Download sequentially with a descriptive User-Agent. Honor `Retry-After` on
+HTTP 429 responses instead of using a fixed retry claim. Confirm that the
+response is an expected image type before writing it, then compute a SHA-256
+digest for the provenance record.
+
+Create the project's conventional chapter-image directory, for example:
+
+```text
 docs/img/chapters/XX-chapter-name/
 ```
 
-Download with Python's `urllib` (more reliable than curl for Wikimedia):
+Never guess a Wikimedia hash path. Use the API-provided URL.
 
-```python
-import urllib.request
+### 5. Optimize Without Losing Meaning
 
-headers = {"User-Agent": "TextbookProject/1.0 (Educational)"}
-req = urllib.request.Request(url, headers=headers)
-with urllib.request.urlopen(req) as resp:
-    data = resp.read()
-    with open(filepath, "wb") as f:
-        f.write(data)
-```
+Use Pillow or the project's existing image pipeline. Preserve the original
+aspect ratio, color meaning, labels, and accessibility-relevant detail. Do not
+crop documentary evidence merely to fit a layout. Record every transformation.
 
-Note: Wikimedia rate-limits aggressively. If you get HTTP 429, wait 5 seconds and retry. Download images sequentially, not in parallel.
+Reasonable starting targets, subject to the project's performance budget:
 
-### Step 4: Optimize for Web
+- photographs: 1200px maximum display width, efficient JPEG or WebP;
+- diagrams and maps: lossless format when labels or transparency require it;
+- thumbnails: separate derivative rather than destructive replacement; and
+- all files: dimensions and byte size checked after encoding.
 
-Resize and compress images using Pillow:
+### 6. Insert With Context And Attribution
 
-```python
-from PIL import Image
-
-img = Image.open(path)
-max_width = 1200
-
-if img.width > max_width:
-    ratio = max_width / img.width
-    img = img.resize((max_width, int(img.height * ratio)), Image.LANCZOS)
-
-if path.endswith('.png') and img.mode != 'RGBA':
-    # Convert to JPEG for smaller file size (unless transparency needed)
-    img.convert('RGB').save(path.replace('.png', '.jpg'), 'JPEG', quality=82, optimize=True)
-else:
-    img.save(path, optimize=True)
-```
-
-Target file sizes:
-
-- Photos: under 500KB (JPEG quality 80-85)
-- Maps: under 600KB (JPEG if no transparency, PNG if needed)
-- Diagrams: under 300KB (PNG for sharp lines)
-
-### Step 5: Insert Images into the Chapter
-
-Place each image at the identified insertion point using standard Markdown image syntax. Include a caption in italics below the image:
+Place the image where the learner needs the evidence, not automatically after
+every H2. Introduce it in the prose and explain what to inspect.
 
 ```markdown
-![Descriptive alt text for accessibility](../../img/chapters/XX-name/filename.jpg)
-*Caption describing the image content and context. Source: Creator Name (License).*
+![Descriptive alt text that conveys the relevant visual evidence](../../img/chapters/XX-name/example.jpg)
+*What the learner should notice. [Creator and source file](https://example.com/source-file) ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)); resized from the original.*
 ```
 
-**Placement rules:**
+Use empty alt text only when the image is genuinely decorative and conveys no
+information. If it is decorative, reconsider whether it belongs in the book.
 
-- Insert images immediately after the section heading (H2) they relate to, before the first paragraph of text
-- One blank line before the image, one blank line after the caption
-- The alt text should describe the image content for screen readers
-- The caption should explain what the reader is looking at and credit the source
+Maintain an `## Image Credits` section when the project uses consolidated
+credits, but keep the machine-readable provenance ledger as the audit source.
 
-**Caption format:**
+### 7. Verify The Published Result
 
-```
-*[Description of what the image shows]. [Source attribution] ([License]).*
-```
+Run the project's tests and strict documentation build. Then inspect the
+rendered page at desktop and mobile widths. Verify independently that:
 
-Examples:
+- the image loads and is legible;
+- the aspect ratio is correct and no important content is cropped;
+- alt text and caption serve different, useful purposes;
+- attribution and license links resolve to the reviewed sources;
+- the provenance ledger matches the committed file's SHA-256;
+- dimensions and byte size meet the project budget; and
+- the image still performs the teaching job in context.
 
-```markdown
-*Big Bluestem grass towering in a tallgrass prairie. Photo: Jennifer Briggs / USFWS (CC BY 2.0).*
-*EPA Level III Ecoregions of Minnesota. Source: U.S. Environmental Protection Agency (public domain).*
-```
+A successful build proves only that the site compiled. It does not prove
+rights, attribution, accessibility, visual quality, or instructional value.
 
-### Step 6: Add Image Credits Section
+## Failure Modes
 
-Add an "Image Credits" section at the bottom of the chapter, before the "See Annotated References" link (or before "## Concepts Covered" if no references link exists):
+1. **Image quotas:** adding three to six images because a recipe says so creates
+   decoration and maintenance debt. Zero is valid.
+2. **Host-as-license reasoning:** neither `*.gov` nor Commons guarantees that a
+   particular file is reusable.
+3. **Blanket compatibility claims:** ShareAlike, NonCommercial, NoDerivatives,
+   collection, and adaptation questions require license-specific review.
+4. **Missing provenance:** a caption without source URL, license URL, retrieval
+   date, modifications, and digest is difficult to audit later.
+5. **API success as permission:** metadata can be missing, stale, conflicting,
+   or incomplete. Review the rendered source page.
+6. **Destructive optimization:** crops or conversions can remove labels,
+   transparency, detail, or evidentiary context.
+7. **Build-only verification:** compilation cannot establish legal,
+   accessibility, performance, or teaching quality.
 
-```markdown
-## Image Credits
+## Completion Report
 
-- [Brief description]: [Creator/Organization] ([License])
-- [Brief description]: [Creator/Organization] ([License])
-```
+Report:
 
-This serves as a consolidated attribution block for all images in the chapter, making license compliance easy to verify.
-
-### Step 7: Build and Verify
-
-Run `mkdocs build` (or the project's build command) to verify:
-
-- No broken image paths
-- Images render at correct locations
-- GLightbox (if installed) enables click-to-zoom
-- Page load time is reasonable
-
-## License Compatibility Quick Reference
-
-| Source License | Compatible with CC BY-NC-SA 4.0? | Attribution Required? |
-|----------------|----------------------------------|----------------------|
-| Public Domain (US Gov) | Yes | No (but good practice) |
-| CC0 | Yes | No |
-| CC BY 2.0/3.0/4.0 | Yes | Yes |
-| CC BY-SA 2.0/3.0/4.0 | Yes | Yes (SA carries through) |
-| CC BY-NC 2.0/3.0/4.0 | Yes | Yes |
-| CC BY-NC-SA | Yes (same license) | Yes |
-| CC BY-ND | **No** | N/A |
-| CC BY-NC-ND | **No** | N/A |
-| All Rights Reserved | **No** | N/A |
-
-## Common Pitfalls
-
-1. **Wikimedia download URLs**: Never guess the hash path. Always use the Wikimedia API to get the actual URL. The hash path (`/a/ab/File.jpg`) is computed from the filename and is easy to get wrong.
-
-2. **State government images**: Unlike federal works, state government images are NOT automatically public domain. Check each state's terms of use.
-
-3. **Flickr uploads on Commons**: Many Wikimedia Commons photos were uploaded from Flickr. The license shown on Commons is what matters (it was verified at upload time), even if the Flickr page has since changed.
-
-4. **Missing alt text**: Every image must have descriptive alt text for accessibility. Describe what the image shows, not just its title.
-
-5. **Oversized images**: Always resize before committing. A 5MB photo will slow page loads significantly. Target 1200px max width and under 500KB.
-
-6. **Portrait-oriented photos**: Very tall images (portrait orientation) can dominate the page. Consider whether a landscape crop would work better, or use CSS to constrain the height.
-
-## Example Output
-
-For a chapter about Minnesota ecoregions, the skill would produce:
-
-**5 images in** `docs/img/chapters/02-ecoregions/`:
-
-| File | Source | Size |
-|------|--------|------|
-| mn-ecoregion-map.png | EPA (public domain) | 583 KB |
-| usda-hardiness-zones-mn.jpg | USDA-ARS (public domain) | 301 KB |
-| tallgrass-prairie.jpg | USFWS via Wikimedia (CC BY 2.0) | 383 KB |
-| deciduous-forest.jpg | Wikimedia Commons (CC BY-SA 2.0) | 432 KB |
-| boreal-forest-bwca.jpg | US Forest Service (public domain) | 113 KB |
-
-**5 insertions** in the chapter markdown, each with alt text, caption, and attribution.
-
-**1 Image Credits section** at the bottom of the chapter consolidating all attributions.
+- teaching jobs considered;
+- candidates approved and rejected, with reasons;
+- files added or intentionally not added;
+- provenance-ledger path;
+- tests, build, link, and rendered-page checks performed; and
+- any item left for manual rights review.
