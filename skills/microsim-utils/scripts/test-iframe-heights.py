@@ -23,8 +23,6 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 
-from playwright.sync_api import sync_playwright
-
 TOLERANCE = 5        # px — controls within this margin still count as visible
 SAFETY_MARGIN = 10   # px — added to suggested height
 VIEWPORT_WIDTH = 700 # matches typical MkDocs Material content column width
@@ -88,6 +86,20 @@ class SimResult:
     suggested_height: int | None
     clipped_elements: list[str] = field(default_factory=list)
     error: str | None = None
+
+
+def load_sync_playwright():
+    """Load the optional browser dependency only after CLI parsing."""
+    try:
+        from playwright.sync_api import sync_playwright
+    except ModuleNotFoundError as error:
+        if error.name == "playwright" or (error.name or "").startswith("playwright."):
+            raise RuntimeError(
+                "Playwright is required to run iframe tests. Install it with "
+                "`pip install playwright`, then run `playwright install chromium`."
+            ) from error
+        raise
+    return sync_playwright
 
 
 def extract_iframe_height(index_md: Path) -> int | None:
@@ -227,13 +239,13 @@ def write_report(path: Path, results: list[SimResult], sims_dir: str):
     print(f"\nReport written to {path}")
 
 
-def main():
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Test MicroSim iframe heights with Playwright")
     parser.add_argument("--sims-dir", default="docs/sims", help="Path to sims directory")
     parser.add_argument("--sim", default=None, help="Test a single sim by name")
     parser.add_argument("--height", type=int, default=None, help="Override iframe height for all sims")
     parser.add_argument("--report", default=None, help="Write markdown report to this path")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     sims_dir = Path(args.sims_dir)
     sims = discover_sims(sims_dir)
@@ -247,6 +259,11 @@ def main():
     print(f"Testing {len(sims)} MicroSim(s) in {sims_dir}\n")
 
     results: list[SimResult] = []
+
+    try:
+        sync_playwright = load_sync_playwright()
+    except RuntimeError as error:
+        parser.error(str(error))
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
@@ -290,8 +307,9 @@ def main():
         write_report(Path(args.report), results, str(sims_dir))
 
     if failed > 0 or errors > 0:
-        sys.exit(1)
+        return 1
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

@@ -50,6 +50,9 @@ The script lives at `~/.claude/skills/microsim-utils/scripts/test-iframe-heights
 ```bash
 SCRIPTS="$HOME/.claude/skills/microsim-utils/scripts"
 
+# Inspect every option before installing the optional browser dependency
+python3 $SCRIPTS/test-iframe-heights.py --help
+
 # Test all MicroSims
 python3 $SCRIPTS/test-iframe-heights.py --sims-dir docs/sims
 
@@ -62,6 +65,9 @@ python3 $SCRIPTS/test-iframe-heights.py --sims-dir docs/sims --height 530
 # Generate a markdown report
 python3 $SCRIPTS/test-iframe-heights.py --sims-dir docs/sims --report report.md
 ```
+
+`--help` does not require Playwright. A real test run without the dependency
+exits with the two installation commands above rather than a Python traceback.
 
 ## Reading the Output
 
