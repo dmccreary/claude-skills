@@ -88,6 +88,10 @@ string. No code actually collected or reported self-edges.
 - Existing sample graph: valid DAG, no self-dependencies, longest path 5.
 - Repository Python tests: 22/22 passed across book installer, README
   validation, glossary scoring, learning-graph analysis, and book metrics.
+- Closure and durable-learning PR:
+  [#8](https://github.com/yaniv256/dmccreary-claude-skills/pull/8)
+- Closure merge commit: `3f22411a36ae462cbd3fd3e03e49a87c87e98aea`
+- Closure merged at: 2026-07-16T04:32:59Z
 - Durable learning:
   [Validate Graph Preconditions Before Path Analysis](../solutions/logic-errors/validate-graph-preconditions-before-path-analysis.md)
 
