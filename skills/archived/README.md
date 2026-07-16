@@ -15,7 +15,7 @@ rerun the installer.
 | `concept-classifier` | `microsim-generator` → `references/concept-classifier-guide.md` | classify, categorize, sort scenarios, identify types |
 | `interactive-infographic-overlay` | `microsim-generator` → `references/infographic-overlay-guide.md` | diagram overlay, callout labels, anatomy, labeled illustration |
 | `docker-python-lab` | `microsim-generator` → `references/docker-python-lab-guide.md` | python lab, code runner, runnable code block, docker |
-| `diagram-reports-generator` | `microsim-utils` → `references/diagram-reports.md` | diagram report, visualization coverage, audit diagrams/microsims |
+| `diagram-reports-generator` | `microsim-utils` → `references/diagram-reports.md` | legacy diagram specification report, planned visual inventory |
 | `init-textbook` | `book-installer` → `references/init-textbook.md` (feature 0) | init textbook, scaffold textbook, brand new book, empty directory |
 | `register-book-analytics` | `book-installer` → `references/google-analytics.md` (feature 25) | google analytics, GA4, measurement id, G-* |
 | `readme-generator` | `book-publisher` → `references/readme-guide.md` | readme, github readme, badges |

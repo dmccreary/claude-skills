@@ -1,5 +1,10 @@
 # Diagram Reports Generator
 
+> **Legacy snapshot.** The active route is
+> `microsim-utils/references/diagram-reports.md`. It inventories only legacy
+> `#### Diagram:` specification blocks and must not be used as a rendered-visual
+> inventory or instructional-quality gate.
+
 The diagram-reports-generator skill automatically generates comprehensive reports
 of all diagrams and MicroSims in an intelligent textbook by analyzing chapter
 markdown files. It creates both table and detailed views organized by chapter.
@@ -16,9 +21,9 @@ This skill produces two report files:
 For each diagram or MicroSim, the reports include:
 
 - **Status**: Planned, In Progress, Complete
-- **Difficulty Level**: Basic, Intermediate, Advanced
+- **Planning Heuristic**: keyword-derived Easy, Medium, Hard, or Very Hard; not a quality score or measured estimate
 - **Bloom's Taxonomy Level**: Remember through Create
-- **UI Complexity**: Simple to Complex
+- **UI Keyword Mentions**: text occurrences in the source specification, not implemented controls
 - **Implementation Type**: Static diagram, Interactive MicroSim
 
 ## When to Use

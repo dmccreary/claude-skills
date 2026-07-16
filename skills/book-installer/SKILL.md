@@ -533,12 +533,12 @@ Each guide contains:
 - `docs/chapters/*/references.md` — per-chapter reference lists (via `reference-generator` skill)
 - `docs/img/cover.png` — book cover image + social-preview hook (via `cover-image-generator.md` + `social-media-preview.md`)
 - Book metrics report (via `bk-generate-book-metrics` script)
-- Diagram reports (via `bk-diagram-reports` script)
+- Optional legacy diagram-specification reports (via `bk-diagram-reports`; only when the source schema exists)
 - `README.md` — GitHub-facing README after metrics, so it can embed content counts (via the `book-publisher` readme route — skill)
 - `docs/index.md` — main landing page last, so it can link to all of the above (via `home-page-template.md`)
 - Updated `mkdocs.yml` nav entries for all generated files
 
-**Execution order:** about → glossary → FAQ → quizzes → references → cover image → metrics → diagram reports → README → landing page → nav update → verification
+**Execution order:** about → glossary → FAQ → quizzes → references → cover image → metrics → optional legacy diagram-specification reports → README → landing page → nav update → verification
 
 **Model guidance:** All text-generation steps use Sonnet. Any MicroSim created during this workflow must use `claude-opus-4-7` with `high` thinking — Opus is significantly better at the coding and spatial reasoning MicroSims require.
 
@@ -689,7 +689,7 @@ Each guide contains:
 ### Example 17: Generate All Supplementary Content
 **User:** "generate all supplementary content" or "complete the book" or "39"
 **Routing:** Keywords "supplementary content", "complete the book", "39" → `references/supplementary-content-generator.md`
-**Action:** Read supplementary-content-generator.md. First inventory existing files. Then execute Steps 2–12 in order: generate about page, landing page, README, glossary, FAQ, per-chapter quizzes and references, run `bk-generate-book-metrics` and `bk-diagram-reports`, update mkdocs.yml nav, and run the verification bash check. Report which files were created, skipped, or missing.
+**Action:** Read supplementary-content-generator.md. First inventory existing files. Then execute Steps 2–12 in order: generate about page, landing page, README, glossary, FAQ, per-chapter quizzes and references, run `bk-generate-book-metrics`, run `bk-diagram-reports` only when the documented legacy specification schema is present, update mkdocs.yml nav, and run the verification bash check. Report which files were created, skipped, or missing.
 
 ### Example 16: Install Slide Viewer and Generate Chapter Slides
 **User:** "install the slide viewer and make slides for chapters 1 and 2" or "generate slides for chapter 3"

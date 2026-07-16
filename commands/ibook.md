@@ -112,7 +112,7 @@ Skill tool. **Bold gates** must pass before continuing.
 | Order | Skill | Produces | Notes |
 |-------|-------|----------|-------|
 | 6.1 | `book-installer` → book-metrics | **`docs/learning-graph/book-metrics.json`** | The **single source of truth** for all counts. Phase 7 skills read this — generate it here so README, LinkedIn, and press release report identical numbers. |
-| 6.2 | `microsim-utils` → diagram-reports | diagram/MicroSim audit report | Confirms visualization coverage |
+| 6.2 | `microsim-utils` → diagram-reports | legacy diagram-specification planning report | Optional; does not inventory rendered visuals or confirm coverage |
 | 6.3 | `microsim-utils` → standardization | quality scores | Bulk audit of all sims |
 
 ### Phase 7 — Publish & announce

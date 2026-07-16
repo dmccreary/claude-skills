@@ -235,14 +235,25 @@ bk-generate-book-metrics is not found. Install it from the claude-skills scripts
 
 **Script:** `bk-diagram-reports`
 
+Run this optional step only when numbered chapter files contain the legacy
+`#### Diagram:` plus `<details>` specification schema. It inventories planning
+specifications; it does not audit rendered figures, images, iframes, or
+implemented MicroSims.
+
 ```bash
 bk-diagram-reports
 ```
 
-This script audits all MicroSims and diagrams in the project and generates a report (typically `docs/diagram-reports.md`). If it writes a file, add it to the nav:
+The command fails when the schema is absent so a mature book cannot silently
+publish a zero-visual report. When applicable it writes
+`docs/learning-graph/diagram-table.md` and
+`docs/learning-graph/diagram-details.md`. Review the source links before adding
+either file to navigation:
 
 ```yaml
-- Diagram Reports: diagram-reports.md
+- Learning Graph:
+    - Diagram Specifications: learning-graph/diagram-table.md
+    - Diagram Specification Details: learning-graph/diagram-details.md
 ```
 
 If the script is not found in PATH, remind the user to install it similarly to Step 8.
@@ -253,7 +264,7 @@ If the script is not found in PATH, remind the user to install it similarly to S
 
 **Target:** `README.md` (project root)
 
-The README is generated after the metrics scripts so it can incorporate accurate counts: number of chapters, MicroSims, glossary terms, FAQ entries, and any summary statistics produced by `bk-generate-book-metrics` and `bk-diagram-reports`.
+The README is generated after the metrics script so it can incorporate accurate counts: number of chapters, implemented MicroSims, glossary terms, and FAQ entries. Do not use `bk-diagram-reports` planning heuristics as implementation or publication metrics.
 
 Invoke the `book-publisher` skill's readme route to create a GitHub-facing README. This is separate from the MkDocs site and is what visitors see on the GitHub repository page.
 
@@ -305,7 +316,9 @@ nav:
   - FAQ: faq.md
   - About: about.md
   - Book Metrics: book-metrics.md
-  - Diagram Reports: diagram-reports.md
+  # Add the two learning-graph diagram-specification reports only when Step 9 ran.
+  - Diagram Specifications: learning-graph/diagram-table.md
+  - Diagram Specification Details: learning-graph/diagram-details.md
 ```
 
 Check that no nav entries point to files that don't exist, and no generated files are missing from the nav.
@@ -352,7 +365,7 @@ Report the results to the user. For any MISSING item, offer to generate it now.
 | 6 | Per-chapter `references.md` | `reference-generator` skill | Sonnet |
 | 7 | `docs/img/cover-image-prompt.md` (`docs/img/cover.png` only if requested) | `references/cover-image-generator.md` | Sonnet (+ AI image tool if auto-generation is requested) |
 | 8 | `docs/book-metrics.md` | `bk-generate-book-metrics` script | — |
-| 9 | `docs/diagram-reports.md` | `bk-diagram-reports` script | — |
+| 9 | Optional legacy-spec reports under `docs/learning-graph/` | `bk-diagram-reports` script | — |
 | 10 | `README.md` | `book-publisher` skill (readme route) | Sonnet |
 | 11 | `docs/index.md` | `references/home-page-template.md` | Sonnet |
 | 12 | `mkdocs.yml` nav | Manual edit | — |
@@ -366,7 +379,7 @@ Report the results to the user. For any MISSING item, offer to generate it now.
 
 - **Run in phases**: If the book has many chapters, generate quizzes and references for one or two chapters first to confirm quality, then batch the rest.
 - **Glossary before FAQ**: The FAQ generator produces better output when it can reference glossary definitions, so always run Step 3 before Step 4.
-- **Metrics before README and landing page**: Steps 8–9 run before Steps 10–11 intentionally — both the README and landing page embed content counts from the metrics output.
+- **Metrics before README and landing page**: Run Step 8 before Steps 10–11. Step 9 is optional and its planning heuristics are not publication metrics.
 - **Cover before landing page**: Step 7 runs before Step 11 so the landing page can reference `docs/img/cover.png` directly if it exists; otherwise the landing page can reference `docs/img/cover-image-prompt.md` and note the image is pending manual or on-request generation.
 - **Check bk scripts in PATH**: Both `bk-generate-book-metrics` and `bk-diagram-reports` must be installed in a directory on `$PATH`. If missing, skip and note it in the verification report.
 - **Nav ordering**: Place Glossary and FAQ near the end of the nav, after all chapters. About page goes last.

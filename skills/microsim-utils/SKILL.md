@@ -44,7 +44,7 @@ Match the user's request to the appropriate utility guide:
 | iframe auto height, iframe auto resize, iframe postMessage, runtime iframe resize, microsim auto resize, auto-size iframe, iframe self-resize | `references/iframe-auto-height.md` | Runtime postMessage protocol so embedded MicroSims report their own height to the parent page |
 | test iframe, controls clipped, controls cut off, are controls visible, test iframe heights, verify controls fit, check if sims fit, iframe visibility | `references/iframe-tester.md` (runs `scripts/test-iframe-heights.py`) | Playwright check that every interactive control is fully visible inside the iframe at its declared height |
 | review layout, layout review, looks off, looks wrong, clipped labels, overlapping controls, residual stroke, draw order, visual QA, review the sim | `references/layout-reviewer.md` | Claude Vision review of a sim's rendered layout — walks a checklist, diagnoses defects, patches source |
-| diagram report, diagram reports, visualization coverage, audit diagrams, audit microsims, diagram status, microsim status report | `references/diagram-reports.md` (runs `scripts/diagram-report.py`) | Generate status reports of all diagrams/MicroSims across chapters (type, status, Bloom's levels, UI complexity, difficulty) |
+| diagram specification report, legacy diagram report, planned visual inventory, diagram status from specs | `references/diagram-reports.md` (runs `scripts/diagram-report.py`) | Inventory legacy `#### Diagram:` specification blocks; not rendered figures, images, iframes, implementations, or instructional quality |
 
 ### Decision Tree
 
@@ -79,7 +79,7 @@ Need to verify interactive controls are fully visible inside the iframe?
 Need to review whether a sim's rendered layout looks right (not just fits)?
   → YES: references/layout-reviewer.md
 
-Need a status report of all diagrams/MicroSims across chapters?
+Need a planning report from legacy `#### Diagram:` specification blocks?
   → YES: references/diagram-reports.md (runs scripts/diagram-report.py)
 ```
 

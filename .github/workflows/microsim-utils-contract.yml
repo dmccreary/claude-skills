@@ -1,0 +1,38 @@
+name: MicroSim utils contract
+
+on:
+  pull_request:
+    paths:
+      - "skills/microsim-utils/**"
+      - "skills/book-installer/**"
+      - "src/diagram-reports/**"
+      - "scripts/bk-diagram-reports"
+      - "commands/ibook.md"
+      - "skills/archived/README.md"
+      - "docs/skill-descriptions/book/diagram-reports-generator.md"
+      - ".github/workflows/microsim-utils-contract.yml"
+  push:
+    branches: [main]
+    paths:
+      - "skills/microsim-utils/**"
+      - "skills/book-installer/**"
+      - "src/diagram-reports/**"
+      - "scripts/bk-diagram-reports"
+      - "commands/ibook.md"
+      - "skills/archived/README.md"
+      - "docs/skill-descriptions/book/diagram-reports-generator.md"
+      - ".github/workflows/microsim-utils-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  diagram-report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Test MicroSim utility contracts
+        run: python3 -m unittest discover -s skills/microsim-utils/tests -p 'test_*.py' -v

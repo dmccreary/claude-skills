@@ -1,207 +1,130 @@
-# Diagram Reports Generator
+# Diagram Specification Reports
 
 > Formerly the standalone skill `diagram-reports-generator`.
 
-## Overview
+## Scope
 
-This utility automatically generates comprehensive reports of all diagrams and MicroSims in an intelligent textbook by analyzing chapter markdown files. It creates two report files: a table view for quick reference and a detailed view organized by chapter.
+This route inventories **planned diagram and MicroSim specification blocks** in
+an intelligent textbook. It recognizes a numbered chapter containing a
+`#### Diagram: Title` heading followed by a `<details>...</details>` block.
 
-## When to Use This Utility
+It does not discover rendered `<figure>` elements, Markdown images, iframes, or
+MicroSim implementation directories. It also does not establish instructional
+quality, accessibility, browser behavior, or implementation completeness. For a
+mature book, use the repository's native visual and MicroSim audits instead.
 
-Use this utility when:
+## Use This Route When
 
-- Needing to audit all diagrams and MicroSims across chapters
-- Tracking implementation status of visual elements
-- Analyzing complexity and Bloom's Taxonomy distribution
-- Updating documentation after adding new diagrams or MicroSims
-- Generating reports for instructors or content creators
+- chapter authors use the legacy diagram-specification schema;
+- a planning inventory of proposed visuals is needed;
+- implementation status or stated Bloom levels must be summarized; or
+- a CSV or HTML planning export is useful.
 
-## Workflow
+Do not use it as a publication-quality gate or as evidence that a completed book
+has no visuals.
 
-### Step 1: Install the Diagram Report Generator Script
+## Prerequisites
 
-If the project does not already have the diagram report generator script, install it from this skill's bundled resources:
+1. Run from the textbook repository root.
+2. Confirm `docs/chapters/` uses one or both supported layouts:
+   - flat: `docs/chapters/01-name.md`
+   - nested: `docs/chapters/01-name/index.md`
+3. Confirm the target content uses the recognized schema:
 
-1. Check if `src/diagram-reports/diagram-report.py` exists in the project
-2. If it doesn't exist:
-   - Create the directory: `mkdir -p src/diagram-reports`
-   - Copy the script from this skill's `scripts/diagram-report.py` to `src/diagram-reports/diagram-report.py`
-3. If it already exists, verify it's up to date (optionally show the user a diff if there are differences)
+   ```markdown
+   #### Diagram: Example title
 
-Example installation:
-```bash
-mkdir -p src/diagram-reports
-cp ~/.claude/skills/microsim-utils/scripts/diagram-report.py src/diagram-reports/diagram-report.py
-```
+   <details>
+   <summary>Specification</summary>
 
-### Step 2: Verify Project Structure
+   **Type:** MicroSim
+   **Status:** Planned
+   **Learning Objective:** Compare two outcomes.
+   **Bloom's Taxonomy:** Analyzing
+   </details>
+   ```
 
-Before running the report generator, verify the project structure:
+4. Identify the canonical script inside the installed `microsim-utils` skill.
+   Run that script directly. Do not copy it into the textbook; copied utilities
+   drift from their source and make later fixes ambiguous.
 
-1. Confirm the current working directory is the intelligent textbook project root
-2. Verify `docs/chapters/` contains chapter directories (format: `01-chapter-name`, `02-chapter-name`, etc.)
-3. Ensure `docs/learning-graph/` directory exists for output
+## Run Non-Destructively First
 
-### Step 3: Run the Report Generator
-
-Execute the Python script to generate the reports:
-
-```bash
-python src/diagram-reports/diagram-report.py
-```
-
-The script will:
-
-- Scan all chapter directories in `docs/chapters/`
-- Parse each chapter's `index.md` file
-- Extract diagram and MicroSim specifications from `<details>` blocks with "#### Diagram:" headers
-- Analyze each element for:
-  - Type (diagram or MicroSim)
-  - Status (implementation status if specified)
-  - Bloom's Taxonomy levels
-  - UI element count
-  - Estimated difficulty (Easy, Medium, Hard, Very Hard)
-  - Learning objectives
-
-### Step 4: Verify Generated Reports
-
-After running the script, verify two files were created in `docs/learning-graph/`:
-
-1. **diagram-table.md** - A sortable table view with columns:
-   - Chapter number
-   - Element title (with links to chapter sections)
-   - Status
-   - Type (Diagram/MicroSim)
-   - Bloom's Taxonomy levels
-   - UI elements count
-   - Difficulty rating
-
-2. **diagram-details.md** - A detailed view organized by chapter with:
-   - Chapter-level summaries
-   - Full element descriptions
-   - Learning objectives
-   - Linked titles to source chapter sections
-
-### Step 5: Review Navigation Configuration
-
-The generated reports should already be linked in the MkDocs navigation. Verify the `mkdocs.yml` file contains these entries under the "Learning Graph" section:
-
-```yaml
-- Learning Graph:
-    - Diagrams Table: learning-graph/diagram-table.md
-    - Diagrams Details: learning-graph/diagram-details.md
-```
-
-If these entries are missing, add them to the navigation structure.
-
-### Step 6: Preview the Reports
-
-To view the generated reports:
-
-1. Confirm the user is running `mkdocs serve` (never start it yourself)
-2. Navigate to the "Learning Graph" section
-3. Click on "Diagrams Table" or "Diagrams Details"
-4. Verify all diagrams and MicroSims are properly listed with accurate information
-
-## Understanding Report Output
-
-### Difficulty Estimation
-
-The script estimates difficulty based on:
-
-- **Element Type**: MicroSims start with higher base difficulty
-- **UI Complexity**: Number of sliders, buttons, dropdowns, and other controls
-- **Features**: Animation, rotation, 3D/isometric views, real-time calculations
-- **Canvas Size**: Larger canvases increase complexity
-
-Difficulty levels:
-
-- **Easy**: Static diagrams or simple visualizations
-- **Medium**: Basic interactivity with 1-3 UI elements
-- **Hard**: Moderate interactivity with 4-6 UI elements or complex features
-- **Very Hard**: High interactivity with many UI elements or advanced features
-
-### Bloom's Taxonomy Detection
-
-The script automatically detects Bloom's Taxonomy levels mentioned in specifications:
-
-- Remembering
-- Understanding
-- Applying
-- Analyzing
-- Evaluating
-- Creating
-
-## Troubleshooting
-
-### No Elements Found
-
-If the report shows zero elements:
-
-- Verify chapter markdown files contain `#### Diagram:` headers followed by `<details>` blocks
-- Check that `<details>` blocks include specification content
-- Run with verbose flag: `python src/diagram-reports/diagram-report.py --verbose`
-
-### Missing Information
-
-If elements are missing type, status, or other fields:
-
-- Review the `<details>` block format in chapter files
-- Ensure specifications include `**Type:**`, `**Status:**`, and `**Learning Objective:**` fields
-- The script will infer type from content if not explicitly specified
-
-### Broken Links in Reports
-
-If chapter links don't work:
-
-- Verify chapter directory naming follows the pattern: `##-descriptive-name`
-- Check that MkDocs anchor generation matches the script's anchor creation logic
-- Test links by navigating in the served site
-
-## Advanced Usage
-
-### Custom Output Location
+Write the representative report to a temporary directory:
 
 ```bash
-python src/diagram-reports/diagram-report.py --output-dir /path/to/output
+python3 /path/to/microsim-utils/scripts/diagram-report.py \
+  --chapters-dir docs/chapters \
+  --output-dir /tmp/diagram-report \
+  --verbose
 ```
 
-### Generate CSV Format
+The command fails closed when:
+
+- no supported chapter files exist;
+- any chapter cannot be read or analyzed; or
+- no recognized specification blocks exist.
+
+An empty result usually means the schema does not fit the book, not that the
+book has no visuals. Use `--allow-empty` only when an empty *specification*
+report is explicitly intended.
+
+## Review the Evidence Boundary
+
+For each extracted specification, the report records:
+
+- source chapter and title;
+- stated status and type;
+- stated Bloom levels and learning objective;
+- the number of UI-keyword mentions; and
+- a coarse planning heuristic labelled Easy, Medium, Hard, or Very Hard.
+
+The UI count is a text-occurrence count, not a count of implemented controls.
+The difficulty value is a heuristic derived from those mentions and feature
+words. Neither value is a quality score or a measured engineering estimate.
+
+Before publishing any report, compare its rows with the source blocks and keep
+the textbook's local validators, rendered browser checks, accessibility checks,
+and instructional review authoritative.
+
+## Generate a Repository Report
+
+After the temporary output is reviewed:
 
 ```bash
-python src/diagram-reports/diagram-report.py --format csv
+python3 /path/to/microsim-utils/scripts/diagram-report.py \
+  --chapters-dir docs/chapters \
+  --output-dir docs/learning-graph
 ```
 
-### Generate HTML Format
+Markdown output creates:
+
+- `diagram-table.md`
+- `diagram-details.md`
+
+Alternative formats:
 
 ```bash
-python src/diagram-reports/diagram-report.py --format html
+python3 /path/to/microsim-utils/scripts/diagram-report.py --format csv
+python3 /path/to/microsim-utils/scripts/diagram-report.py --format html
 ```
 
-### Verbose Output for Debugging
+Only add generated files to `mkdocs.yml` after verifying that their source links
+resolve for the book's chapter layout. Generated planning reports should not be
+silently presented as learner-facing content.
 
-```bash
-python src/diagram-reports/diagram-report.py --verbose
-```
+## Failure Modes
 
-## Integration with Intelligent Textbook Workflow
+| Symptom | Interpretation | Response |
+| --- | --- | --- |
+| No numbered chapters | Unsupported or wrong project path | Correct `--chapters-dir`; do not create an empty report |
+| Numbered chapters, zero specs | The book does not use the legacy schema | Use a native rendered-visual inventory or explicitly allow an empty spec report |
+| Missing fields | Source spec omits optional metadata | Correct the source if the metadata matters; do not infer authority |
+| Broken source links | Report and chapter layout disagree | Treat as a defect and fix the canonical script |
+| Plausible but surprising difficulty | Keyword heuristic is too coarse | Review manually; never use it as a quality gate |
 
-1. **After content creation**: Run this utility after generating or updating chapter content
-2. **Before review sessions**: Generate reports to identify gaps or inconsistencies
-3. **During planning**: Use difficulty distribution to balance implementation effort
-4. **For documentation**: Include reports in instructor guides or project documentation
+## Bundled Resource
 
-## Bundled Resources
-
-### scripts/diagram-report.py
-
-The complete Python script for generating diagram and MicroSim reports lives in this skill's `scripts/` directory and is installed into the user's project at `src/diagram-reports/diagram-report.py` on first use.
-
-The script:
-
-- Analyzes all chapter markdown files in `docs/chapters/`
-- Extracts diagram and MicroSim specifications from `<details>` blocks
-- Calculates difficulty estimates based on UI complexity and features
-- Detects Bloom's Taxonomy levels from specification text
-- Generates both table and detailed report formats
-- Supports multiple output formats (markdown, CSV, HTML)
+`scripts/diagram-report.py` is the canonical implementation for this route. The
+legacy `bk-diagram-reports` command delegates to it so the command and skill do
+not maintain separate copies.

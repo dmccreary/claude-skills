@@ -126,8 +126,8 @@ class MediumDiagramGenerator:
             reader = csv.DictReader(f)
 
             for row in reader:
-                # Filter: Difficulty = Medium
-                if row['Difficulty'] != 'Medium':
+                # Filter: Planning Heuristic = Medium
+                if row['Planning Heuristic'] != 'Medium':
                     continue
 
                 # Parse recommendations
@@ -162,7 +162,7 @@ class MediumDiagramGenerator:
                     chapter_name=row['Chapter Name'],
                     chapter_dir=chapter_dir,
                     element_title=row['Element Title'],
-                    difficulty=row['Difficulty'],
+                    difficulty=row['Planning Heuristic'],
                     recommended_generator=recommendations[0][0],
                     match_score=recommendations[0][1],
                     specification=specification
@@ -178,7 +178,7 @@ class MediumDiagramGenerator:
             "# Medium Diagram Generation Report",
             "",
             f"**Total Candidates:** {len(self.candidates)}",
-            f"**Filter Criteria:** Difficulty = Medium, First Recommendation Score > 90",
+            f"**Filter Criteria:** Planning Heuristic = Medium, First Recommendation Score > 90",
             "",
             "## Summary by Generator",
             ""
@@ -251,7 +251,7 @@ class MediumDiagramGenerator:
                 f"**Chapter:** {candidate.chapter_num} - {candidate.chapter_name}",
                 f"**Generator:** {candidate.recommended_generator}",
                 f"**Match Score:** {candidate.match_score}/100",
-                f"**Difficulty:** {candidate.difficulty}",
+                f"**Planning Heuristic:** {candidate.difficulty}",
                 "",
                 "## Specification",
                 "",
