@@ -53,6 +53,15 @@ def calculate_outdegree(concepts: Dict[int, str],
     return outdegree
 
 
+def find_self_dependencies(dependencies: Dict[int, List[int]]) -> List[int]:
+    """Return concept IDs that list themselves as prerequisites."""
+    return sorted(
+        concept_id
+        for concept_id, prereqs in dependencies.items()
+        if concept_id in prereqs
+    )
+
+
 def find_terminal_nodes(concepts: Dict[int, str],
                         indegree: Dict[int, int],
                         dependencies: Dict[int, List[int]]) -> List[Tuple[int, str]]:
@@ -224,8 +233,14 @@ def generate_report(csv_path: str, output_path: str):
     outdegree = calculate_outdegree(concepts, dependencies)
     terminal = find_terminal_nodes(concepts, indegree, dependencies)
     orphaned = find_orphaned_nodes(concepts, indegree, dependencies)
+    self_dependencies = find_self_dependencies(dependencies)
     is_dag, cycles = verify_dag(concepts, dependencies)
-    max_chain_length, max_chain_path = find_longest_chain(concepts, dependencies)
+    if is_dag:
+        max_chain_length, max_chain_path = find_longest_chain(
+            concepts, dependencies
+        )
+    else:
+        max_chain_length, max_chain_path = 0, []
     components = find_connected_components(concepts, dependencies)
 
     # Foundational concepts (no prerequisites but other concepts depend on them)
@@ -254,8 +269,19 @@ def generate_report(csv_path: str, output_path: str):
 
         f.write("## Graph Structure Validation\n\n")
         f.write(f"- **Valid DAG Structure**: {'✅ Yes' if is_dag else '❌ No'}\n")
-        f.write(f"- **Self-Dependencies**: None detected ✅\n")
+        if self_dependencies:
+            f.write(
+                f"- **Self-Dependencies**: ❌ {len(self_dependencies)} detected\n"
+            )
+        else:
+            f.write("- **Self-Dependencies**: None detected ✅\n")
         f.write(f"- **Cycles Detected**: {len(cycles)}\n\n")
+
+        if self_dependencies:
+            f.write("### Detected Self-Dependencies:\n\n")
+            for concept_id in self_dependencies:
+                f.write(f"- **{concept_id}**: {concepts[concept_id]}\n")
+            f.write("\n")
 
         if cycles:
             f.write("### Detected Cycles:\n\n")
@@ -271,10 +297,16 @@ def generate_report(csv_path: str, output_path: str):
         f.write("\n")
 
         f.write("## Dependency Chain Analysis\n\n")
-        f.write(f"- **Maximum Dependency Chain Length**: {max_chain_length}\n\n")
-        f.write("### Longest Learning Path:\n\n")
-        for i, cid in enumerate(max_chain_path, 1):
-            f.write(f"{i}. **{concepts[cid]}** (ID: {cid})\n")
+        if is_dag:
+            f.write(f"- **Maximum Dependency Chain Length**: {max_chain_length}\n\n")
+            f.write("### Longest Learning Path:\n\n")
+            for i, cid in enumerate(max_chain_path, 1):
+                f.write(f"{i}. **{concepts[cid]}** (ID: {cid})\n")
+        else:
+            f.write(
+                "- **Maximum Dependency Chain Length**: Not computed because "
+                "the graph contains a cycle.\n"
+            )
         f.write("\n")
 
         terminal_pct = len(terminal) / len(concepts) * 100 if concepts else 0
@@ -351,6 +383,13 @@ def generate_report(csv_path: str, output_path: str):
             f.write(f"- ✅ **Terminal node percentage** ({terminal_pct:.1f}%): Within healthy range (5-40%)\n")
         if is_dag:
             f.write("- ✅ **DAG structure verified**: Graph supports valid learning progressions\n")
+        else:
+            f.write("- ⚠️ **Remove cycles before path analysis**: Longest paths are undefined for cyclic graphs\n")
+        if self_dependencies:
+            f.write(
+                f"- ⚠️ **Remove self-dependencies** ({len(self_dependencies)}): "
+                "A concept cannot be its own prerequisite\n"
+            )
         if max_chain_length > 15:
             f.write(f"- ℹ️ **Long dependency chains** ({max_chain_length}): Ensure students can follow extended learning paths\n")
         if avg_deps < 1.5:
