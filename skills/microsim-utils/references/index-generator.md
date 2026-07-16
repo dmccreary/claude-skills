@@ -42,6 +42,23 @@ Use this skill when:
 
 ## Workflow
 
+Run the bundled generator only through its explicit command-line boundary:
+
+```bash
+# Preview from any working directory; writes nothing
+python3 skills/microsim-utils/scripts/generate-microsim-index.py \
+  --project-dir /path/to/project --dry-run
+
+# Apply after reviewing the preview
+python3 skills/microsim-utils/scripts/generate-microsim-index.py \
+  --project-dir /path/to/project
+```
+
+`--help` and `--dry-run` are guaranteed non-mutating. The script validates that
+the selected project contains both `mkdocs.yml` and `docs/sims` before it reads
+or writes catalog artifacts. It derives the course name from `site_name` unless
+`--course-name` supplies an explicit override.
+
 ### Step 0: Verify mkdocs.yml Extensions
 
 Before generating the index, verify that `mkdocs.yml` has the required markdown extensions for grid cards to render properly:
