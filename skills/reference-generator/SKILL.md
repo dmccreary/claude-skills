@@ -65,7 +65,9 @@ Locate all chapter directories:
 ls docs/chapters/
 ```
 
-For each chapter, read the chapter `index.md` to understand:
+By default, process every chapter. When the user or an invoking workflow supplies
+one or more chapter paths, process only those chapters. Read each selected
+chapter's `index.md` to understand:
 
 - Chapter title and topic
 - Key concepts covered
@@ -161,10 +163,16 @@ Add a link at the end of each chapter's `index.md`:
 
 ### Step 7: Update mkdocs.yml Navigation
 
-Nest an `Annotated References:` entry under each chapter in `mkdocs.yml`,
-following the canonical nav-editing rules (read-before-write, serialize
-edits, `Content:` label for the chapter page) in
-`$HOME/.claude/skills/book-installer/references/mkdocs-nav-editing.md`:
+By default, nest an `Annotated References:` entry under each selected chapter in
+`mkdocs.yml`, following the canonical nav-editing rules (read-before-write,
+serialize edits, `Content:` label for the chapter page) in
+`$HOME/.claude/skills/book-installer/references/mkdocs-nav-editing.md`.
+
+When an invoking workflow explicitly says to defer navigation, do not edit
+`mkdocs.yml`. Return the complete set of `Annotated References` entries to that
+workflow so it can include them in its own serialized navigation edit.
+
+The navigation shape is:
 
 ```yaml
   - 1. Chapter Name:

@@ -149,24 +149,37 @@ If the chapter already has a `quiz.md`, skip it (or append if user said "append"
 
 **Target:** `docs/chapters/<chapter-slug>/references.md` for each chapter
 
-Invoke the `reference-generator` skill for each chapter that lacks a `references.md`:
+Collect the chapter paths that lack a `references.md`, then invoke the
+`reference-generator` skill once with the complete list. If the list is empty,
+skip the skill entirely; do not invoke its default whole-book mode.
 
 ```
-Invoke the reference-generator skill for docs/chapters/<chapter-slug>/index.md
+Invoke the reference-generator skill for these chapter paths only:
+- docs/chapters/<chapter-slug>/index.md
+- docs/chapters/<another-chapter-slug>/index.md
+
+Defer all mkdocs.yml changes. Return the Annotated References navigation
+entries for the one serialized edit in Step 12.
 ```
 
 Each references file must:
-- List 8–15 curated, verifiable sources (books, papers, websites, videos)
-- Be grouped by type: Books, Articles, Online Resources, Videos
-- Include a one-sentence annotation for each source explaining why it is relevant
+- List exactly 10 curated sources
+- Put Wikipedia articles in positions 1-3
+- Put authoritative textbooks without URLs in positions 4-5
+- Put verified online resources in positions 6-10
+- Include a 20-40 word annotation for each source explaining what it covers and why it is relevant
 - Prefer freely accessible or open-access sources where possible
+- Replace any inline `## References` section in the chapter with `[See Annotated References](./references.md)`
 
-After creating each `references.md`, add a **References** sub-entry to the chapter's nav in `mkdocs.yml`:
+Collect the **Annotated References** navigation entries for every generated
+`references.md` file. Do not edit `mkdocs.yml` in this step; defer all collected
+entries to the ONE serialized navigation edit in Step 12, following
+`references/mkdocs-nav-editing.md`:
 ```yaml
-- Chapter N - Title:
+- N. Title:
     - Content: chapters/<slug>/index.md
     - Quiz: chapters/<slug>/quiz.md      # if quiz exists
-    - References: chapters/<slug>/references.md
+    - Annotated References: chapters/<slug>/references.md
 ```
 
 ---

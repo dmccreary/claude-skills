@@ -1,5 +1,10 @@
 # Update Skill Documentation
 
+!!! warning "Superseded documentation transcript"
+    This page preserves an early documentation-generation run. It does not
+    define the current `reference-generator` contract. The current skill creates
+    exactly 10 references for each chapter in a separate `references.md` file.
+
 Claude Code v2.0.36
 Sonnet 4.5 · Claude Pro
 
@@ -826,7 +831,6 @@ Sonnet 4.5 · Claude Pro
 ─────────────────────────────────────────────────────────────────────────────────────────────
   ws/claude-skills
   ⏵⏵ bypass permissions on (shift+tab to cycle)
-
 
 
 

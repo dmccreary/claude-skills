@@ -1,0 +1,48 @@
+name: Reference generator contract
+
+on:
+  pull_request:
+    paths:
+      - "skills/reference-generator/**"
+      - "skills/book-installer/references/supplementary-content-generator.md"
+      - "skills/book-installer/references/mkdocs-nav-editing.md"
+      - "skills/book-installer/SKILL.md"
+      - "commands/ibook.md"
+      - "docs/skill-descriptions/book/reference-generator.md"
+      - "docs/skill-descriptions/book/index.md"
+      - "docs/prompts/generate-references.md"
+      - "docs/prompts/references-generator-skill.md"
+      - "docs/prompts/update-skill-descriptions.md"
+      - "mkdocs.yml"
+      - ".github/workflows/reference-generator-contract.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "skills/reference-generator/**"
+      - "skills/book-installer/references/supplementary-content-generator.md"
+      - "skills/book-installer/references/mkdocs-nav-editing.md"
+      - "skills/book-installer/SKILL.md"
+      - "commands/ibook.md"
+      - "docs/skill-descriptions/book/reference-generator.md"
+      - "docs/skill-descriptions/book/index.md"
+      - "docs/prompts/generate-references.md"
+      - "docs/prompts/references-generator-skill.md"
+      - "docs/prompts/update-skill-descriptions.md"
+      - "mkdocs.yml"
+      - ".github/workflows/reference-generator-contract.yml"
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Validate published reference-generator contract
+        run: python -m unittest skills/reference-generator/tests/test_documentation_contract.py -v
+      - name: Install documentation dependencies
+        run: python -m pip install "mkdocs-material[imaging]" mkdocs-glightbox
+      - name: Build documentation strictly
+        run: mkdocs build --strict

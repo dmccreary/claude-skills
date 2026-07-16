@@ -1,5 +1,11 @@
 # Reference Generator Skill
 
+!!! warning "Superseded creation transcript"
+    This page preserves the prompt and output that created an early version of
+    the skill. It is historical evidence, not current operating guidance. The
+    current `skills/reference-generator/SKILL.md` requires exactly 10 references
+    per chapter in a separate `references.md` file.
+
 !!! prompt
     Please use the skill creator for creating a new skill that creates high-quality references for a textbook.  The references should all be verified links.  Use the format 
   
@@ -384,4 +390,3 @@
   ~/.claude/skills/reference-generator/
 
   You can now use this skill by invoking it when working on textbook projects that need references!
-

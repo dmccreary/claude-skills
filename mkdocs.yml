@@ -226,7 +226,7 @@ nav:
   - Prompts:
     - List of Prompts: prompts/index.md
     - Run the Course Description Skill: prompts/course-description-skill.md
-    - Run the References Generator Skill: prompts/references-generator-skill.md
+    - Historical Reference Generator Creation Transcript: prompts/references-generator-skill.md
     - Book Chapter Generator: prompts/book-chapter-generator-skill.md
     - Generator: prompts/chapter-content-generator.md
     - prompts/create-mermaid-generator-skill.md
@@ -244,14 +244,14 @@ nav:
     - prompts/add-events-to-timeline.md
     - prompts/generate-chapter-12-content-log.md
     - prompts/generate-claude-skill-timeline.md
-    - prompts/generate-references.md
+    - Historical Reference Generation Transcript: prompts/generate-references.md
     - prompts/generate-timeline-skill.md
     - prompts/suggest-timeline-placement.md
     - prompts/course-description-quality-infographic.md
     - prompts/create-infographic-generator-pi-skill.md
     - prompts/generate-diagram-skill-priorities.md
     - prompts/infographic-candidates-list.md
-    - prompts/update-skill-descriptions.md
+    - Historical Skill Description Generation Transcript: prompts/update-skill-descriptions.md
     - prompts/create-microsim-standardization-skill.md
     - prompts/readme-generator-skill.md
     - prompts/book-metrics-skill-creation.md

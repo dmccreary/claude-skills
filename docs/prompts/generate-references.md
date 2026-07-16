@@ -1,3 +1,12 @@
+# Historical Reference Generation Transcript
+
+!!! warning "Superseded workflow"
+    This transcript preserves an early run of the reference generator. It does
+    not define the current skill contract. The current
+    [`reference-generator`](../skill-descriptions/book/reference-generator.md)
+    creates exactly 10 references per chapter in a separate `references.md`
+    file. Do not copy the learner-level quantities, book-level mode, or inline
+    chapter edits shown below.
 
 Claude Code v2.0.36
 Sonnet 4.5 · Claude Pro
@@ -620,4 +629,3 @@ Sonnet 4.5 · Claude Pro
 
   The token usage was efficient given the comprehensive nature of the task - generating and verifying 28 high-quality references
   across 13 chapters with proper formatting and relevance descriptions.
-

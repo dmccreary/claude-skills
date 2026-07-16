@@ -39,7 +39,7 @@ Generate interactive multiple-choice quizzes aligned to learning graph concepts 
 [Read full description](./quiz-generator.md)
 
 ### 9. Reference Generator
-Generate curated, verified reference lists for textbooks with level-appropriate resources (10 for junior-high, 20 for senior-high, 30 for college, 40 for graduate) formatted with links and relevance descriptions.
+Generate exactly 10 curated references per chapter in a separate `references.md` file: three Wikipedia articles, two authoritative textbooks, and five verified online resources, each with a relevance description.
 [Read full description](./reference-generator.md)
 
 ### 10. Book Metrics Generator
