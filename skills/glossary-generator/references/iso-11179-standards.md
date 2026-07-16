@@ -2,7 +2,23 @@
 
 This reference provides detailed guidance on creating definitions that comply with ISO/IEC 11179 metadata registry standards.
 
-## The Four Core Criteria
+## The Five Definition Criteria
+
+These criteria are informed by ISO/IEC 11179 definition-formulation principles.
+The numeric weights below are this skill's **local evaluation rubric**; they are
+not weights assigned by ISO.
+
+<!-- glossary-quality-rubric:start -->
+| Criterion | Weight |
+| --- | ---: |
+| Precision | 20 |
+| Conciseness | 20 |
+| Distinctiveness | 20 |
+| Non-circularity | 20 |
+| Unencumbered by business rules | 20 |
+<!-- glossary-quality-rubric:end -->
+
+The weights total 100 points.
 
 ### 1. Precision
 
@@ -95,9 +111,7 @@ A definition is non-circular when it does not reference the term being defined o
 - "Prerequisite - A concept that must be understood before another concept can be learned effectively"
 - "Dependent Concept - A concept that requires prior knowledge of other concepts"
 
-## Additional ISO 11179 Principle
-
-### 5. Unencumbered with Business Rules
+### 5. Unencumbered by Business Rules
 
 Definitions should describe what something *is*, not how it *should be used* or what *rules apply* to it.
 
@@ -205,12 +219,12 @@ Example: "The relationship between two concepts where one must be understood bef
 
 ## Scoring Rubric
 
-Each criterion worth 25 points:
+Each criterion is worth 20 points under the local evaluation rubric:
 
-**20-25 points:** Fully meets criterion, no issues
-**15-19 points:** Mostly meets criterion, minor issues
-**10-14 points:** Partially meets criterion, notable issues
-**5-9 points:** Minimally meets criterion, major issues
+**17-20 points:** Fully meets criterion, no issues
+**13-16 points:** Mostly meets criterion, minor issues
+**9-12 points:** Partially meets criterion, notable issues
+**5-8 points:** Minimally meets criterion, major issues
 **0-4 points:** Fails to meet criterion
 
 **Overall Quality Score:**
