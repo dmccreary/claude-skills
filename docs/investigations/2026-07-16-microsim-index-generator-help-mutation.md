@@ -91,4 +91,12 @@ directory, provided it exposed a compatible-looking path.
 
 ## Resolution evidence
 
-Pending pull request and merge verification.
+- Fix PR: [#12](https://github.com/yaniv256/dmccreary-claude-skills/pull/12)
+- Focused CLI regressions: 5/5 passed.
+- Repository Python tests: 28/28 passed.
+- Real-book dry run: 14 candidates, 14 missing screenshots, five missing
+  descriptions, and no file changes.
+- Durable learning:
+  [CLI Introspection Must Not Cross the Write Boundary](../solutions/logic-errors/cli-introspection-must-not-cross-the-write-boundary.md)
+
+Merge commit and independent default-branch verification remain pending.
