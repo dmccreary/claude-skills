@@ -2,7 +2,7 @@
   "title": "$QUIZ_TITLE",
   "description": "$QUIZ_DESCRIPTION",
   "config": {
-    "questionsPerQuiz": 10,
+    "questionsPerQuiz": 4,
     "pointsCorrect": 10,
     "pointsWithHint": 5,
     "scenarioLabel": "SCENARIO",
@@ -28,11 +28,24 @@
     },
     {
       "id": 3,
-      "scenario": "Third scenario - continue adding scenarios until you have 15-30 total for good variety.",
+      "scenario": "Third scenario demonstrating a third category. Continue until every category has at least one reviewed case.",
       "correctAnswer": "Category C",
       "options": ["Category A", "Category B", "Category C", "Category D"],
       "explanation": "Category C is correct here because [explanation of why this fits].",
       "hint": "Think about [guiding question]."
+    },
+    {
+      "id": 4,
+      "scenario": "Fourth scenario demonstrating the remaining category. Add more reviewed cases only when they improve coverage or diagnose a real misconception.",
+      "correctAnswer": "Category D",
+      "options": [
+        "Category A",
+        "Category B",
+        "Category C",
+        "Category D"
+      ],
+      "explanation": "Category D is correct because [criterion]. Unlike Category C, this case [distinguishing feature].",
+      "hint": "Compare the defining criteria for Category C and Category D."
     }
   ],
   "encouragingMessages": {

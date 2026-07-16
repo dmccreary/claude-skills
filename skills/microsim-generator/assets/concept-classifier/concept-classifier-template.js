@@ -15,6 +15,7 @@ let quizData = null;
 let scenarios = [];
 let currentScenarioIndex = 0;
 let score = 0;
+let correctCount = 0;
 let answered = false;
 let selectedAnswer = -1;
 let usedHint = false;
@@ -493,7 +494,8 @@ function drawEndScreen() {
 
   // Score display
   let maxScore = scenarios.length * config.pointsCorrect;
-  let scorePercent = floor((score / maxScore) * 100);
+  let pointPercent = floor((score / maxScore) * 100);
+  let correctPercent = floor((correctCount / scenarios.length) * 100);
 
   // Score circle
   let cx = canvasWidth/2;
@@ -510,7 +512,7 @@ function drawEndScreen() {
   noFill();
   stroke(70, 130, 180);
   strokeWeight(12);
-  let angle = map(scorePercent, 0, 100, 0, TWO_PI);
+  let angle = map(correctPercent, 0, 100, 0, TWO_PI);
   arc(cx, cy, radius * 1.7, radius * 1.7, -HALF_PI, -HALF_PI + angle);
 
   // Score text
@@ -527,20 +529,22 @@ function drawEndScreen() {
   // Percentage (below the circle)
   textSize(20);
   fill(70, 130, 180);
-  text(scorePercent + '% correct', cx, cy + radius + 20);
+  text(correctPercent + '% correct', cx, cy + radius + 14);
+  textSize(14);
+  text(pointPercent + '% of available points', cx, cy + radius + 36);
 
   // Performance message
   let message, subMessage;
   let perfMessages = quizData?.endScreen?.performanceMessages;
 
   if (perfMessages) {
-    if (scorePercent >= perfMessages.excellent.threshold) {
+    if (correctPercent >= perfMessages.excellent.threshold) {
       message = perfMessages.excellent.message;
       subMessage = perfMessages.excellent.subMessage;
-    } else if (scorePercent >= perfMessages.good.threshold) {
+    } else if (correctPercent >= perfMessages.good.threshold) {
       message = perfMessages.good.message;
       subMessage = perfMessages.good.subMessage;
-    } else if (scorePercent >= perfMessages.fair.threshold) {
+    } else if (correctPercent >= perfMessages.fair.threshold) {
       message = perfMessages.fair.message;
       subMessage = perfMessages.fair.subMessage;
     } else {
@@ -549,13 +553,13 @@ function drawEndScreen() {
     }
   } else {
     // Default messages
-    if (scorePercent >= 90) {
+    if (correctPercent >= 90) {
       message = 'Outstanding!';
       subMessage = 'You have excellent classification skills.';
-    } else if (scorePercent >= 70) {
+    } else if (correctPercent >= 70) {
       message = 'Great Job!';
       subMessage = 'You classified most items correctly.';
-    } else if (scorePercent >= 50) {
+    } else if (correctPercent >= 50) {
       message = 'Good Progress!';
       subMessage = 'Keep practicing to improve.';
     } else {
@@ -633,6 +637,7 @@ function selectAnswer(index) {
   if (isCorrect) {
     let points = usedHint ? config.pointsWithHint : config.pointsCorrect;
     score += points;
+    correctCount++;
     feedbackColor = [100, 200, 100];
     mascotExpression = 'happy';
     messages = quizData.encouragingMessages?.correct || ['Correct!'];
@@ -684,6 +689,7 @@ function restartQuiz() {
   scenarios = shuffled.slice(0, config.questionsPerQuiz);
   currentScenarioIndex = 0;
   score = 0;
+  correctCount = 0;
   quizComplete = false;
   resetScenarioState();
   restartButton.hide();

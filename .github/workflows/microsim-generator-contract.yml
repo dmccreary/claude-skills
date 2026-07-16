@@ -1,0 +1,30 @@
+name: MicroSim generator contract
+
+on:
+  pull_request:
+    paths:
+      - "skills/microsim-generator/**"
+      - "docs/skill-descriptions/microsims/concept-classifier.md"
+      - ".github/workflows/microsim-generator-contract.yml"
+  push:
+    branches: [main]
+    paths:
+      - "skills/microsim-generator/**"
+      - "docs/skill-descriptions/microsims/concept-classifier.md"
+      - ".github/workflows/microsim-generator-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  concept-classifier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Test concept-classifier data and guide contracts
+        run: python3 -m unittest discover -s skills/microsim-generator/tests -p 'test_*.py'
+      - name: Check concept-classifier browser script syntax
+        run: node --check skills/microsim-generator/assets/concept-classifier/concept-classifier-template.js
