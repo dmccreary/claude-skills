@@ -2,7 +2,7 @@
 
 ## Status
 
-CURRENT - remediation in progress
+RESOLVED - source remediation and closure evidence verified on `main`
 
 ## Incident
 
@@ -241,4 +241,22 @@ ownership boundary was identified by the final search.
 
 ## Closure evidence
 
-Pending remediation.
+- Source remediation merged through
+  [PR #18](https://github.com/yaniv256/dmccreary-claude-skills/pull/18)
+  as merge commit `86eda4eff8e6e9c8645834622cf2e59f0f69b3bc`.
+- Independent readback confirmed the remediated skill, contract suite, and
+  workflow are present on `origin/main`, and `5dac387f` is an ancestor of the
+  merge commit.
+- The PR contract workflow passed against the source commit:
+  [run 29487784527](https://github.com/yaniv256/dmccreary-claude-skills/actions/runs/29487784527).
+- The post-merge `main` workflow passed the semantic contract suite and strict
+  MkDocs build:
+  [run 29487849730](https://github.com/yaniv256/dmccreary-claude-skills/actions/runs/29487849730).
+- Local validation passed 10 focused contract tests and 39 adjacent tests.
+  The negative control against `a97a886c` failed 9 of 10 focused tests as
+  expected; the one unchanged integration-authority assertion remained green.
+- `actionlint`, `git diff --check`, and `mkdocs build --strict` passed before
+  merge.
+- CE Compound found high overlap with the existing reusable solution,
+  [Keep Behavioral Documentation Synchronized with Executable Contracts](../solutions/logic-errors/behavioral-documentation-needs-executable-contracts.md),
+  and extended that owner to cover direct integrators and CI trigger scope.

@@ -9,6 +9,7 @@ symptoms:
   - User-facing guidance and operating instructions prescribe opposite workflows
   - Adjacent documents publish different versions of the same skill
   - Required and optional artifacts change depending on which entry point is read
+  - A direct integrator overrides the contract while appearing to invoke the canonical skill
 root_cause: missing_validation
 resolution_type: documentation_update
 severity: medium
@@ -69,6 +70,14 @@ five tests failed there and pass against the remediated tree. That negative
 control proves the suite detects the original drift instead of merely blessing
 the new wording.
 
+The same rule applies to direct integrators, not only prose. The
+reference-generator investigation found that the book installer invoked the
+canonical skill while overriding its quantity, source positions, and navigation
+behavior. Its contract suite therefore includes the direct integrator and the
+upstream command and installer surfaces that define invocation ownership. The CI
+workflow watches those authorities as well as the skill and public description;
+otherwise a correct test can silently stop running when the integration changes.
+
 ## Why This Works
 
 The test compares meaning-bearing invariants while still allowing each document
@@ -86,6 +95,9 @@ between independently written entry points.
 
 - List every checked-in surface that communicates a skill's behavior before a
   version or policy migration.
+- Include direct callers and integrators in that inventory. An invocation can
+  publish a competing contract through arguments and follow-up instructions even
+  when it names the canonical skill correctly.
 - Define the small set of behavioral dimensions that must agree: version,
   defaults, workflow, safety rules, and artifact ownership.
 - Test semantic sections independently so headings cannot bleed into adjacent
@@ -96,8 +108,12 @@ between independently written entry points.
   failure is evidence that the test covers the defect.
 - Search the repository for the retired policy and record separate defects
   rather than widening one module's remediation boundary silently.
+- Make workflow path filters cover every authority the test reads. A semantic
+  test is not a release gate when changes to an asserted input do not trigger it.
 
 ## Related Issues
 
 - [Quiz generator serial execution investigation](../../investigations/2026-07-16-quiz-generator-serial-execution-contract.md)
 - [Source remediation PR #16](https://github.com/yaniv256/dmccreary-claude-skills/pull/16)
+- [Reference generator contract investigation](../../investigations/2026-07-16-reference-generator-contract-drift.md)
+- [Reference generator remediation PR #18](https://github.com/yaniv256/dmccreary-claude-skills/pull/18)
