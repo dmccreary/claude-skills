@@ -2,7 +2,7 @@
 
 ## Status
 
-REMEDIATION IN PROGRESS
+RESOLVED
 
 ## Incident
 
@@ -161,6 +161,22 @@ are separate contracts and are not mechanically rewritten.
 7. Merge the source PR and verify the merge commit.
 8. Restore the blocked glossary learning task only after every closure criterion
    has direct evidence.
+
+## Closure evidence
+
+- Source remediation merged through
+  [PR #5](https://github.com/yaniv256/dmccreary-claude-skills/pull/5)
+  at merge commit `25c21067b5acd271fc567ff4c18378c1d3563c54`.
+- The focused scoring-contract suite passed 4 of 4 tests. The adjacent
+  `book-installer` and `book-publisher` suites passed 4 of 4 and 5 of 5 tests,
+  respectively.
+- The complete documentation site passed a strict MkDocs build with the
+  repository's imaging and glightbox dependencies enabled.
+- CE Compound captured the reusable prevention pattern in
+  `docs/solutions/logic-errors/documentation-rubrics-need-executable-contracts.md`.
+- The blocked `Learn glossary-generator from dmccreary-claude-skills` card was
+  independently verified back in the Trello `Next` list while this
+  investigation remained the sole `In Progress` card.
 
 ## Closure criteria
 
