@@ -35,7 +35,7 @@ Trigger this skill when:
 
 ## Token Efficiency: Serial Execution Only
 
-!!! warning "NEVER Use Parallel Agents Unless the User Explicitly Requests It"
+!!! warning "Do Not Use Parallel Agents"
     **Always use a single serial agent for quiz generation.** This is a hard
     requirement, not a suggestion. Do not offer parallel execution as an option.
 
@@ -694,9 +694,8 @@ Nest a `Quiz:` entry under each chapter in `mkdocs.yml`, and add the
 `Quiz Generation Report:` under `Learning Graph:`. Follow the canonical
 nav-editing rules in
 `$HOME/.claude/skills/book-installer/references/mkdocs-nav-editing.md` —
-in particular: read-before-write, **serialize nav edits when quizzes are
-generated for many chapters in parallel** (apply all nav changes in one edit
-at the end), label the chapter page `Content:`, and never put the string
+in particular: read-before-write, **apply all quiz navigation changes in one
+serialized edit at the end**, label the chapter page `Content:`, and never put the string
 "Chapter" in the label:
 
 ```yml
@@ -833,7 +832,7 @@ Session logged to `logs/quiz-generator-YYYY-MM-DD.md`"
 **Token Efficiency:**
 - ❌ Using parallel agents (wastes ~12K tokens per extra agent in system prompt overhead)
 - ❌ Spawning multiple agents when a single serial agent would produce the same output
-- ❌ Offering parallel execution as an option without the user explicitly requesting it
+- ❌ Offering parallel execution as an option
 
 ## Output Files Summary
 

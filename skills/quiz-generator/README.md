@@ -1,15 +1,15 @@
 # Quiz Generator Skill
 
-Automatically generate interactive multiple-choice quizzes for textbook chapters with Bloom's Taxonomy alignment and mkdocs-material question admonition formatting. **Now with parallel execution support for 3-4x faster generation.**
+Automatically generate interactive multiple-choice quizzes for textbook chapters with Bloom's Taxonomy alignment and mkdocs-material question admonition formatting.
 
 ## Overview
 
 This skill converts chapter content into high-quality multiple-choice quiz questions. Questions are aligned to learning graph concepts, distributed across Bloom's Taxonomy cognitive levels, and formatted using mkdocs-material question admonitions with upper-alpha (A, B, C, D) answer choices.
 
-**Version 0.3 Features:**
-- **Parallel execution** - Generate quizzes for multiple chapters simultaneously
-- **3-4x faster** - 23 chapters in ~2-3 minutes instead of ~10 minutes
-- **Same token usage** - Parallel doesn't increase total tokens, only reduces wall-clock time
+**Version 0.4 Features:**
+- **Serial execution** - One agent carries shared context across every chapter
+- **Stable output** - Quiz formatting, scoring, and navigation follow one contract
+- **Lower overhead** - Avoids repeated agent startup context and conflicting file edits
 
 ## Installation
 
@@ -37,41 +37,27 @@ To use this skill with Claude Code or Claude.ai:
 
 ## Execution Modes
 
-### Parallel Mode (Default for 4+ chapters)
+### Serial Mode (Default)
 
-When generating quizzes for 4 or more chapters, the skill automatically uses parallel execution:
-
-| Aspect | Sequential | Parallel |
-|--------|------------|----------|
-| Agents | 1 | 4-6 concurrent |
-| Wall-clock time | ~10 minutes (23 chapters) | ~2-3 minutes |
-| Total tokens | ~160k | ~160k (same) |
-
-**How it works:**
-1. Setup phase reads shared context (course description, learning graph, glossary)
-2. Chapters are divided into batches (4-5 chapters per agent)
-3. Multiple Task agents spawn simultaneously
-4. Each agent generates quizzes for its assigned chapters
-5. Aggregation phase combines results and generates quality report
-
-### Sequential Mode
-
-Used automatically for fewer than 4 chapters, or when explicitly requested.
+The skill uses one agent to process chapters sequentially. The agent reads the
+shared course context once, carries what it learns from earlier chapters into
+later chapters, and applies all navigation changes in one serialized edit.
+This avoids repeated startup overhead, inconsistent quiz strategies, and
+conflicting edits to `mkdocs.yml`.
 
 ### Single Chapter Mode
 
 For updating one quiz: "Generate a quiz for Chapter 3 only"
 
-**Typical Workflow (Parallel):**
+**Typical Workflow:**
 
 1. User asks Claude to generate quizzes for all chapters
 2. Skill reads shared context (course description, glossary, learning graph)
-3. Skill plans chapter batches for parallel processing
-4. Skill spawns 4-6 Task agents in a single message (parallel execution)
-5. Each agent generates 10 questions per chapter using question admonition format
-6. Skill aggregates results from all agents
-7. Skill generates quality report and updates mkdocs.yml navigation
-8. Skill logs session with timing information
+3. One agent processes chapters in order and generates 10 questions per chapter
+4. The same agent validates answer balance, Bloom's distribution, and concept coverage
+5. Skill generates the aggregate quality report
+6. Skill applies all `mkdocs.yml` navigation changes in one edit
+7. Skill logs the session with timing information
 
 ## Question Format
 
@@ -111,9 +97,7 @@ All questions use the mkdocs-material question admonition format:
 
 **1. Quiz Markdown File**
 
-Location options:
-- Separate Quiz Per Chapter: `docs/chapters/[chapter-name]/quiz.md`
-- Embedded: Appended to chapter file
+Location: `docs/chapters/[chapter-name]/quiz.md`
 
 Content:
 - 8-12 multiple choice questions
@@ -121,29 +105,9 @@ Content:
 - Complete explanations
 - Links to chapter sections
 
-**2. Quiz Metadata JSON**
-
-Location: `docs/learning-graph/quizzes/[chapter-name]-quiz-metadata.json`
-
-Contains:
-- Question metadata (Bloom's level, difficulty, concept)
-- Answer distribution statistics
-- Bloom's distribution
-- Concept coverage
-- Quality scores
-
 ### Recommended (Aggregate)
 
-**3. Quiz Bank JSON**
-
-Location: `docs/learning-graph/quiz-bank.json`
-
-Contains:
-- All questions from all chapters
-- Searchable by concept, Bloom's level, difficulty
-- Ready for LMS export or chatbot integration
-
-**4. Quality Report**
+**2. Quality Report**
 
 Location: `docs/learning-graph/quiz-generation-report.md`
 
@@ -155,9 +119,38 @@ Contains:
 - Concept coverage
 - Recommendations
 
+**3. Session Log**
+
+Location: `logs/quiz-generator-YYYY-MM-DD.md`
+
+Contains:
+- Execution mode and timing
+- Chapters and questions processed
+- Files created and validation result
+
 ### Optional
 
-**5. Alternative Question Bank**
+**4. Quiz Metadata JSON**
+
+Location: `docs/learning-graph/quizzes/[chapter-name]-quiz-metadata.json`
+
+Contains:
+- Question metadata (Bloom's level, difficulty, concept)
+- Answer distribution statistics
+- Bloom's distribution
+- Concept coverage
+- Quality scores
+
+**5. Quiz Bank JSON**
+
+Location: `docs/learning-graph/quiz-bank.json`
+
+Contains:
+- All questions from all chapters
+- Searchable by concept, Bloom's level, difficulty
+- Ready for LMS export or chatbot integration
+
+**6. Alternative Question Bank**
 
 Location: `docs/learning-graph/quizzes/alternative-questions.json`
 
@@ -165,7 +158,7 @@ Contains:
 - 2-3 alternative questions per concept
 - For quiz randomization or variations
 
-**6. Study Guide**
+**7. Study Guide**
 
 Location: `docs/chapters/[chapter-name]/study-guide.md`
 
@@ -405,7 +398,14 @@ Claude will reference this document when creating answer options.
 
 ## Version History
 
-- **v0.3** (2026-02-03) - Parallel execution support
+- **v0.4** (2026-07-16) - Serial execution contract
+  - One serial agent for single-chapter and whole-book generation
+  - Shared context carried across chapters
+  - Serialized navigation updates after generation
+  - Quiz markdown is the only required per-chapter artifact
+  - Metadata, quiz bank, quality report, and study guide are optional or recommended
+
+- **v0.3** (2026-02-03) - Superseded parallel execution experiment
   - Parallel execution for 3-4x faster generation
   - Automatic batch planning (4-6 agents based on chapter count)
   - Aggregation phase for combining results
