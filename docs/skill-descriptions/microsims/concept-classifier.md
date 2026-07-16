@@ -1,151 +1,73 @@
-# Concept Classifier Quiz Generator
+# Concept Classifier Route
 
-**Name:** concept-classifier
-**Width Responsive:** Yes
-**Framework:** p5.js 1.11.10
+**Route:** `microsim-generator` -> `concept-classifier`
+**Framework:** data contract plus a legacy p5.js scaffold
+**Publication status:** requires native controls and host-book validation
 
 ## Overview
 
-The Concept Classifier skill creates interactive classification quiz MicroSims where students read scenarios, examples, or descriptions and must classify them into the correct category from multiple choice options. All quiz content is stored in a separate `data.json` file for easy editing without modifying code.
+The Concept Classifier route helps an author create a scenario-based learning activity in which learners apply explicit criteria to choose one defensible category. The durable part is the instructional loop: a realistic case, a category judgment, a misconception-derived distractor, a hint, and a contrastive explanation.
 
-## When to Use This Skill
+The old standalone `concept-classifier` skill was consolidated into `microsim-generator`. Do not install the archived skill or treat the bundled canvas UI as publication-ready.
 
-Use this skill when you need to create a quiz where students must:
+## When To Use It
 
-- **Identify types or categories** - e.g., cognitive biases, logical fallacies, literary devices
-- **Classify examples** - e.g., animals into taxonomic groups, chemical reactions by type
-- **Recognize patterns** - e.g., design patterns, musical forms, art movements
-- **Match scenarios to concepts** - e.g., business scenarios to management theories
+Use this route when:
 
-## Features
+- the learner is rehearsing a real classification decision;
+- every category has observable inclusion and exclusion criteria;
+- the context supports one defensible best answer;
+- distractors represent known misconceptions; and
+- feedback explains why the nearest alternative is wrong.
 
-- Scenario-based questions with detailed descriptions
-- Multiple choice answers (typically 4 options)
-- Hint system that reduces points but helps struggling students
-- Automatic explanations shown after each answer
-- Score tracking with visual progress indicator
-- Randomized question selection from a larger pool
-- Encouraging feedback messages for correct and incorrect answers
-- Animated mascot character that reacts to answers
-- End screen with performance summary and customizable tips
-- Fully configurable via `data.json` file
+Use annotation, comparison, or discussion instead when categories overlap intrinsically or several answers remain equally defensible. If a single-answer activity needs an ambiguity or precedence policy, state that policy before writing scenarios.
 
-## Data Structure
+## Authoring Contract
 
-```json
-{
-  "title": "Quiz Title",
-  "description": "Quiz description",
-  "config": {
-    "questionsPerQuiz": 10,
-    "pointsCorrect": 10,
-    "pointsWithHint": 5,
-    "scenarioLabel": "SCENARIO",
-    "instructionText": "Select the correct category",
-    "correctAnswerField": "correctAnswer"
-  },
-  "scenarios": [
-    {
-      "id": 1,
-      "scenario": "Description of scenario...",
-      "correctAnswer": "Category Name",
-      "options": ["Category A", "Category B", "Category C", "Category D"],
-      "explanation": "Why this answer is correct...",
-      "hint": "A helpful hint..."
-    }
-  ],
-  "encouragingMessages": {
-    "correct": ["Excellent!", "Well done!"],
-    "incorrect": ["Good try!", "Keep learning!"]
-  },
-  "endScreen": {
-    "tipsTitle": "Tips:",
-    "tips": ["Tip 1", "Tip 2", "Tip 3"],
-    "performanceMessages": {
-      "excellent": { "threshold": 90, "message": "Outstanding!" },
-      "good": { "threshold": 70, "message": "Great Job!" },
-      "fair": { "threshold": 50, "message": "Good Progress!" },
-      "needsWork": { "threshold": 0, "message": "Keep Learning!" }
-    }
-  }
-}
+1. Name the learner decision and prerequisite concepts.
+2. Define every category with observable criteria.
+3. Map each distractor to a misconception.
+4. Write enough reviewed scenarios for every category to appear as a correct answer.
+5. Keep `questionsPerQuiz` at or below the scenario count.
+6. Give every scenario two to four unique options, one exact answer, a non-revealing hint, and a contrastive explanation.
+7. Validate the dataset before interface work.
+8. Publish only with native keyboard-operable controls, visible focus, announced feedback, responsive text, and the host textbook's own browser and accessibility gates.
+
+The executable validator is:
+
+```bash
+python3 skills/microsim-generator/scripts/validate_concept_classifier.py path/to/data.json
 ```
 
-## File Structure
+The complete schema and a copy-safe example live in `skills/microsim-generator/references/concept-classifier-guide.md`.
 
+## Scoring
+
+A correct answer remains correct even after a hint. Hint use may reduce points, but mastery messages use percent correct. The interface reports correctness and percentage of available points separately.
+
+## Accessibility Boundary
+
+The bundled p5.js scaffold draws answer choices on a canvas and handles them with pointer coordinates. `describe()` can label the canvas, but it does not turn those choices into keyboard or screen-reader controls. A learner-facing classifier must use real HTML controls and prove that long scenario, option, hint, and explanation text does not clip.
+
+## Files
+
+The routed assets live in:
+
+```text
+skills/microsim-generator/
+├── references/concept-classifier-guide.md
+├── scripts/validate_concept_classifier.py
+├── tests/test_validate_concept_classifier.py
+└── assets/concept-classifier/
+    ├── concept-classifier-template.js
+    ├── data-template.json
+    ├── main-template.html
+    └── index-template.md
 ```
-/docs/sims/$MICROSIM_NAME/
-├── index.md           # Documentation with iframe embed
-├── main.html          # HTML wrapper loading p5.js
-├── $MICROSIM_NAME.js  # p5.js quiz logic
-├── data.json          # Quiz questions and configuration
-└── metadata.json      # Dublin Core metadata
-```
 
-## Example Use Cases
+Use `skills/microsim-generator/assets/templates/p5/metadata-template.json` for metadata. The host textbook's canonical concepts, learning graph, workbook behavior, and publication gate remain authoritative.
 
-1. **Cognitive Bias Quiz** - Identify which bias is shown in scenarios
-2. **Logical Fallacy Identifier** - Classify arguments by fallacy type
-3. **Literary Device Recognizer** - Identify metaphors, similes, etc.
-4. **Chemical Reaction Classifier** - Classify by reaction type
-5. **Historical Era Matcher** - Match events to time periods
-6. **Design Pattern Identifier** - Identify software patterns
-7. **Musical Form Quiz** - Classify musical pieces by form
-8. **Art Movement Classifier** - Match artworks to movements
+## Related Routes
 
-## Bloom's Taxonomy Level
-
-This quiz format primarily addresses **Application (Level 3)** - students apply their knowledge of categories to analyze new scenarios.
-
-## Customization
-
-### Visual Elements
-- Canvas dimensions (default: 800×530)
-- Color scheme (drawing area, buttons, feedback)
-- Mascot character (default: animated brain)
-
-### Quiz Behavior
-- Number of questions per quiz
-- Points for correct answers (with/without hint)
-- Custom labels and instruction text
-- Performance thresholds and messages
-
-### Content
-- Add scenarios to `data.json` without code changes
-- Customize encouraging messages
-- Set topic-specific tips for end screen
-
-## Best Practices
-
-### Writing Good Scenarios
-- Be specific - scenarios should clearly demonstrate one category
-- Avoid ambiguity - one obviously correct answer
-- Use realistic examples - real-world scenarios are memorable
-- Vary difficulty - mix easy and challenging
-- Keep manageable length - 2-4 sentences
-
-### Writing Good Distractors
-- Make them plausible but distinguishable
-- Use common misconceptions
-- Keep similar length to correct answer
-
-### Writing Good Explanations
-- Explain the "why" not just state the answer
-- Reference key distinguishing features
-- Keep concise (2-3 sentences)
-
-## Related Skills
-
-- [MicroSim P5 Generator](./microsim-p5.md) - General p5.js simulations
-- [Quiz Generator](../book/quiz-generator.md) - Multiple choice quizzes for chapters
-
-## Template Location
-
-Templates are located in:
-```
-/skills/concept-classifier/templates/
-├── concept-classifier-template.js
-├── data-template.json
-├── main-template.html
-└── index-template.md
-```
+- [MicroSim P5 Generator](./microsim-p5.md) for general p5.js simulations
+- [Quiz Generator](../book/quiz-generator.md) for chapter multiple-choice assessment

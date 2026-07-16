@@ -3,6 +3,8 @@ site
 ~$*
 .cache
 .vscode
+__pycache__/
+*.py[cod]
 mcp-servers/**/*.pyc
 mcp-servers/**/__pycache__/
 mcp-servers/**/*.egg-info/

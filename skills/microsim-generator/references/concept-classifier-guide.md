@@ -4,7 +4,9 @@
 
 ## Overview
 
-This guide creates interactive classification quiz MicroSims using p5.js. Students are presented with scenarios, examples, or descriptions and must classify them into the correct category from multiple choice options. The quiz format is ideal for teaching pattern recognition, concept identification, and categorization skills across any subject domain.
+This guide creates interactive classification quiz MicroSims. Students are presented with scenarios, examples, or descriptions and must classify them into the correct category from multiple choice options. Use the pattern to teach discrimination between categories, not merely to make recall practice look interactive.
+
+The bundled p5.js files are legacy scaffolding, not publication-ready proof. In particular, the canvas-drawn answer choices are not native keyboard or screen-reader controls. A published classifier must expose each choice as a real HTML button, preserve a visible focus state, announce the result and explanation, and pass the host textbook's own accessibility and browser gates.
 
 ## When to Use This Guide
 
@@ -14,6 +16,17 @@ Use this guide when you need to create a quiz where students must:
 - **Classify examples** - e.g., classify animals into taxonomic groups, chemical reactions by type, historical events by era
 - **Recognize patterns** - e.g., recognize which design pattern is used, which musical form is playing, which art movement a painting belongs to
 - **Match scenarios to concepts** - e.g., match business scenarios to management theories, symptoms to conditions, code snippets to algorithms
+
+Use a classifier only when every category has observable decision criteria and each assessed scenario has one defensible best answer under the stated context. Do not force intrinsically overlapping, contested, or open-ended judgments into a single-answer quiz. Use a comparison, annotation, or discussion activity instead.
+
+Before generating files, record:
+
+- the learner decision the classifier rehearses;
+- the observable criteria that separate each category;
+- the prerequisite concepts learners need;
+- the misconception represented by each distractor;
+- the policy for ambiguous or boundary cases; and
+- the feedback or artifact retained after the attempt.
 
 ## Features
 
@@ -30,14 +43,14 @@ Use this guide when you need to create a quiz where students must:
 
 ## Data Structure
 
-All quiz content is stored in a `data.json` file for easy editing. Here is the required structure:
+All quiz content is stored in a `data.json` file for easy editing. The following is an intentionally small but valid two-category dataset. The bundled starter below expands the same contract to four categories, four scenarios, and a quiz length of four.
 
 ```json
 {
   "title": "Quiz Title Here",
   "description": "Brief description of what this quiz tests",
   "config": {
-    "questionsPerQuiz": 10,
+    "questionsPerQuiz": 2,
     "pointsCorrect": 10,
     "pointsWithHint": 5,
     "scenarioLabel": "SCENARIO",
@@ -48,10 +61,18 @@ All quiz content is stored in a `data.json` file for easy editing. Here is the r
     {
       "id": 1,
       "scenario": "Description of the scenario or example to classify...",
-      "correctAnswer": "Category Name",
-      "options": ["Category Name", "Wrong Option 1", "Wrong Option 2", "Wrong Option 3"],
-      "explanation": "Explanation of why this answer is correct...",
-      "hint": "A helpful hint for this question..."
+      "correctAnswer": "Category A",
+      "options": ["Category A", "Category B"],
+      "explanation": "Category A is correct because [criterion]. Unlike Category B, this case [distinguishing feature].",
+      "hint": "Compare the defining criteria for Category A and Category B."
+    },
+    {
+      "id": 2,
+      "scenario": "A contrasting scenario whose defining feature satisfies Category B...",
+      "correctAnswer": "Category B",
+      "options": ["Category A", "Category B"],
+      "explanation": "Category B is correct because [criterion]. Unlike Category A, this case [distinguishing feature].",
+      "hint": "Identify the one feature that rules out Category A."
     }
   ],
   "encouragingMessages": {
@@ -71,8 +92,8 @@ All quiz content is stored in a `data.json` file for easy editing. Here is the r
     ]
   },
   "categoryDescriptions": {
-    "Category Name": "Brief description of this category",
-    "Another Category": "Brief description of another category"
+    "Category A": "Observable inclusion and exclusion criteria for Category A",
+    "Category B": "Observable inclusion and exclusion criteria for Category B"
   },
   "endScreen": {
     "tipsTitle": "Tips for Success:",
@@ -161,7 +182,7 @@ You can customize or replace the `drawMascotCharacter()` function to use a diffe
 
 ### Question Count
 
-By default, 10 questions are randomly selected from the pool. Adjust in the config:
+The bundled data template contains four sample scenarios, covers every defined category once, and therefore sets `questionsPerQuiz` to four. After adding a reviewed production pool, choose a quiz length that does not exceed that pool:
 
 ```json
 "config": {
@@ -169,11 +190,7 @@ By default, 10 questions are randomly selected from the pool. Adjust in the conf
 }
 ```
 
-Or modify in JavaScript:
-
-```javascript
-scenarios = shuffled.slice(0, 10);  // Change 10 to desired number
-```
+Keep this choice in `data.json`; do not create a second question-count authority by hardcoding the slice in JavaScript.
 
 ## Example Use Cases
 
@@ -203,17 +220,28 @@ Students view or read about artworks and classify them into movements (Impressio
 
 ## Implementation Steps
 
-1. **Define your categories** - List all possible classification categories (typically 4-8)
+1. **Name the learner decision** - State what a learner should be able to distinguish after the activity and where that judgment is used.
 
-2. **Create scenarios** - Write 15-30 scenarios, each clearly demonstrating one category
+2. **Define category criteria** - Give every category observable inclusion and exclusion criteria. Reject the format if boundary cases cannot be handled honestly.
 
-3. **Write explanations** - For each scenario, explain why it belongs to that category
+3. **Create scenarios** - Write enough scenarios to cover every category and misconception. Prefer realistic cases with source or authoring provenance.
 
-4. **Add hints** - Provide helpful hints that guide without giving away the answer
+4. **Design distractors from misconceptions** - Each wrong option should diagnose a plausible confusion, not merely make the answer list longer.
 
-5. **Customize messages** - Adjust encouraging messages and tips for your subject
+5. **Write contrastive explanations** - Explain both why the selected category fits and why the nearest alternative does not.
 
-6. **Test thoroughly** - Ensure all scenarios have correct answers and clear explanations
+6. **Add hints** - Guide attention to the distinguishing evidence without naming the answer.
+
+7. **Validate the dataset** - Run the bundled validator before browser testing:
+
+   ```bash
+   python3 skills/microsim-generator/scripts/validate_concept_classifier.py \
+     docs/sims/<name>/data.json
+   ```
+
+8. **Build accessible controls** - Use native buttons, keyboard navigation, visible focus, and an announced feedback region. Do not publish the mouse-only canvas choices unchanged.
+
+9. **Test the learning interaction** - Verify answer identity, hint scoring, explanations, restart behavior, narrow layouts, keyboard use, screen-reader output, and the host project's publication gates.
 
 ## Best Practices
 
@@ -221,6 +249,7 @@ Students view or read about artworks and classify them into movements (Impressio
 
 - **Be specific** - Scenarios should clearly demonstrate one category
 - **Avoid ambiguity** - Each scenario should have one clearly correct answer
+- **Label boundary cases** - If the real domain permits overlap, state the assumption that makes one answer best or move the case to a discussion activity
 - **Use realistic examples** - Real-world scenarios are more memorable
 - **Vary difficulty** - Mix easy and challenging scenarios
 - **Keep length manageable** - Scenarios should fit in the display area (roughly 2-4 sentences)
@@ -230,11 +259,13 @@ Students view or read about artworks and classify them into movements (Impressio
 - **Make them plausible** - Wrong answers should be reasonable alternatives
 - **Avoid obviously wrong options** - Each option should require thought
 - **Use common misconceptions** - Include options that represent typical errors
+- **Make distractors diagnostic** - Be able to name the misconception each distractor reveals
 - **Keep similar length** - Options should be roughly equal in length
 
 ### Writing Good Explanations
 
 - **Explain the "why"** - Don't just state the answer, explain the reasoning
+- **Contrast the nearest alternative** - Tell the learner what evidence rules out the most plausible distractor
 - **Reference key features** - Point out what makes this scenario fit the category
 - **Keep it concise** - 2-3 sentences is ideal
 - **Educational tone** - Use this as a teaching moment
@@ -248,9 +279,25 @@ Template files live in this skill's `assets/concept-classifier/` directory:
 - `main-template.html` - HTML wrapper
 - `index-template.md` - Documentation page template
 
+Use `assets/templates/p5/metadata-template.json` for the required `metadata.json`; the classifier asset directory does not carry a second metadata authority.
+
+## Data Quality Contract
+
+The validator rejects datasets that would otherwise fail silently or teach the wrong distinction:
+
+- missing titles, descriptions, scenarios, feedback messages, or category definitions;
+- a `questionsPerQuiz` larger than the scenario pool;
+- duplicate scenario IDs, duplicate answer options, or fewer than two/more than four choices that the fixed legacy layout cannot render safely;
+- a correct answer that is not one of the options;
+- options with no category description;
+- hint points outside the range from zero to the full-credit score; and
+- missing or non-descending performance thresholds.
+
+Validation proves structural consistency, not instructional truth. A subject-matter reviewer must still inspect category criteria, scenario provenance, ambiguity, distractor diagnoses, and explanations.
+
 ## Bloom's Taxonomy Level
 
-This quiz format primarily addresses **Application (Level 3)** - students must apply their knowledge of categories to analyze new scenarios they haven't seen before.
+This quiz format can address **Application (Level 3)** when learners apply explicit criteria to genuinely new scenarios. Recalling memorized labels from rehearsed examples remains Remember or Understand regardless of the interface.
 
 ## Integration with MkDocs
 
@@ -265,11 +312,13 @@ nav:
 ## Technical Notes
 
 - **Framework**: p5.js 1.11.10
-- **Responsive**: Width-responsive, fixed height
+- **Responsive**: The legacy scaffold changes width but retains a fixed height; the published activity must prove that scenario, option, hint, and explanation text do not clip at supported widths
 - **Data loading**: Uses p5.js `loadJSON()` in `preload()`
-- **Accessibility**: Includes `describe()` for screen readers
+- **Accessibility**: `describe()` labels the canvas but does not make canvas-drawn choices operable; native controls and announced feedback are required
 - **Browser support**: Modern browsers (Chrome, Firefox, Safari, Edge)
+
+The end screen reports both percent correct and percentage of available points. Performance messages use percent correct; hint-reduced points remain a separate coaching signal and never turn a correct answer into a failed mastery tier.
 
 ## Conclusion
 
-The Concept Classifier pattern provides a proven, engaging format for teaching classification and categorization skills. By separating content (data.json) from logic (JavaScript), it's easy to create new quizzes for any subject domain without modifying code.
+The Concept Classifier pattern is useful when the learning objective is a real discrimination task and the category boundary is teachable. Separating content from logic makes reuse easier, while the validator and publication gates keep structural convenience from replacing instructional judgment.
