@@ -202,6 +202,60 @@ No details here.
             self.assertEqual(result.returncode, 1)
             self.assertFalse((output / "diagram-table.md").exists())
 
+    def test_heading_cannot_borrow_across_other_atx_or_setext_sections(self):
+        boundaries = {
+            "ATX": "   ## Intervening section",
+            "Setext": "Intervening section\n--------------------",
+        }
+        for label, boundary in boundaries.items():
+            with self.subTest(label=label), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                chapters = root / "chapters"
+                chapters.mkdir()
+                (chapters / "01-crossed.md").write_text(
+                    f"""# Chapter
+
+#### Diagram: Missing specification
+
+No details here.
+
+{boundary}
+
+<details>
+<summary>Specification</summary>
+**Type:** Diagram
+**Status:** Planned
+</details>
+""",
+                    encoding="utf-8",
+                )
+
+                analyzer = diagram_report.DiagramAnalyzer(str(chapters))
+                analyzer.analyze_all_chapters()
+
+                self.assertEqual(analyzer.elements, [])
+                self.assertIn("0 complete <details> specifications", analyzer.errors[0])
+
+    def test_fenced_headings_and_details_are_not_structural_evidence(self):
+        with tempfile.TemporaryDirectory() as directory:
+            chapters = Path(directory)
+            (chapters / "01-fenced.md").write_text(
+                """# Chapter
+
+```markdown
+#### Diagram: Example only
+<details><summary>Example</summary></details>
+```
+""",
+                encoding="utf-8",
+            )
+
+            analyzer = diagram_report.DiagramAnalyzer(str(chapters))
+            analyzer.analyze_all_chapters()
+
+            self.assertEqual(analyzer.elements, [])
+            self.assertEqual(analyzer.errors, [])
+
     def test_empty_schema_fails_closed_unless_explicitly_allowed(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

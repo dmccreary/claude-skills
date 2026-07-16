@@ -80,7 +80,12 @@ class DiagramAnalyzer:
     """Analyzes markdown files to extract diagram and MicroSim information"""
 
     # A specification belongs only to the Diagram heading immediately before it.
-    HEADER_PATTERN = re.compile(r'^####\s+Diagram:\s*([^\n]+)', re.MULTILINE)
+    ATX_HEADING_PATTERN = re.compile(
+        r'^[ \t]{0,3}(#{1,6})[ \t]+(.+?)[ \t]*#*[ \t]*$', re.MULTILINE
+    )
+    SETEXT_UNDERLINE_PATTERN = re.compile(r'^[ \t]{0,3}(=+|-+)[ \t]*$')
+    FENCE_PATTERN = re.compile(r'^[ \t]{0,3}(`{3,}|~{3,})')
+    DIAGRAM_TITLE_PATTERN = re.compile(r'^Diagram:\s*(.+)$', re.IGNORECASE)
     DETAILS_PATTERN = re.compile(r'<details[^>]*>(.*?)</details>', re.DOTALL)
     SUMMARY_PATTERN = re.compile(r'<summary>(.*?)</summary>', re.DOTALL)
     TYPE_PATTERN = re.compile(r'\*\*Type:\*\*\s*(.*?)(?:\n|\r|\*\*)', re.IGNORECASE)
@@ -129,6 +134,64 @@ class DiagramAnalyzer:
                 chapter_numbers[chapter_number] = path
         return candidates
 
+    @classmethod
+    def _mask_fenced_code(cls, content: str) -> str:
+        """Preserve offsets while removing fenced examples from structural parsing."""
+        masked = []
+        fence_character = None
+        fence_length = 0
+        for line in content.splitlines(keepends=True):
+            match = cls.FENCE_PATTERN.match(line)
+            if fence_character is None and match:
+                marker = match.group(1)
+                fence_character = marker[0]
+                fence_length = len(marker)
+                masked.append(''.join('\n' if char == '\n' else ' ' for char in line))
+                continue
+            if fence_character is not None:
+                stripped = line.lstrip(' \t')
+                marker_length = len(stripped) - len(stripped.lstrip(fence_character))
+                closes = marker_length >= fence_length and not stripped[marker_length:].strip()
+                masked.append(''.join('\n' if char == '\n' else ' ' for char in line))
+                if closes:
+                    fence_character = None
+                    fence_length = 0
+                continue
+            masked.append(line)
+        return ''.join(masked)
+
+    @classmethod
+    def _markdown_headings(cls, content: str) -> List[tuple]:
+        """Return heading spans, levels, and text for ATX and Setext headings."""
+        masked = cls._mask_fenced_code(content)
+        lines = masked.splitlines(keepends=True)
+        offsets = []
+        offset = 0
+        for line in lines:
+            offsets.append(offset)
+            offset += len(line)
+
+        headings = []
+        for index, line in enumerate(lines):
+            visible = line.rstrip('\r\n')
+            atx = cls.ATX_HEADING_PATTERN.fullmatch(visible)
+            if atx:
+                headings.append((offsets[index], offsets[index] + len(line), len(atx.group(1)), atx.group(2).strip()))
+                continue
+            if index + 1 >= len(lines) or not visible.strip():
+                continue
+            underline = cls.SETEXT_UNDERLINE_PATTERN.fullmatch(lines[index + 1].rstrip('\r\n'))
+            if underline:
+                headings.append(
+                    (
+                        offsets[index],
+                        offsets[index + 1] + len(lines[index + 1]),
+                        1 if underline.group(1).startswith('=') else 2,
+                        visible.strip(),
+                    )
+                )
+        return headings
+
     def analyze_all_chapters(self):
         """Analyze all chapter directories"""
         self.chapter_files = self.discover_chapter_files()
@@ -157,25 +220,32 @@ class DiagramAnalyzer:
                 chapter_num = "??"
                 chapter_name = chapter_slug
 
-            headers = list(self.HEADER_PATTERN.finditer(content))
+            masked_content = self._mask_fenced_code(content)
+            headings = self._markdown_headings(content)
+            headers = []
+            for heading_index, (start, end, level, heading_text) in enumerate(headings):
+                title = self.DIAGRAM_TITLE_PATTERN.fullmatch(heading_text) if level == 4 else None
+                if title:
+                    section_end = headings[heading_index + 1][0] if heading_index + 1 < len(headings) else len(content)
+                    headers.append((start, end, section_end, title.group(1).strip()))
 
             if self.verbose:
                 print(f"\n  Analyzing {relative_source}:")
                 print(f"    Found {len(headers)} Diagram headers")
 
             elements_found = 0
-            for index, header in enumerate(headers):
-                segment_end = headers[index + 1].start() if index + 1 < len(headers) else len(content)
-                segment = content[header.end():segment_end]
+            for _header_start, header_end, segment_end, header_title in headers:
+                segment = masked_content[header_end:segment_end]
                 details_blocks = list(self.DETAILS_PATTERN.finditer(segment))
-                header_title = header.group(1).strip()
                 if len(details_blocks) != 1:
                     self.errors.append(
                         f"{relative_source}: Diagram '{header_title}' has "
                         f"{len(details_blocks)} complete <details> specifications; expected exactly 1"
                     )
                     return
-                details_content = details_blocks[0].group(1)
+                details_start = header_end + details_blocks[0].start(1)
+                details_end = header_end + details_blocks[0].end(1)
+                details_content = content[details_start:details_end]
                 element = self.parse_details_block(
                     details_content,
                     chapter_num,
