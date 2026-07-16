@@ -146,29 +146,51 @@ than doubles the token cost for zero quality benefit.
 
 For each concept in the list, create a definition that follows ISO 11179 standards:
 
-**Precision (25 points):** Accurately capture the concept's meaning
+The five ISO-informed qualities below use this skill's **local evaluation rubric**.
+ISO/IEC 11179 informs the definition principles; it does not assign
+these numeric weights.
+
+<!-- glossary-quality-rubric:start -->
+| Criterion | Weight |
+| --- | ---: |
+| Precision | 20 |
+| Conciseness | 20 |
+| Distinctiveness | 20 |
+| Non-circularity | 20 |
+| Unencumbered by business rules | 20 |
+<!-- glossary-quality-rubric:end -->
+
+The weights total 100 points.
+
+**Precision (20 points):** Accurately capture the concept's meaning
 
 - Define the concept specifically in the context of the course
 - Use terminology appropriate for the target audience
 - Ensure the definition matches how the concept is used in the course
 
-**Conciseness (25 points):** Keep definitions brief (target: 20-50 words)
+**Conciseness (20 points):** Keep definitions brief (target: 20-50 words)
 
 - Avoid unnecessary words or explanations
 - Get to the core meaning quickly
 - Use clear, direct language
 
-**Distinctiveness (25 points):** Make each definition unique and distinguishable
+**Distinctiveness (20 points):** Make each definition unique and distinguishable
 
 - Avoid copying definitions from other sources
 - Ensure no two definitions are too similar
 - Highlight what makes this concept different from related concepts
 
-**Non-circularity (25 points):** Avoid circular dependencies
+**Non-circularity (20 points):** Avoid circular dependencies
 
 - Do not reference undefined terms in definitions
 - Do not create circular chains (A depends on B, B depends on A)
 - Use simpler, more fundamental terms in definitions
+
+**Unencumbered by business rules (20 points):** Describe what the concept is
+
+- Keep policies, procedures, thresholds, and usage rules outside the definition
+- Avoid prescriptive language unless it is part of the concept's identity
+- Separate explanatory discussion from the concise definition
 
 **Example Format:**
 
@@ -273,9 +295,10 @@ Total cost: ~500 tokens for the script + ~200 tokens for output = **~700 tokens*
 
 Create `docs/learning-graph/glossary-quality-report.md` with:
 
-**ISO 11179 Metadata Registry Compliance Metrics:**
+**ISO-Informed Definition Quality Metrics:**
 
-For each definition, score on 5 criteria (25 points each):
+For each definition, score on the five-criterion, 100-point local evaluation
+rubric above (20 points each):
 
 1. Precision: Does it accurately capture the meaning?
 2. Conciseness: Is it brief (20-50 words)?
@@ -286,7 +309,7 @@ For each definition, score on 5 criteria (25 points each):
 **Overall Quality Metrics:**
 
 - Average definition length: [X] words
-- Definitions meeting all 4 criteria: [X]%
+- Definitions meeting all 5 criteria: [X]%
 - Circular definitions found: [X]
 - Example coverage: [X]%
 - Cross-references: [X] total, [X] broken
@@ -356,7 +379,7 @@ Use this rubric to score each definition (1-100 scale):
 
 **85-100: Excellent**
 
-- Meets all 4 ISO 11179 criteria (20+ pts each)
+- Meets all 5 criteria (17+ points each)
 - Appropriate length (20-50 words)
 - Includes relevant example
 - Clear, unambiguous language
@@ -364,7 +387,7 @@ Use this rubric to score each definition (1-100 scale):
 
 **70-84: Good**
 
-- Meets 3-4 ISO criteria
+- Meets 3-4 criteria
 - Acceptable length (15-60 words)
 - May lack example
 - Generally clear
@@ -372,7 +395,7 @@ Use this rubric to score each definition (1-100 scale):
 
 **55-69: Adequate**
 
-- Meets 2-3 ISO criteria
+- Meets 2-3 criteria
 - Length issues (too short or too long)
 - Missing example where helpful
 - Some ambiguity
@@ -380,7 +403,7 @@ Use this rubric to score each definition (1-100 scale):
 
 **Below 55: Needs Revision**
 
-- Fails multiple ISO criteria
+- Fails multiple criteria
 - Serious length issues
 - Confusing or circular
 - Missing context
