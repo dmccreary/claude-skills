@@ -1,7 +1,7 @@
 ---
 title: Iframe Tester Requires Playwright to Display Help
 date: 2026-07-16
-status: active
+status: resolved
 severity: medium
 component: skills/microsim-utils/scripts/test-iframe-heights.py
 trello: https://trello.com/c/4o9PtgT5/205-investigation-iframe-tester-imports-playwright-before-help
@@ -57,10 +57,14 @@ should discover the dependency and command shape.
 ## Resolution evidence
 
 - Fix PR: [#14](https://github.com/yaniv256/dmccreary-claude-skills/pull/14)
+- Merge commit: `aad007744899bef2614f4c6e0e29123f8aa96814`
+- Merged at: 2026-07-16T05:48:37Z
 - Focused iframe-tester CLI regressions: 3/3 passed.
 - Combined MicroSim utility tests: 8/8 passed.
 - Repository Python tests: 31/31 passed.
 - Durable learning:
   [Parse Help Before Loading Optional Dependencies](../solutions/logic-errors/parse-help-before-loading-optional-dependencies.md)
 
-Merge commit and independent default-branch verification remain pending.
+All closure criteria are satisfied. An independent read from `origin/main`
+confirmed the lazy import, parser-owned dependency error, dependency-free help,
+and all three subprocess regressions at the merge commit.
