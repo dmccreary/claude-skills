@@ -1,0 +1,26 @@
+name: Chapter content generator contract
+
+on:
+  pull_request:
+    paths:
+      - "skills/chapter-content-generator/**"
+      - ".github/workflows/chapter-content-generator-contract.yml"
+  push:
+    branches: [main]
+    paths:
+      - "skills/chapter-content-generator/**"
+      - ".github/workflows/chapter-content-generator-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  execution-policy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Test chapter content generator documentation contract
+        run: python3 -m unittest discover -s skills/chapter-content-generator/tests -p 'test_*.py' -v
