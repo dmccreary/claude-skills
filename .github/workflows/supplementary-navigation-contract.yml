@@ -1,0 +1,30 @@
+name: Supplementary navigation contract
+
+on:
+  pull_request:
+    paths:
+      - "skills/book-installer/references/supplementary-content-generator.md"
+      - "skills/book-installer/references/mkdocs-nav-editing.md"
+      - "skills/book-installer/tests/test_supplementary_navigation_contract.py"
+      - ".github/workflows/supplementary-navigation-contract.yml"
+  push:
+    branches: [main]
+    paths:
+      - "skills/book-installer/references/supplementary-content-generator.md"
+      - "skills/book-installer/references/mkdocs-nav-editing.md"
+      - "skills/book-installer/tests/test_supplementary_navigation_contract.py"
+      - ".github/workflows/supplementary-navigation-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  serialized-navigation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Validate supplementary navigation ownership
+        run: python -m unittest skills/book-installer/tests/test_supplementary_navigation_contract.py -v

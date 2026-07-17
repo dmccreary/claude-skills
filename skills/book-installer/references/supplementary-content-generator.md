@@ -55,7 +55,8 @@ Report findings to the user. For any file that already exists, ask: **"This file
 If not already present (or user chose overwrite), invoke the `about-page` reference:
 
 ```
-Read references/about-page.md and execute its workflow for this project.
+Read references/about-page.md and generate docs/about.md for this project.
+Do not edit mkdocs.yml. Return the About navigation entry to this workflow.
 ```
 
 The about page should include:
@@ -65,7 +66,7 @@ The about page should include:
 - License statement
 - Acknowledgements section (if applicable)
 
-Add to `mkdocs.yml` nav if not already present:
+If the page was generated, collect this entry for Step 12:
 ```yaml
 - About: about.md
 ```
@@ -80,6 +81,7 @@ Invoke the `glossary-generator` skill:
 
 ```
 Invoke the glossary-generator skill for this project.
+Do not edit mkdocs.yml. Return the Glossary navigation entry to this workflow.
 ```
 
 The glossary must:
@@ -88,7 +90,7 @@ The glossary must:
 - Be sorted alphabetically
 - Include a back-link to the chapter where each concept is first introduced (if determinable)
 
-Add to `mkdocs.yml` nav if not already present:
+If the glossary was generated, collect this entry for Step 12:
 ```yaml
 - Glossary: glossary.md
 ```
@@ -103,6 +105,7 @@ Invoke the `faq-generator` skill:
 
 ```
 Invoke the faq-generator skill for this project.
+Do not edit mkdocs.yml. Return the FAQ navigation entry to this workflow.
 ```
 
 The FAQ should:
@@ -111,7 +114,7 @@ The FAQ should:
 - Answer questions a typical student would ask before, during, and after the course
 - Cross-link answers to the relevant chapter or glossary term
 
-Add to `mkdocs.yml` nav if not already present:
+If the FAQ was generated, collect this entry for Step 12:
 ```yaml
 - FAQ: faq.md
 ```
@@ -122,10 +125,17 @@ Add to `mkdocs.yml` nav if not already present:
 
 **Target:** `docs/chapters/<chapter-slug>/quiz.md` for each chapter
 
-Invoke the `quiz-generator` skill for each chapter that lacks a `quiz.md`:
+Collect the chapter paths that lack a `quiz.md`, then invoke the
+`quiz-generator` skill once in its serial mode with the complete list. If the
+list is empty, skip the skill.
 
 ```
-Invoke the quiz-generator skill for docs/chapters/<chapter-slug>/index.md
+Invoke the quiz-generator skill in serial mode for these chapter paths only:
+- docs/chapters/<chapter-slug>/index.md
+- docs/chapters/<another-chapter-slug>/index.md
+
+Defer all mkdocs.yml changes. Return the Quiz navigation entries for the one
+serialized navigation edit in Step 12.
 ```
 
 Each quiz must:
@@ -134,9 +144,11 @@ Each quiz must:
 - Include answer keys in a collapsed `<details>` block
 - Use MkDocs Material's `???` admonition for each question (collapsed by default)
 
-After creating each `quiz.md`, add a **Quizzes** sub-entry to the chapter's nav in `mkdocs.yml`:
+Collect the **Quiz** navigation entry for every generated `quiz.md`. Do not edit
+`mkdocs.yml` in this step; defer all collected entries to the one serialized
+navigation edit in Step 12, following `references/mkdocs-nav-editing.md`:
 ```yaml
-- Chapter N - Title:
+- N. Title:
     - Content: chapters/<slug>/index.md
     - Quiz: chapters/<slug>/quiz.md
 ```
@@ -218,7 +230,9 @@ If the image was generated (either because the user opted in during this step, o
 bk-generate-book-metrics
 ```
 
-This script generates a metrics report (typically written to `docs/book-metrics.md` or printed to stdout). If it writes a file, add it to the nav:
+This script generates a metrics report (typically written to
+`docs/book-metrics.md` or printed to stdout). If it writes the file, collect the
+Book Metrics entry for Step 12; do not edit navigation here:
 
 ```yaml
 - Book Metrics: book-metrics.md
@@ -247,8 +261,8 @@ bk-diagram-reports
 The command fails when the schema is absent so a mature book cannot silently
 publish a zero-visual report. When applicable it writes
 `docs/learning-graph/diagram-table.md` and
-`docs/learning-graph/diagram-details.md`. Review the source links before adding
-either file to navigation:
+`docs/learning-graph/diagram-details.md`. Review the source links, then collect
+entries only for files that were generated. Defer navigation to Step 12:
 
 ```yaml
 - Learning Graph:
@@ -307,21 +321,43 @@ If a full landing page already exists and the user chose skip, leave it untouche
 
 ## Step 12: Update mkdocs.yml Navigation
 
-After all content is generated, ensure the nav section of `mkdocs.yml` is clean and complete. A typical supplementary nav block looks like:
+Step 12 is the **sole navigation writer** for this coordinated workflow. Follow
+`references/mkdocs-nav-editing.md`: Read the current `mkdocs.yml` immediately
+before editing, preserve all navigation outside this workflow's ownership, and
+apply every collected entry in ONE serialized edit, only for files that now
+exist.
+
+For chapters that gained a Quiz or Annotated References page, update the
+existing chapter entry using the canonical number-only label. Preserve any
+other child entries already nested under that chapter:
+
+```yaml
+- N. Title:
+    - Content: chapters/<slug>/index.md
+    - Quiz: chapters/<slug>/quiz.md
+    - Annotated References: chapters/<slug>/references.md
+```
+
+Then place the collected book-level entries in their conventional positions. A
+typical supplementary block can include:
 
 ```yaml
 nav:
   # ... existing chapter entries ...
   - Glossary: glossary.md
   - FAQ: faq.md
-  - About: about.md
   - Book Metrics: book-metrics.md
-  # Add the two learning-graph diagram-specification reports only when Step 9 ran.
-  - Diagram Specifications: learning-graph/diagram-table.md
-  - Diagram Specification Details: learning-graph/diagram-details.md
+  - Learning Graph:
+      # ... existing learning-graph entries ...
+      - Diagram Specifications: learning-graph/diagram-table.md
+      - Diagram Specification Details: learning-graph/diagram-details.md
+  - About: about.md
 ```
 
-Check that no nav entries point to files that don't exist, and no generated files are missing from the nav.
+The complete owned set is About, Glossary, FAQ, Quiz, Annotated References,
+Book Metrics, and the optional Diagram Specifications reports. Do not create an
+entry for a skipped or missing artifact. After the edit, verify that every
+collected entry resolves and no generated owned file is missing from navigation.
 
 ---
 
