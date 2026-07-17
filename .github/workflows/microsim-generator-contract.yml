@@ -24,6 +24,9 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.13"
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
       - name: Test concept-classifier data and guide contracts
         run: python3 -m unittest discover -s skills/microsim-generator/tests -p 'test_*.py'
       - name: Check concept-classifier browser script syntax
@@ -32,3 +35,30 @@ jobs:
         run: node --check skills/microsim-generator/assets/docker-python-lab/docker-lab.js
       - name: Test Docker Python lab timing contract
         run: node skills/microsim-generator/tests/test_docker_lab_runtime.js
+      - name: Install infographic overlay browser contract dependencies
+        run: |
+          npm install --no-save --no-package-lock @playwright/test@1.61.1
+          npx playwright install --with-deps chromium
+      - name: Test infographic overlay browser contract
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/infographic-overlay-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..20}; do
+            if curl --fail --silent --output /dev/null http://127.0.0.1:8765/; then
+              break
+            fi
+            if ! kill -0 "$server_pid" 2>/dev/null; then
+              cat /tmp/infographic-overlay-http.log
+              exit 1
+            fi
+            if [ "$attempt" -eq 20 ]; then
+              cat /tmp/infographic-overlay-http.log
+              exit 1
+            fi
+            sleep 0.25
+          done
+          npx playwright test \
+            skills/microsim-generator/tests/test_infographic_overlay_browser.spec.js \
+            --reporter=line \
+            --workers=1

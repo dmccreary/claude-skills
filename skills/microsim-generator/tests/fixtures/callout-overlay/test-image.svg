@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-label="Two geometric regions">
+  <rect width="800" height="400" fill="#f6f8fa"/>
+  <circle cx="200" cy="200" r="120" fill="#9bd8e7"/>
+  <rect x="480" y="80" width="240" height="240" rx="24" fill="#c8b5e8"/>
+</svg>

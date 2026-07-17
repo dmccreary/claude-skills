@@ -351,7 +351,14 @@ The Explore/Quiz `#controls` div must be placed **below** `#layout` and
 **above** `#infobox` in `main.html`. This gives the diagram image maximum
 vertical space and places mode buttons where users expect them after
 viewing the diagram. The `main-template.html` asset already follows this
-order.
+complete order:
+
+`#layout → #controls → #infobox → #edit-panel`
+
+The controls deliberately precede the variable-height infobox. Do not move
+them below it; `reportHeight()` measures the longest callout for the iframe,
+while this DOM order keeps the controls stationary as visible infobox content
+changes.
 
 ## Title Rendering
 

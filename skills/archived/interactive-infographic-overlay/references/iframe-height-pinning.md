@@ -1,5 +1,11 @@
 # Iframe Height Pinning — Why It Works This Way
 
+> **Historical snapshot — non-authoritative.** This archived reference
+> describes an older DOM and runtime contract that was never implemented by
+> the consolidated skill. Do not use it to generate or modify overlays. The
+> current source of truth is
+> `skills/microsim-generator/references/overlay-iframe-height-pinning.md`.
+
 **Audience:** future-you (or another contributor) trying to understand,
 debug, or modify the `reportHeight()` logic in
 `docs/sims/shared-libs/diagram.js`. Read this *before* changing anything

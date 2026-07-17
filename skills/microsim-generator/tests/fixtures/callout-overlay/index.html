@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Callout Overlay Browser Harness</title>
+  <style>
+    body { margin: 0; }
+    iframe { display: block; width: 100%; height: 300px; border: 0; }
+  </style>
+</head>
+<body>
+  <iframe id="overlay" src="main.html" title="Callout overlay fixture"></iframe>
+  <script>
+    window.addEventListener('message', function (event) {
+      if (!event.data || event.data.type !== 'microsim-resize') return;
+      const iframe = document.getElementById('overlay');
+      if (iframe.contentWindow === event.source) {
+        iframe.style.height = event.data.height + 'px';
+      }
+    });
+  </script>
+</body>
+</html>

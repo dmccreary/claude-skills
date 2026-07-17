@@ -1,0 +1,27 @@
+{
+  "title": "Callout Overlay Contract Fixture",
+  "image": "test-image.svg",
+  "layout": "side-panel",
+  "callouts": [
+    {
+      "id": "short",
+      "number": 1,
+      "label": "Short callout",
+      "x": 25,
+      "y": 50,
+      "color": "#1389A6",
+      "description": "Short description.",
+      "tip": "Short tip."
+    },
+    {
+      "id": "long",
+      "number": 2,
+      "label": "Long callout",
+      "x": 75,
+      "y": 50,
+      "color": "#6A3FB5",
+      "description": "This deliberately longer description wraps across several lines so the fixture exercises the worst-case iframe-height measurement before restoring the ordinary prompt.",
+      "tip": "The controls must remain at the same vertical position when this longer content is shown."
+    }
+  ]
+}
