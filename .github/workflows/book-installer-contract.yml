@@ -1,0 +1,46 @@
+name: Book installer contract
+
+on:
+  pull_request:
+    paths:
+      - "skills/book-installer/**"
+      - "commands/ibook.md"
+      - ".github/workflows/book-installer-contract.yml"
+  push:
+    branches: [main]
+    paths:
+      - "skills/book-installer/**"
+      - "commands/ibook.md"
+      - ".github/workflows/book-installer-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  scaffold:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Install contract dependencies
+        run: python -m pip install mkdocs-material pyyaml
+      - name: Test book installer contracts
+        run: python3 -m unittest discover -s skills/book-installer/tests -p 'test_*.py' -v
+      - name: Build a representative generated scaffold
+        run: |
+          project_dir="$(mktemp -d)"
+          python3 skills/book-installer/scripts/init_textbook.py \
+            --project-dir "$project_dir" \
+            --site-name "Builder's Guide & Atlas" \
+            --site-description "Evidence, agents & O'Brien's notes." \
+            --site-author "Yaniv O'Ben-Ami" \
+            --github-username yaniv256 \
+            --repo-name builder-atlas \
+            --linkedin-url https://www.linkedin.com/in/yaniv-ben-ami-9208b9184/ \
+            --year 2026
+          mkdocs build --strict -f "$project_dir/mkdocs.yml"
+          grep -F '/edit/main/docs/index.md' "$project_dir/site/index.html"
+          grep -F 'https://yaniv256.github.io/builder-atlas/img/cover.png' \
+            "$project_dir/site/index.html"

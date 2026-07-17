@@ -261,8 +261,12 @@ Each guide contains:
 
 **Templates:** single canonical copy in `assets/init-textbook/`
 
+**Executable boundary:** `scripts/init_textbook.py` previews and creates the
+scaffold. Do not replace it with hand-written copy or substitution commands.
+
 **Prerequisites:**
-- Empty (or nearly empty) project directory — refuses to overwrite mkdocs.yml, docs/index.md, or docs/license.md
+- Existing project directory whose generated destination paths are all absent;
+  the initializer fails before writing if any output would collide
 
 ### google-analytics.md (feature 25)
 
@@ -609,12 +613,15 @@ Each guide contains:
 ### Example 2c: Simple Template
 **User:** "1"
 **Routing:** Number 1 → `references/init-textbook.md` (canonical scaffold)
-**Action:** Load init-textbook.md and scaffold the starter config and docs/ tree
+**Action:** Load init-textbook.md and run `scripts/init_textbook.py` in preview,
+then create mode after confirming the substitution table
 
 ### Example 3: New Textbook Project
 **User:** "I want to create a new intelligent textbook about machine learning" (empty directory)
 **Routing:** Keywords "create", "new", "textbook" → `references/init-textbook.md`
-**Action:** Read init-textbook.md, gather SITE_NAME/SITE_DESCRIPTION, confirm the substitution table, scaffold from `assets/init-textbook/`
+**Action:** Read init-textbook.md, gather SITE_NAME/SITE_DESCRIPTION, confirm the
+substitution table, then run `scripts/init_textbook.py`; never copy directly
+from `assets/init-textbook/`
 
 ### Example 3b: Register Google Analytics
 **User:** "Add Google Analytics to this book" or "25"

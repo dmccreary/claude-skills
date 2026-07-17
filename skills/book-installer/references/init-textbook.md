@@ -109,16 +109,19 @@ typo'd title.
 
 ### Step 1 — Verify the directory is fit for scaffolding
 
-Run `ls -la` in the project root. The skill should refuse to overwrite when
-any of these already exist:
+Run `ls -la` in the project root and locate this skill's
+`scripts/init_textbook.py`. Do not copy templates or run an ad hoc `sed`
+command. The initializer owns the write boundary and refuses the operation if
+**any** generated destination already exists, including `.gitignore`, the
+workspace file, hook, starter pages, images, and configuration.
 
-- `mkdocs.yml`
-- `docs/index.md`
-- `docs/license.md`
+Safe publication requires directory-relative, no-follow filesystem operations.
+If the initializer reports that the current platform does not provide that
+contract, stop rather than bypassing it; run feature 0 from Linux or WSL.
 
-If any are present, stop and tell the user — they likely want
-`book-installer` instead. Do not silently merge or overwrite; the user's
-existing content is the authoritative source.
+An existing destination means the directory needs a deliberate migration or
+another `book-installer` feature. Existing content is authoritative; feature 0
+has no force or merge mode.
 
 ### Step 2 — Gather inputs
 
@@ -155,42 +158,70 @@ Site URL will be: https://dmccreary.github.io/quantum-computing/
 Proceed? (yes/no)
 ```
 
-### Step 4 — Create directories and copy templates
+### Step 4 — Preview, then create the scaffold
 
-Create the directory tree shown above with `mkdir -p`. Then copy each file
-from `assets/init-textbook/` into the project, performing placeholder
-substitution on the text files.
+Run the standard-library initializer in preview mode with the confirmed
+values. Quote every shell argument; punctuation in human metadata is valid and
+the initializer escapes quoted YAML contexts safely.
 
-For text files, do a simple in-place substitution of every `{{VAR}}` token
-(e.g. `{{SITE_NAME}}`, `{{SITE_DESCRIPTION}}`, etc.) with the value gathered
-in Step 2. Use a small inline `sed` or Python step — do not require any
-external dependencies.
+```bash
+python3 "$BOOK_INSTALLER_DIR/scripts/init_textbook.py" \
+  --project-dir "$PROJECT_DIR" \
+  --site-name "$SITE_NAME" \
+  --site-description "$SITE_DESCRIPTION" \
+  --site-author "$SITE_AUTHOR" \
+  --github-username "$GITHUB_USERNAME" \
+  --repo-name "$REPO_NAME" \
+  --linkedin-url "$LINKEDIN_URL" \
+  --primary-color "$PRIMARY_COLOR" \
+  --accent-color "$ACCENT_COLOR" \
+  --year "$YEAR" \
+  --dry-run
+```
 
-For `docs/img/license.png`, copy the binary as-is (no substitution).
+The preview must list the complete output set and leave the project unchanged.
+After the user confirms the substitution table and the preview succeeds, run
+the same command without `--dry-run`. The initializer:
+
+- preflights every destination before crossing the write boundary;
+- copies hidden and binary assets;
+- renames `project.code-workspace` to `{{REPO_NAME}}.code-workspace`;
+- substitutes punctuation-safe metadata; and
+- rejects unresolved placeholders.
 
 ### Step 5 — Verify the result builds
 
-After scaffolding, suggest the user run:
+After scaffolding, the agent runs a strict build:
 
 ```bash
-pip install mkdocs mkdocs-material
 mkdocs build --strict
 ```
+
+If `mkdocs` is unavailable and `uv` is installed, use the isolated command
+`uvx --with mkdocs-material mkdocs build --strict`. Do not install packages
+into the user's global Python environment without asking.
 
 `--strict` will catch broken nav links right away. The scaffold is designed
 to pass `--strict` with no chapter content yet, because every nav entry that
 points at a not-yet-generated file is left commented out.
 
-Confirm the social-override hook is wired correctly by checking that the
+Confirm no placeholders remain and that the social-override hook is wired
+correctly by checking that the
 built home page's `og:image` and `twitter:image` point at the declared
 cover (not whatever Material's defaults emit):
 
 ```bash
+rg '\{\{[A-Z_]+\}\}' .
+# expect: no output
+
 grep -E '(og|twitter):image' site/index.html
 # expect: both URLs are absolute and end with /img/cover.png
+
+grep -F '/edit/main/docs/index.md' site/index.html
+# expect: the generated "Edit this page" control targets GitHub's edit surface
 ```
 
-If the URLs don't point at `cover.png`, the hook didn't load — re-check
+If the image URLs don't point at `cover.png`, the hook didn't load — re-check
 that `hooks:` is a top-level `mkdocs.yml` key (not nested under
 `plugins:`) and that `plugins/social_override.py` is at the project root,
 not under `docs/`. (The hook only acts on pages that declare `image:` in
@@ -376,10 +407,13 @@ files in sync — adding only one half is the failure mode.
 
 ## Footgun Avoidance
 
-- **Never overwrite an existing `mkdocs.yml`.** The Step 1 check is
-  load-bearing: the silent-overwrite footgun (delete user's careful nav
-  list, replace with template) is exactly the kind of damage that's hard to
-  undo if it makes it into a commit.
+- **Never overwrite any generated destination.** The initializer's complete
+  preflight is load-bearing: replacing even one existing config, page, hook,
+  image, hidden file, or workspace can destroy user work that is hard to undo.
+- **Do not bypass an unsupported-platform refusal.** Pathname-only fallback
+  copying reopens the parent-symlink race that the initializer is designed to
+  close. Use Linux or WSL until a native implementation provides the same
+  no-follow publication guarantee.
 - **Confirm substitutions in one block before writing.** A typo in
   `REPO_NAME` ripples into the site URL, edit URI, and copyright link.
   Showing the resolved table and waiting for "yes" makes the error visible
@@ -427,15 +461,15 @@ book-installer/
 2. Read `git config user.name`, `git remote get-url origin`, `basename "$(pwd)"`.
 3. Ask the user for `SITE_NAME` and `SITE_DESCRIPTION`; offer to default the rest.
 4. Echo the resolved table; wait for confirmation.
-5. Create directories, copy + substitute templates, copy `license.png`.
-6. Suggest `mkdocs build --strict`.
+5. Run `scripts/init_textbook.py --dry-run`, then rerun without `--dry-run`.
+6. Run `mkdocs build --strict` (or the documented isolated `uvx` fallback).
 7. Print the next-steps menu pointing at `book-installer`.
 
 ### Example 2: Directory already has content
 
 **User:** "scaffold a new textbook"
 
-**Skill response:** notices `mkdocs.yml` is present, refuses to overwrite,
+**Skill response:** notices a generated destination is present, refuses to overwrite,
 suggests the user either use other book-installer features to enrich the
 existing project, or run feature #0 from a fresh directory.
 

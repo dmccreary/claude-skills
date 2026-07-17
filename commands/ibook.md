@@ -57,7 +57,7 @@ Skill tool. **Bold gates** must pass before continuing.
 
 | Order | Skill | Produces | Notes |
 |-------|-------|----------|-------|
-| 0.1 | `book-installer` → init-textbook (feature 0) | `mkdocs.yml`, `docs/` tree, license, starter `index.md`/`about.md`/`course-description.md`, social hook | Run **first**, in a near-empty directory. Refuses if `mkdocs.yml` already exists. |
+| 0.1 | `book-installer` → init-textbook (feature 0) | `mkdocs.yml`, `docs/` tree, license, starter `index.md`/`about.md`/`course-description.md`, social hook | Run **first**, in a near-empty directory through `scripts/init_textbook.py`. Refuses if any generated destination already exists. |
 | 0.2 | `book-installer` (other features) | Optional features layered onto the scaffold (math, mascot, learning-graph-viewer, document-status, etc.) | Run **many times**, as needed. Install **learning-graph-viewer** before Phase 1 visualizations and **book-metrics** before Phase 7. |
 
 > **Why Phase 0 is special:** the feature-0 scaffold creates the core files

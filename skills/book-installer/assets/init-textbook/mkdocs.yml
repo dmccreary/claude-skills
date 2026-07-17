@@ -9,21 +9,18 @@ site_author: '{{SITE_AUTHOR}}'
 site_url: 'https://{{GITHUB_USERNAME}}.github.io/{{REPO_NAME}}/'
 
 # Hooks — runs local Python before/after page processing.
-# `plugins/social_override.py` injects og:title, og:description, og:image,
-# og:type, og:url, and twitter:* meta tags on every page using each page's
-# frontmatter `title:` / `description:` / `image:` (falling back to the site-
-# wide values and `img/cover.png`). This is the Cairo-free path to social-
-# media previews — works without `pip install "mkdocs-material[imaging]"`.
-# If the `social` plugin below is ever enabled, the same hook also rewrites
-# its auto-generated `/assets/images/social/...` URLs to point at the
-# declared cover image. Verify the result with `bk-check-social-cover`.
+# `plugins/social_override.py` overrides og:image and twitter:image only when
+# a page explicitly declares `image:` in frontmatter. Pages without `image:`
+# are unchanged, including any tags emitted by Material's optional `social`
+# plugin. This lets the home page declare `img/cover.png` without forcing the
+# book cover onto every chapter. Verify the result with `bk-check-social-cover`.
 hooks:
   - plugins/social_override.py
 
 # Repository
 repo_name: 'GitHub Repo'
 repo_url: 'https://github.com/{{GITHUB_USERNAME}}/{{REPO_NAME}}'
-edit_uri: 'blob/main/docs'
+edit_uri: 'edit/main/docs/'
 
 # Copyright
 copyright: 'Copyright &copy; {{YEAR}} {{SITE_AUTHOR}}. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.'
