@@ -15,12 +15,41 @@ permissions:
   contents: read
 
 jobs:
-  chapter-images-guide:
+  media-publication:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Run chapter image guide contract tests
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Run media publication contract tests
         run: python -m unittest discover -s skills/book-media-generator/tests -p 'test_*.py' -v
+      - name: Check pronunciation controller syntax
+        run: node --check skills/book-media-generator/assets/pronunciation/pronunciation-controls.js
+      - name: Install pronunciation browser contract dependencies
+        run: |
+          npm install --no-save --no-package-lock @playwright/test@1.61.1
+          npx playwright install --with-deps chromium
+      - name: Test pronunciation controls in a strict-CSP browser fixture
+        run: |
+          log_file="$(mktemp)"
+          python3 -m http.server 8765 --bind 127.0.0.1 > "$log_file" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true; rm -f "$log_file"' EXIT
+          for attempt in {1..20}; do
+            if curl --fail --silent --output /dev/null http://127.0.0.1:8765/; then
+              break
+            fi
+            if ! kill -0 "$server_pid" 2>/dev/null || [ "$attempt" -eq 20 ]; then
+              cat "$log_file"
+              exit 1
+            fi
+            sleep 0.25
+          done
+          npx playwright test \
+            skills/book-media-generator/tests/test_pronunciation_controls_browser.spec.js \
+            --reporter=line \
+            --workers=1

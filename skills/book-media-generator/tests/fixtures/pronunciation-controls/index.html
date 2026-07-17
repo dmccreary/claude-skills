@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; media-src 'self' data:">
+  <title>Pronunciation controls contract fixture</title>
+</head>
+<body>
+  <main>
+    <h1>Bryophytes</h1>
+    <div class="pronunciation" data-pronunciation>
+      <audio
+        id="audio-bryophytes"
+        controls
+        preload="metadata"
+        aria-label="Pronunciation of Bryophytes"
+        src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=">
+        <a href="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=">
+          Download the Bryophytes pronunciation
+        </a>
+      </audio>
+      <span class="pronunciation__phonetic">BRY-oh-fytes</span>
+      <span class="pronunciation__status" role="status" aria-live="polite">Ready</span>
+    </div>
+  </main>
+  <script src="../../../assets/pronunciation/pronunciation-controls.js"></script>
+</body>
+</html>

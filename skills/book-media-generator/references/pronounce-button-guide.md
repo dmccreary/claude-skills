@@ -1,210 +1,169 @@
+# Glossary Pronunciation Guide (ElevenLabs)
 
-# Glossary Pronounce Button Guide (ElevenLabs)
-
-> Formerly the standalone skill `pronounce-button`.
-
-Add an inline audio "Pronounce" button to a glossary term or any term heading
-in a markdown file, powered by ElevenLabs text-to-speech.
+Add a verifiable pronunciation recording and accessible audio controls to a
+glossary term or term heading. The active route publishes an MP3 and a JSON
+provenance sidecar; it does not trust a successful HTTP status by itself.
 
 ## When to Use
 
-Trigger this skill when the user asks to:
+Use this guide for requests such as:
 
-- "Create a pronounce button for the term 'Bryophytes'"
-- "Create a pronounce button for the term 'Bryophytes' in glossary.md"
-- "Add pronunciation for 'Sphagnum Moss'"
-- "Add a pronounce button for X in chapter-03.md"
+- "Create a pronunciation for Bryophytes."
+- "Add pronunciation audio to the Sphagnum Moss glossary entry."
+- "Add pronunciation controls for evapotranspiration in chapter 3."
 
 ## Prerequisites
 
-- The environment variable `ELEVENLABS_API_KEY` must be set. Never hard-code
-  or commit this key.
-- The ElevenLabs API reference repo is at `/Users/dan/Documents/ws/elevenlabs-skills`
-  for additional documentation if needed.
+- Set `ELEVENLABS_API_KEY` in the environment. Never hard-code or commit it.
+- Use the active generator at
+  `scripts/audio/generate-pronunciation.py` inside this skill.
+- Work from the textbook repository root so `--output-root` can identify the
+  exact tree in which publication is allowed.
 
-## Workflow
+## 1. Discover Current Capabilities
 
-### Step 1: Identify the Term and Target File
+Do not treat a remembered model name, voice name, or voice ID as current
+inventory. Before the first generation in a project, inspect the primary API:
 
-Parse the user's request to extract:
+- `GET /v1/models` for available models and their capabilities.
+- `GET /v2/voices` for voices available to the authenticated account.
+- [Create speech](https://elevenlabs.io/docs/api-reference/text-to-speech/convert)
+  for the current request body and `output_format` options.
+- [Models](https://elevenlabs.io/docs/overview/models) for model-specific
+  latency, language, and text normalization behavior.
 
-1. **Term** — the word or phrase to pronounce (e.g., "Bryophytes")
-2. **Target file** — the markdown file containing the term (default: `docs/glossary.md`)
+Confirm that the selected voice ID is present and that the selected model is
+available for text-to-speech. The generator defaults to
+`eleven_multilingual_v2`, output format `mp3_44100_128`, and the historical
+Sarah voice ID `EXAVITQu4vr4xnSDxMaL`; discovery, not the label in this guide,
+is the authority.
 
-### Step 2: Generate the MP3
+For a reusable project-specific correction, prefer a versioned pronunciation
+dictionary and pass its `pronunciation_dictionary_locators` in an extended
+workflow. ElevenLabs documents dictionary versions and model support in its
+[pronunciation dictionary guide](https://elevenlabs.io/docs/eleven-api/guides/how-to/text-to-speech/pronunciation-dictionaries).
 
-**Important: Try the plain word first.** ElevenLabs handles most scientific
-terms correctly when given the actual word. Only fall back to phonetic
-spelling if the plain word sounds wrong after listening to it.
+## 2. Generate and Verify the Artifact
 
-**Three-tier approach (escalate only when the user reports a problem):**
+Try the actual term first. Escalate only after listening:
 
-1. **Tier 1 — Plain word (default).** Send the actual term (e.g.,
-   `"Biogeography"`). This works for most words. Always try this first.
+1. Plain term.
+2. A readable phonetic rendering if the plain term is wrong.
+3. CMU Arpabet through `--ssml` when an exact phoneme correction is needed.
 
-2. **Tier 2 — Hyphenated phonetic (fallback).** If the user says the plain
-   word sounds wrong, regenerate using a hyphenated phonetic version (e.g.,
-   `"Gah-mee-toh-fyte"`). This can backfire — ElevenLabs sometimes reads
-   each syllable as a separate word — so only use when Tier 1 fails.
-
-3. **Tier 3 — SSML with CMU Arpabet (last resort).** If both plain and
-   phonetic versions fail, use the `--ssml` flag with a CMU Arpabet string.
-   This switches to `eleven_flash_v2` which supports SSML `<phoneme>` tags
-   for precise phoneme-level control. Only use when the user explicitly
-   indicates that Tiers 1 and 2 both failed.
-
-**Tier 1 — Plain word:**
-
-```bash
-python3 SCRIPT "Biogeography" --output docs/audio/biogeography.mp3
-```
-
-**Tier 2 — Phonetic fallback:**
+Plain term:
 
 ```bash
-python3 SCRIPT "Gah-mee-toh-fyte" --output docs/audio/gametophyte.mp3
+python3 SCRIPT "Biogeography" \
+  --output-root . \
+  --output docs/audio/biogeography.mp3
 ```
 
-**Tier 3 — SSML (last resort):**
+Explicit phonetic rendering:
+
+```bash
+python3 SCRIPT "Gah-mee-toh-fyte" \
+  --output-root . \
+  --output docs/audio/gametophyte.mp3
+```
+
+CMU Arpabet:
 
 ```bash
 python3 SCRIPT "evapotranspiration" \
-    --ssml "IH0 V AE2 P OW0 T R AE2 N S P ER0 EY1 SH AH0 N" \
-    --output docs/audio/evapotranspiration.mp3
+  --ssml "IH0 V AE2 P OW0 T R AE2 N S P ER0 EY1 SH AH0 N" \
+  --output-root . \
+  --output docs/audio/evapotranspiration.mp3
 ```
 
-The `--ssml` flag takes a CMU Arpabet phoneme string. Stress markers are
-required: `1` = primary stress, `2` = secondary stress, `0` = no stress.
-See [CMU Arpabet reference](https://en.wikipedia.org/wiki/ARPABET) for
-the full phoneme set.
+`SCRIPT` is the path to this skill's
+`scripts/audio/generate-pronunciation.py`. The generator:
 
-**Known terms that required SSML (user-verified):**
+- confines output to `--output-root` and requires an `.mp3` destination;
+- converts the term to a single safe filename component when no output is
+  supplied;
+- requests an explicit `output_format`;
+- rejects a non-audio content type and a body without an MP3 signature;
+- stages both files beside the destination and uses `os.replace` only after
+  validation and durable writes;
+- records the request fingerprint, audio SHA-256, model, voice, format,
+  byte count, `request-id`, and `x-trace-id` in `FILE.mp3.json`;
+- reuses an existing byte-matching artifact without another API call; and
+- refuses to replace a non-matching artifact unless `--force` is explicit.
 
-| Term | CMU Arpabet |
-|---|---|
-| Acrocarpous | `AE2 K R OW0 K AA1 R P AH0 S` |
-| Evapotranspiration | `IH0 V AE2 P OW0 T R AE2 N S P ER0 EY1 SH AH0 N` |
+If a run fails, do not rename an error body to `.mp3` or delete the previous
+artifact. Diagnose the response and retain the last verified pair.
 
-Where `SCRIPT` is:
+After generation, inspect the sidecar and listen to the entire clip. A file
+existing on disk is not sufficient verification.
 
-```
-python3 ~/.claude/skills/book-media-generator/scripts/audio/generate-pronunciation.py
-```
+## 3. Add Native, CSP-Compatible Controls
 
-Where `SLUG` is the term lowercased with spaces replaced by hyphens
-(e.g., "Sphagnum Moss" → `sphagnum-moss`).
-
-The script:
-
-- Reads `ELEVENLABS_API_KEY` from the environment
-- Calls the ElevenLabs v1 TTS endpoint with the `eleven_multilingual_v2` model
-- Writes an MP3 file to `docs/audio/SLUG.mp3`
-- Uses the "Sarah" voice by default (clear US female voice suitable
-  for term pronunciation)
-
-If the API call fails, report the error to the user. Common issues:
-
-- 401: Invalid API key — ask the user to check `ELEVENLABS_API_KEY`
-- 429: Rate limit — wait and retry
-
-### Step 3: Insert the Pronounce Button
-
-Locate the term heading in the target markdown file. The heading format is
-typically `#### Term Name` in the glossary, but may be other heading levels
-in chapter files.
-
-Insert the pronounce button HTML immediately after the heading line, before
-the definition text. Use this exact HTML pattern:
+Use the browser's native controls. They provide familiar play, pause, seek,
+volume, and download behavior without an inline event handler:
 
 ```html
-<audio id="audio-SLUG" src="../audio/SLUG.mp3" preload="none"></audio>
-<button onclick="document.getElementById('audio-SLUG').play()" class="pronounce-btn">🔊 Pronounce</button> *PHONETIC-GUIDE*
+<div class="pronunciation" data-pronunciation>
+  <audio
+    id="audio-bryophytes"
+    controls
+    preload="metadata"
+    aria-label="Pronunciation of Bryophytes"
+    src="../audio/bryophytes.mp3">
+    <a href="../audio/bryophytes.mp3">Download the Bryophytes pronunciation</a>
+  </audio>
+  <span class="pronunciation__phonetic">BRY-oh-fytes</span>
+  <span
+    class="pronunciation__status"
+    role="status"
+    aria-live="polite">Ready</span>
+</div>
 ```
 
-The phonetic guide uses italics with the stressed syllable in ALL CAPS
-(e.g., `*gah-MEE-toh-fyte*`). Always include this next to the button so
-users can verify the pronunciation visually.
+Copy `assets/pronunciation/pronunciation-controls.js` from this skill to
+`docs/javascripts/pronunciation-controls.js`, then load it as an external
+script in `mkdocs.yml`:
 
-**Adjust the relative path** (`src` attribute) based on the target file's
-location relative to `docs/audio/`. MkDocs uses directory URLs by default,
-so each page is served from a subdirectory (e.g., `glossary.md` becomes
-`glossary/index.html`). Count directory levels from the page's served URL
-back to the site root, then append `audio/SLUG.mp3`. For example:
+```yaml
+extra_javascript:
+  - javascripts/pronunciation-controls.js
+```
 
-| Target file | Served URL path | Relative path |
+The controller uses `addEventListener`; it contains no inline click attribute
+or other inline script. It reports loading, playback, completion, and media errors in
+the live status region. This keeps the markup compatible with a Content
+Security Policy that disallows inline script.
+
+Adjust the MP3 URL for the rendered page location. With MkDocs directory
+URLs, common mappings are:
+
+| Source file | Rendered page | Audio URL |
 |---|---|---|
-| `docs/glossary.md` | `/glossary/` | `../audio/SLUG.mp3` |
-| `docs/appendices/common-terms.md` | `/appendices/common-terms/` | `../../audio/SLUG.mp3` |
-| `docs/chapters/03-what-is-moss/index.md` | `/chapters/03-what-is-moss/` | `../../audio/SLUG.mp3` |
+| `docs/glossary.md` | `/glossary/` | `../audio/TERM.mp3` |
+| `docs/appendices/terms.md` | `/appendices/terms/` | `../../audio/TERM.mp3` |
+| `docs/chapters/03/index.md` | `/chapters/03/` | `../../audio/TERM.mp3` |
 
-**Example result in glossary.md:**
+The phonetic text is useful visual confirmation, but it does not replace an
+accessible label or an audio fallback link.
 
-```markdown
-#### Bryophytes
+## 4. Preview and Verify
 
-<audio id="audio-bryophytes" src="../audio/bryophytes.mp3" preload="none"></audio>
-<button onclick="document.getElementById('audio-bryophytes').play()" class="pronounce-btn">🔊 Pronounce</button> *BRY-oh-fytes*
+Serve the site over HTTP and verify the actual route, not a `file://` copy:
 
-A division of non-vascular land plants that includes mosses, liverworts,
-and hornworts, all of which reproduce via spores and lack true roots,
-stems, or leaves.
-```
+1. The control is visible at desktop and mobile widths.
+2. Keyboard focus reaches the native audio element.
+3. Play and pause work and the status text changes.
+4. Muting and volume changes work.
+5. A broken source produces a visible error state.
+6. The browser console has no CSP, media, or JavaScript errors.
+7. The full clip audibly matches the requested term.
 
-### Step 4: Ensure CSS Exists
+Record the preview URL, MP3 path, sidecar path, and verification result in the
+work report.
 
-Check if `docs/stylesheets/extra.css` (or whatever custom CSS file is
-referenced in `mkdocs.yml`) contains a `.pronounce-btn` style. If not,
-append the following:
+## Batch Generation
 
-```css
-/* Pronounce button for glossary terms */
-.pronounce-btn {
-    background: #e8f5e9;
-    border: 1px solid #4caf50;
-    border-radius: 4px;
-    padding: 2px 10px;
-    font-size: 0.85em;
-    cursor: pointer;
-    margin-bottom: 8px;
-    display: inline-block;
-}
-.pronounce-btn:hover {
-    background: #c8e6c9;
-}
-```
-
-### Step 5: Confirm to User
-
-Report success with the local preview URL:
-
-```
-Generated pronunciation for "Bryophytes" → docs/audio/bryophytes.mp3
-Added Pronounce button to docs/glossary.md
-Preview: http://127.0.0.1:8000/moss/glossary/#bryophytes
-```
-
-## Voice Options
-
-The default voice is Sarah (`EXAVITQu4vr4xnSDxMaL`) — a clear US female
-voice well-suited for academic term pronunciation. If the user requests a
-different voice, pass `--voice-id` to the script. Common alternatives:
-
-| Voice | ID | Style |
-|---|---|---|
-| Sarah (default) | EXAVITQu4vr4xnSDxMaL | Female, soft |
-| Charlotte | XB0fDUnXU5powFXDhCwa | Female, conversational |
-| George | JBFqnCBsd6RMkjVDRZzb | Male, narrative |
-| Daniel | onwK4e9ZLuTAKqWW03F9 | Male, authoritative |
-
-## Batch Mode
-
-To add pronounce buttons for multiple terms at once, the user may say
-"Add pronounce buttons for all terms in the glossary." In this case:
-
-1. Read `docs/glossary.md` and extract all `#### ` headings
-2. For each term, run the script and insert the button
-3. Report the total count when done
-
-**Important:** Batch mode makes one API call per term. Warn the user
-about the number of API calls before proceeding (e.g., "This will make
-400 API calls to ElevenLabs. Proceed?").
+Batch generation is one API request per term unless an artifact and sidecar
+already match. Before a batch, report the number of unmatched terms and the
+expected request count. Generate into one approved root, then inspect the
+failed and changed set before modifying glossary markup.
