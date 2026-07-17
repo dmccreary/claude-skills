@@ -71,7 +71,8 @@ Read the corresponding guide file from `references/` and follow its workflow.
 - `references/carousel-slide-patterns.md` — nine reusable pptxgenjs slide patterns
 - `references/carousel-content-sourcing.md` — which project field feeds which carousel slide
 - `scripts/collect-site-metrics.py` — fallback scanner for counts the metrics hub does not provide (image assets, code blocks)
-- `scripts/validate-readme.py` — README structure validator
+- `scripts/license_authority.py` — fail-closed repository license-evidence inspector
+- `scripts/validate-readme.py` — README structure and license-authority validator
 - `scripts/crop-screenshot.py` — crop screenshots to carousel aspect ratio
 
 ## Examples

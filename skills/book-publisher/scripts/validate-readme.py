@@ -16,13 +16,27 @@ Output:
     Validation report with score and recommendations
 """
 
+import argparse
+import importlib.util
+import json
 import re
 import sys
 from pathlib import Path
-from typing import List, Tuple, Dict
+from typing import Dict, List, Optional, Tuple
 from urllib.parse import urlparse
 
-def check_required_sections(content: str) -> Tuple[List[str], List[str]]:
+
+AUTHORITY_SCRIPT = Path(__file__).with_name("license_authority.py")
+AUTHORITY_SPEC = importlib.util.spec_from_file_location(
+    "book_publisher_license_authority", AUTHORITY_SCRIPT
+)
+license_authority = importlib.util.module_from_spec(AUTHORITY_SPEC)
+assert AUTHORITY_SPEC.loader is not None
+AUTHORITY_SPEC.loader.exec_module(license_authority)
+
+def check_required_sections(
+    content: str,
+) -> Tuple[List[str], List[str], List[str], List[str]]:
     """Check for required README sections."""
     required = [
         'overview',
@@ -94,10 +108,15 @@ def extract_links(content: str) -> List[Tuple[str, str]]:
 def validate_url_format(url: str) -> bool:
     """Validate URL format (basic check)."""
     try:
-        result = urlparse(url)
-        # Check if it's a web URL or relative path
-        return bool(result.scheme in ['http', 'https'] or url.startswith('/') or url.startswith('.'))
-    except:
+        candidate = url.strip()
+        if not candidate or re.search(r"[\x00-\x20]", candidate):
+            return False
+        result = urlparse(candidate)
+        if result.scheme:
+            return result.scheme in {"http", "https", "mailto"}
+        # Markdown destinations commonly use bare repository-relative paths.
+        return bool(result.path or result.fragment or result.query)
+    except ValueError:
         return False
 
 def extract_badges(content: str) -> List[str]:
@@ -109,6 +128,171 @@ def extract_badges(content: str) -> List[str]:
     for match in matches:
         badges.append(match[1])  # badge URL
     return badges
+
+
+def extract_claimed_license_ids(
+    content: str,
+    allow_bare_identifiers: bool = False,
+) -> List[str]:
+    """Extract common license names that the README affirmatively claims."""
+    patterns = {
+        "MIT": r"\bmit license\b|license[- :]+mit\b",
+        "Apache-2.0": r"\bapache(?: license)?(?:[- ]+version)?[- ]*2\.0\b",
+        "GPL-3.0": r"\b(?:gnu general public license|gpl)(?:[- v]+)3(?:\.0)?\b",
+        "CC-BY-NC-SA-4.0": (
+            r"\bcc[- ]by[- ]nc[- ]sa[- ]4\.0\b|"
+            r"creative commons attribution-noncommercial-sharealike 4\.0"
+        ),
+        "CC-BY-NC-4.0": (
+            r"\bcc[- ]by[- ]nc[- ]4\.0\b|"
+            r"creative commons attribution-noncommercial 4\.0"
+        ),
+        "CC-BY-SA-4.0": (
+            r"\bcc[- ]by[- ]sa[- ]4\.0\b|"
+            r"creative commons attribution-sharealike 4\.0"
+        ),
+        "CC-BY-4.0": (
+            r"\bcc[- ]by[- ]4\.0\b|creative commons attribution 4\.0"
+        ),
+    }
+    if allow_bare_identifiers:
+        bare_patterns = {
+            "MIT": r"\bmit\b",
+            "Apache-2.0": r"\bapache[- ]2\.0\b",
+            "GPL-3.0": r"\bgpl[- v]?3(?:\.0)?\b",
+            "CC-BY-NC-SA-4.0": r"\bcc[- ]by[- ]nc[- ]sa[- ]4\.0\b",
+            "CC-BY-NC-4.0": r"\bcc[- ]by[- ]nc[- ]4\.0\b",
+            "CC-BY-SA-4.0": r"\bcc[- ]by[- ]sa[- ]4\.0\b",
+            "CC-BY-4.0": r"\bcc[- ]by[- ]4\.0\b",
+        }
+        patterns = {
+            license_id: f"(?:{pattern})|(?:{bare_patterns[license_id]})"
+            for license_id, pattern in patterns.items()
+        }
+
+    return [
+        license_id
+        for license_id, pattern in patterns.items()
+        if re.search(pattern, content, flags=re.IGNORECASE)
+    ]
+
+
+def extract_named_section(content: str, section_name: str) -> str:
+    """Return one Markdown section body, stopping at its next peer heading."""
+    lines = content.splitlines()
+    start_index: Optional[int] = None
+    section_level = 0
+
+    for index, line in enumerate(lines):
+        atx_match = re.match(r"^[ \t]{0,3}(#{1,6})[ \t]+(.+?)\s*$", line)
+        setext_match = index > 0 and bool(
+            re.match(r"^[ \t]{0,3}(?:=+|-+)[ \t]*$", line)
+        )
+        if atx_match:
+            level = len(atx_match.group(1))
+            heading = normalize_section_heading(atx_match.group(2))
+            content_start = index + 1
+        elif setext_match and lines[index - 1].strip():
+            level = 1 if line.lstrip().startswith("=") else 2
+            heading = normalize_section_heading(lines[index - 1])
+            content_start = index + 1
+        else:
+            continue
+        if start_index is None:
+            if heading == section_name:
+                start_index = content_start
+                section_level = level
+            continue
+        if level <= section_level:
+            boundary = index - 1 if setext_match else index
+            return "\n".join(lines[start_index:boundary])
+
+    if start_index is None:
+        return ""
+    return "\n".join(lines[start_index:])
+
+
+def check_license_authority(
+    content: str,
+    repo_root: Path,
+    authorized_license: Optional[str] = None,
+) -> Dict[str, object]:
+    """Validate README license claims against repository evidence."""
+    authority = license_authority.inspect_repository(
+        repo_root,
+        authorized_license=authorized_license,
+    )
+    headings = extract_section_headings(content)
+    has_section = "license" in headings
+    claimed_ids = extract_claimed_license_ids(content)
+    if has_section:
+        section_claims = extract_claimed_license_ids(
+            extract_named_section(content, "license"),
+            allow_bare_identifiers=True,
+        )
+        claimed_ids = list(dict.fromkeys([*claimed_ids, *section_claims]))
+    badge_matches = re.findall(
+        r"\[!\[([^\]]*)\]\(([^\)]+)\)\]\(([^\)]+)\)",
+        content,
+    )
+    has_badge = any(
+        re.search(
+            r"\blicen[cs]e\b|\bspdx\b|\bcc[-_ ]by\b|\bmit\b|\bapache\b|\bgpl\b",
+            " ".join(match),
+            flags=re.IGNORECASE,
+        )
+        for match in badge_matches
+    )
+    has_text_claim = bool(claimed_ids) and bool(
+        re.search(
+            r"\b(?:licensed|released|distributed|provided|available)\s+under\b|"
+            r"\blicen[cs]e\s*:\s*",
+            content,
+            flags=re.IGNORECASE,
+        )
+    )
+    has_claim = has_section or has_badge or has_text_claim
+    if not has_claim:
+        claimed_ids = []
+    issues: List[str] = []
+
+    if has_claim and not authority["claim_allowed"]:
+        issues.append(
+            "License claim is not authorized by repository evidence "
+            f"(state: {authority['state']})"
+        )
+
+    root_evidence = authority["root_evidence"]
+    authorized = authority["authorized_license"]
+    if has_claim and authorized and claimed_ids:
+        if any(claimed_id.lower() != authorized.lower() for claimed_id in claimed_ids):
+            issues.append(
+                "README license claim does not match the explicitly authorized "
+                f"license ({authorized})"
+            )
+
+    if has_claim and len(root_evidence) == 1 and not authorized:
+        evidence_path = root_evidence[0]
+        linked_paths = {url.split("#", 1)[0] for _, url in extract_links(content)}
+        if evidence_path not in linked_paths and f"./{evidence_path}" not in linked_paths:
+            issues.append(f"License claim must link the evidence file: {evidence_path}")
+
+        detected_id = authority["known_license_ids"].get(evidence_path)
+        if claimed_ids and any(claimed_id != detected_id for claimed_id in claimed_ids):
+            issues.append(
+                "README license claim does not match the detected repository "
+                f"license ({detected_id or 'unresolved custom terms'})"
+            )
+
+    return {
+        **authority,
+        "has_license_section": has_section,
+        "has_license_badge": has_badge,
+        "has_license_text_claim": has_text_claim,
+        "claimed_license_ids": claimed_ids,
+        "issues": issues,
+        "valid": not issues,
+    }
 
 
 def count_unlabeled_fenced_code_blocks(content: str) -> int:
@@ -211,7 +395,11 @@ def check_header_structure(content: str) -> List[str]:
 
     return issues
 
-def validate_readme(file_path: str) -> Dict:
+def validate_readme(
+    file_path: str,
+    repo_root: Optional[str] = None,
+    authorized_license: Optional[str] = None,
+) -> Dict:
     """Validate a README.md file and return detailed report."""
     path = Path(file_path)
 
@@ -232,6 +420,20 @@ def validate_readme(file_path: str) -> Dict:
             'score': 0
         }
 
+    repository_root = Path(repo_root).resolve() if repo_root else path.resolve().parent
+    try:
+        authority_report = check_license_authority(
+            content,
+            repository_root,
+            authorized_license=authorized_license,
+        )
+    except ValueError as error:
+        return {
+            'valid': False,
+            'error': str(error),
+            'score': 0
+        }
+
     report = {
         'valid': True,
         'file': str(path),
@@ -241,6 +443,7 @@ def validate_readme(file_path: str) -> Dict:
         'badges': {},
         'formatting': {},
         'headers': {},
+        'license_authority': authority_report,
         'recommendations': [],
         'score': 0
     }
@@ -303,6 +506,10 @@ def validate_readme(file_path: str) -> Dict:
     if header_issues:
         report['recommendations'].append(f"Fix {len(header_issues)} header structure issue(s)")
 
+    if authority_report['issues']:
+        report['valid'] = False
+        report['recommendations'].extend(authority_report['issues'])
+
     # Calculate score (0-100)
     score = 100
 
@@ -325,13 +532,17 @@ def validate_readme(file_path: str) -> Dict:
     # Deduct for header issues (3 points each, max 10)
     score -= min(len(header_issues) * 3, 10)
 
+    # Authority violations are a hard failure as well as a visible score cost.
+    if authority_report['issues']:
+        score -= 40
+
     report['score'] = max(0, score)
 
     return report
 
 def format_report(report: Dict) -> str:
     """Format validation report as readable text."""
-    if not report.get('valid', False):
+    if 'error' in report:
         return f"ERROR: {report.get('error', 'Unknown error')}"
 
     output = []
@@ -404,6 +615,23 @@ def format_report(report: Dict) -> str:
         for issue in report['headers']['issues']:
             output.append(f"  - {issue}")
 
+    authority = report['license_authority']
+    output.append("\n" + "-" * 60)
+    output.append("LICENSE AUTHORITY")
+    output.append("-" * 60)
+    output.append(f"Evidence state: {authority['state']}")
+    output.append(
+        "Root evidence: "
+        + (", ".join(authority['root_evidence']) or "none")
+    )
+    output.append(
+        "Scoped evidence: "
+        + (", ".join(authority['scoped_evidence']) or "none")
+    )
+    output.append(f"Issues found: {len(authority['issues'])}")
+    for issue in authority['issues']:
+        output.append(f"  - {issue}")
+
     # Recommendations
     if report['recommendations']:
         output.append("\n" + "-" * 60)
@@ -418,17 +646,25 @@ def format_report(report: Dict) -> str:
 
 def main():
     """Main entry point."""
-    if len(sys.argv) < 2:
-        print("Usage: python validate-readme.py <path/to/README.md>", file=sys.stderr)
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description="Validate README presentation and claims.")
+    parser.add_argument("readme")
+    parser.add_argument("--repo-root")
+    parser.add_argument("--authorized-license")
+    parser.add_argument("--json", action="store_true")
+    args = parser.parse_args()
 
-    readme_path = sys.argv[1]
-
-    report = validate_readme(readme_path)
-    print(format_report(report))
+    report = validate_readme(
+        args.readme,
+        repo_root=args.repo_root,
+        authorized_license=args.authorized_license,
+    )
+    if args.json:
+        print(json.dumps(report, indent=2, sort_keys=True))
+    else:
+        print(format_report(report))
 
     # Exit with error code if score is below 60
-    if report['score'] < 60:
+    if not report.get('valid', False) or report['score'] < 60:
         sys.exit(1)
 
 if __name__ == '__main__':

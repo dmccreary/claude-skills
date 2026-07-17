@@ -404,6 +404,188 @@ compile, `git diff --check` passes, and the targeted repository-wide unsafe
 phrase scan has zero hits outside the repository's own licensed README and the
 investigation evidence.
 
+### Phase 9: Anti-pattern audit
+
+**Date:** 2026-07-17
+
+**Triggered by:** README route publishing an invented license
+
+**Scope:** Full `dmccreary-claude-skills` graph plus prose/template fallback
+search
+
+**Method:** Primary investigator only because this session prohibits
+subagents. The codebase-memory graph identified the active and archived
+validator topology first; graph-augmented text search then covered Markdown
+guidance and templates that have no call edges.
+
+#### Executive summary
+
+Seven findings span AP6 Silent Failure Escalation and AP8 Configuration
+Without Constraints.
+
+| Severity | Count | Action |
+| --- | ---: | --- |
+| Critical | 2 | Remove or condition the hardcoded grant immediately. |
+| High | 3 | Add an authority state and make publication routes consume it. |
+| Medium | 2 | Mark archived copies non-authoritative or keep them byte-equivalent to the safe contract. |
+
+#### Findings
+
+| ID | Anti-pattern | Severity | Location | Finding |
+| --- | --- | --- | --- | --- |
+| AP8-1 | Configuration Without Constraints | **Critical** | `skills/book-installer/references/about-page.md:289-301` | The generated About page grants CC BY-NC-SA permissions by default and only checks for a different license afterward. |
+| AP8-2 | Configuration Without Constraints | **Critical** | `skills/book-installer/references/instructors-guide.md:188-197` | The template unconditionally calls every textbook free, open source, and Creative Commons licensed. |
+| AP8-3 | Configuration Without Constraints | **High** | `skills/book-publisher/references/linkedin-carousel-guide.md:39,62,65-66,92` | The active carousel route treats `docs/license.md` as sufficient authority and hardcodes “free & open source” into summary and CTA slides. |
+| AP8-4 | Configuration Without Constraints | **High** | `skills/book-publisher/references/carousel-content-sourcing.md:18` | The active sourcing table turns one docs page into a rights summary without preserving scope or ambiguity. |
+| AP6-1 | Silent Failure Escalation | **High** | `skills/book-publisher/scripts/validate-readme.py:188-304` | After the immediate structural fix, the validator still has no repository-root or authority input, so a manually introduced unsupported claim can still receive a positive score. |
+| AP6-2 | Silent Failure Escalation | **Medium** | `skills/archived/readme-generator/scripts/validate-readme.py:25-61,144-179` | A directly executable archived validator retains the original substring check and mandatory License section, creating a reintroduction path. The graph reached this copy as a distinct `validate_readme` call tree. |
+| AP8-5 | Configuration Without Constraints | **Medium** | `skills/archived/linkedin-carousel-generator/` | Archived guide and sourcing copies preserve AP8-3/AP8-4 and can reintroduce them during promotion. |
+
+#### Positive finding
+
+`skills/book-media-generator/scripts/images/commons_metadata.py:71-104`
+demonstrates the pattern to replicate: known terms are allowlisted, creator and
+source evidence are required, official license URLs are checked, and unknown
+or missing licenses raise `ManualRightsReviewRequired` instead of receiving a
+convenient default.
+
+#### Priority order
+
+1. Immediate: condition AP8-1 and AP8-2 on grounded evidence.
+2. Immediate: remove hardcoded “free & open source” claims from AP8-3 and make
+   slide 9 optional when no grounded license state exists.
+3. Structural: add one typed license-authority inspector and require both the
+   README validator and publication guides to consume its JSON result.
+4. Recurrence: synchronize or explicitly disable archived executable copies
+   and add a repository-wide contract test for invented permission claims.
+
+The cross-cutting issue is not Creative Commons itself. It is publishing a
+permission claim from a presentation template without a typed evidence and
+authorization boundary.
+
+### Phase 10: Comprehensive remediation plan
+
+#### Phase 1: Stop the bleeding (today)
+
+| Fix | Findings | Status |
+| --- | --- | --- |
+| Remove invented README defaults and unconditional CC grant from all three reusable README guidance sources. | Incident L1, AP8 recurrence | Complete in `39622877`. |
+| Make License optional and structurally detect headings. | Incident L1, AP6 escape | Complete in `39622877`. |
+| Add failure-path tests for absent evidence and prose-only false positives. | Level 3 test deficiency | Complete in `39622877`. |
+| Record AP8-1 and AP8-2 as separate investigations before modifying book-installer templates. | Critical adjacent findings | Required; these routes have independent ownership and acceptance tests. |
+
+#### Phase 2: Structural hardening (this week)
+
+1. Add a deterministic `inspect-license-authority.py` helper under
+   `book-publisher` that accepts a repository root and emits JSON. It must
+   distinguish at least: `absent`, `single-evidence`, `ambiguous`, `scoped`,
+   `nonstandard-or-unresolved`, and `explicitly-authorized`.
+2. Make the README validator derive the repository root from the README path
+   by default, with an explicit override for tests and unusual layouts.
+3. When a README has a License heading or license badge, require grounded
+   repository evidence or an explicit owner-authorized value. Absent and
+   ambiguous states are errors, not score deductions.
+4. Require grounded sections to link the exact evidence path. The validator
+   may attest evidence linkage; it must not pretend to render a legal opinion
+   about arbitrary custom text.
+5. Add fixtures for absent evidence, one root file, multiple files, docs-only
+   scoped terms, custom text, and explicit authorization. Assert that no
+   validation path creates or changes a license file.
+6. Make the archived executable validator delegate to or stay byte-equivalent
+   with the active authority contract, or mark it non-executable and
+   non-authoritative.
+
+#### Phase 3: Architectural hardening (next sprint)
+
+1. Move license state into one shared publication-evidence contract consumed
+   by README, About page, instructors guide, carousel, LinkedIn, and future
+   publication routes.
+2. Replace each route's direct `docs/license.md` read with that contract,
+   preserving repository, content, file, and compound scopes.
+3. Add a release gate that scans active, archived, prompt, and packaged
+   guidance for invented permission defaults and compares packaged copies with
+   their source contracts.
+4. Adopt the media generator's established pattern: allowlisted known states,
+   verified source evidence, typed unresolved/manual-review outcomes, and no
+   convenience default.
+5. Require adversarial evidence fixtures whenever a route publishes legal,
+   security, privacy, accessibility, or compliance claims.
+
+#### Accepted debt
+
+- The helper will not identify every legal text or decide whether terms are
+  enforceable. Unknown/custom text remains unresolved and fail-closed.
+- Compound SPDX semantics and file-level REUSE data can initially be reported
+  as scoped/ambiguous evidence rather than fully evaluated. Preserving the
+  complexity is safer than collapsing it.
+- Archived narrative incident evidence may quote unsafe wording; contract
+  scans should exclude clearly marked investigation evidence, not erase it.
+
+#### What not to do
+
+1. Do not replace one invented default with another common license.
+2. Do not treat `mkdocs.yml` copyright text, an author's usual preference, a
+   public GitHub repository, or `docs/license.md` existence as repository-wide
+   authority.
+3. Do not silently create, rewrite, rename, or copy a license file while
+   generating or validating a README.
+4. Do not make license identification depend on a network call; offline and CI
+   behavior must be deterministic.
+5. Do not claim that one detected file proves one repository-wide license when
+   file headers, package metadata, or scoped documentation conflict.
+6. Do not hide adjacent route fixes in this incident PR; give each independent
+   publication defect its own investigation and tests while sharing the same
+   authority contract.
+
+### Structural remediation evidence
+
+The systemic implementation now adds one offline, read-only authority
+inspector and makes both active and archived README validation consume the
+same contract:
+
+- `skills/book-publisher/scripts/license_authority.py` discovers only regular
+  repository-contained root evidence and distinguishes `absent`, `scoped`,
+  `single-evidence`, `nonstandard-or-unresolved`, `ambiguous`, and
+  `explicitly-authorized` states.
+- `skills/book-publisher/scripts/validate-readme.py` treats unsupported or
+  mismatched headings, badges, and affirmative prose claims as hard failures.
+  One-file claims must link the exact evidence path. Custom terms permit only
+  neutral wording tied to that path.
+- `skills/archived/readme-generator/scripts/validate-readme.py` is now a
+  compatibility wrapper over the active validator, eliminating the executable
+  duplicate contract.
+- The active guide requires the inspector and validator before publication and
+  states that neither tool may create or modify license files.
+
+The pre-PR code review found and closed five additional boundary defects:
+
+1. Compound or unknown SPDX expressions could be truncated into one apparent
+   identifier. They now remain unresolved and require manual review.
+2. Affirmative license prose outside a License heading could avoid authority
+   validation. It is now detected without treating a neutral tooling reference
+   as a repository claim.
+3. Bare repository-relative Markdown links such as `LICENSE` were incorrectly
+   scored as invalid. Safe relative destinations are now accepted.
+4. Bare identifiers in ATX or Setext License sections could be presented as
+   custom neutral terms. Section bodies now receive stricter identifier
+   detection.
+5. Symlinked files or `LICENSES/` directories could make evidence depend on
+   content outside the repository. Discovery now rejects those paths.
+
+Verification on the final reviewed tree:
+
+- 34/34 focused `book-publisher` tests pass.
+- 160/160 tests across all eleven repository test directories pass.
+- The three changed Python entry points compile.
+- Strict MkDocs publication succeeds.
+- `git diff --check` succeeds.
+- CE Compound produced
+  `docs/solutions/logic-errors/permission-claims-require-typed-authority.md`;
+  its frontmatter and mechanical source/link claims validate with zero flags.
+- `CONCEPTS.md` is absent, so lightweight vocabulary capture correctly made no
+  glossary mutation. `CLAUDE.md` does not currently surface `docs/solutions/`;
+  that discoverability gap is recorded rather than widened into this incident.
+
 ## Execution Checklist
 
 - [x] Open the investigation and preserve the initial reproduction.
@@ -412,8 +594,9 @@ investigation evidence.
 - [x] Run targeted experiments against absent, conflicting, nonstandard, and
   prose-only license states.
 - [x] Assign three-level blame after one hypothesis exceeds 90%.
-- [ ] Implement the immediate and systemic remediation.
-- [ ] Search the entire repository for the anti-pattern.
+- [x] Implement the immediate and systemic remediation.
+- [x] Search the entire repository for the anti-pattern.
 - [ ] Run focused, full, release, and installed-skill validation.
 - [ ] Commit, open a PR, babysit it to merge, and verify `origin/main`.
-- [ ] Run CE Compound and replace `CURRENT` with closure evidence.
+- [x] Run CE Compound.
+- [ ] Replace `CURRENT` with merged, installed, and closure evidence.

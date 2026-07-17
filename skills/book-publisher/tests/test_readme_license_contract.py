@@ -32,6 +32,9 @@ class ReadmeLicenseGuidanceContractTests(unittest.TestCase):
         self.assertIn("never invent or select a license", guide)
         self.assertIn("omit the license badge", guide)
         self.assertIn("omit the badge and license section", guide)
+        self.assertIn("license_authority.py", guide)
+        self.assertIn("validate-readme.py /path/to/repository/readme.md", guide)
+        self.assertIn("license-authority error is a hard failure", guide)
 
 
 if __name__ == "__main__":

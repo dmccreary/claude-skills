@@ -169,8 +169,9 @@ The `metrics` object provides: `concepts`, `chapters`, `microsims`, `stories`,
 `glossaryTerms`, `faqs`, `quizQuestions`, `chapterQuizzes`, `chapterReferences`,
 `references`, `diagrams`, `equations`, `words`, `links`, `appendices`,
 `mascotImages`, `developmentStage`, and `equivalentPages`. For **identity**
-fields (title, author, repo URL, license) read `book-metadata.json` /
-`mkdocs.yml`.
+fields (title, author, repo URL) read `book-metadata.json` / `mkdocs.yml`.
+License claims still require the evidence or explicit authorization described
+in Step 3.
 
 Only fall back to `scripts/collect-site-metrics.py` (markdown/image scanning)
 for counts the metrics file does not provide — e.g. image-asset counts or

@@ -77,10 +77,21 @@ Create badges for all relevant technologies and platforms. Use shields.io format
 ### Step 3: Add License Badge
 
 Treat a license badge as a permission claim, not decoration. Inspect root
-license evidence (`LICENSE*`, `LICENCE*`, `COPYING*`, `LICENSES/`) and explicit
-package or book metadata. A file under `docs/` may govern only documentation;
+license evidence (`LICENSE*`, `LICENCE*`, `COPYING*`, `LICENSES/`). A file
+under `docs/` may govern only documentation;
 preserve its stated scope. The `mkdocs.yml` `copyright` field is attribution
 display text and is not license evidence.
+
+Run the bundled inspector before drafting any license claim:
+
+```bash
+cd <book-publisher-skill-root>/scripts
+python3 license_authority.py /path/to/repository
+```
+
+Use its `state`, evidence paths, and detected identifiers as the source record.
+`explicitly-authorized` is valid only when the repository owner supplied the
+exact value for this repository; pass that value with `--authorized-license`.
 
 - If one unambiguous repository-wide license is evidenced, use the matching
   badge and link to the exact source file.
@@ -169,8 +180,9 @@ The `metrics` object provides: `concepts`, `chapters`, `microsims`, `stories`,
 `glossaryTerms`, `faqs`, `quizQuestions`, `chapterQuizzes`, `chapterReferences`,
 `references`, `diagrams`, `equations`, `words`, `links`, `appendices`,
 `mascotImages`, `developmentStage`, and `equivalentPages`. For **identity**
-fields (title, author, repo URL, license) read `book-metadata.json` /
-`mkdocs.yml`.
+fields (title, author, repo URL) read `book-metadata.json` / `mkdocs.yml`.
+For license state, use Step 3's authority inspector; metadata does not override
+repository evidence without explicit owner authorization.
 
 Only fall back to `scripts/collect-site-metrics.py` (markdown/image scanning)
 for counts the metrics file does not provide — e.g. image-asset counts or
@@ -479,7 +491,9 @@ See [CHANGELOG.md](CHANGELOG.md) for a detailed history of changes.
 Before finalizing the README:
 
 1. **Check all links** - Verify GitHub URLs, site URLs, badge URLs
-2. **Validate markdown** - Ensure proper formatting
+2. **Validate markdown and license authority** - Run the bundled validator
+   against the target repository. A license-authority error is a hard failure,
+   not a score recommendation.
 3. **Test locally** - Render README on GitHub to check appearance
 4. **Spell check** - Review for typos and grammar
 5. **Consistency** - Ensure terminology matches project docs
@@ -558,8 +572,14 @@ Validates README.md for:
 
 Usage:
 ```bash
-python validate-readme.py README.md
+cd <book-publisher-skill-root>/scripts
+python3 validate-readme.py /path/to/repository/README.md
 ```
+
+The validator derives the repository root from the README location. Use
+`--repo-root` only for a nonstandard layout. Use `--authorized-license` only
+when the repository owner explicitly authorized that exact value. Neither
+script creates or modifies license files.
 
 ## Output Files
 
