@@ -1,8 +1,9 @@
 ---
-description: Show the ordered runbook of skills for building a complete intelligent textbook from a course description
+name: ibook
+description: Show the ordered runbook of skills for building a complete intelligent textbook from a course description. Use when the user invokes $ibook, types /ibook, asks what intelligent-textbook skill to run next, or requests a read-only assessment of textbook pipeline progress.
 ---
 
-# /ibook — Intelligent Textbook Build Runbook
+# ibook — Intelligent Textbook Build Runbook
 
 Present the ordered sequence of skills required to build a complete intelligent
 textbook from a course description. This is a **passive runbook**: it tells the
@@ -22,8 +23,9 @@ gate.
 
 ## Step 1: Detect current state (read-only)
 
-Run these checks from the project root (the directory containing `mkdocs.yml`).
-Do **not** modify anything.
+Run the following block exactly as written, as one shell command, from the
+project root (the directory containing `mkdocs.yml`). Do **not** rewrite,
+consolidate, or replace these checks, and do **not** modify anything.
 
 ```bash
 # Foundation
@@ -32,26 +34,29 @@ test -f docs/course-description.md                   && echo "✓ course descrip
 # Knowledge model
 test -f docs/learning-graph/learning-graph.json      && echo "✓ learning graph"
 # Structure + content
-ls docs/chapters/*/index.md 2>/dev/null | head -1    && echo "✓ chapters exist"
+find docs/chapters -type f -path '*/index.md' -print -quit 2>/dev/null | grep -q . && echo "✓ chapters exist"
 # Supporting content
 test -f docs/glossary.md                             && echo "✓ glossary"
 test -f docs/faq.md                                  && echo "✓ faq"
-ls docs/chapters/*/quiz.md 2>/dev/null | head -1     && echo "✓ quizzes exist"
+find docs/chapters -type f -path '*/quiz.md' -print -quit 2>/dev/null | grep -q . && echo "✓ quizzes exist"
 # Visualizations
-ls docs/sims/*/main.html 2>/dev/null | head -1       && echo "✓ microsims exist"
+find docs/sims -type f -path '*/main.html' -print -quit 2>/dev/null | grep -q . && echo "✓ microsims exist"
 # Metrics hub + publish
 test -f docs/learning-graph/book-metrics.json        && echo "✓ book-metrics.json (hub)"
 test -f README.md                                    && echo "✓ README"
+true
 ```
 
-Use the results to locate the user in the pipeline and recommend the next
-uncompleted step.
+Treat only printed `✓` markers as completed artifacts. Use those results to
+locate the user in the pipeline and recommend the next uncompleted required
+step. Do not infer that an artifact is absent using a rewritten command.
 
 ## Step 2: Present the ordered runbook
 
 The pipeline has **8 phases**. Foundation (Phase 0) runs once; later phases
-respect the data-flow hand-offs. Each skill is invoked by the user with the
-Skill tool. **Bold gates** must pass before continuing.
+respect the data-flow hand-offs. The user invokes each skill by mentioning its
+`$skill-name` or selecting it in the Codex Desktop Skills interface. **Bold
+gates** must pass before continuing.
 
 ### Phase 0 — Project foundation (run once, in an empty repo)
 
@@ -154,5 +159,5 @@ If the user wants the shortest route to a deployable book, collapse to:
   produces it.
 - **Phase 0 is mandatory.** If `mkdocs.yml` is absent, the only valid next step
   is `book-installer` feature 0 (the init-textbook scaffold).
-- Keep the "you are here" summary short; link each skill by name so the user can
-  invoke it directly.
+- Keep the "you are here" summary short; write each recommended skill as
+  `$skill-name` so the user can invoke it directly.

@@ -30,7 +30,11 @@ so all panels share the same visual language.]
 
 ### Prologue – <Hook Title>
 
-[Opening narrative establishing the subject's importance. 3-5 sentences.]
+[Opening narrative establishing the subject's importance. 3-5 sentences. Treat the
+story as standalone: before a named character's first narrative mention, introduce
+them with their full name and a short, plain-language role or relationship. Do not
+assume the reader saw a character sheet, image prompt, story-ideas page, or earlier
+story. Apply the same rule to a named mascot or guide.]
 
 ## Panel 1: {PANEL 1 Title}
 
@@ -52,7 +56,9 @@ Generate the image immediately without asking clarifying questions.
 
 {Panel 1 narrative text — 3-4 sentences of vivid, active-voice prose that
 advances the story and complements the image. Written for the target
-audience (e.g., high school students) — accessible but not dumbed down.}
+audience (e.g., high school students) — accessible but not dumbed down.
+If a named character first appears here, introduce their full name and role
+before using their short name.}
 
 ## Panel 2: {PANEL 2 Title}
 

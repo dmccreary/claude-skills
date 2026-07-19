@@ -93,6 +93,12 @@ shopt -s nullglob
 for skill_dir in "$SKILLS_DIR"/*; do
     if [ -d "$skill_dir" ]; then
         skill_name=$(basename "$skill_dir")
+
+        # archived/ holds retired skills consolidated into meta-skills; never load them
+        case "$skill_name" in
+            archived) continue ;;
+        esac
+
         target_link="$TARGET_DIR/$skill_name"
 
         if [ -L "$target_link" ]; then

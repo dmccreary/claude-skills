@@ -189,11 +189,12 @@ Each story follows a consistent structure designed to engage teenage and young-a
 2. **Cover Image** — With detailed generation prompt in a `<details>` block
 3. **Narrative Prompt** — Background context for the whole story
 4. **Prologue** — Hook introducing the subject's significance
-5. **12 Panels** — Each with narrative text, image placeholder, and image prompt
-6. **Epilogue** — Lessons table (Challenge / Response / Lesson for Today)
-7. **Call to Action** — Inspiring message connecting to readers
-8. **Quotes** — 2-3 memorable quotes from the subject
-9. **References** — 5 real working URLs (first 3 Wikipedia, then secondary sources). **Never use `(PLACEHOLDER)`.**
+5. **Standalone Character Introductions** — Introduce every named character in narrative prose before their first narrative mention
+6. **12 Panels** — Each with narrative text, image placeholder, and image prompt
+7. **Epilogue** — Lessons table (Challenge / Response / Lesson for Today)
+8. **Call to Action** — Inspiring message connecting to readers
+9. **Quotes** — 2-3 memorable quotes from the subject
+10. **References** — 5 real working URLs (first 3 Wikipedia, then secondary sources). **Never use `(PLACEHOLDER)`.**
 
 A template for the complete structure is at `references/index-template.md`.
 
@@ -273,6 +274,12 @@ Create `docs/stories/{story-dir-name}/index.md` following the template at `refer
 - Cover image prompt wrapped in `<details><summary>Cover Image Prompt</summary>...</details>`
 - Every prompt body starts with a panel identifier line (see "Image Prompt Requirements")
 - Narrative paragraphs go *below* each panel's image (not inside the `<details>` block)
+- Treat every story as standalone. Before each named character's first mention in
+  narrative prose, add a short sentence giving the character's full name and
+  plain-language role or relationship to the story. Repeat introductions for recurring
+  characters in every story. Frontmatter, titles, image prompts, captions, character
+  sheets, and earlier stories do not count. Introduce a named mascot or guide the same
+  way before its first narrative mention.
 - References: 5 real URLs, never `(PLACEHOLDER)` — see the References Guidance section below
 
 **The template at `references/index-template.md` shows the canonical 12-panel layout.** For shorter or longer stories, follow the same per-panel pattern but stop at panel N. Do not pad with filler panels just to reach 12 — a tight 6-panel story is better than a bloated 12-panel one.
@@ -592,6 +599,8 @@ If Gemini returns multiple image parts in a single response (rare but possible),
 ### Narrative Style
 
 - Use active voice and vivid descriptions
+- Make every story self-contained: introduce each named character with their full name
+  and role before using their short name in narrative prose
 - Include dialogue when historically appropriate
 - Balance drama with educational accuracy
 - Emphasize the human story behind discoveries
@@ -667,6 +676,9 @@ After completing a story, verify:
 - [ ] All image references use `.png` extension (never `.jpg` or `.md`)
 - [ ] YAML frontmatter has title, description, and og/twitter image paths
 - [ ] N numbered panels with consistent structure (image + prompt + narrative)
+- [ ] Every named character is introduced by full name and plain-language role before
+      their first narrative mention; no prior story, image prompt, or character sheet is
+      required to understand who they are
 - [ ] Epilogue includes the Challenge / Response / Lesson table
 - [ ] 2-3 subject quotes present (or in-character quotes for fictional stories)
 - [ ] **References section has 5 real working URLs, first 3 on Wikipedia, no `(PLACEHOLDER)` strings**
