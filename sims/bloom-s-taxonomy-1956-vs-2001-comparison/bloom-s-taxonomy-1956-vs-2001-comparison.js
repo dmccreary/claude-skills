@@ -1,4 +1,5 @@
 const oldTax = ['Evaluation','Synthesis','Analysis','Application','Comprehension','Knowledge'];
+// CANVAS_HEIGHT: 620
 const newTax = ['Create','Evaluate','Analyze','Apply','Understand','Remember'];
 
 function setup() {

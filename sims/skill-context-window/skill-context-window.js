@@ -1,4 +1,5 @@
 // Skill Context Window MicroSim
+// CANVAS_HEIGHT: 525
 // Demonstrates the three layers of progressive disclosure in Claude Skills:
 // Frontmatter Layer -> SKILL.md File Layer -> Assets/Resources Layer
 

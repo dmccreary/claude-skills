@@ -1,4 +1,5 @@
 const steps = [
+// CANVAS_HEIGHT: 980
   { title: 'Step 1: Identify Audience Keywords', detail: 'IT professionals and system administrators suggest post-secondary audience.', c: '#dbeafe' },
   { title: 'Step 2: Analyze Prerequisites', detail: 'SQL + ITSM experience rules out junior/senior high levels.', c: '#dcfce7' },
   { title: 'Step 3: Evaluate Depth Indicators', detail: 'Applied modern tech focus is college-level, not research-heavy graduate level.', c: '#f3e8ff' },

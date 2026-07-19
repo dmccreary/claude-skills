@@ -1,4 +1,5 @@
 let bgPicker, fgPicker;
+// CANVAS_HEIGHT: 520
 let ratio = 1;
 let info = { aa: false, aaa: false, warn: false };
 

@@ -1,4 +1,5 @@
 // Five Levels of Intelligent Textbooks Infographics (Updated)
+// CANVAS_HEIGHT: 500
 // Adds a red dashed rectangle around the top three layers with a label "Highly Regulated Textbooks".
 // Responsive design retained.
 

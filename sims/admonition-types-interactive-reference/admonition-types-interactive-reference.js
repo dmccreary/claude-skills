@@ -1,4 +1,5 @@
 const types = [
+// CANVAS_HEIGHT: 560
   { kind: 'note', color: '#3b82f6', icon: 'i', msg: 'Remember to save your work frequently.' },
   { kind: 'tip', color: '#16a34a', icon: 'bulb', msg: 'Use keyboard shortcuts to speed up navigation.' },
   { kind: 'warning', color: '#f59e0b', icon: '!', msg: 'This operation cannot be undone.' },

@@ -1,4 +1,5 @@
 let cards = [
+// CANVAS_HEIGHT: 760
   ['ls', 'List files', 'ls -la'],
   ['cd', 'Change directory', 'cd docs/chapters'],
   ['pwd', 'Print working directory', 'pwd'],

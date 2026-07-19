@@ -1,4 +1,5 @@
 let state={concepts:200,orph:10,avg:3.2,chain:16,linear:35,tax:22,cycles:false,disc:false};
+// CANVAS_HEIGHT: 600
 let target=0,shown=0;
 
 function clamp(v,a,b){return Math.max(a,Math.min(b,v));}

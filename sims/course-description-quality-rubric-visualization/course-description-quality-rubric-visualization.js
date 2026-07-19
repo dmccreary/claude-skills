@@ -1,4 +1,5 @@
 const dims = [
+// CANVAS_HEIGHT: 620
   { name: 'Target Audience', max: 15, color: '#3b82f6', score: 12 },
   { name: 'Prerequisites', max: 15, color: '#8b5cf6', score: 11 },
   { name: 'Main Topics', max: 20, color: '#22c55e', score: 16 },

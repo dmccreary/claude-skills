@@ -1,4 +1,5 @@
 const sections = [
+// CANVAS_HEIGHT: 640
   { title: 'Core Files', items: ['SKILL.md', 'README.md', 'LICENSE'] },
   { title: 'Supporting Assets', items: ['scripts/', 'templates/', 'references/', 'examples/'] },
   { title: 'Documentation', items: ['INSTALL.md', 'usage examples', 'troubleshooting', 'changelog'] },

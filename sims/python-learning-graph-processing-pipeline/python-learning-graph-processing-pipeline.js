@@ -1,4 +1,5 @@
 const stages = [
+// CANVAS_HEIGHT: 620
   { key: 'author', title: '1. Author CSV', tool: 'Spreadsheet', output: 'learning-graph.csv', note: 'ConceptID, ConceptLabel, Dependencies, TaxonomyID' },
   { key: 'validate', title: '2. Validate Structure', tool: 'analyze-graph.py', output: 'quality-metrics.md', note: 'Checks DAG rules and quality metrics' },
   { key: 'taxonomy', title: '3. Analyze Distribution', tool: 'taxonomy-distribution.py', output: 'taxonomy-distribution.md', note: 'Checks category balance and counts' },

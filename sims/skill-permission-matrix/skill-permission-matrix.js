@@ -1,4 +1,5 @@
 function setup() {
+// CANVAS_HEIGHT: 560
   const cnv = createCanvas(1080, 560);
   cnv.parent(document.querySelector('main'));
   textFont('Arial');

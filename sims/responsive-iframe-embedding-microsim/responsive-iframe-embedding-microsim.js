@@ -1,4 +1,5 @@
 let wSlider, hSlider, responsiveCheck, borderCheck;
+// CANVAS_HEIGHT: 680
 
 function setup() {
   const c = createCanvas(1020, 680);

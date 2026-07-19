@@ -1,4 +1,5 @@
 const bloom = ['Remember', 'Understand', 'Apply', 'Analyze', 'Evaluate', 'Create'];
+// CANVAS_HEIGHT: 720
 let selectedBloom = 1;
 let selectedKey = 0;
 let score = 62;

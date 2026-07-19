@@ -1,4 +1,5 @@
 let branches = {};
+// CANVAS_HEIGHT: 620
 let activeBranch = 'main';
 let commitCount = 0;
 let branchOrder = ['main'];

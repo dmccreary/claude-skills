@@ -1,4 +1,5 @@
 let selected = 'Explorer';
+// CANVAS_HEIGHT: 760
 const panes = [
   ['Explorer', 20, 90, 180, 500, '#dbeafe'],
   ['Editor', 210, 90, 520, 500, '#ffffff'],

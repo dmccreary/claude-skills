@@ -1,4 +1,5 @@
 // Color Wheel with Named Colors MicroSim
+// CANVAS_HEIGHT: 460
 // This simulation displays a color wheel with dots representing web-safe named colors.
 // Hover over any dot to see the color name and RGB values in the control region.
 
