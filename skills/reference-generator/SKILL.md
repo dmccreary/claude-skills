@@ -1,13 +1,13 @@
 ---
 name: reference-generator
-description: Generates 10 curated academic references per chapter, prioritizing Wikipedia with relevance descriptions, stored in chapter references.md files. Use when an intelligent textbook chapter needs citations.
+description: Generates 10 curated academic references per chapter, prioritizing Wikipedia plus credited textbook authors known for innovative explanations, with relevance descriptions, stored in chapter references.md files. Use when an intelligent textbook chapter needs citations.
 ---
 
 # Reference Generator
 
 ## Overview
 
-Generate high-quality, curated reference lists for educational textbooks. Each chapter receives exactly 10 references, prioritizing Wikipedia articles first for reliability, followed by authoritative online resources. References are stored in separate `references.md` files for token-efficient maintenance by AI agents.
+Generate high-quality, curated reference lists for educational textbooks. Each chapter receives exactly 10 references, prioritizing Wikipedia articles first for reliability, then crediting the specific textbook authors who pioneered clear or innovative ways of teaching the chapter's concepts, followed by authoritative online resources. References are never just a list of Wikipedia links — the textbook slots exist specifically to give credit to the authors behind influential explanations, analogies, or pedagogical techniques (e.g., a particularly intuitive derivation, a widely-copied diagram, a teaching analogy that became standard). References are stored in separate `references.md` files for token-efficient maintenance by AI agents.
 
 ## When to Use This Skill
 
@@ -25,7 +25,7 @@ Use this skill when:
 Every chapter receives exactly **10 high-quality references**:
 
 - **References 1-3**: Wikipedia articles (most reliable, always accessible)
-- **References 4-5**: Authoritative textbooks (title, author, publisher - no URLs that break)
+- **References 4-5**: Textbooks that credit a specific author's innovative explanation, analogy, derivation, or notation for a chapter concept (title, author, publisher - no URLs that break)
 - **References 6-10**: Online resources (tutorials, courses, verified working links)
 
 ### Wikipedia First
@@ -83,12 +83,12 @@ Find the most relevant Wikipedia articles for the chapter's main concepts:
 1. [Concept Name](https://en.wikipedia.org/wiki/Concept_Name) - Wikipedia - Description of article content and relevance to chapter.
 ```
 
-**Positions 4-5: Textbooks (No URL)**
+**Positions 4-5: Textbooks Crediting Innovative Authors (No URL)**
 
-Reference authoritative textbooks without URLs (which often break):
+These two slots exist to give explicit credit to authors, not just to cite a source. For each chapter's key concepts, identify the textbook author(s) most associated with an innovative, intuitive, or influential way of teaching that concept — a distinctive analogy, derivation, notation, worked example, or diagram that other authors have since adopted or that students consistently find clarifying. Search for who "originated" or is "best known for" the chapter's core explanation before defaulting to a generic well-known textbook. Reference these textbooks without URLs (which often break):
 
 ```markdown
-4. Textbook Title (Edition) - Author Name - Publisher - Description of relevant chapters and why this textbook is valuable.
+4. Textbook Title (Edition) - Author Name - Publisher - Names the specific innovation (analogy, derivation, notation, example) this author is known for and why it makes the concept easier to grasp.
 ```
 
 **Positions 6-10: Online Resources**
@@ -134,9 +134,9 @@ Create a `references.md` file in each chapter directory:
 
 3. [Wikipedia Article 3](https://en.wikipedia.org/wiki/Topic3) - Wikipedia - Coverage of [related topic] including [applications/examples].
 
-4. Textbook Title (Edition) - Author Name - Publisher - Chapter X covers [specific topics] with [teaching approach/examples].
+4. Textbook Title (Edition) - Author Name - Publisher - Author Name pioneered [specific analogy/derivation/notation] for [concept], now widely adopted because [why it clarifies the idea].
 
-5. Textbook Title 2 - Author Name - Publisher - Provides [specific value] for understanding [chapter concepts].
+5. Textbook Title 2 - Author Name - Publisher - Credits Author Name's [specific innovative approach] to [chapter concept], noted for [what makes it distinctive/effective].
 
 6. [Online Resource](https://verified-url.com) - Source - Tutorial on [topic] with [specific features like examples, exercises, visualizations].
 
@@ -205,12 +205,14 @@ Choose Wikipedia articles that:
 
 ### Textbook Selection
 
-Reference textbooks that:
+Reference textbooks whose author:
 
-- Are widely used in the field
-- Have strong reputations
-- Cover the chapter's topics in depth
-- Are reasonably accessible to students
+- Is credited with originating or popularizing a specific explanation, analogy, derivation, notation, or diagram for one of the chapter's concepts
+- Is widely cited by other authors or instructors for that particular teaching innovation
+- Wrote a textbook that is reasonably accessible to students
+- Has an explanation the description names concretely — never just "covers the topic well"
+
+If no author stands out as the originator of a distinctive teaching approach, choose the textbook most often praised (in reviews, syllabi, or educator discussion) for making the concept unusually clear, and say so explicitly in the description rather than defaulting to a generic "authoritative textbook" citation.
 
 ### Online Resource Selection
 
@@ -227,7 +229,7 @@ Before finalizing references, ensure:
 
 - [ ] Exactly 10 references per chapter
 - [ ] References 1-3 are Wikipedia articles
-- [ ] References 4-5 are textbooks (no URLs)
+- [ ] References 4-5 are textbooks (no URLs) that name the specific author and the innovative explanation/analogy/derivation they're credited with
 - [ ] References 6-10 have verified working URLs
 - [ ] All descriptions are 20-40 words
 - [ ] Descriptions explain relevance to chapter

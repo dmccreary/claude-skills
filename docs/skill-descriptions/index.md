@@ -29,7 +29,7 @@ These remain standalone because each is a complex multi-step workflow:
 5. [Glossary Generator](./book/glossary-generator.md) — ISO 11179-compliant definitions
 6. [FAQ Generator](./book/faq-generator.md) — Bloom's-distributed FAQ with quality reports
 7. [Quiz Generator](./book/quiz-generator.md) — per-chapter multiple-choice quizzes
-8. [Reference Generator](./book/reference-generator.md) — curated per-chapter references
+8. [Reference Generator](./book/reference-generator.md) — curated per-chapter references crediting innovative textbook authors
 
 Plus one standalone tool: `docx-to-web-publisher` (.docx → Next.js content pages).
 

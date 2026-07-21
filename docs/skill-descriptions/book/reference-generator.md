@@ -2,256 +2,133 @@
 
 ## Overview
 
-The reference-generator skill generates curated, verified reference lists for educational textbooks with level-appropriate resources. It creates 10-40 references depending on target audience (junior-high to graduate level), with links, publication details, and relevance descriptions.
+The reference-generator skill generates curated reference lists for educational textbook chapters. Every chapter receives exactly **10 references**, stored in a separate `references.md` file per chapter for token-efficient maintenance.
+
+References are never just a list of Wikipedia links. The reference set is split across three roles: Wikipedia articles for reliable overviews, textbooks that credit the specific authors behind influential explanations, and verified online resources for practical depth.
 
 ## Purpose
 
-This skill automates the creation of high-quality, academically appropriate reference lists that enhance textbook credibility and provide students with pathways for deeper learning at their comprehension level.
+This skill automates the creation of high-quality, curated reference lists that enhance textbook credibility, point students toward deeper learning, and — distinctively — give credit to the textbook authors who pioneered the clearest or most influential way of teaching each chapter's concepts.
 
 ## Key Features
 
-- **Level-Appropriate Quantity**: 10 (junior-high), 20 (senior-high), 30 (college), 40 (graduate)
-- **Verified URLs**: Every link tested with WebFetch before inclusion
-- **Publication Details**: Dates, sources, and relevance descriptions
-- **Quality Filtering**: Age-appropriate content and academic rigor
-- **Two Modes**: Book-level or chapter-level references
-- **ISO Format Dates**: Consistent YYYY-MM-DD formatting
+- **Exactly 10 References Per Chapter**: consistent structure across every chapter
+- **Wikipedia First**: references 1-3, for stable, reliable overviews
+- **Credited Textbook Authors**: references 4-5, naming the author behind a specific innovative analogy, derivation, notation, or diagram — not just "an authoritative textbook"
+- **Verified Online Resources**: references 6-10, tutorials and courses with working links checked via WebFetch
+- **Separate Reference Files**: `references.md` per chapter, keeping chapter edits cheap and references batch-processable
 
 ## When to Use
 
 Use this skill when:
-- Creating a new intelligent textbook that needs comprehensive references
-- Adding references to existing textbook
-- Updating or expanding reference sections
+
+- Creating a new intelligent textbook that needs chapter references
+- Adding references to an existing textbook
+- Updating or expanding references for educational content
 - A user explicitly requests reference generation
 
-## Reference Quantity by Level
+## Reference Structure (10 Per Chapter)
 
-### Junior-High (Middle School) - 10 References
-- Educational websites with interactive content
-- Videos from reputable educational channels
-- Visual resources, infographics, and animations
-- Age-appropriate articles from educational publishers
-- Museums, science centers, and educational organizations
+### References 1-3: Wikipedia Articles
 
-### Senior-High (High School) - 20 References
-- Mix of educational websites and academic sources
-- Reputable news organizations and science journalism
-- Educational videos and documentaries
-- Introduction to academic journals (accessible papers)
-- Government and NGO educational resources
+Chosen for the chapter's primary concepts — substantial articles (not stubs) with diagrams, examples, or formulas.
 
-### College (Undergraduate) - 30 References
-- Peer-reviewed journal articles (50%+ of references)
-- Academic textbooks and monographs
-- University course materials and lectures
-- Research institution publications
-- Industry white papers and technical reports
+### References 4-5: Textbooks Crediting Innovative Authors
 
-### Graduate (Masters/PhD) - 40 References
-- Heavily weighted toward peer-reviewed journals (70%+ of references)
-- Seminal papers in the field
-- Recent research (last 5 years) showing current state
-- Meta-analyses and systematic reviews
-- Academic books from university presses
+These two slots exist specifically to credit people, not just cite sources. For each chapter's key concepts, identify the author most associated with an innovative or influential way of teaching it — a distinctive analogy, derivation, notation, worked example, or diagram that other authors have since adopted, or that students consistently find clarifying. The description must name the specific innovation, e.g.:
+
+> *Textbook Title (Edition) — Author Name — Publisher — Author Name pioneered [specific analogy/derivation/notation] for [concept], now widely adopted because [why it clarifies the idea].*
+
+If no single author stands out as the originator of a distinctive approach, choose the textbook most often praised in reviews, syllabi, or educator discussion for making the concept unusually clear — and say so explicitly rather than defaulting to a generic "authoritative textbook" citation. No URLs (they break); title, author, publisher only.
+
+### References 6-10: Online Resources
+
+Verified tutorials, courses, and educational sites that complement (not duplicate) the Wikipedia references. Every URL is checked with WebFetch before inclusion.
 
 ## Workflow Steps
 
-### Step 1: Analyze Course Description
-Read `/docs/course-description.md` to determine:
-- Grade level or target audience
-- Prerequisites (indicates reader sophistication)
-- Subject matter (determines reference topics)
-- Learning objectives (guides reference selection)
+### Step 1: Analyze the Course Description
 
-### Step 2: Check for Chapter-Level Content
-Search for chapter content:
+Read `/docs/course-description.md` for subject matter, target audience, and learning objectives.
+
+### Step 2: Identify Chapter Structure
+
 ```bash
-find /docs/chapters
-find /docs -name "chapter*.md" -o -name "*-chapter-*.md"
+ls docs/chapters/
 ```
 
-If chapters exist, ask user: "Book-level or chapter-level references?"
+For each chapter, read `index.md` for title, key concepts, and learning objectives.
 
-### Step 3: Generate References with Verification
-For each reference:
-1. **Search** for authoritative sources using WebSearch tool
-2. **Verify** each URL using WebFetch to ensure accessibility
-3. **Format** according to standard template
+### Step 3: Generate 10 References Per Chapter
 
-### Step 4: Format Each Reference
+Follow the 1-3 / 4-5 / 6-10 structure above.
 
-Standard format:
-```markdown
-1. [Link Title](URL) - YYYY-MM-DD - Publication Name - Brief description of resource and specific relevance to the textbook topic.
-```
+### Step 4: Verify Online URLs
 
-**Format Specifications:**
-- **Link Title**: Exact title of article/paper/video/resource
-- **URL**: Verified, working link
-- **Date**: Publication date in YYYY-MM-DD format (or YYYY-MM / YYYY if unavailable)
-- **Publication Name**: Journal, website, organization, or publisher
-- **Description**: 1-2 sentences explaining content and relevance
-
-### Step 5: Write References to File
-
-**Book-level references:**
-Create `/docs/references.md`:
-
-```markdown
-# References
-
-This textbook draws upon the following high-quality resources:
-
-[Generated numbered list of references]
-
----
-*References last updated: [Current Date]*
-```
-
-**Chapter-level references:**
-Append to each chapter file:
-
-```markdown
-
-## References
-
-[Generated numbered list of references for this chapter]
-```
-
-### Step 6: Validation and Reporting
-1. Count references to ensure correct quantity
-2. Verify all URLs were checked with WebFetch
-3. Report summary to user with any failed verifications
-
-## Reference Format Examples
-
-```markdown
-1. [How Neural Networks Really Work](https://distill.pub/2020/circuits/zoom-in/) - 2020-03-10 - Distill - Interactive visualization explaining the inner workings of neural networks through explorable explanations, perfect for visual learners beginning their ML journey.
-
-2. [Attention Is All You Need](https://arxiv.org/abs/1706.03762) - 2017-06-12 - arXiv - Seminal paper introducing the Transformer architecture that revolutionized natural language processing and forms the foundation for modern LLMs like GPT and BERT.
-
-3. [Khan Academy: Introduction to Algorithms](https://www.khanacademy.org/computing/computer-science/algorithms) - 2024-01-15 - Khan Academy - Free, interactive course covering fundamental algorithms including sorting and searching, with visualizations and practice exercises suitable for high school students.
-```
-
-## URL Verification Process
-
-**Critical**: Every URL must be verified before inclusion.
+For references 6-10:
 
 ```python
-# Use WebFetch for each URL
-WebFetch(url=reference_url, prompt="Is this page accessible? Provide the title and a brief description of the content.")
+WebFetch(url=reference_url, prompt="Is this page accessible? What is the main topic?")
 ```
 
-If a URL returns an error or redirect:
-- Try to find an updated or archived version
-- Use Internet Archive / Wayback Machine if appropriate
-- Skip the reference if no valid URL exists
-- Note in the report any references that couldn't be verified
-- For academic papers behind paywalls, reference the citation page
-- For academic textbooks, prefer highly-cited works
+### Step 5: Write Reference Files
+
+Create `docs/chapters/XX-chapter-name/references.md` with the 10 formatted references.
+
+### Step 6: Update Chapter Files
+
+Replace any existing `## References` section in each chapter's `index.md` with a single link:
+
+```markdown
+[See Annotated References](./references.md)
+```
+
+### Step 7: Update mkdocs.yml Navigation
+
+Nest an `Annotated References:` entry under each chapter, following the nav-editing rules in `book-installer`'s `references/mkdocs-nav-editing.md`.
+
+## Reference Format Example
+
+```markdown
+1. [Karnaugh map](https://en.wikipedia.org/wiki/Karnaugh_map) - Wikipedia - Detailed explanation of K-map theory, grouping rules, and don't-care conditions. Essential foundation for the simplification techniques covered in this chapter.
+
+4. Digital Design (5th Edition) - M. Morris Mano - Pearson - Mano popularized the grid-based K-map grouping method with adjacency highlighting, now the standard visual approach for teaching Boolean minimization.
+
+6. [All About Circuits: Karnaugh Mapping](https://www.allaboutcircuits.com/textbook/digital/chpt-8/karnaugh-mapping/) - All About Circuits - Step-by-step tutorial with worked K-map examples and interactive grouping exercises.
+```
 
 ## Quality Checklist
 
 Before finalizing references, ensure:
-- [ ] Correct quantity for target level (10/20/30/40)
-- [ ] All URLs verified and accessible
-- [ ] Publication dates included
-- [ ] Mix of resource types (articles, videos, papers)
-- [ ] Descriptions explain relevance to textbook
-- [ ] Academic rigor matches target audience
-- [ ] No duplicate sources
+
+- [ ] Exactly 10 references per chapter
+- [ ] References 1-3 are Wikipedia articles
+- [ ] References 4-5 are textbooks (no URLs) that name the specific author and the innovative explanation/analogy/derivation they're credited with
+- [ ] References 6-10 have verified working URLs
+- [ ] All descriptions are 20-40 words
+- [ ] Descriptions explain relevance to chapter
+- [ ] No duplicate sources across references
 - [ ] Proper formatting throughout
-
-## Example Usage Scenarios
-
-### Scenario 1: New Textbook
-```
-User: "Generate references for my textbook"
-→ Read /docs/course-description.md
-→ Identify level (e.g., college)
-→ Check for chapters (none found)
-→ Generate 30 verified references
-→ Write to /docs/references.md
-```
-
-### Scenario 2: Existing Textbook with Chapters
-```
-User: "Add references to my course"
-→ Read /docs/course-description.md
-→ Find chapter files exist
-→ Ask: "Book-level or chapter-level references?"
-→ User selects chapter-level
-→ Generate references for each chapter
-→ Append to each chapter file
-```
-
-## Best Practices
-
-### Source Selection
-1. **Verify Authority**: Use established publishers, recognized experts
-2. **Check Recency**: Prefer recent sources for rapidly evolving fields
-3. **Balance Types**: Mix videos, articles, papers, books
-4. **Cross-Reference**: Include multiple perspectives on key topics
-5. **Accessibility**: Consider open-access resources when available
-
-### Academic Papers
-- For college/graduate levels, prefer Google Scholar citations
-- Include seminal papers (highly cited, foundational work)
-- Balance classic papers with recent research
-- Check if full text is available or just abstract
-
-### Educational Websites
-- Verify reputation (edu domains, established organizations)
-- Check for regular updates and maintenance
-- Ensure mobile-friendly, accessible design
-- Prefer interactive or multimedia content
-
-### URLs and Link Rot
-- Test all links before inclusion
-- Note if archived version used
-- Include DOIs for academic papers when available
-- Consider adding archive.org links as backup
-
-## Output Summary
-
-After generation, report:
-- Number of references generated
-- Target level identified
-- File location (book or chapter-level)
-- Any URLs that failed verification
-- Suggestion to use citation graph skill for academic papers
 
 ## Integration with Other Skills
 
-- **course-description-analyzer**: Determines appropriate reference level and topics
+- **course-description-analyzer**: Determines subject matter and audience that guide reference selection
 - **chapter-content-generator**: References support chapter content
 - **glossary-generator**: Reference definitions align with glossary
 - **learning-graph-generator**: References support concept dependencies
 
 ## Tools Used
 
-- **WebSearch**: Find authoritative sources on topics
+- **WebSearch**: Find authoritative sources and identify authors credited with specific teaching innovations
 - **WebFetch**: Verify URLs are accessible and extract metadata
-- **AskUserQuestion**: Clarify book-level vs chapter-level preference
+- **Glob**: Find all chapter directories and reference files
+- **Write / Edit**: Create reference files and update chapter index files and mkdocs.yml
 
-## Advanced Features
+## Finish
 
-### Citation Graph Analysis
-After generating references, suggest:
-- Use citation graph skill to find highly-cited papers
-- Identify influential works in the field
-- Discover seminal papers that shape the domain
+After generating references:
 
-### Multiple Formats
-Generate references in various formats:
-- Markdown (default)
-- BibTeX for LaTeX integration
-- RIS for reference managers
-- JSON for programmatic access
-
-## References
-
-- **WebSearch and WebFetch**: Built-in Claude Code tools
-- **Dublin Core**: Metadata standards for resources
-- **Academic Citation Standards**: MLA, APA, Chicago styles
+1. Report the number of chapters processed
+2. List any URLs that failed verification
+3. Confirm mkdocs.yml was updated
+4. Remind user to verify the site builds: `mkdocs serve`
