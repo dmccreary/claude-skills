@@ -240,7 +240,7 @@ for path in sources:
         if m:
             entries[m.group(1).strip()] = block
 
-sorted_terms = sorted(entries.keys(), key=lambda t: t.lower().lstrip('0123456789-'))
+sorted_terms = sorted(entries.keys(), key=lambda t: t.lower())
 
 with open('docs/glossary.md', 'w') as out:
     out.write('# Glossary of Terms\n\n')
