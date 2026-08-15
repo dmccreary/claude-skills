@@ -1,7 +1,6 @@
 ---
 name: book-installer
 description: Installs and configures intelligent-textbook infrastructure - scaffold a brand-new MkDocs Material textbook (init textbook), install any of 40 features (math, mascot, learning graph viewer, Google Analytics GA4, custom 404, kanban board), and generate book metrics. Routes to the appropriate installation guide.
-model: sonnet
 license: Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
 ---
 
@@ -350,11 +349,12 @@ Each guide contains:
 - Character design (name, species, appearance, personality, catchphrase)
 - AI image generation prompts for consistent mascot poses
 - Implementation via inline images, custom CSS admonitions, or JavaScript auto-detection
+- A mascot test page with automated transparency/4 px trim checks and all seven admonition previews
 - CLAUDE.md character guidelines for consistent AI-generated content
 
 **Features:**
 - Subject-specific mascot suggestions with reasoning
-- Six standard pose variants (welcome, thinking, tip, warning, celebration, encouraging)
+- Seven standard pose variants (neutral, welcome, thinking, tip, warning, encouraging, celebration)
 - Three implementation methods at different complexity levels
 - Restraint guidelines to prevent overuse
 

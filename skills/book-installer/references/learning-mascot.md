@@ -13,6 +13,7 @@ This skill helps users design and implement a pedagogical agent — a visual mas
 2. **AI Image Prompts** - Ready-to-use prompts for generating mascot images in consistent poses
 3. **Implementation** - Custom CSS admonitions with mascot images floated left in the admonition body
 4. **CLAUDE.md Section** - Character guidelines for consistent AI-generated content
+5. **Mascot Test Page** - Visual transparency/trim validation plus all seven production admonition styles
 
 ## Benefits of a Learning Mascot
 
@@ -744,65 +745,36 @@ Check the following:
 
 ### Step 9: Create a Mascot Rendering Test Page
 
-Create `docs/learning-graph/mascot-test.md` to preview all mascot variants
-by running unix shell script:
+Generate `docs/learning-graph/mascot-test.md` from the canonical template:
 
 ```sh
-../scripts/render-mascot-test.sh {MASCOT_NAME}
+"$BK_HOME/skills/book-installer/scripts/render-mascot-test.sh" "{{CHARACTER_NAME}}"
 ```
 
-**IMPORTANT:** Adjust the `src` path based on the page's depth. For a page at `learning-graph/mascot-test.md` (which renders at `learning-graph/mascot-test/index.html`), use `../../img/mascot/`.
+The template is
+[`references/assets/templates/docs/learning-graph/mascot-render-test.md`](assets/templates/docs/learning-graph/mascot-render-test.md).
+Keep its two-part structure intact:
 
-This program will copy the mascot-test.md file from the template here:
+1. **Transparency and trim test grid** — show every pose over checkerboard and
+   dark backgrounds. Run the browser-side pixel checks for transparent pixels,
+   fully transparent corners, and exactly 4 px of visible-content margin on all
+   four sides. Use alpha threshold 10 to match `trim-padding-from-image.py`.
+2. **Mascot admonitions** — render all seven production admonition types with
+   the corresponding image and `mascot-admonition-img` class. Do not replace the
+   test grid with admonitions; both sections are required.
 
-[Mascot Render Test Template](./assets/templates/docs/learning-graph/mascot-render-test.md)
+**IMPORTANT:** For this page depth, every raw HTML and Markdown image path must
+use `../../img/mascot/`, because the rendered page URL is
+`learning-graph/mascot-test/index.html`.
 
-Remind the user that if there is excessive padding around the images that we can
-run the following `Trim Padding From Image` python program:
+If any trim test reports a margin other than `4/4/4/4`, rerun the trimmer with
+the exact image path and regenerate the page:
 
 ```sh
-../scripts/trim-padding-from-image.py docs/img/mascot/FILENAME.png
+python "$BK_HOME/src/image-utils/trim-padding-from-image.py" docs/img/mascot/FILENAME.png
 ```
 
-Note that the exact path to the image must be given to the script as the first parameter.
-
-Here is what is a example of what is in this test file:
-
-```markdown
-# Mascot Style Guide
-
-This page shows all mascot admonition styles for reference.
-
-!!! mascot-neutral "General Note"
-    ![{{CHARACTER_NAME}} neutral pose](../../img/mascot/neutral.png){ class="mascot-admonition-img" }
-    This is the neutral style, used for general sidebars or introductions.
-
-!!! mascot-welcome "Welcome!"
-    ![{{CHARACTER_NAME}} waving welcome](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
-    This is the welcome style, used at chapter openings.
-
-!!! mascot-thinking "Key Insight"
-    ![{{CHARACTER_NAME}} thinking](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
-    This is the thinking style, used for key concepts.
-
-!!! mascot-tip "Helpful Tip"
-    ![{{CHARACTER_NAME}} giving a tip](../../img/mascot/tip.png){ class="mascot-admonition-img" }
-    This is the tip style, used for hints and advice.
-
-!!! mascot-warning "Watch Out!"
-    ![{{CHARACTER_NAME}} warning](../../img/mascot/warning.png){ class="mascot-admonition-img" }
-    This is the warning style, used for common mistakes.
-
-!!! mascot-celebration "Well Done!"
-    ![{{CHARACTER_NAME}} celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
-    This is the celebration style, used for achievements.
-
-!!! mascot-encourage "Keep Going!"
-    ![{{CHARACTER_NAME}} encouraging](../../img/mascot/encouraging.png){ class="mascot-admonition-img" }
-    This is the encouraging style, used for difficult content.
-```
-
-There is also additional code to view the border of the images.
+Do not weaken or remove a failed check to make the page pass. Fix the image.
 
 **Note:** Place the test file in the `docs/learning-graph/` directory alongside the other learning graph assets. Include this page in the navigation unless the user requests that it is not
 displayed.  If they do not want it display then add it to the exclude_docs section in the mkdocs.yml
