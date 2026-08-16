@@ -276,6 +276,7 @@ nav:
   - Appendices:
     - Overview: appendices/index.md
     - Skill Refactor with Fable 5: appendices/skill-refactor-fable-5.md
+    - Delegating Image Generation: appendices/imaging-agent-delegation.md
 
   - Glossary: glossary.md
   - FAQ: faq.md
