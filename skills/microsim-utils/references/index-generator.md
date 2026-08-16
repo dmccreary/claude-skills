@@ -40,6 +40,28 @@ Use this skill when:
   - `index.md` - Documentation page with YAML frontmatter (title, description)
 - Screenshot capture tool available at `~/.local/bin/bk-capture-screenshot`
 
+## Running the Script
+
+The whole workflow below is automated by `scripts/generate-microsim-index.py`.
+Run it from the project root:
+
+```bash
+python3 ~/.claude/skills/microsim-utils/scripts/generate-microsim-index.py --dry-run
+```
+
+Drop `--dry-run` to write the files. The course name is read from `site_name` in
+`mkdocs.yml`; override with `--course-name "Physics 101"` and the sims directory
+with `--base-dir`. The script is idempotent — rerunning it changes nothing once
+the index is current, so it is safe to run after adding each MicroSim.
+
+It writes `docs/sims/index.md`, rewrites `docs/sims/TODO.md` to match the current
+screenshot state, and normalizes `title`/`description` quoting in each sim's
+frontmatter. Directories named `template`, `shared-libs`, and `TODO` are skipped,
+as is any sim whose `index.md` has no frontmatter (these are reported so you can
+add one).
+
+Do the manual steps below when you need to review or extend what the script does.
+
 ## Workflow
 
 ### Step 0: Verify mkdocs.yml Extensions
@@ -79,13 +101,24 @@ For each MicroSim directory, read the `index.md` file to extract from the YAML f
 Example YAML frontmatter structure:
 ```yaml
 ---
-title: Sine Function Visualization
-description: Interactive plot of the sine function with slider control to explore points along the curve
+title: "Sine Function Visualization"
+description: "Interactive plot of the sine function with slider control to explore points along the curve"
 image: /sims/sine-function-plot/sine-function-plot.png
 og:image: /sims/sine-function-plot/sine-function-plot.png
 quality_score: 100
 ---
 ```
+
+**Always wrap `title` and `description` in quotes.** An unquoted value containing
+a colon (`title: Wired Logic: AND and OR`) is invalid YAML and will break the
+build or silently truncate. Use double quotes normally; if the value itself
+contains a double quote, use single quotes and double any apostrophe.
+
+**Frontmatter must open with `---` on line 1.** A file whose body contains a
+`---` markdown table separator or horizontal rule but has no frontmatter is NOT
+a frontmatter document. Never parse one by splitting on `---` — that treats body
+text as frontmatter and corrupts the file on rewrite. The script skips such files
+and reports them; add real frontmatter to include them in the index.
 
 ### Step 3: Add Missing Descriptions
 
@@ -100,7 +133,7 @@ For any MicroSim that is **missing the `description:` field** in its index.md YA
 
 Example description format:
 ```yaml
-description: Interactive visualization of projectile motion with adjustable launch angle and initial velocity. Demonstrates parabolic trajectories and the effects of gravity.
+description: "Interactive visualization of projectile motion with adjustable launch angle and initial velocity. Demonstrates parabolic trajectories and the effects of gravity."
 ```
 
 Keep descriptions under 200 characters for optimal display in grid cards.
@@ -194,14 +227,16 @@ Create the index page at `/docs/sims/index.md` using mkdocs-material grid cards 
 
 ```yaml
 ---
-title: List of MicroSims for [Course Name]
-description: A list of all the MicroSims used in the [Course Name] course
+title: "List of MicroSims for [Course Name]"
+description: "A list of all the MicroSims used in the [Course Name] course"
 image: /sims/index-screen-image.png
 og:image: /sims/index-screen-image.png
 hide:
     toc
 ---
 ```
+
+The course name comes from `site_name` in `mkdocs.yml`. Never hardcode it.
 
 #### Grid Cards Structure
 
@@ -350,7 +385,10 @@ Before completing the index generation, verify:
 
 - [ ] All MicroSim directories have been discovered
 - [ ] Each MicroSim has a `description:` field in its index.md frontmatter
+- [ ] Every `title:` and `description:` value is wrapped in quotes
+- [ ] No sim was skipped for missing frontmatter (the script reports these by name)
 - [ ] Each MicroSim has a screenshot (or is logged in TODO.md if capture failed)
 - [ ] Grid cards are sorted alphabetically
+- [ ] No literal quote characters leaked into the rendered card titles
 - [ ] mkdocs.yml navigation is updated and sorted
 - [ ] The index.md renders correctly with `mkdocs serve`
