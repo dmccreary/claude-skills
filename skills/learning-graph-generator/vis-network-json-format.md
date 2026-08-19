@@ -44,9 +44,9 @@ When using the **Learning Graph Generator skill**, the final JSON output must co
   ],
   "metadata": {
     "title": "Course Learning Graph",
-    "description": "200 interconnected concepts",
-    "nodeCount": 200,
-    "edgeCount": 229,
+    "description": "300-600 interconnected concepts",
+    "nodeCount": 450,
+    "edgeCount": 572,
     "taxonomies": {
       "MATH": "Mathematical Foundations",
       "FFT": "FFT Algorithm & Implementation"
@@ -132,9 +132,9 @@ Optional but recommended for documentation and analytics.
 {
   "metadata": {
     "title": "FFT Benchmarking Course Learning Graph",
-    "description": "200 interconnected concepts for a 10-week course",
-    "nodeCount": 200,
-    "edgeCount": 229,
+    "description": "300-600 interconnected concepts for a 10-week course",
+    "nodeCount": 450,
+    "edgeCount": 572,
     "version": "1.0",
     "generated": "2025-10-30",
     "taxonomies": {

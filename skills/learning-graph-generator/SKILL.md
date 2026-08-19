@@ -1,11 +1,11 @@
 ---
 name: learning-graph-generator
-description: Generates a comprehensive learning graph from a course description, including 200 concepts with dependencies, taxonomy categorization, and quality validation reports. Use this when the user wants to create a structured knowledge graph for educational content.
+description: Generates a comprehensive learning graph from a course description, including 300-600 concepts with dependencies, taxonomy categorization, and quality validation reports. Use this when the user wants to create a structured knowledge graph for educational content.
 ---
 
 # Learning Graph Generator
 
-**Version:** 0.05
+**Version:** 0.06
 
 You are tasked with generating a comprehensive high-quality learning graph from a course description.
 A learning graph is the foundational data structure for intelligent textbooks that can recommend learning paths.
@@ -72,11 +72,11 @@ quality_score: 95
 
 If you see a quality_score above 85 you may tell the user you found a score above 85 and skip this entire step.  Tell them this is a way to save tokens.
 
-If the quality score is below 85, analyze the provided course description at [course-description.md](../course-description.md) to ensure it has enough content to generate at a minimum of 200 high-quality concepts:
+If the quality score is below 85, analyze the provided course description at [course-description.md](../course-description.md) to ensure it has enough content to generate at a minimum of 300 high-quality concepts:
 
 1. Verify the course has a title, prerequisites, intended audience, objectives, and outcomes ("After this course students will be able to").  If these fields are missing ask the user for this information. 
 1. Examine the depth and breadth of topics covered
-2. Assess whether the material has sufficient granularity for at a minimum of 200 distinct concepts
+2. Assess whether the material has sufficient granularity for at a minimum of 300 distinct concepts
 3. Check for diverse topic areas and learning objectives
 4. Provide detailed feedback to the user about:
    - List the expected content that you found
@@ -136,9 +136,9 @@ Once the course-description has been approved, generate the concept labels from 
 
 **Number of Concepts:**
 
-For simple books, a list of 200 concepts is fine.
-For complex technical books, you may generate up to 500 concepts.
-Do not exceed 500 concepts unless you have good reason and the user approves this decision.
+For simple books, a list of 300 concepts is fine.
+For complex technical books, you may generate up to 600 concepts.
+Do not exceed 600 concepts unless you have good reason and the user approves this decision.
 Remember that generating concept dependencies gets complex the more concepts there are.
 
 !!! note
@@ -147,7 +147,7 @@ Remember that generating concept dependencies gets complex the more concepts the
 
 **Output:**
 - Save the numbered list to [concept-list.md](./concept-list.md)
-- Format: Simple numbered list (1-500) in a markdown file
+- Format: Simple numbered list (1-600) in a markdown file
 - Make sure that each number is unique so it can be used as a ConceptID
 - Inform the user the file has been created
 - Tell the user they should view the list and add and remove concepts now
@@ -167,7 +167,7 @@ Create a CSV file mapping dependencies between concepts:
 **Format:**
 - Filename: [learning-graph.csv](./learning-graph.csv)
 - Columns: `ConceptID,ConceptLabel,Dependencies`
-- ConceptID: Integer (1-500)
+- ConceptID: Integer (1-600)
 - ConceptLabel: The exact label from Step 2
 - Dependencies: Pipe-delimited list of ConceptIDs (e.g., "1|3|7")
 
@@ -490,7 +490,7 @@ chapter overview and concept lists are complete.
 
 **Files created:**
 - [course-description-assessment.md](./course-description-assessment.md) - quality assessment of the course description
-- [concept-list.md](./concept-list.md) - Numbered list of up to 500 concepts
+- [concept-list.md](./concept-list.md) - Numbered list of up to 600 concepts
 - [learning-graph.csv](./learning-graph.csv) - Full dependency graph with taxonomy
 - [taxonomy-names.json](./taxonomy-names.json) - Mapping of taxonomy IDs to human-readable names (CRITICAL for graph viewer)
 - [metadata.json](./metadata.json) - Metadata for the learning graph (title, description, creator, etc.)

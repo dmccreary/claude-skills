@@ -42,7 +42,7 @@ graph using an editor built with the vis-network tools.
 This report rates the overall quality of the course description for the purpose of generating a learning graph.
 
 - Course description fields and content depth analysis
-- Validates course description has sufficient depth for generating 200 concepts
+- Validates course description has sufficient depth for generating 300-600 concepts
 - Compares course description against similar courses
 - Identifies content gaps and strengths
 - Suggests areas of improvement
