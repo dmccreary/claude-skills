@@ -43,7 +43,7 @@ See the [getting started guide](getting-started.md) for detailed installation in
 After completing this course, you'll be able to:
 
 - **Create intelligent textbooks** from scratch using Claude Skills and MkDocs
-- **Generate learning graphs** with 200+ concepts and dependency relationships
+- **Generate learning graphs** with 300-600 concepts and dependency relationships
 - **Build interactive simulations** (MicroSims) using p5.js for educational visualization
 - **Automate content generation** for chapters, glossaries, FAQs, and quizzes
 - **Apply Bloom's Taxonomy** to create learning outcomes at all cognitive levels
@@ -97,7 +97,7 @@ The slash command provides formatted output organized by category, showing all u
 Educational Content Creation:
   - faq-generator (user) - Generates FAQs from course content
   - glossary-generator (user) - Creates ISO 11179-compliant glossaries
-  - learning-graph-generator (user) - Generates 200-concept learning graphs
+  - learning-graph-generator (user) - Generates 300-600 concept learning graphs
 ```
 
 See the [getting started guide](getting-started.md#testing-your-skill-list) for complete instructions.
@@ -108,7 +108,7 @@ See the [getting started guide](getting-started.md#testing-your-skill-list) for 
 
 **Claude Commands** are simpler prompt expansions defined in markdown files. They expand text instructions that Claude then interprets, similar to custom shortcuts. Commands are invoked with `/[name]` and are useful for repetitive prompts.
 
-**Example**: The `learning-graph-generator` is a skill that autonomously generates 200 concepts, validates dependencies, and creates visualizations. A command might simply instruct Claude to "analyze this learning graph quality."
+**Example**: The `learning-graph-generator` is a skill that autonomously generates 300-600 concepts, validates dependencies, and creates visualizations. A command might simply instruct Claude to "analyze this learning graph quality."
 
 See [Chapter 9](chapters/09-claude-skills-architecture-development/index.md) for detailed architecture information.
 
@@ -146,7 +146,7 @@ A learning graph is a structured representation of knowledge that maps concepts 
 
 **Key characteristics**:
 
-- **200 concepts**: Target number for comprehensive course coverage
+- **300-600 concepts**: Target range for comprehensive course coverage
 - **Directed Acyclic Graph (DAG)**: Dependencies flow in one direction with no circular loops
 - **Taxonomy categories**: Concepts grouped by theme (e.g., BASIC, ADVANCED, TOOLS)
 - **Prerequisite tracking**: Ensures proper learning sequence
@@ -165,7 +165,7 @@ A Claude Skill is an autonomous agent defined by a SKILL.md file that automates 
 
 **Example skills**:
 
-- `learning-graph-generator`: Creates 200-concept dependency graphs
+- `learning-graph-generator`: Creates 300-600 concept dependency graphs
 - `glossary-generator`: Produces ISO 11179-compliant term definitions
 - `microsim-p5`: Builds interactive p5.js educational simulations
 
@@ -303,7 +303,7 @@ Proper dependency mapping ensures logical learning sequences and prevents studen
 
 ### How many concepts should a learning graph have?
 
-The learning-graph-generator skill targets **200 concepts** for a comprehensive course, based on educational research suggesting this provides optimal granularity for:
+The learning-graph-generator skill supports **300-600 concepts** for comprehensive courses, based on educational research suggesting this range provides optimal granularity for:
 
 - **Breadth**: Covering all major topics and subtopics
 - **Depth**: Atomic concepts that can be individually taught and assessed
@@ -311,9 +311,9 @@ The learning-graph-generator skill targets **200 concepts** for a comprehensive 
 
 You can adjust this number based on course scope:
 
-- **Introductory courses**: 100-150 concepts
-- **Comprehensive courses**: 200-250 concepts
-- **Graduate-level courses**: 250-300 concepts
+- **Introductory courses**: 100-200 concepts
+- **Comprehensive courses**: 300-400 concepts
+- **Advanced/graduate courses**: 400-600 concepts
 
 More concepts provide finer granularity but increase complexity. The key is ensuring each concept is atomic (indivisible) and meaningful as a learning unit. See [Chapter 5](chapters/05-concept-enumeration-dependencies/index.md).
 

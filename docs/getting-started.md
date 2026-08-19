@@ -412,7 +412,7 @@ Available Claude Skills (8 total)
   Intelligent Textbook Development:
   - intelligent-textbook (user) - Complete workflow for AI-generated textbooks
   - intelligent-textbook-creator (user) - Creates MkDocs Material textbooks (Level 2-5)
-  - learning-graph-generator (user) - Generates 200-concept learning graphs
+  - learning-graph-generator (user) - Generates 300-600 concept learning graphs
 
   Interactive Simulations:
   - microsim-p5 (user) - Creates p5.js educational MicroSims

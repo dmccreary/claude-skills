@@ -1,6 +1,6 @@
 # Learning Graph Generator
 
-This skill generates a comprehensive learning graph from a course description, including 200 concepts with dependencies, taxonomy categorization, and quality validation reports.
+This skill generates a comprehensive learning graph from a course description, including 300-600 concepts with dependencies, taxonomy categorization, and quality validation reports.
 
 ## Step 0: Setup
 
@@ -8,11 +8,11 @@ Ensures the proper directory structure exists and prepares the working environme
 
 ## Step 1: Course Description Quality Assessment
 
-Analyzes the course description to ensure it has sufficient content to generate 200 high-quality concepts. Verifies required elements (title, prerequisites, audience, objectives, outcomes) and assesses depth, breadth, and granularity. Generates a quality score (1-100) and provides detailed feedback. Asks user for approval before proceeding.
+Analyzes the course description to ensure it has sufficient content to generate 300-600 high-quality concepts. Verifies required elements (title, prerequisites, audience, objectives, outcomes) and assesses depth, breadth, and granularity. Generates a quality score (1-100) and provides detailed feedback. Asks user for approval before proceeding.
 
 ## Step 2: Generate Concept Labels
 
-Creates 200 concept labels from the course content. Each label must be in Title Case with a maximum length of 32 characters. Labels should be clear, specific, and pedagogically sound. Saves the numbered list to `concept-list.md` and prompts user to review before continuing.
+Creates 300-600 concept labels from the course content. Each label must be in Title Case with a maximum length of 32 characters. Labels should be clear, specific, and pedagogically sound. Saves the numbered list to `concept-list.md` and prompts user to review before continuing.
 
 ## Step 3: Generate Dependency Graph
 

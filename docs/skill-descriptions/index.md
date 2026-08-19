@@ -23,7 +23,7 @@ loads the matching guide from its `references/` directory.
 These remain standalone because each is a complex multi-step workflow:
 
 1. [Course Description Analyzer](./book/course-description-analyzer.md) — validate/score the course description
-2. [Learning Graph Generator](./book/learning-graph-generator.md) — 200-concept DAG with taxonomy and quality reports
+2. [Learning Graph Generator](./book/learning-graph-generator.md) — 300-600 concept DAG with taxonomy and quality reports
 3. [Book Chapter Structure Generator](./book/book-chapter-generator.md) — chapter design from the learning graph
 4. [Chapter Content Generator](./book/chapter-content-generator.md) — full chapter text, diagrams, exercises
 5. [Glossary Generator](./book/glossary-generator.md) — ISO 11179-compliant definitions
