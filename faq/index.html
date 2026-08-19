@@ -2812,7 +2812,7 @@
 <p>After completing this course, you'll be able to:</p>
 <ul>
 <li><strong>Create intelligent textbooks</strong> from scratch using Claude Skills and MkDocs</li>
-<li><strong>Generate learning graphs</strong> with 200+ concepts and dependency relationships</li>
+<li><strong>Generate learning graphs</strong> with 300-600 concepts and dependency relationships</li>
 <li><strong>Build interactive simulations</strong> (MicroSims) using p5.js for educational visualization</li>
 <li><strong>Automate content generation</strong> for chapters, glossaries, FAQs, and quizzes</li>
 <li><strong>Apply Bloom's Taxonomy</strong> to create learning outcomes at all cognitive levels</li>
@@ -2859,13 +2859,13 @@
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>Educational Content Creation:
   - faq-generator (user) - Generates FAQs from course content
   - glossary-generator (user) - Creates ISO 11179-compliant glossaries
-  - learning-graph-generator (user) - Generates 200-concept learning graphs
+  - learning-graph-generator (user) - Generates 300-600 concept learning graphs
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p>See the <a href="../getting-started/#testing-your-skill-list">getting started guide</a> for complete instructions.</p>
 <h3 id="what-is-the-difference-between-a-claude-skill-and-a-claude-command">What is the difference between a Claude Skill and a Claude Command?</h3>
 <p><strong>Claude Skills</strong> are autonomous agents with full workflow instructions defined in SKILL.md files. They can use multiple tools, make decisions, and execute complex multi-step processes. Skills are invoked with <code>/skill [name]</code> and run specialized workflows like generating learning graphs or creating glossaries.</p>
 <p><strong>Claude Commands</strong> are simpler prompt expansions defined in markdown files. They expand text instructions that Claude then interprets, similar to custom shortcuts. Commands are invoked with <code>/[name]</code> and are useful for repetitive prompts.</p>
-<p><strong>Example</strong>: The <code>learning-graph-generator</code> is a skill that autonomously generates 200 concepts, validates dependencies, and creates visualizations. A command might simply instruct Claude to "analyze this learning graph quality."</p>
+<p><strong>Example</strong>: The <code>learning-graph-generator</code> is a skill that autonomously generates 300-600 concepts, validates dependencies, and creates visualizations. A command might simply instruct Claude to "analyze this learning graph quality."</p>
 <p>See <a href="../chapters/09-claude-skills-architecture-development/">Chapter 9</a> for detailed architecture information.</p>
 <h3 id="how-do-i-update-my-skills-to-the-latest-version">How do I update my skills to the latest version?</h3>
 <p>Since the skills are installed via symbolic links to a Git repository, updating is simple:</p>
@@ -2892,7 +2892,7 @@
 <p>A learning graph is a structured representation of knowledge that maps concepts and their prerequisite relationships in a course or subject domain. Each concept is a node, and directed edges represent dependencies (concept A must be learned before concept B).</p>
 <p><strong>Key characteristics</strong>:</p>
 <ul>
-<li><strong>200 concepts</strong>: Target number for comprehensive course coverage</li>
+<li><strong>300-600 concepts</strong>: Target range for comprehensive course coverage</li>
 <li><strong>Directed Acyclic Graph (DAG)</strong>: Dependencies flow in one direction with no circular loops</li>
 <li><strong>Taxonomy categories</strong>: Concepts grouped by theme (e.g., BASIC, ADVANCED, TOOLS)</li>
 <li><strong>Prerequisite tracking</strong>: Ensures proper learning sequence</li>
@@ -2908,7 +2908,7 @@
 </ul>
 <p><strong>Example skills</strong>:</p>
 <ul>
-<li><code>learning-graph-generator</code>: Creates 200-concept dependency graphs</li>
+<li><code>learning-graph-generator</code>: Creates 300-600 concept dependency graphs</li>
 <li><code>glossary-generator</code>: Produces ISO 11179-compliant term definitions</li>
 <li><code>microsim-p5</code>: Builds interactive p5.js educational simulations</li>
 </ul>
@@ -3008,7 +3008,7 @@
 <p>Concept 3 depends on both concepts 1 and 2, meaning students should understand "Git Basics" and "Git Repository Structure" before learning "Git Commit Command."</p>
 <p>Proper dependency mapping ensures logical learning sequences and prevents students from encountering concepts before they have necessary background knowledge. See <a href="../chapters/05-concept-enumeration-dependencies/">Chapter 5</a>.</p>
 <h3 id="how-many-concepts-should-a-learning-graph-have">How many concepts should a learning graph have?</h3>
-<p>The learning-graph-generator skill targets <strong>200 concepts</strong> for a comprehensive course, based on educational research suggesting this provides optimal granularity for:</p>
+<p>The learning-graph-generator skill supports <strong>300-600 concepts</strong> for comprehensive courses, based on educational research suggesting this range provides optimal granularity for:</p>
 <ul>
 <li><strong>Breadth</strong>: Covering all major topics and subtopics</li>
 <li><strong>Depth</strong>: Atomic concepts that can be individually taught and assessed</li>
@@ -3016,9 +3016,9 @@
 </ul>
 <p>You can adjust this number based on course scope:</p>
 <ul>
-<li><strong>Introductory courses</strong>: 100-150 concepts</li>
-<li><strong>Comprehensive courses</strong>: 200-250 concepts</li>
-<li><strong>Graduate-level courses</strong>: 250-300 concepts</li>
+<li><strong>Introductory courses</strong>: 100-200 concepts</li>
+<li><strong>Comprehensive courses</strong>: 300-400 concepts</li>
+<li><strong>Advanced/graduate courses</strong>: 400-600 concepts</li>
 </ul>
 <p>More concepts provide finer granularity but increase complexity. The key is ensuring each concept is atomic (indivisible) and meaningful as a learning unit. See <a href="../chapters/05-concept-enumeration-dependencies/">Chapter 5</a>.</p>
 <h3 id="what-is-taxonomy-categorization-in-learning-graphs">What is taxonomy categorization in learning graphs?</h3>

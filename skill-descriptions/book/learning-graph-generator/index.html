@@ -2186,13 +2186,13 @@
 
 
 <h1 id="learning-graph-generator">Learning Graph Generator</h1>
-<p>This skill generates a comprehensive learning graph from a course description, including 200 concepts with dependencies, taxonomy categorization, and quality validation reports.</p>
+<p>This skill generates a comprehensive learning graph from a course description, including 300-600 concepts with dependencies, taxonomy categorization, and quality validation reports.</p>
 <h2 id="step-0-setup">Step 0: Setup</h2>
 <p>Ensures the proper directory structure exists and prepares the working environment. Creates the <code>/docs/learning-graph</code> directory and copies necessary Python programs from the skill package. Verifies that mkdocs.yml and the docs directory are present.</p>
 <h2 id="step-1-course-description-quality-assessment">Step 1: Course Description Quality Assessment</h2>
-<p>Analyzes the course description to ensure it has sufficient content to generate 200 high-quality concepts. Verifies required elements (title, prerequisites, audience, objectives, outcomes) and assesses depth, breadth, and granularity. Generates a quality score (1-100) and provides detailed feedback. Asks user for approval before proceeding.</p>
+<p>Analyzes the course description to ensure it has sufficient content to generate 300-600 high-quality concepts. Verifies required elements (title, prerequisites, audience, objectives, outcomes) and assesses depth, breadth, and granularity. Generates a quality score (1-100) and provides detailed feedback. Asks user for approval before proceeding.</p>
 <h2 id="step-2-generate-concept-labels">Step 2: Generate Concept Labels</h2>
-<p>Creates 200 concept labels from the course content. Each label must be in Title Case with a maximum length of 32 characters. Labels should be clear, specific, and pedagogically sound. Saves the numbered list to <code>concept-list.md</code> and prompts user to review before continuing.</p>
+<p>Creates 300-600 concept labels from the course content. Each label must be in Title Case with a maximum length of 32 characters. Labels should be clear, specific, and pedagogically sound. Saves the numbered list to <code>concept-list.md</code> and prompts user to review before continuing.</p>
 <h2 id="step-3-generate-dependency-graph">Step 3: Generate Dependency Graph</h2>
 <p>Creates a CSV file mapping learning dependencies between concepts. Each concept gets a ConceptID, ConceptLabel, and Dependencies (pipe-delimited list). Ensures the graph is a Directed Acyclic Graph (DAG) with no cycles or self-dependencies. Converts CSV to JSON format using the <code>csv-to-json.py</code> program.</p>
 <h2 id="step-4-learning-graph-quality-validation">Step 4: Learning Graph Quality Validation</h2>
