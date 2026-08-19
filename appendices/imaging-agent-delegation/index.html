@@ -1,0 +1,2273 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/appendices/imaging-agent-delegation/">
+      
+      
+        <link rel="prev" href="../skill-refactor-fable-5/">
+      
+      
+        <link rel="next" href="../../glossary/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Delegating Image Generation - Claude Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HPLDD3D3K2"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HPLDD3D3K2",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HPLDD3D3K2",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta property="og:type" content="website">
+      
+        <meta property="og:title" content="Delegating Image Generation - Claude Skills for Intelligent Textbooks">
+      
+        <meta property="og:description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+        <meta property="og:image" content="https://dmccreary.github.io/claude-skills/assets/images/social/appendices/imaging-agent-delegation.png">
+      
+        <meta property="og:image:type" content="image/png">
+      
+        <meta property="og:image:width" content="1200">
+      
+        <meta property="og:image:height" content="630">
+      
+        <meta property="og:url" content="https://dmccreary.github.io/claude-skills/appendices/imaging-agent-delegation/">
+      
+        <meta name="twitter:card" content="summary_large_image">
+      
+        <meta name="twitter:title" content="Delegating Image Generation - Claude Skills for Intelligent Textbooks">
+      
+        <meta name="twitter:description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+      
+        <meta name="twitter:image" content="https://dmccreary.github.io/claude-skills/assets/images/social/appendices/imaging-agent-delegation.png">
+      
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#delegating-image-generation-to-an-external-agent" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Delegating Image Generation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Claude Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Skill Descriptions
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../slides/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Slides
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../workshops/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Workshops
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../consolidation-plan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Consolidation Plan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Appendices
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_13" id="__nav_13_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Appendices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skill-refactor-fable-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Skill Refactor with Fable 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Delegating Image Generation
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Delegating Image Generation
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-capability-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Capability Gap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-finding-that-shaped-everything-else" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Finding That Shaped Everything Else
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Finding That Shaped Everything Else">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-filename-is-the-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      The filename is the message
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directory-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directory Layout
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-task-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Task Specification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-survey-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the Survey Found
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acceptance-what-a-machine-can-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acceptance: What a Machine Can Check
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Acceptance: What a Machine Can Check">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#and-what-it-cannot" class="md-nav__link">
+    <span class="md-ellipsis">
+      And what it cannot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-the-validator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validate the validator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compression-as-part-of-acceptance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compression as part of acceptance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notification-three-channels-one-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notification: Three Channels, One Trigger
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notification: Three Channels, One Trigger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#feedback-has-to-reach-the-next-attempt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback has to reach the next attempt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crossing-machines-through-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crossing Machines Through Git
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification Pitfalls
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#house-rules-for-textbook-image-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      House Rules for Textbook Image Prompts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-transfers" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Transfers
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-capability-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Capability Gap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-finding-that-shaped-everything-else" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Finding That Shaped Everything Else
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Finding That Shaped Everything Else">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-filename-is-the-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      The filename is the message
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directory-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directory Layout
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-task-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Task Specification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-survey-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the Survey Found
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acceptance-what-a-machine-can-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acceptance: What a Machine Can Check
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Acceptance: What a Machine Can Check">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#and-what-it-cannot" class="md-nav__link">
+    <span class="md-ellipsis">
+      And what it cannot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-the-validator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validate the validator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compression-as-part-of-acceptance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compression as part of acceptance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notification-three-channels-one-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notification: Three Channels, One Trigger
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notification: Three Channels, One Trigger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#feedback-has-to-reach-the-next-attempt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback has to reach the next attempt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crossing-machines-through-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crossing Machines Through Git
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification Pitfalls
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#house-rules-for-textbook-image-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      House Rules for Textbook Image Prompts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-transfers" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Transfers
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/appendices/imaging-agent-delegation.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="delegating-image-generation-to-an-external-agent">Delegating Image Generation to an External Agent</h1>
+<p><em>A case study in handing work to a tool you cannot drive — and getting it back verified.</em></p>
+<h2 id="the-capability-gap">The Capability Gap</h2>
+<p>Claude Code can write prose, code, SVG, and p5.js sketches. It cannot generate a raster illustration. An intelligent textbook needs plenty of them: chapter headers, cover art, mascot poses, and — most demanding of all — the annotation-free background images that interactive infographic overlays are drawn on top of.</p>
+<p>The tools that <em>do</em> generate those images live outside the harness. ChatGPT's desktop app, Google Antigravity, Midjourney, and every other image model sit on the far side of a boundary Claude Code cannot reach across. There is no MCP server for "make me a picture of a breadboard."</p>
+<p>This appendix documents a working solution built for the <a href="https://github.com/dmccreary/beginning-electronics">Beginning Electronics</a> textbook: a filesystem work queue that lets any external image agent discover tasks, work them, and signal completion back to Claude — with automated acceptance checks so bad output does not silently reach the book.</p>
+<p>The reference implementation lives at <code>image-tasks/</code> in that repository. Everything below generalizes to any intelligent textbook project.</p>
+<h2 id="the-finding-that-shaped-everything-else">The Finding That Shaped Everything Else</h2>
+<p>The two tools in play had wildly different capability profiles, and that difference turned out to be the whole design problem.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Filesystem</th>
+<th>Shell</th>
+<th>Realistic mode of participation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Google Antigravity</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Fully agentic — reads the queue, claims a task, writes the file, all unattended</td>
+</tr>
+<tr>
+<td><strong>ChatGPT desktop</strong></td>
+<td>No (sandboxed)</td>
+<td>No</td>
+<td><strong>Human courier</strong> — you paste a prompt, it returns an image, you save the file</td>
+</tr>
+</tbody>
+</table>
+<p>The temptation is to build two integrations. That is the wrong instinct. An agentic tool and a human dragging a PNG out of a chat window have exactly one capability in common:</p>
+<blockquote>
+<p><strong>Something can save a file to a path.</strong></p>
+</blockquote>
+<p>So that became the entire protocol.</p>
+<h3 id="the-filename-is-the-message">The filename is the message</h3>
+<blockquote>
+<p>Save the finished image to <code>image-tasks/inbox/&lt;task-id&gt;.png</code></p>
+</blockquote>
+<p>Nothing else is required. No form, no JSON sidecar, no commit, no API call, no metadata to remember. The task ID <em>is</em> the filename, so the drop carries its own routing information.</p>
+<p>This single decision is what makes the system work across such different tools. A fully autonomous agent and a distracted human get the same instruction, and neither needs an adapter. Everything downstream — validation, receipt-writing, notification, compression, installation into the repo — keys off that one file appearing.</p>
+<p><strong>The general principle:</strong> when designing a handoff to a tool you cannot drive, find the least-capable participant you intend to support and make <em>their</em> minimum action the entire contract. Building for the capable tool first and bolting on a fallback produces two code paths that drift apart.</p>
+<h2 id="directory-layout">Directory Layout</h2>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>image-tasks/
+  README.md      # the agent-facing contract — point external tools here
+  QUEUE.md       # generated dashboard, human-readable at a glance
+  bin/igq        # the CLI
+  tasks/*.md     # one task = YAML accept-criteria + markdown prompt
+  inbox/         # THE DROP ZONE
+  receipts/      # per-delivery JSON check results
+  archive/       # previous versions, rollback safety
+</code></pre></div></td></tr></tbody></table></div>
+<p>The queue lives at the repository root, <strong>not</strong> under <code>docs/</code>. Anything under <code>docs/</code> gets published by MkDocs, and a work queue is not book content.</p>
+<p><code>README.md</code> is the most important file. It is written <em>to the external agent</em>, not to the human maintainer — the opening line is "You are an image-generation agent," and it states the one rule before anything else. When you point ChatGPT or Antigravity at this system, you point it at that file.</p>
+<h2 id="the-task-specification">The Task Specification</h2>
+<p>Each task is a single markdown file: YAML frontmatter for the machine, body for the prompt.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nn">---</span>
+<span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rgb-led-breadboard-circuit</span>
+<span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RGB LED breadboard wiring diagram</span>
+<span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">open</span><span class="w">            </span><span class="c1"># open | claimed | delivered | accepted | rejected</span>
+<span class="nt">priority</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">output</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs/kits/rgb-led/rgb-circuit.png</span><span class="w">   </span><span class="c1"># where accept installs it</span>
+<span class="nt">prompt_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs/img/mascot/image-prompts.md#2-welcome-pose</span><span class="w">   </span><span class="c1"># optional</span>
+<span class="nt">accept</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">png</span>
+<span class="w">  </span><span class="nt">width</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1200</span><span class="w">           </span><span class="c1"># or min_width / min_height</span>
+<span class="w">  </span><span class="nt">height</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
+<span class="w">  </span><span class="nt">aspect</span><span class="p">:</span><span class="w"> </span><span class="s">"4:3"</span>
+<span class="w">  </span><span class="nt">max_kb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500</span>
+<span class="w">  </span><span class="nt">alpha</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">required</span><span class="w">       </span><span class="c1"># required | forbidden | any</span>
+<span class="w">  </span><span class="nt">transparent_corners</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">trim_border_px</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="w">  </span><span class="nt">no_text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">         </span><span class="c1"># flags for human review; not machine-checkable</span>
+<span class="nn">---</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Everything below the frontmatter is the prompt, verbatim.</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Two design notes worth stealing:</p>
+<p><strong><code>output:</code> makes acceptance mechanical.</strong> The task declares where the image belongs, so installing it is not a judgment call at accept time. This also means the queue can report exactly which book pages are still waiting on art.</p>
+<p><strong><code>prompt_file:</code> indexes rather than duplicates.</strong> This was a direct response to what the survey found (below): the project already had good image prompts scattered across three different conventions. A task can point at an existing prompt file and an optional heading anchor, and the CLI inlines that section into the brief. The agent still receives one self-contained block; the prompt keeps living where it already lived. <strong>Do not migrate existing prompts into a new format — index them.</strong></p>
+<h2 id="what-the-survey-found">What the Survey Found</h2>
+<p>Before building anything, it is worth auditing what a project already has. The audit of Beginning Electronics turned up more than expected, and several findings changed the design.</p>
+<p><strong>Prompts already existed in three separate conventions.</strong> A single big <code>docs/img/cover-image-prompt.md</code>, a multi-pose <code>docs/img/mascot/image-prompts.md</code> explicitly written so that "any single one" could be pasted into an image tool, and a per-simulation <code>docs/sims/{id}/image-prompt.md</code> mandated by the microsim-generator skill. All three were good. None knew about the others. This is what motivated <code>prompt_file:</code> indirection.</p>
+<p><strong>Provenance was already being lost.</strong> Of ten interactive-overlay MicroSims, all ten had their background image — but only <strong>two</strong> had an <code>image-prompt.md</code>. The other eight had an image nobody could regenerate, revise, or restyle, because the prompt that produced it existed only in some past chat window. This is the quiet failure mode of ad-hoc image generation, and it is not visible until you need a variant.</p>
+<blockquote>
+<p><strong>The prompt is a source artifact. Commit it next to the image it produced.</strong></p>
+</blockquote>
+<p><strong>A referenced script did not exist.</strong> <code>docs/img/mascot/image-prompts.md</code> instructed users to run <code>src/image-utils/trim-padding-from-image.py</code> after saving each pose. That file had never been written. Seven mascot images were nonetheless correctly trimmed, so the step had been done by hand or by a since-deleted script — meaning the documented workflow could not actually be followed by the next person.</p>
+<p><strong>Acceptance criteria were already formalized, just not enforced.</strong> A test page at <code>docs/learning-graph/mascot-test.md</code> ran browser-side pixel checks asserting RGBA transparency, transparent corners, and a <strong>4px content border</strong> at alpha threshold 10. Those assertions were a specification nobody had connected to the generation step. Lifting them into <code>accept:</code> criteria cost almost nothing and made the pipeline enforce what the test page merely reported.</p>
+<p><strong>Image weight was unmanaged.</strong> 50 PNGs in <code>docs/</code> exceeded 400 KB, totalling <strong>63 MB</strong>, with a single 8.8 MB file. One image that <em>had</em> been optimized sat at 308 KB against siblings at 1.2–1.9 MB. Compression belongs in the accept step, not in a cleanup task nobody schedules.</p>
+<h2 id="acceptance-what-a-machine-can-check">Acceptance: What a Machine Can Check</h2>
+<p>The queue validates every delivery automatically and writes a JSON receipt.</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Catches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>format</code></td>
+<td>JPEG delivered when PNG was required</td>
+</tr>
+<tr>
+<td><code>width</code>/<code>height</code>, <code>min_width</code>/<code>min_height</code></td>
+<td>Wrong canvas size</td>
+</tr>
+<tr>
+<td><code>aspect</code> (+ tolerance)</td>
+<td>Correct pixels, wrong shape</td>
+</tr>
+<tr>
+<td><code>alpha: required</code></td>
+<td><strong>Fake transparency</strong> — a white or black background baked into pixels</td>
+</tr>
+<tr>
+<td><code>transparent_corners</code></td>
+<td>A drawn checkerboard "transparency" pattern</td>
+</tr>
+<tr>
+<td><code>trim_border_px</code></td>
+<td>Untrimmed padding that renders the subject tiny</td>
+</tr>
+<tr>
+<td><code>max_kb</code></td>
+<td>Unoptimized output</td>
+</tr>
+</tbody>
+</table>
+<p><code>alpha: required</code> deserves emphasis. Image models frequently return a <em>flattened</em> image when asked for a transparent background — sometimes with a literal checkerboard pattern drawn into the pixels, having learned that transparency "looks like" a checkerboard. Both failures are invisible in a thumbnail and obvious in production. The check is two lines against the alpha channel's extrema, and it catches the single most common delivery defect.</p>
+<h3 id="and-what-it-cannot">And what it cannot</h3>
+<p><code>no_text: true</code> is the most-violated requirement in the whole system and <strong>no automated check can catch it.</strong></p>
+<p>Overlay infographics need annotation-free backgrounds because the textbook renders labels itself, in HTML, on top of the image. Baked-in text collides with the overlay and makes the image unusable. Image models are strongly biased toward adding labels to anything that looks like a diagram, and they do it even when told not to.</p>
+<p>So <code>no_text</code> does not attempt a machine check. It flags the task for human review in the receipt. The honest design move is to <strong>mark the gap rather than fake a check</strong> — an OCR pass would produce false confidence on stylized art, and a receipt claiming "no text detected" is worse than one saying "a human must look at this."</p>
+<h3 id="validate-the-validator">Validate the validator</h3>
+<p>Before trusting the checker, run it against files already known to be correct. The trim-border logic was verified against the seven existing mascot PNGs; all seven reported exactly 4px, matching the independently-written browser test. That agreement — two implementations, written at different times, arriving at the same number — is what justified trusting the checker on files nobody had inspected.</p>
+<p><strong>Never ship an acceptance check you have not seen produce a <code>PASS</code> on known-good input and a <code>FAIL</code> on known-bad.</strong> A check that only ever passes is indistinguishable from a check that is broken.</p>
+<h3 id="compression-as-part-of-acceptance">Compression as part of acceptance</h3>
+<p>PIL's <code>FASTOCTREE</code> quantizer is the only one that preserves an alpha channel, which makes it the right default for this pipeline. Flat vector illustrations — exactly the house style for educational diagrams — quantize to a 256-color palette with no visible loss, typically 60–80% smaller. The accept step keeps the palette version only if it is genuinely smaller, and re-validates against <code>max_kb</code> afterward.</p>
+<h2 id="notification-three-channels-one-trigger">Notification: Three Channels, One Trigger</h2>
+<p>All three fire from the same file drop. Which one is right depends on whether Claude happens to be running.</p>
+<p><strong>Claude is live in a session.</strong> Claude arms a persistent <code>Monitor</code> on the inbox and is notified in-conversation within seconds of a file appearing. Zero setup, but it ends with the session.</p>
+<p><strong>Claude is not running.</strong> <code>igq watch</code> polls the inbox, validates arrivals, appends to <code>NOTIFY.md</code>, and raises a desktop notification. A <code>--wake</code> flag additionally launches headless <code>claude -p</code> to review and install unattended.</p>
+<p><code>--wake</code> is <strong>off by default, deliberately.</strong> It spends tokens autonomously with no human present. Defaulting a convenience feature to "spend money without asking" is a decision the user should make explicitly, not one that arrives as a side effect of using the tool.</p>
+<p><strong>Nothing is running.</strong> The file sits in <code>inbox/</code>, and <code>igq status</code> reports it on the next run. Because the queue is only files on disk, no delivery is ever lost — the durable state <em>is</em> the filesystem, and the notification channels are conveniences layered on top. Build it in that order and the system degrades gracefully instead of dropping work.</p>
+<h3 id="feedback-has-to-reach-the-next-attempt">Feedback has to reach the next attempt</h3>
+<p>Rejections recorded feedback into the task file — and the brief did not show it. The next agent to pick up the task would receive the identical prompt that had just failed, and would very likely repeat the mistake.</p>
+<p>The fix: <code>igq brief</code> now leads with a <strong>READ FIRST — a previous attempt was rejected</strong> block listing every prior rejection reason before the requirements or the prompt.</p>
+<p><strong>A rejection loop that does not feed back into the next brief is not a loop, it is a treadmill.</strong> If you build a reject path, trace the feedback all the way to where the next attempt actually reads it.</p>
+<h2 id="crossing-machines-through-git">Crossing Machines Through Git</h2>
+<p>For a project worked from more than one computer, the queue should travel.</p>
+<p><strong>Tracked:</strong> <code>tasks/</code> (including each task's <code>status</code>, <code>claimed_by</code>, and rejection <code>feedback</code>), <code>receipts/</code>, <code>QUEUE.md</code>, <code>README.md</code>, and the CLI. Accepted images travel too, since they are installed into <code>docs/</code>.</p>
+<p><strong>Not tracked:</strong> <code>inbox/</code>, <code>archive/</code>, <code>NOTIFY.md</code> — unreviewed binaries and rollback copies do not belong in history.</p>
+<p>That split is right, but it creates two states that will confuse anyone who hits them cold, so the tool detects both:</p>
+<ul>
+<li><strong>Claimed on another machine.</strong> Claims record <code>platform.node()</code>, so a task claimed on the desktop reads as such from the laptop, with a <code>--force</code> takeover available.</li>
+<li><strong>Delivered elsewhere.</strong> Because <code>inbox/</code> is local, a task whose <em>committed</em> status says <code>delivered</code> may have no file on this machine. Rather than leaving you wondering, <code>igq status</code> names the machine and offers the three ways out.</li>
+</ul>
+<p>The practical rule: <strong>accept before you switch machines.</strong> Once accepted, the image is in <code>docs/</code> and travels with everything else. A delivery left sitting in the inbox does not.</p>
+<p>Two mechanical details that are easy to miss:</p>
+<p><strong>Empty directories need a <code>.gitkeep</code>.</strong> <code>inbox/</code> is gitignored and <code>receipts/</code> is often empty, so neither survives a clone without one. The first <code>igq scan</code> on a fresh machine would otherwise fail or write to the wrong place.</p>
+<p><strong>Pin LF explicitly on every file the tool writes.</strong> Task files are rewritten on every status change and are committed. Python's default text mode on Windows translates <code>\n</code> to <code>\r\n</code>, so a mixed Mac/Windows pair would rewrite the <em>entire</em> task file in every diff — landing precisely on the cross-machine workflow the design exists to serve. <code>open(path, "w", encoding="utf-8", newline="\n")</code> at every write site.</p>
+<h2 id="windows">Windows</h2>
+<p>The tooling shells out to POSIX utilities for clipboard and desktop notifications, and had not been tested on native Windows. Rather than half-working, both entry points exit immediately with instructions to install <strong>Windows Subsystem for Linux</strong>.</p>
+<p>Two implementation details matter:</p>
+<p><strong>Put the guard above every other import.</strong> Otherwise the first thing a Windows user encounters is <code>Pillow is required</code> — a dependency error that sends them installing packages that were never the problem. The platform check should run before anything that could fail for an unrelated reason.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">"win32"</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">"nt"</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">"...install WSL, then run from the WSL shell..."</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>  <span class="c1"># noqa: E402  (kept below the platform guard on purpose)</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong>WSL passes through correctly.</strong> Python under WSL reports <code>sys.platform == "linux"</code>, so the guard stays silent there — which is the entire point of directing people to WSL rather than simply refusing.</p>
+<h2 id="verification-pitfalls">Verification Pitfalls</h2>
+<p>Three mistakes made while building this are worth recording, because all three produced <em>confident, wrong</em> intermediate results.</p>
+<p><strong>A zsh glob failure silently corrupted a survey.</strong> <code>ls dir/*.png dir/*.jpg</code> aborts entirely under zsh when either pattern matches nothing — it does not just skip that pattern. An audit built on that idiom reported ten simulations as missing their images when in fact all ten had them. Use <code>find</code> for existence surveys, and be suspicious of a result where <em>everything</em> is missing.</p>
+<p><strong>Relative-path resolution produced false positives.</strong> A naive image-reference scan flagged seven mascot images as broken because it resolved MkDocs directory-URL-relative paths as file-relative. The files were fine. Any link checker must model the rendered URL structure, not the source tree.</p>
+<p><strong>A platform simulation broke the thing it was testing.</strong> Patching <code>os.name = "nt"</code> to fake Windows caused <code>shutil</code> to attempt <code>import nt</code> and blow up before the guard under test ever ran. The traceback looked like a bug in the guard; it was an artifact of the test. Restructuring so the guard sits above the imports made it both better code <em>and</em> actually testable.</p>
+<p>The common thread: <strong>when a check reports something surprising, suspect the check before the code.</strong> All three of these produced plausible-looking output that would have led to real wasted work — in the first case, regenerating ten images that already existed.</p>
+<h2 id="command-reference">Command Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>igq list</code></td>
+<td>Show open tasks</td>
+</tr>
+<tr>
+<td><code>igq status</code></td>
+<td>Counts, inbox contents, cross-machine warnings</td>
+</tr>
+<tr>
+<td><code>igq brief &lt;id&gt;</code></td>
+<td>Print the full copy-paste prompt (<code>--copy</code> for clipboard)</td>
+</tr>
+<tr>
+<td><code>igq claim &lt;id&gt; --agent NAME</code></td>
+<td>Mark a task as being worked</td>
+</tr>
+<tr>
+<td><code>igq deliver &lt;id&gt; &lt;file&gt;</code></td>
+<td>Copy a finished image into the inbox and check it</td>
+</tr>
+<tr>
+<td><code>igq scan</code></td>
+<td>Validate the inbox, write receipts, notify</td>
+</tr>
+<tr>
+<td><code>igq accept &lt;id&gt;</code></td>
+<td>Compress and install into the repo (<code>--all</code> for every pass)</td>
+</tr>
+<tr>
+<td><code>igq reject &lt;id&gt; --reason "..."</code></td>
+<td>Return to the queue with feedback</td>
+</tr>
+<tr>
+<td><code>igq new &lt;id&gt; --title ... --output ...</code></td>
+<td>Create a task</td>
+</tr>
+<tr>
+<td><code>igq queue</code></td>
+<td>Regenerate <code>QUEUE.md</code></td>
+</tr>
+<tr>
+<td><code>igq watch</code></td>
+<td>Poll the inbox (<code>--wake</code> to launch headless Claude)</td>
+</tr>
+<tr>
+<td><code>igq optimize docs/img</code></td>
+<td>Shrink oversized PNGs already in the repo</td>
+</tr>
+</tbody>
+</table>
+<h2 id="house-rules-for-textbook-image-prompts">House Rules for Textbook Image Prompts</h2>
+<p>Findings about the prompts themselves, which apply to any educational illustration:</p>
+<p><strong>State the negative constraints explicitly and specifically.</strong> "No text" is insufficient. The working formulation enumerates: no letters, numbers, labels, titles, arrows, callout lines, legends, watermarks, or logos. Models satisfy the letter of a short prohibition and violate its spirit.</p>
+<p><strong>Prohibit things that contradict the pedagogy, not just things that look wrong.</strong> The Beginning Electronics prompts forbid microcontrollers, Arduino boards, and source code because the course deliberately contains no programming — an Arduino in a header image misrepresents the book. They forbid soldering irons, solder, smoke, and mains wiring because it is a no-soldering, low-voltage course and those images contradict its safety message. These are <em>content</em> constraints, and no generic style guide would supply them.</p>
+<p><strong>Allow narrow exceptions rather than forking the system.</strong> One task in the seeded queue is a schematic where three labels (<code>Vs</code>, <code>R</code>, <code>Vf</code>) are genuinely necessary. It sets <code>no_text: false</code> and enumerates the complete list of permitted symbols, with an instruction to omit them entirely rather than render them illegibly. The same queue handles annotation-free overlay backgrounds and labeled schematics without a second mechanism.</p>
+<p><strong>Specify position and proportion, not just content.</strong> Percentage-based positioning ("centered at 40% from left"), explicit relative sizing ("the largest montage element"), and stated margins ("at least 40 pixels of clear margin, since social platforms crop edges") produce dramatically more usable output than a list of objects.</p>
+<p><strong>Name the audience in the prompt.</strong> "Drawn for beginning electronics students in grades 5–12 who will copy this wiring hole-for-hole" changes the output more than any style adjective, because it tells the model what the image is <em>for</em>.</p>
+<h2 id="what-transfers">What Transfers</h2>
+<p>Strip out the electronics and the reusable design is:</p>
+<ol>
+<li><strong>Find the least-capable participant and make their minimum action the whole protocol.</strong> Here, a filename.</li>
+<li><strong>Durable state is files on disk.</strong> Notifications are a convenience layer; the system must work when every convenience is off.</li>
+<li><strong>Machine-check what you can, and explicitly mark what you cannot.</strong> A flagged gap beats a fake check.</li>
+<li><strong>Validate the validator against known-good input</strong> before trusting it on unknown input.</li>
+<li><strong>Commit the prompt beside the artifact.</strong> An image without its prompt cannot be revised.</li>
+<li><strong>Trace the feedback path</strong> — a rejection that does not reach the next attempt is a treadmill.</li>
+<li><strong>Suspect the check before the code</strong> when a result surprises you.</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../skill-refactor-fable-5/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Skill Refactor with Fable 5">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Skill Refactor with Fable 5
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../glossary/" class="md-footer__link md-footer__link--next" aria-label="Next: Glossary">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Glossary
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025, 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
