@@ -25,7 +25,7 @@ rerun the installer.
 | `marp-generator` | `book-media-generator` → `references/marp-deck-guide.md` | slide deck, presentation, web slides, MARP |
 | `textbook-to-presentation-generator` | `book-media-generator` → `references/pptx-lecture-guide.md` | powerpoint, pptx, lecture deck, classroom slides |
 | `story-generator` | `book-media-generator` → `references/story-guide.md` | story, graphic novel, historical figure |
-| `verified-infographic-generator` | `book-media-generator` → `references/verified-infographic-guide.md` | infographic, poster, fact-checked statistics |
+| `verified-infographic-generator` | `microsim-generator` → `references/verified-infographic-guide.md` | infographic, poster, fact-checked statistics |
 | `chapter-image-enhancer` | `book-media-generator` → `references/chapter-images-guide.md` | chapter images, photos, maps, Wikimedia |
 | `text-to-speech` | `book-media-generator` → `references/text-to-speech-guide.md` | text to speech, voiceover, ElevenLabs |
 | `pronounce-button` | `book-media-generator` → `references/pronounce-button-guide.md` | pronounce, pronunciation, glossary audio |

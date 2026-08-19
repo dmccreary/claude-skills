@@ -13,9 +13,9 @@ loads the matching guide from its `references/` directory.
 | Meta-Skill | Routes | Use for |
 |------------|--------|---------|
 | `book-installer` | init-textbook scaffold (feature 0), 40 install features (math, mascot, learning-graph viewer, Google Analytics, 404, kanban…), book-metrics | Project scaffold, infrastructure, reports |
-| `microsim-generator` | p5, chartjs, plotly, mermaid, vis-network, timeline, map, venn, bubble, comparison-table, celebration, causal-loop, concept-classifier, infographic-overlay, docker-python-lab | Every interactive MicroSim type |
+| `microsim-generator` | p5, chartjs, plotly, mermaid, vis-network, timeline, map, venn, bubble, comparison-table, celebration, causal-loop, concept-classifier, infographic-overlay, docker-python-lab, verified-infographic (fact-checked posters) | Every interactive MicroSim type, plus fact-verified posters |
 | `microsim-utils` | standardization, screen-capture, add-icons, index-generator, iframe height/testing tools, layout-reviewer, diagram-reports | MicroSim QA and maintenance |
-| `book-media-generator` | marp-deck (web slides), pptx-lecture (PowerPoint), story (graphic novels), verified-infographic (fact-checked posters), chapter-images (Wikimedia sourcing), text-to-speech, pronounce-button | Slides, illustrations, images, audio |
+| `book-media-generator` | marp-deck (web slides), pptx-lecture (PowerPoint), story (graphic novels), chapter-images (Wikimedia sourcing), text-to-speech, pronounce-button | Slides, illustrations, images, audio |
 | `book-publisher` | readme, linkedin-post, linkedin-carousel, press-release | Publishing and promotion — all routes read `docs/learning-graph/book-metrics.json` |
 
 ## Content-Pipeline Skills
@@ -44,9 +44,9 @@ keywords). Highlights:
 |--------------|-----|
 | init-textbook | `book-installer` feature 0 |
 | register-book-analytics | `book-installer` feature 25 |
-| concept-classifier, causal-loop-diagram-generator, interactive-infographic-overlay, docker-python-lab | `microsim-generator` routes |
+| concept-classifier, causal-loop-diagram-generator, interactive-infographic-overlay, docker-python-lab, verified-infographic-generator | `microsim-generator` routes |
 | diagram-reports-generator | `microsim-utils` route |
-| marp-generator, textbook-to-presentation-generator, story-generator, verified-infographic-generator, chapter-image-enhancer, text-to-speech, pronounce-button | `book-media-generator` routes |
+| marp-generator, textbook-to-presentation-generator, story-generator, chapter-image-enhancer, text-to-speech, pronounce-button | `book-media-generator` routes |
 | readme-generator, linkedin-announcement-generator, linkedin-carousel-generator, press-release-generator | `book-publisher` routes |
 
 The per-skill pages under [Book](./book/index.md),

@@ -4,6 +4,8 @@ This reference document provides detailed matching criteria for all available Mi
 
 ## Recent Updates
 
+- **2026-08-18**: Adopted verified-infographic-generator from `book-media-generator` — fact-verified
+  statistics posters, and the reusable claim-verification phases that let any sim carry cited data
 - **2026-01-27**: Added html-table-generator for interactive matrix comparisons with clickable cells and sliding detail panels
 - **2025-11-17**: Initial release with 9 MicroSim generators
   - Added: microsim-p5, chartjs-generator, math-function-plotter-plotly
@@ -652,6 +654,32 @@ When scoring, consider:
 **Scoring Guidelines:**
 - **Score 90-100 if**: Students must execute real Python (full stdlib) on a page, Docker-based (not Skulpt)
 - **Score 0-29 if**: Visualization requests with no code execution
+
+---
+
+### 15. verified-infographic-generator
+
+**Guide Location**: `skills/microsim-generator/references/verified-infographic-guide.md`
+
+**Primary Use Cases:** Static posters whose factual content must survive scrutiny — every number,
+percentage, and citation verified against a real source before any pixel is rendered. Also the source
+of truth for the claim-verification phases (1–4) that any *other* generator can run first when its sim
+must present real-world data rather than illustrative values.
+
+**Output is NOT a sim.** It writes `docs/posters/<slug>/` (poster PNG, sources.md, and a numbered audit
+trail), not `docs/sims/`. Routing here means exiting the standard scaffold → `.js` → iframe pipeline.
+
+**Trigger Words/Phrases:** "verified infographic", "statistics poster", "fact-checked", "cited data",
+"sourced claims", "evidence-based comparison", "with real numbers", "cite the sources"
+
+**Scoring Guidelines:**
+- **Score 90-100 if**: A static poster/infographic carries numeric claims that must be traceable to sources
+- **Score 70-89 if**: An interactive sim must present real-world data with citations — run Phases 1–4 here
+  for the claim set, then route the *rendering* to the matched sim generator (comparison-table, chartjs,
+  timeline, html-table)
+- **Score 30-49 if**: The user supplied pre-verified data and only needs a layout rendered
+- **Score 0-29 if**: Decorative imagery, illustrative/hypothetical numbers, or any interactive sim whose
+  values are pedagogical rather than empirical
 
 ---
 

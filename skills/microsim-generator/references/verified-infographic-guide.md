@@ -1,7 +1,19 @@
 
 # Verified Infographic Poster Guide
 
-> Formerly the standalone skill `verified-infographic-generator`.
+> A route of the `microsim-generator` skill. Formerly the standalone skill
+> `verified-infographic-generator`, then briefly a `book-media-generator` route.
+>
+> **This route does not produce a MicroSim.** It writes a static poster PNG plus its audit
+> trail to `docs/posters/<slug>/`. Skip the microsim-generator SKILL.md pipeline (scaffold,
+> `.js`, `CANVAS_HEIGHT`, iframe insertion, quality validator) entirely and follow the 8
+> phases below instead.
+>
+> **Phases 1–4 are reusable on their own.** When an actual MicroSim must carry sourced facts —
+> a comparison table of real products, a chart of published measurements, a timeline of dated
+> events — run Phases 1–4 to produce a verified, cited claim set, then hand it to the matched
+> sim guide and carry each `source_id` into that sim's data file. Phases 5–8 are poster
+> rendering and do not apply.
 
 **Version:** 1.0
 
@@ -192,7 +204,7 @@ Poster galleries (e.g. `docs/posters/index.md`) typically render every poster as
 **After adding one or more posters to a gallery** (or whenever a user reports the gallery page loading slowly), run:
 
 ```bash
-python3 ~/.claude/skills/book-media-generator/scripts/posters/generate-poster-thumbnails.py --posters-dir docs/posters
+python3 ~/.claude/skills/microsim-generator/scripts/posters/generate-poster-thumbnails.py --posters-dir docs/posters
 ```
 
 This generates a `<slug>-thumb.jpg` (900px wide JPEG, quality 82) next to each poster's full-size PNG and rewrites the gallery `index.md` so grid cards reference the thumbnail. It does **not** touch the poster's own detail page — the interactive callout/grid overlay (`main.html`) keeps loading the full-size PNG, since hover/zoom accuracy there benefits from full resolution. Only the gallery-grid reference is swapped.
@@ -240,10 +252,10 @@ See `references/infographic-biophilic-case-study.md` for a worked example showin
 
 All templates and examples live in the `references/` subdirectory:
 
-- `claim-plan-template.yaml` — Phase 1 output
-- `verification-report-template.md` — Phase 3 output
-- `layout-spec-template.yaml` — Phase 5 output
-- `image-prompt-template.md` — Phase 6 output
-- `biophilic-design-case-study.md` — worked example
+- `infographic-claim-plan-template.yaml` — Phase 1 output
+- `infographic-verification-report-template.md` — Phase 3 output
+- `infographic-layout-spec-template.yaml` — Phase 5 output
+- `poster-image-prompt.md` — Phase 6 output
+- `infographic-biophilic-case-study.md` — worked example
 
 `scripts/posters/generate-poster-thumbnails.py` — gallery thumbnail generation (see "Gallery Thumbnails" above)

@@ -99,7 +99,7 @@ gates** must pass before continuing.
 | 4.1 | `microsim-generator` | Interactive sims (p5.js, Chart.js, Plotly, vis-network, Mermaid, timeline, map, Venn, …) — routes by type |
 | 4.2 | `microsim-generator` → infographic-overlay | Labeled diagrams: callout markers or grid zones over a scientific illustration |
 | 4.3 | `microsim-generator` → causal-loop | Full systems-thinking **article** with multiple linked feedback loops |
-| 4.4 | `book-media-generator` → verified-infographic | Fact-checked statistics poster (claims verified against sources first) |
+| 4.4 | `microsim-generator` → verified-infographic | Fact-checked statistics poster (claims verified against sources first) |
 | 4.5 | `microsim-generator` → concept-classifier | Scenario-classification quiz MicroSim |
 | 4.6 | `microsim-utils` | **QA each new sim**: `layout-reviewer` (Claude Vision) then `iframe-tester` (Playwright); also screenshots + index page |
 

@@ -24,9 +24,9 @@ Codex-skills/
 │   │
 │   │ # Meta-Skills (routers with references/ guides)
 │   ├── book-installer/              # Infrastructure: init-textbook scaffold (feature 0), 40 features incl. Google Analytics, book-metrics
-│   ├── microsim-generator/          # MicroSims: p5, chartjs, timeline, map, vis-network, mermaid, causal-loop, concept-classifier, infographic-overlay, docker-python-lab, …
+│   ├── microsim-generator/          # MicroSims: p5, chartjs, timeline, map, vis-network, mermaid, causal-loop, concept-classifier, infographic-overlay, docker-python-lab, verified-infographic posters, …
 │   ├── microsim-utils/              # MicroSim QA: standardization, screen-capture, index-generator, iframe tools, layout-reviewer, diagram-reports
-│   ├── book-media-generator/        # Media: MARP web decks, .pptx lectures, stories, verified infographics, chapter images, TTS + pronounce buttons
+│   ├── book-media-generator/        # Media: MARP web decks, .pptx lectures, stories, chapter images, TTS + pronounce buttons
 │   ├── book-publisher/              # Promotion: README, LinkedIn post, LinkedIn carousel, press release (all read book-metrics.json)
 │   │
 │   │ # Content-Pipeline Skills (kept separate — complex workflows)
@@ -73,9 +73,9 @@ Codex has a **maximum limit of 30 skills** that can be loaded at once. To work a
 | Meta-Skill | Sub-Skills (in `references/` folder) | Purpose |
 |------------|--------------------------------------|---------|
 | `book-installer` | init-textbook (feature 0), mkdocs-features, learning-graph-viewer, skill-tracker, google-analytics, book-metrics, and many more (see its routing table) | Project scaffold, infrastructure, and book reporting |
-| `microsim-generator` | p5, chartjs, timeline, map, vis-network, mermaid, plotly, venn, bubble, causal-loop, comparison-table, celebration, concept-classifier, infographic-overlay, docker-python-lab | Creates MicroSims with various JS libraries |
+| `microsim-generator` | p5, chartjs, timeline, map, vis-network, mermaid, plotly, venn, bubble, causal-loop, comparison-table, celebration, concept-classifier, infographic-overlay, docker-python-lab, verified-infographic | Creates MicroSims with various JS libraries, plus fact-verified posters |
 | `microsim-utils` | standardization, screen-capture, add-icons, index-generator, iframe-auto-height, iframe-tester, layout-reviewer, diagram-reports | MicroSim maintenance, QA, and reports |
-| `book-media-generator` | marp-deck, pptx-lecture, story, verified-infographic, chapter-images, text-to-speech, pronounce-button | Slides, illustrations, sourced images, and audio |
+| `book-media-generator` | marp-deck, pptx-lecture, story, chapter-images, text-to-speech, pronounce-button | Slides, illustrations, sourced images, and audio |
 | `book-publisher` | readme, linkedin-post, linkedin-carousel, press-release | Publishing and promotion (all routes read `docs/learning-graph/book-metrics.json`) |
 
 **How meta-skills work:**

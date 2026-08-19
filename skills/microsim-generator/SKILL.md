@@ -1,6 +1,6 @@
 ---
 name: microsim-generator
-description: Creates interactive educational MicroSims, routing to the best-matched generator - p5.js, Chart.js, Plotly, Mermaid, vis-network, timelines, maps, Venn, causal-loop/feedback-loop diagrams (CLD), concept-classifier sorting quizzes, infographic overlays with callout labels, and Docker Python labs (runnable code blocks). Generates complete MicroSim packages with HTML, JavaScript, CSS, documentation, and metadata.
+description: Creates interactive educational MicroSims, routing to the best-matched generator - p5.js, Chart.js, Plotly, Mermaid, vis-network, timelines, maps, Venn, causal-loop/feedback-loop diagrams (CLD), concept-classifier sorting quizzes, infographic overlays with callout labels, Docker Python labs (runnable code blocks), and fact-verified statistics posters (every numeric claim checked against a cited source before rendering). Generates complete MicroSim packages with HTML, JavaScript, CSS, documentation, and metadata.
 model: opus
 ---
 
@@ -34,6 +34,7 @@ Use this skill when users request:
 - Custom simulations or animations
 - Comparison tables with ratings
 - Matrix comparisons with expandable cell details
+- Fact-verified infographic posters where every statistic is traced to a cited source
 - Batch generation of MicroSims for a chapter
 
 ---
@@ -275,11 +276,15 @@ Scan the spec for trigger keywords and match to the appropriate generator guide.
 | classify, classifier, categorize, sort scenarios, identify types, recognize patterns | `references/concept-classifier-guide.md` | p5.js |
 | diagram overlay, callout labels, anatomy, labeled illustration, infographic overlay, explore/quiz modes | `references/infographic-overlay-guide.md` | Custom (diagram.js) |
 | python lab, code runner, runnable code block, interactive python exercise, docker | `references/docker-python-lab-guide.md` | Custom (docker-lab.js) |
+| verified infographic, statistics poster, fact-checked poster, cited data, sourced claims, evidence-based comparison | `references/verified-infographic-guide.md` | Custom (text-verify → image) |
 | custom, simulation, physics, interactive, bouncing, movement, p5.js | `references/p5-guide.md` | p5.js |
 
 #### Decision Tree
 
 ```
+Static poster whose numeric claims must be verified against sources?
+  → YES: verified-infographic-guide.md  (EXIT ROUTE — see below, this is not a sim)
+
 Has dates/timeline/chronological events?
   → YES: timeline-guide.md
 
@@ -325,6 +330,27 @@ Runnable Python code block executed in Docker?
 Custom simulation/animation/physics?
   → YES: p5-guide.md
 ```
+
+#### Exit Route: Fact-Verified Poster (not a MicroSim)
+
+`references/verified-infographic-guide.md` is the one route in this skill that does **not** produce a
+sim directory. It produces a static poster PNG in `docs/posters/<slug>/` alongside its verification
+report and source sidecar. When a request matches it:
+
+- **Skip Steps 0–9 of this file entirely.** No scaffold, no `.js`, no `CANVAS_HEIGHT`, no iframe
+  insertion, no quality validator, no `docs/sims/` entry.
+- Read the guide and follow **its** 8-phase workflow instead. Phases 1–6 are text-only work by the
+  agent; Phase 7 is the single image-model call; Phase 8 audits the render.
+- The hard rule that makes this route worth having: **no claim reaches the image until it has a
+  verified source.** An unverified claim blocks the pipeline, gets downgraded to qualitative
+  language, or is dropped — it is never rendered on a guess.
+
+**Reusing the verification phases for a real MicroSim.** Phases 1–4 (claim plan → source discovery →
+per-claim verification → verification report) are output-format agnostic. When a *sim* must carry
+sourced facts — a comparison table of real products, a chart of published measurements, a timeline of
+dated events — run Phases 1–4 first, then hand the locked claim set to the matched sim guide and carry
+each `source_id` into the sim's data file so the citation is visible to the student. Skip Phases 5–8;
+those are poster-rendering steps.
 
 ### 4.2 Load the Matched Guide
 
@@ -820,6 +846,7 @@ python3 $UTILS/extract-sim-specs.py \
 | concept-classifier-guide | p5.js | Classification quizzes — sort scenarios into categories |
 | infographic-overlay-guide | Custom (diagram.js) | Interactive callout/zone overlays on illustrations |
 | docker-python-lab-guide | Custom (docker-lab.js) | Runnable Python labs in Docker containers |
+| verified-infographic-guide | Custom (text-verify → image) | Fact-verified statistics posters — claim plan, source verification, locked image prompt (**static poster, not a sim**) |
 
 ### Shared Standards
 
@@ -912,6 +939,17 @@ This enables counting and discovery of MicroSims across GitHub using code search
 **Routing:** Keywords "runnable", "Python lab" → `references/docker-python-lab-guide.md`
 **Action:** Read docker-python-lab-guide.md and follow its workflow
 
+### Example 10: Fact-Verified Poster
+**User:** "Make a poster comparing the energy use of LED vs. incandescent lighting with real numbers"
+**Routing:** "poster" + numeric claims needing sources → `references/verified-infographic-guide.md`
+**Action:** Exit route — skip Steps 0–9; run the guide's 8 phases; verify every number before the one image call
+
+### Example 11: Sourced Comparison Sim
+**User:** "Build a comparison table of these five breadboard power supplies using verified specs"
+**Routing:** "comparison table" → `references/comparison-table-guide.md`, but the specs must be sourced
+**Action:** Run Phases 1–4 of verified-infographic-guide.md to lock and cite the claims, then build the
+sim with comparison-table-guide.md, carrying each `source_id` into the table so citations stay visible
+
 ## Reference Files
 
 For detailed information, consult:
@@ -919,6 +957,10 @@ For detailed information, consult:
 - `references/routing-criteria.md` - Complete scoring methodology for all generators
 - `references/<generator>-guide.md` - Specific implementation guide for each generator
 - `assets/templates/` - Shared templates and patterns
+- `references/infographic-claim-plan-template.yaml`, `references/infographic-verification-report-template.md`,
+  `references/infographic-layout-spec-template.yaml`, `references/poster-image-prompt.md`,
+  `references/infographic-biophilic-case-study.md` - verified-infographic route
+- `scripts/posters/generate-poster-thumbnails.py` - poster gallery thumbnails (see verified-infographic-guide.md, "Gallery Thumbnails")
 
 ## sim-status.json Lifecycle
 

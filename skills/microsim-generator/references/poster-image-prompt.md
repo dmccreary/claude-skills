@@ -1,8 +1,8 @@
 # Image Prompt Template — Phase 6 Output
 
 > Sibling template: for **interactive diagram overlays** (annotation-free scientific
-> illustrations that get callout markers from diagram.js), use the microsim-generator
-> skill's `$HOME/.claude/skills/microsim-generator/references/overlay-image-prompt.md` instead. Both share the core rule:
+> illustrations that get callout markers from diagram.js), use `overlay-image-prompt.md` in
+> this same directory instead. Both share the core rule:
 > **no text, labels, arrows, or annotation marks baked into the generated image.**
 
 This is the **locked** prompt sent to the text-to-image model. Every text
