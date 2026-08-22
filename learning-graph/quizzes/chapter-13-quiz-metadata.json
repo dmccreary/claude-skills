@@ -95,7 +95,7 @@
     {
       "id": "ch13-q008",
       "number": 8,
-      "question_text": "Your shell script install-claude-skills.sh gives a 'Permission denied' error when you try to run it with ./install-claude-skills.sh. What is the most likely cause and solution?",
+      "question_text": "Your shell script install-ibook-skills.sh gives a 'Permission denied' error when you try to run it with ./install-ibook-skills.sh. What is the most likely cause and solution?",
       "correct_answer": "B",
       "bloom_level": "Analyze",
       "difficulty": "medium",

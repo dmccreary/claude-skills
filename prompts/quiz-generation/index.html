@@ -3,13 +3,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+        <meta name="description" content="Portable AI agent skills for building intelligent textbooks — tested on Claude, OpenAI Codex, Google Antigravity, Gemini and Cursor.">
       
       
         <meta name="author" content="Dan McCreary">
       
       
-        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/prompts/quiz-generation/">
+        <link rel="canonical" href="https://dmccreary.github.io/ibook-skills/prompts/quiz-generation/">
       
       
         <link rel="prev" href="../generate-content-for-chapters-1-5/">
@@ -23,7 +23,7 @@
     
     
       
-        <title>Run of the Quiz Generation Skill - Claude Skills for Intelligent Textbooks</title>
+        <title>Run of the Quiz Generation Skill - Agent Skills for Intelligent Textbooks</title>
       
     
     
@@ -51,6 +51,8 @@
     
       <link rel="stylesheet" href="../../css/extra.css">
     
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -70,11 +72,11 @@
       
         <meta property="og:type" content="website">
       
-        <meta property="og:title" content="Run of the Quiz Generation Skill - Claude Skills for Intelligent Textbooks">
+        <meta property="og:title" content="Run of the Quiz Generation Skill - Agent Skills for Intelligent Textbooks">
       
-        <meta property="og:description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+        <meta property="og:description" content="Portable AI agent skills for building intelligent textbooks — tested on Claude, OpenAI Codex, Google Antigravity, Gemini and Cursor.">
       
-        <meta property="og:image" content="https://dmccreary.github.io/claude-skills/assets/images/social/prompts/quiz-generation.png">
+        <meta property="og:image" content="https://dmccreary.github.io/ibook-skills/assets/images/social/prompts/quiz-generation.png">
       
         <meta property="og:image:type" content="image/png">
       
@@ -82,15 +84,15 @@
       
         <meta property="og:image:height" content="630">
       
-        <meta property="og:url" content="https://dmccreary.github.io/claude-skills/prompts/quiz-generation/">
+        <meta property="og:url" content="https://dmccreary.github.io/ibook-skills/prompts/quiz-generation/">
       
         <meta name="twitter:card" content="summary_large_image">
       
-        <meta name="twitter:title" content="Run of the Quiz Generation Skill - Claude Skills for Intelligent Textbooks">
+        <meta name="twitter:title" content="Run of the Quiz Generation Skill - Agent Skills for Intelligent Textbooks">
       
-        <meta name="twitter:description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+        <meta name="twitter:description" content="Portable AI agent skills for building intelligent textbooks — tested on Claude, OpenAI Codex, Google Antigravity, Gemini and Cursor.">
       
-        <meta name="twitter:image" content="https://dmccreary.github.io/claude-skills/assets/images/social/prompts/quiz-generation.png">
+        <meta name="twitter:image" content="https://dmccreary.github.io/ibook-skills/assets/images/social/prompts/quiz-generation.png">
       
     
     
@@ -137,7 +139,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+    <a href="../.." title="Agent Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Agent Skills for Intelligent Textbooks" data-md-component="logo">
       
   <img src="../../img/logo.png" alt="logo">
 
@@ -150,7 +152,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Claude Skills for Intelligent Textbooks
+            Agent Skills for Intelligent Textbooks
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -207,7 +209,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/dmccreary/ibook-skills" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
@@ -243,16 +245,16 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+    <a href="../.." title="Agent Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Agent Skills for Intelligent Textbooks" data-md-component="logo">
       
   <img src="../../img/logo.png" alt="logo">
 
     </a>
-    Claude Skills for Intelligent Textbooks
+    Agent Skills for Intelligent Textbooks
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/dmccreary/ibook-skills" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
@@ -952,6 +954,8 @@
       
         
           
+        
+      
         
       
         
@@ -2198,7 +2202,7 @@
                   
 
   
-    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/prompts/quiz-generation.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/dmccreary/ibook-skills/blob/main/docs/prompts/quiz-generation.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -2231,23 +2235,23 @@ Sonnet 4.5 · Claude Pro</p>
   of these chapters.</p>
 <p>⏺ Read(docs/learning-graph/learning-graph.json)
   ⎿ &nbsp;Read 100 lines</p>
-<p>⏺ Bash(wc -w $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/01-intro-ai-intelligent-textbooks/index.md
-      $HOMEmccreary/Documents/ws/claude-skills/docs/…)
-  ⎿ &nbsp;    3888 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/01-intro-ai-intelligent-textbooks/index.md<br>
-         5251 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/02-getting-started-claude-skills/index.md
-         4772 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/03-course-design-educational-theory/index.md
+<p>⏺ Bash(wc -w $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/01-intro-ai-intelligent-textbooks/index.md
+      $HOMEmccreary/Documents/ws/ibook-skills/docs/…)
+  ⎿ &nbsp;    3888 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/01-intro-ai-intelligent-textbooks/index.md<br>
+         5251 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/02-getting-started-ibook-skills/index.md
+         4772 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/03-course-design-educational-theory/index.md
      … +3 lines (ctrl+o to expand)</p>
-<p>⏺ Bash(wc -w $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/06-learning-graph-quality-validation/index.md
-      $HOMEmccreary/Documents/ws/claude-skills/do…)
-  ⎿ &nbsp;    4325 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/06-learning-graph-quality-validation/index.md
-         4985 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/07-taxonomy-data-formats/index.md
-         5069 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/08-mkdocs-platform-documentation/index.md
+<p>⏺ Bash(wc -w $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/06-learning-graph-quality-validation/index.md
+      $HOMEmccreary/Documents/ws/ibook-skills/do…)
+  ⎿ &nbsp;    4325 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/06-learning-graph-quality-validation/index.md
+         4985 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/07-taxonomy-data-formats/index.md
+         5069 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/08-mkdocs-platform-documentation/index.md
      … +3 lines (ctrl+o to expand)</p>
-<p>⏺ Bash(wc -w $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md
-      $HOMEmccreary/Documents/ws/claude-skills/doc…)
-  ⎿ &nbsp;    9725 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md  <br>
-         7113 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/12-interactive-elements-microsims/index.md
-         7667 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/13-dev-tools-version-control-deployment/index.md
+<p>⏺ Bash(wc -w $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/11-educational-resources-assessment/index.md
+      $HOMEmccreary/Documents/ws/ibook-skills/doc…)
+  ⎿ &nbsp;    9725 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/11-educational-resources-assessment/index.md  <br>
+         7113 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/12-interactive-elements-microsims/index.md
+         7667 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/13-dev-tools-version-control-deployment/index.md
         24505 total</p>
 <p>⏺ Read(docs/chapters/01-intro-ai-intelligent-textbooks/index.md)
   ⎿ &nbsp;Read 150 lines</p>
@@ -2255,7 +2259,7 @@ Sonnet 4.5 · Claude Pro</p>
   ⎿ &nbsp;Found 0 files </p>
 <p>⏺ Search(pattern: "docs/learning-graph/quizzes/*.json")
   ⎿ &nbsp;Found 0 files </p>
-<p>⏺ Bash(test -d $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes &amp;&amp; echo "Directory exists" || echo "Directory
+<p>⏺ Bash(test -d $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph/quizzes &amp;&amp; echo "Directory exists" || echo "Directory
        does not exist")
   ⎿ &nbsp;Directory does not exist</p>
 <p>⏺ Perfect! I've assessed your textbook's readiness for quiz generation. Here's what I found:</p>
@@ -2347,7 +2351,7 @@ Sonnet 4.5 · Claude Pro</p>
   ⎿ &nbsp;· Which chapters would you like me to generate quizzes for? → All chapters (1-13)</p>
 <p>⏺ Excellent! I'll generate quizzes for all 13 chapters. Let me set up the directory structure and begin the quiz generation
   process.</p>
-<p>⏺ Bash(mkdir -p $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes)
+<p>⏺ Bash(mkdir -p $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph/quizzes)
   ⎿ &nbsp;(No content)</p>
 <p>⏺ Read(docs/chapters/01-intro-ai-intelligent-textbooks/index.md)
   ⎿ &nbsp;Read 519 lines</p>
@@ -2381,17 +2385,17 @@ Sonnet 4.5 · Claude Pro</p>
        "questions": [
      … +160 lines (ctrl+o to expand)</p>
 <p>⏺ Great! Chapter 1 quiz completed. Now continuing with Chapter 2.</p>
-<p>⏺ Read(docs/chapters/02-getting-started-claude-skills/index.md)
+<p>⏺ Read(docs/chapters/02-getting-started-ibook-skills/index.md)
   ⎿ &nbsp;Read 200 lines</p>
 <p>⏺ Let me continue reading Chapter 2 to fully understand the concepts before generating the quiz.</p>
-<p>⏺ Bash(tail -n +201 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/02-getting-started-claude-skills/index.md | head -n
+<p>⏺ Bash(tail -n +201 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/02-getting-started-ibook-skills/index.md | head -n
       200)
   ⎿ The <code>allowed-tools</code> frontmatter field provides fine-grained permission control, limiting skills to specific Claude Code tools
     . This security and safety mechanism prevents skills from performing unintended operations.
     … +212 lines (ctrl+o to expand)</p>
 <p>⏺ Now I'll generate the quiz for Chapter 2. This chapter covers more technical concepts about Claude Skills.</p>
-<p>⏺ Write(docs/chapters/02-getting-started-claude-skills/quiz.md)
-  ⎿ &nbsp;Wrote 196 lines to docs/chapters/02-getting-started-claude-skills/quiz.md                                         <br>
+<p>⏺ Write(docs/chapters/02-getting-started-ibook-skills/quiz.md)
+  ⎿ &nbsp;Wrote 196 lines to docs/chapters/02-getting-started-ibook-skills/quiz.md                                         <br>
      # Quiz: Getting Started with Claude and Skills
      Test your understanding of Claude Skills, skill definition files, installation, and invocation with these questions.
      ---
@@ -2404,8 +2408,8 @@ Sonnet 4.5 · Claude Pro</p>
      {
        "chapter": "Getting Started with Claude and Skills",
        "chapter_number": 2,
-       "chapter_file": "docs/chapters/02-getting-started-claude-skills/index.md",
-       "quiz_file": "docs/chapters/02-getting-started-claude-skills/quiz.md",
+       "chapter_file": "docs/chapters/02-getting-started-ibook-skills/index.md",
+       "quiz_file": "docs/chapters/02-getting-started-ibook-skills/quiz.md",
        "generated_date": "2025-11-08",
        "total_questions": 10,
        "content_readiness_score": 98,
@@ -2448,12 +2452,12 @@ Sonnet 4.5 · Claude Pro</p>
        "overall_quality_score": 89,
        "questions": [
      … +161 lines (ctrl+o to expand)</p>
-<p>⏺ Bash(ls $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-*-quiz-metadata.json | sort)
-  ⎿ &nbsp;$HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-01-quiz-metadata.json
-     $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-02-quiz-metadata.json
-     $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-03-quiz-metadata.json
+<p>⏺ Bash(ls $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph/quizzes/chapter-*-quiz-metadata.json | sort)
+  ⎿ &nbsp;$HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph/quizzes/chapter-01-quiz-metadata.json
+     $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph/quizzes/chapter-02-quiz-metadata.json
+     $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph/quizzes/chapter-03-quiz-metadata.json
      … +10 lines (ctrl+o to expand)</p>
-<p>⏺ Bash(cat $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-*-quiz-metadata.json | python3 -c "
+<p>⏺ Bash(cat $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph/quizzes/chapter-*-quiz-metadata.json | python3 -c "
       import json…)
   ⎿ &nbsp;Error: Exit code 1
      Traceback (most recent call last):
@@ -2474,7 +2478,7 @@ Sonnet 4.5 · Claude Pro</p>
 <p>⏺ Bash(python3 &lt;&lt; 'PYEOF'
       import json…)
   ⎿ &nbsp;Quiz bank created with 130 questions from 13 chapters                                   <br>
-     Saved to: $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quiz-bank.json</p>
+     Saved to: $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph/quiz-bank.json</p>
 <p>⏺ Write(docs/learning-graph/quiz-generation-report.md)
   ⎿ &nbsp;Wrote 249 lines to docs/learning-graph/quiz-generation-report.md
      # Quiz Generation Quality Report
@@ -2492,7 +2496,7 @@ Sonnet 4.5 · Claude Pro</p>
        16        - Overview: chapters/index.md
        17 -      - Chapter 1 - Introduction to AI and Intelligent Textbooks:
           -   chapters/01-intro-ai-intelligent-textbooks/index.md
-       18 -      - Chapter 2 - Getting Started with Claude and Skills: chapters/02-getting-started-claude-skills/index.md
+       18 -      - Chapter 2 - Getting Started with Claude and Skills: chapters/02-getting-started-ibook-skills/index.md
        19 -      - Chapter 3 - Course Design and Educational Theory: chapters/03-course-design-educational-theory/index.md
        20 -      - Chapter 4 - Introduction to Learning Graphs: chapters/04-intro-learning-graphs/index.md
        21 -      - Chapter 5 - Concept Enumeration and Dependencies: chapters/05-concept-enumeration-dependencies/index.md
@@ -2500,7 +2504,7 @@ Sonnet 4.5 · Claude Pro</p>
        23 -      - Chapter 7 - Taxonomy and Data Formats: chapters/07-taxonomy-data-formats/index.md
        24 -      - Chapter 8 - MkDocs Platform and Documentation: chapters/08-mkdocs-platform-documentation/index.md
        25 -      - Chapter 9 - Claude Skills Architecture and Development: 
-          - chapters/09-claude-skills-architecture-development/index.md
+          - chapters/09-ibook-skills-architecture-development/index.md
        26 -      - Chapter 10 - Content Creation Workflows: chapters/10-content-creation-workflows/index.md
        27 -      - Chapter 11 - Educational Resources and Assessment: chapters/11-educational-resources-assessment/index.md
        28 -      - Chapter 12 - Interactive Elements and MicroSims: chapters/12-interactive-elements-microsims/index.md
@@ -2510,8 +2514,8 @@ Sonnet 4.5 · Claude Pro</p>
        18 +        - Content: chapters/01-intro-ai-intelligent-textbooks/index.md
        19 +        - Quiz: chapters/01-intro-ai-intelligent-textbooks/quiz.md
        20 +      - Chapter 2 - Getting Started with Claude and Skills:
-       21 +        - Content: chapters/02-getting-started-claude-skills/index.md
-       22 +        - Quiz: chapters/02-getting-started-claude-skills/quiz.md
+       21 +        - Content: chapters/02-getting-started-ibook-skills/index.md
+       22 +        - Quiz: chapters/02-getting-started-ibook-skills/quiz.md
        23 +      - Chapter 3 - Course Design and Educational Theory:
        24 +        - Content: chapters/03-course-design-educational-theory/index.md
        25 +        - Quiz: chapters/03-course-design-educational-theory/quiz.md
@@ -2531,8 +2535,8 @@ Sonnet 4.5 · Claude Pro</p>
        39 +        - Content: chapters/08-mkdocs-platform-documentation/index.md
        40 +        - Quiz: chapters/08-mkdocs-platform-documentation/quiz.md
        41 +      - Chapter 9 - Claude Skills Architecture and Development:
-       42 +        - Content: chapters/09-claude-skills-architecture-development/index.md
-       43 +        - Quiz: chapters/09-claude-skills-architecture-development/quiz.md
+       42 +        - Content: chapters/09-ibook-skills-architecture-development/index.md
+       43 +        - Quiz: chapters/09-ibook-skills-architecture-development/quiz.md
        44 +      - Chapter 10 - Content Creation Workflows:
        45 +        - Content: chapters/10-content-creation-workflows/index.md
        46 +        - Quiz: chapters/10-content-creation-workflows/quiz.md
@@ -2557,8 +2561,8 @@ Sonnet 4.5 · Claude Pro</p>
        82        - Progress Report: learning-graph/progress.md
        83        - Usage Limits: claude-usage-limits.md
        84    </p>
-<p>⏺ Bash(ls -lh $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/*/quiz.md | wc -l &amp;&amp; ls -lh
-      $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph…)
+<p>⏺ Bash(ls -lh $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/*/quiz.md | wc -l &amp;&amp; ls -lh
+      $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph…)
   ⎿ &nbsp;13
      13</p>
 <p>⏺ Perfect! I've successfully completed the quiz generation for all 13 chapters of your intelligent textbook. Here's a

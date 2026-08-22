@@ -19,7 +19,7 @@ function draw() {
   fill('#0f172a'); textSize(22); text('VS Code Interface Layout for Textbook Development', 16, 32);
 
   fill('#1f2937'); rect(16, 52, 968, 28, 8);
-  fill('#e5e7eb'); textSize(12); text('claude-skills - Visual Studio Code', 28, 70);
+  fill('#e5e7eb'); textSize(12); text('ibook-skills - Visual Studio Code', 28, 70);
 
   panes.forEach((p) => {
     const hover = mouseX > p[1] && mouseX < p[1] + p[2] && mouseY > p[3] && mouseY < p[3] + p[4];

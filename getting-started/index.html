@@ -3,13 +3,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+        <meta name="description" content="Portable AI agent skills for building intelligent textbooks — tested on Claude, OpenAI Codex, Google Antigravity, Gemini and Cursor.">
       
       
         <meta name="author" content="Dan McCreary">
       
       
-        <link rel="canonical" href="https://dmccreary.github.io/claude-skills/getting-started/">
+        <link rel="canonical" href="https://dmccreary.github.io/ibook-skills/getting-started/">
       
       
         <link rel="prev" href="../course-description/">
@@ -23,7 +23,7 @@
     
     
       
-        <title>Getting Started - Claude Skills for Intelligent Textbooks</title>
+        <title>Getting Started - Agent Skills for Intelligent Textbooks</title>
       
     
     
@@ -51,6 +51,8 @@
     
       <link rel="stylesheet" href="../css/extra.css">
     
+      <link rel="stylesheet" href="../css/mascot.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -70,11 +72,11 @@
       
         <meta property="og:type" content="website">
       
-        <meta property="og:title" content="Getting Started - Claude Skills for Intelligent Textbooks">
+        <meta property="og:title" content="Getting Started - Agent Skills for Intelligent Textbooks">
       
-        <meta property="og:description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+        <meta property="og:description" content="Portable AI agent skills for building intelligent textbooks — tested on Claude, OpenAI Codex, Google Antigravity, Gemini and Cursor.">
       
-        <meta property="og:image" content="https://dmccreary.github.io/claude-skills/assets/images/social/getting-started.png">
+        <meta property="og:image" content="https://dmccreary.github.io/ibook-skills/assets/images/social/getting-started.png">
       
         <meta property="og:image:type" content="image/png">
       
@@ -82,15 +84,15 @@
       
         <meta property="og:image:height" content="630">
       
-        <meta property="og:url" content="https://dmccreary.github.io/claude-skills/getting-started/">
+        <meta property="og:url" content="https://dmccreary.github.io/ibook-skills/getting-started/">
       
         <meta name="twitter:card" content="summary_large_image">
       
-        <meta name="twitter:title" content="Getting Started - Claude Skills for Intelligent Textbooks">
+        <meta name="twitter:title" content="Getting Started - Agent Skills for Intelligent Textbooks">
       
-        <meta name="twitter:description" content="A collection of skills and techniques for building intelligent textbooks using Claude AI.">
+        <meta name="twitter:description" content="Portable AI agent skills for building intelligent textbooks — tested on Claude, OpenAI Codex, Google Antigravity, Gemini and Cursor.">
       
-        <meta name="twitter:image" content="https://dmccreary.github.io/claude-skills/assets/images/social/getting-started.png">
+        <meta name="twitter:image" content="https://dmccreary.github.io/ibook-skills/assets/images/social/getting-started.png">
       
     
     
@@ -137,7 +139,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Claude Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+    <a href=".." title="Agent Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Agent Skills for Intelligent Textbooks" data-md-component="logo">
       
   <img src="../img/logo.png" alt="logo">
 
@@ -150,7 +152,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Claude Skills for Intelligent Textbooks
+            Agent Skills for Intelligent Textbooks
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -207,7 +209,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/dmccreary/ibook-skills" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
@@ -243,16 +245,16 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Claude Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Claude Skills for Intelligent Textbooks" data-md-component="logo">
+    <a href=".." title="Agent Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Agent Skills for Intelligent Textbooks" data-md-component="logo">
       
   <img src="../img/logo.png" alt="logo">
 
     </a>
-    Claude Skills for Intelligent Textbooks
+    Agent Skills for Intelligent Textbooks
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/dmccreary/claude-skills" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/dmccreary/ibook-skills" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
@@ -1329,6 +1331,8 @@
       
         
       
+        
+      
     
     
     
@@ -2048,7 +2052,7 @@
                   
 
   
-    <a href="https://github.com/dmccreary/claude-skills/blob/master/docs/getting-started.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/dmccreary/ibook-skills/blob/main/docs/getting-started.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -2074,25 +2078,25 @@ on how to install Claude Code on the MicroSoft Windows System for Linus (WSL).</
 <h2 id="quick-start-summary">Quick Start Summary</h2>
 <h4 id="diagram-install-book-building-environment">Diagram: Install Book Building Environment</h4>
 <!-- Such a wild bug.  A top level document like /docs/getting-started.md can't use a relative path like "./sims" ! -->
-<iframe src="/claude-skills/sims/install-book-env/main.html" width="100%" height="400px" scrolling="no"></iframe>
+<iframe src="/ibook-skills/sims/install-book-env/main.html" width="100%" height="400px" scrolling="no"></iframe>
 <p><a href="../sims/install-book-env/main.html">View the Install Book Building Environment Fullscreen</a></p>
 <p>Here's a quick overview of the five main steps of the installation process.
 These steps assume you are familiar with using the UNIX Terminal or shell.
 You can find details on teach step later in the document in the <a href="#detailed-installation-options-for-new-users">Detailed Installation Options for New Users</a>.
 The Quick Start steps if you are an experienced UNIX user and have git already installed on your computer.</p>
 <h3 id="step-1-clone-the-claude-skills-github-repo">Step 1: Clone the Claude Skills GitHub Repo</h3>
-<p>Download the claude-skills repository from GitHub to your local drive.</p>
+<p>Download the ibook-skills repository from GitHub to your local drive.</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>-m<span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/projects"</span>
 <span class="nb">cd</span><span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/projects"</span>
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dmccreary/claude-skills
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dmccreary/ibook-skills
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="step-2-set-the-bk_home-and-configure-path">Step 2: Set the BK_HOME and Configure PATH</h3>
 <p>Set environment variables in your shell startup file.
 Set <code>BK_HOME</code> and add <code>~/.local/bin</code> to your <code>PATH</code> if it is not already on your path</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">BK_HOME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/projects/claude-skills"</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">BK_HOME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/projects/ibook-skills"</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.local/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
 </code></pre></div></td></tr></tbody></table></div>
 <p>Restart you shell and type: <code>echo $BK_HOME</code> to verify the environment variable is set</p>
@@ -2104,7 +2108,7 @@ Run <code>bk-install-scripts</code> to install book-building commands</p>
 <p>Type <code>bk</code> and you should see a list of the book building commmands</p>
 <h3 id="step-4-install-claude-skills">Step 4: Install Claude Skills</h3>
 <p>To install skills globally, you just need to type the following command</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bk-install-claude-skills
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bk-install-ibook-skills
 </code></pre></div></td></tr></tbody></table></div>
 <p>This will install all the book builder scripts in your ~/.claude/skills directory</p>
 <h3 id="step-5-verify-installation">Step 5 Verify installation</h3>
@@ -2122,7 +2126,7 @@ what<span class="w"> </span>skills<span class="w"> </span><span class="k">do</sp
 <p class="admonition-title">Warning</p>
 <p>The installation process only installs <strong>symbolic links</strong> in your ~./local/bin and your ~/.claude/skills.
 This allows you to just do a <code>git pull</code> on the claudes-skill repo to get new updates to existing skills.
-You must not delete the claude-skills repo or the skills will stop working.
+You must not delete the ibook-skills repo or the skills will stop working.
 When new skills or scripts are added you MUST reinstall them to get the new symbolic links installed.
 When in doubt do a git pull and rerun the installers for both scripts and skills.</p>
 </div>
@@ -2175,17 +2179,17 @@ This is referred to as your <code>$HOME</code> directory.  Note that you should 
 Always use <code>$HOME</code> in the startup files.</p>
 <p>Before installing the skills, you must complete two important setup steps:</p>
 <h3 id="1-set-the-bk_home-environment-variable">1. Set the BK_HOME Environment Variable</h3>
-<p>The <code>BK_HOME</code> environment variable must point to the root directory of your cloned claude-skills repository. Add this to your shell startup file:</p>
+<p>The <code>BK_HOME</code> environment variable must point to the root directory of your cloned ibook-skills repository. Add this to your shell startup file:</p>
 <p><strong>For Bash</strong> (add to <code>~/.bashrc</code> or <code>~/.bash_profile</code>):
-</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BK_HOME</span><span class="o">=</span>~/projects/claude-skills
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BK_HOME</span><span class="o">=</span>~/projects/ibook-skills
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>For Zsh</strong> (add to <code>~/.zshrc</code>):
-</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BK_HOME</span><span class="o">=</span>~/projects/claude-skills
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BK_HOME</span><span class="o">=</span>~/projects/ibook-skills
 </code></pre></div></td></tr></tbody></table></div><p></p>
 <p><strong>For Fish</strong> (add to <code>~/.config/fish/config.fish</code>):
-</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">set</span> -gx BK_HOME /Users/YOUR_USERNAME/Documents/ws/claude-skills
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">set</span> -gx BK_HOME /Users/YOUR_USERNAME/Documents/ws/ibook-skills
 </code></pre></div></td></tr></tbody></table></div><p></p>
-<p>Replace <code>$HOME/projects/claude-skills</code> with the actual path where you cloned the repository.</p>
+<p>Replace <code>$HOME/projects/ibook-skills</code> with the actual path where you cloned the repository.</p>
 <h3 id="2-add-localbin-to-your-path">2. Add ~/.local/bin to Your PATH</h3>
 <p>The book-building scripts will be installed to <code>~/.local/bin</code>. Ensure this directory is in your PATH:</p>
 <p><strong>For Bash</strong> (add to <code>~/.bashrc</code> or <code>~/.bash_profile</code>):
@@ -2204,7 +2208,7 @@ Always use <code>$HOME</code> in the startup files.</p>
 <p>The best way to download the skills is to use the git clone command:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/projects<span class="w">  </span><span class="c1"># or your preferred workspace directory</span>
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dmccreary/claude-skills.git
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dmccreary/ibook-skills.git
 </code></pre></div></td></tr></tbody></table></div>
 <p>This assumes that <code>projects</code>  is the directory where you check out your GitHub repositories. 
 You can use any directory you prefer, just remember to update your <code>BK_HOME</code> environment variable accordingly.</p>
@@ -2235,7 +2239,7 @@ These are scripts prefixed with <code>bk-</code> that help you manage and build 
 <p>Run the installation script:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$BK_HOME</span>/scripts
-./install-claude-skills.sh
+./install-ibook-skills.sh
 </code></pre></div></td></tr></tbody></table></div>
 <p>You will see a log of all the skills that were correctly installed:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2245,14 +2249,14 @@ These are scripts prefixed with <code>bk-</code> that help you manage and build 
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>Created symlink: ~/.claude/skills/faq-generator -&gt; $HOME/Documents/ws/claude-skills/skills/faq-generator
-Created symlink: ~/.claude/skills/glossary-generator -&gt; $HOME/Documents/ws/claude-skills/skills/glossary-generator
-Created symlink: ~/.claude/skills/intelligent-textbook -&gt; $HOME/Documents/ws/claude-skills/skills/intelligent-textbook
-Created symlink: ~/.claude/skills/intelligent-textbook-creator -&gt; $HOME/Documents/ws/claude-skills/skills/intelligent-textbook-creator
-Created symlink: ~/.claude/skills/learning-graph-generator -&gt; $HOME/Documents/ws/claude-skills/skills/learning-graph-generator
-Created symlink: ~/.claude/skills/microsim-p5 -&gt; $HOME/Documents/ws/claude-skills/skills/microsim-p5
-Created symlink: ~/.claude/skills/moving-rainbow -&gt; $HOME/Documents/ws/claude-skills/skills/moving-rainbow
-Created symlink: ~/.claude/skills/quiz-generator -&gt; $HOME/Documents/ws/claude-skills/skills/quiz-generator
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>Created symlink: ~/.claude/skills/faq-generator -&gt; $HOME/Documents/ws/ibook-skills/skills/faq-generator
+Created symlink: ~/.claude/skills/glossary-generator -&gt; $HOME/Documents/ws/ibook-skills/skills/glossary-generator
+Created symlink: ~/.claude/skills/intelligent-textbook -&gt; $HOME/Documents/ws/ibook-skills/skills/intelligent-textbook
+Created symlink: ~/.claude/skills/intelligent-textbook-creator -&gt; $HOME/Documents/ws/ibook-skills/skills/intelligent-textbook-creator
+Created symlink: ~/.claude/skills/learning-graph-generator -&gt; $HOME/Documents/ws/ibook-skills/skills/learning-graph-generator
+Created symlink: ~/.claude/skills/microsim-p5 -&gt; $HOME/Documents/ws/ibook-skills/skills/microsim-p5
+Created symlink: ~/.claude/skills/moving-rainbow -&gt; $HOME/Documents/ws/ibook-skills/skills/moving-rainbow
+Created symlink: ~/.claude/skills/quiz-generator -&gt; $HOME/Documents/ws/ibook-skills/skills/quiz-generator
 </code></pre></div></td></tr></tbody></table></div>
 <h2 id="getting-updates">Getting Updates</h2>
 <p>These skills will be updated frequently. To install the latest release, just run git pull:</p>
@@ -2265,7 +2269,7 @@ git<span class="w"> </span>pull
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$BK_HOME</span>/scripts
 ./bk-install-scripts<span class="w">      </span><span class="c1"># For book-building utilities</span>
-./install-claude-skills.sh<span class="w"> </span><span class="c1"># For Claude skills</span>
+./install-ibook-skills.sh<span class="w"> </span><span class="c1"># For Claude skills</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h2 id="details-of-the-installation-script">Details of the Installation script</h2>
 <p>The script will create a set of symbolic link commands, one for each skill file in this repo.</p>
@@ -2429,7 +2433,7 @@ cp<span class="w"> </span><span class="nv">$BK_HOME</span>/commands/skills.md<sp
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$BK_HOME</span>
-<span class="c1"># Should output: /Users/YOUR_USERNAME/Documents/ws/claude-skills (or your path)</span>
+<span class="c1"># Should output: /Users/YOUR_USERNAME/Documents/ws/ibook-skills (or your path)</span>
 
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-o<span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.local/bin"</span>
 <span class="c1"># Should output: /Users/YOUR_USERNAME/.local/bin</span>
@@ -2501,7 +2505,7 @@ Type <code>/skills</code> in Claude Code and it should list all available skills
 <p>If skills don't appear when you try to use them:</p>
 <ol>
 <li>Check that symlinks were created: <code>ls -la ~/.claude/skills/</code></li>
-<li>Re-run the installation: <code>cd $BK_HOME/scripts &amp;&amp; ./install-claude-skills.sh</code></li>
+<li>Re-run the installation: <code>cd $BK_HOME/scripts &amp;&amp; ./install-ibook-skills.sh</code></li>
 <li>Restart Claude Code</li>
 <li>Try listing skills with <code>/skills</code> command or ask Claude: "What skills do you have access to?"</li>
 </ol>
@@ -2527,7 +2531,7 @@ Type <code>/skills</code> in Claude Code and it should list all available skills
 <li><strong>Create interactive simulations</strong> - Use the <code>microsim-p5</code> skill</li>
 <li><strong>Generate course content</strong> - Use the <code>glossary-generator</code>, <code>quiz-generator</code>, and <code>faq-generator</code> skills</li>
 </ol>
-<p>For detailed documentation on each skill, visit the <a href="https://dmccreary.github.io/claude-skills/">skills documentation</a> or use the <code>/skills</code> command in Claude Code.</p>
+<p>For detailed documentation on each skill, visit the <a href="https://dmccreary.github.io/ibook-skills/">skills documentation</a> or use the <code>/skills</code> command in Claude Code.</p>
 
 
 

@@ -1,8 +1,8 @@
 {
   "chapter": "Getting Started with Claude and Skills",
   "chapter_number": 2,
-  "chapter_file": "docs/chapters/02-getting-started-claude-skills/index.md",
-  "quiz_file": "docs/chapters/02-getting-started-claude-skills/quiz.md",
+  "chapter_file": "docs/chapters/02-getting-started-ibook-skills/index.md",
+  "quiz_file": "docs/chapters/02-getting-started-ibook-skills/quiz.md",
   "generated_date": "2025-11-08",
   "total_questions": 10,
   "content_readiness_score": 98,
@@ -16,7 +16,7 @@
       "bloom_level": "Remember",
       "difficulty": "easy",
       "concept_tested": "Claude Skill",
-      "source_link": "index.md#understanding-claude-skills",
+      "source_link": "index.md#understanding-ibook-skills",
       "distractor_quality": 0.88,
       "explanation_word_count": 70
     },
