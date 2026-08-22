@@ -1,4 +1,4 @@
-# About the Claude Skills for Intelligent Textbooks Project
+# About the Agent Skills for Intelligent Textbooks Project
 
 This website contains resources for using Anthropic Claude Skills to create
 intelligent textbooks.  

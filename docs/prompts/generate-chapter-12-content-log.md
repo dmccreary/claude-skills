@@ -681,4 +681,4 @@ The content is ready for instructor review and can be immediately integrated int
 
 *Log generated: 2025-01-08*
 *Model: Claude Sonnet 4.5 (claude-sonnet-4-5-20250929)*
-*Framework: Claude Skills for Intelligent Textbooks*
+*Framework: Agent Skills for Intelligent Textbooks*

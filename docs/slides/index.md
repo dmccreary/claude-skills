@@ -11,9 +11,9 @@ Slide decks built with MARP (Markdown Presentation Ecosystem).
 
 <div class="grid cards" markdown>
 
--   **[Claude Skills for Intelligent Textbooks: Overview](./ibook-skills-overview/index.md)**
+-   **[Agent Skills for Intelligent Textbooks: Overview](./ibook-skills-overview/index.md)**
 
-    ![Claude Skills for Intelligent Textbooks: Overview](./ibook-skills-overview/thumbnail.png)
+    ![Agent Skills for Intelligent Textbooks: Overview](./ibook-skills-overview/thumbnail.png)
 
     A 10-slide tour of the ibook-skills repo — purpose, pipeline, learning graphs, token efficiency, and how to get started.
 

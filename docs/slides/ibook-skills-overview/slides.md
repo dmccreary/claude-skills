@@ -6,7 +6,7 @@ size: 16:9
 ---
 
 <!-- _class: lead -->
-# Claude Skills for Intelligent Textbooks
+# Agent Skills for Intelligent Textbooks
 
 ## Automating intelligent textbook generation
 

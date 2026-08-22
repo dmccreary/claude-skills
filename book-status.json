@@ -1,6 +1,6 @@
 {
   "project": {
-    "title": "Claude Skills for Intelligent Textbooks",
+    "title": "Agent Skills for Intelligent Textbooks",
     "subtitle": "Auto-scanned intelligent textbook",
     "author": "Dan McCreary",
     "costPerMTokens": 15,

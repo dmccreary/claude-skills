@@ -1,5 +1,5 @@
 ---
-title: "Claude Skills for Intelligent Textbooks: Overview"
+title: "Agent Skills for Intelligent Textbooks: Overview"
 description: A 10-slide MARP tour of the ibook-skills repo — purpose, pipeline, learning graphs, token efficiency, and how to get started.
 image: /slides/ibook-skills-overview/thumbnail.png
 og:image: /slides/ibook-skills-overview/thumbnail.png
@@ -7,7 +7,7 @@ hide:
     - toc
 ---
 
-# Claude Skills for Intelligent Textbooks: Overview
+# Agent Skills for Intelligent Textbooks: Overview
 
 A 10-slide tour of this repo: what it automates, how the skills chain together end to end, how learning graphs drive chapter sequencing, why token efficiency matters, and how to get started building your own intelligent textbook.
 
