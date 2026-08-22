@@ -5,7 +5,9 @@ Checks the rules from learning-mascot.md:
 - Total count <= 6
 - Only one mascot-welcome and one mascot-celebration per chapter
 - No two mascot admonitions back-to-back
-- Each mascot admonition includes an <img> with class mascot-admonition-img
+- Each mascot admonition includes a mascot-admonition-img image, written either
+  as Markdown `![alt](path){ class="mascot-admonition-img" }` (the form
+  learning-mascot.md mandates) or as a raw HTML <img> tag (legacy chapters)
 - Body text is 1-3 sentences (warn if clearly too short or too long)
 
 Usage:
@@ -34,6 +36,14 @@ MAX_TOTAL = 6
 SINGLETON_TYPES = {"mascot-welcome", "mascot-celebration"}
 ADMONITION_RE = re.compile(r"^!!!\s+(mascot-[a-z]+)\b")
 SENTENCE_RE = re.compile(r"[.!?](?:\s|$)")
+# learning-mascot.md mandates Markdown image syntax with attr_list:
+#     ![alt](path){ class="mascot-admonition-img" }
+# Raw HTML <img> is still accepted so pre-existing chapters keep validating.
+MD_IMG_RE = re.compile(
+    r"!\[[^\]]*\]\([^)]*\)\s*\{[^}]*mascot-admonition-img[^}]*\}"
+)
+HTML_IMG_RE = re.compile(r"<img[^>]*mascot-admonition-img")
+ANY_IMG_LINE_RE = re.compile(r"<img|!\[[^\]]*\]\(")
 
 
 def parse_admonitions(lines: list[str]) -> list[dict]:
@@ -112,17 +122,21 @@ def validate(path: Path) -> int:
     # Per-admonition checks
     for a in adms:
         body_text_lines = [
-            ln.strip() for ln in a["body"] if ln.strip() and "<img" not in ln
+            ln.strip()
+            for ln in a["body"]
+            if ln.strip() and not ANY_IMG_LINE_RE.search(ln)
         ]
         body_text = " ".join(body_text_lines)
 
-        has_img = any(
-            "<img" in ln and "mascot-admonition-img" in ln for ln in a["body"]
+        body_joined = "\n".join(a["body"])
+        has_img = bool(
+            MD_IMG_RE.search(body_joined) or HTML_IMG_RE.search(body_joined)
         )
         if not has_img:
             flags.append(
-                f"{a['type']} at line {a['line']}: missing "
-                f"<img ... class=\"mascot-admonition-img\"> tag"
+                f"{a['type']} at line {a['line']}: missing mascot image — "
+                f'expected ![alt](path)'
+                f'{{ class="mascot-admonition-img" }} on the first body line'
             )
 
         if not body_text:

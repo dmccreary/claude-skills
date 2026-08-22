@@ -436,6 +436,17 @@ Generated content should:
 - Use clear markdown formatting with admonitions
 - Maintain encouraging, accessible tone
 
+## Content Generation Guide
+
+Before generating content for the chapters, lesson plans, quizzes, FAQ or other
+student-facing text, read the [`CONTENT-GENERATION-GUIDE.md`](CONTENT-GENERATION-GUIDE.md)
+file. It defines the book's learning mascot — **Kit the Otter** — along with
+Kit's voice, the seven mascot admonition types, and the placement rules that
+keep the mascot from being overused.
+
+Note that the teacher guide, instructor guide, or other instructor-facing
+content does not need to use the mascot described in CONTENT-GENERATION-GUIDE.md.
+
 ## Website
 
 **Documentation**: https://dmccreary.github.io/ibook-skills/

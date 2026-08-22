@@ -8,6 +8,7 @@
         "catalogable",
         "chartjs",
         "checkin",
+        "cheerleading",
         "Distractor",
         "distractors",
         "explorable",
@@ -39,6 +40,8 @@
         "Rosenblatt",
         "Rumelhart",
         "Semmelweis",
-        "throughs"
+        "throughs",
+        "Wayfinding",
+        "WIIFM"
     ]
 }

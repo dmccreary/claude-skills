@@ -1,0 +1,160 @@
+/* ============================================
+   Learning Mascot: Kit the Otter
+   Pedagogical agent for Agent Skills for Intelligent Textbooks
+
+   Palette is deliberately vendor-neutral (teal + slate) rather than any
+   single AI company's signature color. See docs/img/mascot/character-sheet.md
+   ============================================ */
+
+:root {
+  --mascot-primary:   #00695c;  /* deep teal  — Kit's satchel   */
+  --mascot-secondary: #37474f;  /* slate      — buckle/hardware */
+  --mascot-bg:        #e0f2f1;  /* pale teal                    */
+  --mascot-border:    #00897b;  /* medium teal                  */
+  --mascot-fur:       #8d6e63;  /* warm brown — Kit's fur       */
+  --mascot-size: 90px;
+}
+
+/* ---- Shared base for all mascot admonitions ---- */
+/* Override MkDocs Material's default smaller admonition font size
+   so mascot admonition text matches the body text exactly. */
+.md-typeset .admonition.mascot-welcome,
+.md-typeset .admonition.mascot-thinking,
+.md-typeset .admonition.mascot-tip,
+.md-typeset .admonition.mascot-warning,
+.md-typeset .admonition.mascot-celebration,
+.md-typeset .admonition.mascot-encourage,
+.md-typeset .admonition.mascot-neutral,
+.md-typeset details.mascot-welcome,
+.md-typeset details.mascot-thinking,
+.md-typeset details.mascot-tip,
+.md-typeset details.mascot-warning,
+.md-typeset details.mascot-celebration,
+.md-typeset details.mascot-encourage,
+.md-typeset details.mascot-neutral {
+  font-size: inherit;
+}
+
+/* ---- Welcome (chapter openings) — deep teal, the primary color ---- */
+.md-typeset .admonition.mascot-welcome,
+.md-typeset details.mascot-welcome {
+  border-color: var(--mascot-primary);
+  background-color: var(--mascot-bg);
+}
+.md-typeset .mascot-welcome > .admonition-title,
+.md-typeset .mascot-welcome > summary {
+  background-color: var(--mascot-primary);
+  color: white;
+}
+
+/* ---- Thinking (key concepts) — slate, the secondary color ---- */
+.md-typeset .admonition.mascot-thinking,
+.md-typeset details.mascot-thinking {
+  border-color: var(--mascot-secondary);
+  background-color: #eceff1;
+}
+.md-typeset .mascot-thinking > .admonition-title,
+.md-typeset .mascot-thinking > summary {
+  background-color: var(--mascot-secondary);
+  color: white;
+}
+
+/* ---- Tip (hints) — amber ---- */
+/* Deliberately NOT teal: teal is the welcome/primary color, and two teal
+   admonition types on the same page are indistinguishable at a glance. */
+.md-typeset .admonition.mascot-tip,
+.md-typeset details.mascot-tip {
+  border-color: #ef6c00;
+  background-color: #fff3e0;
+}
+.md-typeset .mascot-tip > .admonition-title,
+.md-typeset .mascot-tip > summary {
+  background-color: #ef6c00;
+  color: white;
+}
+
+/* ---- Warning (common mistakes) — red ---- */
+.md-typeset .admonition.mascot-warning,
+.md-typeset details.mascot-warning {
+  border-color: #c62828;
+  background-color: #ffebee;
+}
+.md-typeset .mascot-warning > .admonition-title,
+.md-typeset .mascot-warning > summary {
+  background-color: #c62828;
+  color: white;
+}
+
+/* ---- Celebration (achievements) — deep purple so confetti pops ---- */
+/* NOTE: celebration poses contain pale confetti that vanishes against light
+   backgrounds. Keep the body dark and flip text color to light. */
+.md-typeset .admonition.mascot-celebration,
+.md-typeset details.mascot-celebration {
+  border-color: #4a148c;
+  background-color: #311b4f;
+  color: #f3e5f5;
+}
+.md-typeset .mascot-celebration > .admonition-title,
+.md-typeset .mascot-celebration > summary {
+  background-color: #4a148c;
+  color: white;
+}
+/* Links inside the dark celebration body need a light color to stay legible */
+.md-typeset .mascot-celebration a,
+.md-typeset .mascot-celebration code {
+  color: #ce93d8;
+}
+
+/* ---- Encourage (difficult content) — blue ---- */
+.md-typeset .admonition.mascot-encourage,
+.md-typeset details.mascot-encourage {
+  border-color: #0277bd;
+  background-color: #e1f5fe;
+}
+.md-typeset .mascot-encourage > .admonition-title,
+.md-typeset .mascot-encourage > summary {
+  background-color: #0277bd;
+  color: white;
+}
+
+/* ---- Neutral (general purpose) — warm brown, matching Kit's fur ---- */
+.md-typeset .admonition.mascot-neutral,
+.md-typeset details.mascot-neutral {
+  border-color: #6d4c41;
+  background-color: #efebe9;
+}
+.md-typeset .mascot-neutral > .admonition-title,
+.md-typeset .mascot-neutral > summary {
+  background-color: #6d4c41;
+  color: white;
+}
+
+/* ---- Title: left-align text, remove default MkDocs icon completely ---- */
+.md-typeset [class*="mascot-"] > .admonition-title,
+.md-typeset [class*="mascot-"] > summary {
+  text-align: left;
+  padding-left: 0.8rem;
+}
+.md-typeset [class*="mascot-"] > .admonition-title::before,
+.md-typeset [class*="mascot-"] > summary::before {
+  display: none;
+}
+
+/* ---- Mascot image floated LEFT of admonition body text ---- */
+.mascot-admonition-img {
+  float: left;
+  width: var(--mascot-size);
+  height: var(--mascot-size);
+  /* margin: top right bottom left */
+  margin: 0 .5em 0 0;
+  object-fit: contain;
+  pointer-events: none;  /* belt-and-suspenders; real exclusion is via glightbox skip_classes */
+}
+
+/* This project sets a global `iframe { border: solid 2px blue }` in
+   extra.css. Mascot images are not iframes, but the mascot test page embeds
+   its pose grid in plain <img> tags — make sure nothing inherits that rule. */
+.mascot-admonition-img,
+.mascot-test-grid img {
+  border: none;
+}

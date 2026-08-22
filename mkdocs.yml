@@ -224,6 +224,7 @@ nav:
     - Diagram Table: learning-graph/diagram-table.md
     - Diagram Details: learning-graph/diagram-details.md
     - MicroSim Quality Report: learning-graph/microsim-quality-report.md
+    - Mascot Image Test: learning-graph/mascot-test.md
 
   - Prompts:
     - List of Prompts: prompts/index.md
@@ -309,7 +310,9 @@ theme:
 plugins:
   - search
   - social
-  - glightbox
+  - glightbox:
+      skip_classes:
+        - mascot-admonition-img
 
 hooks:
   - plugins/social_override.py
@@ -324,6 +327,7 @@ markdown_extensions:
       linenums: true
 extra_css:
    - css/extra.css
+   - css/mascot.css
 extra_javascript: 
    - js/extra.js
 copyright: Copyright &copy; 2025, 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.

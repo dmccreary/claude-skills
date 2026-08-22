@@ -1,11 +1,11 @@
 ---
-title: {MASCOT_NAME} Mascot Image Test
-description: Visual and pixel-level transparency and trim-border checks for all seven {MASCOT_NAME} mascot poses.
+title: Kit Mascot Image Test
+description: Visual and pixel-level transparency and trim-border checks for all seven Kit mascot poses.
 hide:
   toc
 ---
 
-# {MASCOT_NAME} Mascot Image Test
+# Kit Mascot Image Test
 
 This page tests every production mascot PNG in two ways:
 
@@ -23,8 +23,8 @@ This page tests every production mascot PNG in two ways:
   <article class="mascot-test-card" data-name="Neutral" data-src="../../img/mascot/neutral.png">
     <h2>Neutral</h2>
     <div class="mascot-test-swatches">
-      <div class="mascot-test-swatch checker"><img src="../../img/mascot/neutral.png" alt="{MASCOT_NAME} in a neutral pose on a checkerboard transparency test"></div>
-      <div class="mascot-test-swatch dark"><img src="../../img/mascot/neutral.png" alt="{MASCOT_NAME} in a neutral pose on a dark transparency test"></div>
+      <div class="mascot-test-swatch checker"><img src="../../img/mascot/neutral.png" alt="Kit in a neutral pose on a checkerboard transparency test"></div>
+      <div class="mascot-test-swatch dark"><img src="../../img/mascot/neutral.png" alt="Kit in a neutral pose on a dark transparency test"></div>
     </div>
     <p class="mascot-test-result">Waiting for pixel test…</p>
   </article>
@@ -32,8 +32,8 @@ This page tests every production mascot PNG in two ways:
   <article class="mascot-test-card" data-name="Welcome" data-src="../../img/mascot/welcome.png">
     <h2>Welcome</h2>
     <div class="mascot-test-swatches">
-      <div class="mascot-test-swatch checker"><img src="../../img/mascot/welcome.png" alt="{MASCOT_NAME} waving on a checkerboard transparency test"></div>
-      <div class="mascot-test-swatch dark"><img src="../../img/mascot/welcome.png" alt="{MASCOT_NAME} waving on a dark transparency test"></div>
+      <div class="mascot-test-swatch checker"><img src="../../img/mascot/welcome.png" alt="Kit waving on a checkerboard transparency test"></div>
+      <div class="mascot-test-swatch dark"><img src="../../img/mascot/welcome.png" alt="Kit waving on a dark transparency test"></div>
     </div>
     <p class="mascot-test-result">Waiting for pixel test…</p>
   </article>
@@ -41,8 +41,8 @@ This page tests every production mascot PNG in two ways:
   <article class="mascot-test-card" data-name="Thinking" data-src="../../img/mascot/thinking.png">
     <h2>Thinking</h2>
     <div class="mascot-test-swatches">
-      <div class="mascot-test-swatch checker"><img src="../../img/mascot/thinking.png" alt="{MASCOT_NAME} thinking on a checkerboard transparency test"></div>
-      <div class="mascot-test-swatch dark"><img src="../../img/mascot/thinking.png" alt="{MASCOT_NAME} thinking on a dark transparency test"></div>
+      <div class="mascot-test-swatch checker"><img src="../../img/mascot/thinking.png" alt="Kit thinking on a checkerboard transparency test"></div>
+      <div class="mascot-test-swatch dark"><img src="../../img/mascot/thinking.png" alt="Kit thinking on a dark transparency test"></div>
     </div>
     <p class="mascot-test-result">Waiting for pixel test…</p>
   </article>
@@ -50,8 +50,8 @@ This page tests every production mascot PNG in two ways:
   <article class="mascot-test-card" data-name="Tip" data-src="../../img/mascot/tip.png">
     <h2>Tip</h2>
     <div class="mascot-test-swatches">
-      <div class="mascot-test-swatch checker"><img src="../../img/mascot/tip.png" alt="{MASCOT_NAME} pointing upward on a checkerboard transparency test"></div>
-      <div class="mascot-test-swatch dark"><img src="../../img/mascot/tip.png" alt="{MASCOT_NAME} pointing upward on a dark transparency test"></div>
+      <div class="mascot-test-swatch checker"><img src="../../img/mascot/tip.png" alt="Kit pointing upward on a checkerboard transparency test"></div>
+      <div class="mascot-test-swatch dark"><img src="../../img/mascot/tip.png" alt="Kit pointing upward on a dark transparency test"></div>
     </div>
     <p class="mascot-test-result">Waiting for pixel test…</p>
   </article>
@@ -59,8 +59,8 @@ This page tests every production mascot PNG in two ways:
   <article class="mascot-test-card" data-name="Warning" data-src="../../img/mascot/warning.png">
     <h2>Warning</h2>
     <div class="mascot-test-swatches">
-      <div class="mascot-test-swatch checker"><img src="../../img/mascot/warning.png" alt="{MASCOT_NAME} warning the reader on a checkerboard transparency test"></div>
-      <div class="mascot-test-swatch dark"><img src="../../img/mascot/warning.png" alt="{MASCOT_NAME} warning the reader on a dark transparency test"></div>
+      <div class="mascot-test-swatch checker"><img src="../../img/mascot/warning.png" alt="Kit warning the reader on a checkerboard transparency test"></div>
+      <div class="mascot-test-swatch dark"><img src="../../img/mascot/warning.png" alt="Kit warning the reader on a dark transparency test"></div>
     </div>
     <p class="mascot-test-result">Waiting for pixel test…</p>
   </article>
@@ -68,8 +68,8 @@ This page tests every production mascot PNG in two ways:
   <article class="mascot-test-card" data-name="Encouraging" data-src="../../img/mascot/encouraging.png">
     <h2>Encouraging</h2>
     <div class="mascot-test-swatches">
-      <div class="mascot-test-swatch checker"><img src="../../img/mascot/encouraging.png" alt="{MASCOT_NAME} giving a thumbs-up on a checkerboard transparency test"></div>
-      <div class="mascot-test-swatch dark"><img src="../../img/mascot/encouraging.png" alt="{MASCOT_NAME} giving a thumbs-up on a dark transparency test"></div>
+      <div class="mascot-test-swatch checker"><img src="../../img/mascot/encouraging.png" alt="Kit giving a thumbs-up on a checkerboard transparency test"></div>
+      <div class="mascot-test-swatch dark"><img src="../../img/mascot/encouraging.png" alt="Kit giving a thumbs-up on a dark transparency test"></div>
     </div>
     <p class="mascot-test-result">Waiting for pixel test…</p>
   </article>
@@ -77,8 +77,8 @@ This page tests every production mascot PNG in two ways:
   <article class="mascot-test-card" data-name="Celebration" data-src="../../img/mascot/celebration.png">
     <h2>Celebration</h2>
     <div class="mascot-test-swatches">
-      <div class="mascot-test-swatch checker"><img src="../../img/mascot/celebration.png" alt="{MASCOT_NAME} celebrating on a checkerboard transparency test"></div>
-      <div class="mascot-test-swatch dark"><img src="../../img/mascot/celebration.png" alt="{MASCOT_NAME} celebrating on a dark transparency test"></div>
+      <div class="mascot-test-swatch checker"><img src="../../img/mascot/celebration.png" alt="Kit celebrating on a checkerboard transparency test"></div>
+      <div class="mascot-test-swatch dark"><img src="../../img/mascot/celebration.png" alt="Kit celebrating on a dark transparency test"></div>
     </div>
     <p class="mascot-test-result">Waiting for pixel test…</p>
   </article>
@@ -92,31 +92,31 @@ swatches above still work without it.
 ## Mascot admonitions
 
 !!! mascot-neutral "General Note"
-    ![{MASCOT_NAME} neutral pose](../img/mascot/neutral.png){ class="mascot-admonition-img" }
+    ![Kit neutral pose](../img/mascot/neutral.png){ class="mascot-admonition-img" }
     This is the neutral style, used for general sidebars or introductions.
 
 !!! mascot-welcome "Welcome!"
-    ![{MASCOT_NAME} waving welcome](../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    ![Kit waving welcome](../img/mascot/welcome.png){ class="mascot-admonition-img" }
     This is the welcome style, used at chapter openings.
 
 !!! mascot-thinking "Key Insight"
-    ![{MASCOT_NAME} thinking](../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    ![Kit thinking](../img/mascot/thinking.png){ class="mascot-admonition-img" }
     This is the thinking style, used for key concepts.
 
 !!! mascot-tip "Helpful Tip"
-    ![{MASCOT_NAME} giving a tip](../img/mascot/tip.png){ class="mascot-admonition-img" }
+    ![Kit giving a tip](../img/mascot/tip.png){ class="mascot-admonition-img" }
     This is the tip style, used for hints and advice.
 
 !!! mascot-warning "Watch Out!"
-    ![{MASCOT_NAME} warning](../img/mascot/warning.png){ class="mascot-admonition-img" }
+    ![Kit warning](../img/mascot/warning.png){ class="mascot-admonition-img" }
     This is the warning style, used for common mistakes.
 
 !!! mascot-encourage "Keep Going!"
-    ![{MASCOT_NAME} encouraging](../img/mascot/encouraging.png){ class="mascot-admonition-img" }
+    ![Kit encouraging](../img/mascot/encouraging.png){ class="mascot-admonition-img" }
     This is the encouraging style, used for difficult content.
 
 !!! mascot-celebration "Well Done!"
-    ![{MASCOT_NAME} celebrating](../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    ![Kit celebrating](../img/mascot/celebration.png){ class="mascot-admonition-img" }
     This is the celebration style, used for achievements.
 
 <style>

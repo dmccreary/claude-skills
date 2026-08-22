@@ -143,8 +143,8 @@ Suggest placement contexts:
 
 The mascot should NOT appear:
 
-- More than 5-6 times per chapter
-- In every single admonition or callout
+- More than 10 times per chapter
+- Back to back (with no text between the admonitions)
 - In ways that interrupt reading flow
 - With excessive dialogue that adds no value
 
@@ -604,7 +604,26 @@ markdown_extensions:
 
 Authors use standard admonition syntax with the custom types. The mascot image is placed using Markdown image syntax with the `attr_list` extension (already in the required extensions list):
 
-**IMPORTANT: Image paths** — The image path is relative to the rendered page URL, not the markdown file. Because MkDocs uses directory URLs (e.g., `chapters/01-intro/` renders as `chapters/01-intro/index.html`), you must count directories from the page to `docs/img/mascot/`. For a chapter page at `chapters/01-intro/index.md`, use `../../img/mascot/`. For a page at `learning-graph/mascot-test.md`, use `../../img/mascot/`.
+**IMPORTANT: Image paths** — Markdown and raw HTML use *different* base
+directories, and getting this wrong produces a page that looks correct in the
+browser but fails `mkdocs build --strict`.
+
+- **Markdown images** — `![alt](path){ class="..." }` — are resolved by MkDocs
+  relative to the **source `.md` file's directory**, and MkDocs then rewrites
+  them for the rendered URL. Count directories from the markdown file to
+  `docs/img/mascot/`. From `docs/chapters/01-intro/index.md` that is
+  `../../img/mascot/`; from `docs/learning-graph/mascot-test.md` it is
+  `../img/mascot/`.
+- **Raw HTML `<img src>`** is passed through verbatim — MkDocs never rewrites
+  it — so it must be relative to the **rendered page URL**. Both of the pages
+  above render two levels deep, so both need `../../img/mascot/`.
+
+The two rules coincide for a chapter `index.md` (both give `../../`), which is
+why the discrepancy only shows up on a non-index page such as
+`learning-graph/mascot-test.md`. Writing `../../` in the Markdown there still
+renders correctly — MkDocs leaves the unresolvable path alone — but it emits a
+"target is not found among documentation files" warning that breaks a strict
+build.
 
 ```markdown
 !!! mascot-neutral "A Note from {{CHARACTER_NAME}}"
@@ -651,6 +670,22 @@ Authors use standard admonition syntax with the custom types. The mascot image i
 ### Step 7: Add Character Guidelines to CONTENT-GENERATION-GUIDE.md
 
 To ensure consistent mascot usage across AI-generated content, add a section to the project's `CONTENT-GENERATION-GUIDE.md`. The section MUST include a **Mascot File Index** that links to every textbook file this skill produces, so future agents working in the repo can find the canonical artifacts in one lookup instead of re-discovering them via globbing.
+
+**Do not abridge the template below.** The three sections that carry the most
+weight are the ones most likely to be trimmed as "boilerplate":
+
+- **Mascot Admonition Guidelines** — the per-pose instructional-design rules.
+  Without them an agent picks poses by tone rather than by pedagogical
+  function, and the mascot degrades into decoration. This is the single most
+  valuable part of the file.
+- **Quality Assurance & Validation** — makes the placement rules enforceable
+  instead of aspirational.
+- **Anti-Padding & Writing Style Rules** — the standing defense against
+  word-count inflation in generated chapters.
+
+Fill in every `{{PLACEHOLDER}}` from the Step 2 Q&A. Where the template gives
+an example phrase in a **Tone** line, replace it with one in the character's
+actual voice rather than copying the generic wording.
 
 ```markdown
 ## Learning Mascot: {{CHARACTER_NAME}} the {{SPECIES}}
@@ -709,14 +744,101 @@ Always place mascot images in the admonition body, never in the title bar:
 | Difficult content | mascot-encourage | Where students may struggle |
 | Section completion | mascot-celebration | End of major sections |
 
+### Mascot Admonition Guidelines (Instructional Design Rules)
+
+Each pose carries a distinct cognitive and pedagogical job. The pose is a
+signal to the reader, not decoration — an agent that picks a pose by vibe
+rather than by function destroys the wayfinding value of the whole system.
+Agents generating these admonitions must follow the rules below.
+
+#### 1. `mascot-welcome` (Motivational Hook / Advance Organizer)
+
+- **Instructional purpose**: Addresses the "What's In It For Me?" (WIIFM)
+  question and lowers learning anxiety before technical content begins. It is
+  not there to teach the chapter — it is there to **sell** the chapter.
+- **Rule**: Do not summarize technical concepts or explain mechanics. Tell the
+  reader *why* they should care and *what they will be able to build* by the
+  end.
+- **Tone**: Warm, sincere, and a little fun. Use {{SUBJECT}}-flavored
+  metaphors. Include the signature catchphrase "{{CATCHPHRASE}}".
+- **Length**: Strictly 2-4 sentences. *(Exception: Chapter 1, where
+  {{CHARACTER_NAME}} introduces themselves and their role in the book.)*
+
+#### 2. `mascot-thinking` (Cognitive Scaffolding / Mental Models)
+
+- **Instructional purpose**: Marks a "eureka" moment, an abstraction, or a
+  shift in mental model. Signals that the reader should pause and process the
+  *why* behind the *how*.
+- **Rule**: Never use this for a mere fact or a piece of syntax. Reserve it
+  for underlying algorithms, core mechanics, or architectural patterns —
+  the ideas a reader must restructure their thinking around.
+- **Tone**: Insightful and reflective. Rhetorical questions and analogies work
+  well ("Notice how…", "Think of it like…").
+
+#### 3. `mascot-tip` (Just-in-Time Support / Heuristics)
+
+- **Instructional purpose**: Delivers a heuristic, shortcut, or best practice
+  that isn't strictly required but measurably reduces cognitive load. This is
+  expert insight whispered to a novice.
+- **Rule**: Must be immediately actionable — a concrete shortcut, a diagnostic
+  question, a naming convention, a way to sanity-check an answer. If the
+  reader cannot *do* something differently after reading it, it is not a tip.
+- **Tone**: Conspiratorial and clever ("Here's a shortcut…", "Want to save
+  yourself an hour?").
+
+#### 4. `mascot-warning` (Anticipatory Guidance / Pitfall Prevention)
+
+- **Instructional purpose**: Anticipatory guidance that heads off a known
+  novice pitfall. It deliberately interrupts reading flow to prevent
+  downstream frustration.
+- **Rule**: State the pitfall, *why* it happens, and exactly how to avoid or
+  recover from it. A warning without a remedy is just anxiety — always supply
+  the fix.
+- **Tone**: Alert but reassuring; never scolding or ominous ("Watch out
+  for…", "A common trap here is…").
+
+#### 5. `mascot-encourage` (Affective Support / Normalizing Struggle)
+
+- **Instructional purpose**: Emotional support at a known point of high
+  cognitive friction. Normalizes struggle and supports a growth mindset.
+- **Rule**: Use ONLY when introducing a notoriously difficult topic — not as
+  generic cheerleading. Validate that the difficulty is real, connect it to
+  something the reader has already succeeded at, and suggest a concrete way
+  forward (experiment, break it into steps, revisit a prerequisite).
+- **Tone**: Empathetic and validating ("If this feels like a lot, that's
+  normal — most people need two passes at it.").
+
+#### 6. `mascot-celebration` (Formative Reinforcement / Closure)
+
+- **Instructional purpose**: Positive reinforcement and closure at a genuine
+  milestone. Satisfies the "Satisfaction" component of the ARCS motivation
+  model, consolidating what was learned.
+- **Rule**: Never just "Good job." Name the *specific* concept or skill the
+  reader just mastered, so the achievement is concrete and reviewable.
+- **Tone**: Joyful and proud ("You just built…", "That's {{TOPIC}} handled —
+  and it's one of the harder ones.").
+
+#### 7. `mascot-neutral` (General Aside / Framing)
+
+- **Instructional purpose**: A general-purpose aside for content that carries
+  no particular emotional charge — context, a historical note, a pointer to a
+  related chapter.
+- **Rule**: Use this when none of the six purposeful poses genuinely fits.
+  Reaching for `mascot-neutral` more than once or twice per chapter usually
+  means the content did not need a mascot admonition at all — use plain prose
+  or a standard MkDocs admonition instead.
+- **Tone**: Calm and matter-of-fact.
+
 ### Do's and Don'ts
 
 **Do:**
 
 - Use {{CHARACTER_NAME}} to introduce new topics warmly
 - Include the catchphrase in welcome admonitions
-- Keep dialogue brief (1-3 sentences)
-- Match the pose/image to the content type
+- Keep dialogue brief (1-3 sentences, except the 2-4 sentence welcome)
+- Match the pose to the *instructional purpose* above, not to the vibe
+- Open each chapter with `mascot-welcome` and close it with
+  `mascot-celebration`
 
 **Don't:**
 
@@ -724,6 +846,54 @@ Always place mascot images in the admonition body, never in the title bar:
 - Put mascot admonitions back-to-back
 - Use the mascot for purely decorative purposes
 - Change {{CHARACTER_NAME}}'s personality or speech patterns
+- Use more than one `mascot-welcome` or `mascot-celebration` per chapter
+
+## Quality Assurance & Validation
+
+Language models drift away from strict formatting constraints, so mascot
+placement must be checked programmatically rather than by eye.
+
+**Post-generation rule**: after writing or editing any chapter, run the
+validator before reporting the work complete:
+
+    python $BK_HOME/skills/book-installer/scripts/validate-chapter-mascots.py docs/chapters/NN-slug/index.md
+
+It flags: more than 6 mascot admonitions in a chapter, duplicate
+`mascot-welcome` or `mascot-celebration`, back-to-back mascot admonitions,
+any admonition missing its `mascot-admonition-img` image, and body text that
+is clearly too short or too long for the 1-3 sentence rule.
+
+If the validator reports issues, fix the chapter and re-run it until it exits
+clean. Do not report completion on a chapter that still fails, and do not
+relax a rule to make the check pass.
+
+## Anti-Padding & Writing Style Rules
+
+Models inflate text to hit word-count targets, which produces repetitive and
+sometimes hallucinated content. All generating agents must follow these rules.
+
+1. **Quality over quantity.** Word-count targets are guidelines, not
+   requirements. A dense, correct 1,500-word chapter beats a repetitive
+   3,500-word one. Never inflate length artificially.
+2. **Expand by showing, not telling.** If a chapter is genuinely thin, add a
+   concrete worked example, another MicroSim, or more technical detail. Never
+   expand by restating earlier paragraphs, summarizing what was just said, or
+   adding generic filler.
+3. **No formulaic templates.** Avoid boilerplate scaffolding like "Let's talk
+   about X. The concept of X is fundamental…". Weave concepts into flowing
+   narrative prose.
+4. **Examples over prose.** When explaining abstract logic, prefer a short
+   commented example to a long descriptive passage.
+
+## Markdown Formatting Rules
+
+1. **List spacing.** EVERY Markdown list — bulleted or numbered — MUST have a
+   blank line before it. MkDocs will not render the list otherwise.
+2. **Image paths.** Markdown images resolve relative to the source `.md` file;
+   raw HTML `<img src>` resolves relative to the rendered URL. See the Mascot
+   Admonition Format section above.
+3. **Admonition bodies** are indented four spaces, with the mascot image on
+   the first line of the body.
 ```
 
 ### Step 8: Verify the Implementation
@@ -763,9 +933,14 @@ Keep its two-part structure intact:
    the corresponding image and `mascot-admonition-img` class. Do not replace the
    test grid with admonitions; both sections are required.
 
-**IMPORTANT:** For this page depth, every raw HTML and Markdown image path must
-use `../../img/mascot/`, because the rendered page URL is
-`learning-graph/mascot-test/index.html`.
+**IMPORTANT:** This page mixes the two path conventions, and they differ here.
+Raw HTML `<img src>` and `data-src` attributes must use `../../img/mascot/`
+(relative to the rendered URL `learning-graph/mascot-test/index.html`, since
+MkDocs passes raw HTML through untouched). The seven Markdown admonition
+images must use `../img/mascot/` (relative to the source file
+`docs/learning-graph/mascot-test.md`, which MkDocs rewrites to `../../` on
+output). Using `../../` in the Markdown renders fine but emits a
+"target is not found" warning that fails `mkdocs build --strict`.
 
 If any trim test reports a margin other than `4/4/4/4`, rerun the trimmer with
 the exact image path and regenerate the page:
@@ -848,9 +1023,15 @@ other instructor facing content does not need to use the mascots described in th
 
 1. Verify images exist in `docs/img/mascot/`
 2. Check file names match exactly (case-sensitive)
-3. Verify `src` path depth — count directories from the rendered page URL to `docs/img/mascot/`
-4. For a page at `chapters/01-intro/index.md`, use `../../img/mascot/`
-5. For a page at `learning-graph/mascot-test.md`, use `../../img/mascot/`
+3. Verify path depth, remembering that Markdown and raw HTML differ:
+   Markdown `![](...)` counts from the **source `.md` file**, raw HTML
+   `<img src>` counts from the **rendered URL**
+4. Markdown in `docs/chapters/01-intro/index.md` → `../../img/mascot/`
+5. Markdown in `docs/learning-graph/mascot-test.md` → `../img/mascot/`
+6. Raw HTML on either of those pages → `../../img/mascot/`
+7. If `mkdocs build` warns "target is not found among documentation files" for
+   an image that nonetheless displays correctly, a Markdown image is using the
+   rendered-URL depth instead of the source-file depth
 
 ### Admonition Styles Not Appearing
 
