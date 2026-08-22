@@ -43,25 +43,34 @@ curl -s https://dmccreary.github.io/ibook-skills/ | grep -c "claude-skills"
 
 ---
 
-## 2. Push the 103 other repos
+## 2. Push the other repos (112 with unpushed commits)
 
-Every other repo under `~/Documents/ws` that referenced the old name was
-updated and **committed locally, but not pushed**. 103 repos, 258 files, all
-carrying the identical commit subject
-`Update claude-skills repo references to ibook-skills`.
+Two separate sweeps committed locally but did **not** push:
 
-List exactly which repos are affected (reads the commit subject, so it can't
-catch anything unrelated):
+- **103 repos, 258 files** — the `claude-skills` → `ibook-skills` reference
+  update, subject `Update claude-skills repo references to ibook-skills`
+- **56 repos** — the `edit_uri` branch fix, subject
+  `Point mkdocs edit_uri at main instead of master`
 
-```bash
-cd ~/Documents/ws && for r in */; do r="${r%/}"; [ -d "$r/.git" ] || continue; git -C "$r" log -1 --pretty=%s 2>/dev/null | grep -q "^Update claude-skills repo references to ibook-skills$" && echo "$r"; done
-```
+Together with pre-existing unpushed work, **112 repos** currently have commits
+that have not been pushed.
 
-Push them once the list looks right:
+Review what is pending before pushing anything:
 
 ```bash
-cd ~/Documents/ws && for r in */; do r="${r%/}"; [ -d "$r/.git" ] || continue; git -C "$r" log -1 --pretty=%s 2>/dev/null | grep -q "^Update claude-skills repo references to ibook-skills$" && { echo "--- $r"; git -C "$r" push; }; done
+cd ~/Documents/ws && for r in */; do r="${r%/}"; [ -d "$r/.git" ] || continue; n=$(git -C "$r" log @{u}..HEAD --oneline 2>/dev/null | wc -l | tr -d ' '); [ "$n" != "0" ] && { echo "=== $r ($n)"; git -C "$r" log @{u}..HEAD --oneline; }; done
 ```
+
+That list includes any unpushed work of your own, so read it before running
+the push:
+
+```bash
+cd ~/Documents/ws && for r in */; do r="${r%/}"; [ -d "$r/.git" ] || continue; [ "$(git -C "$r" log @{u}..HEAD --oneline 2>/dev/null | wc -l | tr -d ' ')" != "0" ] && { echo "--- $r"; git -C "$r" push; }; done
+```
+
+Many of these are MkDocs books whose **published sites** also carry the old
+name. Pushing updates the source; each book still needs its own
+`mkdocs gh-deploy` for the live site to change.
 
 Note that many of these are MkDocs books whose **published sites** also have
 the old name baked in. Pushing updates the source; each book still needs its
@@ -85,6 +94,15 @@ and commit alongside whatever else you were doing:
 
 `book-dashboard` is the one to look at first — it was the only repo where
 *every* hit was already dirty, so it got no rename commit at all.
+
+The `edit_uri` sweep left five more `mkdocs.yml` files in the same state —
+corrected on disk, not committed, because they already held your changes:
+
+- `Dementia/mkdocs.yml`
+- `algebra-1/mkdocs.yml`
+- `fft-benchmarking/mkdocs.yml`
+- `learning-graphs/mkdocs.yml`
+- `robot-faces/mkdocs.yml`
 
 ---
 
