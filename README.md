@@ -3,9 +3,7 @@
 [![MkDocs](https://img.shields.io/badge/Made%20with-MkDocs-526CFE?logo=materialformkdocs)](https://www.mkdocs.org/)
 [![Material for MkDocs](https://img.shields.io/badge/Material%20for%20MkDocs-526CFE?logo=materialformkdocs)](https://squidfunk.github.io/mkdocs-material/)
 [![GitHub Pages](https://img.shields.io/badge/View%20on-GitHub%20Pages-blue?logo=github)](https://dmccreary.github.io/ibook-skills/)
-[![GitHub](https://img.shields.io/badge/GitHub-dmccreary%2Fibook--skills-blue?logo=github)](https://github.com/dmccreary/ibook-skills)
-[![Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code-DA7857?logo=anthropic)](https://claude.ai/code)
-[![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Portable-DA7857?logo=anthropic)](https://github.com/dmccreary/ibook-skills)
+[![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Multi--Platform-4A90D9)](https://github.com/dmccreary/ibook-skills)
 [![p5.js](https://img.shields.io/badge/p5.js-ED225D?logo=p5.js&logoColor=white)](https://p5js.org/)
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
@@ -16,31 +14,30 @@ Visit the interactive documentation at: [https://dmccreary.github.io/ibook-skill
 
 ## Overview
 
-**Agent Skills for Intelligent Textbooks** is a comprehensive collection of AI-powered skills and workflows designed to revolutionize educational content creation. Built with Claude Code and portable across AI agent platforms — including OpenAI ChatGPT, Google Antigravity, and Cursor — this repository provides educators and content creators with powerful tools to generate interactive, standards-based educational materials at scale.
+**Agent Skills for Intelligent Textbooks** is a portable, token-efficient library of AI agent skills for building interactive educational textbooks. The skills are written as plain-language markdown workflows (`SKILL.md` files), so they aren't locked to one vendor's assistant — the same skill set has been installed and run in **Claude Code, OpenAI Codex, Google Antigravity/Gemini, Cursor, Perplexity, and Hermes**. The repository's `CLAUDE.md` instructions file doubles as an `AGENTS.md` for tools that use that convention, and dedicated install scripts (`bk-install-skills`, `bk-install-skills-codex`, `bk-install-skills-antigravity`) symlink the same skills into each tool's own skills directory.
 
-This project enables the creation of **Level 2+ intelligent textbooks** using MkDocs with the Material theme, incorporating learning graphs, concept dependencies, interactive p5.js simulations (MicroSims), and AI-assisted content generation. Every skill follows educational best practices including Bloom's Taxonomy (2001 revision) for learning outcomes, ISO 11179 standards for terminology definitions, and concept dependency graphs to ensure proper prerequisite sequencing.
+This project enables the creation of **Level 2+ intelligent textbooks** using MkDocs with the Material theme, incorporating learning graphs, concept dependency mapping, interactive p5.js simulations (MicroSims), and AI-assisted content generation. Every skill follows educational best practices including Bloom's Taxonomy (2001 revision) for learning outcomes, ISO 11179 standards for terminology definitions, and concept dependency graphs (DAGs) to ensure prerequisites are taught before they're used.
 
-Whether you're an educator building course materials, a technical writer creating documentation, or a developer interested in educational technology, these agent skills provide a systematic, AI-powered approach to creating comprehensive, interactive educational content. The skills can generate everything from foundational learning graphs with 200+ concepts to interactive quizzes, glossaries, FAQs, and engaging simulations—all following rigorous quality standards.
+Whether you're an educator building course materials, a technical writer producing documentation, or a developer exploring educational technology, these agent skills provide a systematic, repeatable pipeline from a course description all the way to a published, interactive textbook — regardless of which AI coding agent you point at the repository.
 
 ## Site Status and Metrics
 
 | Metric | Count |
 |--------|-------|
-| Concepts in Learning Graph | 200 |
-| Chapters | 13 |
-| Markdown Files | 103 |
-| Total Words | 233,548 |
-| MicroSims | 5 |
-| Glossary Terms | 200 |
-| FAQ Questions | 64 |
-| Quiz Questions | 520 |
-| Equations | 49 |
-| Images | 11 |
-| References | 30 |
+| Concepts in Learning Graph | 570 |
+| Chapters | 31 |
+| Appendices | 3 |
+| MicroSims | 94 |
+| Glossary Terms | 570 |
+| FAQ Questions | 66 |
+| Diagrams | 25 |
+| Equations | 131 |
+| Total Words | 154,857 |
+| Equivalent Pages | ~672 |
 
-**Completion Status:** Approximately 90% complete (content generation and skill development phase)
+Chapter-level quizzes and curated references are actively being generated and are not yet complete across all 31 chapters.
 
-**Skills Available:** 19 specialized skills covering learning graphs, content generation, interactive visualizations, and educational assessments.
+**Skills Available:** 14 active skills (several are meta-skills that route to dozens of sub-workflows) covering learning graph generation, chapter content, MicroSims, glossaries, FAQs, quizzes, references, media, and publishing.
 
 ## Getting Started
 
@@ -48,7 +45,8 @@ Whether you're an educator building course materials, a technical writer creatin
 
 - Python 3.8 or higher
 - Git
-- Basic familiarity with markdown and command line
+- An AI coding agent that supports agent skills or a similar convention (e.g. Claude Code, OpenAI Codex, Google Antigravity, Cursor)
+- Basic familiarity with markdown and the command line
 
 ### Clone the Repository
 
@@ -91,40 +89,32 @@ mkdocs gh-deploy
 
 This will build the site and push it to the `gh-pages` branch.
 
-### Using the Skills
+### Installing the Skills for Your Agent
 
-**Option 1: Global Installation (All Projects)**
-
-Create symlinks to make skills available globally:
+Set `BK_HOME` to the repository root, then run the installer for your platform:
 
 ```bash
-cd scripts
-./install-ibook-skills.sh
+export BK_HOME="$HOME/path/to/ibook-skills"
+
+# Claude Code
+$BK_HOME/scripts/bk-install-skills
+
+# OpenAI Codex
+$BK_HOME/scripts/bk-install-skills-codex
+
+# Google Antigravity / Gemini
+$BK_HOME/scripts/bk-install-skills-antigravity
 ```
 
-This installs skills to `~/.claude/skills/` for use across all Claude Code projects.
-
-**Option 2: Project-Specific Installation**
-
-Skills in this repository are automatically available when working within this project directory.
-
-**Invoke a skill in Claude Code:**
-
-```
-Use the learning-graph-generator skill to create a concept graph for my course
-```
-
-Or use the slash command:
-
-```
-/skill learning-graph-generator
-```
+Each script symlinks every active skill in `skills/` (skipping `skills/archived/`) into that tool's own skills directory, so edits to a skill here are picked up immediately by every connected agent.
 
 **List available skills:**
 
 ```bash
-./scripts/list-skills.sh
+$BK_HOME/scripts/bk-list-skills
 ```
+
+**Invoking a skill:** most agents pick up a skill automatically once the task matches its description. Where a tool supports explicit invocation, reference it by name, e.g. `Use the learning-graph-generator skill to create a concept graph for my course`.
 
 ### Using the Documentation Site
 
@@ -132,12 +122,11 @@ Or use the slash command:
 
 - Use the left sidebar to browse chapters and skill descriptions
 - Click the search icon (🔍) to search all content
-- Each chapter includes quizzes for self-assessment
 - The Learning Graph section shows concept dependencies and quality metrics
 
 **Interactive MicroSims:**
 
-- Found in the "MicroSims" section of the documentation
+- Found throughout the chapters and in the "MicroSims" section of the documentation
 - Each simulation runs standalone in your browser
 - Adjust parameters with sliders and interactive controls
 - View source code and customize for your own use
@@ -155,47 +144,41 @@ Or use the slash command:
 ```
 ibook-skills/
 ├── docs/                          # MkDocs documentation source
-│   ├── chapters/                  # 13 chapters on intelligent textbook creation
-│   │   ├── 01-intro-ai-intelligent-textbooks/
-│   │   │   ├── index.md          # Chapter content
-│   │   │   └── quiz.md           # Chapter quiz (40 questions)
+│   ├── chapters/                  # 31 chapters + appendices on building intelligent textbooks
+│   │   ├── 01-foundations-ai-language-models/
+│   │   │   └── index.md          # Chapter content
 │   │   └── ...
-│   ├── sims/                      # Interactive p5.js MicroSims
-│   │   ├── graph-viewer/         # Learning graph visualization
-│   │   │   ├── main.html         # Standalone simulation
-│   │   │   └── index.md          # Documentation
-│   │   └── ...
-│   ├── learning-graph/            # Learning graph data and analysis
-│   │   ├── concept-list.md       # 200 concepts enumerated
+│   ├── sims/                      # 94 interactive MicroSims (p5.js, Chart.js, vis-network, ...)
+│   ├── learning-graph/            # Learning graph data, analysis, and book metrics
+│   │   ├── concept-list.md       # 570 concepts enumerated
 │   │   ├── learning-graph.csv    # Concept dependencies (DAG)
 │   │   ├── learning-graph.json   # vis-network JSON format
-│   │   ├── quality-metrics.md    # Graph quality analysis
-│   │   └── taxonomy-distribution.md
-│   ├── skill-descriptions/        # Documentation for each skill
-│   ├── prompts/                   # Example prompts for skill usage
-│   ├── glossary.md                # ISO 11179-compliant definitions (200 terms)
-│   ├── faq.md                     # Frequently asked questions (64 Q&A)
-│   └── references.md              # Curated references (30 sources)
+│   │   ├── book-metrics.json     # Canonical book-wide metrics (source of truth)
+│   │   └── quality-metrics.md    # Graph quality analysis
+│   ├── glossary.md                # ISO 11179-compliant definitions (570 terms)
+│   └── faq.md                     # Frequently asked questions (66 Q&A)
 ├── skills/                        # AI agent skill definitions
-│   ├── learning-graph-generator/
-│   │   ├── SKILL.md               # Skill definition and workflow
-│   │   ├── analyze-graph.py       # DAG validation script
-│   │   ├── csv-to-json.py         # Convert to vis-network format
-│   │   └── taxonomy-distribution.py
-│   ├── glossary-generator/        # Generates ISO 11179 glossaries
-│   ├── quiz-generator/            # Creates Bloom's Taxonomy quizzes
-│   ├── faq-generator/             # Builds comprehensive FAQs
-│   ├── microsim-p5/               # Creates p5.js simulations
-│   ├── readme-generator/          # Generates README files
-│   └── ...                        # 19 total skills
-├── scripts/                       # Utility scripts
-│   ├── install-ibook-skills.sh   # Install skills globally
-│   ├── list-skills.sh             # List available skills
-│   └── list-skills-format.sh      # Format skill list (JSON, CSV)
+│   ├── learning-graph-generator/  # Generates 300-600 concept dependency graphs
+│   ├── book-chapter-generator/    # Designs chapter structure from the learning graph
+│   ├── chapter-content-generator/ # Generates chapter content and MicroSims
+│   ├── glossary-generator/        # ISO 11179-compliant glossary
+│   ├── faq-generator/             # FAQs from chapter content
+│   ├── quiz-generator/            # Bloom's Taxonomy-aligned quizzes
+│   ├── reference-generator/       # Curated per-chapter references
+│   ├── microsim-generator/        # MicroSims across many JS libraries (meta-skill)
+│   ├── microsim-utils/            # MicroSim QA and maintenance (meta-skill)
+│   ├── book-installer/            # Project scaffold and infrastructure (meta-skill)
+│   ├── book-media-generator/      # Slides, illustrations, audio (meta-skill)
+│   ├── book-publisher/            # README, LinkedIn, press release (meta-skill)
+│   └── archived/                  # Original single-purpose skills, consolidated into the meta-skills above
+├── scripts/                       # Utility scripts (install, metrics, screenshots, ...)
+│   ├── bk-install-skills          # Install skills for Claude Code
+│   ├── bk-install-skills-codex    # Install skills for OpenAI Codex
+│   ├── bk-install-skills-antigravity # Install skills for Google Antigravity/Gemini
+│   └── bk-list-skills             # List all active skills
 ├── commands/                      # Slash commands
-│   └── skills.md                  # /skills command
 ├── mkdocs.yml                     # MkDocs configuration
-├── CLAUDE.md                      # Instructions for Claude Code
+├── CLAUDE.md                      # Agent instructions (also usable as AGENTS.md)
 └── README.md                      # This file
 ```
 
@@ -211,7 +194,7 @@ When reporting issues, please include:
 - Steps to reproduce (for bugs)
 - Expected vs actual behavior
 - Screenshots or error messages (if applicable)
-- Skill name and version (if skill-specific)
+- Skill name and the AI agent/tool you were using (if skill-specific)
 - Browser/environment details (for MicroSim issues)
 
 ## License
@@ -236,7 +219,7 @@ This work is based on "Agent Skills for Intelligent Textbooks" by Dan McCreary,
 available at https://github.com/dmccreary/ibook-skills, licensed under CC BY-NC-SA 4.0.
 ```
 
-See [license details](https://creativecommons.org/licenses/by-nc-sa/4.0/) for the full legal text.
+See [license details](docs/license.md) for the full legal text.
 
 ## Acknowledgements
 
@@ -259,21 +242,10 @@ This project is built on the shoulders of giants in the open source community. W
 - **[Python](https://www.python.org/)** community - Data processing, analysis, and automation tools
 - **[PyMdown Extensions](https://facelessuser.github.io/pymdown-extensions/)** - Enhanced Markdown extensions
 
-### AI and Machine Learning
-
-- **[Claude AI](https://claude.ai)** by Anthropic - Advanced AI assistant powering content generation and skill workflows
-- **[Claude Code](https://claude.ai/code)** - AI-powered coding assistant enabling autonomous skill execution
-
 ### Hosting and Deployment
 
 - **[GitHub Pages](https://pages.github.com/)** - Free hosting for open source documentation projects
 - **[GitHub](https://github.com/)** - Version control and collaboration platform
-
-### Hardware and MicroPython (for moving-rainbow skill)
-
-- **[Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/)** - Affordable microcontroller platform
-- **[MicroPython](https://micropython.org/)** - Python 3 for microcontrollers
-- **[NeoPixel](https://www.adafruit.com/category/168)** by Adafruit - Addressable RGB LED technology
 
 ### Educational Standards and Frameworks
 
@@ -292,7 +264,7 @@ Special thanks to the educators, developers, and maintainers who contribute to m
 
 Questions, suggestions, or collaboration opportunities? Feel free to connect on LinkedIn or open an issue on GitHub. I'm particularly interested in:
 
-- Feedback on skill effectiveness and quality
+- Feedback on skill effectiveness and quality across different AI agents
 - Suggestions for new skills or features
 - Collaboration on educational technology projects
 - Use cases and success stories from educators
@@ -309,51 +281,45 @@ https://github.com/dmccreary/ibook-skills
 **BibTeX:**
 
 ```bibtex
-@misc{mccreary2024claudeskills,
+@misc{mccreary2024agentskills,
   author = {McCreary, Dan},
   title = {Agent Skills for Intelligent Textbooks},
   year = {2024},
   publisher = {GitHub},
   url = {https://github.com/dmccreary/ibook-skills},
-  note = {A collection of AI-powered skills for creating intelligent educational content}
+  note = {A portable, multi-platform library of AI agent skills for creating intelligent educational content}
 }
 ```
 
 ## Available Skills
 
-This repository includes 19 specialized skills for intelligent textbook creation:
+This repository includes 14 active skills for intelligent textbook creation. Several are meta-skills that route to focused sub-workflows in a `references/` folder, which keeps the total under each platform's loaded-skills limit while still covering dozens of tasks.
 
-### Core Educational Skills
+### Content-Pipeline Skills
 
 1. **course-description-analyzer** - Validates and enhances course descriptions
-2. **learning-graph-generator** - Creates 200-concept dependency graphs (DAG structure)
-3. **book-chapter-generator** - Designs optimal chapter structure from learning graphs
-4. **chapter-content-generator** - Generates comprehensive chapter content with examples
+2. **learning-graph-generator** - Creates 300-600 concept dependency graphs (DAG structure)
+3. **book-chapter-generator** - Designs chapter structure from the learning graph
+4. **chapter-content-generator** - Generates chapter content, diagrams, and exercises
 5. **glossary-generator** - Creates ISO 11179-compliant glossaries
-6. **faq-generator** - Generates FAQs from course content and learning graphs
-7. **quiz-generator** - Creates Bloom's Taxonomy-aligned assessments
-8. **reference-generator** - Curates academic references by education level
+6. **faq-generator** - Generates FAQs from chapter content and the learning graph
+7. **quiz-generator** - Creates Bloom's Taxonomy-aligned quiz questions
+8. **reference-generator** - Curates per-chapter academic references
 
-### Interactive Content Skills
+### Meta-Skills (Routers)
 
-9. **microsim-p5** - Creates educational p5.js simulations with interactive controls
-10. **microsim-standardization** - Validates and upgrades MicroSim quality
-11. **bubble-chart-generator** - Creates Chart.js bubble visualizations for priority matrices
-12. **timeline-generator** - Generates interactive timeline visualizations
-13. **mermaid-generator** - Creates workflow diagrams and flowcharts
-14. **venn-diagram-generator** - Generates interactive Venn diagrams
-15. **vis-network** - Creates network visualizations and graph explorers
+9. **book-installer** - Project scaffolding and infrastructure: init a new textbook, install features (math, mascot, learning-graph viewer, Google Analytics, and more), generate book metrics
+10. **microsim-generator** - MicroSims across p5.js, Chart.js, Plotly, Mermaid, vis-network, timelines, maps, and more
+11. **microsim-utils** - MicroSim QA: standardization, screenshots, layout review, coverage reports
+12. **book-media-generator** - Slide decks, illustrated stories, chapter images, and audio
+13. **book-publisher** - README, LinkedIn posts/carousels, and press releases
 
-### Workflow and Orchestration Skills
+### Standalone
 
-16. **intelligent-textbook** - Complete 12-step textbook generation workflow
-17. **intelligent-textbook-creator** - Creates MkDocs Material textbook projects
-18. **install-learning-graph-viewer** - Installs interactive graph exploration tools
-19. **readme-generator** - Generates comprehensive README files (this skill!)
-
+14. **docx-to-web-publisher** - Converts .docx files into structured web pages
 
 For detailed documentation on each skill, see the [skill descriptions](https://dmccreary.github.io/ibook-skills/skill-descriptions/) in the documentation site.
 
 ---
 
-**Built with Claude Code** | **Powered by Claude AI** | **Open Educational Resources**
+**Portable Agent Skills** | **Works with Claude Code, Codex, Antigravity/Gemini, Cursor, Perplexity, and Hermes** | **Open Educational Resources**
