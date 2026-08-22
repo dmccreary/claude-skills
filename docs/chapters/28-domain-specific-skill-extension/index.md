@@ -85,6 +85,41 @@ The second extension simulates hands-on assembly. A **solderless breadboard** is
     ![Kit holding up a tool with a knowing look](../../img/mascot/tip.png){ class="mascot-admonition-img" }
     This is the single most common beginner mistake with a real breadboard, and it's exactly what a tie-point-accurate simulation teaches safely before a learner ever touches actual hardware: two holes that look close together can be on entirely different internal rows.
 
+#### Diagram: Breadboard Tie Points and Animated Current Flow
+
+<iframe src="../../sims/breadboard-tie-points-current-flow/main.html" width="100%" height="520px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>Breadboard Tie Points and Animated Current Flow</summary>
+Type: microsim
+**sim-id:** breadboard-tie-points-current-flow<br/>
+**Library:** p5.js<br/>
+**Status:** Specified
+
+Bloom Level: Apply (L3)
+Bloom Verb: Demonstrate
+
+Learning objective: Demonstrate which breadboard holes are electrically connected, and how current flows once a simple LED circuit is completed.
+
+Canvas layout:
+- A simplified breadboard grid (two power rails top and bottom, a central component area split into two halves by the center gap)
+- A battery, an LED, and a resistor pre-placed into example tie points, with jumper wires connecting them
+
+Interactive controls:
+- Click any hole to highlight every other hole internally connected to it (its full row or rail)
+- Button: "Complete the Circuit" — connects the final jumper wire
+- Button: "Reset"
+
+Behavior:
+- Clicking a hole highlights its entire internally-connected group in one color, with a label reading "Same tie point group" — clicking an adjacent-but-unconnected hole shows no highlight, reinforcing the tip above
+- Clicking "Complete the Circuit" animates small moving dots along the wire path from the battery through the resistor and LED and back, and the LED glows once current reaches it
+- If the circuit is left incomplete, no animation plays and an infobox explains which connection is missing
+
+Instructional Rationale: An Apply-level demonstrate objective fits a direct-manipulation simulation where the learner completes the circuit themselves and observes the consequence (the LED lighting), rather than only watching a pre-animated video.
+
+Implementation notes: Use p5.js; model tie points as a simple 2D array grouped by row; animate current as particles moving along a precomputed wire path once the circuit is complete.
+</details>
+
 Once components are placed correctly, **animated current flow** makes the circuit's behavior visible: a moving visual indication of charge traveling through a circuit, making an otherwise invisible process observable. For circuits whose signals switch between discrete states rather than varying continuously, **digital circuit simulation** models that switching behavior so a reader can observe it without building hardware, often alongside a **voltage and current scope**: a display panel plotting electrical quantities over time alongside the simulated circuit.
 
 ## Designing and Scoring a Hands-On Lab

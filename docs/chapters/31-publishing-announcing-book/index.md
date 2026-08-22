@@ -88,6 +88,42 @@ None of this should happen before the book is actually ready. The **book complet
     ![Kit holding up a caution paw](../../img/mascot/warning.png){ class="mascot-admonition-img" }
     A LinkedIn post that goes out before deployment verification (Chapter 29) has actually confirmed the live site works risks sending your very first readers to a broken link. Run the launch checklist all the way through, in order, before a single announcement goes out.
 
+#### Diagram: Book Launch Checklist
+
+<iframe src="../../sims/book-launch-checklist/main.html" width="100%" height="480px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>Book Launch Checklist</summary>
+Type: workflow
+**sim-id:** book-launch-checklist<br/>
+**Library:** Mermaid<br/>
+**Status:** Specified
+
+Bloom Level: Evaluate (L5)
+Bloom Verb: Justify
+
+Learning objective: Justify why each launch-checklist item must pass before an announcement goes out, in the correct order.
+
+Visual style: Top-to-bottom Mermaid flowchart styled as a checklist
+
+Nodes:
+1. "mkdocs build --strict passes" (rounded rectangle)
+2. "Deployment verified live" (rounded rectangle)
+3. "book-metrics.json regenerated" (rounded rectangle)
+4. "README regenerated from metrics" (rounded rectangle)
+5. "Announcement drafted" (rounded rectangle)
+6. "Announcement preview image checked" (rounded rectangle)
+7. "Publish" (rounded rectangle, book's accent color, final node)
+
+Edges: strictly sequential 1 --> 2 --> 3 --> 4 --> 5 --> 6 --> 7
+
+Interactivity requirement: every node MUST have a `click` directive opening an infobox explaining why that specific step must complete before the next one, referencing the relevant earlier chapter (e.g., node 1 references Chapter 29's strict build mode, node 2 references Chapter 29's deployment verification).
+
+Color scheme: all checklist nodes in a consistent teal until clicked, then briefly highlight green to simulate "checked off"; final "Publish" node in a distinct accent color.
+
+Implementation: Mermaid flowchart with per-node click handlers rendered inside the MicroSim's main.html, opening a shared infobox panel below the diagram.
+</details>
+
 ## After Launch: Continuous Improvement
 
 Publishing isn't the end of a book's story. **Continuous book improvement** means using measurements, reader feedback, and usage data to revise a book and the skills that produced it after release — the quiz analytics from Chapter 20, the FAQ coverage gaps from Chapter 19, and the reading-level audits from Chapter 30 all exist to feed exactly this ongoing loop.
