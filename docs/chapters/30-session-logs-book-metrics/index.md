@@ -61,6 +61,21 @@ This chapter builds on concepts from:
     ![Kit thinking with a paw on their chin](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
     A design decision that felt obvious while you were making it will not feel obvious when you revisit the same MicroSim a year later wondering "why is this canvas 620 pixels tall specifically?" A design decision record answers that question without making you reconstruct the reasoning from scratch.
 
+#### Diagram: Book Build Workflow
+
+<iframe src="../../sims/book-build-workflow/main.html" width="100%" height="480px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>Book Build Workflow (reused MicroSim)</summary>
+Type: workflow
+**sim-id:** book-build-workflow<br/>
+**Library:** Mermaid<br/>
+**Status:** Reused<br/>
+**Source:** docs/sims/book-build-workflow
+
+Reused from this book's own MicroSim catalog. Learning objective: Summarize the complete build process, from course description through final book metrics, that every measurement in this chapter describes.
+</details>
+
 ## Measuring What a Skill Cost
 
 Two measurement scripts close the loop on quality and cost across a whole book. **analyze-reading-levels.py** measures textual difficulty per chapter and reports variation across the book, the automated version of Chapter 13's Flesch-Kincaid check applied to every chapter at once instead of one at a time. A **skill usage report** is a generated summary showing which skills ran, how long they took, and what they consumed — the human-readable output built from the JSONL usage logs and hooks you met back in Chapter 9.

@@ -61,6 +61,21 @@ Two rules govern every valid chapter assignment. **Concept coverage exactly once
     ![Kit thinking with a paw on their chin](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
     Both rules together mean a valid chapter structure is really a topological sort of the graph, cut into readable pieces. This book's own structure was checked against exactly this pair of rules — every one of its 570 concepts appears in exactly one chapter, and every dependency edge points from a later chapter back to an earlier or equal one.
 
+#### Diagram: Chapter Organization Workflow
+
+<iframe src="../../sims/chapter-organization-workflow/main.html" width="100%" height="480px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>Chapter Organization Workflow (reused MicroSim)</summary>
+Type: workflow
+**sim-id:** chapter-organization-workflow<br/>
+**Library:** Mermaid<br/>
+**Status:** Reused<br/>
+**Source:** docs/sims/chapter-organization-workflow
+
+Reused from this book's own MicroSim catalog. Learning objective: Trace the decisions the Book Chapter Generator makes when organizing content into a dependency-ordered chapter.
+</details>
+
 ## Anatomy of a Chapter Index File
 
 Every chapter in this book lives in a **chapter index file**: the main markdown file for a chapter, holding its title, summary, assigned ideas, and eventually its full text — the same file structure you've now seen 17 times over. It opens with a **chapter summary**: a brief statement of what the chapter covers, used for navigation, previews, and generation context, followed by a **chapter concept list**: the enumerated ideas that specific chapter is responsible for introducing, numbered exactly as you've seen at the top of this one.

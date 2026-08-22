@@ -58,6 +58,21 @@ The **Book Installer Skill** is the meta-skill that scaffolds a new book and ins
 
 Once a book exists, adding a capability to it is **feature installation routing**: matching a request for a site capability to the specific guide describing how to install it — "add a Kanban board" or "add Google Analytics" each route to a different installation guide inside the same meta-skill, the same routing-table pattern from Chapter 7 applied to site features instead of MicroSim libraries.
 
+#### Diagram: Install Book Environment Dependencies
+
+<iframe src="../../sims/install-book-env/main.html" width="100%" height="480px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>Install Book Environment Dependencies (reused MicroSim)</summary>
+Type: graph-model
+**sim-id:** install-book-env<br/>
+**Library:** vis-network<br/>
+**Status:** Reused<br/>
+**Source:** docs/sims/install-book-env
+
+Reused from this book's own MicroSim catalog. Learning objective: Analyze the dependency graph of software components a textbook scaffold requires, from MkDocs to the skill library itself.
+</details>
+
 ## Knowing What's Already There
 
 Before installing anything, it helps to know what's already present. **Feature auto-detection** examines a project to determine which capabilities are already installed, so a report reflects reality rather than assumption, performed by **detect_features.py**: the program that inspects a project and reports which site capabilities are installed. The result is a **feature checklist**: a generated document listing available site capabilities and marking which are present in a given book.

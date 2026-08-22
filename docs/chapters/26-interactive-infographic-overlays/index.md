@@ -65,6 +65,44 @@ Wherever a marker sits, its position is data, not a hardcoded pixel value. **Cal
 
 When a label needs to sit outside the illustration itself, **leader line rendering** draws a connecting line from a marker to its label so the association is unambiguous, rather than leaving a reader to guess which label belongs to which point.
 
+#### Diagram: Callout Marker Anatomy
+
+<iframe src="../../sims/callout-marker-anatomy/main.html" width="100%" height="460px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>Callout Marker Anatomy</summary>
+Type: microsim
+**sim-id:** callout-marker-anatomy<br/>
+**Library:** p5.js<br/>
+**Status:** Specified
+
+Bloom Level: Understand (L2)
+Bloom Verb: Explain
+
+Learning objective: Explain how a stored marker coordinate, a leader line, and a label work together on an annotation-free illustration.
+
+Canvas layout:
+- Left (500px): a simple annotation-free illustration placeholder (a labeled rectangle standing in for a generated picture)
+- Right (200px): a small data table showing the currently selected marker's stored {x, y} coordinate
+
+Interactive controls:
+- Drag any of 3 example markers to a new position on the illustration
+- Toggle: "Show leader lines" on/off
+
+Data Visibility Requirements:
+  Stage 1: Show the illustration with 3 markers placed at default coordinates
+  Stage 2: Show each marker's stored {x, y} coordinate in the side table, updating live as a marker is dragged
+  Stage 3: Show a leader line drawn from each marker to a label positioned outside the illustration
+
+Behavior:
+- Dragging a marker updates its stored coordinate in the side table instantly, demonstrating that position is data, not a pixel baked into the image
+- Toggling leader lines off/on shows labels floating disconnected vs. clearly connected to their markers
+
+Instructional Rationale: An Understand-level objective is best served by concrete data visibility (the coordinate table) rather than animation — dragging a marker and watching its stored value change makes "position is data" tangible.
+
+Implementation notes: Use p5.js; the illustration itself is a static placeholder rectangle, not a generated image, since the point is the marker/coordinate/leader-line relationship.
+</details>
+
 ## Exploring an Overlay
 
 Put those markers together into an interaction and you get **overlay explore mode**: an interaction style in which hovering or selecting a marker reveals explanatory information about that feature — the same minimum interactivity bar every diagram in this book has followed since Chapter 1.

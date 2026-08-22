@@ -83,6 +83,21 @@ Two more numbers describe a graph's overall shape. **Dependency chain length** i
 
 All of these checks roll up into one number: the **learning graph quality score**, a composite rating derived from structural checks such as absence of loops, connectivity, and dependency density. That score, along with the individual measurements behind it, is written to a **quality metrics report**: the generated document presenting structural measurements of a graph together with recommendations for improvement — this project's own quality gate for the entire learning graph stage of the pipeline.
 
+#### Diagram: Learning Graph Quality Score Calculator
+
+<iframe src="../../sims/learning-graph-quality-score-calculator-microsim/main.html" width="100%" height="480px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>Learning Graph Quality Score Calculator (reused MicroSim)</summary>
+Type: microsim
+**sim-id:** learning-graph-quality-score-calculator-microsim<br/>
+**Library:** p5.js<br/>
+**Status:** Reused<br/>
+**Source:** docs/sims/learning-graph-quality-score-calculator-microsim
+
+Reused from this book's own MicroSim catalog. Learning objective: Apply the structural checks from this chapter to see how each one moves the composite learning graph quality score.
+</details>
+
 ## Reviewing Before You Build: Workflow and Remediation
 
 Automated checks catch structural defects; they don't catch a concept that's simply wrong or a category that's misnamed. That's what the **graph review workflow** is for: the author-led inspection of a generated structure before content generation begins, when corrections are still inexpensive. Its cheapest phase happens earliest — **concept list review**: examining and editing the enumerated ideas before dependencies are assigned, since later changes propagate through every downstream artifact once chapters and content are built on top of them.

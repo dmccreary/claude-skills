@@ -62,6 +62,43 @@ Asking a model to invent facts and render them as a finished poster in the same 
     ![Kit holding up a caution paw](../../img/mascot/warning.png){ class="mascot-admonition-img" }
     This is Chapter 2's hallucination warning, made visually undeniable. The **baked-in text problem** means wording is permanently fixed into pixels, so any error requires regenerating the whole picture and cannot be audited by a reader the way a wrong number in a paragraph could be quietly fixed. Never trust a one-shot generated infographic's numbers without checking them against a real source first.
 
+#### Diagram: The Eight-Phase Verified Infographic Pipeline
+
+<iframe src="../../sims/verified-infographic-pipeline-phases/main.html" width="100%" height="440px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>The Eight-Phase Verified Infographic Pipeline</summary>
+Type: workflow
+**sim-id:** verified-infographic-pipeline-phases<br/>
+**Library:** Mermaid<br/>
+**Status:** Specified
+
+Bloom Level: Understand (L2)
+Bloom Verb: Summarize
+
+Learning objective: Summarize the eight ordered phases that separate claim verification from image rendering.
+
+Visual style: Top-to-bottom Mermaid flowchart, eight numbered stages
+
+Nodes:
+1. "1. Claim Planning" (rounded rectangle)
+2. "2. Source Discovery" (rounded rectangle)
+3. "3. Per-Claim Verification" (rounded rectangle)
+4. "4. Verification Report" (rounded rectangle)
+5. "5. Layout Specification Lock" (rounded rectangle, amber — the last text-only stage)
+6. "6. Verbatim Text Prompt" (rounded rectangle)
+7. "7. Image Generation (single call)" (rounded rectangle, book's accent color)
+8. "8. Rendered Image Audit" (rounded rectangle)
+
+Edges: sequential 1 --> 2 --> 3 --> 4 --> 5 --> 6 --> 7 --> 8, with a dashed "reject/revise" edge from 3 back to 1 for a claim that fails verification
+
+Interactivity requirement: every node MUST have a `click` directive opening an infobox with that phase's one-sentence definition, and phases 1-6 should be visually grouped (background band) as "text-only," with phase 7 marked as "the only image-model call."
+
+Color scheme: text-only phases in the book's teal accent; phase 7 (image generation) in a distinct warm color to emphasize it happens exactly once; phase 8 in green (audit/verification).
+
+Implementation: Mermaid flowchart with per-node click handlers rendered inside the MicroSim's main.html, opening a shared infobox panel below the diagram.
+</details>
+
 ## Separating Facts From Pixels: The Verified Infographic Pipeline
 
 The fix isn't to avoid text-to-image models — it's to change the order of operations. **Separating facts from pixels** is the design rule that content is decided and verified in text before any picture is produced, so the image generator never chooses a figure on its own. That rule is implemented as the **verified infographic pipeline**: a staged process producing a factual poster in which claims are planned, sourced, verified, and locked before a single image is generated, and the result is audited afterward. It begins with the **claim planning phase**: the initial stage listing every factual assertion a planned poster will make, before any source is even consulted.

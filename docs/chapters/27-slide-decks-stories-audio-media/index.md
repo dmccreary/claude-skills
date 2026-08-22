@@ -91,6 +91,39 @@ Chapters 25 and 26 covered explore mode for an interactive overlay; there's a se
 
 For a reader who'd rather listen than read, **text-to-speech narration** generates spoken audio of written material, offering an alternative to reading rather than a replacement for it. The specific voice that reads it is shaped by **ElevenLabs voice settings**: the parameters controlling a synthesized voice's identity, pacing, and expressiveness. Delivered through **audio streaming playback** — sound that begins playing before the whole file has downloaded — narration doesn't force a reader to wait through a long download before hearing the first word. At the smallest scale, a **pronounce button** is a small control beside a defined term that plays its spoken pronunciation, helping readers with unfamiliar vocabulary hear a term like "GraphRAG" or "idempotent" spoken correctly.
 
+#### Diagram: Pronounce Button and Streaming Playback
+
+<iframe src="../../sims/pronounce-button-demo/main.html" width="100%" height="380px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>Pronounce Button and Streaming Playback</summary>
+Type: microsim
+**sim-id:** pronounce-button-demo<br/>
+**Library:** p5.js<br/>
+**Status:** Specified
+
+Bloom Level: Apply (L3)
+Bloom Verb: Demonstrate
+
+Learning objective: Demonstrate how clicking a pronounce button begins audio streaming playback before the full narration has loaded.
+
+Canvas layout:
+- Top: three example glossary terms with a small speaker-icon pronounce button beside each ("GraphRAG", "idempotent", "Schemdraw")
+- Bottom: a horizontal progress bar representing streaming playback, with a "Downloaded" marker and a "Playback Position" marker
+
+Interactive controls:
+- Click any pronounce button to start its term's simulated playback
+- Button: "Simulate slow connection" (exaggerates the gap between download and playback markers)
+
+Behavior:
+- Clicking a pronounce button starts the "Playback Position" marker moving immediately, while the "Downloaded" marker fills in behind it more slowly — demonstrating that playback begins before the full file has downloaded
+- Hovering the progress bar shows an infobox explaining streaming playback vs. waiting for a full download
+
+Instructional Rationale: An Apply-level demonstration lets the reader trigger the behavior directly and see the two markers diverge, making "streaming" concrete instead of an abstract claim.
+
+Implementation notes: Use p5.js; no real audio is played, the markers simulate timing only.
+</details>
+
 ## Key Takeaways
 
 - A **PowerPoint lecture deck** with **speaker notes** serves the classroom; the **illustrated story** and **graphic novel formats**, built via **generate-images.py**, introduce ideas through narrative.

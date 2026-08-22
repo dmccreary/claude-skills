@@ -55,6 +55,40 @@ This chapter builds on concepts from:
     ![Kit waves hello with their tool satchel](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
     You've met p5.js up close. This chapter shows you how a single request gets routed to p5.js, or Chart.js, or six other libraries — and everything that has to be true about a finished MicroSim before it counts as done. Right tool, right task!
 
+#### Diagram: MicroSim Library Routing Table
+
+<iframe src="../../sims/microsim-library-routing-table/main.html" width="100%" height="480px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>MicroSim Library Routing Table</summary>
+Type: workflow
+**sim-id:** microsim-library-routing-table<br/>
+**Library:** Mermaid<br/>
+**Status:** Specified
+
+Bloom Level: Apply (L3)
+Bloom Verb: Demonstrate
+
+Learning objective: Demonstrate how a request's keywords route to one of several visualization libraries.
+
+Visual style: Left-to-right Mermaid flowchart
+
+Nodes:
+1. "Incoming Request" (rounded rectangle)
+2. "MicroSim Generator (Meta-Skill)" (rounded rectangle, book's accent color)
+3. Six library nodes fanning out: "p5.js", "Chart.js", "vis-network", "vis-timeline", "Leaflet", "Mermaid" (rounded rectangles)
+
+Edges:
+- Incoming Request --> MicroSim Generator
+- MicroSim Generator --> each library node, each edge labeled with a matched keyword (e.g., "dates, chronological" -> vis-timeline; "geographic, coordinates" -> Leaflet)
+
+Interactivity requirement: every node MUST have a `click` directive opening an infobox — the request node shows an example request string, the generator node shows its routing job, each library node shows one example MicroSim it's best suited for.
+
+Color scheme: the generator node in the book's teal accent; library nodes in a consistent lighter shade.
+
+Implementation: Mermaid flowchart with per-node click handlers rendered inside the MicroSim's main.html, opening a shared infobox panel below the diagram.
+</details>
+
 ## The MicroSim Generator: One Meta-Skill, Many Libraries
 
 The **MicroSim generator** is the meta-skill that routes a simulation request to the appropriate specialized guide and produces a complete package of files — a direct application of the meta-skill pattern from Chapter 7, this time routing by visualization type instead of by task category. That routing decision is **visualization library routing**: selecting the rendering technology best matched to a request, based on the kind of data and interaction described.

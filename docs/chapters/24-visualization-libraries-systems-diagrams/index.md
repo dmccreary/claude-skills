@@ -71,6 +71,42 @@ Some ideas aren't a hierarchy or a flow — they're a system that feeds back on 
 
 When the same loop shape shows up across many unrelated domains, it's worth naming: a **systems archetype** is a recurring pattern of interacting loops that appears across many different domains and produces a characteristic behavior, regardless of the specific subject it's describing.
 
+#### Diagram: Token Waste Reinforcing Loop
+
+<iframe src="../../sims/token-waste-reinforcing-loop/main.html" width="100%" height="480px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>Token Waste Reinforcing Loop</summary>
+Type: graph-model
+**sim-id:** token-waste-reinforcing-loop<br/>
+**Library:** vis-network<br/>
+**Status:** Specified
+
+Bloom Level: Analyze (L4)
+Bloom Verb: Differentiate
+
+Learning objective: Differentiate a reinforcing loop from a balancing loop using this book's own token-waste example from Chapter 9.
+
+Purpose: Show a concrete reinforcing loop (unchecked token waste compounding) and the balancing loop that counteracts it (chapter token budgeting), as two linked causal loop diagrams.
+
+Node types:
+1. Variable nodes (ellipses): "Unnecessary Parallel Agents", "Startup Overhead Paid", "Tokens Remaining in Window", "Chapter Token Budgeting", "Cost Awareness"
+
+Edge types:
+1. Reinforcing loop (solid arrows, labeled "R"): Unnecessary Parallel Agents -> Startup Overhead Paid -> (fewer) Tokens Remaining in Window -> pressure to rush -> more Unnecessary Parallel Agents
+2. Balancing loop (solid arrows, labeled "B"): Chapter Token Budgeting -> Cost Awareness -> fewer Unnecessary Parallel Agents
+
+Interactive features:
+- Hover any node to see its one-sentence definition
+- Click the "R" or "B" loop label to highlight that loop's full path and show its net effect (growth/collapse for R, stabilization for B)
+- Zoom and pan enabled
+
+Layout: Force-directed, two visually separated loops
+Legend: R (reinforcing, red arrows) vs. B (balancing, blue arrows)
+
+Implementation: vis-network JavaScript library, canvas 800x500px
+</details>
+
 ## Runnable Labs
 
 Not every interactive element in a textbook is a diagram — some are exercises a reader actively edits and runs. A **Docker Python lab** is an interactive exercise in which a reader edits and runs code inside a contained environment directly from a textbook page, and its content is a **runnable code block**: a code sample a reader can execute in place and modify, rather than only read.

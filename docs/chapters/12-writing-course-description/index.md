@@ -64,6 +64,21 @@ A complete course description has several required elements, each governing a di
 | Course Prerequisites | What a learner needs before starting |
 | Main Topics Covered | The raw material concept enumeration draws from |
 
+#### Diagram: Course Description Quality Rubric
+
+<iframe src="../../sims/course-description-quality-rubric-visualization/main.html" width="100%" height="480px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>Course Description Quality Rubric (reused MicroSim)</summary>
+Type: infographic
+**sim-id:** course-description-quality-rubric-visualization<br/>
+**Library:** p5.js<br/>
+**Status:** Reused<br/>
+**Source:** docs/sims/course-description-quality-rubric-visualization
+
+Reused from this book's own MicroSim catalog. Learning objective: Evaluate a course description against the point-allocated rubric elements covered in this chapter.
+</details>
+
 ## Defining What's Out of Scope
 
 Just as important as what a course covers is what it deliberately doesn't. **Topics excluded from scope** is an explicit list of subjects a course does not address, preventing generated material from drifting beyond its intended boundary — this book's own course description explicitly excludes electronics as a subject, for example, even though a later chapter uses it as a worked domain-extension example.

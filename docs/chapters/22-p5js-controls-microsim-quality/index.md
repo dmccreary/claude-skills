@@ -70,6 +70,21 @@ An embedded MicroSim needs its surrounding frame sized correctly, and that heigh
     ![Kit holding up a tool with a knowing look](../../img/mascot/tip.png){ class="mascot-admonition-img" }
     Never hand-edit an iframe's `height` attribute to fix a clipping problem. Fix the `CANVAS_HEIGHT` comment in the simulation's own source instead, and let synchronization propagate the corrected value everywhere that simulation is embedded.
 
+#### Diagram: MicroSim Design Quality Checklist
+
+<iframe src="../../sims/microsim-design-quality-checklist/main.html" width="100%" height="480px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>MicroSim Design Quality Checklist (reused MicroSim)</summary>
+Type: infographic
+**sim-id:** microsim-design-quality-checklist<br/>
+**Library:** p5.js<br/>
+**Status:** Reused<br/>
+**Source:** docs/sims/microsim-design-quality-checklist
+
+Reused from this book's own MicroSim catalog. Learning objective: Evaluate a MicroSim against the checklist items that later feed its automated quality score.
+</details>
+
 ## Responsive Layout and Accessibility
 
 A MicroSim has to work at whatever width its frame actually gets. **Responsive sim layout** means designing a simulation so it adapts to the width available, remaining usable on narrow screens and inside frames of different sizes. Readability depends on two more choices: **accessible color schemes** — color selections that remain distinguishable to readers with color vision differences and maintain sufficient contrast — and **font size for readability**: text sizing chosen so labels remain legible even when a simulation is displayed in a reduced frame. Finally, **iframe control visibility** confirms that a simulation's interface elements remain reachable when displayed at the frame height a page actually assigns, not just at the height it was designed and tested at.

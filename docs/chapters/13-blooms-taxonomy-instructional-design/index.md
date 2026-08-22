@@ -64,6 +64,21 @@ None of that means anything for a learning outcome until it's written as an **ac
 | Evaluate | critique, assess, justify | Assess whether a skill description triggers reliably |
 | Create | design, construct | Design a meta-skill's routing table |
 
+#### Diagram: Bloom's Taxonomy 1956 vs. 2001
+
+<iframe src="../../sims/bloom-s-taxonomy-1956-vs-2001-comparison/main.html" width="100%" height="480px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>Bloom's Taxonomy 1956 vs. 2001 (reused MicroSim)</summary>
+Type: infographic
+**sim-id:** bloom-s-taxonomy-1956-vs-2001-comparison<br/>
+**Library:** p5.js<br/>
+**Status:** Reused<br/>
+**Source:** docs/sims/bloom-s-taxonomy-1956-vs-2001-comparison
+
+Reused from this book's own MicroSim catalog. Learning objective: Compare the 1956 noun-based categories against the 2001 revision's verb-based categories, level by level.
+</details>
+
 ## Checking the Spread: Cognitive Level Distribution
 
 A course that only ever asks learners to define and list things never asks them to actually use the material. **Cognitive level distribution** is the spread of material across the six cognitive categories, used to check that a course isn't concentrated in recall alone.

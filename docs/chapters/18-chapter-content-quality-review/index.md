@@ -71,6 +71,21 @@ Two structured formats carry visual requirements from a chapter's text into a la
 
 Underneath the structure sits a writing register: **encouraging tone**, a writing register that remains supportive and accessible, reducing the chance a reader abandons difficult material. You've seen it explicitly in every `mascot-encourage` admonition, but it's meant to run through the whole chapter's prose, not just Kit's lines.
 
+#### Diagram: Worked Example — Determining Reading Level from a Course Description
+
+<iframe src="../../sims/worked-example-determining-reading-level-from-course-description/main.html" width="100%" height="480px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>Worked Example: Determining Reading Level (reused MicroSim)</summary>
+Type: microsim
+**sim-id:** worked-example-determining-reading-level-from-course-description<br/>
+**Library:** p5.js<br/>
+**Status:** Reused<br/>
+**Source:** docs/sims/worked-example-determining-reading-level-from-course-description
+
+Reused from this book's own MicroSim catalog. Learning objective: Apply the declared reading level from a course description to judge whether a chapter draft matches it.
+</details>
+
 ## Reviewing a Chapter Before It Ships
 
 Once a chapter is drafted, the **chapter review workflow** is the author-led inspection of generated chapter material before dependent artifacts such as quizzes and simulations are produced — reviewing a chapter before it becomes the input to three or four other skills catches a problem once, cheaply, instead of downstream, expensively. That review checks a chapter against **content quality standards**: the criteria generated text must meet, covering prerequisite respect, cognitive coverage, example count, and formatting. Two measurements support that check directly: a **chapter reading level audit** measures textual difficulty across chapters and flags those that diverge from the declared target, and **chapter metrics** are per-chapter measurements such as word count, illustration count, and equation count, used to detect uneven coverage.

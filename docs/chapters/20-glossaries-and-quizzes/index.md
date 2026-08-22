@@ -73,6 +73,21 @@ Before any definition gets written, the vocabulary has to be identified. **Term 
 
 A **glossary quality report** is a generated assessment scoring definitions against the ISO 11179 criteria and listing entries that need revision — the same kind of automated quality gate you met for learning graphs in Chapter 16, applied to prose instead of graph structure.
 
+#### Diagram: ISO 11179 Principles Comparison
+
+<iframe src="../../sims/iso-11179-principles-comparison-table-infographic/main.html" width="100%" height="480px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>ISO 11179 Principles Comparison (reused MicroSim)</summary>
+Type: infographic
+**sim-id:** iso-11179-principles-comparison-table-infographic<br/>
+**Library:** p5.js<br/>
+**Status:** Reused<br/>
+**Source:** docs/sims/iso-11179-principles-comparison-table-infographic
+
+Reused from this book's own MicroSim catalog. Learning objective: Compare the five ISO 11179 criteria side by side against example definitions that pass or fail each one.
+</details>
+
 ## Quizzes: Testing More Than Recall
 
 A **quiz** is a set of questions used to check whether a reader has grasped a chapter's material, produced by the **quiz generator**: the skill that creates chapter assessments aligned to assigned ideas and distributed across cognitive categories. Most items take the form of a **multiple-choice question**: an assessment item presenting one correct answer among several alternatives.

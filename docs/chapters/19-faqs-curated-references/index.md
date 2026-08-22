@@ -59,6 +59,21 @@ A **FAQ** is a collection of common questions with answers, organized to address
     ![Kit thinking with a paw on their chin](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
     **FAQ coverage gaps** are areas of a course for which no question exists, identified by comparing questions against the enumerated ideas. The valuable output of that comparison isn't the FAQ itself — it's the gap list, which tells you exactly which concepts still need a question written for them.
 
+#### Diagram: FAQ Question Pattern Analysis
+
+<iframe src="../../sims/faq-pattern-analysis/main.html" width="100%" height="480px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>FAQ Question Pattern Analysis (reused MicroSim)</summary>
+Type: workflow
+**sim-id:** faq-pattern-analysis<br/>
+**Library:** Mermaid<br/>
+**Status:** Reused<br/>
+**Source:** docs/sims/faq-pattern-analysis
+
+Reused from this book's own MicroSim catalog. Learning objective: Analyze how FAQ categorization and coverage-gap comparison work together to reveal what a FAQ set is still missing.
+</details>
+
 ## From FAQ to Chatbot: Retrieval Augmented Generation
 
 A FAQ set written for a human reader can double as training material for a chatbot. **Chatbot training JSON** is a structured export of question-and-answer pairs formatted for consumption by a conversational retrieval system, feeding into **retrieval augmented generation**: a technique in which relevant stored passages are retrieved and supplied to a model so its answers are grounded in specific source material — the same grounding discipline from Chapter 2, applied to a live question-answering system rather than a one-time generation task.

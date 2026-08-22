@@ -77,6 +77,21 @@ Not everything you invoke by name is a skill. A **Claude command** is a named, r
 
 Some commands don't perform work at all — they tell you what to do next. A **runbook command** reports the ordered steps of a process and identifies which step comes next, without performing the steps itself. The **ibook runbook** is this library's own instance: the command that inspects a textbook project and reports how far the build pipeline has progressed and which skill to run next. It can do that safely because of **read-only state detection**: inspecting a project to determine its progress without altering any file, so a status report can never cause damage — you can run `/ibook` as often as you like just to check in.
 
+#### Diagram: Skill Installation Workflow
+
+<iframe src="../../sims/skill-installation-workflow/main.html" width="100%" height="480px" scrolling="no"></iframe>
+
+<details markdown="1">
+<summary>Skill Installation Workflow (reused MicroSim)</summary>
+Type: workflow
+**sim-id:** skill-installation-workflow<br/>
+**Library:** HTML/CSS/JavaScript<br/>
+**Status:** Reused<br/>
+**Source:** docs/sims/skill-installation-workflow
+
+Reused from this book's own MicroSim catalog. Learning objective: Summarize the steps from symbolic link installation through listing available skills.
+</details>
+
 ## The bk Command Family
 
 Beyond skills and commands, this project installs a set of short shell utilities: the **bk command family**, the set of installed command-line utilities, each prefixed for recognition, that perform book maintenance tasks such as capturing a MicroSim screenshot or generating book metrics. You've already met the pattern behind them in Chapter 3's shell script wrapper — a short, memorable name standing in for a longer, more exact command.
