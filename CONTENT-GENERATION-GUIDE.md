@@ -210,14 +210,61 @@ If the validator reports issues, fix the chapter and re-run until it exits
 clean. Do not report completion on a chapter that still fails, and do not
 relax a rule to make the check pass.
 
+## Concept Depth & Word-Count Targets
+
+Not every concept deserves equal space. A concept that many other concepts
+depend on needs more careful explanation — a shaky foundation cascades into
+everything built on top of it — while a leaf concept that nothing depends on
+can be treated more lightly.
+
+### Computing a concept's dependent count
+
+For a concept `c` in `docs/learning-graph/learning-graph.csv`, count how many
+*other* rows list `c` in their `Dependencies` column. Call this `d_c` — the
+number of downstream concepts that depend on `c`.
+
+### Target word-count formula
+
+```
+words(c) = W_min + (W_max - W_min) × ln(1 + min(d_c, D_cap)) / ln(1 + D_cap)
+```
+
+- `W_min = 150` — floor, for concepts with `d_c = 0`
+- `W_max = 600` — ceiling, for heavily-depended-on hub concepts
+- `D_cap = 8` — dependents beyond this add no further length, so a handful of
+  outlier hubs (this book has concepts with 20-40 dependents) don't blow up
+  the target
+
+Log scaling matters here because dependent counts are heavily skewed — median
+is 1, but a few hub concepts run past 20. A linear formula would let those
+outliers dominate; the log compresses the tail while still rewarding the 0-3
+range where most concepts live.
+
+| Dependents ($d_c$) | Target words | Concept role |
+|---|---|---|
+| 0 | 150 | Leaf / definitional |
+| 1 | ~290 | Median concept |
+| 2 | ~375 | — |
+| 3 | ~435 | — |
+| 5 | ~520 | — |
+| 8+ | 600 | Foundational hub (capped) |
+
+Applied across a 570-concept graph at ~16 concepts/chapter, this formula
+averages ~300 words/concept and ~4,900 words/chapter — in line with typical
+textbook chapter length, without requiring a flat per-concept word count.
+
 ## Anti-Padding & Writing Style Rules
 
 Models inflate text to hit word-count targets, producing repetitive and
 sometimes hallucinated content. All generating agents must follow these rules.
 
-1. **Quality over quantity.** Word-count targets are guidelines, not
-   requirements. A dense, correct 1,500-word chapter beats a repetitive
-   3,500-word one. Never inflate length artificially.
+1. **Quality over quantity.** Word-count targets (see *Concept Depth &
+   Word-Count Targets* above) are guidelines, not requirements. A dense,
+   correct chapter beats a padded one at the target length. Never inflate
+   length artificially — a hub concept should reach its target through a
+   worked example or MicroSim walkthrough, never restated prose, and a leaf
+   concept should stop once it is correctly explained even if that's well
+   under its target.
 2. **Expand by showing, not telling.** If a chapter is genuinely thin, add a
    concrete worked example, another MicroSim, or more technical detail. Never
    expand by restating earlier paragraphs, summarizing what was just said, or
