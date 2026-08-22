@@ -282,7 +282,7 @@ Sonnet 4.5 · Claude Pro
            - course description conforms to the intelligent book guidelines.
         15 +  ## Course Foundation Skills
         16    
-        17 -  **Location:** [https://github.com/dmccreary/claude-skills/tree/main/skil
+        17 -  **Location:** [https://github.com/dmccreary/ibook-skills/tree/main/skil
            - ls/course-description-analyzer](https://github.com/dmccreary/claude-skill
            - s/tree/main/skills/course-description-analyzer)
         18 -  **Status:** Done
@@ -460,7 +460,7 @@ Sonnet 4.5 · Claude Pro
        118 +  To use these skills with Claude Code:
        119 +  
        120 +  1. Install skills globally or per-project using 
-           + `/scripts/install-claude-skills.sh`
+           + `/scripts/install-ibook-skills.sh`
        121 +  2. View available skills with `/skills` command
        122 +  3. Invoke skills by name when working on educational content
        123 +  4. Skills coordinate automatically - e.g., glossary-generator creates 
@@ -512,7 +512,7 @@ Sonnet 4.5 · Claude Pro
        168 +  - Supporting assets (templates, scripts, references)
        169 +  
        170 +  See the [Skill Creator 
-           + Guide](https://github.com/dmccreary/claude-skills) for details on 
+           + Guide](https://github.com/dmccreary/ibook-skills) for details on 
            + creating new skills.
   ⎿  Session limit reached ∙ resets 12pm
      /upgrade to increase your usage limit.
@@ -824,7 +824,7 @@ Sonnet 4.5 · Claude Pro
 ─────────────────────────────────────────────────────────────────────────────────────────────
 >  
 ─────────────────────────────────────────────────────────────────────────────────────────────
-  ws/claude-skills
+  ws/ibook-skills
   ⏵⏵ bypass permissions on (shift+tab to cycle)
 
 

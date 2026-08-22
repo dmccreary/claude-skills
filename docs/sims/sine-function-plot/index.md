@@ -18,7 +18,7 @@ og:image: /sims/sine-function-plot/sine-function-plot.png
 To embed this visualization in your own page, use the following HTML code:
 
 ```html
-<iframe src="https://dmccreary.github.io/claude-skills/sims/sine-function-plot/main.html" width="100%" height="430"></iframe>
+<iframe src="https://dmccreary.github.io/ibook-skills/sims/sine-function-plot/main.html" width="100%" height="430"></iframe>
 ```
 
 ## Overview

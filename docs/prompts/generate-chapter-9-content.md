@@ -1,7 +1,7 @@
 # Chapter 9 Content Generation Log
 
 **Date**: 2025-11-08<br/>
-**Chapter**: 09-claude-skills-architecture-development<br/>
+**Chapter**: 09-ibook-skills-architecture-development<br/>
 **Skill**: chapter-content-generator<br/>
 **Model**: claude-sonnet-4-5-20250929
 
@@ -23,7 +23,7 @@ Successfully generated comprehensive content for Chapter 9: Claude Skills Archit
 **Token count at start**: 25,773
 
 **Actions**:
-- Read chapter file: `$HOME/Documents/ws/claude-skills/docs/chapters/09-claude-skills-architecture-development/index.md`
+- Read chapter file: `$HOME/Documents/ws/ibook-skills/docs/chapters/09-ibook-skills-architecture-development/index.md`
 - Verified file structure contains:
   - Title: "Claude Skills Architecture and Development" ✓
   - Summary: 2 paragraphs ✓
@@ -44,7 +44,7 @@ Successfully generated comprehensive content for Chapter 9: Claude Skills Archit
 - Parsed chapter structure
 - Extracted metadata:
   - Chapter number: 09
-  - URL slug: claude-skills-architecture-development
+  - URL slug: ibook-skills-architecture-development
   - Total concepts: 22
   - Prerequisite chapters: 2, 7, 8
 
@@ -82,7 +82,7 @@ Successfully generated comprehensive content for Chapter 9: Claude Skills Archit
 ### Step 3: Get the Reading Level
 
 **Actions**:
-- Read `$HOME/Documents/ws/claude-skills/docs/course-description.md`
+- Read `$HOME/Documents/ws/ibook-skills/docs/course-description.md`
 - Analyzed target audience: "Professional development"
 - Analyzed prerequisites: "Basic understanding of programming", "Basics of prompt engineering"
 - Analyzed topic complexity: Git, Python, graph databases, algorithms
@@ -200,7 +200,7 @@ Successfully generated comprehensive content for Chapter 9: Claude Skills Archit
 
 ✅ **Chapter content generated successfully!**
 
-**Chapter**: 09-claude-skills-architecture-development
+**Chapter**: 09-ibook-skills-architecture-development
 **Title**: Claude Skills Architecture and Development
 **Reading level**: College/Professional Development
 **Content length**: ~5,200 words
@@ -318,7 +318,7 @@ The chapter includes 5 `<details markdown="1">` block specifications that will n
 
 ## Files Modified
 
-- **Updated**: `$HOME/Documents/ws/claude-skills/docs/chapters/09-claude-skills-architecture-development/index.md`
+- **Updated**: `$HOME/Documents/ws/ibook-skills/docs/chapters/09-ibook-skills-architecture-development/index.md`
   - Replaced "TODO: Generate Chapter Content" placeholder
   - Added ~5,200 words of educational content
   - Included 18 non-text elements

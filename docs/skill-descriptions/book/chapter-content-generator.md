@@ -34,4 +34,4 @@ Withing the chapter index.md file there is a chapter title, summary and concept 
 
 For a full description of the steps see the main SKILL.md file in the skills folder:
 
-[GitHub SKILL.md file for the Chapter Content Generator](https://github.com/dmccreary/claude-skills/blob/main/skills/chapter-content-generator/SKILL.md)
+[GitHub SKILL.md file for the Chapter Content Generator](https://github.com/dmccreary/ibook-skills/blob/main/skills/chapter-content-generator/SKILL.md)

@@ -19,7 +19,7 @@ quality_score: 100
 You can include this MicroSim on your website using the following `iframe`:
 
 ```html
-<iframe src="https://dmccreary.github.io/claude-skills/sims/skill-context-window/main.html" width="100%" height="527px" scrolling="no" style="overflow: hidden;"></iframe>
+<iframe src="https://dmccreary.github.io/ibook-skills/sims/skill-context-window/main.html" width="100%" height="527px" scrolling="no" style="overflow: hidden;"></iframe>
 ```
 
 ## Description
@@ -108,7 +108,7 @@ Skills use progressive disclosure to minimize context usage:
 So even with 30 skills, only the frontmatter metadata is initially consuming context tokens. The full skill content loads when Claude actually uses that skill.
 
 Claude has also shown the ability to refactor a large number of skills into a smaller set using
-a process of `skill consolidation`.  For an example see the [Claude Code Skill Session Log](https://github.com/dmccreary/claude-skills/blob/main/logs/skill-consolidation.md).  In this example, Claude successfully consolidated 40+ skills down into 16 skills.
+a process of `skill consolidation`.  For an example see the [Claude Code Skill Session Log](https://github.com/dmccreary/ibook-skills/blob/main/logs/skill-consolidation.md).  In this example, Claude successfully consolidated 40+ skills down into 16 skills.
 
 ## Lesson Plan
 
@@ -238,7 +238,7 @@ This MicroSim illustrates key principles from the skill-creator documentation:
 1. [Claude Code Skills Documentation](https://code.claude.com/docs/en/skills) - Official documentation for Claude Code skills
 2. [GitHub Issue #13343: Skills truncated at 30 makes remaining skills undiscoverable](https://github.com/anthropics/claude-code/issues/13343) - Bug report documenting the 30-skill hard limit
 3. [GitHub Issue #13344: Plugin enable/disable ignored - all skills loaded regardless of settings](https://github.com/anthropics/claude-code/issues/13344) - Related bug that can cause unexpected skill accumulation
-4. [Skill Creator Skill](https://github.com/dmccreary/claude-skills) - The skill that creates other skills, demonstrates progressive disclosure
+4. [Skill Creator Skill](https://github.com/dmccreary/ibook-skills) - The skill that creates other skills, demonstrates progressive disclosure
 5. [Progressive Disclosure (Nielsen Norman Group)](https://www.nngroup.com/articles/progressive-disclosure/) - 2006 - UX design pattern for managing complexity
 6. [Context Window Management in LLMs](https://www.anthropic.com/index/100k-context-windows) - 2023 - Anthropic - Technical background on context windows
 7. [Modular Design Patterns](https://en.wikipedia.org/wiki/Modular_programming) - Wikipedia - Software architecture patterns for managing complexity

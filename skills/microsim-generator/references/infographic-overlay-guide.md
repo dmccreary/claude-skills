@@ -403,11 +403,11 @@ appear in exactly one place. Guard against the two ways it gets duplicated:
 
 ### Test Case
 
-A working grid overlay test is available at `docs/sims/grid-overlay-test/` in the claude-skills repo:
+A working grid overlay test is available at `docs/sims/grid-overlay-test/` in the ibook-skills repo:
 
 - `test-image.svg` — SVG comparison infographic (3 columns: Static vs. Interactive vs. Adaptive)
 - `data.json` — 3 zones + 3 quiz questions
 - `main.html` — Uses `grid-diagram.js` and `grid-overlay.css`
 - `index.md` — MkDocs page with embedded iframe
 
-Preview at: `http://127.0.0.1:8000/claude-skills/sims/grid-overlay-test/`
+Preview at: `http://127.0.0.1:8000/ibook-skills/sims/grid-overlay-test/`

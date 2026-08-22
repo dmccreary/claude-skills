@@ -17,12 +17,12 @@
   "format": "text/html",
   "type": "Interactive Simulation",
   "framework": "vanilla-js",
-  "url": "https://dmccreary.github.io/claude-skills/sims/certificate-generator/",
-  "identifier": "https://dmccreary.github.io/claude-skills/sims/certificate-generator/",
+  "url": "https://dmccreary.github.io/ibook-skills/sims/certificate-generator/",
+  "identifier": "https://dmccreary.github.io/ibook-skills/sims/certificate-generator/",
   "_source": {
-    "repo": "claude-skills",
+    "repo": "ibook-skills",
     "sim": "certificate-generator",
-    "github_url": "https://github.com/dmccreary/claude-skills/tree/main/docs/sims/certificate-generator",
+    "github_url": "https://github.com/dmccreary/ibook-skills/tree/main/docs/sims/certificate-generator",
     "auto_generated": true,
     "generation_date": "2026-01-23"
   },

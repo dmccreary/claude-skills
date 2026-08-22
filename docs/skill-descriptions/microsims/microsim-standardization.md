@@ -568,7 +568,7 @@ Use a JSON linter or validator before running schema validation.
 - [Bloom's Taxonomy (2001 Revision)](https://cft.vanderbilt.edu/guides-sub-pages/blooms-taxonomy/) - Educational framework
 - [ISO 11179 Metadata Registry](https://www.iso.org/standard/50340.html) - Metadata naming standards
 - [Creative Commons Licenses](https://creativecommons.org/licenses/) - Open content licenses
-- [MicroSim Pattern Documentation](https://github.com/dmccreary/claude-skills/blob/main/README.md) - Repository-specific MicroSim guidelines
+- [MicroSim Pattern Documentation](https://github.com/dmccreary/ibook-skills/blob/main/README.md) - Repository-specific MicroSim guidelines
 
 ## Guide Location
 

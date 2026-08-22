@@ -67,7 +67,7 @@
 
 **Total elements:** 7
 
-### [5-Hour Token Window Visualization](../chapters/02-getting-started-claude-skills/index.md#diagram-5-hour-token-window-visualization)
+### [5-Hour Token Window Visualization](../chapters/02-getting-started-ibook-skills/index.md#diagram-5-hour-token-window-visualization)
 - **Type:** Microsim
 - **Bloom's Taxonomy:** Not specified
 - **UI Elements:** 0
@@ -78,7 +78,7 @@
 2. chartjs-generator (Score: 85/100) - Good for stacked bar chart showing available vs consumed tokens over time, Chart.js explicitly mentioned
 3. microsim-p5 (Score: 65/100) - Could create custom timeline with animated token restoration
 
-### [Iterative Prompt Refinement Metrics](../chapters/02-getting-started-claude-skills/index.md#diagram-iterative-prompt-refinement-metrics)
+### [Iterative Prompt Refinement Metrics](../chapters/02-getting-started-ibook-skills/index.md#diagram-iterative-prompt-refinement-metrics)
 - **Type:** Microsim
 - **Bloom's Taxonomy:** Not specified
 - **UI Elements:** 0
@@ -89,7 +89,7 @@
 2. math-function-plotter-plotly (Score: 50/100) - Could plot discrete data points but not optimized for iteration-based metric tracking
 3. microsim-p5 (Score: 55/100) - Could create custom line chart but Chart.js provides professional charting
 
-### [Skill File Anatomy Diagram](../chapters/02-getting-started-claude-skills/index.md#diagram-skill-file-anatomy-diagram)
+### [Skill File Anatomy Diagram](../chapters/02-getting-started-ibook-skills/index.md#diagram-skill-file-anatomy-diagram)
 - **Type:** Microsim
 - **Bloom's Taxonomy:** Not specified
 - **UI Elements:** 1
@@ -100,7 +100,7 @@
 2. mermaid-generator (Score: 45/100) - Could use block diagram but lacks code-style formatting and syntax highlighting capabilities
 3. chartjs-generator (Score: 10/100) - Not a data visualization, cannot effectively represent document structure
 
-### [Skill Installation Locations and Priority](../chapters/02-getting-started-claude-skills/index.md#diagram-skill-installation-locations-and-priority)
+### [Skill Installation Locations and Priority](../chapters/02-getting-started-ibook-skills/index.md#diagram-skill-installation-locations-and-priority)
 - **Type:** Microsim
 - **Bloom's Taxonomy:** Not specified
 - **UI Elements:** 0
@@ -111,7 +111,7 @@
 2. microsim-p5 (Score: 70/100) - Could create custom directory tree with folder icons and priority indicators
 3. vis-network (Score: 55/100) - Could show as network graph but hierarchical tree is more natural for directory structures
 
-### [Skill Invocation and Execution Lifecycle](../chapters/02-getting-started-claude-skills/index.md#diagram-skill-invocation-and-execution-lifecycle)
+### [Skill Invocation and Execution Lifecycle](../chapters/02-getting-started-ibook-skills/index.md#diagram-skill-invocation-and-execution-lifecycle)
 - **Type:** Microsim
 - **Bloom's Taxonomy:** Not specified
 - **UI Elements:** 1
@@ -122,7 +122,7 @@
 2. microsim-p5 (Score: 65/100) - Could build custom flowchart with interactivity but Mermaid provides standard flowchart patterns
 3. vis-network (Score: 30/100) - Could show as network but lacks flowchart-specific shapes and swimlane organization
 
-### [Skill Permission Matrix](../chapters/02-getting-started-claude-skills/index.md#diagram-skill-permission-matrix)
+### [Skill Permission Matrix](../chapters/02-getting-started-ibook-skills/index.md#diagram-skill-permission-matrix)
 - **Type:** Microsim
 - **Bloom's Taxonomy:** Not specified
 - **UI Elements:** 0
@@ -133,7 +133,7 @@
 2. microsim-p5 (Score: 60/100) - Could create interactive table with checkmarks but markdown tables work well for static permission matrices
 3. mermaid-generator (Score: 15/100) - Not designed for table/matrix representations
 
-### [Skills vs Commands Decision Tree](../chapters/02-getting-started-claude-skills/index.md#diagram-skills-vs-commands-decision-tree)
+### [Skills vs Commands Decision Tree](../chapters/02-getting-started-ibook-skills/index.md#diagram-skills-vs-commands-decision-tree)
 - **Type:** Microsim
 - **Bloom's Taxonomy:** Not specified
 - **UI Elements:** 0
@@ -579,7 +579,7 @@
 
 **Total elements:** 5
 
-### [Git Workflow for Skill Development](../chapters/09-claude-skills-architecture-development/index.md#diagram-git-workflow-for-skill-development)
+### [Git Workflow for Skill Development](../chapters/09-ibook-skills-architecture-development/index.md#diagram-git-workflow-for-skill-development)
 - **Type:** Microsim
 - **Bloom's Taxonomy:** Not specified
 - **UI Elements:** 0
@@ -590,7 +590,7 @@
 2. microsim-p5 (72/100) - Custom workflow visualization with stage highlighting possible
 3. vis-network (60/100) - Can model lifecycle as directed graph but less clear than flowchart
 
-### [Security Zones Diagram](../chapters/09-claude-skills-architecture-development/index.md#diagram-security-zones-diagram)
+### [Security Zones Diagram](../chapters/09-ibook-skills-architecture-development/index.md#diagram-security-zones-diagram)
 - **Type:** Microsim
 - **Bloom's Taxonomy:** Not specified
 - **UI Elements:** 0
@@ -601,7 +601,7 @@
 2. microsim-p5 (75/100) - Custom flowchart with interactivity possible but more effort
 3. vis-network (55/100) - Can model workflow as directed graph but less intuitive
 
-### [Skill Directory Structure Diagram](../chapters/09-claude-skills-architecture-development/index.md#diagram-skill-directory-structure-diagram)
+### [Skill Directory Structure Diagram](../chapters/09-ibook-skills-architecture-development/index.md#diagram-skill-directory-structure-diagram)
 - **Type:** Microsim
 - **Bloom's Taxonomy:** Not specified
 - **UI Elements:** 1
@@ -612,7 +612,7 @@
 2. vis-network (70/100) - Can display skill relationships as interactive network graph
 3. microsim-p5 (68/100) - Custom diagram layout requires manual positioning and rendering
 
-### [Skill Package Contents Checklist](../chapters/09-claude-skills-architecture-development/index.md#diagram-skill-package-contents-checklist)
+### [Skill Package Contents Checklist](../chapters/09-ibook-skills-architecture-development/index.md#diagram-skill-package-contents-checklist)
 - **Type:** Microsim
 - **Bloom's Taxonomy:** Not specified
 - **UI Elements:** 1
@@ -627,7 +627,7 @@
 2. mermaid-generator (70/100) - Can show checklist as simple list but limited interactivity
 3. venn-diagram-generator (65/100) - Could show skill coverage overlaps if analyzing multiple skills
 
-### [Skill Testing Workflow Diagram](../chapters/09-claude-skills-architecture-development/index.md#diagram-skill-testing-workflow-diagram)
+### [Skill Testing Workflow Diagram](../chapters/09-ibook-skills-architecture-development/index.md#diagram-skill-testing-workflow-diagram)
 - **Type:** Microsim
 - **Bloom's Taxonomy:** Not specified
 - **UI Elements:** 2

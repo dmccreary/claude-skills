@@ -17,7 +17,7 @@ social:
 ## Embed This Diagram
 
 ```html
-<iframe src="https://dmccreary.github.io/claude-skills/sims/chapter-organization-workflow/main.html" height="520px" width="100%" scrolling="no"></iframe>
+<iframe src="https://dmccreary.github.io/ibook-skills/sims/chapter-organization-workflow/main.html" height="520px" width="100%" scrolling="no"></iframe>
 ```
 
 ## Overview
@@ -73,5 +73,5 @@ After exploring this workflow, students will be able to:
 
 ## References
 
-- [Book Chapter Generator Skill](https://github.com/dmccreary/claude-skills/blob/main/skills/book-chapter-generator/SKILL.md)
-- [Learning Graph Generator Skill](https://github.com/dmccreary/claude-skills/blob/main/skills/learning-graph-generator/SKILL.md)
+- [Book Chapter Generator Skill](https://github.com/dmccreary/ibook-skills/blob/main/skills/book-chapter-generator/SKILL.md)
+- [Learning Graph Generator Skill](https://github.com/dmccreary/ibook-skills/blob/main/skills/learning-graph-generator/SKILL.md)

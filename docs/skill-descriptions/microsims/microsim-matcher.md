@@ -103,8 +103,8 @@ The integrated matcher evaluates:
 ## See Also
 
 - [MicroSim Generator Index](./index.md) - Overview of all MicroSim skills
-- [microsim-generator SKILL.md](https://github.com/dmccreary/claude-skills/blob/main/skills/microsim-generator/SKILL.md) - Full routing logic
-- [routing-criteria.md](https://github.com/dmccreary/claude-skills/blob/main/skills/microsim-generator/references/routing-criteria.md) - Detailed scoring methodology
+- [microsim-generator SKILL.md](https://github.com/dmccreary/ibook-skills/blob/main/skills/microsim-generator/SKILL.md) - Full routing logic
+- [routing-criteria.md](https://github.com/dmccreary/ibook-skills/blob/main/skills/microsim-generator/references/routing-criteria.md) - Detailed scoring methodology
 
 ## Historical Note
 

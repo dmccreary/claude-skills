@@ -11,17 +11,17 @@
 
 ⏺ Bash(find docs/chapters -name "index.md" -type f | sort)
   ⎿  docs/chapters/01-intro-ai-intelligent-textbooks/index.md  
-     docs/chapters/02-getting-started-claude-skills/index.md
+     docs/chapters/02-getting-started-ibook-skills/index.md
      docs/chapters/03-course-design-educational-theory/index.md
      … +11 lines (ctrl+o to expand)
 
 ⏺ Read(docs/chapters/01-intro-ai-intelligent-textbooks/index.md)
   ⎿  Read 80 lines
 
-⏺ Read(docs/chapters/02-getting-started-claude-skills/index.md)
+⏺ Read(docs/chapters/02-getting-started-ibook-skills/index.md)
   ⎿  Read 80 lines
 
-⏺ Read(docs/chapters/09-claude-skills-architecture-development/index.md)
+⏺ Read(docs/chapters/09-ibook-skills-architecture-development/index.md)
   ⎿  Read 80 lines
 
 ⏺ Read(docs/chapters/12-interactive-elements-microsims/index.md)
@@ -250,11 +250,11 @@
             programming backgrounds, while still offering the power needed to create 
             sophisticated visualizations.
 
-⏺ Read(docs/chapters/02-getting-started-claude-skills/index.md)
+⏺ Read(docs/chapters/02-getting-started-ibook-skills/index.md)
   ⎿  Read 30 lines
 
-⏺ Update(docs/chapters/02-getting-started-claude-skills/index.md)
-  ⎿  Updated docs/chapters/02-getting-started-claude-skills/index.md with 14 additions
+⏺ Update(docs/chapters/02-getting-started-ibook-skills/index.md)
+  ⎿  Updated docs/chapters/02-getting-started-ibook-skills/index.md with 14 additions
        45    
        46    The skills framework addresses a fundamental challenge in AI-assisted 
             content generation: translating high-level goals ("create an intelligent 
@@ -338,7 +338,7 @@
   ---
   Chapter 2: Getting Started with Claude and Skills
 
-  Location: docs/chapters/02-getting-started-claude-skills/index.md:48-60
+  Location: docs/chapters/02-getting-started-ibook-skills/index.md:48-60
 
   What was added:
   - MkDocs "info" admonition box titled "Historical Context: The Evolution to Claude

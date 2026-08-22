@@ -15,7 +15,7 @@ quality_score: 100
 **Copy this iframe to your website:**
 
 ```html
-<iframe src="https://dmccreary.github.io/claude-skills/sims/test-world-cities/main.html" width="100%" height="360px"></iframe>
+<iframe src="https://dmccreary.github.io/ibook-skills/sims/test-world-cities/main.html" width="100%" height="360px"></iframe>
 ```
 
 An interactive map showcasing ten major cities across different continents, demonstrating the geographic distribution of global population centers.  Click on any marker to see the details of the city.

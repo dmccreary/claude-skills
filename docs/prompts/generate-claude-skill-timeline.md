@@ -362,12 +362,12 @@ Sonnet 4.5 · Claude Pro
            +  systems, databases, and APIs for context-aware assistance.
        316    
        317 -  45
-           -  . [Claude Skills Framework](https://github.com/dmccreary/claude-skills) 
+           -  . [Claude Skills Framework](https://github.com/dmccreary/ibook-skills) 
            -  - 2024 - GitHub - Community-developed framework enabling autonomous 
            -  agents for specialized tasks like educational content creation and 
            -  learning graphs.
        317 +  46
-           +  . [Claude Skills Framework](https://github.com/dmccreary/claude-skills) 
+           +  . [Claude Skills Framework](https://github.com/dmccreary/ibook-skills) 
            +  - 2024 - GitHub - Community-developed framework enabling autonomous 
            +  agents for specialized tasks like educational content creation and 
            +  learning graphs.
@@ -384,21 +384,21 @@ Sonnet 4.5 · Claude Pro
            +  following Bloom's Taxonomy and ISO 11179 standards.
        320    
        321 -  47. [MicroSim Skills 
-           -  Collection](https://dmccreary.github.io/claude-skills/sims/) - 2024 - 
+           -  Collection](https://dmccreary.github.io/ibook-skills/sims/) - 2024 - 
            -  Claude Skills Docs - Interactive visualization skills for p5.js 
            -  simulations, Venn diagrams, and timelines for educational content.
        321 +  48. [MicroSim Skills 
-           +  Collection](https://dmccreary.github.io/claude-skills/sims/) - 2024 - 
+           +  Collection](https://dmccreary.github.io/ibook-skills/sims/) - 2024 - 
            +  Claude Skills Docs - Interactive visualization skills for p5.js 
            +  simulations, Venn diagrams, and timelines for educational content.
        322    
        323 -  48
-           -  . [Timeline Generator Skill](https://dmccreary.github.io/claude-skills/s
+           -  . [Timeline Generator Skill](https://dmccreary.github.io/ibook-skills/s
            -  kills/timeline-generator/) - 2025 - Claude Skills Docs - This skill for 
            -  creating interactive historical timelines using vis-timeline.js with 
            -  category filtering and rich context.
        323 +  49
-           +  . [Timeline Generator Skill](https://dmccreary.github.io/claude-skills/s
+           +  . [Timeline Generator Skill](https://dmccreary.github.io/ibook-skills/s
            +  kills/timeline-generator/) - 2025 - Claude Skills Docs - This skill for 
            +  creating interactive historical timelines using vis-timeline.js with 
            +  category filtering and rich context.
@@ -596,7 +596,7 @@ Sonnet 4.5 · Claude Pro
 ─────────────────────────────────────────────────────────────────────────────────────────────
 >  
 ─────────────────────────────────────────────────────────────────────────────────────────────
-  ws/claude-skills
+  ws/ibook-skills
   ⏵⏵ bypass permissions on (shift+tab to cycle)
 
 

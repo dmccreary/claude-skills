@@ -33,7 +33,7 @@ Running the metrics tool writes/updates four files in `docs/learning-graph/`:
 
 - A `docs/` directory with the textbook content.
 - `docs/chapters/NN-*/index.md` chapter directories (numbered, each with an `index.md`).
-- `$BK_HOME` exported (the user's profile sets it to the `claude-skills`
+- `$BK_HOME` exported (the user's profile sets it to the `ibook-skills`
   checkout) and `bk-generate-book-metrics` on `$PATH` — the same convention used
   by `bk-diagram-reports`.
 
@@ -58,10 +58,10 @@ python3 "$BK_HOME/src/book-metrics/book-metrics.py" docs
 ```
 
 The Python script is the single source of truth at
-`src/book-metrics/book-metrics.py` in the `claude-skills` repo — do not copy it
+`src/book-metrics/book-metrics.py` in the `ibook-skills` repo — do not copy it
 elsewhere. If `bk-generate-book-metrics` reports "command not found", make sure
 `~/.local/bin` is on `$PATH` (it symlinks the wrapper in
-`claude-skills/scripts/`).
+`ibook-skills/scripts/`).
 
 ## Book Composition
 
@@ -118,7 +118,7 @@ clobbering author content).
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/dmccreary/claude-skills/main/src/book-metrics/book-metrics.schema.json",
+  "$schema": "https://raw.githubusercontent.com/dmccreary/ibook-skills/main/src/book-metrics/book-metrics.schema.json",
   "metricsVersion": "1.0",
   "metricsGeneratedBy": "Book Metrics Python Program v0.08",
   "metricsGeneratedOn": "June 03, 2026 at 10:13 AM",
@@ -250,6 +250,6 @@ nav:
   on `$PATH`; use the `python3 "$BK_HOME/src/book-metrics/book-metrics.py" docs`
   fallback otherwise.
 - **`$BK_HOME` errors** — the wrapper requires `$BK_HOME` to point at the
-  `claude-skills` checkout (e.g. `export BK_HOME=$HOME/Documents/ws/claude-skills`).
+  `ibook-skills` checkout (e.g. `export BK_HOME=$HOME/Documents/ws/ibook-skills`).
 - **Word counts look off** — the script excludes code blocks and URLs; check for
   large code blocks or malformed markdown if numbers seem wrong.

@@ -130,11 +130,11 @@ Test your understanding of Visual Studio Code, command-line interfaces, Bash she
 
 ---
 
-#### 8. Your shell script `install-claude-skills.sh` gives a "Permission denied" error when you try to run it with `./install-claude-skills.sh`. What is the most likely cause and solution?
+#### 8. Your shell script `install-ibook-skills.sh` gives a "Permission denied" error when you try to run it with `./install-ibook-skills.sh`. What is the most likely cause and solution?
 
 <div class="upper-alpha" markdown>
-1. The file doesn't exist; create it with `touch install-claude-skills.sh`
-2. The script lacks execute permissions; fix with `chmod +x install-claude-skills.sh`
+1. The file doesn't exist; create it with `touch install-ibook-skills.sh`
+2. The script lacks execute permissions; fix with `chmod +x install-ibook-skills.sh`
 3. The file is corrupted; delete and recreate it
 4. The script is in the wrong directory; move it to /usr/bin
 </div>

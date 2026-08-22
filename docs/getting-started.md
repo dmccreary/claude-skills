@@ -20,7 +20,7 @@ able to run all the skills and book-building utilities in this project.
 #### Diagram: Install Book Building Environment
 
 <!-- Such a wild bug.  A top level document like /docs/getting-started.md can't use a relative path like "./sims" ! -->
-<iframe src="/claude-skills/sims/install-book-env/main.html" width="100%" height="400px" scrolling="no"></iframe>
+<iframe src="/ibook-skills/sims/install-book-env/main.html" width="100%" height="400px" scrolling="no"></iframe>
 [View the Install Book Building Environment Fullscreen](sims/install-book-env/main.html)
 
 
@@ -31,12 +31,12 @@ The Quick Start steps if you are an experienced UNIX user and have git already i
 
 ### Step 1: Clone the Claude Skills GitHub Repo
 
-Download the claude-skills repository from GitHub to your local drive.
+Download the ibook-skills repository from GitHub to your local drive.
 
 ```bash
 mkdir -m "$HOME/projects"
 cd "$HOME/projects"
-git clone https://github.com/dmccreary/claude-skills
+git clone https://github.com/dmccreary/ibook-skills
 ```
 
 ### Step 2: Set the BK_HOME and Configure PATH
@@ -44,7 +44,7 @@ Set environment variables in your shell startup file.
 Set `BK_HOME` and add `~/.local/bin` to your `PATH` if it is not already on your path
 
 ```bash
-BK_HOME="$HOME/projects/claude-skills"
+BK_HOME="$HOME/projects/ibook-skills"
 export PATH="$HOME/.local/bin:$PATH"
 ```
 
@@ -66,7 +66,7 @@ Type ```bk``` and you should see a list of the book building commmands
 To install skills globally, you just need to type the following command
 
 ```
-bk-install-claude-skills
+bk-install-ibook-skills
 ```
 
 This will install all the book builder scripts in your ~/.claude/skills directory
@@ -90,7 +90,7 @@ Here is a sample response:
 !!! Warning
     The installation process only installs **symbolic links** in your ~./local/bin and your ~/.claude/skills.
     This allows you to just do a `git pull` on the claudes-skill repo to get new updates to existing skills.
-    You must not delete the claude-skills repo or the skills will stop working.
+    You must not delete the ibook-skills repo or the skills will stop working.
     When new skills or scripts are added you MUST reinstall them to get the new symbolic links installed.
     When in doubt do a git pull and rerun the installers for both scripts and skills.
 
@@ -164,24 +164,24 @@ Before installing the skills, you must complete two important setup steps:
 
 ### 1. Set the BK_HOME Environment Variable
 
-The `BK_HOME` environment variable must point to the root directory of your cloned claude-skills repository. Add this to your shell startup file:
+The `BK_HOME` environment variable must point to the root directory of your cloned ibook-skills repository. Add this to your shell startup file:
 
 **For Bash** (add to `~/.bashrc` or `~/.bash_profile`):
 ```bash
-export BK_HOME=~/projects/claude-skills
+export BK_HOME=~/projects/ibook-skills
 ```
 
 **For Zsh** (add to `~/.zshrc`):
 ```bash
-export BK_HOME=~/projects/claude-skills
+export BK_HOME=~/projects/ibook-skills
 ```
 
 **For Fish** (add to `~/.config/fish/config.fish`):
 ```fish
-set -gx BK_HOME /Users/YOUR_USERNAME/Documents/ws/claude-skills
+set -gx BK_HOME /Users/YOUR_USERNAME/Documents/ws/ibook-skills
 ```
 
-Replace `$HOME/projects/claude-skills` with the actual path where you cloned the repository.
+Replace `$HOME/projects/ibook-skills` with the actual path where you cloned the repository.
 
 ### 2. Add ~/.local/bin to Your PATH
 
@@ -213,7 +213,7 @@ The best way to download the skills is to use the git clone command:
 
 ```sh
 cd ~/projects  # or your preferred workspace directory
-git clone https://github.com/dmccreary/claude-skills.git
+git clone https://github.com/dmccreary/ibook-skills.git
 ```
 
 This assumes that `projects`  is the directory where you check out your GitHub repositories. 
@@ -258,20 +258,20 @@ Run the installation script:
 
 ```sh
 cd $BK_HOME/scripts
-./install-claude-skills.sh
+./install-ibook-skills.sh
 ```
 
 You will see a log of all the skills that were correctly installed:
 
 ```
-Created symlink: ~/.claude/skills/faq-generator -> $HOME/Documents/ws/claude-skills/skills/faq-generator
-Created symlink: ~/.claude/skills/glossary-generator -> $HOME/Documents/ws/claude-skills/skills/glossary-generator
-Created symlink: ~/.claude/skills/intelligent-textbook -> $HOME/Documents/ws/claude-skills/skills/intelligent-textbook
-Created symlink: ~/.claude/skills/intelligent-textbook-creator -> $HOME/Documents/ws/claude-skills/skills/intelligent-textbook-creator
-Created symlink: ~/.claude/skills/learning-graph-generator -> $HOME/Documents/ws/claude-skills/skills/learning-graph-generator
-Created symlink: ~/.claude/skills/microsim-p5 -> $HOME/Documents/ws/claude-skills/skills/microsim-p5
-Created symlink: ~/.claude/skills/moving-rainbow -> $HOME/Documents/ws/claude-skills/skills/moving-rainbow
-Created symlink: ~/.claude/skills/quiz-generator -> $HOME/Documents/ws/claude-skills/skills/quiz-generator
+Created symlink: ~/.claude/skills/faq-generator -> $HOME/Documents/ws/ibook-skills/skills/faq-generator
+Created symlink: ~/.claude/skills/glossary-generator -> $HOME/Documents/ws/ibook-skills/skills/glossary-generator
+Created symlink: ~/.claude/skills/intelligent-textbook -> $HOME/Documents/ws/ibook-skills/skills/intelligent-textbook
+Created symlink: ~/.claude/skills/intelligent-textbook-creator -> $HOME/Documents/ws/ibook-skills/skills/intelligent-textbook-creator
+Created symlink: ~/.claude/skills/learning-graph-generator -> $HOME/Documents/ws/ibook-skills/skills/learning-graph-generator
+Created symlink: ~/.claude/skills/microsim-p5 -> $HOME/Documents/ws/ibook-skills/skills/microsim-p5
+Created symlink: ~/.claude/skills/moving-rainbow -> $HOME/Documents/ws/ibook-skills/skills/moving-rainbow
+Created symlink: ~/.claude/skills/quiz-generator -> $HOME/Documents/ws/ibook-skills/skills/quiz-generator
 ```
 
 ## Getting Updates
@@ -288,7 +288,7 @@ After pulling updates, you may need to re-run the installation scripts if new sc
 ```sh
 cd $BK_HOME/scripts
 ./bk-install-scripts      # For book-building utilities
-./install-claude-skills.sh # For Claude skills
+./install-ibook-skills.sh # For Claude skills
 ```
 
 ## Details of the Installation script
@@ -431,7 +431,7 @@ After completing all installation steps, verify everything is working:
 **1. Check environment variables:**
 ```sh
 echo $BK_HOME
-# Should output: /Users/YOUR_USERNAME/Documents/ws/claude-skills (or your path)
+# Should output: /Users/YOUR_USERNAME/Documents/ws/ibook-skills (or your path)
 
 echo $PATH | grep -o "$HOME/.local/bin"
 # Should output: /Users/YOUR_USERNAME/.local/bin
@@ -507,7 +507,7 @@ If you get `command not found` when trying to run `bk-*` commands:
 If skills don't appear when you try to use them:
 
 1. Check that symlinks were created: `ls -la ~/.claude/skills/`
-2. Re-run the installation: `cd $BK_HOME/scripts && ./install-claude-skills.sh`
+2. Re-run the installation: `cd $BK_HOME/scripts && ./install-ibook-skills.sh`
 3. Restart Claude Code
 4. Try listing skills with `/skills` command or ask Claude: "What skills do you have access to?"
 
@@ -536,7 +536,7 @@ Once you have successfully installed the skills and utilities, you can:
 3. **Create interactive simulations** - Use the `microsim-p5` skill
 4. **Generate course content** - Use the `glossary-generator`, `quiz-generator`, and `faq-generator` skills
 
-For detailed documentation on each skill, visit the [skills documentation](https://dmccreary.github.io/claude-skills/) or use the `/skills` command in Claude Code.
+For detailed documentation on each skill, visit the [skills documentation](https://dmccreary.github.io/ibook-skills/) or use the `/skills` command in Claude Code.
 
 
 

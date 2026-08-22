@@ -493,9 +493,9 @@ AI-generated using Claude and MkDocs Material. Free and open source.
 Paste immediately after publishing (external links live here, not in the post):
 
 ```
-Explore the full textbook here: https://dmccreary.github.io/claude-skills/
+Explore the full textbook here: https://dmccreary.github.io/ibook-skills/
 
-GitHub repo: https://github.com/dmccreary/claude-skills
+GitHub repo: https://github.com/dmccreary/ibook-skills
 ```
 
 ## Customization Options

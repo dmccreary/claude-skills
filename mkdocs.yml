@@ -2,8 +2,8 @@ site_name: 'Claude Skills for Intelligent Textbooks'
 site_description: 'A collection of skills and techniques for building intelligent textbooks using Claude AI.'
 site_author: 'Dan McCreary'
 repo_name: 'GitHub Repo'
-site_url: 'https://dmccreary.github.io/claude-skills/'
-repo_url: 'https://github.com/dmccreary/claude-skills'
+site_url: 'https://dmccreary.github.io/ibook-skills/'
+repo_url: 'https://github.com/dmccreary/ibook-skills'
 edit_uri: 'blob/master/docs'
 
 nav:
@@ -18,8 +18,8 @@ nav:
       - Content: chapters/01-intro-ai-intelligent-textbooks/index.md
       - Quiz: chapters/01-intro-ai-intelligent-textbooks/quiz.md
     - 2 - Getting Started with Claude and Skills:
-      - Content: chapters/02-getting-started-claude-skills/index.md
-      - Quiz: chapters/02-getting-started-claude-skills/quiz.md
+      - Content: chapters/02-getting-started-ibook-skills/index.md
+      - Quiz: chapters/02-getting-started-ibook-skills/quiz.md
     - 3 - Course Design and Educational Theory:
       - Content: chapters/03-course-design-educational-theory/index.md
       - Quiz: chapters/03-course-design-educational-theory/quiz.md
@@ -39,8 +39,8 @@ nav:
       - Content: chapters/08-mkdocs-platform-documentation/index.md
       - Quiz: chapters/08-mkdocs-platform-documentation/quiz.md
     - 9 - Claude Skills Architecture and Development:
-      - Content: chapters/09-claude-skills-architecture-development/index.md
-      - Quiz: chapters/09-claude-skills-architecture-development/quiz.md
+      - Content: chapters/09-ibook-skills-architecture-development/index.md
+      - Quiz: chapters/09-ibook-skills-architecture-development/quiz.md
     - 10 - Content Creation Workflows:
       - Content: chapters/10-content-creation-workflows/index.md
       - Quiz: chapters/10-content-creation-workflows/quiz.md
@@ -203,7 +203,7 @@ nav:
 
   - Slides:
     - List of Slide Decks: slides/index.md
-    - "Claude Skills for Intelligent Textbooks: Overview": slides/claude-skills-overview/index.md
+    - "Claude Skills for Intelligent Textbooks: Overview": slides/ibook-skills-overview/index.md
 
 
   - Learning Graph:

@@ -3,11 +3,11 @@
 ## 1. Setup Commands
 ```bash
 # Clone the repository
-git clone https://github.com/dmccreary/claude-skills
-cd claude-skills
+git clone https://github.com/dmccreary/ibook-skills
+cd ibook-skills
 
 # Set environment variable (add to ~/.bashrc or ~/.zshrc)
-export BK_HOME=$HOME/Documents/ws/claude-skills
+export BK_HOME=$HOME/Documents/ws/ibook-skills
 export PATH="$HOME/.local/bin:$PATH"
 
 # Reload shell config
@@ -106,4 +106,4 @@ Definitions must be: **Precise** | **Concise** | **Distinct** | **Non-circular**
 ```
 Example: `/skill learning-graph-generator`
 
-**Workshop support:** https://github.com/dmccreary/claude-skills/issues
+**Workshop support:** https://github.com/dmccreary/ibook-skills/issues

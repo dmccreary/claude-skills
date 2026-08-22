@@ -2,7 +2,7 @@
 
 **Date**: 2025-11-08<br/>
 **Chapter**: Chapter 10 - Content Creation Workflows<br/>
-**File**: `claude-skills/docs/chapters/10-content-creation-workflows/index.md`
+**File**: `ibook-skills/docs/chapters/10-content-creation-workflows/index.md`
 
 ## Initial State
 
@@ -49,7 +49,7 @@ This chapter focuses on practical workflows for generating educational content, 
 
 ### Step 4: Determine Reading Level
 - **Action**: Read course description to determine target reading level
-- **File**: `$HOME/Documents/ws/claude-skills/docs/course-description.md`
+- **File**: `$HOME/Documents/ws/ibook-skills/docs/course-description.md`
 - **Target Audience**: Professional development
 - **Prerequisites**: Basic programming, prompt engineering, Claude access
 - **Reading Level Determined**: **College/University (Undergraduate)**
@@ -167,7 +167,7 @@ This chapter focuses on practical workflows for generating educational content, 
 ✅ **Chapter content generated successfully!**
 
 **Chapter**: 10-content-creation-workflows
-**File**: `$HOME/Documents/ws/claude-skills/docs/chapters/10-content-creation-workflows/index.md`
+**File**: `$HOME/Documents/ws/ibook-skills/docs/chapters/10-content-creation-workflows/index.md`
 **Reading level**: College/University (undergraduate)
 **Content length**: ~4,200 words
 

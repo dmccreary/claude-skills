@@ -378,7 +378,7 @@
   Package Location
 
   The skill has been packaged and saved to:
-  $HOME/Documents/ws/claude-skills/reference-generator.zip
+  $HOME/Documents/ws/ibook-skills/reference-generator.zip
 
   The skill is also installed in your skills directory at:
   ~/.claude/skills/reference-generator/

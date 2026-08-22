@@ -19,7 +19,7 @@ Examples:
 
 [![MkDocs](https://img.shields.io/badge/Made%20with-MkDocs-526CFE?logo=materialformkdocs)](https://www.mkdocs.org/)
 [![Material for MkDocs](https://img.shields.io/badge/Material%20for%20MkDocs-526CFE?logo=materialformkdocs)](https://squidfunk.github.io/mkdocs-material/)
-[![GitHub](https://img.shields.io/badge/GitHub-dmccreary%2Fclaude--skills-blue?logo=github)](https://github.com/dmccreary/claude-skills)
+[![GitHub](https://img.shields.io/badge/GitHub-dmccreary%2Fclaude--skills-blue?logo=github)](https://github.com/dmccreary/ibook-skills)
 [![Claude AI](https://img.shields.io/badge/Powered%20by-Claude%20AI-DA7857?logo=anthropic)](https://claude.ai)
 
 ## STEP 2: License Badge

@@ -46,7 +46,7 @@ This skill involves interactive Q&A (Steps 1-2) followed by file generation (Ste
    - Edit `mkdocs.yml` (theme palette, extra_css, nav entry)
 3. Target: all file generation completes in one tool-call round
 
-**During trim step (Step 4b):** The trim script path is `$PROJECT_HOME/../claude-skills/src/image-utils/trim-padding-from-image.py`. Do NOT search for it — just run it directly on all 7 images. Use the known filenames: neutral.png, welcome.png, thinking.png, tip.png, warning.png, encouraging.png, celebration.png.
+**During trim step (Step 4b):** The trim script path is `$PROJECT_HOME/../ibook-skills/src/image-utils/trim-padding-from-image.py`. Do NOT search for it — just run it directly on all 7 images. Use the known filenames: neutral.png, welcome.png, thinking.png, tip.png, warning.png, encouraging.png, celebration.png.
 
 ## Workflow
 

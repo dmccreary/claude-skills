@@ -30,7 +30,7 @@ TODO: Describe how students should interact with this MicroSim.
 You can add this MicroSim to any web page by adding this to your HTML:
 
 ```html
-<iframe src="https://dmccreary.github.io/claude-skills/sims/dag-vs-cyclic-graph-comparison/main.html"
+<iframe src="https://dmccreary.github.io/ibook-skills/sims/dag-vs-cyclic-graph-comparison/main.html"
         height="562px"
         width="100%"
         scrolling="no"></iframe>

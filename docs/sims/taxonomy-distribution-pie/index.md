@@ -12,7 +12,7 @@ quality_score: 100
 **Copy this iframe to your website:**
 
 ```html
-<iframe src="https://dmccreary.github.io/claude-skills/sims/taxonomy-distribution-pie/main.html" width="100%" height="600px"></iframe>
+<iframe src="https://dmccreary.github.io/ibook-skills/sims/taxonomy-distribution-pie/main.html" width="100%" height="600px"></iframe>
 ```
 
 [Run Taxonomy Distribution Pie Chart in Fullscreen](main.html){ .md-button .md-button--primary }

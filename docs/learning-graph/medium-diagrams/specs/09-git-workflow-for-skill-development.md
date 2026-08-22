@@ -16,7 +16,7 @@
 
     Steps:
     1. Start: "Clone Repository"
-       Command: `git clone https://github.com/user/claude-skills`
+       Command: `git clone https://github.com/user/ibook-skills`
        Hover text: "Create local copy of repository"
 
     2. Process: "Create Feature Branch (optional)"

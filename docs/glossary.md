@@ -106,7 +106,7 @@ The practice of ensuring no single taxonomy category contains too many concepts,
 
 A Unix shell and command language used for executing system commands, running scripts, and automating tasks.
 
-**Example:** Running `./install-claude-skills.sh` in Bash creates symlinks to make skills available globally.
+**Example:** Running `./install-ibook-skills.sh` in Bash creates symlinks to make skills available globally.
 
 #### Bloom's 2001 Revision
 
@@ -468,7 +468,7 @@ The systematic workflow for creating comprehensive question-answer pairs from co
 
 Security settings that control which users and processes can read, write, or execute specific files.
 
-**Example:** Script execution requires permission: `chmod +x install-claude-skills.sh` makes the file executable.
+**Example:** Script execution requires permission: `chmod +x install-ibook-skills.sh` makes the file executable.
 
 #### File Creation and Editing
 
@@ -610,7 +610,7 @@ A markdown documentation file that describes a MicroSim's purpose, usage, and em
 
 The process of making a skill available for use in Claude Code by placing it in the `.claude/skills/` directory.
 
-**Example:** Running `./scripts/install-claude-skills.sh` creates symlinks from project skills to global skills directory.
+**Example:** Running `./scripts/install-ibook-skills.sh` creates symlinks from project skills to global skills directory.
 
 #### Installing Claude Commands
 
@@ -1081,7 +1081,7 @@ Validation that no concept lists itself as its own prerequisite in a learning gr
 
 Text files containing sequences of command-line instructions that can be executed as automated programs.
 
-**Example:** `install-claude-skills.sh` is a shell script that creates multiple symlinks with one command.
+**Example:** `install-ibook-skills.sh` is a shell script that creates multiple symlinks with one command.
 
 #### Skill Definition File Structure
 
@@ -1147,7 +1147,7 @@ Additional files in skill directories that assist execution, including scripts, 
 
 Making symbolic links that reference files in other locations, allowing access from multiple paths without duplication.
 
-**Example:** `ln -s ~/claude-skills/skills ~/.claude/skills` creates a symlink for global skill access.
+**Example:** `ln -s ~/ibook-skills/skills ~/.claude/skills` creates a symlink for global skill access.
 
 ## T
 

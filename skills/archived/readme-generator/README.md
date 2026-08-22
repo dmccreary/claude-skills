@@ -141,4 +141,4 @@ Improvements and suggestions welcome! Areas for enhancement:
 
 ## Credits
 
-Part of the [Claude Skills](https://github.com/dmccreary/claude-skills) collection for building intelligent textbooks.
+Part of the [Claude Skills](https://github.com/dmccreary/ibook-skills) collection for building intelligent textbooks.

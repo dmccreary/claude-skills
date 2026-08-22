@@ -32,7 +32,7 @@ This chapter covers the following 16 concepts from the learning graph:
 This chapter builds on concepts from:
 
 - [Chapter 1: Introduction to AI and Intelligent Textbooks](../01-intro-ai-intelligent-textbooks/index.md)
-- [Chapter 2: Getting Started with Claude and Skills](../02-getting-started-claude-skills/index.md)
+- [Chapter 2: Getting Started with Claude and Skills](../02-getting-started-ibook-skills/index.md)
 - [Chapter 4: Introduction to Learning Graphs](../04-intro-learning-graphs/index.md)
 
 ---

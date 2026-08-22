@@ -13,7 +13,7 @@ quality_score: 100
 **Copy this iframe to your website:**
 
 ```html
-<iframe src="https://dmccreary.github.io/claude-skills/sims/orphaned-nodes-identification/main.html" width="100%" height="600px"></iframe>
+<iframe src="https://dmccreary.github.io/ibook-skills/sims/orphaned-nodes-identification/main.html" width="100%" height="600px"></iframe>
 ```
 
 

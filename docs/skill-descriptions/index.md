@@ -78,4 +78,4 @@ Skills are defined in `/skills/[skill-name]/SKILL.md` with:
 - Workflow steps and instructions
 - Supporting assets (templates, scripts, references)
 
-See the [Skill Creator Guide](https://github.com/dmccreary/claude-skills) for details on creating new skills.
+See the [Skill Creator Guide](https://github.com/dmccreary/ibook-skills) for details on creating new skills.

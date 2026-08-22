@@ -396,11 +396,11 @@ cp -r skill-name/references ~/.claude/skills/skill-name/  # if present
 ls -la ~/.claude/skills/
 ```
 
-For this course's skills, the provided `install-claude-skills.sh` script automates global installation:
+For this course's skills, the provided `install-ibook-skills.sh` script automates global installation:
 
 ```bash
 cd scripts
-./install-claude-skills.sh
+./install-ibook-skills.sh
 ```
 
 This script iterates through all skill directories in `./skills/`, creating symlinks from `~/.claude/skills/` to the source files. Symlinks enable editing skills in the original repository while having them accessible globally—changes immediately propagate without reinstallation.

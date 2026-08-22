@@ -98,7 +98,7 @@ Test your understanding of Claude Skills, skill definition files, installation, 
 
 <div class="upper-alpha" markdown>
 1. In the project root directory
-2. In /usr/local/share/claude-skills/
+2. In /usr/local/share/ibook-skills/
 3. In ~/.claude/skills/ in the user's home directory
 4. In the Claude AI cloud account settings
 </div>

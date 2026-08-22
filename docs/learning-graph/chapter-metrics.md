@@ -8,14 +8,14 @@ This file contains chapter-by-chapter metrics for student-facing content.
 | Chapter | Name | Sections | Diagrams | Equations | Words | Links | Quiz | Refs |
 |---------|------|----------|----------|-----------|-------|-------|------|------|
 | 1 | [Introduction to AI and Intelligent Textbooks](../chapters/01-intro-ai-intelligent-textbooks/index.md) | 21 | 5 | 0 | 5,525 | 18 | 11 | 0 |
-| 2 | [Getting Started with Claude and Skills](../chapters/02-getting-started-claude-skills/index.md) | 48 | 7 | 0 | 7,128 | 16 | 11 | 0 |
+| 2 | [Getting Started with Claude and Skills](../chapters/02-getting-started-ibook-skills/index.md) | 48 | 7 | 0 | 7,128 | 16 | 11 | 0 |
 | 3 | [Course Design and Educational Theory](../chapters/03-course-design-educational-theory/index.md) | 23 | 6 | 0 | 6,768 | 13 | 11 | 0 |
 | 4 | [Introduction to Learning Graphs](../chapters/04-intro-learning-graphs/index.md) | 16 | 5 | 0 | 5,826 | 13 | 11 | 0 |
 | 5 | [Concept Enumeration and Dependencies](../chapters/05-concept-enumeration-dependencies/index.md) | 21 | 9 | 0 | 7,301 | 13 | 11 | 0 |
 | 6 | [Learning Graph Quality and Validation](../chapters/06-learning-graph-quality-validation/index.md) | 28 | 6 | 0 | 6,053 | 15 | 11 | 0 |
 | 7 | [Taxonomy and Data Formats](../chapters/07-taxonomy-data-formats/index.md) | 29 | 6 | 0 | 5,959 | 15 | 11 | 0 |
 | 8 | [MkDocs Platform and Documentation](../chapters/08-mkdocs-platform-documentation/index.md) | 17 | 5 | 0 | 2,912 | 16 | 11 | 0 |
-| 9 | [Claude Skills Architecture and Development](../chapters/09-claude-skills-architecture-development/index.md) | 32 | 5 | 4 | 5,493 | 15 | 11 | 0 |
+| 9 | [Claude Skills Architecture and Development](../chapters/09-ibook-skills-architecture-development/index.md) | 32 | 5 | 4 | 5,493 | 15 | 11 | 0 |
 | 10 | [Content Creation Workflows](../chapters/10-content-creation-workflows/index.md) | 27 | 6 | 0 | 7,096 | 16 | 11 | 0 |
 | 11 | [Educational Resources and Assessment](../chapters/11-educational-resources-assessment/index.md) | 23 | 4 | 1 | 11,470 | 16 | 10 | 0 |
 | 12 | [Interactive Elements and MicroSims](../chapters/12-interactive-elements-microsims/index.md) | 17 | 6 | 0 | 8,437 | 16 | 10 | 0 |

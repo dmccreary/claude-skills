@@ -423,7 +423,7 @@ Claude will reference this document when creating answer options.
 
 For issues, questions, or improvements:
 
-1. Review detailed specification in the [Claude Skills GitHub Repo](https://github.com/dmccreary/claude-skills/tree/main/skills/quiz-generator)
+1. Review detailed specification in the [Claude Skills GitHub Repo](https://github.com/dmccreary/ibook-skills/tree/main/skills/quiz-generator)
 2. Check distractor writing guide for answer option help
 3. Examine quality reports for specific guidance
 4. Test question rendering in mkdocs preview

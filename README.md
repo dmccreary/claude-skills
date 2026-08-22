@@ -2,17 +2,17 @@
 
 [![MkDocs](https://img.shields.io/badge/Made%20with-MkDocs-526CFE?logo=materialformkdocs)](https://www.mkdocs.org/)
 [![Material for MkDocs](https://img.shields.io/badge/Material%20for%20MkDocs-526CFE?logo=materialformkdocs)](https://squidfunk.github.io/mkdocs-material/)
-[![GitHub Pages](https://img.shields.io/badge/View%20on-GitHub%20Pages-blue?logo=github)](https://dmccreary.github.io/claude-skills/)
-[![GitHub](https://img.shields.io/badge/GitHub-dmccreary%2Fclaude--skills-blue?logo=github)](https://github.com/dmccreary/claude-skills)
+[![GitHub Pages](https://img.shields.io/badge/View%20on-GitHub%20Pages-blue?logo=github)](https://dmccreary.github.io/ibook-skills/)
+[![GitHub](https://img.shields.io/badge/GitHub-dmccreary%2Fclaude--skills-blue?logo=github)](https://github.com/dmccreary/ibook-skills)
 [![Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code-DA7857?logo=anthropic)](https://claude.ai/code)
-[![Claude Skills](https://img.shields.io/badge/Uses-Claude%20Skills-DA7857?logo=anthropic)](https://github.com/dmccreary/claude-skills)
+[![Claude Skills](https://img.shields.io/badge/Uses-Claude%20Skills-DA7857?logo=anthropic)](https://github.com/dmccreary/ibook-skills)
 [![p5.js](https://img.shields.io/badge/p5.js-ED225D?logo=p5.js&logoColor=white)](https://p5js.org/)
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ## View the Live Site
 
-Visit the interactive documentation at: [https://dmccreary.github.io/claude-skills/](https://dmccreary.github.io/claude-skills/)
+Visit the interactive documentation at: [https://dmccreary.github.io/ibook-skills/](https://dmccreary.github.io/ibook-skills/)
 
 ## Overview
 
@@ -53,8 +53,8 @@ Whether you're an educator building course materials, a technical writer creatin
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/dmccreary/claude-skills.git
-cd claude-skills
+git clone https://github.com/dmccreary/ibook-skills.git
+cd ibook-skills
 ```
 
 ### Install Dependencies
@@ -99,7 +99,7 @@ Create symlinks to make skills available globally:
 
 ```bash
 cd scripts
-./install-claude-skills.sh
+./install-ibook-skills.sh
 ```
 
 This installs skills to `~/.claude/skills/` for use across all Claude Code projects.
@@ -153,7 +153,7 @@ Or use the slash command:
 ## Repository Structure
 
 ```
-claude-skills/
+ibook-skills/
 ├── docs/                          # MkDocs documentation source
 │   ├── chapters/                  # 13 chapters on intelligent textbook creation
 │   │   ├── 01-intro-ai-intelligent-textbooks/
@@ -189,7 +189,7 @@ claude-skills/
 │   ├── readme-generator/          # Generates README files
 │   └── ...                        # 19 total skills
 ├── scripts/                       # Utility scripts
-│   ├── install-claude-skills.sh   # Install skills globally
+│   ├── install-ibook-skills.sh   # Install skills globally
 │   ├── list-skills.sh             # List available skills
 │   └── list-skills-format.sh      # Format skill list (JSON, CSV)
 ├── commands/                      # Slash commands
@@ -203,7 +203,7 @@ claude-skills/
 
 Found a bug, typo, or have a suggestion for improvement? Please report it:
 
-[GitHub Issues](https://github.com/dmccreary/claude-skills/issues)
+[GitHub Issues](https://github.com/dmccreary/ibook-skills/issues)
 
 When reporting issues, please include:
 
@@ -233,7 +233,7 @@ This work is licensed under the [Creative Commons Attribution-NonCommercial-Shar
 
 ```
 This work is based on "Claude Skills for Intelligent Textbooks" by Dan McCreary,
-available at https://github.com/dmccreary/claude-skills, licensed under CC BY-NC-SA 4.0.
+available at https://github.com/dmccreary/ibook-skills, licensed under CC BY-NC-SA 4.0.
 ```
 
 See [license details](https://creativecommons.org/licenses/by-nc-sa/4.0/) for the full legal text.
@@ -303,7 +303,7 @@ If you use these Claude skills in your research, teaching, or projects, please c
 
 ```
 McCreary, D. (2024). Claude Skills for Intelligent Textbooks. GitHub.
-https://github.com/dmccreary/claude-skills
+https://github.com/dmccreary/ibook-skills
 ```
 
 **BibTeX:**
@@ -314,7 +314,7 @@ https://github.com/dmccreary/claude-skills
   title = {Claude Skills for Intelligent Textbooks},
   year = {2024},
   publisher = {GitHub},
-  url = {https://github.com/dmccreary/claude-skills},
+  url = {https://github.com/dmccreary/ibook-skills},
   note = {A collection of AI-powered skills for creating intelligent educational content}
 }
 ```
@@ -352,7 +352,7 @@ This repository includes 19 specialized skills for intelligent textbook creation
 19. **readme-generator** - Generates comprehensive README files (this skill!)
 
 
-For detailed documentation on each skill, see the [skill descriptions](https://dmccreary.github.io/claude-skills/skill-descriptions/) in the documentation site.
+For detailed documentation on each skill, see the [skill descriptions](https://dmccreary.github.io/ibook-skills/skill-descriptions/) in the documentation site.
 
 ---
 

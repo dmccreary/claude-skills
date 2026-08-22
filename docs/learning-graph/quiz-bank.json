@@ -234,9 +234,9 @@
       "bloom_level": "Remember",
       "difficulty": "easy",
       "concept": "Claude Skill",
-      "chapter_file": "docs/chapters/02-getting-started-claude-skills/index.md",
-      "quiz_file": "docs/chapters/02-getting-started-claude-skills/quiz.md",
-      "source_section": "index.md#understanding-claude-skills"
+      "chapter_file": "docs/chapters/02-getting-started-ibook-skills/index.md",
+      "quiz_file": "docs/chapters/02-getting-started-ibook-skills/quiz.md",
+      "source_section": "index.md#understanding-ibook-skills"
     },
     {
       "id": "ch2-q002",
@@ -248,8 +248,8 @@
       "bloom_level": "Remember",
       "difficulty": "easy",
       "concept": "Skill Definition File Structure",
-      "chapter_file": "docs/chapters/02-getting-started-claude-skills/index.md",
-      "quiz_file": "docs/chapters/02-getting-started-claude-skills/quiz.md",
+      "chapter_file": "docs/chapters/02-getting-started-ibook-skills/index.md",
+      "quiz_file": "docs/chapters/02-getting-started-ibook-skills/quiz.md",
       "source_section": "index.md#skill-definition-file-structure"
     },
     {
@@ -262,8 +262,8 @@
       "bloom_level": "Remember",
       "difficulty": "medium",
       "concept": "YAML Frontmatter in Skills",
-      "chapter_file": "docs/chapters/02-getting-started-claude-skills/index.md",
-      "quiz_file": "docs/chapters/02-getting-started-claude-skills/quiz.md",
+      "chapter_file": "docs/chapters/02-getting-started-ibook-skills/index.md",
+      "quiz_file": "docs/chapters/02-getting-started-ibook-skills/quiz.md",
       "source_section": "index.md#yaml-frontmatter-in-skills"
     },
     {
@@ -276,8 +276,8 @@
       "bloom_level": "Understand",
       "difficulty": "medium",
       "concept": "Allowed Tools in Skills",
-      "chapter_file": "docs/chapters/02-getting-started-claude-skills/index.md",
-      "quiz_file": "docs/chapters/02-getting-started-claude-skills/quiz.md",
+      "chapter_file": "docs/chapters/02-getting-started-ibook-skills/index.md",
+      "quiz_file": "docs/chapters/02-getting-started-ibook-skills/quiz.md",
       "source_section": "index.md#allowed-tools-in-skills"
     },
     {
@@ -290,8 +290,8 @@
       "bloom_level": "Understand",
       "difficulty": "medium",
       "concept": "Difference Between Skills & Commands",
-      "chapter_file": "docs/chapters/02-getting-started-claude-skills/index.md",
-      "quiz_file": "docs/chapters/02-getting-started-claude-skills/quiz.md",
+      "chapter_file": "docs/chapters/02-getting-started-ibook-skills/index.md",
+      "quiz_file": "docs/chapters/02-getting-started-ibook-skills/quiz.md",
       "source_section": "index.md#claude-command"
     },
     {
@@ -304,8 +304,8 @@
       "bloom_level": "Remember",
       "difficulty": "easy",
       "concept": "Installing a Claude Skill",
-      "chapter_file": "docs/chapters/02-getting-started-claude-skills/index.md",
-      "quiz_file": "docs/chapters/02-getting-started-claude-skills/quiz.md",
+      "chapter_file": "docs/chapters/02-getting-started-ibook-skills/index.md",
+      "quiz_file": "docs/chapters/02-getting-started-ibook-skills/quiz.md",
       "source_section": "index.md#installing-a-claude-skill"
     },
     {
@@ -318,8 +318,8 @@
       "bloom_level": "Understand",
       "difficulty": "medium",
       "concept": "Skill Workflow Instructions",
-      "chapter_file": "docs/chapters/02-getting-started-claude-skills/index.md",
-      "quiz_file": "docs/chapters/02-getting-started-claude-skills/quiz.md",
+      "chapter_file": "docs/chapters/02-getting-started-ibook-skills/index.md",
+      "quiz_file": "docs/chapters/02-getting-started-ibook-skills/quiz.md",
       "source_section": "index.md#skill-workflow-instructions"
     },
     {
@@ -332,8 +332,8 @@
       "bloom_level": "Apply",
       "difficulty": "medium",
       "concept": "Allowed Tools in Skills",
-      "chapter_file": "docs/chapters/02-getting-started-claude-skills/index.md",
-      "quiz_file": "docs/chapters/02-getting-started-claude-skills/quiz.md",
+      "chapter_file": "docs/chapters/02-getting-started-ibook-skills/index.md",
+      "quiz_file": "docs/chapters/02-getting-started-ibook-skills/quiz.md",
       "source_section": "index.md#allowed-tools-in-skills"
     },
     {
@@ -346,8 +346,8 @@
       "bloom_level": "Analyze",
       "difficulty": "hard",
       "concept": "Skill Workflow Instructions",
-      "chapter_file": "docs/chapters/02-getting-started-claude-skills/index.md",
-      "quiz_file": "docs/chapters/02-getting-started-claude-skills/quiz.md",
+      "chapter_file": "docs/chapters/02-getting-started-ibook-skills/index.md",
+      "quiz_file": "docs/chapters/02-getting-started-ibook-skills/quiz.md",
       "source_section": "index.md#skill-workflow-instructions"
     },
     {
@@ -360,8 +360,8 @@
       "bloom_level": "Understand",
       "difficulty": "easy",
       "concept": "Invoking Skills with Slash Commands",
-      "chapter_file": "docs/chapters/02-getting-started-claude-skills/index.md",
-      "quiz_file": "docs/chapters/02-getting-started-claude-skills/quiz.md",
+      "chapter_file": "docs/chapters/02-getting-started-ibook-skills/index.md",
+      "quiz_file": "docs/chapters/02-getting-started-ibook-skills/quiz.md",
       "source_section": "index.md#invoking-skills-with-slash-commands"
     },
     {
@@ -1214,8 +1214,8 @@
       "bloom_level": "Remember",
       "difficulty": "easy",
       "concept": "Skill Directory Structure",
-      "chapter_file": "docs/chapters/09-claude-skills-architecture-development/index.md",
-      "quiz_file": "docs/chapters/09-claude-skills-architecture-development/quiz.md",
+      "chapter_file": "docs/chapters/09-ibook-skills-architecture-development/index.md",
+      "quiz_file": "docs/chapters/09-ibook-skills-architecture-development/quiz.md",
       "source_section": "index.md#skill-directory-structure"
     },
     {
@@ -1228,8 +1228,8 @@
       "bloom_level": "Remember",
       "difficulty": "easy",
       "concept": "Python Scripts in Skills",
-      "chapter_file": "docs/chapters/09-claude-skills-architecture-development/index.md",
-      "quiz_file": "docs/chapters/09-claude-skills-architecture-development/quiz.md",
+      "chapter_file": "docs/chapters/09-ibook-skills-architecture-development/index.md",
+      "quiz_file": "docs/chapters/09-ibook-skills-architecture-development/quiz.md",
       "source_section": "index.md#python-scripts-in-skills"
     },
     {
@@ -1242,8 +1242,8 @@
       "bloom_level": "Understand",
       "difficulty": "medium",
       "concept": "Reference Documentation in Skills",
-      "chapter_file": "docs/chapters/09-claude-skills-architecture-development/index.md",
-      "quiz_file": "docs/chapters/09-claude-skills-architecture-development/quiz.md",
+      "chapter_file": "docs/chapters/09-ibook-skills-architecture-development/index.md",
+      "quiz_file": "docs/chapters/09-ibook-skills-architecture-development/quiz.md",
       "source_section": "index.md#reference-documentation-in-skills"
     },
     {
@@ -1256,8 +1256,8 @@
       "bloom_level": "Remember",
       "difficulty": "medium",
       "concept": "Skill Testing and Debugging",
-      "chapter_file": "docs/chapters/09-claude-skills-architecture-development/index.md",
-      "quiz_file": "docs/chapters/09-claude-skills-architecture-development/quiz.md",
+      "chapter_file": "docs/chapters/09-ibook-skills-architecture-development/index.md",
+      "quiz_file": "docs/chapters/09-ibook-skills-architecture-development/quiz.md",
       "source_section": "index.md#skill-testing-and-debugging"
     },
     {
@@ -1270,8 +1270,8 @@
       "bloom_level": "Understand",
       "difficulty": "medium",
       "concept": "Security in Skill Execution",
-      "chapter_file": "docs/chapters/09-claude-skills-architecture-development/index.md",
-      "quiz_file": "docs/chapters/09-claude-skills-architecture-development/quiz.md",
+      "chapter_file": "docs/chapters/09-ibook-skills-architecture-development/index.md",
+      "quiz_file": "docs/chapters/09-ibook-skills-architecture-development/quiz.md",
       "source_section": "index.md#security-in-skill-execution"
     },
     {
@@ -1284,8 +1284,8 @@
       "bloom_level": "Remember",
       "difficulty": "easy",
       "concept": "Installing Skills Globally",
-      "chapter_file": "docs/chapters/09-claude-skills-architecture-development/index.md",
-      "quiz_file": "docs/chapters/09-claude-skills-architecture-development/quiz.md",
+      "chapter_file": "docs/chapters/09-ibook-skills-architecture-development/index.md",
+      "quiz_file": "docs/chapters/09-ibook-skills-architecture-development/quiz.md",
       "source_section": "index.md#installing-skills-globally-vs-project-specific"
     },
     {
@@ -1298,8 +1298,8 @@
       "bloom_level": "Apply",
       "difficulty": "medium",
       "concept": "Installing Skills Globally",
-      "chapter_file": "docs/chapters/09-claude-skills-architecture-development/index.md",
-      "quiz_file": "docs/chapters/09-claude-skills-architecture-development/quiz.md",
+      "chapter_file": "docs/chapters/09-ibook-skills-architecture-development/index.md",
+      "quiz_file": "docs/chapters/09-ibook-skills-architecture-development/quiz.md",
       "source_section": "index.md#installing-skills-globally-vs-project-specific"
     },
     {
@@ -1312,8 +1312,8 @@
       "bloom_level": "Understand",
       "difficulty": "easy",
       "concept": "Git Status Command",
-      "chapter_file": "docs/chapters/09-claude-skills-architecture-development/index.md",
-      "quiz_file": "docs/chapters/09-claude-skills-architecture-development/quiz.md",
+      "chapter_file": "docs/chapters/09-ibook-skills-architecture-development/index.md",
+      "quiz_file": "docs/chapters/09-ibook-skills-architecture-development/quiz.md",
       "source_section": "index.md#git-status-command"
     },
     {
@@ -1326,8 +1326,8 @@
       "bloom_level": "Apply",
       "difficulty": "medium",
       "concept": "pip Package Management",
-      "chapter_file": "docs/chapters/09-claude-skills-architecture-development/index.md",
-      "quiz_file": "docs/chapters/09-claude-skills-architecture-development/quiz.md",
+      "chapter_file": "docs/chapters/09-ibook-skills-architecture-development/index.md",
+      "quiz_file": "docs/chapters/09-ibook-skills-architecture-development/quiz.md",
       "source_section": "index.md#installing-python-packages"
     },
     {
@@ -1340,8 +1340,8 @@
       "bloom_level": "Analyze",
       "difficulty": "medium",
       "concept": "Skill Distribution Methods",
-      "chapter_file": "docs/chapters/09-claude-skills-architecture-development/index.md",
-      "quiz_file": "docs/chapters/09-claude-skills-architecture-development/quiz.md",
+      "chapter_file": "docs/chapters/09-ibook-skills-architecture-development/index.md",
+      "quiz_file": "docs/chapters/09-ibook-skills-architecture-development/quiz.md",
       "source_section": "index.md#skill-distribution-methods"
     },
     {
@@ -1867,7 +1867,7 @@
       "chapter": "Development Tools, Version Control, and Deployment",
       "chapter_number": 13,
       "question_number": 8,
-      "question_text": "Your shell script install-claude-skills.sh gives a 'Permission denied' error when you try to run it with ./install-claude-skills.sh. What is the most likely cause and solution?",
+      "question_text": "Your shell script install-ibook-skills.sh gives a 'Permission denied' error when you try to run it with ./install-ibook-skills.sh. What is the most likely cause and solution?",
       "correct_answer": "B",
       "bloom_level": "Analyze",
       "difficulty": "medium",

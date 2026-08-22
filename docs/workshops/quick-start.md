@@ -22,14 +22,14 @@ Copy these lines into Claude one at a time and verify they work.
 !!! prompt
     Create a directory called "projects" in my home directory and change directory (cd) into that new projects directory.
 
-    Clone the following repo into my `conda virtual environment called "mkdocs"` https://github.com/dmccreary/claude-skills
+    Clone the following repo into my `conda virtual environment called "mkdocs"` https://github.com/dmccreary/ibook-skills
 
     Add the BK_HOME to my shell startup file (.bashrc on WST or .zshrc on MacOS)
-    and set it to ~/projects/claude-skills so the shell scripts run.  See the README for details: ~/projects/claude-skills/scripts/README.md
+    and set it to ~/projects/ibook-skills so the shell scripts run.  See the README for details: ~/projects/ibook-skills/scripts/README.md
 
-    Run the projects/claude-skills/scripts/bk-install-skills shell script
+    Run the projects/ibook-skills/scripts/bk-install-skills shell script
 
-    Run the projects/claude-skills/scripts/bk-install-skills shell script
+    Run the projects/ibook-skills/scripts/bk-install-skills shell script
 
     Run the "bk" command to verify the command line utilities all work
 

@@ -400,4 +400,4 @@ This timeline pattern can be adapted for:
 
 ## License
 
-This visualization is part of the claude-skills repository and follows the same license. The vis-timeline library is licensed under Apache-2.0/MIT dual license.
+This visualization is part of the ibook-skills repository and follows the same license. The vis-timeline library is licensed under Apache-2.0/MIT dual license.

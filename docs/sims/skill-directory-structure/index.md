@@ -16,7 +16,7 @@ quality_score: 80
 **Copy this iframe to your website:**
 
 ```html
-<iframe src="https://dmccreary.github.io/claude-skills/sims/skill-directory-structure/main.html" width="100%" height="600px"></iframe>
+<iframe src="https://dmccreary.github.io/ibook-skills/sims/skill-directory-structure/main.html" width="100%" height="600px"></iframe>
 ```
 
 

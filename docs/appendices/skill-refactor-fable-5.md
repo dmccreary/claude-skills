@@ -4,7 +4,7 @@
 
 ## Context: Nine Months of Claude Skills
 
-Anthropic introduced Claude Skills — self-contained `SKILL.md` bundles that Claude Code discovers, matches by description, and loads on demand — in October 2025. The `claude-skills` repository adopted the pattern almost immediately: each capability needed to build an intelligent textbook (learning graph generation, chapter writing, MicroSim creation, glossary generation, and dozens more) became its own skill directory.
+Anthropic introduced Claude Skills — self-contained `SKILL.md` bundles that Claude Code discovers, matches by description, and loads on demand — in October 2025. The `ibook-skills` repository adopted the pattern almost immediately: each capability needed to build an intelligent textbook (learning graph generation, chapter writing, MicroSim creation, glossary generation, and dozens more) became its own skill directory.
 
 That worked well at first. It worked less well nine months later.
 
@@ -146,4 +146,4 @@ seems to scale token budgets based on supply and demand.
 
 ## Detailed Session Log
 
-*Session log: [`logs/skill-refactor-by-fable-5.md`](https://github.com/dmccreary/claude-skills/blob/main/logs/skill-refactor-by-fable-5.md) — the complete phase-by-phase engineering record, including the full approved plan document, every commit hash, and the outstanding follow-up items.*
+*Session log: [`logs/skill-refactor-by-fable-5.md`](https://github.com/dmccreary/ibook-skills/blob/main/logs/skill-refactor-by-fable-5.md) — the complete phase-by-phase engineering record, including the full approved plan document, every commit hash, and the outstanding follow-up items.*

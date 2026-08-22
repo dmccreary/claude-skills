@@ -46,8 +46,8 @@ Before any generation work, establish paths and determine scope.
 ### 0.1 Set Paths
 
 ```bash
-# Python utilities live in the claude-skills repo
-UTILS="$HOME/Documents/ws/claude-skills/src/microsim-utils"
+# Python utilities live in the ibook-skills repo
+UTILS="$HOME/Documents/ws/ibook-skills/src/microsim-utils"
 
 # Detect project root (directory containing mkdocs.yml)
 PROJECT=$(python3 -c "

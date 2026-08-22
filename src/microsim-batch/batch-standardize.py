@@ -14,7 +14,7 @@ from pathlib import Path
 SIMS_DIR = Path(__file__).parent
 
 # Site URL from mkdocs.yml
-SITE_URL = "https://dmccreary.github.io/claude-skills"
+SITE_URL = "https://dmccreary.github.io/ibook-skills"
 
 # Skip MicroSims with quality_score >= 85
 SKIP_THRESHOLD = 85

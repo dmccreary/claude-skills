@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/dmccreary/claude-skills/main/src/book-metrics/book-metrics.schema.json",
+  "$id": "https://raw.githubusercontent.com/dmccreary/ibook-skills/main/src/book-metrics/book-metrics.schema.json",
   "title": "Intelligent Textbook Book Metrics",
   "description": "Canonical, machine-generated quantitative metrics for an intelligent textbook. Written and overwritten on every run by src/book-metrics/book-metrics.py to docs/learning-graph/book-metrics.json. This file is the SINGLE SOURCE OF TRUTH for book-wide totals: consuming skills (readme-generator, linkedin-announcement-generator, case-study-generator, book-status reports) READ this file rather than re-deriving counts. It holds numbers and provenance only - descriptive/author fields (title, creator, license, cover image, repository URL) live in book-metadata.json and must not be duplicated here.",
   "type": "object",

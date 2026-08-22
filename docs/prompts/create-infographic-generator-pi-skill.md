@@ -38,7 +38,7 @@ Sonnet 4.5 · Claude Pro
 ⏺ Bash(python scripts/init_skill.py infograph-generator-p5 --path
       skills/infograph-generator-p5)
   ⎿  Error: Exit code 2
-     python: can't open file '$HOME/Documents/ws/claude-skills/scripts/init_skill.py': 
+     python: can't open file '$HOME/Documents/ws/ibook-skills/scripts/init_skill.py': 
      [Errno 2] No such file or directory
 
 ⏺ Bash(ls -la scripts/)
@@ -907,7 +907,7 @@ Sonnet 4.5 · Claude Pro
   Package Location
 
   The skill has been packaged and validated:
-  - Location: $HOME/Documents/ws/claude-skills/infograph-generator-p5.zip
+  - Location: $HOME/Documents/ws/ibook-skills/infograph-generator-p5.zip
   - Validation: ✅ Passed all quality checks
 
   How to Use

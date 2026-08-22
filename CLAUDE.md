@@ -18,7 +18,7 @@ not use concepts in a chapter that have not been introduced yet.
 ## Repository Structure
 
 ```
-claude-skills/
+ibook-skills/
 ├── skills/                          # Active skill definitions (14 loaded skills)
 │   ├── archived/                    # Verbatim originals of consolidated skills (never loaded; see its README alias map)
 │   │
@@ -272,7 +272,7 @@ Building an intelligent textbook follows this 12-step process using multiple ski
 
 **Install skills globally (for all projects):**
 ```bash
-export BK_HOME=$HOME/Documents/ws/claude-skills   # if not already set
+export BK_HOME=$HOME/Documents/ws/ibook-skills   # if not already set
 scripts/bk-install-skills
 ```
 This creates symlinks from `./skills/*` to `~/.claude/skills/` (skipping `skills/archived/`) and removes stale symlinks whose targets no longer exist.
@@ -438,8 +438,8 @@ Generated content should:
 
 ## Website
 
-**Documentation**: https://dmccreary.github.io/claude-skills/
-**Repository**: https://github.com/dmccreary/claude-skills
+**Documentation**: https://dmccreary.github.io/ibook-skills/
+**Repository**: https://github.com/dmccreary/ibook-skills
 
 ## Technology Stack
 

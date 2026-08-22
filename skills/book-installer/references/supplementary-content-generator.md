@@ -213,7 +213,7 @@ This script generates a metrics report (typically written to `docs/book-metrics.
 
 If the script is not found in PATH, remind the user to install it:
 ```
-bk-generate-book-metrics is not found. Install it from the claude-skills scripts directory or your local bin path.
+bk-generate-book-metrics is not found. Install it from the ibook-skills scripts directory or your local bin path.
 ```
 
 ---

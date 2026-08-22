@@ -202,14 +202,14 @@ Based on concept centrality in the learning graph, these high-priority concepts 
 **Quiz Markdown Files:**
 ```
 docs/chapters/01-intro-ai-intelligent-textbooks/quiz.md
-docs/chapters/02-getting-started-claude-skills/quiz.md
+docs/chapters/02-getting-started-ibook-skills/quiz.md
 docs/chapters/03-course-design-educational-theory/quiz.md
 docs/chapters/04-intro-learning-graphs/quiz.md
 docs/chapters/05-concept-enumeration-dependencies/quiz.md
 docs/chapters/06-learning-graph-quality-validation/quiz.md
 docs/chapters/07-taxonomy-data-formats/quiz.md
 docs/chapters/08-mkdocs-platform-documentation/quiz.md
-docs/chapters/09-claude-skills-architecture-development/quiz.md
+docs/chapters/09-ibook-skills-architecture-development/quiz.md
 docs/chapters/10-content-creation-workflows/quiz.md
 docs/chapters/11-educational-resources-assessment/quiz.md
 docs/chapters/12-interactive-elements-microsims/quiz.md

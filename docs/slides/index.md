@@ -11,10 +11,10 @@ Slide decks built with MARP (Markdown Presentation Ecosystem).
 
 <div class="grid cards" markdown>
 
--   **[Claude Skills for Intelligent Textbooks: Overview](./claude-skills-overview/index.md)**
+-   **[Claude Skills for Intelligent Textbooks: Overview](./ibook-skills-overview/index.md)**
 
-    ![Claude Skills for Intelligent Textbooks: Overview](./claude-skills-overview/thumbnail.png)
+    ![Claude Skills for Intelligent Textbooks: Overview](./ibook-skills-overview/thumbnail.png)
 
-    A 10-slide tour of the claude-skills repo — purpose, pipeline, learning graphs, token efficiency, and how to get started.
+    A 10-slide tour of the ibook-skills repo — purpose, pipeline, learning graphs, token efficiency, and how to get started.
 
 </div>

@@ -1,7 +1,7 @@
 
 ▗ ▗   ▖ ▖  Claude Code v2.0.36
            Sonnet 4.5 · Claude Pro
-  ▘▘ ▝▝    $HOME/Documents/ws/claude-skills
+  ▘▘ ▝▝    $HOME/Documents/ws/ibook-skills
 
 > use the chapter-content-generator skill to generate the content for the first five 
 chapters 
@@ -29,7 +29,7 @@ chapters
 ⏺ Read(docs/chapters/01-intro-ai-intelligent-textbooks/index.md)
   ⎿  Read 41 lines
 
-⏺ Read(docs/chapters/02-getting-started-claude-skills/index.md)
+⏺ Read(docs/chapters/02-getting-started-ibook-skills/index.md)
   ⎿  Read 41 lines
 
 ⏺ Read(docs/chapters/03-course-design-educational-theory/index.md)
@@ -793,8 +793,8 @@ chapters
 
 ⏺ Excellent! Chapter 1 content generated successfully. Now moving to Chapter 2.
 
-⏺ Update(docs/chapters/02-getting-started-claude-skills/index.md)
-  ⎿  Updated docs/chapters/02-getting-started-claude-skills/index.md with 840 additions 
+⏺ Update(docs/chapters/02-getting-started-ibook-skills/index.md)
+  ⎿  Updated docs/chapters/02-getting-started-ibook-skills/index.md with 840 additions 
      and 1 removal
         37    
         38    ---
@@ -1192,12 +1192,12 @@ chapters
        332 +  ls -la ~/.claude/skills/
        333 +  ```
        334 +  
-       335 +  For this course's skills, the provided `install-claude-skills.sh` script
+       335 +  For this course's skills, the provided `install-ibook-skills.sh` script
            +  automates global installation:
        336 +  
        337 +  ```bash
        338 +  cd scripts
-       339 +  ./install-claude-skills.sh
+       339 +  ./install-ibook-skills.sh
        340 +  ```
        341 +  
        342 +  This script iterates through all skill directories in `./skills/`, 

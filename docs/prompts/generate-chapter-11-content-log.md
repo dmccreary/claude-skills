@@ -31,12 +31,12 @@ Successfully generated comprehensive educational content for Chapter 11: "Educat
 
 **Actions taken:**
 1. Used Glob tool to search for chapter 11 directory
-2. Found chapter at `$HOME/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/`
+2. Found chapter at `$HOME/Documents/ws/ibook-skills/docs/chapters/11-educational-resources-assessment/`
 3. Read chapter index.md file to confirm existence and structure
 
 **File located:**
 ```
-$HOME/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md
+$HOME/Documents/ws/ibook-skills/docs/chapters/11-educational-resources-assessment/index.md
 ```
 
 **Status:** ✅ Chapter file exists and is accessible
@@ -103,7 +103,7 @@ Bloom's Taxonomy integration in assessments.
 **Delta:** +14,971 tokens
 
 **Actions taken:**
-1. Read `$HOME/Documents/ws/claude-skills/docs/course-description.md`
+1. Read `$HOME/Documents/ws/ibook-skills/docs/course-description.md`
 2. Analyzed target audience and learning outcomes
 3. Determined appropriate reading level
 
@@ -338,7 +338,7 @@ Pedagogical ordering (simple to complex):
 
 **File modified:**
 ```
-$HOME/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md
+$HOME/Documents/ws/ibook-skills/docs/chapters/11-educational-resources-assessment/index.md
 ```
 
 **Changes made:**
@@ -715,7 +715,7 @@ The generated content is ready for human review and integration into the intelli
 
 ### Primary File Modified:
 ```
-$HOME/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md
+$HOME/Documents/ws/ibook-skills/docs/chapters/11-educational-resources-assessment/index.md
 ```
 
 **Changes:**
@@ -725,7 +725,7 @@ $HOME/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessme
 
 ### Log File Created:
 ```
-$HOME/Documents/ws/claude-skills/docs/prompts/generate-chapter-11-content-log.md
+$HOME/Documents/ws/ibook-skills/docs/prompts/generate-chapter-11-content-log.md
 ```
 
 **Purpose:** Detailed documentation of content generation process with token tracking

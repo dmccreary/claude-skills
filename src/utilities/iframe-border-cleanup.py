@@ -161,7 +161,7 @@ def cleanup_iframe_css(css_file_path, dry_run=False):
     return True
 
 
-def find_microsim_css_files(base_path="/Users/dan/Documents/ws/claude-skills/docs/sims"):
+def find_microsim_css_files(base_path="/Users/dan/Documents/ws/ibook-skills/docs/sims"):
     """
     Find all style.css files in MicroSim directories.
 

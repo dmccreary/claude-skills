@@ -60,7 +60,7 @@
     {
       "question": "Which textbook level is built with MkDocs Material, embeds p5.js MicroSims, and includes inline quizzes — but does NOT yet personalize content to the individual learner?",
       "correct_zone": "interactive",
-      "explanation": "Level 2 interactive textbooks are the target of the claude-skills workflow: MkDocs Material + MicroSims + quizzes, deployed to GitHub Pages, with a learning-graph-driven concept order."
+      "explanation": "Level 2 interactive textbooks are the target of the ibook-skills workflow: MkDocs Material + MicroSims + quizzes, deployed to GitHub Pages, with a learning-graph-driven concept order."
     },
     {
       "question": "Which textbook level delivers the same fixed content to every reader and requires external tools (paper tests, an LMS) for assessment?",

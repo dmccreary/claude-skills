@@ -6,7 +6,7 @@ This textbook is organized into 13 chapters covering 200 concepts that guide you
 
 1. [Introduction to AI and Intelligent Textbooks](01-intro-ai-intelligent-textbooks/index.md) - This chapter introduces artificial intelligence fundamentals, Claude AI, and the concept of intelligent textbooks with their five levels of intelligence.
 
-2. [Getting Started with Claude and Skills](02-getting-started-claude-skills/index.md) - This chapter covers Claude Pro accounts, the Claude Code interface, and introduces the Claude Skills system including skill definition, installation, and basic usage.
+2. [Getting Started with Claude and Skills](02-getting-started-ibook-skills/index.md) - This chapter covers Claude Pro accounts, the Claude Code interface, and introduces the Claude Skills system including skill definition, installation, and basic usage.
 
 3. [Course Design and Educational Theory](03-course-design-educational-theory/index.md) - This chapter explores course descriptions, target audiences, prerequisites, learning outcomes, and Bloom's Taxonomy (2001 revision) with its six cognitive levels.
 
@@ -20,7 +20,7 @@ This textbook is organized into 13 chapters covering 200 concepts that guide you
 
 8. [MkDocs Platform and Documentation](08-mkdocs-platform-documentation/index.md) - This chapter introduces MkDocs, Material theme, configuration files, navigation structure, markdown formatting basics, admonitions, and GitHub Pages deployment preparation.
 
-9. [Claude Skills Architecture and Development](09-claude-skills-architecture-development/index.md) - This chapter deep dives into skill directory structure, supporting assets, Python scripts, templates, reference documentation, skill workflow instructions, commands vs. skills, and skill execution context.
+9. [Claude Skills Architecture and Development](09-ibook-skills-architecture-development/index.md) - This chapter deep dives into skill directory structure, supporting assets, Python scripts, templates, reference documentation, skill workflow instructions, commands vs. skills, and skill execution context.
 
 10. [Content Creation Workflows](10-content-creation-workflows/index.md) - This chapter covers chapter structure, section organization, content generation processes, chapter index files, concept lists, reading level appropriateness, worked examples, and practice exercises.
 

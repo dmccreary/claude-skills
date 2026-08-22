@@ -22,7 +22,7 @@
       },
       "text": {
         "headline": "Run Install Script",
-        "text": "Execute ./scripts/install-claude-skills.sh to create symlinks in global skills directory."
+        "text": "Execute ./scripts/install-ibook-skills.sh to create symlinks in global skills directory."
       },
       "group": "Installation",
       "notes": "The install script automates symlink creation, eliminating manual file copying and ensuring changes stay synchronized."

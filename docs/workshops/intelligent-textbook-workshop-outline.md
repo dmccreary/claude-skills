@@ -5,7 +5,7 @@
 !!! note "Update"
     We are hosting one at [The Thinking Spot](https://www.thethinkingspot.us/) on Monday Dec. 1st 2025 from 6:30 pm to 8:30 pm. Please let Dan know if you can attend.
 
-[Cheat Sheet (PDF)](https://github.com/dmccreary/claude-skills/blob/main/slides/Workshop-Cheat-Sheet.pdf)
+[Cheat Sheet (PDF)](https://github.com/dmccreary/ibook-skills/blob/main/slides/Workshop-Cheat-Sheet.pdf)
 
 ## Prerequisites
 

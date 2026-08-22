@@ -51,12 +51,12 @@ Before starting, ensure you have:
    - `docs/sims/*/*.png` MicroSim screenshots (optional, improves montage quality)
 
 2. **Only needed if the user requests auto-generation**: `$BK_HOME` exported (the
-   user's profile sets it to the `claude-skills` checkout) and the `generate-cover.sh`
+   user's profile sets it to the `ibook-skills` checkout) and the `generate-cover.sh`
    script at:
    ```
    $BK_HOME/src/image-generation/generate-cover.sh
    ```
-   This script lives in the `claude-skills` repo itself, not inside a skill directory
+   This script lives in the `ibook-skills` repo itself, not inside a skill directory
    (only `skills/*` is symlinked into `~/.claude/skills/`), so it must be reached via
    `$BK_HOME` rather than a path under `~/.claude/skills/`.
 
@@ -447,6 +447,6 @@ auto-generation.
 
 ## Related Resources
 
-- [Cover Image Workflow Diagram](https://dmccreary.github.io/claude-skills/sims/cover-image-workflow/)
+- [Cover Image Workflow Diagram](https://dmccreary.github.io/ibook-skills/sims/cover-image-workflow/)
 - [Home Page Template Guide](./home-page-template.md)
-- [Image Generation README](https://github.com/dmccreary/claude-skills/tree/main/src/image-generation)
+- [Image Generation README](https://github.com/dmccreary/ibook-skills/tree/main/src/image-generation)

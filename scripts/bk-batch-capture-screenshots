@@ -2,7 +2,7 @@
 # Batch Screenshot Capture for MicroSims
 # Captures screenshots for all MicroSims that don't have PNG images
 
-SIMS_DIR="/Users/dan/Documents/ws/claude-skills/docs/sims"
+SIMS_DIR="/Users/dan/Documents/ws/ibook-skills/docs/sims"
 CAPTURE_SCRIPT="/Users/dan/.claude/skills/microsim-screen-capture/scripts/capture_screenshot.sh"
 
 # List of MicroSims needing screenshots

@@ -15,7 +15,7 @@
 #
 # Installation:
 #   1. Set BK_HOME in your shell profile (~/.bashrc or ~/.zshrc):
-#      export BK_HOME="/path/to/claude-skills"
+#      export BK_HOME="/path/to/ibook-skills"
 #
 #   2. Add scripts to PATH:
 #      export PATH="$BK_HOME/scripts:$PATH"
@@ -57,16 +57,16 @@ success() {
 if [ -z "$BK_HOME" ]; then
     error "BK_HOME environment variable is not set."
     echo ""
-    echo "The BK_HOME variable should point to your claude-skills directory."
+    echo "The BK_HOME variable should point to your ibook-skills directory."
     echo ""
     echo "${BOLD}To fix this, add the following to your shell profile:${RESET}"
     echo ""
     echo "  For bash (~/.bashrc):"
-    echo "    export BK_HOME=\"/path/to/claude-skills\""
+    echo "    export BK_HOME=\"/path/to/ibook-skills\""
     echo "    export PATH=\"\$BK_HOME/scripts:\$PATH\""
     echo ""
     echo "  For zsh (~/.zshrc):"
-    echo "    export BK_HOME=\"/path/to/claude-skills\""
+    echo "    export BK_HOME=\"/path/to/ibook-skills\""
     echo "    export PATH=\"\$BK_HOME/scripts:\$PATH\""
     echo ""
     echo "Then reload your shell: source ~/.zshrc (or ~/.bashrc)"
@@ -99,7 +99,7 @@ if [ ! -f "$BOOK_STATUS_PY" ]; then
     echo "      └── book-status/"
     echo "          └── book-status.py"
     echo ""
-    echo "Please verify your claude-skills installation."
+    echo "Please verify your ibook-skills installation."
     exit 1
 fi
 

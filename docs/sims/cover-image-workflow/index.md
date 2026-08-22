@@ -70,6 +70,6 @@ docs/img/cover.png
 
 ## Related Resources
 
-- [Image Generation README](https://github.com/dmccreary/claude-skills/tree/main/src/image-generation)
+- [Image Generation README](https://github.com/dmccreary/ibook-skills/tree/main/src/image-generation)
 - [OpenAI Billing Setup](https://platform.openai.com/account/billing)
 - [ChatGPT Plus](https://openai.com/chatgpt/pricing)

@@ -85,7 +85,7 @@ that will create a high-quality README.md file.
 
 You can also explicitly add the following path if you don't install this skill.
 
-[https://github.com/dmccreary/claude-skills/tree/main/skills/readme-generator](https://github.com/dmccreary/claude-skills/tree/main/skills/readme-generator)
+[https://github.com/dmccreary/ibook-skills/tree/main/skills/readme-generator](https://github.com/dmccreary/ibook-skills/tree/main/skills/readme-generator)
 
 ## Windows Arrangement
 

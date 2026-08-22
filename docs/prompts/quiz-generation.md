@@ -31,25 +31,25 @@ Sonnet 4.5 · Claude Pro
 ⏺ Read(docs/learning-graph/learning-graph.json)
   ⎿  Read 100 lines
 
-⏺ Bash(wc -w $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/01-intro-ai-intelligent-textbooks/index.md
-      $HOMEmccreary/Documents/ws/claude-skills/docs/…)
-  ⎿      3888 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/01-intro-ai-intelligent-textbooks/index.md  
-         5251 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/02-getting-started-claude-skills/index.md
-         4772 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/03-course-design-educational-theory/index.md
+⏺ Bash(wc -w $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/01-intro-ai-intelligent-textbooks/index.md
+      $HOMEmccreary/Documents/ws/ibook-skills/docs/…)
+  ⎿      3888 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/01-intro-ai-intelligent-textbooks/index.md  
+         5251 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/02-getting-started-ibook-skills/index.md
+         4772 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/03-course-design-educational-theory/index.md
      … +3 lines (ctrl+o to expand)
 
-⏺ Bash(wc -w $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/06-learning-graph-quality-validation/index.md
-      $HOMEmccreary/Documents/ws/claude-skills/do…)
-  ⎿      4325 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/06-learning-graph-quality-validation/index.md
-         4985 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/07-taxonomy-data-formats/index.md
-         5069 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/08-mkdocs-platform-documentation/index.md
+⏺ Bash(wc -w $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/06-learning-graph-quality-validation/index.md
+      $HOMEmccreary/Documents/ws/ibook-skills/do…)
+  ⎿      4325 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/06-learning-graph-quality-validation/index.md
+         4985 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/07-taxonomy-data-formats/index.md
+         5069 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/08-mkdocs-platform-documentation/index.md
      … +3 lines (ctrl+o to expand)
 
-⏺ Bash(wc -w $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md
-      $HOMEmccreary/Documents/ws/claude-skills/doc…)
-  ⎿      9725 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/11-educational-resources-assessment/index.md    
-         7113 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/12-interactive-elements-microsims/index.md
-         7667 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/13-dev-tools-version-control-deployment/index.md
+⏺ Bash(wc -w $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/11-educational-resources-assessment/index.md
+      $HOMEmccreary/Documents/ws/ibook-skills/doc…)
+  ⎿      9725 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/11-educational-resources-assessment/index.md    
+         7113 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/12-interactive-elements-microsims/index.md
+         7667 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/13-dev-tools-version-control-deployment/index.md
         24505 total
 
 ⏺ Read(docs/chapters/01-intro-ai-intelligent-textbooks/index.md)
@@ -61,7 +61,7 @@ Sonnet 4.5 · Claude Pro
 ⏺ Search(pattern: "docs/learning-graph/quizzes/*.json")
   ⎿  Found 0 files 
 
-⏺ Bash(test -d $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes && echo "Directory exists" || echo "Directory
+⏺ Bash(test -d $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph/quizzes && echo "Directory exists" || echo "Directory
        does not exist")
   ⎿  Directory does not exist
 
@@ -101,7 +101,7 @@ Sonnet 4.5 · Claude Pro
 ⏺ Excellent! I'll generate quizzes for all 13 chapters. Let me set up the directory structure and begin the quiz generation
   process.
 
-⏺ Bash(mkdir -p $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes)
+⏺ Bash(mkdir -p $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph/quizzes)
   ⎿  (No content)
 
 ⏺ Read(docs/chapters/01-intro-ai-intelligent-textbooks/index.md)
@@ -141,12 +141,12 @@ Sonnet 4.5 · Claude Pro
 
 ⏺ Great! Chapter 1 quiz completed. Now continuing with Chapter 2.
 
-⏺ Read(docs/chapters/02-getting-started-claude-skills/index.md)
+⏺ Read(docs/chapters/02-getting-started-ibook-skills/index.md)
   ⎿  Read 200 lines
 
 ⏺ Let me continue reading Chapter 2 to fully understand the concepts before generating the quiz.
 
-⏺ Bash(tail -n +201 $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/02-getting-started-claude-skills/index.md | head -n
+⏺ Bash(tail -n +201 $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/02-getting-started-ibook-skills/index.md | head -n
       200)
   ⎿ The `allowed-tools` frontmatter field provides fine-grained permission control, limiting skills to specific Claude Code tools
     . This security and safety mechanism prevents skills from performing unintended operations.
@@ -155,8 +155,8 @@ Sonnet 4.5 · Claude Pro
 
 ⏺ Now I'll generate the quiz for Chapter 2. This chapter covers more technical concepts about Claude Skills.
 
-⏺ Write(docs/chapters/02-getting-started-claude-skills/quiz.md)
-  ⎿  Wrote 196 lines to docs/chapters/02-getting-started-claude-skills/quiz.md                                           
+⏺ Write(docs/chapters/02-getting-started-ibook-skills/quiz.md)
+  ⎿  Wrote 196 lines to docs/chapters/02-getting-started-ibook-skills/quiz.md                                           
      # Quiz: Getting Started with Claude and Skills
      Test your understanding of Claude Skills, skill definition files, installation, and invocation with these questions.
      ---
@@ -170,8 +170,8 @@ Sonnet 4.5 · Claude Pro
      {
        "chapter": "Getting Started with Claude and Skills",
        "chapter_number": 2,
-       "chapter_file": "docs/chapters/02-getting-started-claude-skills/index.md",
-       "quiz_file": "docs/chapters/02-getting-started-claude-skills/quiz.md",
+       "chapter_file": "docs/chapters/02-getting-started-ibook-skills/index.md",
+       "quiz_file": "docs/chapters/02-getting-started-ibook-skills/quiz.md",
        "generated_date": "2025-11-08",
        "total_questions": 10,
        "content_readiness_score": 98,
@@ -224,13 +224,13 @@ Sonnet 4.5 · Claude Pro
        "questions": [
      … +161 lines (ctrl+o to expand)
 
-⏺ Bash(ls $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-*-quiz-metadata.json | sort)
-  ⎿  $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-01-quiz-metadata.json
-     $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-02-quiz-metadata.json
-     $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-03-quiz-metadata.json
+⏺ Bash(ls $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph/quizzes/chapter-*-quiz-metadata.json | sort)
+  ⎿  $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph/quizzes/chapter-01-quiz-metadata.json
+     $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph/quizzes/chapter-02-quiz-metadata.json
+     $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph/quizzes/chapter-03-quiz-metadata.json
      … +10 lines (ctrl+o to expand)
 
-⏺ Bash(cat $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quizzes/chapter-*-quiz-metadata.json | python3 -c "
+⏺ Bash(cat $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph/quizzes/chapter-*-quiz-metadata.json | python3 -c "
       import json…)
   ⎿  Error: Exit code 1
      Traceback (most recent call last):
@@ -254,7 +254,7 @@ Sonnet 4.5 · Claude Pro
 ⏺ Bash(python3 << 'PYEOF'
       import json…)
   ⎿  Quiz bank created with 130 questions from 13 chapters                                     
-     Saved to: $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph/quiz-bank.json
+     Saved to: $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph/quiz-bank.json
 
 ⏺ Write(docs/learning-graph/quiz-generation-report.md)
   ⎿  Wrote 249 lines to docs/learning-graph/quiz-generation-report.md
@@ -274,7 +274,7 @@ Sonnet 4.5 · Claude Pro
        16        - Overview: chapters/index.md
        17 -      - Chapter 1 - Introduction to AI and Intelligent Textbooks:
           -   chapters/01-intro-ai-intelligent-textbooks/index.md
-       18 -      - Chapter 2 - Getting Started with Claude and Skills: chapters/02-getting-started-claude-skills/index.md
+       18 -      - Chapter 2 - Getting Started with Claude and Skills: chapters/02-getting-started-ibook-skills/index.md
        19 -      - Chapter 3 - Course Design and Educational Theory: chapters/03-course-design-educational-theory/index.md
        20 -      - Chapter 4 - Introduction to Learning Graphs: chapters/04-intro-learning-graphs/index.md
        21 -      - Chapter 5 - Concept Enumeration and Dependencies: chapters/05-concept-enumeration-dependencies/index.md
@@ -282,7 +282,7 @@ Sonnet 4.5 · Claude Pro
        23 -      - Chapter 7 - Taxonomy and Data Formats: chapters/07-taxonomy-data-formats/index.md
        24 -      - Chapter 8 - MkDocs Platform and Documentation: chapters/08-mkdocs-platform-documentation/index.md
        25 -      - Chapter 9 - Claude Skills Architecture and Development: 
-          - chapters/09-claude-skills-architecture-development/index.md
+          - chapters/09-ibook-skills-architecture-development/index.md
        26 -      - Chapter 10 - Content Creation Workflows: chapters/10-content-creation-workflows/index.md
        27 -      - Chapter 11 - Educational Resources and Assessment: chapters/11-educational-resources-assessment/index.md
        28 -      - Chapter 12 - Interactive Elements and MicroSims: chapters/12-interactive-elements-microsims/index.md
@@ -292,8 +292,8 @@ Sonnet 4.5 · Claude Pro
        18 +        - Content: chapters/01-intro-ai-intelligent-textbooks/index.md
        19 +        - Quiz: chapters/01-intro-ai-intelligent-textbooks/quiz.md
        20 +      - Chapter 2 - Getting Started with Claude and Skills:
-       21 +        - Content: chapters/02-getting-started-claude-skills/index.md
-       22 +        - Quiz: chapters/02-getting-started-claude-skills/quiz.md
+       21 +        - Content: chapters/02-getting-started-ibook-skills/index.md
+       22 +        - Quiz: chapters/02-getting-started-ibook-skills/quiz.md
        23 +      - Chapter 3 - Course Design and Educational Theory:
        24 +        - Content: chapters/03-course-design-educational-theory/index.md
        25 +        - Quiz: chapters/03-course-design-educational-theory/quiz.md
@@ -313,8 +313,8 @@ Sonnet 4.5 · Claude Pro
        39 +        - Content: chapters/08-mkdocs-platform-documentation/index.md
        40 +        - Quiz: chapters/08-mkdocs-platform-documentation/quiz.md
        41 +      - Chapter 9 - Claude Skills Architecture and Development:
-       42 +        - Content: chapters/09-claude-skills-architecture-development/index.md
-       43 +        - Quiz: chapters/09-claude-skills-architecture-development/quiz.md
+       42 +        - Content: chapters/09-ibook-skills-architecture-development/index.md
+       43 +        - Quiz: chapters/09-ibook-skills-architecture-development/quiz.md
        44 +      - Chapter 10 - Content Creation Workflows:
        45 +        - Content: chapters/10-content-creation-workflows/index.md
        46 +        - Quiz: chapters/10-content-creation-workflows/quiz.md
@@ -341,8 +341,8 @@ Sonnet 4.5 · Claude Pro
        83        - Usage Limits: claude-usage-limits.md
        84    
 
-⏺ Bash(ls -lh $HOMEmccreary/Documents/ws/claude-skills/docs/chapters/*/quiz.md | wc -l && ls -lh
-      $HOMEmccreary/Documents/ws/claude-skills/docs/learning-graph…)
+⏺ Bash(ls -lh $HOMEmccreary/Documents/ws/ibook-skills/docs/chapters/*/quiz.md | wc -l && ls -lh
+      $HOMEmccreary/Documents/ws/ibook-skills/docs/learning-graph…)
   ⎿  13
      13
 

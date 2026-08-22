@@ -1,7 +1,7 @@
 
 ▗ ▗   ▖ ▖  Claude Code v2.0.36
            Sonnet 4.5 · Claude Pro
-  ▘▘ ▝▝    $HOME/Documents/ws/claude-skills
+  ▘▘ ▝▝    $HOME/Documents/ws/ibook-skills
 
 > run the book-chapter-generator skill 
 
@@ -168,11 +168,11 @@
 
   Creating Directory Structure
 
-⏺ Bash(mkdir -p $HOME/Documents/ws/claude-skills/docs/chapters)
+⏺ Bash(mkdir -p $HOME/Documents/ws/ibook-skills/docs/chapters)
   ⎿  (No content)
 
-⏺ Bash(cd $HOME/Documents/ws/claude-skills/docs/chapters && mkdir -p
-      01-intro-ai-intelligent-textbooks 02-getting-started-claude-skills
+⏺ Bash(cd $HOME/Documents/ws/ibook-skills/docs/chapters && mkdir -p
+      01-intro-ai-intelligent-textbooks 02-getting-started-ibook-skills
       03-course-design-education…)
   ⎿  (No content)
 
@@ -190,7 +190,7 @@
      artificial intelligence fundamentals, Claude AI, and the concept of intelligent
      textbooks with their five levels of intelligence.
      2. `[Getting Started with Claude and 
-     Skills](../chapters/02-getting-started-claude-skills/index.md)` - This chapter covers Claude Pro
+     Skills](../chapters/02-getting-started-ibook-skills/index.md)` - This chapter covers Claude Pro
      accounts, the Claude Code interface, and introduces the Claude Skills system
      including skill definition, installation, and basic usage.
      … +32 lines (ctrl+o to expand)
@@ -214,8 +214,8 @@
      ## Concepts Covered
      … +31 lines (ctrl+o to expand)
 
-⏺ Write(02-getting-started-claude-skills/index.md)
-  ⎿  Wrote 41 lines to 02-getting-started-claude-skills/index.md                        
+⏺ Write(02-getting-started-ibook-skills/index.md)
+  ⎿  Wrote 41 lines to 02-getting-started-ibook-skills/index.md                        
      # Getting Started with Claude and Skills
      ## Summary
      This chapter introduces the Claude Skills system, which is the foundation for
@@ -336,8 +336,8 @@
      ## Concepts Covered
      … +23 lines (ctrl+o to expand)
 
-⏺ Write(09-claude-skills-architecture-development/index.md)
-  ⎿  Wrote 47 lines to 09-claude-skills-architecture-development/index.md               
+⏺ Write(09-ibook-skills-architecture-development/index.md)
+  ⎿  Wrote 47 lines to 09-ibook-skills-architecture-development/index.md               
      # Claude Skills Architecture and Development
      ## Summary
      This chapter provides an in-depth exploration of Claude Skills architecture and best
@@ -430,12 +430,12 @@
 ⏺ Excellent! All chapter files have been created. Now let me update the mkdocs.yml
   navigation:
 
-⏺ Read(~/Documents/ws/claude-skills/mkdocs.yml)
+⏺ Read(~/Documents/ws/ibook-skills/mkdocs.yml)
   ⎿  Read 101 lines
 
 ⏺ Now I'll add the Chapters section to the navigation:
 
-⏺ Update(~/Documents/ws/claude-skills/mkdocs.yml)
+⏺ Update(~/Documents/ws/ibook-skills/mkdocs.yml)
   ⎿  Updated ../../mkdocs.yml with 17 additions and 1 removal                       
        11      - About: about.md
        12      - Course Description: course-description.md
@@ -447,7 +447,7 @@
        17 +      - Chapter 1 - Introduction to AI and Intelligent Textbooks: 
           + chapters/01-intro-ai-intelligent-textbooks/index.md
        18 +      - Chapter 2 - Getting Started with Claude and Skills: 
-          + chapters/02-getting-started-claude-skills/index.md
+          + chapters/02-getting-started-ibook-skills/index.md
        19 +      - Chapter 3 - Course Design and Educational Theory: 
           + chapters/03-course-design-educational-theory/index.md
        20 +      - Chapter 4 - Introduction to Learning Graphs: 
@@ -461,7 +461,7 @@
        24 +      - Chapter 8 - MkDocs Platform and Documentation: 
           + chapters/08-mkdocs-platform-documentation/index.md
        25 +      - Chapter 9 - Claude Skills Architecture and Development: 
-          + chapters/09-claude-skills-architecture-development/index.md
+          + chapters/09-ibook-skills-architecture-development/index.md
        26 +      - Chapter 10 - Content Creation Workflows: 
           + chapters/10-content-creation-workflows/index.md
        27 +      - Chapter 11 - Educational Resources and Assessment: 
@@ -488,14 +488,14 @@
   docs/chapters/
   ├── index.md
   ├── 01-intro-ai-intelligent-textbooks/index.md
-  ├── 02-getting-started-claude-skills/index.md
+  ├── 02-getting-started-ibook-skills/index.md
   ├── 03-course-design-educational-theory/index.md
   ├── 04-intro-learning-graphs/index.md
   ├── 05-concept-enumeration-dependencies/index.md
   ├── 06-learning-graph-quality-validation/index.md
   ├── 07-taxonomy-data-formats/index.md
   ├── 08-mkdocs-platform-documentation/index.md
-  ├── 09-claude-skills-architecture-development/index.md
+  ├── 09-ibook-skills-architecture-development/index.md
   ├── 10-content-creation-workflows/index.md
   ├── 11-educational-resources-assessment/index.md
   ├── 12-interactive-elements-microsims/index.md

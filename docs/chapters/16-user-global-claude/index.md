@@ -22,7 +22,7 @@ When you create any new textbook, what License should you use?
 
 ## Claude Skill Repo
 
-`cd ~/Documents/ws/claude-skills; git pull`
+`cd ~/Documents/ws/ibook-skills; git pull`
 
 
 ## P5.js rules

@@ -706,4 +706,4 @@ See the timeline example at `/docs/sims/timeline/` for a complete reference impl
 
 ## License
 
-This skill is provided under the same license as the claude-skills repository. The vis-timeline library is licensed under Apache-2.0/MIT dual license.
+This skill is provided under the same license as the ibook-skills repository. The vis-timeline library is licensed under Apache-2.0/MIT dual license.

@@ -6,19 +6,19 @@ This directory contains the **bk*** (Book utilities) collection of shell scripts
 
 ### Required: BK_HOME Environment Variable
 
-All `bk*` scripts require the `$BK_HOME` environment variable to be set. This variable should point to the root directory of your claude-skills repository.
+All `bk*` scripts require the `$BK_HOME` environment variable to be set. This variable should point to the root directory of your ibook-skills repository.
 
 **Setup:**
 
 Add this line to your shell startup file (`~/.bashrc`, `~/.zshrc`, or `~/.bash_profile`):
 
 ```bash
-export BK_HOME=/path/to/your/claude-skills
+export BK_HOME=/path/to/your/ibook-skills
 ```
 
 **Example:**
 ```bash
-export BK_HOME=$HOME/Documents/ws/claude-skills
+export BK_HOME=$HOME/Documents/ws/ibook-skills
 ```
 
 After adding the line, reload your shell configuration:
@@ -55,7 +55,7 @@ set -gx PATH $HOME/.local/bin $PATH
 
 1. **Set BK_HOME** (required):
    ```bash
-   export BK_HOME=/path/to/claude-skills
+   export BK_HOME=/path/to/ibook-skills
    ```
 
 2. **Install bk* scripts**:
@@ -111,7 +111,7 @@ bk 1         # Run the first utility
 ════════════════════════════════════════════════════════════════
 Build/Book Utilities
 ════════════════════════════════════════════════════════════════
-BK_HOME: $HOME/Documents/ws/claude-skills
+BK_HOME: $HOME/Documents/ws/ibook-skills
 
   1. bk-resize-images              Compress large images to ~300KB PNG format
   2. bk-book-status                Display intelligent textbook building workflow status
@@ -303,7 +303,7 @@ All scripts provide actionable error messages:
 1. **Consistency**: All scripts use the same base directory
 2. **Portability**: Works from any directory after installation
 3. **Validation**: Scripts check environment before running
-4. **Flexibility**: Easy to switch between different claude-skills installations
+4. **Flexibility**: Easy to switch between different ibook-skills installations
 5. **Error Prevention**: Clear error messages guide users to fix configuration
 
 ## Notes

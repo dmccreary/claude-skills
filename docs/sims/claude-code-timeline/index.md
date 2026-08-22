@@ -329,13 +329,13 @@ This timeline is particularly valuable for:
 
 45. [Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) - 2024 - Anthropic - MCP standardizing how AI assistants connect to enterprise systems, databases, and APIs for context-aware assistance.
 
-46. [Claude Skills Framework](https://github.com/dmccreary/claude-skills) - 2024 - GitHub - Community-developed framework enabling autonomous agents for specialized tasks like educational content creation and learning graphs.
+46. [Claude Skills Framework](https://github.com/dmccreary/ibook-skills) - 2024 - GitHub - Community-developed framework enabling autonomous agents for specialized tasks like educational content creation and learning graphs.
 
-47. [Learning Graph Generator Skill](https://dmccreary.github.io/claude-skills/skills/learning-graph-generator/) - 2024 - Claude Skills Docs - Automated generation of concept dependency graphs with 200+ concepts following Bloom's Taxonomy and ISO 11179 standards.
+47. [Learning Graph Generator Skill](https://dmccreary.github.io/ibook-skills/skills/learning-graph-generator/) - 2024 - Claude Skills Docs - Automated generation of concept dependency graphs with 200+ concepts following Bloom's Taxonomy and ISO 11179 standards.
 
-48. [MicroSim Skills Collection](https://dmccreary.github.io/claude-skills/sims/) - 2024 - Claude Skills Docs - Interactive visualization skills for p5.js simulations, Venn diagrams, and timelines for educational content.
+48. [MicroSim Skills Collection](https://dmccreary.github.io/ibook-skills/sims/) - 2024 - Claude Skills Docs - Interactive visualization skills for p5.js simulations, Venn diagrams, and timelines for educational content.
 
-49. [Timeline Generator Skill](https://dmccreary.github.io/claude-skills/skills/timeline-generator/) - 2025 - Claude Skills Docs - This skill for creating interactive historical timelines using vis-timeline.js with category filtering and rich context.
+49. [Timeline Generator Skill](https://dmccreary.github.io/ibook-skills/skills/timeline-generator/) - 2025 - Claude Skills Docs - This skill for creating interactive historical timelines using vis-timeline.js with category filtering and rich context.
 
 50. [Claude Code 1.0 Released](https://www.anthropic.com/news/claude-code) - February 24, 2025 - Anthropic - Official production release of Claude Code, bringing AI pair programming with terminal integration, MCP support, and autonomous coding to developers worldwide.
 

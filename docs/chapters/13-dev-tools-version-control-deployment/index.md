@@ -26,7 +26,7 @@ This chapter covers the following 10 concepts from the learning graph:
 This chapter builds on concepts from:
 
 - [Chapter 1: Introduction to AI and Intelligent Textbooks](../01-intro-ai-intelligent-textbooks/index.md)
-- [Chapter 2: Getting Started with Claude and Skills](../02-getting-started-claude-skills/index.md)
+- [Chapter 2: Getting Started with Claude and Skills](../02-getting-started-ibook-skills/index.md)
 - [Chapter 4: Introduction to Learning Graphs](../04-intro-learning-graphs/index.md)
 - [Chapter 10: Content Creation Workflows](../10-content-creation-workflows/index.md)
 - [Chapter 11: Educational Resources and Assessment](../11-educational-resources-assessment/index.md)
@@ -84,7 +84,7 @@ The following features are particularly valuable for intelligent textbook develo
       /docs
         /chapters
           /01-intro-ai-intelligent-textbooks
-          /02-getting-started-claude-skills
+          /02-getting-started-ibook-skills
           (etc.)
         /sims
         /learning-graph
@@ -481,7 +481,7 @@ textbook-project/
 │   ├── chapters/
 │   │   ├── 01-intro-ai-intelligent-textbooks/
 │   │   │   └── index.md
-│   │   ├── 02-getting-started-claude-skills/
+│   │   ├── 02-getting-started-ibook-skills/
 │   │   │   └── index.md
 │   │   └── (more chapters...)
 │   ├── sims/
@@ -498,7 +498,7 @@ textbook-project/
 │   ├── faq.md
 │   └── index.md
 ├── scripts/
-│   ├── install-claude-skills.sh
+│   ├── install-ibook-skills.sh
 │   └── list-skills.sh
 ├── .claude/
 │   ├── skills/
@@ -807,7 +807,7 @@ A basic shell script has three components:
 
 ### Example: Installing Claude Skills
 
-The `install-claude-skills.sh` script creates symbolic links from the project's skills directory to the global Claude skills directory:
+The `install-ibook-skills.sh` script creates symbolic links from the project's skills directory to the global Claude skills directory:
 
 ```bash
 #!/bin/bash
@@ -926,8 +926,8 @@ Unix-like systems (macOS, Linux) use a permission system to control who can read
 File permissions are displayed by `ls -l`:
 
 ```bash
-$ ls -l scripts/install-claude-skills.sh
--rwxr-xr-x  1 username  staff  512 Jan 15 10:30 install-claude-skills.sh
+$ ls -l scripts/install-ibook-skills.sh
+-rwxr-xr-x  1 username  staff  512 Jan 15 10:30 install-ibook-skills.sh
 ```
 
 The permission string `-rwxr-xr-x` breaks down as:
@@ -970,27 +970,27 @@ To make a script executable, use the `chmod` command:
 
 ```bash
 # Add execute permission for owner
-chmod +x scripts/install-claude-skills.sh
+chmod +x scripts/install-ibook-skills.sh
 
 # Add execute permission for everyone
-chmod a+x scripts/install-claude-skills.sh
+chmod a+x scripts/install-ibook-skills.sh
 
 # Set specific permissions using numeric notation
-chmod 755 scripts/install-claude-skills.sh
+chmod 755 scripts/install-ibook-skills.sh
 ```
 
 After setting execute permissions, the script can be run directly:
 
 ```bash
 # Run with full path
-./scripts/install-claude-skills.sh
+./scripts/install-ibook-skills.sh
 
 # Run with relative path
 cd scripts
-./install-claude-skills.sh
+./install-ibook-skills.sh
 
 # Run from anywhere if in PATH
-install-claude-skills.sh
+install-ibook-skills.sh
 ```
 #### Diagram: Permission Bits Visual Infographic
 
@@ -1093,23 +1093,23 @@ Common permission-related errors:
 
 **Error: "Permission denied"**
 ```bash
-$ ./scripts/install-claude-skills.sh
--bash: ./scripts/install-claude-skills.sh: Permission denied
+$ ./scripts/install-ibook-skills.sh
+-bash: ./scripts/install-ibook-skills.sh: Permission denied
 ```
 **Solution:** Add execute permission
 ```bash
-chmod +x scripts/install-claude-skills.sh
+chmod +x scripts/install-ibook-skills.sh
 ```
 
 **Error: "No such file or directory" when script exists**
 ```bash
-$ ./scripts/install-claude-skills.sh
--bash: ./scripts/install-claude-skills.sh: No such file or directory
+$ ./scripts/install-ibook-skills.sh
+-bash: ./scripts/install-ibook-skills.sh: No such file or directory
 ```
 **Cause:** Incorrect shebang line (e.g., Windows line endings)
 **Solution:** Convert line endings to Unix format
 ```bash
-dos2unix scripts/install-claude-skills.sh
+dos2unix scripts/install-ibook-skills.sh
 ```
 
 ## Symlink Creation
@@ -1198,7 +1198,7 @@ Claude Code supports two skill installation strategies:
 **Global skills (`~/.claude/skills/`):**
 - Available to all projects
 - Ideal for stable, mature skills used across multiple textbooks
-- Installed via `scripts/install-claude-skills.sh`
+- Installed via `scripts/install-ibook-skills.sh`
 
 **Project-local skills (`.claude/skills/`):**
 - Available only to the current project
@@ -1268,7 +1268,7 @@ chmod -R 755 ~/Documents/textbook-project/skills/
       │       ├── SKILL.md
       │       └── scripts/
       └── scripts/
-          └── install-claude-skills.sh
+          └── install-ibook-skills.sh
       ```
 
     - Global skills directory (center):
@@ -1286,7 +1286,7 @@ chmod -R 755 ~/Documents/textbook-project/skills/
 
     Connections:
     - Dashed arrows from global skills to project skills (labeled "symlink")
-    - Solid arrow from install-claude-skills.sh to global skills (labeled "creates")
+    - Solid arrow from install-ibook-skills.sh to global skills (labeled "creates")
     - Solid arrow from Claude Code to global skills (labeled "reads from")
 
     Annotations:

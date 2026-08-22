@@ -238,14 +238,14 @@ git clone https://github.com/YOUR_USERNAME/my-intelligent-book.git
 
 ```bash
 cd ~/projects
-git clone https://github.com/dmccreary/claude-skills.git
+git clone https://github.com/dmccreary/ibook-skills.git
 ```
 
 !!! tip "Verification"
     ```bash
     ls ~/projects
     ```
-    You should see both `my-intelligent-book` and `claude-skills` listed.
+    You should see both `my-intelligent-book` and `ibook-skills` listed.
 
 ---
 
@@ -255,13 +255,13 @@ Add environment variables to your shell configuration file.
 
 **For macOS (zsh):**
 ```bash
-echo 'export BK_HOME="$HOME/projects/claude-skills"' >> ~/.zshrc
+echo 'export BK_HOME="$HOME/projects/ibook-skills"' >> ~/.zshrc
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
 ```
 
 **For Linux/WSL (bash):**
 ```bash
-echo 'export BK_HOME="$HOME/projects/claude-skills"' >> ~/.bashrc
+echo 'export BK_HOME="$HOME/projects/ibook-skills"' >> ~/.bashrc
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 ```
 
@@ -281,14 +281,14 @@ source ~/.bashrc
     ```bash
     echo $BK_HOME
     ```
-    Should display `/Users/YOUR_USERNAME/projects/claude-skills` or `/home/YOUR_USERNAME/projects/claude-skills`.
+    Should display `/Users/YOUR_USERNAME/projects/ibook-skills` or `/home/YOUR_USERNAME/projects/ibook-skills`.
 
 ---
 
 ## Step 13: Install the Book-Building Scripts
 
 ```bash
-cd ~/projects/claude-skills
+cd ~/projects/ibook-skills
 ./scripts/bk-install-scripts
 ```
 
@@ -434,7 +434,7 @@ You should see a menu like this:
 ════════════════════════════════════════════════════════════════
 Build/Book Utilities
 ════════════════════════════════════════════════════════════════
-BK_HOME: /home/YOUR_USERNAME/projects/claude-skills
+BK_HOME: /home/YOUR_USERNAME/projects/ibook-skills
 
    1. bk                                  Build/Book utilities menu
    2. bk-analyze-skill-usage              Generate a comprehensive skill usage analysis...
@@ -444,12 +444,12 @@ BK_HOME: /home/YOUR_USERNAME/projects/claude-skills
 ```
 
 !!! success "Expected Result"
-    The menu should display with `BK_HOME` pointing to your claude-skills directory.
+    The menu should display with `BK_HOME` pointing to your ibook-skills directory.
 
 !!! warning "Troubleshooting"
     If you see `command not found: bk`, make sure you:
 
-    1. Ran `./scripts/bk-install-scripts` from the claude-skills directory
+    1. Ran `./scripts/bk-install-scripts` from the ibook-skills directory
     2. Added `$HOME/.local/bin` to your PATH
     3. Reloaded your shell with `source ~/.zshrc` or `source ~/.bashrc`
 

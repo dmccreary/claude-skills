@@ -29,8 +29,8 @@ See the [course description prerequisites section](course-description.md#prerequ
 
 Installing Claude Skills involves two steps:
 
-1. **Clone the repository**: Use `git clone https://github.com/dmccreary/claude-skills.git` to download the skills
-2. **Run the installation script**: Navigate to the `scripts/` directory and run `./install-claude-skills.sh`
+1. **Clone the repository**: Use `git clone https://github.com/dmccreary/ibook-skills.git` to download the skills
+2. **Run the installation script**: Navigate to the `scripts/` directory and run `./install-ibook-skills.sh`
 
 This creates symbolic links from your `~/.claude/skills/` directory to the cloned skills, making them available across all your projects. For project-specific installation, modify the script to point to your project's `.claude/skills/` directory instead.
 
@@ -72,7 +72,7 @@ To work through this course effectively, you'll need:
 - **Terminal/command-line access**: For running shell scripts and commands
 - **Web browser**: For testing MkDocs sites locally and accessing documentation
 
-All tools are free except the Claude Pro subscription. Installation instructions are provided in [Chapter 2](chapters/02-getting-started-claude-skills/index.md) and the [getting started guide](getting-started.md).
+All tools are free except the Claude Pro subscription. Installation instructions are provided in [Chapter 2](chapters/02-getting-started-ibook-skills/index.md) and the [getting started guide](getting-started.md).
 
 ### Do I need to know Python or JavaScript?
 
@@ -81,7 +81,7 @@ Not extensively! While the course uses Python scripts for processing learning gr
 - **Python**: The course provides pre-built scripts (`analyze-graph.py`, `csv-to-json.py`, etc.) that you run as-is. Basic understanding of running Python commands is helpful.
 - **JavaScript/p5.js**: The microsim-p5 skill generates simulation code for you. Understanding basic JavaScript helps customize simulations, but isn't required for core functionality.
 
-The focus is on **using** these tools through Claude Skills rather than writing code from scratch. See [Chapter 9](chapters/09-claude-skills-architecture-development/index.md) for more on skill architecture.
+The focus is on **using** these tools through Claude Skills rather than writing code from scratch. See [Chapter 9](chapters/09-ibook-skills-architecture-development/index.md) for more on skill architecture.
 
 ### How do I list the skills I have installed?
 
@@ -110,13 +110,13 @@ See the [getting started guide](getting-started.md#testing-your-skill-list) for 
 
 **Example**: The `learning-graph-generator` is a skill that autonomously generates 300-600 concepts, validates dependencies, and creates visualizations. A command might simply instruct Claude to "analyze this learning graph quality."
 
-See [Chapter 9](chapters/09-claude-skills-architecture-development/index.md) for detailed architecture information.
+See [Chapter 9](chapters/09-ibook-skills-architecture-development/index.md) for detailed architecture information.
 
 ### How do I update my skills to the latest version?
 
 Since the skills are installed via symbolic links to a Git repository, updating is simple:
 
-1. Navigate to your cloned repository: `cd ~/projects/claude-skills`
+1. Navigate to your cloned repository: `cd ~/projects/ibook-skills`
 2. Pull the latest changes: `git pull`
 3. Skills are automatically updated via symlinks
 
@@ -169,7 +169,7 @@ A Claude Skill is an autonomous agent defined by a SKILL.md file that automates 
 - `glossary-generator`: Produces ISO 11179-compliant term definitions
 - `microsim-p5`: Builds interactive p5.js educational simulations
 
-Skills are installed in `~/.claude/skills/` and invoked with the Skill tool or `/skill [name]` command. See [Chapter 2](chapters/02-getting-started-claude-skills/index.md) and [Chapter 9](chapters/09-claude-skills-architecture-development/index.md) for details.
+Skills are installed in `~/.claude/skills/` and invoked with the Skill tool or `/skill [name]` command. See [Chapter 2](chapters/02-getting-started-ibook-skills/index.md) and [Chapter 9](chapters/09-ibook-skills-architecture-development/index.md) for details.
 
 ### What is Bloom's Taxonomy and why is it important?
 
@@ -464,7 +464,7 @@ allowed-tools:
 - **license**: Software license (typically Apache-2.0 or MIT)
 - **allowed-tools**: Optional list of Claude Code tools the skill can use
 
-YAML frontmatter is a standard way to add metadata to markdown files, widely used in static site generators and documentation tools. See [Chapter 9](chapters/09-claude-skills-architecture-development/index.md).
+YAML frontmatter is a standard way to add metadata to markdown files, widely used in static site generators and documentation tools. See [Chapter 9](chapters/09-ibook-skills-architecture-development/index.md).
 
 ### How do I customize MkDocs theme colors?
 
@@ -793,7 +793,7 @@ Claude Pro accounts have token limits within 4-hour usage windows. For long text
 4. **Monitor usage**: Track how many skills you've run in the current window
 5. **Plan generation sessions**: Space intensive tasks across multiple days
 
-**If you hit limits**: Wait for the 4-hour window to reset, then continue. The course content discusses token management strategies and optimization techniques. See [Chapter 2](chapters/02-getting-started-claude-skills/index.md) and the [usage limits guide](claude-usage-limits.md).
+**If you hit limits**: Wait for the 4-hour window to reset, then continue. The course content discusses token management strategies and optimization techniques. See [Chapter 2](chapters/02-getting-started-ibook-skills/index.md) and the [usage limits guide](claude-usage-limits.md).
 
 ### Why is my MicroSim not displaying correctly?
 
@@ -1156,7 +1156,7 @@ Instead of running the full intelligent-textbook skill, invoke individual compon
 /skill chapter-content-generator
 ```
 
-This gives maximum control over the process. See [Chapter 9](chapters/09-claude-skills-architecture-development/index.md) for skill development patterns.
+This gives maximum control over the process. See [Chapter 9](chapters/09-ibook-skills-architecture-development/index.md) for skill development patterns.
 
 ### How do I create a custom skill for my specific domain?
 
@@ -1205,7 +1205,7 @@ More detailed instructions...
 
 Invoke with `/skill my-custom-skill` and iterate based on results.
 
-See [Chapter 9](chapters/09-claude-skills-architecture-development/index.md) for complete skill development guide.
+See [Chapter 9](chapters/09-ibook-skills-architecture-development/index.md) for complete skill development guide.
 
 ### Can I integrate Claude Skills with Learning Management Systems?
 
@@ -1251,7 +1251,7 @@ Strategies to minimize token usage while maintaining quality:
 - Space intensive generation sessions across days to stay within limits
 - Prioritize core chapters, defer optional content
 
-See the [usage limits guide](claude-usage-limits.md) and [Chapter 2](chapters/02-getting-started-claude-skills/index.md).
+See the [usage limits guide](claude-usage-limits.md) and [Chapter 2](chapters/02-getting-started-ibook-skills/index.md).
 
 ### What's the future roadmap for intelligent textbook skills?
 
@@ -1282,11 +1282,11 @@ While the course focuses on current Level 2-3 capabilities, future developments 
 - Collaborative multi-author workflows
 - Analytics dashboards for content quality
 
-These capabilities are emerging areas of research. Contributing to the [claude-skills repository](https://github.com/dmccreary/claude-skills) helps drive this evolution.
+These capabilities are emerging areas of research. Contributing to the [ibook-skills repository](https://github.com/dmccreary/ibook-skills) helps drive this evolution.
 
 ### How can I contribute new skills to the repository?
 
-The claude-skills repository welcomes community contributions:
+The ibook-skills repository welcomes community contributions:
 
 **Contribution process**:
 
@@ -1314,4 +1314,4 @@ The claude-skills repository welcomes community contributions:
 - Citation and bibliography generators
 - Interactive assessment tools
 
-See the [GitHub repository](https://github.com/dmccreary/claude-skills) for contribution guidelines and issue tracking.
+See the [GitHub repository](https://github.com/dmccreary/ibook-skills) for contribution guidelines and issue tracking.

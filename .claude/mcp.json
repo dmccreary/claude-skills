@@ -3,7 +3,7 @@
     "skills-lister": {
       "command": "python3",
       "args": [
-        "$HOME/Documents/ws/claude-skills/mcp-servers/skills-lister/server.py"
+        "$HOME/Documents/ws/ibook-skills/mcp-servers/skills-lister/server.py"
       ]
     }
   }

@@ -30,7 +30,7 @@ TODO: Describe how students should interact with this MicroSim.
 You can add this MicroSim to any web page by adding this to your HTML:
 
 ```html
-<iframe src="https://dmccreary.github.io/claude-skills/sims/4-hour-token-window-visualization/main.html"
+<iframe src="https://dmccreary.github.io/ibook-skills/sims/4-hour-token-window-visualization/main.html"
         height="619px"
         width="100%"
         scrolling="no"></iframe>

@@ -37,7 +37,7 @@
 ⏺ Update(docs/sims/claude-code-timeline/index.md)
   ⎿  Updated docs/sims/claude-code-timeline/index.md with 2 additions                 
        322    
-       323    49. [Timeline Generator Skill](https://dmccreary.github.io/claude-skills
+       323    49. [Timeline Generator Skill](https://dmccreary.github.io/ibook-skills
              /skills/timeline-generator/) - 2025 - Claude Skills Docs - This skill for
               creating interactive historical timelines using vis-timeline.js with 
              category filtering and rich context.

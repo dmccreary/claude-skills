@@ -45,16 +45,16 @@
   Let me create this skill following the skill creation process.
 
 ⏺ Bash(python3 $HOME/.claude/skills/skill-creator/scripts/init_skill.py mermaid-generator --path
-      $HOME/Documents/ws/claude-skills/skills)
+      $HOME/Documents/ws/ibook-skills/skills)
   ⎿  🚀 Initializing skill: mermaid-generator                 
-        Location: $HOME/Documents/ws/claude-skills/skills
+        Location: $HOME/Documents/ws/ibook-skills/skills
      … +13 lines (ctrl+o to expand)
 
 ⏺ Read(skills/mermaid-generator/SKILL.md)
   ⎿  Read 86 lines
 
-⏺ Bash(rm $HOME/Documents/ws/claude-skills/skills/mermaid-generator/scripts/example.py
-      $HOME/Documents/ws/claude-skills/skills/mermaid-generator/references/a…)
+⏺ Bash(rm $HOME/Documents/ws/ibook-skills/skills/mermaid-generator/scripts/example.py
+      $HOME/Documents/ws/ibook-skills/skills/mermaid-generator/references/a…)
   ⎿  (No content)
 
 ⏺ Fetch(`https://mermaid.js.org/syntax/flowchart.html`)
@@ -73,7 +73,7 @@
      flowchart TD
      … +261 lines (ctrl+o to expand)
 
-⏺ Bash(mkdir -p $HOME/Documents/ws/claude-skills/skills/mermaid-generator/assets/template)
+⏺ Bash(mkdir -p $HOME/Documents/ws/ibook-skills/skills/mermaid-generator/assets/template)
   ⎿  (No content)
 
 ⏺ Write(skills/mermaid-generator/assets/template/main.html)
@@ -778,8 +778,8 @@
        515 +  - Dublin Core metadata support
 
 ⏺ Bash(python3 $HOME/.claude/skills/skill-creator/scripts/package_skill.py
-      $HOME/Documents/ws/claude-skills/skills/mermaid-generator)
-  ⎿  📦 Packaging skill: $HOME/Documents/ws/claude-skills/skills/mermaid-generator
+      $HOME/Documents/ws/ibook-skills/skills/mermaid-generator)
+  ⎿  📦 Packaging skill: $HOME/Documents/ws/ibook-skills/skills/mermaid-generator
 
      🔍 Validating skill...
      … +11 lines (ctrl+o to expand)
@@ -788,7 +788,7 @@
 
   Created Skill: mermaid-generator
 
-  Location: $HOME/Documents/ws/claude-skills/skills/mermaid-generator/
+  Location: $HOME/Documents/ws/ibook-skills/skills/mermaid-generator/
 
   Packaged file: mermaid-generator.zip (ready for distribution)
 

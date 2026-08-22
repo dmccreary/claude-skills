@@ -21,7 +21,7 @@ social:
 You can include this MicroSim on your website using the following `iframe`:
 
 ```html
-<iframe src="https://dmccreary.github.io/claude-skills/sims/color-wheel-with-named-colors/main.html" height="462px" scrolling="no"></iframe>
+<iframe src="https://dmccreary.github.io/ibook-skills/sims/color-wheel-with-named-colors/main.html" height="462px" scrolling="no"></iframe>
 ```
 
 ## Description

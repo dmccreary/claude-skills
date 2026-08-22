@@ -65,7 +65,7 @@ Despite loading last, lower-priority files have lower precedence - they fill in 
 You can include this MicroSim on your website using the following `iframe`:
 
 ```html
-<iframe src="https://dmccreary.github.io/claude-skills/sims/claude-code-memory-layers/main.html"
+<iframe src="https://dmccreary.github.io/ibook-skills/sims/claude-code-memory-layers/main.html"
         height="602px"
         width="100%"
         scrolling="no"></iframe>

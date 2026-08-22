@@ -25,25 +25,25 @@ Main script for generating book cover images. Run from your project's root direc
 **Full Generation (requires API billing):**
 ```bash
 cd /path/to/your/book-project
-/path/to/claude-skills/src/image-generation/generate-cover.sh
+/path/to/ibook-skills/src/image-generation/generate-cover.sh
 ```
 
 **Local Prompt Mode (NO API required - for ChatGPT Plus users):**
 ```bash
 cd /path/to/your/book-project
-/path/to/claude-skills/src/image-generation/generate-cover.sh --local-prompt
+/path/to/ibook-skills/src/image-generation/generate-cover.sh --local-prompt
 ```
 
 **Open Browser Mode (opens ChatGPT and pastes prompt automatically):**
 ```bash
 cd /path/to/your/book-project
-/path/to/claude-skills/src/image-generation/generate-cover.sh --open-browser
+/path/to/ibook-skills/src/image-generation/generate-cover.sh --open-browser
 ```
 
 **API Prompt-Only Mode (requires API billing):**
 ```bash
 cd /path/to/your/book-project
-/path/to/claude-skills/src/image-generation/generate-cover.sh --prompt-only
+/path/to/ibook-skills/src/image-generation/generate-cover.sh --prompt-only
 ```
 
 The script will:

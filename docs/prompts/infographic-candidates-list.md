@@ -23,8 +23,8 @@ Sonnet 4.5 · Claude Pro
 
 ⏺ Bash(find docs -name "docs/chapters/*/index.md" -type f | head -20)
   ⎿  docs/license.md                                                 
-     docs/chapters/09-claude-skills-architecture-development/index.md
-     docs/chapters/09-claude-skills-architecture-development/quiz.md
+     docs/chapters/09-ibook-skills-architecture-development/index.md
+     docs/chapters/09-ibook-skills-architecture-development/quiz.md
      … +17 lines (ctrl+o to expand)
 
 ⏺ Read(docs/chapters/index.md)
@@ -118,7 +118,7 @@ Sonnet 4.5 · Claude Pro
 ─────────────────────────────────────────────────────────────────────────────────────────────
 >  
 ─────────────────────────────────────────────────────────────────────────────────────────────
-  ws/claude-skills                                                      ⧉ 38 lines selected
+  ws/ibook-skills                                                      ⧉ 38 lines selected
   ⏵⏵ bypass permissions on (shift+tab to cycle)
 
 

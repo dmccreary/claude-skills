@@ -30,7 +30,7 @@ TODO: Describe how students should interact with this MicroSim.
 You can add this MicroSim to any web page by adding this to your HTML:
 
 ```html
-<iframe src="https://dmccreary.github.io/claude-skills/sims/csv-to-json-conversion-mapping-diagram/main.html"
+<iframe src="https://dmccreary.github.io/ibook-skills/sims/csv-to-json-conversion-mapping-diagram/main.html"
         height="642px"
         width="100%"
         scrolling="no"></iframe>

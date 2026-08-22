@@ -199,7 +199,7 @@ Navigate to this repository (Windows drives are mounted under `/mnt/`) and
 launch Claude Code:
 
 ```bash
-cd /mnt/c/Users/<your-windows-username>/Documents/ws/claude-skills
+cd /mnt/c/Users/<your-windows-username>/Documents/ws/ibook-skills
 claude
 ```
 
@@ -207,7 +207,7 @@ claude
     File I/O across the `/mnt/c/...` boundary is noticeably slower than
     native Linux disk access. If you do heavy work in this repo, consider
     cloning it directly into your Linux home directory instead
-    (`~/ws/claude-skills`) and accessing it from Windows tools (like VS
+    (`~/ws/ibook-skills`) and accessing it from Windows tools (like VS
     Code's Remote-WSL extension) rather than the other way around.
 
 ### Pros of WSL
@@ -237,7 +237,7 @@ Give the first one early in any new session:
   shell commands are preferred over PowerShell commands."
 - "Confirm you are running inside WSL2 and not native Windows before making
   any environment assumptions."
-- "This project's files live at `/mnt/c/Users/<username>/Documents/ws/claude-skills` — always use that Linux-style path, not a Windows path like `C:\Users\...`."
+- "This project's files live at `/mnt/c/Users/<username>/Documents/ws/ibook-skills` — always use that Linux-style path, not a Windows path like `C:\Users\...`."
 - "When you need to open a URL or screenshot a local MicroSim, use the WSL
   browser/screen-capture tooling described in this repo's skills, not a
   Windows-only tool."
@@ -265,4 +265,4 @@ Give the first one early in any new session:
 | `free -h` shows less than 8GB after editing `.wslconfig` | VM wasn't fully restarted | Run `wsl --shutdown` in PowerShell, then reopen Ubuntu |
 | `claude: command not found` | Installer was run in PowerShell instead of the Linux shell, or shell wasn't restarted | Re-run the installer inside WSL, then open a new terminal |
 | Screenshots or browser tools silently fail | Session is actually a PowerShell tab, not WSL | Check the terminal prompt/title bar; open a fresh WSL tab |
-| Very slow `mkdocs serve` or `git status` | Repo is stored under `/mnt/c/...` and accessed across the Windows/Linux boundary | Clone the repo into the Linux filesystem (e.g. `~/ws/claude-skills`) instead |
+| Very slow `mkdocs serve` or `git status` | Repo is stored under `/mnt/c/...` and accessed across the Windows/Linux boundary | Clone the repo into the Linux filesystem (e.g. `~/ws/ibook-skills`) instead |

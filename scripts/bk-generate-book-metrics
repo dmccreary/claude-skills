@@ -14,8 +14,8 @@ NC='\033[0m' # No Color
 # Check if BK_HOME is set
 if [ -z "$BK_HOME" ]; then
     echo -e "${RED}Error: BK_HOME environment variable is not set.${NC}"
-    echo "Please set BK_HOME to the root directory of your claude-skills repository."
-    echo "Example: export BK_HOME=$HOME/Documents/ws/claude-skills"
+    echo "Please set BK_HOME to the root directory of your ibook-skills repository."
+    echo "Example: export BK_HOME=$HOME/Documents/ws/ibook-skills"
     exit 1
 fi
 
@@ -43,7 +43,7 @@ if [ ! -f "$PYTHON_SCRIPT" ]; then
     echo -e "${YELLOW}Suggestions:${NC}"
     echo "  1. Verify BK_HOME is set correctly: echo \$BK_HOME"
     echo "  2. Check if the script exists in $BK_HOME/src/book-metrics/"
-    echo "  3. Ensure you have the complete claude-skills repository"
+    echo "  3. Ensure you have the complete ibook-skills repository"
     echo "  4. Create the Python program if it doesn't exist yet"
     exit 1
 fi

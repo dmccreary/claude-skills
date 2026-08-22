@@ -94,7 +94,7 @@ This document provides a comprehensive reference for badges commonly used in Git
 
 **Claude Skills**
 ```markdown
-[![Claude Skills](https://img.shields.io/badge/Uses-Claude%20Skills-DA7857?logo=anthropic)](https://github.com/dmccreary/claude-skills)
+[![Claude Skills](https://img.shields.io/badge/Uses-Claude%20Skills-DA7857?logo=anthropic)](https://github.com/dmccreary/ibook-skills)
 ```
 
 **OpenAI**

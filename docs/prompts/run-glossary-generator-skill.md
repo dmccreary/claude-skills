@@ -15,11 +15,11 @@
 ⏺ Search(pattern: "**/learning-graph.json")
   ⎿  Found 0 files 
 
-⏺ Bash(find $HOME/Documents/ws/claude-skills/docs -type f -name "*.md" | grep -E
+⏺ Bash(find $HOME/Documents/ws/ibook-skills/docs -type f -name "*.md" | grep -E
       "(learning-graph|glossary)" | head -20)
-  ⎿  $HOME/Documents/ws/claude-skills/docs/glossary.md                                   
-     $HOME/Documents/ws/claude-skills/docs/skill-descriptions/learning-graph-generator.md
-     $HOME/Documents/ws/claude-skills/docs/skill-descriptions/glossary-generator.md
+  ⎿  $HOME/Documents/ws/ibook-skills/docs/glossary.md                                   
+     $HOME/Documents/ws/ibook-skills/docs/skill-descriptions/learning-graph-generator.md
+     $HOME/Documents/ws/ibook-skills/docs/skill-descriptions/glossary-generator.md
      … +2 lines (ctrl+o to expand)
 
 ⏺ Read(docs/course-description.md)
@@ -28,13 +28,13 @@
 ⏺ Read(docs/glossary.md)
   ⎿  Read 21 lines
 
-⏺ Bash(find $HOME/Documents/ws/claude-skills/docs -type f -name "*.md" | wc -l)
+⏺ Bash(find $HOME/Documents/ws/ibook-skills/docs -type f -name "*.md" | wc -l)
   ⎿  24
 
-⏺ Bash(find $HOME/Documents/ws/claude-skills/docs -name "*.md" -type f | head -15)
-  ⎿  $HOME/Documents/ws/claude-skills/docs/license.md 
-     $HOME/Documents/ws/claude-skills/docs/glossary.md
-     $HOME/Documents/ws/claude-skills/docs/contact.md
+⏺ Bash(find $HOME/Documents/ws/ibook-skills/docs -name "*.md" -type f | head -15)
+  ⎿  $HOME/Documents/ws/ibook-skills/docs/license.md 
+     $HOME/Documents/ws/ibook-skills/docs/glossary.md
+     $HOME/Documents/ws/ibook-skills/docs/contact.md
      … +12 lines (ctrl+o to expand)
 
 ⏺ Read(docs/index.md)
@@ -167,7 +167,7 @@
            + hosting services to your local machine, enabling you to work with the code and 
            + content offline.
         72 +  
-        73 +  **Example:** Running `git clone https://github.com/dmccreary/claude-skills.git` 
+        73 +  **Example:** Running `git clone https://github.com/dmccreary/ibook-skills.git` 
            + downloads the entire Claude Skills repository to your computer.
         74 +  
         75 +  #### GitHub
@@ -180,7 +180,7 @@
            + hosted on GitHub and deployed via GitHub Pages.
         80 +  
         81 +  **Example:** The Claude Skills project is hosted at 
-           + github.com/dmccreary/claude-skills, allowing contributors to fork, modify, and 
+           + github.com/dmccreary/ibook-skills, allowing contributors to fork, modify, and 
            + submit improvements.
         82 +  
         83 +  #### Glossary
@@ -413,7 +413,7 @@
            + from multiple projects. This reduces duplication and ensures all projects use the 
            + same skill versions when skills are installed globally.
        216 +  
-       217 +  **Example:** Running `ln -s ~/claude-skills/skills/glossary-generator 
+       217 +  **Example:** Running `ln -s ~/ibook-skills/skills/glossary-generator 
            + ~/.claude/skills/glossary-generator` creates a symlink allowing all projects to 
            + access the glossary-generator skill.
        218 +  
@@ -445,7 +445,7 @@
 
 ⏺ Now I'll create a quality report for the glossary:
 
-⏺ Bash(mkdir -p $HOME/Documents/ws/claude-skills/docs/learning-graph)
+⏺ Bash(mkdir -p $HOME/Documents/ws/ibook-skills/docs/learning-graph)
   ⎿  (No content)
 
 ⏺ Write(docs/learning-graph/glossary-quality-report.md)
@@ -468,10 +468,10 @@
 ⏺ Perfect! The glossary is already in the navigation. Let me verify the glossary is properly
   formatted:
 
-⏺ Bash(grep "^#### " $HOME/Documents/ws/claude-skills/docs/glossary.md | wc -l)
+⏺ Bash(grep "^#### " $HOME/Documents/ws/ibook-skills/docs/glossary.md | wc -l)
   ⎿  29
 
-⏺ Bash(grep "^#### " $HOME/Documents/ws/claude-skills/docs/glossary.md)
+⏺ Bash(grep "^#### " $HOME/Documents/ws/ibook-skills/docs/glossary.md)
   ⎿  #### Bloom's Taxonomy         
      #### Claude Skills
      #### Concept Dependency

@@ -33,8 +33,8 @@ Use this guide when:
    ```
    ~/.claude/skills/book-installer/scripts/generate-favicon.py
    ```
-   (The `~/.claude/skills/` directory is the symlink to the claude-skills repo;
-   no extra `claude-skills/skills/` prefix is needed.)
+   (The `~/.claude/skills/` directory is the symlink to the ibook-skills repo;
+   no extra `ibook-skills/skills/` prefix is needed.)
 
 ## Step 1: Verify the Source Image Exists
 

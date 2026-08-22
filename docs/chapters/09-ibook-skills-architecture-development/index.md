@@ -37,7 +37,7 @@ This chapter covers the following 22 concepts from the learning graph:
 
 This chapter builds on concepts from:
 
-- [Chapter 2: Getting Started with Claude and Skills](../02-getting-started-claude-skills/index.md)
+- [Chapter 2: Getting Started with Claude and Skills](../02-getting-started-ibook-skills/index.md)
 - [Chapter 7: Taxonomy and Data Formats](../07-taxonomy-data-formats/index.md)
 - [Chapter 8: MkDocs Platform and Documentation](../08-mkdocs-platform-documentation/index.md)
 
@@ -418,7 +418,7 @@ Distributing skills to other users requires consideration of delivery format, ve
 
 Git repositories provide the most flexible and maintainable distribution method for skills. Users can clone repositories and install skills using provided scripts or manual copying.
 
-The claude-skills repository (github.com/dmccreary/claude-skills) exemplifies this approach:
+The ibook-skills repository (github.com/dmccreary/ibook-skills) exemplifies this approach:
 
 - **Centralized catalog** - All skills in single repository with consistent structure
 - **Version control** - Git history tracks changes and enables rollback
@@ -529,10 +529,10 @@ Git provides essential version control for skill development, enabling collabora
 
 ### Git Repository Structure
 
-Well-organized Git repositories follow consistent directory structures that separate skills, documentation, scripts, and configuration. The claude-skills repository demonstrates this organization:
+Well-organized Git repositories follow consistent directory structures that separate skills, documentation, scripts, and configuration. The ibook-skills repository demonstrates this organization:
 
 ```
-claude-skills/
+ibook-skills/
 ├── .git/                    # Git version control metadata
 ├── skills/                  # Skill definitions
 │   ├── skill-1/
@@ -540,7 +540,7 @@ claude-skills/
 │   └── skill-n/
 ├── docs/                    # MkDocs documentation site
 ├── scripts/                 # Utility scripts
-│   ├── install-claude-skills.sh
+│   ├── install-ibook-skills.sh
 │   ├── list-skills.sh
 │   └── list-skills-format.sh
 ├── commands/                # Slash commands
@@ -636,7 +636,7 @@ Before pushing, ensure:
 
     Steps:
     1. Start: "Clone Repository"
-       Command: `git clone https://github.com/user/claude-skills`
+       Command: `git clone https://github.com/user/ibook-skills`
        Hover text: "Create local copy of repository"
 
     2. Process: "Create Feature Branch (optional)"

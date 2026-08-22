@@ -17,7 +17,7 @@ This MicroSim visualizes the dependency graph for setting up an intelligent text
 Copy this iframe to embed in your website:
 
 ```html
-<iframe src="https://dmccreary.github.io/claude-skills/sims/install-book-env/main.html" width="100%" height="400px"></iframe>
+<iframe src="https://dmccreary.github.io/ibook-skills/sims/install-book-env/main.html" width="100%" height="400px"></iframe>
 ```
 
 ## Reading the Graph

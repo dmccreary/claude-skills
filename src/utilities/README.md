@@ -242,7 +242,7 @@ This ensures scripts work regardless of where they're called from.
 The `SITE_URL` in batch-standardize.py should match your GitHub Pages URL:
 
 ```python
-SITE_URL = "https://dmccreary.github.io/claude-skills"
+SITE_URL = "https://dmccreary.github.io/ibook-skills"
 ```
 
 Update this if deploying to a different domain.
@@ -286,7 +286,7 @@ Example output:
 
 ## License
 
-All scripts are part of the claude-skills repository and follow the same license.
+All scripts are part of the ibook-skills repository and follow the same license.
 
 ## Iframe Cleanup Boarder
 

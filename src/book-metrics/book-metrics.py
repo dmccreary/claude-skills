@@ -1014,7 +1014,7 @@ class BookMetricsGenerator:
         """
         return {
             "$schema": (
-                "https://raw.githubusercontent.com/dmccreary/claude-skills/"
+                "https://raw.githubusercontent.com/dmccreary/ibook-skills/"
                 "main/src/book-metrics/book-metrics.schema.json"
             ),
             "metricsVersion": METRICS_FILE_VERSION,

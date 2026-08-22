@@ -26,7 +26,7 @@
       │       ├── SKILL.md
       │       └── scripts/
       └── scripts/
-          └── install-claude-skills.sh
+          └── install-ibook-skills.sh
       ```
 
     - Global skills directory (center):
@@ -44,7 +44,7 @@
 
     Connections:
     - Dashed arrows from global skills to project skills (labeled "symlink")
-    - Solid arrow from install-claude-skills.sh to global skills (labeled "creates")
+    - Solid arrow from install-ibook-skills.sh to global skills (labeled "creates")
     - Solid arrow from Claude Code to global skills (labeled "reads from")
 
     Annotations:

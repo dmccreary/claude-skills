@@ -1,8 +1,8 @@
 ---
 title: "Claude Skills for Intelligent Textbooks: Overview"
-description: A 10-slide MARP tour of the claude-skills repo — purpose, pipeline, learning graphs, token efficiency, and how to get started.
-image: /slides/claude-skills-overview/thumbnail.png
-og:image: /slides/claude-skills-overview/thumbnail.png
+description: A 10-slide MARP tour of the ibook-skills repo — purpose, pipeline, learning graphs, token efficiency, and how to get started.
+image: /slides/ibook-skills-overview/thumbnail.png
+og:image: /slides/ibook-skills-overview/thumbnail.png
 hide:
     - toc
 ---

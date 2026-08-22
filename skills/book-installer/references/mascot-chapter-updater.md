@@ -162,7 +162,7 @@ Rules for the body text:
 Run the validation script against the edited chapter:
 
 ```sh
-python3 ../claude-skills/skills/book-installer/scripts/validate-chapter-mascots.py \
+python3 ../ibook-skills/skills/book-installer/scripts/validate-chapter-mascots.py \
     docs/chapters/01-intro/index.md
 ```
 
