@@ -1,0 +1,164 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://dmccreary.github.io/geometry-course/learning-graph/learning-graph-schema.json",
+  "title": "Learning Graph Schema",
+  "description": "Schema for learning graph JSON files that define concept nodes, dependencies, and taxonomies for educational content",
+  "type": "object",
+  "required": ["metadata", "groups", "nodes", "edges"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "description": "Metadata about the learning graph",
+      "required": ["title"],
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The title of the course or subject"
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief description of the course content"
+        },
+        "creator": {
+          "type": "string",
+          "description": "The name of the person or organization who created this learning graph"
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "The creation or last modification date (YYYY-MM-DD)"
+        },
+        "version": {
+          "type": "string",
+          "description": "Version number of the learning graph"
+        },
+        "format": {
+          "type": "string",
+          "description": "The format specification of this learning graph"
+        },
+        "schema": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the JSON schema for this learning graph"
+        },
+        "license": {
+          "type": "string",
+          "description": "The license under which this learning graph is distributed"
+        }
+      }
+    },
+    "groups": {
+      "type": "object",
+      "description": "Taxonomy groups/categories for organizing concepts",
+      "patternProperties": {
+        "^[A-Z]+$": {
+          "type": "object",
+          "required": ["classifierName", "color"],
+          "properties": {
+            "classifierName": {
+              "type": "string",
+              "description": "Human-readable name for this taxonomy category"
+            },
+            "color": {
+              "type": "string",
+              "description": "Color value (hex code like #ff0000 or CSS color name like DarkRed)",
+              "pattern": "^(#[0-9A-Fa-f]{6}|[A-Za-z]+)$"
+            },
+            "font": {
+              "type": "object",
+              "description": "Font styling for text in nodes",
+              "properties": {
+                "color": {
+                  "type": "string",
+                  "description": "Font color (typically 'white' or 'black')",
+                  "pattern": "^(#[0-9A-Fa-f]{6}|[A-Za-z]+)$"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "description": "Array of concept nodes in the learning graph",
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "group"],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the node",
+            "minimum": 1
+          },
+          "label": {
+            "type": "string",
+            "description": "The name/label of the concept",
+            "minLength": 1
+          },
+          "group": {
+            "type": "string",
+            "description": "The taxonomy group this concept belongs to (must match a key in groups)",
+            "pattern": "^[A-Z]+$"
+          },
+          "shape": {
+            "type": "string",
+            "description": "Optional vis.js shape for the node (e.g., 'box', 'circle', 'ellipse')",
+            "enum": ["box", "circle", "ellipse", "database", "diamond", "dot", "square", "star", "triangle", "hexagon"]
+          },
+          "title": {
+            "type": "string",
+            "description": "Optional tooltip text shown when hovering over the node"
+          },
+          "level": {
+            "type": "integer",
+            "description": "Optional hierarchical level for layout purposes"
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "description": "Array of directed edges representing dependencies between concepts",
+      "items": {
+        "type": "object",
+        "required": ["from", "to"],
+        "properties": {
+          "from": {
+            "type": "integer",
+            "description": "Source node ID (prerequisite concept)",
+            "minimum": 1
+          },
+          "to": {
+            "type": "integer",
+            "description": "Target node ID (dependent concept)",
+            "minimum": 1
+          },
+          "arrows": {
+            "type": "string",
+            "description": "Arrow direction (typically 'to' for directed edges)",
+            "enum": ["to", "from", "middle", "to,from"]
+          },
+          "label": {
+            "type": "string",
+            "description": "Optional label for the edge"
+          },
+          "title": {
+            "type": "string",
+            "description": "Optional tooltip for the edge"
+          },
+          "smooth": {
+            "type": "object",
+            "description": "Edge smoothing options for vis.js",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["dynamic", "continuous", "discrete", "diagonalCross", "straightCross", "horizontal", "vertical", "curvedCW", "curvedCCW", "cubicBezier"]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

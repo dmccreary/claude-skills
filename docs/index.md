@@ -15,9 +15,9 @@ hide:
 
 Welcome to our website about Agent Skills for Intelligent Textbooks.
 
-In this course, a [Skill](./glossary.md#claude-skill) is a cleverly designed package of instructions that
+In this course, a [Agent Skill](./glossary.md#agent-skill) is a cleverly designed package of instructions that
 are designed to be followed by intelligent agents as they help humans
-design fun, interactive and engaging [Intelligent Textbooks](./glossary.md#intelligent-textbook).
+design fun, interactive and engaging [Intelligent Textbook](./glossary.md#intelligent-textbook).
 
 These skills are designed to help teachers and textbook authors 
 generate high-quality content including MicroSims for Intelligent Textbooks.

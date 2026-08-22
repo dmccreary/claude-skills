@@ -1,209 +1,124 @@
 # Concept Taxonomy
 
-**Course:** Using Claude Skills to Create Intelligent Textbooks
-**Total Categories:** 12
-**Generated:** 2025-11-08
+The 570 concepts in the [learning graph](./learning-graph.json) are organized into
+14 categories. Each category has a short `TaxonomyID` used in the
+`TaxonomyID` column of [learning-graph.csv](./learning-graph.csv) and as the
+group key in the graph viewer legend.
 
-## Taxonomy Categories
+Categories were chosen so that no single category dominates the graph. The
+largest category holds under 12% of all concepts, well below the 30% ceiling
+used as a quality threshold for this project.
 
-### 1. AI Foundations
-**TaxonomyID:** AIFND
+## Categories
 
-**Description:** Core concepts related to artificial intelligence, large language models, Claude AI, and prompt engineering fundamentals.
+### Foundations of AI and Intelligent Books
 
-**Includes:**
-- AI basics and terminology
-- Claude AI and Claude Pro
-- Large language models
-- Prompt engineering principles
-- Token management
-- Usage optimization
+**TaxonomyID:** `FOUND`
 
----
+Core ideas a reader needs before anything else: what a large language model is,
+what tokens and context windows are, how an AI coding agent differs from a chat
+interface, and what makes a textbook "intelligent" across the five levels of
+textbook intelligence.
 
-### 2. Claude Skills System
-**TaxonomyID:** SKILL
+### Agent Skill Architecture
 
-**Description:** Concepts related to creating, installing, managing, and executing Claude Skills and Commands.
+**TaxonomyID:** `SKARCH`
 
-**Includes:**
-- Skill definition and structure
-- YAML frontmatter
-- Skill installation and invocation
-- Claude Commands
-- Skill packaging and distribution
-- Testing and debugging
-- Security and permissions
+The structure of a skill itself — the `SKILL.md` file, the frontmatter contract,
+the directory layout, progressive disclosure and its three loading budgets, and
+the meta-skill routing pattern that keeps a large library under the loading limit.
 
----
+### Skill Development and Portability
 
-### 3. Intelligent Textbooks
-**TaxonomyID:** IBOOK
+**TaxonomyID:** `SKDEV`
 
-**Description:** Core concepts about intelligent textbooks, their levels of intelligence, and the overall creation workflow.
+Building, testing, installing, and distributing skills, plus everything involved
+in making one skill library run across Claude Code, Codex, Gemini, Cursor, and
+Copilot without forking it.
 
-**Includes:**
-- What intelligent textbooks are
-- Five levels of intelligence
-- Textbook workflows
-- Chapter and section structure
-- Content organization
-- Reading level appropriateness
+### Token Optimization and Measurement
 
----
+**TaxonomyID:** `TOKEN`
 
-### 4. MkDocs Platform
-**TaxonomyID:** MKDOC
+Treating tokens as an engineering budget: plan limits and usage windows, the cost
+of serial versus parallel sub-agents, file layout as a token strategy, and the
+hooks and logs used to measure what each skill actually consumes.
 
-**Description:** Concepts related to MkDocs documentation generator, Material theme, and Markdown formatting.
+### Python Tooling and Automation
 
-**Includes:**
-- MkDocs basics
-- Material for MkDocs theme
-- Configuration files
-- Navigation structure
-- Markdown formatting
-- Admonitions
-- GitHub Pages deployment
+**TaxonomyID:** `PYTOOL`
 
----
+The scripts that do the deterministic work — parsing, validating, scaffolding,
+counting, and converting — together with the general Python practices that make
+those scripts safe to run repeatedly.
 
-### 5. Learning Graphs
-**TaxonomyID:** GRAPH
+### Course Design and Pedagogy
 
-**Description:** Concepts related to learning graphs, concept dependencies, DAG structures, and graph quality metrics.
+**TaxonomyID:** `CDESIGN`
 
-**Includes:**
-- Learning graph fundamentals
-- Concept nodes and edges
-- Dependencies and prerequisites
-- DAG (Directed Acyclic Graph)
-- Graph validation
-- Quality metrics
-- Visualization formats
+Course descriptions, Bloom's Taxonomy and its six cognitive levels, learning
+outcomes, reading level, instructional scaffolding, and the pedagogical mascot
+conventions used to guide readers.
 
----
+### Learning Graphs
 
-### 6. Educational Theory
-**TaxonomyID:** EDTHY
+**TaxonomyID:** `LGRAPH`
 
-**Description:** Educational frameworks, learning theories, and pedagogical principles including Bloom's Taxonomy and course design.
+Concepts, learning dependencies, and the directed acyclic graph they form:
+enumeration, dependency mapping, quality metrics, taxonomy assignment, and the
+JSON format that drives the interactive graph viewer.
 
-**Includes:**
-- Bloom's Taxonomy (2001 revision)
-- Six cognitive levels
-- Learning outcomes design
-- Course descriptions
-- Action verbs
-- Prerequisites and audience
+### Chapter and Content Generation
 
----
+**TaxonomyID:** `CONTENT`
 
-### 7. Content Creation
-**TaxonomyID:** CONTE
+Turning a learning graph into chapters — structure design, concept assignment,
+section organization, admonitions, math support, and the specification blocks
+that later drive diagram and simulation generation.
 
-**Description:** Concepts related to generating and organizing educational content, chapters, and instructional materials.
+### Supporting Content
 
-**Includes:**
-- Content generation processes
-- Chapter structure
-- Section organization
-- Worked examples
-- Practice exercises
-- Chapter index files
+**TaxonomyID:** `SUPPORT`
 
----
+The material that surrounds the chapters: ISO 11179-compliant glossaries, FAQs
+and their chatbot exports, quizzes and distractor quality, and curated reference
+lists that credit the authors behind influential explanations.
 
-### 8. Educational Resources
-**TaxonomyID:** RSRCE
+### Interactive Simulations
 
-**Description:** Supplementary educational materials including glossaries, FAQs, quizzes, and reference lists.
+**TaxonomyID:** `MSIM`
 
-**Includes:**
-- Glossary generation
-- ISO 11179 standards for definitions
-- FAQ creation
-- Quiz generation
-- Multiple-choice questions
-- Assessment design
+MicroSims end to end — directory structure and file separation, metadata schemas,
+the visualization libraries the generator routes between, iframe embedding and
+height management, and the quality and screenshot utilities that maintain them.
 
----
+### Images, Infographics, and Media
 
-### 9. Interactive Elements
-**TaxonomyID:** INTER
+**TaxonomyID:** `MEDIA`
 
-**Description:** Interactive simulations, MicroSims, and dynamic educational content using p5.js and other libraries.
+Everything generated as pixels or audio: text-to-image models and their
+fabrication risks, the verified infographic pipeline, interactive overlay
+engines, freely-licensed image sourcing, slide decks, and text-to-speech.
 
-**Includes:**
-- MicroSims concept and structure
-- p5.js library
-- Interactive simulations
-- Interactive controls (sliders, buttons)
-- Seeded randomness
-- Iframe embedding
+### Domain-Specific Skill Extension
 
----
+**TaxonomyID:** `DOMAIN`
 
-### 10. Version Control
-**TaxonomyID:** VERCT
+Extending a subject-neutral library into a specific field, using the
+beginning-electronics case study: circuit schematic generation, breadboard
+simulations, and rubric-driven hands-on lab evaluation.
 
-**Description:** Git version control, repository management, and deployment workflows for educational content.
+### Platform, Tooling, and Deployment
 
-**Includes:**
-- Git basics
-- Version control concepts
-- Git commands (status, add, commit, push)
-- GitHub integration
-- Repository structure
-- GitHub Pages deployment
+**TaxonomyID:** `PLATFORM`
 
----
+MkDocs and the Material theme, site features, the editor and terminal, Git and
+GitHub, deployment to GitHub Pages, and analytics registration.
 
-### 11. Development Tools
-**TaxonomyID:** TOOLS
+### Publishing, Metrics, and Promotion
 
-**Description:** Development environments, command-line interfaces, terminals, and shell scripting tools.
+**TaxonomyID:** `PUBLISH`
 
-**Includes:**
-- Visual Studio Code
-- Command-line interface basics
-- Terminal operations
-- Bash shell
-- Shell scripts
-- Directory navigation
-- File operations
-
----
-
-### 12. Data & Scripting
-**TaxonomyID:** DATAS
-
-**Description:** Data formats, scripting languages, file processing, and metadata standards used in the textbook workflow.
-
-**Includes:**
-- Python programming
-- Python scripts for data processing
-- CSV file format
-- JSON format and schema
-- Dublin Core metadata
-- pip package management
-- Taxonomy categorization
-- Data validation scripts
-
----
-
-## Category Distribution Guidelines
-
-- Target: ~16-17 concepts per category (200 concepts ÷ 12 categories)
-- Maximum: 30% of total concepts (~60 concepts)
-- Minimum: 5% of total concepts (~10 concepts)
-- Use **MISC** for concepts that don't fit clearly into defined categories
-
-## Notes
-
-This taxonomy provides a balanced organization of course concepts across technical, pedagogical, and practical domains. Categories are designed to:
-1. Avoid excessive overlap
-2. Maintain clear boundaries
-3. Support logical learning progressions
-4. Enable effective visualization with distinct colors
-5. Align with the course structure and learning outcomes
+Measuring a finished book and announcing it: the canonical book metrics hub,
+README generation, LinkedIn posts and carousels, press releases, and the session
+logs that record how the book was built.

@@ -2,14 +2,16 @@
 
 ## Overview
 
-- **Total Concepts**: 200
-- **Foundational Concepts** (no dependencies): 8
-- **Concepts with Dependencies**: 192
-- **Average Dependencies per Concept**: 1.18
+- **Total Concepts**: 570
+- **Foundational Concepts** (no prerequisites, other concepts depend on them): 6
+- **Terminal Nodes** (nothing depends on them, but have prerequisites): 219
+- **Orphaned Nodes** (completely disconnected, no edges): 0
+- **Concepts with Dependencies**: 564
+- **Average Dependencies per Concept**: 2.02
 
 ## Graph Structure Validation
 
-- **Valid DAG Structure**: ❌ No
+- **Valid DAG Structure**: ✅ Yes
 - **Self-Dependencies**: None detected ✅
 - **Cycles Detected**: 0
 
@@ -18,60 +20,84 @@
 These concepts have no prerequisites:
 
 - **1**: Artificial Intelligence
-- **26**: Intelligent Textbook
-- **37**: Markdown Formatting Basics
-- **91**: Taxonomy
-- **153**: Git
-- **162**: Visual Studio Code
-- **168**: Python
-- **191**: Command-Line Interface Basics
+- **12**: Python
+- **13**: Markdown Formatting
+- **14**: Terminal Commands
+- **17**: Git
+- **21**: Visual Studio Code
 
 ## Dependency Chain Analysis
 
-- **Maximum Dependency Chain Length**: 11
+- **Maximum Dependency Chain Length**: 26
 
 ### Longest Learning Path:
 
-1. **Intelligent Textbook** (ID: 26)
-2. **Learning Graph** (ID: 39)
-3. **Concept Nodes in Learning Graphs** (ID: 40)
-4. **Concept Dependencies** (ID: 44)
-5. **Dependency Mapping Process** (ID: 70)
-6. **CSV File Format for Graphs** (ID: 71)
-7. **vis-network JSON Format** (ID: 99)
-8. **JSON Schema for Learning Graphs** (ID: 100)
-9. **Metadata Section in JSON** (ID: 101)
-10. **Dublin Core Metadata** (ID: 105)
-11. **Title Metadata Field** (ID: 106)
+1. **Artificial Intelligence** (ID: 1)
+2. **Large Language Model** (ID: 2)
+3. **Prompt** (ID: 6)
+4. **Prompt Engineering** (ID: 7)
+5. **System Prompt** (ID: 8)
+6. **Tool Use by Agents** (ID: 24)
+7. **Agentic Workflow** (ID: 25)
+8. **Agent Skill** (ID: 49)
+9. **SKILL.md File** (ID: 51)
+10. **YAML Frontmatter** (ID: 52)
+11. **Skill Description Field** (ID: 54)
+12. **Skill Trigger Matching** (ID: 69)
+13. **Trigger Keyword Table** (ID: 70)
+14. **Meta-Skill** (ID: 72)
+15. **Skill Consolidation** (ID: 76)
+16. **Skill Library** (ID: 89)
+17. **Skill Packaging** (ID: 103)
+18. **Symbolic Link Installation** (ID: 105)
+19. **Global Skill Installation** (ID: 106)
+20. **Listing Available Skills** (ID: 110)
+21. **Invoking a Skill** (ID: 111)
+22. **Slash Command Invocation** (ID: 112)
+23. **Claude Command** (ID: 113)
+24. **Runbook Command** (ID: 116)
+25. **ibook Runbook** (ID: 117)
+26. **Read-Only State Detection** (ID: 118)
 
 ## Terminal Nodes Analysis
 
-- **Total Terminal Nodes**: 104
+Terminal nodes are concepts that nothing else depends on but have prerequisites. They represent natural endpoints of learning paths — culminating or specialized concepts.
 
-Concepts that are not prerequisites for any other concept:
+- **Total Terminal Nodes**: 219 (38.4% of all concepts)
+- **Healthy Range**: 5-40% of total concepts
 
-- **3**: Large Language Models Overview
-- **9**: Skill Name and Description
-- **10**: Skill License Information
-- **12**: Skill Workflow Instructions
-- **14**: Listing Available Skills
-- **16**: Skill Execution Context
-- **18**: Command Definition Files
-- **19**: Installing Claude Commands
-- **20**: Difference Between Skills & Commands
-- **23**: Python Scripts in Skills
-- **24**: Template Files in Skills
-- **25**: Reference Documentation in Skills
-- **32**: Level 5: AI Personalization
-- **36**: Navigation Structure in MkDocs
-- **38**: Admonitions in MkDocs
-- **43**: Prerequisite Relationships
-- **45**: Learning Pathways
-- **47**: Target Audience Definition
-- **48**: Course Prerequisites
-- **49**: Main Topics Covered
+Concepts at the end of learning paths:
 
-*...and 84 more*
+- **4**: Tokenization
+- **22**: VS Code Terminal
+- **28**: IDE Agent Integration
+- **29**: Chat Versus Agent Interfaces
+- **37**: Five Levels of Intelligence
+- **39**: Learning Record Store
+- **48**: Blank Line Before Lists
+- **55**: Skill License Field
+- **56**: Compatibility Field
+- **57**: Skill Metadata Field
+- **59**: Vendor Extension Fields
+- **60**: Frontmatter Contract
+- **67**: Body Loading Budget
+- **78**: Skill Alias Map
+- **80**: Opus Versus Sonnet Routing
+- **84**: Skill Composition
+- **85**: Skill Naming Conventions
+- **86**: Supporting Assets in Skills
+- **87**: Reference Docs in Skills
+- **88**: Template Files in Skills
+
+*...and 199 more*
+
+## Orphaned Nodes Analysis
+
+Orphaned nodes are completely disconnected concepts with no inbound AND no outbound edges. These indicate a quality problem — every concept should connect to the graph.
+
+- **Total Orphaned Nodes**: 0
+
+✅ No orphaned nodes detected. All concepts are connected to the graph.
 
 ## Connected Components
 
@@ -85,31 +111,33 @@ Top 10 concepts that are prerequisites for the most other concepts:
 
 | Rank | Concept ID | Concept Label | Indegree |
 |------|-----------|---------------|----------|
-| 1 | 26 | Intelligent Textbook | 13 |
-| 2 | 71 | CSV File Format for Graphs | 10 |
-| 3 | 82 | Quality Metrics for Graphs | 8 |
-| 4 | 53 | Bloom's 2001 Revision | 7 |
-| 5 | 105 | Dublin Core Metadata | 7 |
-| 6 | 6 | Claude Skill | 6 |
-| 7 | 13 | Installing a Claude Skill | 6 |
-| 8 | 39 | Learning Graph | 6 |
-| 9 | 46 | Course Description | 6 |
-| 10 | 116 | ISO 11179 Standards | 6 |
+| 1 | 13 | Markdown Formatting | 40 |
+| 2 | 178 | Python Scripts in Skills | 28 |
+| 3 | 49 | Agent Skill | 21 |
+| 4 | 2 | Large Language Model | 20 |
+| 5 | 31 | Intelligent Textbook | 17 |
+| 6 | 12 | Python | 16 |
+| 7 | 360 | script.js File | 14 |
+| 8 | 14 | Terminal Commands | 13 |
+| 9 | 43 | Quality Gate | 13 |
+| 10 | 229 | Learning Graph | 13 |
 
 ## Outdegree Distribution
 
 | Dependencies | Number of Concepts |
 |--------------|--------------------|
-| 0 | 8 |
-| 1 | 166 |
-| 2 | 22 |
-| 3 | 3 |
-| 8 | 1 |
+| 0 | 6 |
+| 1 | 5 |
+| 2 | 550 |
+| 3 | 7 |
+| 5 | 1 |
+| 6 | 1 |
 
 ## Recommendations
 
-- ⚠️ **Many terminal nodes** (104): Consider if these should be prerequisites for advanced concepts
-- ℹ️ **Consider adding cross-dependencies**: More connections could create richer learning pathways
+- ✅ **Terminal node percentage** (38.4%): Within healthy range (5-40%)
+- ✅ **DAG structure verified**: Graph supports valid learning progressions
+- ℹ️ **Long dependency chains** (26): Ensure students can follow extended learning paths
 
 ---
 

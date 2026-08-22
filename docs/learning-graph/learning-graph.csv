@@ -1,201 +1,571 @@
 ConceptID,ConceptLabel,Dependencies,TaxonomyID
-1,Artificial Intelligence,,AIFND
-2,Claude AI,1,AIFND
-3,Large Language Models Overview,1,AIFND
-4,Anthropic Claude Pro Account,2,AIFND
-5,Claude Code Interface,4,AIFND
-6,Claude Skill,5,SKILL
-7,Skill Definition File Structure,6,SKILL
-8,YAML Frontmatter in Skills,7,SKILL
-9,Skill Name and Description,8,SKILL
-10,Skill License Information,8,SKILL
-11,Allowed Tools in Skills,8,SKILL
-12,Skill Workflow Instructions,7,SKILL
-13,Installing a Claude Skill,6,SKILL
-14,Listing Available Skills,13,SKILL
-15,Invoking Skills with Slash Commands,13,SKILL
-16,Skill Execution Context,15,SKILL
-17,Claude Command,6,SKILL
-18,Command Definition Files,17,SKILL
-19,Installing Claude Commands,17,SKILL
-20,Difference Between Skills & Commands,6|17,SKILL
-21,Skill Directory Structure,7,SKILL
-22,Supporting Assets in Skills,21,SKILL
-23,Python Scripts in Skills,22,SKILL
-24,Template Files in Skills,22,SKILL
-25,Reference Documentation in Skills,22,SKILL
-26,Intelligent Textbook,,IBOOK
-27,Five Levels of Textbook Intelligence,26,IBOOK
-28,Level 1: Static Content,27,IBOOK
-29,Level 2: Hyperlinked Navigation,28,IBOOK
-30,Level 3: Interactive Elements,29,IBOOK
-31,Level 4: Adaptive Content,30,IBOOK
-32,Level 5: AI Personalization,31,IBOOK
-33,MkDocs,26,MKDOC
-34,MkDocs Material Theme,33,MKDOC
-35,MkDocs Configuration File,33,MKDOC
-36,Navigation Structure in MkDocs,35,MKDOC
-37,Markdown Formatting Basics,,MKDOC
-38,Admonitions in MkDocs,34|37,MKDOC
-39,Learning Graph,26,GRAPH
-40,Concept Nodes in Learning Graphs,39,GRAPH
-41,Dependency Edges in Learning Graphs,39,GRAPH
-42,Directed Acyclic Graph (DAG),39,GRAPH
-43,Prerequisite Relationships,39,GRAPH
-44,Concept Dependencies,40|41,GRAPH
-45,Learning Pathways,42|44,GRAPH
-46,Course Description,26,EDTHY
-47,Target Audience Definition,46,EDTHY
-48,Course Prerequisites,46,EDTHY
-49,Main Topics Covered,46,EDTHY
-50,Topics Excluded from Course,46,EDTHY
-51,Learning Outcomes,46,EDTHY
-52,Bloom's Taxonomy,51,EDTHY
-53,Bloom's 2001 Revision,52,EDTHY
-54,Remember (Cognitive Level 1),53,EDTHY
-55,Understand (Cognitive Level 2),53,EDTHY
-56,Apply (Cognitive Level 3),53,EDTHY
-57,Analyze (Cognitive Level 4),53,EDTHY
-58,Evaluate (Cognitive Level 5),53,EDTHY
-59,Create (Cognitive Level 6),53,EDTHY
-60,Action Verbs for Learning Outcomes,53,EDTHY
-61,Course Description Quality Score,46,EDTHY
-62,Assessing Course Descriptions,61,EDTHY
-63,Concept Enumeration Process,39,GRAPH
-64,Generating 200 Concepts,63,GRAPH
-65,Concept Label Requirements,64,GRAPH
-66,Title Case Convention,65,GRAPH
-67,Maximum Character Length,65,GRAPH
-68,Concept Granularity,64,GRAPH
-69,Atomic Concepts,68,GRAPH
-70,Dependency Mapping Process,44,GRAPH
-71,CSV File Format for Graphs,70,DATAS
-72,Pipe-Delimited Dependencies,71,DATAS
-73,ConceptID Field,71,DATAS
-74,ConceptLabel Field,71,DATAS
-75,Dependencies Field,71,DATAS
-76,Foundational Concepts,70,GRAPH
-77,Prerequisite Concepts,76,GRAPH
-78,Advanced Concepts,77,GRAPH
-79,Circular Dependency Detection,42,GRAPH
-80,DAG Validation,42|79,GRAPH
-81,Self-Dependency Checking,80,GRAPH
-82,Quality Metrics for Graphs,80,GRAPH
-83,Terminal Nodes,82,GRAPH
-84,Disconnected Subgraphs,82,GRAPH
-85,Linear Chain Detection,82,GRAPH
-86,Indegree Analysis,82,GRAPH
-87,Outdegree Analysis,82,GRAPH
-88,Average Dependencies Per Concept,82,GRAPH
-89,Maximum Dependency Chain Length,82,GRAPH
-90,Learning Graph Quality Score,82,GRAPH
-91,Taxonomy,,DATAS
-92,Concept Categorization,91,DATAS
-93,Taxonomy Categories,92,DATAS
-94,TaxonomyID Abbreviations,93,DATAS
-95,Category Distribution,92,DATAS
-96,Avoiding Over-Representation,95,DATAS
-97,TaxonomyID Field in CSV,71|94,DATAS
-98,Adding Taxonomy to Graph,97,DATAS
-99,vis-network JSON Format,71,DATAS
-100,JSON Schema for Learning Graphs,99,DATAS
-101,Metadata Section in JSON,100,DATAS
-102,Groups Section in JSON,100,DATAS
-103,Nodes Section in JSON,100,DATAS
-104,Edges Section in JSON,100,DATAS
-105,Dublin Core Metadata,101,DATAS
-106,Title Metadata Field,105,DATAS
-107,Description Metadata Field,105,DATAS
-108,Creator Metadata Field,105,DATAS
-109,Date Metadata Field,105,DATAS
-110,Version Metadata Field,105,DATAS
-111,Format Metadata Field,105,DATAS
-112,License Metadata Field,105,DATAS
-113,Color Coding in Visualizations,102,DATAS
-114,Font Colors for Readability,113,DATAS
-115,Glossary,26,RSRCE
-116,ISO 11179 Standards,115,RSRCE
-117,Precise Definitions,116,RSRCE
-118,Concise Definitions,116,RSRCE
-119,Distinct Definitions,116,RSRCE
-120,Non-Circular Definitions,116,RSRCE
-121,Definitions Without Business Rules,116,RSRCE
-122,Glossary Generation Process,115|116,RSRCE
-123,FAQ,26,RSRCE
-124,FAQ Generation Process,123,RSRCE
-125,Common Student Questions,124,RSRCE
-126,FAQ from Course Content,124,RSRCE
-127,MicroSim,26|30,INTER
-128,p5.js JavaScript Library,127,INTER
-129,Interactive Simulations,127,INTER
-130,MicroSim Directory Structure,128,INTER
-131,main.html in MicroSims,130,INTER
-132,index.md for MicroSim Docs,130|37,INTER
-133,Iframe Embedding,131|132,INTER
-134,Seeded Randomness,128,INTER
-135,Interactive Controls (Sliders),128,INTER
-136,Interactive Controls (Buttons),128,INTER
-137,MicroSim Metadata,130,INTER
-138,Educational Simulation Design,129,INTER
-139,Quiz,26,RSRCE
-140,Multiple-Choice Questions,139,RSRCE
-141,Quiz Alignment with Concepts,139|40,RSRCE
-142,Bloom's Taxonomy in Quizzes,139|52,RSRCE
-143,Quiz Distribution Across Levels,142,RSRCE
-144,Assessing Student Understanding,139,RSRCE
-145,Chapter Structure,26,CONTE
-146,Section Organization,145,CONTE
-147,Content Generation Process,26|6,CONTE
-148,Chapter Index Files,145,CONTE
-149,Chapter Concept Lists,148|40,CONTE
-150,Reading Level Appropriateness,147,CONTE
-151,Worked Examples in Content,147,CONTE
-152,Practice Exercises,147,CONTE
-153,Git,,VERCT
-154,Version Control Basics,153,VERCT
-155,Git Repository Structure,154,VERCT
-156,Git Status Command,155,VERCT
-157,Git Add Command,155,VERCT
-158,Git Commit Command,157,VERCT
-159,Git Push Command,158,VERCT
-160,GitHub Integration,153,VERCT
-161,GitHub Pages Deployment,160|34,VERCT
-162,Visual Studio Code,,TOOLS
-163,VS Code for Content Development,162|26,TOOLS
-164,Terminal in VS Code,163|191,TOOLS
-165,Bash,191,TOOLS
-166,Shell Scripts,165,TOOLS
-167,Script Execution Permissions,166,TOOLS
-168,Python,,DATAS
-169,Python Scripts for Processing,168,DATAS
-170,pip Package Management,168,DATAS
-171,Installing Python Packages,170,DATAS
-172,analyze-graph.py Script,169|71,DATAS
-173,csv-to-json.py Script,169|71|99,DATAS
-174,add-taxonomy.py Script,169|71|97,DATAS
-175,taxonomy-distribution.py Script,169|71|95,DATAS
-176,Prompt Engineering,1,AIFND
-177,Prompt Design Principles,176,AIFND
-178,Educational Content Prompts,177|26,AIFND
-179,Iterative Prompt Refinement,177,AIFND
-180,Claude Token Limits,2,AIFND
-181,Token Management Strategies,180,AIFND
-182,4-Hour Usage Windows,4,AIFND
-183,Claude Pro Limitations,4,AIFND
-184,Optimizing Claude Usage,181,AIFND
-185,Skill Testing and Debugging,13,SKILL
-186,Error Analysis in Skills,185,SKILL
-187,Improving Skill Quality,185|186,SKILL
-188,Security in Skill Execution,11,SKILL
-189,Permission Management,188,SKILL
-190,File Access Permissions,189,SKILL
-191,Command-Line Interface Basics,,TOOLS
-192,Terminal Commands,191,TOOLS
-193,Directory Navigation,192,TOOLS
-194,File Creation and Editing,192,TOOLS
-195,Symlink Creation,192,TOOLS
-196,Installing Skills Globally,13|195,SKILL
-197,Project-Specific Skills,13,SKILL
-198,Skill Distribution Methods,13,SKILL
-199,Skill Packaging Best Practices,21|198,SKILL
-200,Capstone: Complete Textbook Project,26|6|39|115|123|127|139|145,IBOOK
+1,Artificial Intelligence,,FOUND
+2,Large Language Model,1,FOUND
+3,Token,2,FOUND
+4,Tokenization,2|3,FOUND
+5,Context Window,2|3,FOUND
+6,Prompt,2,FOUND
+7,Prompt Engineering,2|6,FOUND
+8,System Prompt,6|7,FOUND
+9,Nondeterminism in LLM Output,2|3,FOUND
+10,Hallucination,2|9,FOUND
+11,Grounding and Verification,2|10,FOUND
+12,Python,,PYTOOL
+13,Markdown Formatting,,PLATFORM
+14,Terminal Commands,,PLATFORM
+15,Directory Navigation,14,PLATFORM
+16,Shell Scripting,14|15,PLATFORM
+17,Git,,PLATFORM
+18,Git Repository Structure,15|17,PLATFORM
+19,Version Control Basics,17|18,PLATFORM
+20,GitHub Integration,17|18,PLATFORM
+21,Visual Studio Code,,PLATFORM
+22,VS Code Terminal,14|21,PLATFORM
+23,AI Coding Agent,2|7,FOUND
+24,Tool Use by Agents,8|23,FOUND
+25,Agentic Workflow,23|24,FOUND
+26,Human in the Loop,9|25,FOUND
+27,Claude Code Interface,14|23,FOUND
+28,IDE Agent Integration,21|27,PLATFORM
+29,Chat Versus Agent Interfaces,23|27,FOUND
+30,Iterative Refinement,7|26,FOUND
+31,Intelligent Textbook,1|13,FOUND
+32,Level 1 Static Content,13|31,FOUND
+33,Level 2 Interactive Content,13|32,FOUND
+34,Level 3 Adaptive Content,31|33,FOUND
+35,Level 4 Chatbot Integration,2|34,FOUND
+36,Level 5 Autonomous AI,2|35,FOUND
+37,Five Levels of Intelligence,32|33|34|35|36,FOUND
+38,Experience API,31|34,FOUND
+39,Learning Record Store,34|38,FOUND
+40,Open Educational Resources,13|31,FOUND
+41,Creative Commons Licensing,31|40,FOUND
+42,Textbook Generation Pipeline,25|31,FOUND
+43,Quality Gate,30|42,FOUND
+44,MkDocs,13|14,PLATFORM
+45,MkDocs Material Theme,13|44,PLATFORM
+46,mkdocs.yml Configuration,13|44,PLATFORM
+47,Navigation Structure,44|46,PLATFORM
+48,Blank Line Before Lists,13|44,PLATFORM
+49,Agent Skill,24|25,SKARCH
+50,Agent Skills Open Standard,25|49,SKARCH
+51,SKILL.md File,13|49,SKARCH
+52,YAML Frontmatter,13|51,SKARCH
+53,Skill Name Field,51|52,SKARCH
+54,Skill Description Field,49|52,SKARCH
+55,Skill License Field,41|52,SKARCH
+56,Compatibility Field,50|52,SKARCH
+57,Skill Metadata Field,50|52,SKARCH
+58,Allowed Tools Field,52|24,SKARCH
+59,Vendor Extension Fields,52|50,SKARCH
+60,Frontmatter Contract,50|53|54,SKARCH
+61,Skill Directory Structure,15|51,SKARCH
+62,References Directory,13|61,SKARCH
+63,Scripts Directory,61|12,SKARCH
+64,Assets Directory,15|61,SKARCH
+65,Progressive Disclosure,51|62,SKARCH
+66,Metadata Loading Budget,65|54,SKARCH
+67,Body Loading Budget,65|51,SKARCH
+68,Reference Loading Budget,65|62,SKARCH
+69,Skill Trigger Matching,49|54,SKARCH
+70,Trigger Keyword Table,54|69,SKARCH
+71,False Trigger Misfire,54|69,SKARCH
+72,Meta-Skill,65|70,SKARCH
+73,Skill Routing Table,72|70,SKARCH
+74,On-Demand Guide Loading,72|62|68,SKARCH
+75,Thirty Skill Loading Limit,49|66,SKARCH
+76,Skill Consolidation,72|75,SKARCH
+77,Archived Skill,62|76,SKARCH
+78,Skill Alias Map,77|73,SKARCH
+79,Model Selection Per Skill,52|2,SKARCH
+80,Opus Versus Sonnet Routing,2|79,SKARCH
+81,Skill Versioning,51|19,SKARCH
+82,Skill Workflow Instructions,25|51,SKARCH
+83,Skill Execution Context,49|24,SKARCH
+84,Skill Composition,49|82,SKARCH
+85,Skill Naming Conventions,53|61,SKARCH
+86,Supporting Assets in Skills,61|64,SKARCH
+87,Reference Docs in Skills,62|74,SKARCH
+88,Template Files in Skills,13|64,SKARCH
+89,Skill Library,49|76,SKARCH
+90,Skill Library Maintenance,89|81,SKARCH
+91,Skills Versus Prompts,49|6,SKARCH
+92,Skill Discoverability,54|69,SKARCH
+93,Skill Creator Skill,49|82,SKDEV
+94,Writing a Skill Description,54|92,SKDEV
+95,Description Trigger Testing,94|69,SKDEV
+96,Skill Evaluation Harness,9|95,SKDEV
+97,Skill Benchmarking,95|96,SKDEV
+98,Skill Variance Analysis,97|9,SKDEV
+99,Skill Testing and Debugging,96|83,SKDEV
+100,Skill Failure Modes,99|71,SKDEV
+101,Error Analysis in Skills,99|100,SKDEV
+102,Improving Skill Quality,101|98,SKDEV
+103,Skill Packaging,61|89,SKDEV
+104,Skill Distribution Methods,103|20,SKDEV
+105,Symbolic Link Installation,103|16,SKDEV
+106,Global Skill Installation,15|105,SKDEV
+107,Project-Specific Skills,106|18,SKDEV
+108,bk-install-skills Script,105|16,SKDEV
+109,Stale Symlink Cleanup,105|108,SKDEV
+110,Listing Available Skills,92|106,SKDEV
+111,Invoking a Skill,110|83,SKDEV
+112,Slash Command Invocation,27|111,SKDEV
+113,Claude Command,112|27,SKDEV
+114,Command Definition File,113|52,SKDEV
+115,Skills Versus Commands,113|49,SKDEV
+116,Runbook Command,113|42,SKDEV
+117,ibook Runbook,116|43,SKDEV
+118,Read-Only State Detection,117|16,SKDEV
+119,Skill Portability,50|49,SKDEV
+120,AGENTS.md Convention,13|119,SKDEV
+121,OpenAI Codex,23|119,SKDEV
+122,Google Antigravity,23|119,SKDEV
+123,Cursor IDE,23|119,SKDEV
+124,GitHub Copilot,23|119,SKDEV
+125,Cross-Platform Skill Testing,119|99,SKDEV
+126,Graceful Capability Degradation,125|119,SKDEV
+127,Image Understanding Dependency,126|2,SKDEV
+128,Permission Management,58|83,SKDEV
+129,Script Execution Permissions,128|63,SKDEV
+130,Security in Skill Execution,128|129,SKDEV
+131,File Access Permissions,15|128,SKDEV
+132,Token Budget,3|5,TOKEN
+133,Token Cost Model,132|2,TOKEN
+134,Input Versus Output Tokens,3|133,TOKEN
+135,Token Frugality Principle,132|133,TOKEN
+136,Claude Pro Plan Limits,132|133,TOKEN
+137,Claude Max Plan Limits,133|136,TOKEN
+138,Four-Hour Usage Window,132|136,TOKEN
+139,Five-Hour Usage Window,136|138,TOKEN
+140,Tokens Per Minute Limit,132|136,TOKEN
+141,Rate Limit Handling,140|138,TOKEN
+142,Context Window Management,5|132,TOKEN
+143,Context Compaction,5|142,TOKEN
+144,Sub-Agent Startup Overhead,8|132,TOKEN
+145,Serial Agent Execution,25|144,TOKEN
+146,Parallel Agent Execution,25|144,TOKEN
+147,Serial Versus Parallel Tradeoff,145|146,TOKEN
+148,Marginal Token Cost,144|147,TOKEN
+149,Glossary Token Benchmark,148|145,TOKEN
+150,Token Cost Per Term,149|148,TOKEN
+151,File Layout as Token Strategy,135|142,TOKEN
+152,Separate References Files,135|151,TOKEN
+153,Separate Quiz Files,135|151,TOKEN
+154,Batch Script Substitution,135|12,TOKEN
+155,Deterministic Work Offloading,154|12,TOKEN
+156,Quality Gate Short-Circuit,43|135,TOKEN
+157,Cached Quality Score,43|156,TOKEN
+158,Selective File Reading,142|135,TOKEN
+159,Grep Before Read,14|158,TOKEN
+160,Token Cost Estimation,133|135,TOKEN
+161,Skill Usage Hook,83|16,TOKEN
+162,Stop Hook,16|161,TOKEN
+163,JSONL Usage Log,16|161,TOKEN
+164,Skill Usage Analytics,163|12,TOKEN
+165,Elapsed Time Measurement,161|164,TOKEN
+166,Token Usage Dashboard,164|165,TOKEN
+167,Cost Per Book Estimate,160|166,TOKEN
+168,Budget-Constrained Authoring,167|135,TOKEN
+169,Token Waste Antipatterns,135|147,TOKEN
+170,Optimizing Claude Usage,168|141,TOKEN
+171,Token Management Strategies,151|155|156,TOKEN
+172,Chapter Token Budgeting,132|171,TOKEN
+173,Python Standard Library,12,PYTOOL
+174,pip Package Management,12|14,PYTOOL
+175,Virtual Environment,12|174,PYTOOL
+176,Shebang Line,12|16,PYTOOL
+177,Command-Line Arguments,176|14,PYTOOL
+178,Python Scripts in Skills,63|12,PYTOOL
+179,Model Versus Script Division,178|155,PYTOOL
+180,Deterministic Computation,179|9,PYTOOL
+181,Idempotent Script Design,178|180,PYTOOL
+182,Script Exit Codes,177|16,PYTOOL
+183,Dry Run Mode,181|177,PYTOOL
+184,Verbose Output Mode,177|182,PYTOOL
+185,JSON Serialization,12|173,PYTOOL
+186,CSV Parsing in Python,12|173,PYTOOL
+187,Markdown Parsing in Python,173|13,PYTOOL
+188,Regular Expressions,173|187,PYTOOL
+189,File Globbing,173|15,PYTOOL
+190,Path Handling,173|15,PYTOOL
+191,Shell Script Wrapper,16|178,PYTOOL
+192,bk Command Family,191|108,PYTOOL
+193,Course Description,31|42,CDESIGN
+194,Course Title,31|193,CDESIGN
+195,Target Audience Definition,31|193,CDESIGN
+196,Reading Level Specification,193|195,CDESIGN
+197,Course Prerequisites,193|195,CDESIGN
+198,Main Topics Covered,193|194,CDESIGN
+199,Topics Excluded From Scope,193|198,CDESIGN
+200,Descriptive Context,193|198,CDESIGN
+201,Learning Outcomes,31|193,CDESIGN
+202,Bloom's Taxonomy,31|201,CDESIGN
+203,Bloom's 1956 Original,201|202,CDESIGN
+204,Bloom's 2001 Revision,202|203,CDESIGN
+205,Remember Level,202|204,CDESIGN
+206,Understand Level,204|205,CDESIGN
+207,Apply Level,204|206,CDESIGN
+208,Analyze Level,204|207,CDESIGN
+209,Evaluate Level,204|208,CDESIGN
+210,Create Level,204|209,CDESIGN
+211,Action Verbs for Outcomes,201|204,CDESIGN
+212,Cognitive Level Distribution,205|206|207|208|209|210,CDESIGN
+213,Capstone Project,210|42,CDESIGN
+214,Course Description Rubric,193|212,CDESIGN
+215,Course Description Score,214|43,CDESIGN
+216,Course Description Analyzer,215|49,CDESIGN
+217,Instructional Scaffolding,201|196,CDESIGN
+218,Define Before Display Rule,196|217,CDESIGN
+219,Worked Examples,217|207,CDESIGN
+220,Practice Exercises,219|207,CDESIGN
+221,Reading Level Consistency,196|217,CDESIGN
+222,Flesch-Kincaid Grade Level,196|221,CDESIGN
+223,Pedagogical Mascot,31|217,CDESIGN
+224,Mascot Voice and Placement,217|223,CDESIGN
+225,Mascot Admonition Types,223|224,CDESIGN
+226,Mascot Self-Introduction,224|225,CDESIGN
+227,Learning Pathway,201|31,CDESIGN
+228,Assessing Student Understanding,201|212,CDESIGN
+229,Learning Graph,227|31,LGRAPH
+230,Concept,31|229,LGRAPH
+231,Concept Label,229|230,LGRAPH
+232,Title Case Convention,13|231,LGRAPH
+233,Label Length Limit,229|231,LGRAPH
+234,Atomic Concept,229|230,LGRAPH
+235,Concept Granularity,230|234,LGRAPH
+236,Concept Enumeration,230|198,LGRAPH
+237,Concept List File,236|13,LGRAPH
+238,ConceptID Field,230|236,LGRAPH
+239,Learning Dependency,230|229,LGRAPH
+240,Dependency Edge,229|239,LGRAPH
+241,Prerequisite Relationship,239|197,LGRAPH
+242,Pipe-Delimited Dependencies,240|238,LGRAPH
+243,Learning Graph CSV Format,242|186,LGRAPH
+244,Directed Acyclic Graph,229|240,LGRAPH
+245,Cycle Detection,240|244,LGRAPH
+246,Self-Dependency Check,240|245,LGRAPH
+247,Foundational Concept,244|241,LGRAPH
+248,Terminal Node,240|244,LGRAPH
+249,Orphaned Node,240|244,LGRAPH
+250,Disconnected Subgraph,249|244,LGRAPH
+251,Linear Chain Detection,244|240,LGRAPH
+252,Indegree Analysis,240|244,LGRAPH
+253,Outdegree Analysis,240|244,LGRAPH
+254,Dependency Chain Length,244|252,LGRAPH
+255,Average Dependencies,240|252,LGRAPH
+256,Learning Graph Quality Score,245|250|255,LGRAPH
+257,Quality Metrics Report,256|13,LGRAPH
+258,Graph Remediation,257|256,LGRAPH
+259,Concept Taxonomy,230|236,LGRAPH
+260,TaxonomyID,232|259,LGRAPH
+261,Taxonomy Category Naming,259|232,LGRAPH
+262,Taxonomy Distribution,259|260,LGRAPH
+263,Category Over-Representation,259|262,LGRAPH
+264,taxonomy-names.json File,260|185,LGRAPH
+265,color-config.json File,260|185,LGRAPH
+266,Learning Graph JSON Schema,185|229,LGRAPH
+267,Metadata Section,185|266,LGRAPH
+268,Groups Section,266|260,LGRAPH
+269,Nodes Section,266|238,LGRAPH
+270,Edges Section,266|240,LGRAPH
+271,vis-network JSON Format,266|269|270,LGRAPH
+272,Dublin Core Metadata,185|267,LGRAPH
+273,Learning Graph Viewer,229|271,LGRAPH
+274,Graph Legend and Colors,268|273,LGRAPH
+275,Concept Search in Viewer,231|273,LGRAPH
+276,Learning Graph Generator,229|49,LGRAPH
+277,Graph Review Workflow,276|258,LGRAPH
+278,Concept List Review,237|277,LGRAPH
+279,Learning Graph as Roadmap,229|227,LGRAPH
+280,Multiple Learning Pathways,279|227,LGRAPH
+281,analyze-graph.py Script,178|256,PYTOOL
+282,csv-to-json.py Script,178|271,PYTOOL
+283,add-taxonomy.py Script,178|260,PYTOOL
+284,validate-learning-graph.py,178|266,PYTOOL
+285,taxonomy-distribution.py,178|262,PYTOOL
+286,check-loops.py Script,178|245,PYTOOL
+287,JSON Schema Validation,284|266,PYTOOL
+288,Book Chapter Generator,229|49,CONTENT
+289,Chapter Structure Design,288|229,CONTENT
+290,Chapter Concept Assignment,289|230,CONTENT
+291,Concept Coverage Exactly Once,290|236,CONTENT
+292,Dependency-Ordered Chapters,289|241,CONTENT
+293,Chapter Index File,289|13,CONTENT
+294,Chapter Summary,289|293,CONTENT
+295,Chapter Concept List,293|290,CONTENT
+296,Chapter Content Generator,293|49,CONTENT
+297,Section Organization,296|294,CONTENT
+298,Prerequisite Ordering in Text,297|292,CONTENT
+299,Admonition Blocks,45|13,CONTENT
+300,Note and Tip Admonitions,13|299,CONTENT
+301,Question Admonition,13|299,CONTENT
+302,Details Disclosure Block,13|299,CONTENT
+303,Math Equation Support,45|13,CONTENT
+304,MathJax Configuration,303|46,CONTENT
+305,LaTeX Equation Syntax,13|303,CONTENT
+306,Equation Numbering,303|305,CONTENT
+307,Content Element Types,296|297,CONTENT
+308,Diagram Specification Block,302|307,CONTENT
+309,Drawing Specification Block,302|307,CONTENT
+310,Chapter Review Workflow,296|43,CONTENT
+311,Document Status Indicator,310|47,CONTENT
+312,Content Generation Guide,296|224,CONTENT
+313,Instructor Guide,296|228,CONTENT
+314,Lesson Plan,313|201,CONTENT
+315,Supplementary Content,296|313,CONTENT
+316,Chapter Image Placement,13|296,CONTENT
+317,Chapter Reading Level Audit,221|296,CONTENT
+318,Content Quality Standards,296|43,CONTENT
+319,Encouraging Tone,318|196,CONTENT
+320,Chapter Navigation Entry,293|47,CONTENT
+321,Chapter Metrics,293|296,CONTENT
+322,Glossary,230|13,SUPPORT
+323,Glossary Generator,322|49,SUPPORT
+324,ISO 11179 Standards,230|322,SUPPORT
+325,Precise Definition,322|324,SUPPORT
+326,Concise Definition,322|324,SUPPORT
+327,Distinct Definition,322|324,SUPPORT
+328,Non-Circular Definition,322|324,SUPPORT
+329,Definitions Without Rules,322|324,SUPPORT
+330,Term Extraction,322|237,SUPPORT
+331,Glossary Term Ordering,322|330,SUPPORT
+332,Glossary Anchor Links,322|33,SUPPORT
+333,Glossary Quality Report,323|43,SUPPORT
+334,FAQ,31|13,SUPPORT
+335,FAQ Generator,334|49,SUPPORT
+336,FAQ Categorization,334|335,SUPPORT
+337,FAQ Coverage Gaps,335|43,SUPPORT
+338,Chatbot Training JSON,334|185,SUPPORT
+339,Retrieval Augmented Generation,338|2,SUPPORT
+340,Quiz,34|228,SUPPORT
+341,Quiz Generator,340|49,SUPPORT
+342,Multiple-Choice Question,228|340,SUPPORT
+343,Distractor Design,340|342,SUPPORT
+344,Distractor Plausibility,342|343,SUPPORT
+345,Answer Distribution Balance,341|342,SUPPORT
+346,Quiz Bloom Distribution,340|212,SUPPORT
+347,Quiz Explanation Text,342|344,SUPPORT
+348,Quiz Bank JSON,341|185,SUPPORT
+349,Quiz Analytics,340|228,SUPPORT
+350,Reference Generator,49|13,SUPPORT
+351,Curated Reference List,13|350,SUPPORT
+352,Crediting Pedagogical Authors,350|351,SUPPORT
+353,URL Verification,351|11,SUPPORT
+354,Wikipedia as a Source,351|353,SUPPORT
+355,Reference File Separation,351|152,SUPPORT
+356,MicroSim,34|31,MSIM
+357,MicroSim Directory Structure,356|15,MSIM
+358,main.html File,356|357,MSIM
+359,style.css File,356|357,MSIM
+360,script.js File,356|357,MSIM
+361,data.json File,357|185,MSIM
+362,MicroSim metadata.json,357|185,MSIM
+363,MicroSim index.md File,357|13,MSIM
+364,File Separation Principle,358|359|360,MSIM
+365,Inline Code Antipattern,357|364,MSIM
+366,MicroSim Metadata Schema,362|287,MSIM
+367,Search Metadata Section,362|366,MSIM
+368,Educational Metadata Section,366|212,MSIM
+369,Technical Metadata Section,362|366,MSIM
+370,MicroSim Generator,356|72,MSIM
+371,Visualization Library Routing,370|73,MSIM
+372,Ambiguous Term Clarification,370|371,MSIM
+373,p5.js Library,356|360,MSIM
+374,p5.js Setup Function,360|373,MSIM
+375,p5.js Draw Loop,373|374,MSIM
+376,Canvas Container Sizing,374|359,MSIM
+377,p5.js Built-In Controls,34|373,MSIM
+378,Slider Control,373|377,MSIM
+379,Button Control,373|377,MSIM
+380,Checkbox Control,373|377,MSIM
+381,Dropdown Select Control,373|377,MSIM
+382,Text Input Control,373|377,MSIM
+383,Seeded Randomness,373|180,MSIM
+384,Chart.js Library,360|371,MSIM
+385,Plotly Library,360|371,MSIM
+386,vis-network Library,360|271,MSIM
+387,vis-timeline Library,360|371,MSIM
+388,Leaflet Map Library,360|371,MSIM
+389,Mermaid Diagram Syntax,371|13,MSIM
+390,Venn Diagram Generator,371|360,MSIM
+391,Bubble Chart Matrix,384|371,MSIM
+392,Comparison Table Sim,371|360,MSIM
+393,Clickable Matrix Table,360|392,MSIM
+394,Causal Loop Diagram,386|371,MSIM
+395,Reinforcing Loop,386|394,MSIM
+396,Balancing Loop,386|394,MSIM
+397,Systems Archetype,395|396,MSIM
+398,Concept Classifier Sim,373|230,MSIM
+399,Celebration Animation,373|375,MSIM
+400,Docker Python Lab,12|371,MSIM
+401,Runnable Code Block,12|400,MSIM
+402,Bloom Level to Interaction,356|212,MSIM
+403,Iframe Embedding,358|363,MSIM
+404,CANVAS_HEIGHT Directive,403|376,MSIM
+405,Iframe Height Synchronization,404|403,MSIM
+406,Responsive Sim Layout,376|359,MSIM
+407,Fullscreen Sim Button,403|363,MSIM
+408,Accessible Color Schemes,359|406,MSIM
+409,Font Size for Readability,359|406,MSIM
+410,MicroSim Screen Capture,356|16,MSIM
+411,Batch Screenshot Capture,410|191,MSIM
+412,MicroSim Index Catalog,363|410,MSIM
+413,MicroSim Quality Score,356|43,MSIM
+414,MicroSim Standardization,413|364,MSIM
+415,Visual Layout Review,413|410,MSIM
+416,Iframe Control Visibility,403|415,MSIM
+417,Diagram Coverage Report,308|413,MSIM
+418,Sim Lifecycle Status,370|413,MSIM
+419,Sim Scaffolding Workflow,370|418,MSIM
+420,Batch Sim Generation,419|308,MSIM
+421,Sequential Sim Execution,420|147,MSIM
+422,extract-sim-specs.py Script,178|308,PYTOOL
+423,generate-sim-scaffold.py,178|419,PYTOOL
+424,add-iframes-to-chapter.py,178|403,PYTOOL
+425,sync-iframe-heights.py,178|405,PYTOOL
+426,validate-sims.py Script,178|413,PYTOOL
+427,calculate-quality-score.py,178|413,PYTOOL
+428,generate-sims-index.py,178|412,PYTOOL
+429,update-mkdocs-nav.py Script,178|47,PYTOOL
+430,diagram-report.py Script,178|417,PYTOOL
+431,Batch Utility Token Savings,422|154|169,TOKEN
+432,Text-to-Image Model,2|1,MEDIA
+433,Text Rendering in Images,2|432,MEDIA
+434,Image Prompt Engineering,432|7,MEDIA
+435,One-Shot Generation Risk,432|10,MEDIA
+436,Fact Fabrication Rate,435|10,MEDIA
+437,Baked-In Text Problem,433|435,MEDIA
+438,Separating Facts From Pixels,437|11,MEDIA
+439,Verified Infographic Pipeline,438|436,MEDIA
+440,Claim Planning Phase,11|439,MEDIA
+441,Source Discovery Phase,440|11,MEDIA
+442,Passage-Level Verification,441|11,MEDIA
+443,Claim Verification Report,13|442,MEDIA
+444,Layout Specification Lock,443|439,MEDIA
+445,Verbatim Text Prompt,444|434,MEDIA
+446,Substitution Prohibition,436|445,MEDIA
+447,Asymmetric Content Handling,444|436,MEDIA
+448,Rendered Image Audit,445|443,MEDIA
+449,Source Sidecar File,443|185,MEDIA
+450,Audit Trail Preservation,449|448,MEDIA
+451,Interactive Infographic Overlay,437|360,MEDIA
+452,Annotation-Free Illustration,451|434,MEDIA
+453,Callout Overlay Engine,360|451,MEDIA
+454,Grid Overlay Engine,360|451,MEDIA
+455,Callout Marker Coordinates,453|185,MEDIA
+456,Leader Line Rendering,453|455,MEDIA
+457,Overlay Explore Mode,453|451,MEDIA
+458,Overlay Quiz Mode,457|340,MEDIA
+459,Editable Marker Positions,455|457,MEDIA
+460,Freely-Licensed Images,41|316,MEDIA
+461,Wikimedia Commons Sourcing,41|460,MEDIA
+462,Government Archive Images,41|460,MEDIA
+463,Image Attribution,460|41,MEDIA
+464,Cover Image Generation,432|434,MEDIA
+465,Site Logo and Favicon,464|45,MEDIA
+466,Social Media Preview Card,464|46,MEDIA
+467,Open Graph Meta Tags,46|466,MEDIA
+468,Image Compression,460|12,MEDIA
+469,MARP Slide Deck,13|45,MEDIA
+470,Slide Deck Publishing,469|47,MEDIA
+471,PowerPoint Lecture Deck,314|469,MEDIA
+472,Speaker Notes,471|314,MEDIA
+473,Illustrated Story Format,432|296,MEDIA
+474,Graphic Novel Format,432|473,MEDIA
+475,Text-to-Speech Narration,296|2,MEDIA
+476,ElevenLabs Voice Settings,2|475,MEDIA
+477,Audio Streaming Playback,475|358,MEDIA
+478,Pronounce Button,475|322,MEDIA
+479,generate-favicon.py Script,178|465,PYTOOL
+480,trim-padding-from-image.py,178|468,PYTOOL
+481,compress-images.py Script,178|468,PYTOOL
+482,crop-screenshot.py Script,178|410,PYTOOL
+483,generate-images.py Script,178|473,PYTOOL
+484,Domain-Specific Skill,49|89,DOMAIN
+485,Core Versus Domain Skills,484|89,DOMAIN
+486,Domain Vocabulary Gap,484|485,DOMAIN
+487,Project-Local Skill Directory,484|107,DOMAIN
+488,Domain Skill Standards,484|90,DOMAIN
+489,Circuit Schematic Generation,484|432,DOMAIN
+490,Schemdraw Library,489|12,DOMAIN
+491,Prose to Circuit Translation,490|7,DOMAIN
+492,Schematic Verification,491|11,DOMAIN
+493,Solderless Breadboard,484|356,DOMAIN
+494,Breadboard Tie Points,484|493,DOMAIN
+495,Component Placement,493|494,DOMAIN
+496,Jumper Wire Routing,494|495,DOMAIN
+497,Animated Current Flow,496|375,DOMAIN
+498,Digital Circuit Simulation,497|373,DOMAIN
+499,Voltage and Current Scope,373|498,DOMAIN
+500,Hands-On Lab Design,484|220,DOMAIN
+501,Lab Rubric Scoring,500|43,DOMAIN
+502,Parts Kit Buildability,500|196,DOMAIN
+503,Frontmatter Quality Score,501|52,DOMAIN
+504,Automated Work Item Filing,501|13,DOMAIN
+505,TODO Backlog Generation,501|504,DOMAIN
+506,Domain Skill Case Study,485|500,DOMAIN
+507,MkDocs Plugins,44|174,PLATFORM
+508,Search Configuration,45|507,PLATFORM
+509,Code Syntax Highlighting,45|46,PLATFORM
+510,Image Zoom Lightbox,45|507,PLATFORM
+511,Comment System,45|507,PLATFORM
+512,Page Feedback Widget,45|46,PLATFORM
+513,Custom 404 Page,45|223,PLATFORM
+514,About Page,45|13,PLATFORM
+515,Home Page Template,45|464,PLATFORM
+516,Site Build Command,44|14,PLATFORM
+517,Local Development Server,14|516,PLATFORM
+518,Strict Build Mode,516|43,PLATFORM
+519,Book Installer Skill,44|72,PLATFORM
+520,Textbook Scaffold,519|46,PLATFORM
+521,Feature Installation Routing,519|73,PLATFORM
+522,Feature Auto-Detection,521|12,PLATFORM
+523,Feature Checklist,522|43,PLATFORM
+524,Git Add Command,17|14,PLATFORM
+525,Git Commit,524|19,PLATFORM
+526,Git Push,525|20,PLATFORM
+527,Git Status,17|14,PLATFORM
+528,Git Branching,17|19,PLATFORM
+529,Never Use Master Branch,17|528,PLATFORM
+530,GitHub Pages Deployment,20|516,PLATFORM
+531,gh-deploy Command,530|14,PLATFORM
+532,Deployment Verification,531|518,PLATFORM
+533,Google Analytics GA4,530|46,PLATFORM
+534,Measurement ID,46|533,PLATFORM
+535,GitHub Projects Kanban,20|42,PLATFORM
+536,Auto-Commit Hook,161|525,PLATFORM
+537,CLAUDE.md Project Memory,27|13,PLATFORM
+538,Project Instruction Files,537|120,PLATFORM
+539,detect_features.py Script,178|522,PYTOOL
+540,analyze-reading-levels.py,178|222,PYTOOL
+541,Book Metrics,42|321,PUBLISH
+542,book-metrics.json Hub,541|185,PUBLISH
+543,Canonical Metrics Principle,541|542,PUBLISH
+544,Word Count Metric,296|541,PUBLISH
+545,Equivalent Page Count,541|544,PUBLISH
+546,Equation Count,541|303,PUBLISH
+547,Chapter Metrics Report,541|321,PUBLISH
+548,Site Metrics Collection,541|530,PUBLISH
+549,book-metrics.py Script,178|542,PYTOOL
+550,collect-site-metrics.py,178|548,PYTOOL
+551,Book Status Report,541|43,PUBLISH
+552,Book Publisher Skill,72|541,PUBLISH
+553,README Generation,552|20,PUBLISH
+554,Repository Badges,20|553,PUBLISH
+555,Getting Started Section,13|553,PUBLISH
+556,LinkedIn Announcement Post,552|543,PUBLISH
+557,LinkedIn Carousel Document,556|471,PUBLISH
+558,Carousel Slide Patterns,471|557,PUBLISH
+559,Press Release,552|543,PUBLISH
+560,AP Style Writing,13|559,PUBLISH
+561,Announcement Preview Image,556|466,PUBLISH
+562,Book Completion Workflow,42|315,PUBLISH
+563,Book Launch Checklist,562|532,PUBLISH
+564,Session Logging,163|13,PUBLISH
+565,Session Log Format,13|564,PUBLISH
+566,Design Decision Record,564|565,PUBLISH
+567,analyze-skills.py Script,178|164,PYTOOL
+568,Skill Usage Report,567|166,PUBLISH
+569,Continuous Book Improvement,568|102,PUBLISH
+570,Capstone Textbook Project,213|563,PUBLISH

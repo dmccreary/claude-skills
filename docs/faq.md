@@ -132,13 +132,13 @@ See the [getting started guide](getting-started.md#getting-updates) for more det
 
 An intelligent textbook is an educational resource that goes beyond static text and images to provide interactive, adaptive, and AI-enhanced learning experiences. The course framework defines five levels of intelligence:
 
-- **Level 1**: Static content (traditional PDFs)
-- **Level 2**: Hyperlinked navigation with table of contents and cross-references
-- **Level 3**: Interactive elements like quizzes, simulations, and dynamic visualizations
-- **Level 4**: Adaptive content that responds to learner progress
-- **Level 5**: AI-powered personalization with intelligent tutoring
+- **Level 1**: Static content (traditional PDFs), no interactivity
+- **Level 2**: Interactive content — hyperlinks, embedded videos, quizzes, and MicroSims
+- **Level 3**: Adaptive content that responds to learner progress via concept-graph traversal
+- **Level 4**: Chatbot integration — an LLM-powered tutoring assistant
+- **Level 5**: Autonomous AI — fully autonomous, real-time customized lesson generation
 
-This course primarily targets **Level 2-3** textbooks using MkDocs Material theme, with support for Level 3 features through MicroSims, quizzes, and interactive elements. See [Chapter 1](chapters/01-intro-ai-intelligent-textbooks/index.md) for the complete intelligence framework.
+This course primarily targets **Level 2** textbooks using MkDocs Material theme, with MicroSims, quizzes, and interactive elements. See [Chapter 1](chapters/01-foundations-ai-language-models/index.md) for the complete intelligence framework.
 
 ### What is a learning graph?
 
@@ -248,15 +248,15 @@ The five-level intelligence framework classifies textbooks by their interactive 
 
 **Level 1 - Static Content**: Traditional PDFs with fixed text and images, no interactivity
 
-**Level 2 - Hyperlinked Navigation**: HTML/web-based with table of contents, cross-references, and search (MkDocs default)
+**Level 2 - Interactive Content**: Hyperlinks, embedded videos, quizzes, MicroSims, and a searchable glossary
 
-**Level 3 - Interactive Elements**: Embedded quizzes, simulations, visualizations, and dynamic content
+**Level 3 - Adaptive Content**: Personalization based on learner progress via concept-graph traversal
 
-**Level 4 - Adaptive Content**: Personalization based on learner progress, performance, and preferences
+**Level 4 - Chatbot Integration**: An LLM-powered tutoring assistant, often built on GraphRAG, that answers questions in real time
 
-**Level 5 - AI Personalization**: Intelligent tutoring systems that generate custom content, provide real-time help, and adapt to individual learning styles
+**Level 5 - Autonomous AI**: A largely aspirational level where a system deeply understands each reader's knowledge state and generates fully customized lessons in real time
 
-This course primarily targets **Level 2** with tools for advancing to **Level 3** through MicroSims, quizzes, and interactive visualizations. See [Chapter 1](chapters/01-intro-ai-intelligent-textbooks/index.md) for the complete framework.
+This course primarily targets **Level 2** through MicroSims, quizzes, and interactive visualizations. See [Chapter 1](chapters/01-foundations-ai-language-models/index.md) for the complete framework.
 
 ### What is the difference between concepts and topics?
 
@@ -1257,13 +1257,13 @@ See the [usage limits guide](claude-usage-limits.md) and [Chapter 2](chapters/02
 
 While the course focuses on current Level 2-3 capabilities, future developments include:
 
-**Level 4 - Adaptive Content**:
+**Level 3 - Adaptive Content**:
 
 - Skills that generate multiple content versions for different learning styles
 - Personalized learning pathways based on assessment performance
 - Adaptive difficulty adjustment in exercises and MicroSims
 
-**Level 5 - AI Personalization**:
+**Level 4/5 - Chatbot Integration and Autonomous AI**:
 
 - Integration with conversational AI tutors for real-time help
 - Intelligent question answering using RAG over textbook content

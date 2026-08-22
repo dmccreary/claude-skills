@@ -1,1315 +1,3056 @@
 # Glossary of Terms
 
-This glossary contains definitions of key concepts used throughout the course "Using Claude Skills to Create Intelligent Textbooks." Each definition follows ISO 11179 metadata registry standards: precise, concise, distinct, non-circular, and free of business rules.
+This glossary defines every concept in the
+[learning graph](./learning-graph/concept-list.md) for this course. Definitions
+follow the ISO 11179 metadata registry criteria: each one is precise, concise,
+distinct from related terms, non-circular, and free of procedural rules.
 
-## A
+Terms are listed in alphabetical order.
 
-#### Action Verbs for Learning Outcomes
+#### About Page
 
-Specific action words that describe observable behaviors students can demonstrate at each level of Bloom's Taxonomy.
+A page describing a book's purpose, its author, and how to cite it.
 
-**Example:** The verb "define" indicates Remember level, while "design" indicates Create level in learning outcomes.
+#### Accessible Color Schemes
+
+Color selections that remain distinguishable to readers with color vision differences and maintain sufficient contrast.
+
+**Example:** A diagram distinguishes categories by shape as well as color, so it stays readable to someone with red-green color blindness.
+
+#### Action Verbs for Outcomes
+
+The observable verbs that make an outcome measurable, chosen to match the intended cognitive category.
+
+**Example:** "Compare two routing strategies" is testable; "appreciate routing" is not.
+
+#### add-iframes-to-chapter.py
+
+The program that inserts embedding markup for generated simulations into the chapter that requested them.
+
+**Example:** One run inserts twelve embedding blocks that would otherwise be pasted by hand.
 
 #### add-taxonomy.py Script
 
-A Python program that adds a taxonomy categorization column to a learning graph CSV file.
+The program that assigns category abbreviations to rows of a dependency file.
 
-**Example:** Running this script on `learning-graph.csv` adds a TaxonomyID field to categorize each concept.
+**Example:** It assigns the graph category to every row whose label concerns dependency structure.
 
-#### Advanced Concepts
+#### Admonition Blocks
 
-High-level ideas that require multiple prerequisite concepts to be understood before they can be mastered.
+Set-apart callout boxes that highlight notes, warnings, tips, or questions distinctly from body text.
 
-**Example:** "Capstone: Complete Textbook Project" depends on understanding all 199 prior concepts in the learning graph.
+**Example:** A warning box draws attention to a mistake readers commonly make at that point.
 
-#### Admonitions in MkDocs
+#### Agent Skill
 
-Specially formatted callout boxes in Material for MkDocs that highlight notes, warnings, tips, or important information.
+A packaged set of instructions and supporting files that teaches an AI agent to perform a specific task consistently.
 
-**Example:** Using `!!! note` creates a blue box with "Note" header to draw attention to key information.
+**Example:** A skill that generates glossaries carries the definition standards, the output format, and the assembly script it needs.
 
-#### Allowed Tools in Skills
+#### Agent Skills Open Standard
 
-Specification in skill YAML frontmatter defining which Claude Code tools the skill is permitted to use.
+The published specification defining what a skill folder must contain and which metadata fields conforming clients recognize.
 
-**Example:** A skill might specify `allowed-tools: [Read, Write, Bash]` to limit file operations.
+**Example:** A folder written against the standard loads unchanged in Codex and Cursor.
 
-#### Analyze (Cognitive Level 4)
+#### Agentic Workflow
 
-The fourth level of Bloom's Taxonomy where learners break material into parts and determine relationships between components.
+A sequence of model-driven steps in which each step's output informs the next, with the model choosing actions rather than following a fixed script.
 
-**Example:** Students analyze why a skill fails by examining error logs, file permissions, and workflow dependencies.
+**Example:** The agent reads a validator's error output and decides which file to open next.
+
+#### AGENTS.md Convention
+
+The practice of placing project instructions in a commonly recognized filename so multiple agent platforms read the same guidance.
+
+**Example:** Copying the project rules to a second recognized filename lets another platform read them.
+
+#### AI Coding Agent
+
+A program that combines a language model with the ability to read files, run commands, and edit a project, so it can carry out multi-step development tasks.
+
+**Example:** Claude Code reads a chapter file, writes a simulation, runs a validator, and fixes what the validator reports.
+
+#### Allowed Tools Field
+
+An optional list of pre-approved actions a skill may take without further prompting. Its behavior varies between agent platforms.
+
+**Example:** A read-only reporting skill may list only file reading and searching.
+
+#### Ambiguous Term Clarification
+
+Resolving request words that could indicate several visualization types before generation begins.
+
+**Example:** "Map" may mean a geographic display or a relationship diagram, and the difference must be settled first.
+
+#### Analyze Level
+
+The cognitive category covering breaking material into parts and determining how they relate, expressed by actions such as differentiating and comparing.
+
+**Example:** "Compare two routing strategies and explain when each fails."
 
 #### analyze-graph.py Script
 
-A Python program that validates learning graph structure, detects circular dependencies, and generates quality metrics reports.
+The program that examines a dependency file and reports structural measurements including loops, entry points, endpoints, and connectivity.
 
-**Example:** This script checks if your 200-concept graph is a valid DAG and reports statistics like average dependencies per concept.
+**Example:** It reports that a structure has 570 ideas, six entry points, and no closed paths.
 
-#### Anthropic Claude Pro Account
+#### analyze-reading-levels.py
 
-A paid subscription to Claude AI that provides extended usage limits, longer conversation context, and access to Claude Code.
+The program that measures textual difficulty per chapter and reports variation across a book.
 
-**Example:** A Claude Pro account allows 4-hour usage windows with higher token limits for generating textbook content.
+**Example:** It flags one chapter written three grade levels above the rest.
 
-#### Apply (Cognitive Level 3)
+#### analyze-skills.py Script
 
-The third level of Bloom's Taxonomy where learners carry out procedures or use knowledge in specific situations.
+The program that processes recorded usage events and reports duration and consumption per skill.
 
-**Example:** Students apply prompt engineering principles to create a new skill for generating chapter quizzes.
+**Example:** It shows that simulation generation consumed more than all other skills combined.
+
+#### Animated Current Flow
+
+A moving visual indication of charge travelling through a circuit, making an invisible process observable.
+
+**Example:** Moving dots along a wire stop when a switch opens, showing directly why a lamp goes dark.
+
+#### Annotation-Free Illustration
+
+A generated picture produced deliberately without text, arrows, or labels, so an interactive layer can supply them.
+
+**Example:** A cell diagram is produced with no printed labels so markers can be placed afterward.
+
+#### Announcement Preview Image
+
+The picture accompanying a shared announcement, cropped to the proportions a platform displays.
+
+**Example:** A cover picture cropped to a wide ratio so it displays fully in a feed.
+
+#### Answer Distribution Balance
+
+Spreading correct answers evenly across the available positions so position alone gives no advantage.
+
+**Example:** If every correct answer were the third option, readers could score well without reading the questions.
+
+#### AP Style Writing
+
+A journalistic convention governing capitalization, numbers, titles, and attribution in press material.
+
+**Example:** Numbers below ten are spelled out, and titles are capitalized only before a name.
+
+#### Apply Level
+
+The cognitive category covering use of a procedure in a given situation, expressed by actions such as implementing, solving, and using.
+
+**Example:** "Use the dependency file to produce a viewer-ready graph."
+
+#### Archived Skill
+
+An original standalone skill retained for reference after its content was folded into a meta-skill. Archived skills are not loaded.
+
+**Example:** The original timeline generator stays readable after its content moved into the simulation router.
 
 #### Artificial Intelligence
 
-Computer systems designed to perform tasks that typically require human intelligence, such as learning, reasoning, and problem-solving.
+The field of building computer systems that perform tasks normally requiring human cognition, such as recognizing language, generating text, or making decisions under uncertainty.
 
-**Example:** Claude AI uses artificial intelligence to understand course descriptions and generate structured learning content.
-
-#### Assessing Course Descriptions
-
-The process of evaluating a course description for completeness, clarity, and alignment with educational standards.
-
-**Example:** The course-description-analyzer skill scores descriptions on presence of prerequisites, Bloom's outcomes, and target audience.
+**Example:** An agent that reads a course description and proposes a list of concepts to teach is applying artificial intelligence to instructional design.
 
 #### Assessing Student Understanding
 
-Methods for evaluating whether learners have mastered concepts through quizzes, exercises, and interactive activities.
+Determining what a learner has actually grasped, through questions and activities aligned to stated outcomes.
 
-**Example:** Multiple-choice quizzes aligned to Bloom's Taxonomy levels assess student understanding across cognitive domains.
+**Example:** A question asking a reader to predict an outcome reveals more than one asking for a definition.
 
-#### Assessing Student Understanding Through Quiz Analytics
+#### Assets Directory
 
-Evaluation of learner comprehension by analyzing quiz performance patterns across cognitive levels and concept areas to identify knowledge gaps.
+The folder holding templates, schemas, and images that a skill copies or reads when producing output.
 
-**Example:** Analyzing quiz results shows students score well on Remember questions but struggle with Analyze questions, indicating need for more worked examples.
+**Example:** A starter configuration copied into every new book lives here.
 
-#### Atomic Concepts
+#### Asymmetric Content Handling
 
-Single, indivisible ideas that cannot be meaningfully broken into smaller learning components.
+Allowing a comparison layout to show unequal amounts of material on each side, so missing evidence is displayed honestly rather than filled with invention.
 
-**Example:** "Variable" is atomic, while "Variable Declaration and Assignment" could be split into two atomic concepts.
+**Example:** If only one side has published measurements, the other side is left empty rather than given plausible numbers.
 
-#### Average Dependencies Per Concept
+#### Atomic Concept
 
-The mean number of prerequisite relationships each concept has in a learning graph.
+A teachable idea that cannot be usefully divided further without losing meaning, making it a suitable single node.
 
-**Example:** A well-structured graph typically has 2-4 average dependencies per concept, avoiding both isolation and over-complexity.
+**Example:** "Cycle Detection" is atomic; "Graph Theory" is not.
 
-#### Avoiding Over-Representation
+#### Audio Streaming Playback
 
-The practice of ensuring no single taxonomy category contains too many concepts, maintaining balanced distribution.
+Delivering generated sound so it begins playing before the whole file has downloaded.
 
-**Example:** If 60% of concepts are in the BASIC category, the graph may need rebalancing across foundational and advanced levels.
+**Example:** A long narration begins within a second instead of after a full download.
 
-## B
+#### Audit Trail Preservation
 
-#### Bash
+Retaining the evidence chain behind published material so any figure can be traced back to where it came from.
 
-A Unix shell and command language used for executing system commands, running scripts, and automating tasks.
+**Example:** A reader questioning a figure can follow it to the quoted sentence in the cited study.
 
-**Example:** Running `./install-ibook-skills.sh` in Bash creates symlinks to make skills available globally.
+#### Auto-Commit Hook
+
+A configured callback that records a turn's file changes automatically using a message left for it, so work is never left uncommitted.
+
+**Example:** The agent leaves a message file during its turn, and the hook commits and pushes when the turn ends.
+
+#### Automated Work Item Filing
+
+Recording each identified shortfall as a tracked task at the moment it is found, rather than relying on memory.
+
+**Example:** A lab missing a parts list generates a tracked task naming the skill that can supply one.
+
+#### Average Dependencies
+
+The mean number of prerequisites per idea, used as a health measure. Values that are too low suggest missing relationships.
+
+**Example:** A value near one suggests a chain rather than a network.
+
+#### Baked-In Text Problem
+
+The condition in which wording is permanently fixed into pixels, so any error requires regenerating the whole picture and cannot be audited by a reader.
+
+**Example:** Correcting a single misspelled label requires regenerating the entire picture.
+
+#### Balancing Loop
+
+A closed path of influence that counteracts change, driving a system toward a stable value.
+
+**Example:** Rising prices reduce demand, which lowers prices again.
+
+#### Batch Screenshot Capture
+
+Generating preview images for many simulations in one automated pass.
+
+**Example:** Twelve preview images are produced in one run instead of twelve manual captures.
+
+#### Batch Script Substitution
+
+Replacing repetitive generated output with a program that produces the same result, so the model performs only the creative portion.
+
+**Example:** A script scaffolds directories, stub files, and metadata for twelve simulations, leaving only the logic file to be written.
+
+#### Batch Sim Generation
+
+Producing all simulations requested by a chapter in one coordinated pass rather than individually.
+
+**Example:** Every simulation a chapter requests is scaffolded, written, and validated together.
+
+#### Batch Utility Token Savings
+
+The reduction in consumption achieved by having programs perform the repetitive parts of simulation production instead of the model.
+
+**Example:** Automating parsing, scaffolding, embedding, and validation saves roughly four hundred thousand tokens across one chapter's simulations.
+
+#### bk Command Family
+
+The set of installed command-line utilities, each prefixed for recognition, that perform book maintenance tasks such as capturing screenshots or generating metrics.
+
+**Example:** One command captures a simulation screenshot; another regenerates the metrics file the publishing routes depend on.
+
+#### bk-install-skills Script
+
+The utility that creates the links from the skill repository into the agent's skills directory and removes links whose targets no longer exist.
+
+**Example:** Running it after adding a skill makes that skill available in every project.
+
+#### Blank Line Before Lists
+
+A markdown authoring rule requiring an empty line between a paragraph and a following list so the list renders correctly.
+
+**Example:** Without the blank line, the list renders as one run-on paragraph.
+
+#### Bloom Level to Interaction
+
+The principle of matching interaction style to intended cognitive demand, so an activity exercises the level it claims to.
+
+**Example:** Understanding is served by stepping through a worked example; creating is served by a builder tool.
+
+#### Bloom's 1956 Original
+
+The initial version of the cognitive objective classification, whose top categories were synthesis and evaluation.
+
+**Example:** Its categories were nouns, where the revision uses verbs.
 
 #### Bloom's 2001 Revision
 
-An updated framework of cognitive learning objectives that replaced "Knowledge" with "Remember" and "Synthesis" with "Create."
+The updated classification that restates categories as verbs and places creation at the highest level. This revision is the one used throughout this workflow.
 
-**Example:** The 2001 revision emphasizes active learning verbs and clearer distinctions between cognitive levels.
+**Example:** Creating replaced synthesis as the most demanding category.
 
 #### Bloom's Taxonomy
 
-A hierarchical framework of six cognitive levels used to classify educational learning objectives from simple recall to complex creation.
+A classification of educational objectives arranged by cognitive demand, used to ensure material addresses more than factual recall.
 
-**Example:** Learning outcomes progress from Remember (defining terms) through Create (designing complete textbooks).
+**Example:** A chapter that only asks readers to define terms addresses one level and neglects the rest.
 
-#### Bloom's Taxonomy in Quizzes
+#### Body Loading Budget
 
-The practice of distributing quiz questions across all six cognitive levels to assess comprehensive understanding.
+The cost of reading a skill's full instruction file once that skill is triggered.
 
-**Example:** A quiz includes 20% Remember questions, 20% Understand, 15% Apply, 20% Analyze, 15% Evaluate, and 10% Create.
+**Example:** A one-page router costs far less to load than a thirty-page guide.
 
-## C
+#### Book Chapter Generator
 
-#### Capstone: Complete Textbook Project
+The skill that designs a chapter outline from a dependency structure, assigning ideas to chapters in an order that respects prerequisites.
 
-A culminating project where learners design and implement an entire intelligent textbook from course description through deployment.
+**Example:** It groups related ideas into a chapter and places prerequisite chapters first.
 
-**Example:** The capstone requires creating a learning graph, generating content, building MicroSims, and publishing to GitHub Pages.
+#### Book Completion Workflow
 
-#### Category Distribution
+The coordinated final pass that generates all remaining supporting material and reports before a book is released.
 
-The spread of concepts across different taxonomy categories in a learning graph.
+**Example:** One run produces the glossary, questions, assessments, references, and metrics together.
 
-**Example:** A balanced distribution might be 15% foundational, 35% basic, 30% intermediate, 15% advanced, and 5% integration concepts.
+#### Book Installer Skill
 
-#### Chapter Concept Lists
+The meta-skill that scaffolds a new book and installs individual site features on request.
 
-Enumerated sets of specific concepts that will be covered within a particular chapter of a textbook.
+**Example:** A request for math support routes to the guide that configures equation rendering.
 
-**Example:** Chapter 3's concept list includes concepts 45-67 from the learning graph, respecting dependency order.
+#### Book Launch Checklist
 
-#### Chapter Index Files
+The list of confirmations completed before announcing a book, covering build, deployment, metrics, and links.
 
-Markdown files named `index.md` that serve as the main content page for each chapter in a MkDocs textbook.
+**Example:** Confirming the site builds, deploys, and shows current statistics before posting an announcement.
 
-**Example:** `/docs/chapters/03/index.md` contains the title, summary, concept list, and full content for Chapter 3.
+#### Book Metrics
 
-#### Chapter Structure
+Quantitative measurements describing a finished book, such as its word count, illustration count, and equivalent page count.
 
-The organizational framework defining how textbook content is divided into major sections with logical progression.
+**Example:** A book reports 120,000 words across 40 chapters, roughly 480 printed pages.
 
-**Example:** A 200-concept course might be organized into 12 chapters with 15-20 concepts per chapter.
+#### Book Publisher Skill
 
-#### Chapter Structure and Token Budgeting
+The meta-skill that produces repository summaries, announcement posts, slideshows, and press releases from a book's recorded measurements.
 
-The dual consideration of logical content organization and AI token limit management when designing textbook chapters.
+**Example:** The same recorded figures feed the repository summary and the public announcement.
 
-**Example:** Balancing pedagogical needs (15-20 concepts per chapter) with practical constraints (staying under Claude's token limits per generation).
+#### Book Status Report
 
-#### Circular Dependency Detection
+A generated overview of how complete a book is and which stages of its production remain.
 
-The process of identifying invalid prerequisite loops where concept A depends on B, which depends on C, which depends on A.
+**Example:** It reports that chapters exist but assessments do not.
 
-**Example:** If "Variables" requires "Functions" which requires "Variables," the analyze-graph.py script reports a circular dependency error.
+#### book-metrics.json Hub
 
-#### Claude AI
+The generated file holding a book's measurements in structured form, serving as the single source every publishing route reads.
 
-An artificial intelligence assistant created by Anthropic that uses large language models to understand and generate human-like text.
+**Example:** A repository summary and a press release both read this file, so their figures always agree.
 
-**Example:** Claude AI can read a course description and generate a complete 200-concept learning graph with dependencies.
+#### book-metrics.py Script
+
+The program that measures a book's content and writes the structured measurement file.
+
+**Example:** It counts words, illustrations, and formulas across every chapter in one pass.
+
+#### Breadboard Tie Points
+
+The individual holes on a prototyping board, internally connected in rows and columns that determine which parts share a connection.
+
+**Example:** Five holes in a row share one connection, so two parts placed in that row are joined.
+
+#### Bubble Chart Matrix
+
+A plot positioning items on two axes with size encoding a third value, used for priority and trade-off comparisons.
+
+**Example:** Features plotted by effort and impact, sized by estimated cost.
+
+#### Budget-Constrained Authoring
+
+Planning a book's production to fit a fixed monthly allowance, choosing techniques by cost as well as quality.
+
+**Example:** Choosing one-agent generation so a full book fits inside a monthly allowance.
+
+#### Button Control
+
+A clickable interface element that triggers a discrete action such as resetting or starting a simulation.
+
+**Example:** A reset control returns a simulation to its starting state.
+
+#### Cached Quality Score
+
+A previously computed assessment stored with a document so later runs can read it instead of recomputing it.
+
+**Example:** A score of 95 stored in a page's metadata lets a later run skip re-scoring.
+
+#### calculate-quality-score.py
+
+The program that computes a numeric rating for a simulation from measurable properties.
+
+**Example:** It rates a simulation on file separation, metadata completeness, and control conventions.
+
+#### Callout Marker Coordinates
+
+The stored positions identifying where each marker sits on an illustration, kept in data so they can be adjusted without editing code.
+
+**Example:** Moving a marker two pixels is a data edit, not an image regeneration.
+
+#### Callout Overlay Engine
+
+The code layer that draws numbered point markers on specific features of an illustration and connects them to descriptive labels.
+
+**Example:** Numbered circles appear over specific structures in an anatomical illustration.
+
+#### Canonical Metrics Principle
+
+The rule that all published figures derive from one generated measurement file, so different announcements never disagree.
+
+**Example:** A repository summary and a public announcement quote the same page count because both read the same file.
+
+#### Canvas Container Sizing
+
+Measuring the available width of a surrounding element and sizing the drawing surface to match, so a simulation fits its frame.
+
+**Example:** A simulation measures its frame width at startup so it fills the space available.
+
+#### CANVAS_HEIGHT Directive
+
+A recorded height value inside a simulation's source that serves as the single authority for how tall its embedding frame should be.
+
+**Example:** A recorded value of 695 tells every embedding frame how tall to be.
+
+#### Capstone Project
+
+A culminating assignment requiring learners to combine most of a course's material into one substantial piece of work.
+
+**Example:** Building a complete textbook from a course description, end to end.
+
+#### Capstone Textbook Project
+
+A culminating exercise in which a learner produces a complete intelligent textbook, applying the entire pipeline end to end.
+
+**Example:** A learner produces a structure, chapters, simulations, and a deployed site for a subject of their choice.
+
+#### Carousel Slide Patterns
+
+The recurring panel layouts used in a slideshow post, such as a title panel, a statistics panel, and a closing call to action.
+
+**Example:** An opening title panel, three statistic panels, and a closing link panel.
+
+#### Category Over-Representation
+
+The condition in which one category holds a disproportionate share of all ideas, suggesting it should be subdivided.
+
+**Example:** A category holding more than thirty percent of ideas is treated as too broad.
+
+#### Causal Loop Diagram
+
+A systems-thinking illustration showing how variables influence one another around closed paths of cause and effect.
+
+**Example:** Arrows show how workload, fatigue, and error rate influence one another.
+
+#### Celebration Animation
+
+A brief visual effect acknowledging completion of an activity, used to mark progress.
+
+**Example:** A brief effect appears when a reader finishes a sorting activity.
+
+#### Chapter Concept Assignment
+
+Allocating each teachable idea to the single chapter responsible for introducing it.
+
+**Example:** "Cycle Detection" is assigned to the graph quality chapter, not the introduction.
+
+#### Chapter Concept List
+
+The enumerated ideas a specific chapter is responsible for introducing.
+
+#### Chapter Content Generator
+
+The skill that expands a chapter outline into full instructional text with examples, diagrams, and exercises at appropriate cognitive levels.
+
+**Example:** It expands a title, summary, and idea list into full prose with examples and exercises.
+
+#### Chapter Image Placement
+
+Deciding where illustrations appear within a chapter so they support the surrounding explanation.
+
+**Example:** An illustration appears immediately after the paragraph describing it.
+
+#### Chapter Index File
+
+The main markdown file for a chapter, holding its title, summary, assigned ideas, and eventually its full text.
+
+**Example:** The file holding a chapter's title, summary, assigned ideas, and body text.
+
+#### Chapter Metrics
+
+Per-chapter measurements such as word count, illustration count, and equation count, used to detect uneven coverage.
+
+**Example:** One chapter has 800 words while its neighbors have 3,000, revealing uneven depth.
+
+#### Chapter Metrics Report
+
+A generated table of measurements per chapter, used to identify uneven depth across a book.
+
+**Example:** A table showing word count and illustration count for each of forty chapters.
+
+#### Chapter Navigation Entry
+
+The site menu item pointing to a chapter, which must be declared explicitly for the page to be reachable.
+
+**Example:** A page absent from the menu is unreachable even though it built successfully.
+
+#### Chapter Reading Level Audit
+
+Measuring textual difficulty across chapters and flagging those that diverge from the declared target.
+
+**Example:** A chapter measuring four grades above target is flagged for simplification.
+
+#### Chapter Review Workflow
+
+The author-led inspection of generated chapter material before dependent artifacts such as quizzes and simulations are produced.
+
+**Example:** An author corrects a chapter before its assessments are generated from it.
+
+#### Chapter Structure Design
+
+Determining how many chapters a book needs and which material belongs in each, guided by the ordering relationships between ideas.
+
+**Example:** Forty ideas become five chapters, ordered so nothing precedes its prerequisites.
+
+#### Chapter Summary
+
+A brief statement of what a chapter covers, used for navigation, previews, and generation context.
+
+#### Chapter Token Budgeting
+
+Allocating a per-chapter allowance for generation so a long book completes without exhausting a period's capacity.
+
+**Example:** Allocating a fixed allowance per chapter so a long book completes across sessions.
+
+#### Chart.js Library
+
+A JavaScript charting library producing bar, line, pie, radar, and related plots from structured values.
+
+**Example:** A bar chart comparing consumption across four generation strategies.
+
+#### Chat Versus Agent Interfaces
+
+The distinction between a conversational interface that only returns text and an agent interface that can also act on files and run commands.
+
+**Example:** A chat window can describe how to fix an iframe height; an agent can open the file and fix it.
+
+#### Chatbot Training JSON
+
+A structured export of question-and-answer pairs formatted for consumption by a conversational retrieval system.
+
+**Example:** An exported question set lets a course assistant answer from the book itself.
+
+#### check-loops.py Script
+
+The program that searches a dependency file specifically for closed paths and reports the identifiers involved in each.
+
+**Example:** It reports that ideas 12, 40, and 55 form a closed path.
+
+#### Checkbox Control
+
+An interface element toggling a setting between two states, used for optional display features.
+
+**Example:** A toggle that shows or hides velocity arrows in a physics simulation.
+
+#### Circuit Schematic Generation
+
+Producing a standard electrical diagram from a description, as a maintainable program plus a rendered picture.
+
+**Example:** A description of a resistor and lamp in series becomes a standard diagram.
+
+#### Claim Planning Phase
+
+The initial stage listing every factual assertion a planned poster will make, before any source is consulted.
+
+**Example:** Listing eight intended figures before searching for any source.
+
+#### Claim Verification Report
+
+The record showing each planned assertion, its supporting quotation, and whether it passed, was softened, or was removed.
+
+**Example:** Two claims pass with quotations, one is softened to qualitative wording, and one is dropped.
 
 #### Claude Code Interface
 
-The command-line tool that enables users to interact with Claude AI for software development and content creation tasks.
+The command-line environment in which Claude reads a project, runs tools, and applies edits under the user's permission settings.
 
-**Example:** Running `claude` in the terminal launches an interactive session where you can invoke skills and execute commands.
+**Example:** An author asks for a chapter's simulations and watches the files appear in the project.
 
 #### Claude Command
 
-A user-defined operation in Claude Code that expands a slash command into a full prompt for common workflows.
+A named, reusable instruction file invoked directly by the user, typically to run a fixed procedure rather than an open-ended task.
 
-**Example:** The `/skills` command expands to list all available Claude skills in the current project.
+**Example:** Typing a command name runs a fixed procedure rather than describing a task.
 
-#### Claude Pro Limitations
+#### Claude Max Plan Limits
 
-Usage restrictions on Claude Pro accounts including token limits per message and 4-hour usage windows.
+The larger usage allowance of a higher-cost subscription tier.
 
-**Example:** Claude Pro allows higher token limits than free accounts but still requires managing usage within 4-hour windows.
+#### Claude Pro Plan Limits
 
-#### Claude Skill
+The usage allowance of the lower-cost subscription tier, which constrains how much generation can occur within a given period.
 
-An autonomous agent defined by a SKILL.md file that automates specific tasks in the Claude Code environment.
+**Example:** An author on this tier plans generation to fit a smaller periodic allowance.
 
-**Example:** The learning-graph-generator skill automates creating a 200-concept dependency graph from a course description.
+#### CLAUDE.md Project Memory
 
-#### Claude Token Limits
+A project file holding standing instructions an agent reads at the start of every session, encoding conventions specific to that repository.
 
-Maximum number of tokens (roughly word pieces) that can be processed in a single Claude conversation or message.
+**Example:** A rule about where generated simulations must be placed applies without needing to be restated.
 
-**Example:** Managing token limits requires breaking large content generation into multiple skill invocations.
+#### Clickable Matrix Table
 
-#### Color Coding in Visualizations
+A grid whose cells expand to reveal detailed explanation, used for framework comparisons too dense for a static table.
 
-Using distinct colors to represent different categories, groups, or properties in graphical displays.
+**Example:** Selecting a cell reveals a paragraph explaining that combination.
 
-**Example:** Learning graph visualizations use color to distinguish foundational concepts (orange) from advanced concepts (purple).
+#### Code Syntax Highlighting
 
-#### Command-Line Interface Basics
+Coloring code samples by language structure so they are easier to read, usually with a copy control.
 
-Fundamental concepts and operations for interacting with computers through text-based terminal commands.
+**Example:** Keywords, strings, and comments appear in distinct colors with a copy control.
 
-**Example:** Basic CLI skills include navigating directories with `cd`, listing files with `ls`, and running scripts.
+#### Cognitive Level Distribution
 
-#### Command Definition Files
+The spread of material across the six cognitive categories, used to check that a course is not concentrated in recall alone.
 
-Markdown files that specify slash command behaviors, stored in the `.claude/commands/` directory.
+**Example:** A course with thirty recall outcomes and two creation outcomes is unbalanced.
 
-**Example:** The file `.claude/commands/skills.md` defines what happens when you type `/skills`.
+#### collect-site-metrics.py
 
-#### Common Student Questions
+The program that gathers statistics from a built site for use in summaries and announcements.
 
-Frequently asked queries that learners typically have about course content, processes, or concepts.
+**Example:** It counts published pages and simulations from the built site.
 
-**Example:** "How do I install a skill globally versus project-specific?" is a common question addressed in the FAQ.
+#### color-config.json File
 
-#### Concept Categorization
+The stored assignment of a display color to each category, ensuring the same category keeps the same color across regenerations.
 
-The process of organizing concepts into groups based on difficulty level, subject area, or other distinguishing characteristics.
+**Example:** Saving the assignment keeps one category the same color across every regeneration.
 
-**Example:** Categorizing concepts as foundational, basic, intermediate, or advanced helps structure curriculum progression.
+#### Command Definition File
 
-#### Concept Dependencies
+The markdown file that declares a command's name and description and contains the steps it performs.
 
-Prerequisite relationships where understanding one concept requires prior mastery of other specific concepts.
+**Example:** The file declaring a runbook command's name, description, and steps.
 
-**Example:** Understanding "Dependency Edges in Learning Graphs" depends on first understanding "Learning Graph."
+#### Command-Line Arguments
 
-#### Concept Enumeration Process
+Values supplied to a program when it is invoked, allowing one script to operate on different inputs.
 
-The systematic method of identifying and listing all atomic concepts that comprise a course or subject area.
+**Example:** One validation script checks any dependency file named when it is run.
 
-**Example:** Reading the course description and generating exactly 200 distinct, atomic concepts covering all main topics.
+#### Comment System
+
+An embedded discussion feature letting readers leave remarks on a page.
+
+#### Comparison Table Sim
+
+An interactive table presenting side-by-side attributes with rated values across several options.
+
+**Example:** Four visualization libraries rated across five attributes side by side.
+
+#### Compatibility Field
+
+An optional metadata entry describing environment requirements such as needed packages or network access. It is advisory rather than enforced.
+
+**Example:** A note that a skill needs network access to verify citations.
+
+#### Component Placement
+
+Positioning parts into specific holes so their connections match the intended circuit.
+
+**Example:** A resistor spans the center channel so its two ends sit in separate rows.
+
+#### compress-images.py Script
+
+The program that reduces picture file sizes across a project to improve page load speed.
+
+**Example:** It reduces a folder of cover art from twelve megabytes to two.
+
+#### Concept
+
+A single teachable idea in a course, small enough to be explained on its own and named with a short label.
+
+**Example:** "Cycle Detection" is one teachable idea and occupies one node.
+
+#### Concept Classifier Sim
+
+An interactive sorting activity in which a reader assigns scenarios to categories and receives immediate feedback.
+
+**Example:** A reader sorts described situations into reinforcing and balancing categories.
+
+#### Concept Coverage Exactly Once
+
+The rule that every enumerated idea is introduced in one chapter and only one, preventing both gaps and duplication.
+
+**Example:** An idea introduced in two chapters wastes space and creates conflicting explanations.
+
+#### Concept Enumeration
+
+The process of deriving the full set of teachable ideas from a course description, before any ordering is assigned.
+
+**Example:** A course description yielding 570 distinct teachable ideas.
 
 #### Concept Granularity
 
-The level of detail or specificity at which ideas are broken down into individual learning components.
+The chosen level of detail at which ideas are separated, balancing a graph that is too coarse to guide sequencing against one too fine to read.
 
-**Example:** "Git Commands" has low granularity, while separate concepts for "Git Add Command," "Git Commit Command" has higher granularity.
+**Example:** Splitting "Git" into forty separate ideas would overwhelm a diagram.
 
-#### Concept Label Requirements
+#### Concept Label
 
-Specifications that concept names must follow, including Title Case formatting and maximum character length constraints.
+The short name identifying a teachable idea, written in title case and constrained in length so it displays legibly in a network diagram.
 
-**Example:** Concept labels must be in Title Case and not exceed 32 characters to ensure readability in visualizations.
+**Example:** "Directed Acyclic Graph" fits a node box; a full sentence would not.
+
+#### Concept List File
+
+The numbered document listing every teachable idea with its identifier, produced for author review before dependencies are mapped.
+
+**Example:** A numbered document an author edits before any dependency is assigned.
+
+#### Concept List Review
+
+Examining and editing the enumerated ideas before dependencies are assigned, since later changes propagate through every downstream artifact.
+
+**Example:** Removing an unwanted idea at this stage costs nothing; removing it after chapters are written requires rewriting them.
+
+#### Concept Search in Viewer
+
+A control that locates a named idea within a rendered diagram and brings it into view.
+
+#### Concept Taxonomy
+
+A set of categories used to group teachable ideas by subject area, providing color coding and distribution analysis.
+
+**Example:** Ideas about tokens, plans, and measurement group into one category.
 
 #### ConceptID Field
 
-A unique numeric identifier assigned to each concept in a learning graph CSV file.
+The unique integer identifying each teachable idea, used to reference it from dependency lists and graph files.
 
-**Example:** The ConceptID field contains integers from 1 to 200, providing a stable reference for each concept.
+**Example:** Idea 244 is referenced from every row that depends on it.
 
-#### ConceptLabel Field
+#### Concise Definition
 
-The human-readable name of a concept in a learning graph CSV file, following Title Case and length conventions.
+A definition expressed in the fewest words that still convey the full meaning, typically twenty to fifty.
 
-**Example:** The ConceptLabel field might contain "Learning Graph" or "Directed Acyclic Graph (DAG)."
+**Example:** "A repository that stores learner activity statements" says enough in nine words.
 
-#### Concept Nodes in Learning Graphs
+#### Content Element Types
 
-Individual concepts represented as vertices in a directed graph structure showing learning relationships.
+The catalog of components a chapter may contain, such as prose, worked examples, diagrams, exercises, and callouts.
 
-**Example:** In a visualization, each concept appears as a labeled circle (node) with arrows (edges) pointing to dependent concepts.
+**Example:** A chapter may combine prose, a worked example, a diagram request, and five exercises.
 
-#### Concise Definitions
+#### Content Generation Guide
 
-Brief explanations that convey essential meaning using minimal words, typically 20-50 words for glossary entries.
+A project document defining voice, character conventions, and placement rules that generated text must follow.
 
-**Example:** "A directed graph of concepts" is more concise than "A specialized type of graph structure that shows relationships."
+**Example:** A project document specifying that the recurring character appears at most twice per chapter.
 
-#### Content Generation Process
+#### Content Quality Standards
 
-The systematic workflow for creating textbook chapters, sections, and supporting materials using AI assistance.
+The criteria generated text must meet, covering prerequisite respect, cognitive coverage, example count, and formatting.
 
-**Example:** The chapter-content-generator skill reads concept lists and generates comprehensive content with examples and exercises.
+**Example:** Every section must include two worked examples and five practice problems.
+
+#### Context Compaction
+
+Summarizing earlier parts of a long session so work can continue after the accumulated material would otherwise exceed capacity.
+
+**Example:** A long session summarizes its earlier work so generation can continue.
+
+#### Context Window
+
+The maximum amount of text, measured in tokens, that a language model can consider at one time. Content beyond this limit is unavailable to the model.
+
+**Example:** A book with 40 chapters cannot be placed in a single context window, so skills read only the chapter currently being generated.
+
+#### Context Window Management
+
+Deliberately controlling what enters a model's working memory so the relevant material fits and nothing is wasted.
+
+**Example:** Reading one chapter rather than the whole book before generating that chapter's simulations.
+
+#### Continuous Book Improvement
+
+Using measurements, reader feedback, and usage data to revise a book and the skills that produced it after release.
+
+**Example:** Feedback showing a chapter confuses readers prompts both a rewrite and a skill revision.
+
+#### Core Versus Domain Skills
+
+The distinction between subject-neutral skills usable by any book and specialized skills meaningful only within one field.
+
+**Example:** A glossary generator serves any book; a breadboard generator serves one.
+
+#### Cost Per Book Estimate
+
+A projection of total consumption for a complete textbook, derived from measured per-stage costs.
+
+**Example:** Measured stage costs project the total consumption of a forty-chapter book.
 
 #### Course Description
 
-A comprehensive document defining a course's title, audience, prerequisites, topics, exclusions, and Bloom's Taxonomy-aligned outcomes.
+A structured document stating what a course covers, who it is for, what is excluded, and what learners will be able to do afterward. It is the source input for concept enumeration.
 
-**Example:** A complete course description enables the learning-graph-generator skill to identify relevant concepts and dependencies.
+**Example:** A document naming the audience, prerequisites, topics, exclusions, and outcomes of a course.
 
-#### Course Description Quality Score
+#### Course Description Analyzer
 
-A numeric assessment (1-100) evaluating how well a course description meets completeness and clarity standards.
+The skill that scores an existing course description against the rubric or drafts one that satisfies it.
 
-**Example:** A score of 95 indicates all required sections are present with clear, measurable learning outcomes.
+**Example:** It scores a draft at 62 and lists which elements are missing.
+
+#### Course Description Rubric
+
+The point-allocated scoring guide that assesses whether a course description contains every element needed for downstream generation.
+
+**Example:** Points are allocated to the title, audience, prerequisites, topics, exclusions, and each cognitive level.
+
+#### Course Description Score
+
+The numeric result of applying the rubric, used as a gate before concept enumeration begins.
+
+**Example:** A score above the threshold allows the pipeline to proceed and lets later runs skip re-scoring.
 
 #### Course Prerequisites
 
-Knowledge, skills, or experiences that learners must possess before beginning a course.
+The knowledge and access a learner is assumed to have before starting, stated explicitly rather than implied.
 
-**Example:** Prerequisites for this course include basic programming understanding and access to Claude Pro.
+**Example:** Stating that readers need basic programming and a hosting account.
 
-#### Create (Cognitive Level 6)
+#### Course Title
 
-The highest level of Bloom's Taxonomy where learners put elements together to form coherent, original works.
+The name identifying a course, used as the book title and in generated metadata.
 
-**Example:** Students create new Claude skills from scratch, designing workflows and writing skill definition files.
+**Example:** "Using Agent Skills to Create Intelligent Textbooks."
 
-#### Creator Metadata Field
+#### Cover Image Generation
 
-Dublin Core element identifying the person, organization, or entity responsible for creating a resource.
+Producing the principal illustration representing a book, derived from the book's own subject matter.
 
-**Example:** The creator field in metadata.json might contain "Dan McCreary" or your organization name.
+**Example:** A picture derived from the book's own subject rather than a stock illustration.
+
+#### Create Level
+
+The cognitive category covering assembly of elements into a new coherent whole, expressed by actions such as designing and constructing.
+
+**Example:** "Design and build a complete intelligent textbook for a subject of your choice."
+
+#### Creative Commons Licensing
+
+A family of standardized licenses that grant specified reuse rights while retaining copyright, commonly used for educational material and images.
+
+**Example:** A CC BY-NC license permits classroom reuse with attribution but forbids commercial resale.
+
+#### Crediting Pedagogical Authors
+
+Naming the specific writers responsible for an influential explanation, analogy, or derivation, rather than citing only encyclopedic sources.
+
+**Example:** A citation credits the author who introduced a now-standard teaching analogy for a difficult idea.
+
+#### crop-screenshot.py Script
+
+The program that trims a captured image to a required aspect ratio for use in posts and previews.
+
+**Example:** It trims a captured page to the proportions a sharing platform displays.
+
+#### Cross-Platform Skill Testing
+
+Running the same skill on several agent platforms and comparing results to find behavior that depends on one vendor.
+
+**Example:** A skill that works in one agent silently skips its image step in another.
+
+#### CSV Parsing in Python
+
+Reading delimited tabular text into structured records for processing.
+
+**Example:** Reading a dependency file into records so each row can be validated.
 
 #### csv-to-json.py Script
 
-A Python program that converts learning graph CSV files into vis-network JSON format for visualization.
+The program that converts a tabular dependency file into the viewer-ready format, generating the legend from category definitions.
 
-**Example:** Running this script transforms `learning-graph.csv` into `learning-graph.json` with nodes and edges arrays.
+**Example:** It turns a dependency spreadsheet into the file an interactive viewer renders.
 
-#### CSV File Format for Graphs
+#### Curated Reference List
 
-A structured text format using comma-separated values to store learning graph data with headers and rows.
+A deliberately selected set of sources chosen for quality and relevance rather than assembled by bulk search.
 
-**Example:** Graph CSVs contain columns: ConceptID, ConceptLabel, Dependencies, TaxonomyID.
+**Example:** Ten sources chosen for a chapter rather than fifty returned by a search.
 
-## D
+#### Cursor IDE
 
-#### DAG Validation
+An editor with a built-in AI agent that can load and run skills alongside normal editing.
 
-The process of verifying that a learning graph forms a valid directed acyclic graph with no circular dependencies.
+**Example:** An author edits chapters while an embedded agent generates their simulations.
 
-**Example:** The analyze-graph.py script performs DAG validation and reports any cycles that would prevent topological sorting.
+#### Custom 404 Page
 
-#### Date Metadata Field
+A replacement for the default missing-page message, offering navigation back into a book.
 
-Dublin Core element recording when a resource was created, modified, or published.
+**Example:** A missing page offers links back to the table of contents.
 
-**Example:** The date field captures "2025-11-08" as the generation date for the learning graph.
+#### Cycle Detection
 
-#### Definitions Without Business Rules
+Checking a directed structure for any closed loop, which would make a consistent teaching order impossible.
 
-ISO 11179 principle that glossary definitions should describe concepts without prescribing processes or requirements.
+**Example:** If a closed path is reported, no valid teaching order exists.
 
-**Example:** Define "Prerequisites" as relationships between concepts, not "Students must complete prerequisites before advancing."
+#### data.json File
 
-#### Dependency Edges in Learning Graphs
+A file holding a simulation's underlying values separately from its code, so figures can be updated without touching logic.
 
-Directed arrows connecting prerequisite concepts to dependent concepts in a graph structure.
+**Example:** Updating a chart's figures without touching the code that draws it.
 
-**Example:** An edge from "Variables" to "Functions" indicates that understanding variables is prerequisite for understanding functions.
+#### Define Before Display Rule
 
-#### Dependency Mapping Process
+The authoring rule that a term must be explained before any diagram, table, or code sample relies on it.
 
-The systematic method of identifying and recording prerequisite relationships between all concepts in a learning graph.
+**Example:** A parameter appearing in a code listing is described in prose before the listing appears.
 
-**Example:** For each of 200 concepts, determine which prior concepts must be understood first and record them in the Dependencies field.
+#### Definitions Without Rules
 
-#### Dependencies Field
+A definition that describes what something is rather than prescribing how it must be used or who may use it.
 
-A CSV column containing pipe-delimited ConceptIDs representing prerequisite concepts that must be learned first.
+**Example:** "A structure showing prerequisite relationships" rather than "learners must finish prerequisites first."
 
-**Example:** A Dependencies field of "1|5|12" means concepts 1, 5, and 12 are prerequisites for the current concept.
+#### Dependency Chain Length
 
-#### Description Metadata Field
+The number of steps in the longest path from an entry point to a final idea, indicating how deep the material runs.
 
-Dublin Core element providing a textual explanation of a resource's content and purpose.
+**Example:** A longest path of twenty-six steps indicates substantial depth.
 
-**Example:** The description field summarizes what the learning graph covers and its educational objectives.
+#### Dependency Edge
 
-#### Difference Between Skills & Commands
+The arrow in a graph that represents a single ordering relationship between two ideas.
 
-Skills are autonomous workflows defined in SKILL.md files, while commands are simple prompt expansions for common tasks.
+**Example:** An arrow from "Directed Acyclic Graph" to "Cycle Detection."
 
-**Example:** A skill generates entire chapters; a command might just list available skills or clear the conversation history.
+#### Dependency-Ordered Chapters
 
-#### Directed Acyclic Graph (DAG)
+Sequencing chapters so no chapter relies on material introduced only in a later chapter.
 
-A graph structure with directed edges and no cycles, where you cannot traverse from any node back to itself.
+**Example:** A chapter using dependency structure appears after the chapter introducing it.
 
-**Example:** Learning graphs must be DAGs to ensure a valid learning sequence exists without circular prerequisites.
+#### Deployment Verification
+
+Confirming that a published site renders correctly and that its links and assets resolve after release.
+
+**Example:** Confirming that pictures load and internal links resolve on the published site.
+
+#### Description Trigger Testing
+
+Checking a skill description against sample requests to confirm it activates when it should and stays silent when it should not.
+
+**Example:** Ten sample requests confirm the intended skill activates for each.
+
+#### Descriptive Context
+
+Supporting narrative in a course description explaining why the subject matters and how the material will be used.
+
+**Example:** A paragraph explaining why an author would want to build a textbook this way.
+
+#### Design Decision Record
+
+A written account of why a particular approach was chosen over alternatives, preserved so the reasoning survives.
+
+**Example:** Noting why serial generation was chosen over concurrent generation prevents the question being reopened later.
+
+#### Details Disclosure Block
+
+A collapsible region that hides supporting material until a reader expands it, keeping a page readable while retaining depth.
+
+**Example:** A simulation's full specification is stored collapsed inside the chapter that requests it.
+
+#### detect_features.py Script
+
+The program that inspects a project and reports which site capabilities are installed.
+
+**Example:** It reports that equation rendering is installed but the comment system is not.
+
+#### Deterministic Computation
+
+An operation that returns the same result for the same input every time, making it suitable for automated validation.
+
+**Example:** Counting words in a chapter returns the same number every time.
+
+#### Deterministic Work Offloading
+
+Assigning every step with a single correct answer to a program, reserving the model for judgment and composition.
+
+**Example:** Sorting a glossary is arithmetic, not judgment, so a program does it.
+
+#### Diagram Coverage Report
+
+A generated summary showing which requested visuals exist, which are missing, and which chapters lack illustration.
+
+**Example:** One chapter requested five visuals and has three.
+
+#### Diagram Specification Block
+
+A structured description of a required visual placed inside a chapter, later read by a generator to produce the actual simulation.
+
+**Example:** A block naming the visualization type, data, and interaction is parsed automatically rather than read by hand.
+
+#### diagram-report.py Script
+
+The program that compares requested visuals against existing ones and reports coverage per chapter.
+
+**Example:** It lists which requested visuals are still missing per chapter.
+
+#### Digital Circuit Simulation
+
+Modeling a circuit whose signals take discrete states, so a reader can observe switching behavior without building hardware.
+
+**Example:** A lamp turns on only while a modeled button is held closed.
+
+#### Directed Acyclic Graph
+
+A structure of nodes and one-way arrows containing no path that returns to its starting node, guaranteeing a valid ordering exists.
+
+**Example:** If A precedes B and B precedes C, no arrow may run from C back to A.
 
 #### Directory Navigation
 
-The process of moving between folders in a file system using command-line or graphical interfaces.
+Moving between folders in a filesystem and referring to files by absolute or relative path.
 
-**Example:** Use `cd docs/chapters` to navigate into the chapters directory from the project root.
+**Example:** Referring to a chapter by its path from the project root.
 
-#### Disconnected Subgraphs
+#### Disconnected Subgraph
 
-Separate groups of concepts in a learning graph that have no dependency connections between groups.
+A cluster of ideas linked to one another but not reachable from the main body of the structure.
 
-**Example:** If web development concepts and database concepts form separate clusters with no links, they are disconnected subgraphs.
+**Example:** Three ideas reference each other but nothing links them to the main body.
 
-#### Distinct Definitions
+#### Distinct Definition
 
-ISO 11179 principle ensuring each glossary entry is clearly distinguishable from related terms.
+A definition that clearly separates its term from related terms rather than blurring into them.
 
-**Example:** "Learning Graph" and "Concept Dependency" have distinct definitions focusing on different aspects of concept relationships.
+**Example:** A terminal node and an orphaned node differ, and their definitions must show it.
+
+#### Distractor Design
+
+The construction of incorrect alternatives that represent genuine misunderstandings rather than obvious filler.
+
+**Example:** An alternative reflecting a common confusion between two similar terms tests understanding; a nonsensical option does not.
+
+#### Distractor Plausibility
+
+The degree to which an incorrect alternative could reasonably be selected by a reader holding a specific misconception.
+
+**Example:** An option reflecting confusion between terminal and orphaned nodes tests real understanding.
+
+#### Docker Python Lab
+
+An interactive exercise in which a reader edits and runs code inside a contained environment directly from a textbook page.
+
+**Example:** A reader edits a loop, runs it, and sees output without installing anything.
+
+#### Document Status Indicator
+
+A visual marker in site navigation showing where a page stands in its review lifecycle.
+
+**Example:** A colored dot marks a page as draft, in review, or complete.
+
+#### Domain Skill Case Study
+
+A worked example showing how a general library was extended for one subject, used as a pattern for other fields.
+
+**Example:** An electronics book extending the shared library with three specialized skills.
+
+#### Domain Skill Standards
+
+The requirement that a specialized skill follow the same structure, description quality, and validation practices as the shared library.
+
+**Example:** A specialized skill carries the same description quality and validation as a shared one.
+
+#### Domain Vocabulary Gap
+
+The shortfall that appears when a general skill lacks the terms, conventions, and correctness rules a specific subject requires.
+
+**Example:** A general simulation generator has no notion of a tie-point row.
+
+#### Domain-Specific Skill
+
+A skill encoding knowledge particular to one subject area, used where general-purpose skills lack the necessary vocabulary or conventions.
+
+**Example:** A skill that understands components and wiring is needed for electronics and useless elsewhere.
+
+#### Drawing Specification Block
+
+A structured description of a required static illustration placed inside a chapter for later generation.
+
+**Example:** A description of a required static illustration placed inside a chapter.
+
+#### Dropdown Select Control
+
+An interface element presenting a list of options from which one is chosen, used for selecting modes or datasets.
+
+**Example:** Choosing which dataset a chart displays.
+
+#### Dry Run Mode
+
+An option that reports what a program would change without changing anything, used to preview destructive operations.
+
+**Example:** A script reports that it would rewrite forty files, without changing any.
 
 #### Dublin Core Metadata
 
-A standardized set of 15 metadata elements for describing digital resources, including title, creator, date, and format.
+A standard set of descriptive fields such as title, creator, date, and rights, used to make a resource identifiable and citable.
 
-**Example:** MicroSim metadata.json files use Dublin Core fields to document simulation properties.
+**Example:** Recording a book's title, creator, date, and license so it can be cited.
 
-## E
+#### Edges Section
 
-#### Edges Section in JSON
+The part of a graph file listing every ordering relationship as a pair of identifiers.
 
-The array in vis-network JSON format containing objects that define directed connections between concept nodes.
+**Example:** A pair recording that one idea precedes another.
 
-**Example:** `{"from": 1, "to": 2}` in the edges array represents a dependency from concept 1 to concept 2.
+#### Editable Marker Positions
 
-#### Educational Content Prompts
+The ability to reposition annotation markers through stored data, allowing correction without regenerating anything.
 
-Carefully designed instructions to AI systems specifying how to generate pedagogically sound learning materials.
+**Example:** A misplaced label is corrected by editing two numbers in a data file.
 
-**Example:** A prompt might request "Generate 5 worked examples demonstrating this concept at the Apply level of Bloom's Taxonomy."
+#### Educational Metadata Section
 
-#### Educational Simulation Design
+The part of a simulation's descriptive record holding grade level, subject, objectives, and targeted cognitive levels.
 
-The process of creating interactive visual models that demonstrate concepts through user manipulation and observation.
+**Example:** A simulation records that it targets the analyze level for secondary students.
 
-**Example:** A MicroSim showing bubble sort lets learners control array size and see step-by-step swaps in real-time.
+#### Elapsed Time Measurement
+
+Recording how long a skill takes from start to finish, separate from what it costs.
+
+**Example:** A skill taking six minutes may still be the cheapest option available.
+
+#### ElevenLabs Voice Settings
+
+The parameters controlling a synthesized voice's identity, pacing, and expressiveness in generated audio.
+
+**Example:** Adjusting pacing so narration matches a comfortable listening speed.
+
+#### Encouraging Tone
+
+A writing register that remains supportive and accessible, reducing the chance a reader abandons difficult material.
+
+**Example:** Framing a difficult step as common rather than as a failure of the reader.
+
+#### Equation Count
+
+The number of mathematical expressions in a book, indicating how quantitative the material is.
+
+**Example:** A book containing 240 formulas is clearly quantitative.
+
+#### Equation Numbering
+
+Assigning identifiers to displayed formulas so they can be referenced from surrounding text.
+
+**Example:** Referring back to "Equation 3" later in a chapter.
+
+#### Equivalent Page Count
+
+An estimate of how many printed pages a book's content would occupy, giving readers a familiar sense of size.
+
+**Example:** A word count presented as roughly 480 printed pages.
 
 #### Error Analysis in Skills
 
-The systematic examination of skill execution failures to identify root causes and improvement opportunities.
+Examining failed runs to determine whether the fault lies in the description, the instructions, a script, or the environment.
 
-**Example:** Analyzing error messages reveals that a skill failed because it expected a file in `/docs/learning-graph/` that didn't exist.
+**Example:** A failure traced to a description that never matched the request.
 
-#### Evaluate (Cognitive Level 5)
+#### Evaluate Level
 
-The fifth level of Bloom's Taxonomy where learners make judgments based on criteria and standards.
+The cognitive category covering judgment against criteria, expressed by actions such as critiquing, assessing, and justifying.
 
-**Example:** Students evaluate the quality of a generated glossary using ISO 11179 compliance as evaluation criteria.
+**Example:** "Judge whether a quality check is worth its cost."
 
-## F
+#### Experience API
+
+A specification for recording statements about learner activity in a consistent structure so that interactions can be collected and analyzed.
+
+**Example:** A statement records that a reader completed a specific simulation at a specific time.
+
+#### extract-sim-specs.py Script
+
+The program that reads a chapter and produces a structured list of every simulation it requests, replacing manual parsing.
+
+**Example:** It finds every visual request in a chapter and returns them as structured records.
+
+#### Fact Fabrication Rate
+
+The measured proportion of generated factual claims that no cited source supports.
+
+**Example:** In one observed poster, eight of ten figures were unsupported and two of five citations did not exist.
+
+#### False Trigger Misfire
+
+A routing error in which a skill activates for a request it does not handle, usually caused by an overly broad description.
+
+**Example:** A description mentioning "diagram" activates for every chart request.
 
 #### FAQ
 
-A document containing Frequently Asked Questions and their answers to help learners find common information quickly.
+A collection of common questions with answers, organized to address the difficulties readers most often encounter.
 
-**Example:** The FAQ addresses questions like "How do I install skills globally?" and "What's the difference between skills and commands?"
+**Example:** A collection answering the questions readers most often raise.
 
-#### FAQ from Course Content
+#### FAQ Categorization
 
-Questions and answers derived from analyzing course materials, learning graphs, and glossary terms.
+Grouping questions by subject and difficulty so a reader can locate the relevant area quickly.
 
-**Example:** Generated FAQs explain technical terms from the glossary in simpler language with additional context.
+**Example:** Questions grouped into setup, workflow, and troubleshooting.
 
-#### FAQ Generation Process
+#### FAQ Coverage Gaps
 
-The systematic workflow for creating comprehensive question-answer pairs from course content and anticipated learner needs.
+Areas of a course for which no question exists, identified by comparing questions against the enumerated ideas.
 
-**Example:** The faq-generator skill scans course content, identifies potential confusion points, and creates clear Q&A pairs.
+**Example:** No question addresses a chapter's most difficult idea.
+
+#### FAQ Generator
+
+The skill that derives questions and answers from course material, the idea structure, and defined vocabulary.
+
+**Example:** It derives questions from chapters, the idea structure, and defined vocabulary.
+
+#### Feature Auto-Detection
+
+Examining a project to determine which capabilities are already installed, so a report reflects reality rather than assumption.
+
+**Example:** A scan reports which site capabilities a book already has.
+
+#### Feature Checklist
+
+A generated document listing available site capabilities and marking which are present in a given book.
+
+**Example:** A generated table marking twenty capabilities present and twenty absent.
+
+#### Feature Installation Routing
+
+Matching a request for a site capability to the specific guide describing how to install it.
+
+**Example:** A request mentioning "favicon" routes to the icon generation guide.
 
 #### File Access Permissions
 
-Security settings that control which users and processes can read, write, or execute specific files.
+The rules governing which files an agent may read or modify during a session.
 
-**Example:** Script execution requires permission: `chmod +x install-ibook-skills.sh` makes the file executable.
+**Example:** An agent permitted to read a directory but not to delete from it.
 
-#### File Creation and Editing
+#### File Globbing
 
-The process of making new files or modifying existing files using text editors or command-line tools.
+Selecting files by wildcard pattern rather than naming each one, used to process every chapter or simulation at once.
 
-**Example:** Use `touch glossary.md` to create a new file, then edit it with VS Code or vim.
+**Example:** Selecting every chapter file with one pattern rather than naming forty.
 
-#### Five Levels of Textbook Intelligence
+#### File Layout as Token Strategy
 
-A framework categorizing educational materials from static text (Level 1) to AI-personalized learning (Level 5).
+Organizing content into separate files so a routine update reads only a small file instead of a large one.
 
-**Example:** Traditional PDFs are Level 1, while textbooks with adaptive quizzes and learning paths are Level 4.
+**Example:** Keeping references in their own file lets an update read two hundred tokens rather than six thousand.
 
-#### Font Colors for Readability
+#### File Separation Principle
 
-Strategic color choices for text that ensure sufficient contrast and accessibility across different backgrounds.
+The rule that structure, presentation, behavior, and data each live in their own file, improving maintainability and caching.
 
-**Example:** Light text on dark nodes requires careful color selection to maintain readability in graph visualizations.
+**Example:** Styling changes touch one file and never risk breaking behavior.
 
-#### Format Metadata Field
+#### Five Levels of Intelligence
 
-Dublin Core element specifying the file format or media type of a resource.
+A scale describing how responsive an educational resource is to its reader, progressing from static pages through interactive, adaptive, chatbot-integrated, and fully autonomous material.
 
-**Example:** The format field might indicate "text/html" for MicroSims or "application/json" for learning graphs.
+**Example:** A book with embedded MicroSims and quizzes but no personalization sits at the second level.
 
-#### Foundational Concepts
+#### Five-Hour Usage Window
 
-Fundamental ideas with no prerequisites that serve as building blocks for more advanced understanding.
+A rolling measurement period used on some plans to meter consumption before capacity refreshes.
 
-**Example:** "Artificial Intelligence" and "Claude AI" are foundational concepts that don't depend on other course concepts.
+**Example:** Work paused near a limit resumes once the period refreshes.
 
-#### 4-Hour Usage Windows
+#### Flesch-Kincaid Grade Level
 
-Time-based limits on Claude Pro usage where token allowances reset after four hours of activity.
+A readability measure derived from sentence and word length, used to compare chapters against a declared target.
 
-**Example:** Planning to generate multiple chapters within a single 4-hour window maximizes efficiency.
+**Example:** A chapter measuring several grades above target needs simplification.
 
-## G
+#### Font Size for Readability
 
-#### Generating 200 Concepts
+Text sizing within a simulation chosen so labels remain legible when the simulation is displayed in a reduced frame.
 
-The process of systematically enumerating exactly 200 atomic concepts that comprehensively cover a course's scope.
+**Example:** Labels legible at full size may be unreadable in a reduced frame.
 
-**Example:** The learning-graph-generator skill analyzes the course description and produces a numbered list of 200 concepts.
+#### Foundational Concept
+
+A teachable idea with no prerequisites, serving as an entry point where a learner can begin.
+
+**Example:** "Artificial Intelligence" has no prerequisites and is where a reader may begin.
+
+#### Four-Hour Usage Window
+
+A rolling period over which consumption is measured against a plan allowance, after which capacity replenishes.
+
+**Example:** Consumption is measured against the allowance for this rolling period.
+
+#### Freely-Licensed Images
+
+Pictures whose terms permit reuse in educational material, typically with attribution.
+
+**Example:** A photograph reusable in a textbook provided its creator is credited.
+
+#### Frontmatter Contract
+
+The agreement that only a small set of metadata fields is portable across agent platforms, making those fields the safe surface for a shared library.
+
+**Example:** Only the name and description are guaranteed portable, so a shared library relies on those.
+
+#### Frontmatter Quality Score
+
+An assessment value written into a page's metadata block so its standing is visible to both tooling and authors.
+
+**Example:** A lab page carrying a score of 78 in its metadata block.
+
+#### Fullscreen Sim Button
+
+A link that opens a simulation in its own tab at full size for closer inspection.
+
+**Example:** A link opening a dense network diagram at full window size.
+
+#### generate-favicon.py Script
+
+The program that produces browser tab icons at required sizes from a source picture.
+
+**Example:** It produces tab icons at several sizes from one source picture.
+
+#### generate-images.py Script
+
+The program that requests illustrations for a narrative and stores them with their descriptions.
+
+**Example:** It requests illustrations for each scene of a narrative and stores them with descriptions.
+
+#### generate-sim-scaffold.py
+
+The program that creates the standard directory and placeholder files for a simulation from its specification.
+
+**Example:** It creates the directory, markup, styling, metadata, and documentation stubs.
+
+#### generate-sims-index.py
+
+The program that builds the catalog page listing every simulation with its preview image.
+
+**Example:** It rebuilds the catalog page after new simulations are added.
+
+#### Getting Started Section
+
+The part of a repository summary telling a newcomer how to install dependencies and run the site locally.
+
+**Example:** Instructions to install dependencies and serve the site locally.
+
+#### gh-deploy Command
+
+The instruction that builds a site and publishes it to its hosting branch in one step.
+
+**Example:** One instruction builds the site and publishes it.
 
 #### Git
 
-A distributed version control system for tracking changes in source code and collaborating on software projects.
-
-**Example:** Git commands like `git add`, `git commit`, and `git push` manage textbook content versions.
+A distributed version control system that records snapshots of a project over time and allows changes to be reviewed, reverted, and merged.
 
 #### Git Add Command
 
-A Git operation that stages modified or new files for inclusion in the next commit.
+The instruction that marks changed files for inclusion in the next recorded snapshot.
 
-**Example:** `git add docs/glossary.md` stages the glossary file for committing to the repository.
+#### Git Branching
 
-#### Git Commit Command
+Maintaining parallel lines of development so work in progress does not disturb the published state.
 
-A Git operation that saves staged changes to the local repository with a descriptive message.
+**Example:** Drafting a chapter without disturbing the published version.
 
-**Example:** `git commit -m "Add glossary with 200 ISO 11179-compliant definitions"` records the glossary addition.
+#### Git Commit
 
-#### Git Push Command
+The instruction that records marked changes as a permanent snapshot with an explanatory message.
 
-A Git operation that uploads local commits to a remote repository like GitHub.
+**Example:** A message explaining why a change was made is what makes a later investigation possible.
 
-**Example:** `git push origin main` sends your latest commits to the main branch on GitHub.
+#### Git Push
+
+The instruction that sends locally recorded snapshots to the shared hosted copy.
 
 #### Git Repository Structure
 
-The organization of files, directories, and Git metadata within a version-controlled project.
+The layout of a project tracked by Git, including the working files, the history database, and the ignore rules that exclude generated artifacts.
 
-**Example:** A textbook repo includes `/docs`, `/skills`, `.git` hidden folder, and configuration files like `mkdocs.yml`.
+**Example:** Working files, recorded history, and rules excluding generated output.
 
-#### Git Status Command
+#### Git Status
 
-A Git operation that displays the current state of the working directory and staging area.
+The instruction that reports which files have changed and which are marked for the next snapshot.
 
-**Example:** `git status` shows which files are modified, staged, or untracked.
+#### GitHub Copilot
+
+An AI assistant integrated with editors and GitHub that can consume portable skill definitions.
+
+**Example:** An assistant embedded in an editor that can consume portable skill definitions.
 
 #### GitHub Integration
 
-The connection between local Git repositories and GitHub's cloud-based platform for hosting and collaboration.
+Connecting a local repository to a hosted service that stores the shared copy and provides issues, reviews, and site hosting.
 
-**Example:** Linking a local textbook repository to GitHub enables deployment to GitHub Pages.
+**Example:** Connecting a local book to its hosted copy so it can be published.
 
 #### GitHub Pages Deployment
 
-The process of publishing static website content to GitHub's free web hosting service.
+Publishing a built site through a hosting service attached to its repository.
 
-**Example:** Running `mkdocs gh-deploy` builds the site and pushes it to the gh-pages branch for public access.
+**Example:** A built site served directly from its repository.
+
+#### GitHub Projects Kanban
+
+A board tracking outstanding work in columns representing stages of progress.
+
+**Example:** Chapters move from drafted to reviewed to published.
+
+#### Global Skill Installation
+
+Placing skills where every project on a machine can use them, rather than inside a single project.
+
+**Example:** One skill collection serving every book on a machine.
 
 #### Glossary
 
-An alphabetically organized collection of terms and their definitions specific to a subject area or course.
+An alphabetical collection of terms with definitions, serving as the reference layer for vocabulary used across a book.
 
-**Example:** This glossary defines 200 concepts related to creating intelligent textbooks with Claude Skills.
+**Example:** The reference layer readers consult when a chapter uses unfamiliar vocabulary.
 
-#### Glossary Generation Process
+#### Glossary Anchor Links
 
-The systematic workflow for creating ISO 11179-compliant definitions from a concept list with quality validation.
+Direct links from body text to a specific definition, letting readers resolve unfamiliar vocabulary without losing their place.
 
-**Example:** The glossary-generator skill reads concept lists, generates definitions, adds examples, and produces quality reports.
+**Example:** A term used in a chapter links directly to its definition.
 
-#### Groups Section in JSON
+#### Glossary Generator
 
-The array in vis-network JSON format defining visual properties for each taxonomy category.
+The skill that converts an enumerated idea list into formatted definitions meeting a defined quality standard.
 
-**Example:** Groups specify colors like orange for foundational concepts and purple for advanced concepts.
+**Example:** It converts an idea list into formatted definitions meeting a defined standard.
 
-## I
+#### Glossary Quality Report
+
+A generated assessment scoring definitions against the metadata criteria and listing entries that need revision.
+
+**Example:** It reports mean definition length and which entries need revision.
+
+#### Glossary Term Ordering
+
+Arranging entries alphabetically without regard to case, category, or topic, so any term can be located directly.
+
+**Example:** "About Page" precedes "Accessible Color Schemes" regardless of subject.
+
+#### Glossary Token Benchmark
+
+A measured reference point showing that a three-hundred-fifty-term glossary can be produced by a single agent for roughly thirty-one thousand tokens.
+
+**Example:** A measured figure used to estimate the cost of a glossary of any size.
+
+#### Google Analytics GA4
+
+A measurement service that records how readers reach and move through a published site.
+
+**Example:** A report showing which chapters readers actually reach.
+
+#### Google Antigravity
+
+A Google AI development environment that can execute agent skills within a supported project.
+
+**Example:** A development environment that can run skills within a supported project.
+
+#### Government Archive Images
+
+Pictures from public agency collections, often free of copyright restriction and suitable for educational reuse.
+
+**Example:** A public agency photograph usable without a licensing fee.
+
+#### Graceful Capability Degradation
+
+Designing a skill so that when a platform lacks a capability, the skill produces a reduced but still useful result rather than failing.
+
+**Example:** A layout review that cannot analyze a screenshot falls back to checking measurable properties in the source files.
+
+#### Graph Legend and Colors
+
+The key mapping each displayed color to its category, letting a reader interpret a diagram at a glance.
+
+**Example:** A colored node is immediately recognizable as belonging to one category.
+
+#### Graph Remediation
+
+Correcting structural defects a quality report identifies, such as removing a loop or connecting an isolated idea.
+
+**Example:** Adding a missing link so an isolated idea joins the main structure.
+
+#### Graph Review Workflow
+
+The author-led inspection of a generated structure before content generation begins, when corrections are still inexpensive.
+
+**Example:** An author corrects two mislabeled ideas before chapters are generated.
+
+#### Graphic Novel Format
+
+A sequential illustrated narrative with panels and dialogue, used for extended storytelling within a book.
+
+**Example:** A sequence of panels dramatizing how an idea was discovered.
+
+#### Grep Before Read
+
+Searching for a pattern to locate relevant lines before opening a file, so only the necessary region is loaded.
+
+**Example:** Searching for a heading to locate the relevant section before opening a large file.
+
+#### Grid Overlay Engine
+
+The code layer that draws rectangular interactive regions over columns or sections of a poster-style image.
+
+**Example:** Hovering over a poster column reveals an explanation of that column.
+
+#### Grounding and Verification
+
+The practice of tying generated claims to identifiable sources and confirming them before the claims are published.
+
+**Example:** Every percentage in a poster is traced to a quoted passage from a cited URL before the poster is rendered.
+
+#### Groups Section
+
+The part of a graph file defining each category's display name, color, and font, which together form the legend.
+
+**Example:** A category's display name, color, and font, which together form the legend.
+
+#### Hallucination
+
+Model output that is fluent and confident but factually wrong or unsupported by any source.
+
+**Example:** An image model invents a plausible-looking citation for a statistic that no study actually reports.
+
+#### Hands-On Lab Design
+
+Constructing a practical activity a learner can complete independently with a defined set of parts.
+
+**Example:** A wiring activity a learner completes alone with a specified parts kit.
+
+#### Home Page Template
+
+The starting page presenting a book's cover, summary, and entry points into its material.
+
+**Example:** A landing page showing the cover, a summary, and links into the chapters.
+
+#### Human in the Loop
+
+A working pattern in which a person reviews and approves agent output at defined checkpoints instead of accepting results unexamined.
+
+**Example:** An author reviews the concept list before chapter generation begins, because correcting concepts later is far more expensive.
+
+#### ibook Runbook
+
+The command that inspects a textbook project and reports how far the build pipeline has progressed and which skill to run next.
+
+**Example:** It reports that the structure exists and chapters do not, so chapter design is next.
+
+#### IDE Agent Integration
+
+Running an AI coding agent inside an editor so file context, terminal, and generated changes share one workspace.
+
+**Example:** Generated changes appear in the same window where the author is editing.
+
+#### Idempotent Script Design
+
+Writing a program so that running it repeatedly produces the same end state as running it once.
+
+**Example:** A script that inserts an iframe checks whether one is already present rather than adding a duplicate.
+
+#### Iframe Control Visibility
+
+Confirming that a simulation's interface elements remain reachable when displayed at the frame height a page assigns.
+
+**Example:** A slider positioned below the visible region is unusable even though the simulation itself works.
 
 #### Iframe Embedding
 
-The technique of inserting one HTML document inside another using the `<iframe>` tag.
+Placing a self-contained page inside a documentation page so a simulation runs inline without navigating away.
 
-**Example:** MicroSim documentation embeds `main.html` simulations in `index.md` pages using iframe tags.
+**Example:** A simulation runs inline on a chapter page without navigating away.
+
+#### Iframe Height Synchronization
+
+Propagating a simulation's recorded height into every place it is embedded, so frames neither clip content nor leave blank space.
+
+**Example:** Changing one value and running a script updates the frame height wherever that simulation appears.
+
+#### Illustrated Story Format
+
+A narrative retelling of course material paired with generated pictures, used to introduce ideas through story.
+
+**Example:** A narrative introducing dependency ordering through a character's journey.
+
+#### Image Attribution
+
+Crediting the creator and stating the license of a reused picture, as the license terms require.
+
+**Example:** A caption naming the photographer and the license.
+
+#### Image Compression
+
+Reducing the file size of pictures so pages load quickly, while keeping quality acceptable for reading.
+
+**Example:** A cover reduced from four megabytes to four hundred kilobytes.
+
+#### Image Prompt Engineering
+
+Composing the description supplied to an image generator so the resulting picture matches an intended composition and content.
+
+**Example:** Specifying composition, style, and exact wording so a picture matches its plan.
+
+#### Image Understanding Dependency
+
+A skill's reliance on a model's ability to interpret pictures, which is the capability most likely to be missing on non-Claude platforms.
+
+**Example:** A layout review requiring picture interpretation cannot run everywhere.
+
+#### Image Zoom Lightbox
+
+A feature enlarging a picture in an overlay when a reader selects it, useful for detailed diagrams.
+
+**Example:** A dense diagram expands to full size when selected.
 
 #### Improving Skill Quality
 
-The iterative process of refining skill workflows, error handling, and output quality through testing and feedback.
+Revising a skill in response to measured defects, then re-running the benchmark to confirm the change helped.
 
-**Example:** Adding validation checks to skills ensures they fail gracefully when required input files are missing.
+**Example:** A description rewritten after it failed to trigger on three sample requests.
 
 #### Indegree Analysis
 
-Examining how many prerequisite concepts point to each concept in a learning graph.
+Counting how many ideas depend on each idea, revealing which are most heavily relied upon and therefore most important to explain well.
 
-**Example:** High indegree concepts require many prerequisites and are typically advanced topics.
+**Example:** An idea depended on by twenty-seven others deserves careful explanation.
 
-#### index.md for MicroSim Docs
+#### Inline Code Antipattern
 
-A markdown documentation file that describes a MicroSim's purpose, usage, and embeds the interactive simulation.
+Embedding styling or logic directly inside a markup file, which is acceptable for prototypes but obstructs later maintenance.
 
-**Example:** `/docs/sims/bubble-sort/index.md` explains the simulation and embeds `main.html` in an iframe.
+**Example:** Styling written inside markup is quick to prototype and hard to maintain.
 
-#### Installing a Claude Skill
+#### Input Versus Output Tokens
 
-The process of making a skill available for use in Claude Code by placing it in the `.claude/skills/` directory.
+The distinction between text supplied to a model and text produced by it, which are metered separately and priced differently.
 
-**Example:** Running `./scripts/install-ibook-skills.sh` creates symlinks from project skills to global skills directory.
+**Example:** Reading a long chapter costs input; writing a new one costs output.
 
-#### Installing Claude Commands
+#### Instructional Scaffolding
 
-The process of placing command definition files in `.claude/commands/` to enable slash command usage.
+Sequencing support so each new idea rests on material already presented, and removing that support as competence grows.
 
-**Example:** Copying `skills.md` to `.claude/commands/` enables the `/skills` command.
+**Example:** A worked example precedes the exercise asking for the same procedure.
 
-#### Installing Python Packages
+#### Instructor Guide
 
-The process of adding third-party Python libraries to your environment using package management tools.
+Teacher-facing material describing how to use a book in a classroom, including pacing and discussion prompts.
 
-**Example:** `pip install mkdocs-material` installs the Material theme for MkDocs documentation.
-
-#### Installing Skills Globally
-
-Placing skills in `~/.claude/skills/` to make them available across all Claude Code projects.
-
-**Example:** Global skills can be invoked from any project directory without per-project installation.
+**Example:** Pacing suggestions and discussion prompts for a two-week unit.
 
 #### Intelligent Textbook
 
-An educational resource enhanced with interactive elements, adaptive content, or AI-powered features beyond static text.
+An educational resource that combines written content with structured knowledge and interactive elements so it can adapt to and respond to a reader.
 
-**Example:** An intelligent textbook includes learning graphs, interactive MicroSims, and automatically generated quizzes.
+**Example:** A book whose concepts are linked to a dependency graph, whose diagrams are interactive, and whose quizzes are aligned to cognitive levels.
 
-#### Interactive Controls (Buttons)
+#### Interactive Infographic Overlay
 
-User interface elements in MicroSims that trigger actions or state changes when clicked.
+A labeled illustration in which a picture carries no printed annotation and a code layer draws numbered markers, labels, and explanations on top.
 
-**Example:** A "Reset" button returns the simulation to initial conditions, while "Next Step" advances one iteration.
+**Example:** Marker positions and wording can be corrected or translated without regenerating the underlying picture.
 
-#### Interactive Controls (Sliders)
+#### Invoking a Skill
 
-User interface elements in MicroSims that allow continuous value adjustment through dragging or clicking.
+Causing a skill's instructions to load and run, either by describing the task or by naming the skill explicitly.
 
-**Example:** A slider controls animation speed from 1 to 100, letting learners observe processes at different rates.
-
-#### Interactive Elements
-
-Components in educational materials that respond to user input and provide dynamic feedback.
-
-**Example:** Interactive elements include clickable diagrams, adjustable parameters in simulations, and self-grading quizzes.
-
-#### Interactive Simulations
-
-Computer programs that model real-world or abstract processes, allowing learners to manipulate variables and observe outcomes.
-
-**Example:** A physics simulation lets students adjust mass and velocity to see how momentum changes.
-
-#### Invoking Skills with Slash Commands
-
-The method of executing Claude skills by typing `/skill [skill-name]` in the Claude Code interface.
-
-**Example:** Typing the skill name launches the skill to create a 200-concept dependency graph.
+**Example:** Describing a task lets the agent select the matching skill automatically.
 
 #### ISO 11179 Standards
 
-International metadata registry standards defining principles for creating precise, concise, distinct, non-circular definitions.
+A metadata registry specification whose definition criteria require entries to be precise, concise, distinct, non-circular, and free of procedural rules.
 
-**Example:** ISO 11179 requires glossary definitions avoid business rules like "must complete before advancing."
+**Example:** Defining a term by restating its own name violates the non-circularity criterion.
 
-#### Iterative Prompt Refinement
+#### Iterative Refinement
 
-The process of progressively improving AI prompts through testing, evaluation, and modification based on results.
+Improving generated output through successive review-and-revise cycles rather than expecting a single correct result.
 
-**Example:** Refining a content generation prompt by adding "include 3 worked examples" after initial results lacked examples.
+**Example:** A first draft is generated, reviewed, and regenerated with corrections.
 
-## J
+#### JSON Schema Validation
 
-#### JSON Schema for Learning Graphs
+Checking a structured data file against a formal description of its required shape, catching missing or malformed fields automatically.
 
-A formal specification defining the required structure and data types for learning graph JSON files.
+**Example:** A missing required field is caught before the file reaches a viewer.
 
-**Example:** The schema requires "nodes" and "edges" arrays with specific properties like "id," "label," "from," and "to."
+#### JSON Serialization
 
-## L
+Converting structured data to and from a text format that both programs and web pages can read.
 
-#### Large Language Models Overview
+**Example:** Writing measurements to a file both a script and a web page can read.
 
-An introduction to AI systems trained on vast text corpora to understand and generate human-like language.
+#### JSONL Usage Log
 
-**Example:** Claude, GPT, and other large language models can generate educational content from structured prompts.
+An append-only file with one structured record per line, used to accumulate usage events without rewriting earlier entries.
+
+**Example:** Each completed skill run appends one line without rewriting the file.
+
+#### Jumper Wire Routing
+
+Choosing paths for connecting wires so a circuit is both correct and readable to someone rebuilding it.
+
+**Example:** Wires kept short and flat so a learner can trace each connection.
+
+#### Lab Rubric Scoring
+
+Assessing a practical activity against explicit point-allocated criteria rather than general impression.
+
+**Example:** A rubric checks whether every part is listed, every step is illustrated, and the expected result is stated.
+
+#### Label Length Limit
+
+The maximum character count for a node name, set so text fits inside a rendered box without truncation.
+
+**Example:** Thirty-two characters keeps labels readable at normal zoom in a graph with hundreds of nodes.
+
+#### Large Language Model
+
+A statistical model trained on very large text collections that predicts the next unit of text given preceding text, enabling it to generate and transform natural language.
+
+**Example:** Claude, the model behind Claude Code, reads a chapter outline and drafts explanatory prose that matches the requested reading level.
+
+#### LaTeX Equation Syntax
+
+The notation used to express mathematical expressions in plain text for later typesetting.
+
+**Example:** A fraction written in plain text and typeset when the page renders.
+
+#### Layout Specification Lock
+
+Fixing the exact wording and arrangement of a planned poster before generation, so nothing can drift during rendering.
+
+**Example:** Wording approved in text cannot change once rendering begins.
+
+#### Leader Line Rendering
+
+Drawing a connecting line from a marker to its label so the association is unambiguous when labels sit outside the illustration.
+
+**Example:** A thin line connects a marker to its label in the margin.
+
+#### Leaflet Map Library
+
+A JavaScript library that renders interactive geographic maps with markers and layers.
+
+**Example:** Markers showing where a technology was developed.
+
+#### Learning Dependency
+
+A relationship asserting that one idea should be understood before another can be taught effectively.
+
+**Example:** Understanding acyclic structures before attempting to detect closed paths.
 
 #### Learning Graph
 
-A directed graph of concepts showing prerequisite relationships that guide the optimal sequence for learning material.
+A directed structure whose nodes are teachable ideas and whose arrows indicate which ideas should be understood before others.
 
-**Example:** A learning graph for programming shows that "Variables" must be understood before "Functions," which precedes "Recursion."
+**Example:** An arrow from "Directed Acyclic Graph" to "Cycle Detection" shows the first must be understood before the second.
+
+#### Learning Graph as Roadmap
+
+The use of a dependency structure as a navigational aid that shows a learner where they are and what must come next.
+
+**Example:** A reader sees which ideas they have covered and which come next.
+
+#### Learning Graph CSV Format
+
+The tabular file holding one row per teachable idea with its identifier, label, prerequisite list, and category.
+
+**Example:** One row per idea with its identifier, label, prerequisites, and category.
+
+#### Learning Graph Generator
+
+The skill that converts a course description into a validated graph with categories, quality reports, and a viewer-ready data file.
+
+**Example:** It turns a course description into a validated structure with reports and a viewer file.
+
+#### Learning Graph JSON Schema
+
+The formal description of the required structure of a graph file, used to validate generated output automatically.
+
+**Example:** It catches a missing legend entry before the diagram is rendered.
 
 #### Learning Graph Quality Score
 
-A numeric assessment (1-100) evaluating graph structure quality based on connectivity, balance, and DAG validity.
+A composite rating derived from structural checks such as absence of loops, connectivity, and dependency density.
 
-**Example:** A score of 89 indicates excellent structure with balanced dependencies and no circular references.
+**Example:** A structure with no loops, no isolated ideas, and healthy density scores well.
+
+#### Learning Graph Viewer
+
+An interactive simulation that renders a graph file, allowing readers to pan, zoom, search, and inspect relationships.
+
+**Example:** A reader searches for an idea and sees everything it depends on.
 
 #### Learning Outcomes
 
-Specific, measurable statements describing what learners will be able to do after completing a course or module.
+Statements of what a learner will be able to do after completing a course, expressed as observable actions.
 
-**Example:** "Students will be able to create a learning graph with 200 concepts and validate it has no circular dependencies."
+**Example:** "Analyze a dependency structure and diagnose its defects."
 
-#### Learning Pathways
+#### Learning Pathway
 
-Recommended sequences through course material that respect prerequisite dependencies and learner goals.
+An ordered route through material that respects what must be understood first, leading a learner toward a stated goal.
 
-**Example:** A pathway for beginners starts with foundational concepts, while advanced learners might skip to intermediate concepts.
+**Example:** One valid route runs from foundations through skills to publishing.
 
-#### Level 1: Static Content
+#### Learning Record Store
 
-Textbooks containing only fixed text and images with no interactive or dynamic features.
+A repository that receives and stores learner activity statements for later querying and analysis.
 
-**Example:** A PDF textbook or printed book represents Level 1 intelligence.
+**Example:** A repository queried to find which simulations learners actually completed.
 
-#### Level 2: Hyperlinked Navigation
+#### Lesson Plan
 
-Textbooks with clickable links enabling non-linear exploration and cross-referencing between sections.
+A structured teaching outline for a single session, listing objectives, activities, and timing.
 
-**Example:** MkDocs-generated websites provide Level 2 intelligence with navigation menus and internal links.
+**Example:** A fifty-minute session with objectives, an activity, and a closing discussion.
 
-#### Level 3: Interactive Elements
+#### Level 1 Static Content
 
-Textbooks incorporating user-controlled components like simulations, quizzes, and dynamic visualizations.
+The lowest tier of textbook intelligence, consisting of fixed text and images with no navigation aids or interactivity.
 
-**Example:** Adding p5.js MicroSims and self-grading quizzes elevates a textbook to Level 3.
+**Example:** A printed page reproduced as an image with no links.
 
-#### Level 4: Adaptive Content
+#### Level 2 Interactive Content
 
-Textbooks that adjust material presentation based on learner performance, preferences, or knowledge gaps.
+A tier of textbook intelligence in which readers engage beyond passive reading through hyperlinks, embedded videos, quizzes, MicroSims, and a searchable glossary.
 
-**Example:** A Level 4 textbook recommends review material when quiz scores indicate weak understanding of prerequisites.
+**Example:** A slider that redraws a chart as a reader changes a value.
 
-#### Level 5: AI Personalization
+#### Level 3 Adaptive Content
 
-Textbooks using artificial intelligence to create customized learning experiences for individual learners.
+A tier of textbook intelligence in which presented material changes based on a reader's demonstrated progress, using personalized pathways and concept-graph traversal.
 
-**Example:** A Level 5 textbook generates practice problems tailored to each student's specific misconceptions.
+**Example:** Additional practice appears for a reader who answered incorrectly.
 
-#### License Metadata Field
+#### Level 4 Chatbot Integration
 
-Dublin Core element specifying usage rights, restrictions, and permissions for a resource.
+A tier of textbook intelligence in which a large-language-model-powered conversational tutor, often built on GraphRAG, answers a reader's questions in real time.
 
-**Example:** The license field might indicate "CC-BY-4.0" for Creative Commons Attribution license.
+**Example:** A reader asks the embedded chatbot to re-explain a concept using a different analogy.
+
+#### Level 5 Autonomous AI
+
+The highest, largely aspirational tier of textbook intelligence, in which a system deeply understands each reader's knowledge state and generates fully customized lessons in real time.
+
+**Example:** A system regenerates an entire chapter's worked examples to match one reader's prior misconceptions.
 
 #### Linear Chain Detection
 
-Identifying sequences in a learning graph where concepts form a single dependency line without branching.
+Identifying long runs where each idea depends only on the one immediately before it, which suggests missing relationships and a single rigid route.
 
-**Example:** A linear chain like "A→B→C→D" lacks the richness of interconnected prerequisite relationships.
+**Example:** Forty ideas in a single unbranching line suggest missing relationships.
+
+#### LinkedIn Announcement Post
+
+A short professional-network message announcing a book milestone, drawing its figures from the recorded measurements.
+
+**Example:** A short post citing the book's page count and linking to the site.
+
+#### LinkedIn Carousel Document
+
+A multi-page slideshow posted to a professional network, in which readers swipe through successive panels.
+
+**Example:** Eight panels a reader swipes through summarizing a book.
 
 #### Listing Available Skills
 
-The process of displaying all Claude skills accessible in the current project or globally.
+Displaying the skills an agent can currently use, along with their summaries.
 
-**Example:** Running `/skills` or `./scripts/list-skills.sh` shows all skills with their descriptions.
+**Example:** A summary of every skill currently loaded and what it does.
 
-## M
+#### Local Development Server
 
-#### main.html in MicroSims
+A process that serves a site on the authoring machine and refreshes it as files change, allowing immediate preview.
 
-The standalone HTML file containing complete p5.js simulation code that can run independently in a browser.
-
-**Example:** `/docs/sims/sorting/main.html` contains the full bubble sort visualization with embedded JavaScript.
+**Example:** Saving a chapter refreshes the browser within a second.
 
 #### Main Topics Covered
 
-A comprehensive list of subject areas and themes included within a course's scope.
+The enumerated subject areas a course addresses, providing the raw material from which individual teachable ideas are drawn.
 
-**Example:** Main topics include Claude Skills architecture, learning graphs, MkDocs, and Bloom's Taxonomy application.
+**Example:** Ten grouped subject areas from which teachable ideas are drawn.
 
-#### Markdown Formatting Basics
+#### main.html File
 
-Fundamental syntax for creating formatted text documents using plain text with special character conventions.
+The markup file defining a simulation's structure and loading its stylesheet, logic, and external libraries.
 
-**Example:** Use `#` for headers, `**text**` for bold, `*text*` for italic, and `-` for bullet lists.
+**Example:** It loads the styling, the behavior, and any external library a simulation needs.
 
-#### Maximum Character Length
+#### Marginal Token Cost
 
-The constraint that concept labels should not exceed 32 characters to ensure readability in visualizations and tables.
+The additional cost of one more unit of output after fixed overhead is excluded, used to predict how expense scales with size.
 
-**Example:** "Directed Acyclic Graph (DAG)" is exactly 29 characters, fitting the maximum length requirement.
+**Example:** Roughly fifty-four tokens per additional glossary entry once overhead is excluded.
 
-#### Maximum Dependency Chain Length
+#### Markdown Formatting
 
-The longest path through prerequisite relationships from a foundational concept to a terminal concept.
+A lightweight plain-text syntax for headings, lists, links, and emphasis that converts cleanly to HTML.
 
-**Example:** A chain length of 15 means some concepts require understanding 14 prerequisite concepts in sequence.
+**Example:** A chapter written as `## Section` and `- bullet` renders as a styled heading and list on the published site.
 
-#### Metadata Section in JSON
+#### Markdown Parsing in Python
 
-The top-level object in vis-network JSON containing Dublin Core fields describing the learning graph resource.
+Extracting structure such as headings and fenced blocks from markdown source so content can be counted or transformed.
 
-**Example:** Metadata includes title, creator, description, date, version, format, and license information.
+**Example:** Extracting every heading from a chapter to count its sections.
+
+#### MARP Slide Deck
+
+A presentation authored in markdown and rendered as a self-contained web deck that can be published alongside a book.
+
+**Example:** A chapter summary published as a browsable web presentation.
+
+#### Mascot Admonition Types
+
+The distinct callout roles a recurring character occupies, such as warning, encouragement, or summary, each with its own visual treatment.
+
+**Example:** One appearance warns, another encourages, and a third summarizes.
+
+#### Mascot Self-Introduction
+
+The first appearance of a recurring character, in which it names itself and previews the roles it will play later in the book.
+
+**Example:** The character names itself and previews its roles in the first chapter.
+
+#### Mascot Voice and Placement
+
+The rules governing how a recurring character speaks and how often it appears, preventing overuse from diluting its effect.
+
+**Example:** Two appearances per chapter keep a character noticeable rather than tiresome.
+
+#### Math Equation Support
+
+Site configuration that renders mathematical notation from source markup into properly typeset formulas.
+
+**Example:** A formula written in plain text renders as typeset notation.
+
+#### MathJax Configuration
+
+The settings that enable and control mathematical typesetting on a generated site.
+
+**Example:** Settings enabling equation rendering across every page.
+
+#### Measurement ID
+
+The identifier connecting a site to its analytics property, placed in the site configuration.
+
+**Example:** A short identifier placed in the site configuration to enable reporting.
+
+#### Mermaid Diagram Syntax
+
+A text notation for describing flowcharts, sequence diagrams, and state machines that render as diagrams without manual drawing.
+
+**Example:** A few lines of text produce a flowchart that stays editable in version control.
+
+#### Meta-Skill
+
+A skill whose primary job is to route a request to one of several detailed guides rather than to perform the task itself.
+
+**Example:** A single simulation meta-skill replaces seventeen separate generators while loading only the guide the request needs.
+
+#### Metadata Loading Budget
+
+The cost of the always-resident summary for every installed skill. It is paid on every request, so descriptions must stay short.
+
+**Example:** Fourteen skill summaries are read on every request, so each must stay short.
+
+#### Metadata Section
+
+The part of a graph file carrying descriptive information about the work, such as title, creator, date, and license.
+
+**Example:** Title, creator, date, and license recorded inside a graph file.
 
 #### MicroSim
 
-A focused, interactive p5.js simulation demonstrating a single educational concept through visual manipulation and observation.
+A small self-contained interactive simulation embedded in a textbook page, focused on demonstrating one idea.
 
-**Example:** A binary search MicroSim shows how the algorithm eliminates half the search space with each comparison.
+**Example:** A slider that changes a parameter and immediately redraws the result lets a reader discover a relationship directly.
 
 #### MicroSim Directory Structure
 
-The standardized organization of files within a simulation folder: `main.html`, `index.md`, and `metadata.json`.
+The standard folder holding a simulation's markup, styling, logic, data, metadata, and documentation page as separate files.
 
-**Example:** `/docs/sims/bubble-sort/` contains these three files for the bubble sort visualization.
+**Example:** Six files per simulation, each with one responsibility.
 
-#### MicroSim Metadata
+#### MicroSim Generator
 
-Dublin Core fields stored in `metadata.json` describing a simulation's title, creator, description, and educational purpose.
+The meta-skill that routes a simulation request to the appropriate specialized guide and produces a complete package of files.
 
-**Example:** Metadata records the concept being taught, target audience, and date created.
+**Example:** A request for a chronology routes to the timeline guide automatically.
 
-#### MicroSim Metadata Standards
+#### MicroSim Index Catalog
 
-The Dublin Core specification requirements for documenting simulations including required fields (title, creator, date) and recommended fields (description, version, license).
+A generated listing of every simulation in a book with preview images and links.
 
-**Example:** MicroSim Metadata Standards ensure all simulations include consistent documentation for discovery, attribution, and educational context.
+**Example:** A grid of preview images linking to every simulation in a book.
+
+#### MicroSim index.md File
+
+The documentation page for a simulation, embedding it in a frame and providing a full-screen link and explanatory text.
+
+**Example:** It embeds the simulation and offers a full-screen link.
+
+#### MicroSim Metadata Schema
+
+The formal description of required descriptive fields for a simulation, enabling automated cataloging and validation.
+
+**Example:** It requires authorship, discovery, educational, and technical sections.
+
+#### MicroSim metadata.json
+
+The structured descriptive record for a simulation, covering authorship, discovery keywords, educational targeting, and technical requirements.
+
+**Example:** It records that a simulation targets a cognitive level and needs one library.
+
+#### MicroSim Quality Score
+
+A computed rating of a simulation against structural and presentation standards.
+
+**Example:** A simulation with inline styling and no metadata scores poorly.
+
+#### MicroSim Screen Capture
+
+Producing a still image of a running simulation for use as a catalog preview.
+
+**Example:** A still image used as the catalog preview for a simulation.
+
+#### MicroSim Standardization
+
+Bringing existing simulations into conformance with the current file layout, control, and metadata conventions.
+
+**Example:** An older simulation is split into separate files and given metadata.
 
 #### MkDocs
 
-A static site generator that creates documentation websites from markdown files, designed for project documentation.
+A static site generator that builds a navigable website from a directory of markdown files and a configuration file.
 
-**Example:** Running `mkdocs build` converts markdown files in `/docs` into HTML pages with navigation.
-
-#### MkDocs Configuration File
-
-The `mkdocs.yml` file defining site settings, theme, navigation structure, and plugin configurations.
-
-**Example:** The configuration file specifies the Material theme, navigation menu, and site name.
+**Example:** A folder of chapter files becomes a navigable website.
 
 #### MkDocs Material Theme
 
-A popular responsive theme for MkDocs providing modern design, search, and extensive customization options.
+A widely used presentation layer for MkDocs providing search, navigation, admonitions, code highlighting, and responsive layout.
 
-**Example:** Material theme enables features like tabs, admonitions, code highlighting, and dark mode.
+**Example:** It supplies search, callouts, and responsive layout without custom styling.
 
-#### Multiple-Choice Questions
+#### MkDocs Plugins
 
-Quiz items presenting a question with several answer options where learners select the correct response.
+Optional packages that add capabilities to a site generator, such as search enhancements or image handling.
 
-**Example:** "Which command stages files for commit? A) git push B) git add C) git status D) git clone"
+**Example:** A plugin that generates social preview images at build time.
 
-## N
+#### mkdocs.yml Configuration
 
-#### Navigation Structure in MkDocs
+The file that declares a site's title, theme, plugins, extensions, and navigation tree.
 
-The hierarchical menu organization defined in `mkdocs.yml` that controls how pages appear in site navigation.
+**Example:** It declares the site title, theme, and the full menu.
 
-**Example:** The nav section defines chapters, subsections, and page ordering in the left sidebar menu.
+#### Model Selection Per Skill
 
-#### Nodes Section in JSON
+Declaring which model tier a skill should run on, so demanding work gets a stronger model and routine work gets a cheaper one.
 
-The array in vis-network JSON format containing objects representing individual concepts with id, label, and group properties.
+**Example:** Simulation generation is assigned a high-capability model while quiz formatting is assigned a lighter one.
 
-**Example:** `{"id": 5, "label": "Claude Code Interface", "group": "FOUND"}` defines one concept node.
+#### Model Versus Script Division
 
-#### Non-Circular Definitions
+The design rule separating work that requires judgment, which the model performs, from work with one correct answer, which a program performs.
 
-ISO 11179 principle requiring definitions avoid referencing the term being defined or creating circular chains.
+**Example:** Prose is written by the model; word counts are produced by a script.
 
-**Example:** Don't define "Learning Graph" using "graph for learning"; instead describe its structure and purpose.
+#### Multiple Learning Pathways
 
-## O
+The property of a well-formed structure that several valid routes exist through the material, rather than one fixed sequence.
+
+**Example:** A reader may reach publishing through either the simulation or the media route.
+
+#### Multiple-Choice Question
+
+An assessment item presenting one correct answer among several alternatives.
+
+**Example:** One correct answer among four, each alternative reflecting a real misunderstanding.
+
+#### Navigation Structure
+
+The ordered hierarchy of pages presented to readers as a site's menu, declared explicitly rather than inferred from the filesystem.
+
+**Example:** Every new markdown file must be added to this structure or it will not appear in the site menu.
+
+#### Never Use Master Branch
+
+The project convention that the principal line of development is always named `main`, including in configuration that generates edit links.
+
+**Example:** A configuration generating edit links must point at the `main` branch.
+
+#### Nodes Section
+
+The part of a graph file listing every teachable idea with its identifier, label, and category assignment.
+
+**Example:** Each idea with its identifier, label, and category.
+
+#### Non-Circular Definition
+
+A definition that does not rely on the term being defined, nor on another term whose own definition depends on it.
+
+**Example:** "A learning graph is a graph that shows learning" explains nothing and is circular.
+
+#### Nondeterminism in LLM Output
+
+The property that a language model may produce different responses to identical input across runs, because output is sampled rather than computed deterministically.
+
+**Example:** Running the same generation twice can yield two valid but differently worded definitions, which is why quality checks are scripted rather than eyeballed.
+
+#### Note and Tip Admonitions
+
+Callout variants used for supplementary information and practical advice respectively.
+
+**Example:** A tip box offers a shortcut without interrupting the main explanation.
+
+#### On-Demand Guide Loading
+
+Reading a detailed instruction file only at the moment the matching task begins, rather than keeping every guide resident.
+
+#### One-Shot Generation Risk
+
+The hazard of asking an image generator to invent factual content and render it simultaneously, since neither step is verified.
+
+#### Open Educational Resources
+
+Teaching materials released under terms that permit free use, adaptation, and redistribution.
+
+#### Open Graph Meta Tags
+
+Markup in a page header supplying the title, description, and image that platforms use when rendering a shared link.
+
+#### OpenAI Codex
+
+An AI coding agent from OpenAI capable of running skills that adhere to the portable subset of the standard.
 
 #### Optimizing Claude Usage
 
-Strategies for maximizing productivity within Claude's token limits and usage windows through efficient prompting and batching.
+Arranging work to fit within plan allowances by sequencing, batching, and offloading deterministic steps.
 
-**Example:** Generate multiple chapters in one session rather than invoking skills separately for each chapter.
+#### Opus Versus Sonnet Routing
 
-#### Orphaned Nodes
+The specific choice between a high-capability model and a faster, cheaper one, traded off against task difficulty and cost.
 
-A node in a learning graph with zero edges — no inbound edges and no outbound edges — making it completely disconnected from the graph.
+#### Orphaned Node
 
-Orphaned nodes make a learning graph disconnected and therefore invalid. Every node in a valid learning graph must have at least one edge. Contrast with [terminal nodes](#terminal-nodes), which have inbound edges but no outbound edges and are valid.
+A teachable idea with no incoming and no outgoing arrows, disconnected from the rest of the structure and indicating a defect.
 
-**Example:** If concept 150 has no concepts listing it as a prerequisite and it also has no prerequisites itself, it is an orphaned node with zero total edges.
+**Example:** An idea added to the list but never linked to anything will appear isolated in the rendered diagram.
 
 #### Outdegree Analysis
 
-Examining how many other concepts depend on each concept as a prerequisite in a learning graph.
+Counting how many prerequisites each idea declares, revealing ideas that may be too demanding to introduce at one point.
 
-**Example:** High outdegree indicates fundamental concepts that enable understanding of many subsequent topics.
+#### Overlay Explore Mode
 
-## P
+An interaction style in which hovering or selecting a marker reveals explanatory information about that feature.
 
-#### p5.js JavaScript Library
+#### Overlay Quiz Mode
 
-An open-source JavaScript library for creating interactive graphics and animations, especially suited for educational visualizations.
+An interaction style in which a reader is asked to identify a named feature by selecting the correct marker.
 
-**Example:** p5.js provides simple functions like `circle()` and `line()` for drawing, plus `setup()` and `draw()` for animation loops.
+#### p5.js Built-In Controls
+
+The interface elements the drawing library supplies directly, used instead of hand-drawn substitutes so behavior stays consistent and accessible.
+
+#### p5.js Draw Loop
+
+The routine that runs repeatedly to render each frame, producing animation and responding to changing values.
+
+#### p5.js Library
+
+A JavaScript library for drawing and animation that provides a canvas, a render loop, and simple interface controls.
+
+#### p5.js Setup Function
+
+The routine that runs once at start to create the canvas and build interface controls.
+
+#### Page Feedback Widget
+
+A simple control asking whether a page was helpful, collecting signal about which material needs revision.
+
+#### Parallel Agent Execution
+
+Running several agents at the same time on portions of a task, paying startup overhead once per agent.
+
+#### Parts Kit Buildability
+
+The requirement that a practical activity be completable with an affordable, specified set of components.
+
+#### Passage-Level Verification
+
+Confirming an assertion by quoting the specific text in a source that supports it, rather than citing a document as a whole.
+
+**Example:** A figure is accepted only when the sentence stating it can be quoted from the cited page.
+
+#### Path Handling
+
+Constructing and resolving file locations reliably so scripts work regardless of the directory they are run from.
+
+#### Pedagogical Mascot
+
+A recurring character that delivers guidance, warnings, and encouragement in a consistent voice, giving a book a familiar presence.
+
+**Example:** A character who appears to flag a common mistake helps readers recognize a recurring hazard.
 
 #### Permission Management
 
-The system for controlling access rights to files, directories, and commands in operating systems.
-
-**Example:** Skills require read permissions on course files and write permissions on output directories.
+Controlling which actions an agent may take without asking, balancing convenience against the risk of unintended changes.
 
 #### pip Package Management
 
-Python's standard tool for installing, upgrading, and managing third-party libraries and dependencies.
-
-**Example:** `pip install mkdocs` downloads and installs MkDocs and its dependencies.
+The tool that installs and updates third-party Python packages.
 
 #### Pipe-Delimited Dependencies
 
-A format for recording multiple prerequisite concept IDs separated by vertical bar characters in CSV files.
+A storage convention listing several prerequisite identifiers in one spreadsheet cell separated by vertical bars.
 
-**Example:** The Dependencies field "1|5|12" indicates concepts 1, 5, and 12 are all prerequisites.
+**Example:** A cell containing `1|3|7` records three prerequisites for a single idea.
+
+#### Plotly Library
+
+A JavaScript plotting library well suited to mathematical functions and scientific charts with interactive axes.
+
+#### PowerPoint Lecture Deck
+
+A downloadable presentation file intended for classroom use, generated with structured narrative and presenter guidance.
 
 #### Practice Exercises
 
-Learning activities where students apply concepts to solve problems, reinforcing understanding through active practice.
+Problems a learner attempts without a shown solution, used to consolidate a newly presented procedure.
 
-**Example:** After learning about skills, students practice creating a custom skill for their own use case.
+#### Precise Definition
 
-#### Precise Definitions
+A definition that states exactly what a term means without ambiguity or unnecessary hedging.
 
-ISO 11179 principle requiring glossary entries accurately capture specific meanings without ambiguity.
+#### Prerequisite Ordering in Text
 
-**Example:** Define "DAG" as "directed acyclic graph" with structural properties, not vaguely as "a type of graph."
+Arranging explanations within a chapter so nothing is used before it has been introduced.
 
-#### Prerequisite Concepts
+#### Prerequisite Relationship
 
-Ideas that must be understood before a learner can successfully grasp dependent advanced concepts.
+The specific pairing in which one idea must precede another, forming the basis of a recommended teaching order.
 
-**Example:** "Variables" is a prerequisite concept for understanding "Functions" in programming.
+#### Press Release
 
-#### Prerequisite Relationships
+A formal announcement written for journalists, stating what was released, why it matters, and where to find it.
 
-Dependency connections indicating that understanding one concept requires prior mastery of other specific concepts.
+#### Progressive Disclosure
 
-**Example:** The relationship between "Git" and "Git Add Command" shows the general concept must precede the specific command.
+The loading strategy in which an agent sees only a skill's summary by default, reads its instructions when triggered, and opens detailed guides only when needed.
+
+**Example:** A routing table of one page stays resident while a thirty-page implementation guide loads only for the matching request.
+
+#### Project Instruction Files
+
+The documents carrying persistent guidance for agents working in a repository, sometimes duplicated under a second filename for platform compatibility.
+
+#### Project-Local Skill Directory
+
+A folder inside a single book holding skills that apply only to that book.
 
 #### Project-Specific Skills
 
-Claude skills installed in a project's `.claude/skills/` directory, available only within that project.
+Skills installed inside one project so they apply only to that book, typically because they encode subject-specific knowledge.
 
-**Example:** A custom textbook-generation skill stored locally serves project-specific needs without global installation.
+**Example:** A circuit-drawing skill lives in the electronics book and is invisible to unrelated projects.
 
-#### Prompt Design Principles
+#### Prompt
 
-Guidelines for creating effective AI instructions including clarity, specificity, context provision, and example usage.
-
-**Example:** Good prompts specify output format, provide context, include examples, and define success criteria.
+The text supplied to a language model to elicit a response. It carries the request, any supporting material, and constraints on the desired output.
 
 #### Prompt Engineering
 
-The practice of crafting precise instructions to AI systems to elicit desired outputs and behaviors.
+The practice of composing and revising prompts so a model produces accurate, well-formed output reliably rather than by chance.
 
-**Example:** Prompt engineering transforms "write about graphs" into "generate 200 atomic concepts with dependencies for graph theory."
+**Example:** Specifying "return only a JSON array, no prose" removes the need to strip explanatory text from the result.
+
+#### Pronounce Button
+
+A small control beside a defined term that plays its spoken pronunciation, helping readers with unfamiliar vocabulary.
+
+**Example:** A reader unsure how to say a technical term hears it rather than guessing.
+
+#### Prose to Circuit Translation
+
+Interpreting a plain-language description of a circuit and expressing it as an explicit component and connection list.
 
 #### Python
 
-A high-level programming language widely used for scripting, data processing, and automation tasks.
+A general-purpose programming language used throughout this workflow for parsing, validating, converting, and reporting on textbook data.
 
-**Example:** Python scripts like `analyze-graph.py` process learning graph data and generate quality reports.
-
-#### Python Scripts for Processing
-
-Automated programs written in Python to transform, analyze, or validate data in the textbook creation workflow.
-
-**Example:** Scripts convert CSV to JSON, add taxonomy categories, and analyze graph structure.
+**Example:** A short Python script converts a dependency spreadsheet into the JSON format the graph viewer expects.
 
 #### Python Scripts in Skills
 
-Supporting Python programs included in skill directories that perform specific data processing tasks.
+Programs bundled with a skill that perform its deterministic steps, keeping that work out of the model's output.
 
-**Example:** The learning-graph-generator skill includes four Python scripts for validation and transformation.
+**Example:** A script counts words and equations across every chapter and writes the totals to a metrics file.
 
-## Q
+#### Python Standard Library
 
-#### Quality Metrics for Graphs
+The modules distributed with Python that handle common tasks such as file access, structured data, and pattern matching without additional installation.
 
-Quantitative measures used to assess learning graph structure, including connectivity, balance, and DAG validity.
+#### Quality Gate
 
-**Example:** Quality metrics include average dependencies, chain length, orphaned nodes, terminal nodes, and category distribution percentages.
+A defined check that output must pass before the next stage begins, preventing defects from propagating into expensive downstream work.
+
+**Example:** A learning graph must contain no cycles before chapter generation starts.
+
+#### Quality Gate Short-Circuit
+
+Skipping a validation step whose result is already known to pass, avoiding cost without lowering standards.
+
+**Example:** A course description already scored above the threshold is not re-scored during a later run.
+
+#### Quality Metrics Report
+
+The generated document presenting structural measurements of a graph together with recommendations for improvement.
+
+#### Question Admonition
+
+A callout variant used to pose a question to the reader, often with a concealed answer.
 
 #### Quiz
 
-A set of questions designed to assess learner understanding of concepts, typically with immediate feedback.
+A set of questions used to check whether a reader has grasped a chapter's material.
 
-**Example:** Chapter quizzes contain 10-15 multiple-choice questions distributed across Bloom's Taxonomy levels.
+#### Quiz Analytics
 
-#### Quiz Alignment with Concepts
+Analysis of assessment results to identify material readers consistently struggle with.
 
-The practice of ensuring each quiz question specifically tests understanding of identified learning graph concepts.
+#### Quiz Bank JSON
 
-**Example:** Question 5 tests concept 42 ("Directed Acyclic Graph") by asking students to identify invalid graph structures.
+A structured export of all assessment items across a book, usable by external systems.
 
-#### Quiz Distribution Across Levels
+#### Quiz Bloom Distribution
 
-Spreading quiz questions proportionally across all six Bloom's Taxonomy cognitive levels for comprehensive assessment.
+The allocation of assessment items across cognitive categories, ensuring a quiz tests more than recall.
 
-**Example:** A balanced quiz has 15% Remember, 20% Understand, 20% Apply, 20% Analyze, 15% Evaluate, 10% Create questions.
+#### Quiz Explanation Text
 
-## R
+The rationale accompanying each item that states why the correct answer is right and why each alternative is wrong.
 
-#### Reading Level Appropriateness
+#### Quiz Generator
 
-Ensuring textbook language complexity matches the target audience's comprehension abilities.
+The skill that produces chapter assessments aligned to assigned ideas and distributed across cognitive categories.
 
-**Example:** Professional development content uses more technical vocabulary than high school materials.
+#### Rate Limit Handling
 
-#### Reading Level Categories
+Responding to a throughput or allowance cap by pacing work rather than failing, so a long job completes across periods.
 
-Standard classifications of target audiences based on educational development stage: junior-high, senior-high, college, and graduate levels.
+#### Read-Only State Detection
 
-**Example:** Reading Level Categories determine vocabulary complexity, sentence structure, and conceptual depth for generated textbook content.
+Inspecting a project to determine its progress without altering any file, so a status report can never cause damage.
 
-#### Reference Documentation in Skills
+#### Reading Level Consistency
 
-Supporting files in skill directories providing examples, specifications, or guidance for skill execution.
+Uniformity of textual difficulty across a book, so chapters written separately do not vary noticeably in complexity.
 
-**Example:** The learning-graph-generator includes sample CSVs and JSON schemas as reference documentation.
+#### Reading Level Specification
 
-#### Remember (Cognitive Level 1)
+A declared expectation of textual difficulty, used to keep prose consistent across chapters written at different times.
 
-The first level of Bloom's Taxonomy where learners retrieve, recognize, and recall relevant knowledge from memory.
+#### README Generation
 
-**Example:** Students remember the six levels of Bloom's Taxonomy: Remember, Understand, Apply, Analyze, Evaluate, Create.
+Producing the repository's front page, including a summary, badges, statistics, and setup instructions.
 
-## S
+#### Reference Docs in Skills
+
+Detailed instructional documents stored alongside a skill and read selectively, allowing depth without a permanent loading cost.
+
+#### Reference File Separation
+
+Storing citations outside chapter prose so they can be reviewed and updated without loading the chapter body.
+
+#### Reference Generator
+
+The skill that produces curated citation lists for each chapter with short statements of each source's relevance.
+
+#### Reference Loading Budget
+
+The cost of opening a specific detailed guide, paid only for the one guide a task actually needs.
+
+#### References Directory
+
+The folder holding detailed guides that are read only when a particular task requires them, keeping them out of the default load.
+
+#### Regular Expressions
+
+A pattern language for matching and extracting text, used to locate structured fragments inside documents.
+
+#### Reinforcing Loop
+
+A closed path of influence in which a change is amplified as it travels around the loop, producing growth or collapse.
+
+**Example:** More users attract more content, which attracts more users.
+
+#### Remember Level
+
+The cognitive category covering retrieval of stored knowledge, expressed by actions such as defining, listing, and identifying.
+
+#### Rendered Image Audit
+
+Checking a finished picture against its locked specification to confirm every element was reproduced correctly.
+
+#### Repository Badges
+
+Small status images displayed on a repository page showing license, build state, or site link.
+
+#### Responsive Sim Layout
+
+Designing a simulation so it adapts to the width available, remaining usable on narrow screens and inside frames.
+
+#### Retrieval Augmented Generation
+
+A technique in which relevant stored passages are retrieved and supplied to a model so its answers are grounded in specific source material.
+
+**Example:** A course assistant answers from the book's own exported question set rather than from general knowledge.
+
+#### Runbook Command
+
+A command that reports the ordered steps of a process and identifies which step comes next, without performing the steps itself.
+
+**Example:** A runbook reports that the learning graph exists and the chapter structure does not, so chapter design is next.
+
+#### Runnable Code Block
+
+A code sample a reader can execute in place and modify, rather than only read.
+
+#### Schematic Verification
+
+Confirming that a rendered electrical diagram matches the circuit that was described.
+
+#### Schemdraw Library
+
+A Python library that draws electrical schematics from code, so a diagram remains editable and version-controlled.
+
+**Example:** A schematic is stored as a short program, letting a component value change without redrawing anything by hand.
 
 #### Script Execution Permissions
 
-File system settings that determine whether a script file can be run as a program.
+The settings that determine whether an agent may run a program directly or must request approval first.
 
-**Example:** `chmod +x script.sh` grants execution permission, allowing `./script.sh` to run.
+#### Script Exit Codes
+
+Numeric values a program returns to indicate success or the kind of failure, allowing other scripts to react.
+
+#### script.js File
+
+The file holding all of a simulation's behavior, including event handling and rendering logic.
+
+#### Scripts Directory
+
+The folder holding executable programs a skill runs to perform deterministic work.
+
+#### Search Configuration
+
+The settings controlling how a site indexes its content and presents matches to a reader.
+
+#### Search Metadata Section
+
+The part of a simulation's descriptive record holding tags, visualization type, and keywords that support discovery.
 
 #### Section Organization
 
-The structure of how content within chapters is divided into logical subsections with clear headings.
-
-**Example:** Sections might include Introduction, Core Concepts, Examples, Practice Exercises, and Summary.
-
-#### Scroll Hijacking
-
-A usability problem where an embedded interactive element (such as an iframe, map, or canvas) captures mouse-wheel or touch-scroll input, preventing normal page scrolling.
-
-**Example:** To prevent iframe scroll hijacking in chapter pages, set the iframe to non-scrolling and disable wheel zoom inside the MicroSim:
-```html
-<iframe src="../../sims/example/main.html" width="100%" height="500px" scrolling="no"></iframe>
-```
-```javascript
-// Inside the MicroSim (e.g., Leaflet)
-L.map('map', { scrollWheelZoom: false });
-```
+Dividing a chapter into ordered subsections so material progresses from simpler to more demanding.
 
 #### Security in Skill Execution
 
-Safeguards ensuring skills only access authorized files and don't perform unintended or harmful operations.
-
-**Example:** Skills should validate input file existence before processing to prevent unintended file creation.
+The practices that keep a skill from taking damaging or unauthorized actions, including restricting tools and reviewing what a script does before running it.
 
 #### Seeded Randomness
 
-Using a fixed starting value for random number generation to produce reproducible results across simulation runs.
+Generating apparently random values from a fixed starting number so a simulation produces identical results each time it runs.
 
-**Example:** `randomSeed(42)` in p5.js ensures the same "random" pattern appears each time for consistent demonstrations.
+**Example:** A scattered arrangement looks arbitrary but appears the same for every reader, making it safe to describe in surrounding text.
 
-#### Self-Dependency Checking
+#### Selective File Reading
 
-Validation that no concept lists itself as its own prerequisite in a learning graph.
+Loading only the portion of a file relevant to the current task rather than its entire contents.
 
-**Example:** The analyze-graph.py script reports an error if concept 25 includes 25 in its Dependencies field.
+#### Self-Dependency Check
 
-#### Shell Scripts
+Verifying that no idea lists itself as its own prerequisite.
 
-Text files containing sequences of command-line instructions that can be executed as automated programs.
+#### Separate Quiz Files
 
-**Example:** `install-ibook-skills.sh` is a shell script that creates multiple symlinks with one command.
+Storing each chapter's assessment in its own file so quizzes can be revised without reading the chapter body.
 
-#### Skill Definition File Structure
+#### Separate References Files
 
-The required format for SKILL.md files including YAML frontmatter followed by markdown workflow instructions.
+Storing each chapter's citations in a dedicated file so reference maintenance does not require loading chapter prose.
 
-**Example:** Frontmatter specifies name, description, and license; content describes step-by-step execution workflow.
+#### Separating Facts From Pixels
+
+The design rule that content is decided and verified in text before any picture is produced, so the image generator never chooses a figure.
+
+#### Sequential Sim Execution
+
+Generating simulations one after another by default, since concurrent generation multiplies fixed overhead without improving results.
+
+#### Serial Agent Execution
+
+Running one agent that completes an entire task, paying startup overhead only once.
+
+#### Serial Versus Parallel Tradeoff
+
+The decision between finishing sooner and spending less. Parallelism reduces elapsed time but multiplies fixed overhead, and is only justified when the work is genuinely large per agent.
+
+**Example:** Four agents writing glossary definitions cost more than twice as much as one agent and produce no better result.
+
+#### Session Log Format
+
+The agreed structure of a working record, covering the request, the choices made, the revisions applied, and the result.
+
+#### Session Logging
+
+Recording what was produced during a working session and the decisions that shaped it.
+
+#### Shebang Line
+
+The first line of a script that names the interpreter to run it, allowing the file to be executed directly.
+
+#### Shell Script Wrapper
+
+A short shell program that supplies standard arguments and paths to a longer program, giving it a simple name users can remember.
+
+#### Shell Scripting
+
+Writing sequences of shell commands into an executable file so a multi-step task can be repeated identically.
+
+**Example:** A script that starts a local server, waits for rendering, and captures a screenshot removes three manual steps.
+
+#### Sim Lifecycle Status
+
+The recorded stage of a simulation's production, progressing from specified through scaffolded, implemented, validated, and deployed.
+
+#### Sim Scaffolding Workflow
+
+Creating a simulation's directory and placeholder files automatically so only the behavior file requires authoring.
+
+#### Site Build Command
+
+The instruction that renders markdown sources into a complete static website.
+
+#### Site Logo and Favicon
+
+The small identifying marks shown in a site header and browser tab, typically derived from a book's cover or character artwork.
+
+#### Site Metrics Collection
+
+Gathering counts of published pages, simulations, and assets from a built site.
+
+#### Skill Alias Map
+
+A record of which former skill names now correspond to which routes inside a consolidated skill, so older references remain resolvable.
+
+#### Skill Benchmarking
+
+Measuring a skill's output quality, runtime, and token consumption against a fixed set of cases so revisions can be compared.
+
+#### Skill Composition
+
+Combining several skills in sequence so the output of one becomes the input of the next.
+
+**Example:** The concept list produced by the graph skill becomes the term list consumed by the glossary skill.
+
+#### Skill Consolidation
+
+Merging several related skills into one router plus a set of guides, reducing the number of installed skills without losing capability.
+
+#### Skill Creator Skill
+
+A skill used to author, revise, and evaluate other skills, including testing how reliably their descriptions trigger.
+
+#### Skill Description Field
+
+The required summary stating what a skill does and when it should be used. It is the text an agent matches a request against.
+
+**Example:** A description that lists concrete trigger phrases fires reliably; a vague one is skipped or misfires.
 
 #### Skill Directory Structure
 
-The standardized organization of a skill folder containing SKILL.md, supporting scripts, templates, and reference files.
+The folder layout of a skill: the required instruction file plus optional folders for reference documents, executable scripts, and templates.
 
-**Example:** `learning-graph-generator/` contains SKILL.md plus four Python scripts for graph processing.
+#### Skill Discoverability
+
+The degree to which an agent can determine that a relevant skill exists, governed almost entirely by description quality.
 
 #### Skill Distribution Methods
 
-Approaches for sharing Claude skills including global installation, project-specific placement, or package repositories.
+The ways a skill reaches other users: a shared repository, a copied folder, or a plugin registry.
 
-**Example:** Distribution methods include symlinks to global directory, copying to project folders, or Git repositories.
+#### Skill Evaluation Harness
+
+A repeatable test setup that runs a skill against known inputs and scores the output, making quality changes measurable rather than anecdotal.
 
 #### Skill Execution Context
 
-The environment information available when a skill runs, including working directory, available files, and user permissions.
+The environment in which a skill runs, including the working directory, available tools, and granted permissions.
 
-**Example:** Skills execute from the project root directory with access to files the user can read or write.
+#### Skill Failure Modes
 
-#### Skill License Information
+The recurring ways a skill breaks: failing to trigger, triggering wrongly, loading the wrong guide, or producing output that fails validation.
 
-The legal terms specifying how a skill can be used, modified, and distributed by others.
+#### Skill Library
 
-**Example:** Most skills use Apache-2.0 license allowing free use with attribution.
+The complete collection of skills available to an agent, together with the conventions that keep them consistent.
 
-#### Skill Name and Description
+#### Skill Library Maintenance
 
-The identifying label and brief summary in YAML frontmatter explaining what a skill does.
+The ongoing work of updating, testing, and pruning a collection of skills so they remain accurate as tools and standards change.
 
-**Example:** `name: glossary-generator` and `description: Generate ISO 11179-compliant glossaries from concept lists`.
+#### Skill License Field
 
-#### Skill Packaging Best Practices
+An optional metadata entry naming the terms under which a skill may be used or redistributed.
 
-Guidelines for organizing, documenting, and distributing skills to ensure usability and maintainability.
+#### Skill Metadata Field
 
-**Example:** Include README files, example inputs/outputs, clear dependencies, and comprehensive skill documentation.
+An optional map of string keys and values carrying client-specific or organization-specific information that the agent itself ignores.
+
+#### Skill Name Field
+
+The required identifier for a skill, restricted to lowercase letters, digits, and hyphens, and matching the folder that contains it.
+
+#### Skill Naming Conventions
+
+The rules governing skill identifiers: lowercase, hyphen-separated, descriptive, and identical to the containing folder name.
+
+#### Skill Packaging
+
+Assembling a skill's instruction file, scripts, references, and assets into a self-contained folder that can be copied or shared.
+
+#### Skill Portability
+
+The degree to which a skill written for one agent platform runs correctly on others without modification.
+
+#### Skill Routing Table
+
+The decision table inside a meta-skill that maps trigger keywords to the guide file responsible for each variant of a task.
 
 #### Skill Testing and Debugging
 
-The process of validating skill functionality, identifying errors, and iteratively improving skill reliability.
+Exercising a skill against representative requests and diagnosing the cause when its behavior differs from what its instructions specify.
 
-**Example:** Test skills with missing input files, malformed data, and edge cases to ensure robust error handling.
+#### Skill Trigger Matching
+
+The process by which an agent compares an incoming request against installed skill descriptions to decide which skill to load.
+
+#### Skill Usage Analytics
+
+Processing recorded usage events to reveal which skills run most often and what each consumes.
+
+#### Skill Usage Hook
+
+A configured callback that records information each time a skill runs, producing data for later analysis.
+
+#### Skill Usage Report
+
+A generated summary showing which skills ran, how long they took, and what they consumed.
+
+#### Skill Variance Analysis
+
+Running the same case repeatedly to measure how much a skill's output changes between runs, distinguishing real improvement from random fluctuation.
+
+**Example:** A skill scoring 80 once and 60 the next time has a consistency problem, not a quality problem.
+
+#### Skill Versioning
+
+Recording a revision number inside a skill so behavior changes can be tracked and defects traced to a specific revision.
 
 #### Skill Workflow Instructions
 
-Detailed step-by-step procedures in SKILL.md that guide Claude through executing the skill's tasks.
+The step-by-step body of a skill file that an agent follows once the skill is triggered.
 
-**Example:** Workflow instructions specify "Step 1: Read concept list. Step 2: Validate quality. Step 3: Generate definitions."
+#### SKILL.md File
+
+The required markdown file at the root of a skill folder, containing metadata at the top and workflow instructions below.
+
+#### Skills Versus Commands
+
+The distinction between a capability an agent selects automatically based on a request and a procedure the user invokes explicitly by name.
+
+#### Skills Versus Prompts
+
+The distinction between a reusable packaged capability with supporting files and a single request typed into a session.
+
+#### Slash Command Invocation
+
+Triggering a skill or command by typing its name after a forward slash rather than describing the task in prose.
+
+#### Slide Deck Publishing
+
+Adding a rendered presentation to a site so it can be viewed in a browser and linked directly.
+
+#### Slider Control
+
+A draggable interface element for selecting a value from a continuous range, used for parameters such as speed or size.
+
+#### Social Media Preview Card
+
+The image and text a platform displays when a link to a page is shared.
+
+#### Solderless Breadboard
+
+A reusable board with gridded holes that hold components and wires, allowing circuits to be assembled without permanent joins.
+
+#### Source Discovery Phase
+
+The stage locating authoritative material that could support each planned assertion.
+
+#### Source Sidecar File
+
+A companion file stored beside a finished image recording every claim, its source address, and its supporting quotation.
+
+#### Speaker Notes
+
+Presenter-facing text attached to a slide, describing what to say and which points to emphasize.
+
+#### Stale Symlink Cleanup
+
+Removing filesystem pointers that reference deleted or renamed skills, preventing load errors.
+
+#### Stop Hook
+
+A callback that fires when an agent finishes a turn, commonly used to record results or perform cleanup.
+
+**Example:** A stop hook commits the turn's file changes using a message the agent left behind.
+
+#### Strict Build Mode
+
+A build setting that treats warnings such as broken links as failures, preventing defective sites from being published.
+
+**Example:** A link to a page that was renamed fails the build instead of reaching readers.
+
+#### style.css File
+
+The file holding all of a simulation's presentation rules, kept separate from its structure and behavior.
+
+#### Sub-Agent Startup Overhead
+
+The fixed token cost of launching an additional agent, incurred before it performs any useful work, because it must receive its own instructions and tool definitions.
+
+**Example:** Roughly twelve thousand tokens are consumed by each additional agent before it writes a single definition.
+
+#### Substitution Prohibition
+
+The explicit instruction forbidding an image generator from altering figures, names, or labels, or inventing additional ones.
+
+#### Supplementary Content
+
+Material surrounding the chapters, including glossary, questions, assessments, references, and reports.
 
 #### Supporting Assets in Skills
 
-Additional files in skill directories that assist execution, including scripts, templates, examples, and schemas.
+Non-instruction files bundled with a skill, such as schemas, stylesheets, or starter templates, that its workflow copies or reads.
 
-**Example:** Supporting assets might include Python scripts, sample CSVs, JSON schemas, or reference documentation.
+#### Symbolic Link Installation
 
-#### Symlink Creation
+Installing a skill by creating a filesystem pointer to its source folder, so edits to the source take effect immediately without copying.
 
-Making symbolic links that reference files in other locations, allowing access from multiple paths without duplication.
+**Example:** Linking a repository folder into the agent's skills directory means a fix committed once is live everywhere.
 
-**Example:** `ln -s ~/ibook-skills/skills ~/.claude/skills` creates a symlink for global skill access.
+#### sync-iframe-heights.py
 
-## T
+The program that reads each simulation's recorded height and updates every embedding frame to match.
+
+#### System Prompt
+
+Instructions supplied to a model separately from the user request that establish persistent role, constraints, and available tools for a session.
+
+#### Systems Archetype
+
+A recurring pattern of interacting loops that appears across many different domains and produces a characteristic behavior.
 
 #### Target Audience Definition
 
-A clear specification of who the course is designed for, including their background and learning goals.
+An explicit statement of who a course is written for, which governs vocabulary, assumed background, and example complexity.
 
-**Example:** "Professional development for educators with basic programming skills who want to create AI-assisted textbooks."
+**Example:** Naming "professional development for educators" rather than "anyone interested" sets a usable writing standard.
 
-#### Taxonomy
+#### Taxonomy Category Naming
 
-A hierarchical classification system organizing concepts into categories based on shared characteristics or difficulty levels.
+Choosing descriptive category names that communicate their contents to a reader rather than only to the system.
 
-**Example:** Concepts are categorized as FOUND (foundational), BASIC, INTER (intermediate), ADVAN (advanced), or INTEG (integration).
+#### Taxonomy Distribution
 
-#### Taxonomy Categories
+The count and percentage of ideas falling into each category, used to detect imbalance.
 
-Distinct groupings within a taxonomy system used to organize concepts by type, difficulty, or subject area.
+#### taxonomy-distribution.py
 
-**Example:** Common categories include foundational, basic, intermediate, advanced, and integration concepts.
+The program that counts ideas per category and writes a distribution report, flagging categories that exceed the share threshold.
 
-#### taxonomy-distribution.py Script
+#### taxonomy-names.json File
 
-A Python program that analyzes and reports the distribution of concepts across taxonomy categories.
+The mapping from short category abbreviations to human-readable names, required so reports and diagram legends display meaningful labels.
 
-**Example:** Running this script produces a report showing 15% foundational, 40% basic, 30% intermediate, 15% advanced concepts.
+**Example:** Without it, a legend shows `LGRAPH` instead of "Learning Graphs".
 
-#### TaxonomyID Abbreviations
+#### TaxonomyID
 
-Short alphanumeric codes representing concept categories in learning graphs, typically 3-5 characters.
+A short uppercase abbreviation identifying a category, used in the data files and as the group key in a rendered diagram.
 
-**Example:** FOUND for foundational, BASIC for basic concepts, ADVAN for advanced concepts.
+#### Technical Metadata Section
 
-#### TaxonomyID Field in CSV
-
-A column in learning graph CSV files containing category abbreviations for each concept.
-
-**Example:** The TaxonomyID field might contain "FOUND" for concept 1 and "ADVAN" for concept 200.
-
-#### Terminal Nodes
-
-A node in a learning graph with one or more inbound edges but no outbound edges, meaning other concepts depend on it as a prerequisite but it is not a prerequisite for any subsequent concept.
-
-Terminal nodes are valid and expected in learning graphs. They represent culminating or specialized concepts at the end of a dependency chain. Contrast with [orphaned nodes](#orphaned-nodes), which have zero edges and are invalid.
-
-**Example:** Concept 200 "Capstone Project Design" depends on several prerequisites but no other concept lists it as a dependency, making it a terminal node.
+The part of a simulation's descriptive record holding framework, dimensions, dependencies, and accessibility information.
 
 #### Template Files in Skills
 
-Reusable file structures that skills populate with generated content to ensure consistent formatting.
+Prewritten starter files a skill copies into a project and then customizes, avoiding regeneration of boilerplate.
 
-**Example:** A chapter template defines standard sections: Introduction, Concepts, Examples, Exercises, Summary.
+#### Term Extraction
+
+Identifying the vocabulary requiring definition, drawn from an enumerated idea list and from wording used across the written material.
 
 #### Terminal Commands
 
-Text-based instructions entered in a command-line interface to execute programs, manage files, or configure systems.
+Text instructions typed at a command-line shell to run programs, inspect files, and manage a project.
 
-**Example:** Terminal commands include `cd`, `ls`, `mkdir`, `python`, and `git` for various operations.
+#### Terminal Node
 
-#### Terminal in VS Code
+A teachable idea that has prerequisites but that nothing else depends on, representing a natural endpoint of a route.
 
-An integrated command-line interface within Visual Studio Code for running commands without leaving the editor.
+#### Text Input Control
 
-**Example:** Open the VS Code terminal with Ctrl+` to run `mkdocs serve` while editing content.
+An interface element accepting typed values, used where a reader supplies a number or short string.
 
-#### Terminal Nodes
+#### Text Rendering in Images
 
-Concepts in a learning graph that no other concepts depend on, suggesting they
-are an outcome learning objective and might be placed further to the right of other nodes.
+The capability of an image generator to draw legible, exact wording inside a picture, which makes designed posters feasible and mistakes permanent.
 
-Terminal nodes have one or more inbound edges, but no outbound edges.
+#### Text-to-Image Model
 
-Terminal nodes are normal in all learning graphs.  Learning graphs
-many contain up to 50% terminal nodes.
+A generative system that produces a picture from a written description, including modern systems able to place specified text accurately within a complex composition.
 
-Another name for a terminal node is a leaf node.
+#### Text-to-Speech Narration
 
-**Example:** If concept 150 has no concepts listing it as a prerequisite it is a terminal
-or node.
+Generated spoken audio of written material, offering an alternative to reading.
 
-#### The Role of FAQs in Intelligent Textbooks
+#### Textbook Generation Pipeline
 
-The function of Frequently Asked Questions as supplementary resources providing quick answers to common learner queries and clarifying potentially confusing concepts.
+The ordered sequence of steps that turns a course description into a published book, passing through concepts, structure, content, media, and deployment.
 
-**Example:** FAQs bridge gaps between formal content and student questions, offering conversational explanations that complement technical definitions in the glossary.
+#### Textbook Scaffold
+
+The initial project structure created for a new book, including configuration, directory layout, and starter pages.
+
+#### Thirty Skill Loading Limit
+
+The practical ceiling on how many skills an agent can keep available at once, which forces related skills to be consolidated.
 
 #### Title Case Convention
 
-Capitalization style where the first letter of each major word is uppercase, used for concept labels.
+The capitalization rule applying initial capitals to principal words, used for consistency across labels and headings.
 
-**Example:** "Learning Graph Generator" follows Title Case, while "learning graph generator" does not.
+#### TODO Backlog Generation
 
-#### Title Metadata Field
+Producing a consolidated list of outstanding work items across a project from automated assessments.
 
-Dublin Core element providing the formal name or title of a resource.
+#### Token
 
-**Example:** The title field might contain "Learning Graph for Claude Skills Course."
+The smallest unit of text a language model processes, roughly equivalent to a short word or word fragment. Model cost and capacity are measured in tokens rather than words.
+
+**Example:** The phrase "learning graph" is typically three or four tokens, not two words.
+
+#### Token Budget
+
+A planned allowance of tokens for a task or a period, treated as a limited resource to be spent deliberately.
+
+**Example:** Allocating most of a session's allowance to chapter prose and little to repeated validation runs.
+
+#### Token Cost Estimation
+
+Predicting the consumption of a planned task from measured rates, so an author knows the price before committing.
+
+#### Token Cost Model
+
+An understanding of what drives consumption — content read, content generated, and overhead paid per agent — used to predict expense before work begins.
+
+#### Token Cost Per Term
+
+The average consumption attributable to each glossary entry, useful for estimating the cost of a glossary of any size.
+
+#### Token Frugality Principle
+
+The design rule that a workflow should produce required quality at the lowest token cost, so authors on inexpensive plans can complete a book.
 
 #### Token Management Strategies
 
-Techniques for working within Claude's token limits including content chunking, selective context, and multi-turn workflows.
+The collected techniques for controlling consumption: file separation, script substitution, gate short-circuiting, and selective reading.
 
-**Example:** Generate one chapter at a time rather than requesting all chapters in a single prompt.
+#### Token Usage Dashboard
 
-#### Topics Excluded from Course
+A generated report that presents consumption and duration per skill so expensive steps can be identified.
 
-Subjects explicitly identified as out of scope to clarify course boundaries and manage learner expectations.
+#### Token Waste Antipatterns
 
-**Example:** This course excludes advanced machine learning theory and general web development beyond MkDocs.
+Recurring practices that consume tokens without improving results, such as unnecessary parallel agents or manual assembly of sortable data.
 
-## U
+**Example:** Emitting a sorted glossary through repeated edit calls instead of sorting it with three lines of code.
 
-#### Understand (Cognitive Level 2)
+#### Tokenization
 
-The second level of Bloom's Taxonomy where learners construct meaning from instructional messages and explanations.
+The process of splitting raw text into the discrete units a language model consumes. The chosen split determines how much of a document fits into a fixed budget.
 
-**Example:** Students understand how learning graphs guide concept sequencing by explaining prerequisite relationships.
+#### Tokens Per Minute Limit
 
-## V
+A cap on throughput, distinct from a total allowance, that governs how quickly work may proceed.
+
+#### Tool Use by Agents
+
+The mechanism by which a model requests actions in the outside world — reading a file, running a command, searching the web — and receives the results as new input.
+
+#### Topics Excluded From Scope
+
+An explicit list of subjects a course does not address, preventing generated material from drifting beyond its intended boundary.
+
+**Example:** Declaring that model training is out of scope stops chapters from expanding into machine learning theory.
+
+#### Trigger Keyword Table
+
+An explicit mapping from request phrases to the action or guide that should handle them, making routing decisions predictable.
+
+**Example:** The words "timeline" and "chronological" route a request to the timeline generator rather than the chart generator.
+
+#### trim-padding-from-image.py
+
+The program that removes surrounding blank space from a picture so it aligns correctly when placed.
+
+#### Understand Level
+
+The cognitive category covering construction of meaning, expressed by actions such as explaining, summarizing, and classifying.
+
+#### update-mkdocs-nav.py Script
+
+The program that inserts newly created pages into the site menu, ensuring generated content is reachable.
+
+#### URL Verification
+
+Confirming that a cited web address resolves and contains the material attributed to it.
+
+#### validate-learning-graph.py
+
+The program that checks a generated graph file against its formal schema and reports any structural violation.
+
+#### validate-sims.py Script
+
+The program that checks simulations against structural standards and reports violations.
+
+#### Vendor Extension Fields
+
+Metadata keys outside the published specification, added by a particular platform. Some clients ignore them and some reject them outright.
+
+**Example:** A `model:` key is understood by one platform and may cause a hard error on another.
+
+#### Venn Diagram Generator
+
+The route that produces overlapping-set illustrations showing shared and exclusive membership between categories.
+
+#### Verbatim Text Prompt
+
+An image instruction requiring that supplied wording be reproduced exactly, with no paraphrase or substitution.
+
+#### Verbose Output Mode
+
+An option that makes a program report its intermediate steps, used for diagnosis.
+
+#### Verified Infographic Pipeline
+
+A staged process producing a factual poster in which claims are planned, sourced, verified, and locked before a single image is generated, and the result is audited afterward.
 
 #### Version Control Basics
 
-Fundamental concepts of tracking changes to files over time, including commits, branches, and repositories.
+The practice of recording successive states of a project so any prior state can be recovered and any change can be attributed.
 
-**Example:** Version control lets you see who changed what, when, and why, plus revert to earlier versions if needed.
+**Example:** A regenerated glossary can be compared against the previous version to confirm exactly which definitions changed.
 
-#### Version Metadata Field
+#### Virtual Environment
 
-Dublin Core element recording the iteration or release number of a resource.
-
-**Example:** The version field tracks "1.0" for initial release or "2.3" after multiple revisions.
+An isolated Python installation for a single project, preventing its dependencies from conflicting with those of other projects.
 
 #### vis-network JSON Format
 
-A specific JSON structure used by the vis-network visualization library containing nodes, edges, groups, and metadata.
+The specific arrangement of nodes, edges, and groups expected by the JavaScript library that renders an interactive diagram.
 
-**Example:** The format requires separate arrays for nodes (with id, label, group) and edges (with from, to).
+#### vis-network Library
+
+A JavaScript library that renders nodes and connecting arrows as an interactive diagram with physics-based layout.
+
+#### vis-timeline Library
+
+A JavaScript library that renders dated events along a navigable horizontal axis.
+
+#### Visual Layout Review
+
+Inspecting a rendered simulation for presentation defects such as overlapping elements, clipped labels, or controls positioned off-screen.
 
 #### Visual Studio Code
 
-A popular open-source code editor with integrated terminal, Git support, and extensions for various development tasks.
+A source code editor with integrated terminal, extension support, and file navigation, commonly used for authoring textbook content.
 
-**Example:** VS Code provides markdown preview, making it ideal for writing and editing textbook content.
+#### Visualization Library Routing
 
-#### VS Code for Content Development
+Selecting the rendering technology best matched to a request, based on the kind of data and interaction described.
 
-Using Visual Studio Code's features specifically for creating and managing educational textbook content.
+**Example:** Chronological events route to a timeline library while node relationships route to a network library.
 
-**Example:** VS Code extensions for markdown linting, spell-checking, and MkDocs preview enhance content development.
+#### Voltage and Current Scope
 
-## W
+A display panel plotting electrical quantities over time alongside a simulated circuit.
 
-#### Worked Examples in Content
+#### VS Code Terminal
 
-Step-by-step demonstrations showing how to solve problems or apply concepts with detailed explanations.
+A command-line shell embedded in the editor window, allowing commands to be run without leaving the authoring environment.
 
-**Example:** A worked example shows creating a 10-concept learning graph from scratch, explaining each dependency decision.
+#### Wikimedia Commons Sourcing
 
-## Y
+Obtaining reusable illustrations and photographs from a large repository of openly licensed media.
 
-#### YAML Frontmatter in Skills
+#### Wikipedia as a Source
 
-Metadata section at the beginning of SKILL.md files enclosed in `---` delimiters containing key-value pairs.
+Use of an encyclopedic reference as a reliable starting point, placed before specialized sources in a citation list.
 
-**Example:** Frontmatter includes `name: glossary-generator`, `description: Generate glossaries`, and `license: Apache-2.0`.
+#### Word Count Metric
+
+The total quantity of written text in a book, used as a basic measure of scale.
+
+#### Worked Examples
+
+Fully solved illustrations that show each step of a procedure, used to build competence before independent practice.
+
+#### Writing a Skill Description
+
+Composing the summary that determines when a skill activates, stating both what it does and the situations that should invoke it.
+
+**Example:** Naming concrete trigger phrases such as "breadboard" and "wiring diagram" makes activation dependable.
+
+#### YAML Frontmatter
+
+A block of key-value metadata at the start of a file, delimited by triple dashes, that carries structured information separate from the body.

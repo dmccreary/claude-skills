@@ -85,13 +85,17 @@ def analyze_taxonomy_distribution(csv_path: str, output_path: str, taxonomy_name
 
         f.write("\n")
 
-        # Visual distribution
+        # Visual distribution - use human-readable names, not taxonomy IDs
         f.write("## Visual Distribution\n\n")
         f.write("```\n")
+        # Find max name length for alignment (cap at 25 chars for readability)
+        max_name_len = min(25, max(len(name) for _, name, _, _ in taxonomy_data))
         for tax, name, count, pct in taxonomy_data:
             bar_length = int(pct / 2)  # Scale to fit
             bar = "█" * bar_length
-            f.write(f"{tax:6s} {bar} {count:3d} ({pct:5.1f}%)\n")
+            # Use human-readable name, truncated if needed
+            display_name = name[:max_name_len].ljust(max_name_len)
+            f.write(f"{display_name} {bar} {count:3d} ({pct:5.1f}%)\n")
         f.write("```\n\n")
 
         # Balance analysis

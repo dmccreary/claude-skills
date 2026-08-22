@@ -58,7 +58,7 @@ It uses graph algorithms to look for specific quality patterns in the graph.
 
 - Graph structure validation - all concepts are connected
 - DAG validation (no cycles detected)
-- Foundational concepts: 8 entry points
+- Foundational concepts: 6 entry points
 - Indegree distribution analysis
 - Longest dependency chains
 - Connectivity: all nodes connected in single graph
@@ -72,9 +72,9 @@ to each concept based on the concept type.  We use generative AI to
 create about a dozen categories for our concepts and then place each concept
 into a single primary classifier.
 
-- A concept classifier taxonomy with 12 categories
+- A concept classifier taxonomy with 14 categories
 - Category organization - foundational elements first, course capstone project ideas last
-- Balanced categories (3% - 18.5% each)
+- Balanced categories (4.0% - 11.6% each)
 - All categories under 30% threshold
 - Pedagogical flow recommendations
 - Clear 3-5 letter abbreviations for use in CSV file

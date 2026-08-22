@@ -345,13 +345,23 @@ Glossary terms must be:
 
 ### Five Levels of Textbook Intelligence
 
-- **Level 1**: Static text and images
-- **Level 2**: Hyperlinked content with navigation (MkDocs default)
-- **Level 3**: Interactive elements and quizzes
-- **Level 4**: Adaptive content based on learner progress
-- **Level 5**: AI-powered personalization
+- **Level 1**: Static text and images, no interactive elements
+- **Level 2**: Interactive content — hyperlinks, embedded videos, quizzes, MicroSims, glossary
+- **Level 3**: Adaptive content — personalized pathways via concept-graph traversal
+- **Level 4**: Chatbot integration — an LLM-powered tutoring assistant, often via GraphRAG
+- **Level 5**: Autonomous AI — fully autonomous, real-time customized lesson generation (aspirational)
 
-This repository targets Level 2 by default, with support for Level 3 through MicroSims and quizzes.
+This repository targets Level 2 by default, using MicroSims, quizzes, and a searchable glossary for interactivity.
+
+**The "2.99" design target:** most skills in this library are deliberately designed to sit at
+Level 2.99, not Level 3. Gather as many interactive events (xAPI statements, MicroSim
+interactions, quiz attempts) as possible to predict aggregate concept understanding across
+all readers — but never gather or retain data tied to a specific, identifiable student. The
+moment a system stores per-student performance history to personalize that individual's
+pathway (true Level 3), it becomes a regulated entity under student-data-privacy law (e.g.
+FERPA/COPPA) with obligations this project does not take on. Stay one step below that line by
+default; a book that wants true Level 3 adaptivity must add its own data-governance layer
+deliberately, not inherit it by accident.
 
 ## Data Format Specifications
 
