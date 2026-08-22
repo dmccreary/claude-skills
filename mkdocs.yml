@@ -14,49 +14,41 @@ nav:
 
   - Chapters:
     - Overview: chapters/index.md
-    - 1 - Introduction to AI and Intelligent Textbooks:
-      - Content: chapters/01-intro-ai-intelligent-textbooks/index.md
-      - Quiz: chapters/01-intro-ai-intelligent-textbooks/quiz.md
-    - 2 - Getting Started with Claude and Skills:
-      - Content: chapters/02-getting-started-ibook-skills/index.md
-      - Quiz: chapters/02-getting-started-ibook-skills/quiz.md
-    - 3 - Course Design and Educational Theory:
-      - Content: chapters/03-course-design-educational-theory/index.md
-      - Quiz: chapters/03-course-design-educational-theory/quiz.md
-    - 4 - Introduction to Learning Graphs:
-      - Content: chapters/04-intro-learning-graphs/index.md
-      - Quiz: chapters/04-intro-learning-graphs/quiz.md
-    - 5 - Concept Enumeration and Dependencies:
-      - Content: chapters/05-concept-enumeration-dependencies/index.md
-      - Quiz: chapters/05-concept-enumeration-dependencies/quiz.md
-    - 6 - Learning Graph Quality and Validation:
-      - Content: chapters/06-learning-graph-quality-validation/index.md
-      - Quiz: chapters/06-learning-graph-quality-validation/quiz.md
-    - 7 - Taxonomy and Data Formats:
-      - Content: chapters/07-taxonomy-data-formats/index.md
-      - Quiz: chapters/07-taxonomy-data-formats/quiz.md
-    - 8 - MkDocs Platform and Documentation:
-      - Content: chapters/08-mkdocs-platform-documentation/index.md
-      - Quiz: chapters/08-mkdocs-platform-documentation/quiz.md
-    - 9 - Claude Skills Architecture and Development:
-      - Content: chapters/09-ibook-skills-architecture-development/index.md
-      - Quiz: chapters/09-ibook-skills-architecture-development/quiz.md
-    - 10 - Content Creation Workflows:
-      - Content: chapters/10-content-creation-workflows/index.md
-      - Quiz: chapters/10-content-creation-workflows/quiz.md
-    - 11 - Educational Resources and Assessment:
-      - Content: chapters/11-educational-resources-assessment/index.md
-      - Quiz: chapters/11-educational-resources-assessment/quiz.md
-    - 12 - Interactive Elements and MicroSims:
-      - Content: chapters/12-interactive-elements-microsims/index.md
-      - Quiz: chapters/12-interactive-elements-microsims/quiz.md
-    - 13 - Development Tools, Version Control, and Deployment:
-      - Content: chapters/13-dev-tools-version-control-deployment/index.md
-      - Quiz: chapters/13-dev-tools-version-control-deployment/quiz.md
-    - 15 - Claude on WSL:
-      - Content: chapters/15-claude-on-wsl/index.md
-    - 17. Parallel Execution:
-      - Content: chapters/17-parallel-execution/index.md
+    - 1. Foundations of AI, Language Models, and Prompting: chapters/01-foundations-ai-language-models/index.md
+    - 2. AI Coding Agents and the Five Levels of Textbook Intelligence: chapters/02-ai-agents-textbook-intelligence/index.md
+    - 3. Python Fundamentals for Skill Automation: chapters/03-python-fundamentals-automation/index.md
+    - '4. Development Tools: Editor, Terminal, and Git Basics': chapters/04-dev-tools-editor-git-basics/index.md
+    - 5. MkDocs Site Features, Deployment, and Analytics: chapters/05-mkdocs-deployment-analytics/index.md
+    - 6. Agent Skill Fundamentals: chapters/06-agent-skill-fundamentals/index.md
+    - 7. Progressive Disclosure and Meta-Skill Routing: chapters/07-progressive-disclosure-meta-skills/index.md
+    - 8. Token Budgets and Usage Limits: chapters/08-token-budgets-usage-limits/index.md
+    - 9. Measuring and Optimizing Token Usage: chapters/09-measuring-optimizing-tokens/index.md
+    - 10. Building and Testing Portable Skills: chapters/10-building-testing-portable-skills/index.md
+    - 11. Distributing Skills and Building Commands: chapters/11-distributing-skills-commands/index.md
+    - 12. Writing a Course Description: chapters/12-writing-course-description/index.md
+    - 13. Bloom's Taxonomy and Instructional Design: chapters/13-blooms-taxonomy-instructional-design/index.md
+    - 14. Learning Graphs and Concept Enumeration: chapters/14-learning-graphs-concept-enumeration/index.md
+    - 15. Learning Graph Data Formats and Taxonomy: chapters/15-learning-graph-formats-taxonomy/index.md
+    - 16. Learning Graph Quality Validation: chapters/16-learning-graph-quality-validation/index.md
+    - 17. Chapter Structure and Content Elements: chapters/17-chapter-structure-content-elements/index.md
+    - 18. Chapter Content Quality and Review: chapters/18-chapter-content-quality-review/index.md
+    - 19. FAQs and Curated References: chapters/19-faqs-curated-references/index.md
+    - 20. Glossaries and Quizzes: chapters/20-glossaries-and-quizzes/index.md
+    - 21. MicroSim Anatomy and p5.js Basics: chapters/21-microsim-anatomy-p5js-basics/index.md
+    - 22. p5.js Controls and MicroSim Quality: chapters/22-p5js-controls-microsim-quality/index.md
+    - 23. The MicroSim Generator and Metadata Schema: chapters/23-microsim-generator-metadata-schema/index.md
+    - 24. Visualization Libraries and Systems Diagrams: chapters/24-visualization-libraries-systems-diagrams/index.md
+    - 25. Text-to-Image Models and the Verified Infographic Pipeline: chapters/25-verified-infographic-pipeline/index.md
+    - 26. Interactive Infographic Overlays: chapters/26-interactive-infographic-overlays/index.md
+    - 27. Slide Decks, Stories, and Audio Media: chapters/27-slide-decks-stories-audio-media/index.md
+    - '28. Domain-Specific Skill Extension: Electronics Case Study': chapters/28-domain-specific-skill-extension/index.md
+    - 29. Book Installer Features: chapters/29-book-installer-features/index.md
+    - 30. Session Logs and Book Metrics: chapters/30-session-logs-book-metrics/index.md
+    - 31. Publishing and Announcing a Finished Book: chapters/31-publishing-announcing-book/index.md
+    - Appendix A - Claude on Raspberry Pi: chapters/appendix-a-claude-on-pi/index.md
+    - Appendix B - Claude on WSL: chapters/appendix-b-claude-on-wsl/index.md
+    - Appendix C - User Global Claude: chapters/appendix-c-user-global-claude/index.md
+    - Appendix D - Parallel Execution: chapters/appendix-d-parallel-execution/index.md
 
   - Skill Descriptions:
     - Overview of Skills: skill-descriptions/index.md
@@ -276,6 +268,7 @@ nav:
   - Consolidation Plan: consolidation-plan/index.md
   - Appendices:
     - Overview: appendices/index.md
+    - Skill Portability Strategy: appendices/skill-portability-strategy/index.md
     - Skill Refactor with Fable 5: appendices/skill-refactor-fable-5.md
     - Delegating Image Generation: appendices/imaging-agent-delegation.md
 
@@ -289,7 +282,7 @@ nav:
 
 theme:
   name: material
-  logo: img/logo.png
+  logo: img/mascot/welcome.png
   favicon: img/favicon.ico
   palette:
     # Primary color overridden in css/extra.css with Anthropic brown (RGB: 218, 120, 87)
