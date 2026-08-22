@@ -1,11 +1,11 @@
-# Agentic Skills for Intelligent Textbooks
+# Agent Skills for Intelligent Textbooks
 
 [![MkDocs](https://img.shields.io/badge/Made%20with-MkDocs-526CFE?logo=materialformkdocs)](https://www.mkdocs.org/)
 [![Material for MkDocs](https://img.shields.io/badge/Material%20for%20MkDocs-526CFE?logo=materialformkdocs)](https://squidfunk.github.io/mkdocs-material/)
 [![GitHub Pages](https://img.shields.io/badge/View%20on-GitHub%20Pages-blue?logo=github)](https://dmccreary.github.io/ibook-skills/)
-[![GitHub](https://img.shields.io/badge/GitHub-dmccreary%2Fclaude--skills-blue?logo=github)](https://github.com/dmccreary/ibook-skills)
+[![GitHub](https://img.shields.io/badge/GitHub-dmccreary%2Fibook--skills-blue?logo=github)](https://github.com/dmccreary/ibook-skills)
 [![Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code-DA7857?logo=anthropic)](https://claude.ai/code)
-[![Claude Skills](https://img.shields.io/badge/Uses-Claude%20Skills-DA7857?logo=anthropic)](https://github.com/dmccreary/ibook-skills)
+[![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Portable-DA7857?logo=anthropic)](https://github.com/dmccreary/ibook-skills)
 [![p5.js](https://img.shields.io/badge/p5.js-ED225D?logo=p5.js&logoColor=white)](https://p5js.org/)
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
@@ -16,11 +16,11 @@ Visit the interactive documentation at: [https://dmccreary.github.io/ibook-skill
 
 ## Overview
 
-**Claude Skills for Intelligent Textbooks** is a comprehensive collection of AI-powered skills and workflows designed to revolutionize educational content creation. Built with Claude AI and optimized for intelligent textbook development, this repository provides educators and content creators with powerful tools to generate interactive, standards-based educational materials at scale.
+**Agent Skills for Intelligent Textbooks** is a comprehensive collection of AI-powered skills and workflows designed to revolutionize educational content creation. Built with Claude Code and portable across AI agent platforms — including OpenAI ChatGPT, Google Antigravity, and Cursor — this repository provides educators and content creators with powerful tools to generate interactive, standards-based educational materials at scale.
 
 This project enables the creation of **Level 2+ intelligent textbooks** using MkDocs with the Material theme, incorporating learning graphs, concept dependencies, interactive p5.js simulations (MicroSims), and AI-assisted content generation. Every skill follows educational best practices including Bloom's Taxonomy (2001 revision) for learning outcomes, ISO 11179 standards for terminology definitions, and concept dependency graphs to ensure proper prerequisite sequencing.
 
-Whether you're an educator building course materials, a technical writer creating documentation, or a developer interested in educational technology, these Claude skills provide a systematic, AI-powered approach to creating comprehensive, interactive educational content. The skills can generate everything from foundational learning graphs with 200+ concepts to interactive quizzes, glossaries, FAQs, and engaging simulations—all following rigorous quality standards.
+Whether you're an educator building course materials, a technical writer creating documentation, or a developer interested in educational technology, these agent skills provide a systematic, AI-powered approach to creating comprehensive, interactive educational content. The skills can generate everything from foundational learning graphs with 200+ concepts to interactive quizzes, glossaries, FAQs, and engaging simulations—all following rigorous quality standards.
 
 ## Site Status and Metrics
 
@@ -176,7 +176,7 @@ ibook-skills/
 │   ├── glossary.md                # ISO 11179-compliant definitions (200 terms)
 │   ├── faq.md                     # Frequently asked questions (64 Q&A)
 │   └── references.md              # Curated references (30 sources)
-├── skills/                        # Claude AI skill definitions
+├── skills/                        # AI agent skill definitions
 │   ├── learning-graph-generator/
 │   │   ├── SKILL.md               # Skill definition and workflow
 │   │   ├── analyze-graph.py       # DAG validation script
@@ -232,7 +232,7 @@ This work is licensed under the [Creative Commons Attribution-NonCommercial-Shar
 **Attribution Example:**
 
 ```
-This work is based on "Claude Skills for Intelligent Textbooks" by Dan McCreary,
+This work is based on "Agent Skills for Intelligent Textbooks" by Dan McCreary,
 available at https://github.com/dmccreary/ibook-skills, licensed under CC BY-NC-SA 4.0.
 ```
 
@@ -299,10 +299,10 @@ Questions, suggestions, or collaboration opportunities? Feel free to connect on 
 
 ## How to Cite
 
-If you use these Claude skills in your research, teaching, or projects, please cite:
+If you use these agent skills in your research, teaching, or projects, please cite:
 
 ```
-McCreary, D. (2024). Claude Skills for Intelligent Textbooks. GitHub.
+McCreary, D. (2024). Agent Skills for Intelligent Textbooks. GitHub.
 https://github.com/dmccreary/ibook-skills
 ```
 
@@ -311,7 +311,7 @@ https://github.com/dmccreary/ibook-skills
 ```bibtex
 @misc{mccreary2024claudeskills,
   author = {McCreary, Dan},
-  title = {Claude Skills for Intelligent Textbooks},
+  title = {Agent Skills for Intelligent Textbooks},
   year = {2024},
   publisher = {GitHub},
   url = {https://github.com/dmccreary/ibook-skills},

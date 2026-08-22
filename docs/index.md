@@ -1,6 +1,6 @@
 ---
-title: Claude Skills for Intelligent Textbooks
-description: A course on using Claude Skills to create intelligent textbooks
+title: Agent Skills for Intelligent Textbooks
+description: A course on using portable AI agent skills to create intelligent textbooks
 image: /img/cover.png
 og:image: /img/cover.png
 twitter:image: /img/cover.png
@@ -10,10 +10,10 @@ hide:
 <style>
 .md-content__inner h1 {display: none !important;}
 </style>
-# Claude Skills for Intelligent Textbooks
+# Agent Skills for Intelligent Textbooks
 ![Cover](./img/cover.png)
 
-Welcome to our website about Anthropic Claude Skills for Intelligent Textbooks.
+Welcome to our website about Agent Skills for Intelligent Textbooks.
 
 In this course, a [Skill](./glossary.md#claude-skill) is a cleverly designed package of instructions that
 are designed to be followed by intelligent agents as they help humans

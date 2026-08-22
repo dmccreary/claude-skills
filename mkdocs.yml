@@ -1,10 +1,10 @@
-site_name: 'Claude Skills for Intelligent Textbooks'
-site_description: 'A collection of skills and techniques for building intelligent textbooks using Claude AI.'
+site_name: 'Agent Skills for Intelligent Textbooks'
+site_description: 'Portable AI agent skills for building intelligent textbooks — tested on Claude, OpenAI Codex, Google Antigravity, Gemini and Cursor.'
 site_author: 'Dan McCreary'
 repo_name: 'GitHub Repo'
 site_url: 'https://dmccreary.github.io/ibook-skills/'
 repo_url: 'https://github.com/dmccreary/ibook-skills'
-edit_uri: 'blob/master/docs'
+edit_uri: 'blob/main/docs'
 
 nav:
   - Home: index.md
@@ -203,7 +203,7 @@ nav:
 
   - Slides:
     - List of Slide Decks: slides/index.md
-    - "Claude Skills for Intelligent Textbooks: Overview": slides/ibook-skills-overview/index.md
+    - "Agent Skills for Intelligent Textbooks: Overview": slides/ibook-skills-overview/index.md
 
 
   - Learning Graph:
@@ -329,7 +329,7 @@ extra_javascript:
 copyright: Copyright &copy; 2025, 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
 extra:
   schema: https://dmccreary.github.io/intelligent-textbooks/ns/textbook/v1
-  textbook_name: Claude Skills for Intelligent Textbooks
+  textbook_name: Agent Skills for Intelligent Textbooks
   textbook_version: "1.0"
   generator: false
   analytics:
