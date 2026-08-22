@@ -1,0 +1,3012 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introduces artificial intelligence, large language models, tokens, and prompting, the five levels of textbook intelligence, and the terminal and Markdown skills needed to build one.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/ibook-skills/chapters/01-foundations-ai-language-models/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02-ai-agents-textbook-intelligence/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Foundations of AI, Language Models, and Prompting - Agent Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HPLDD3D3K2"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HPLDD3D3K2",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HPLDD3D3K2",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta property="og:type" content="website">
+      
+        <meta property="og:title" content="Foundations of AI, Language Models, and Prompting - Agent Skills for Intelligent Textbooks">
+      
+        <meta property="og:description" content="Introduces artificial intelligence, large language models, tokens, and prompting, the five levels of textbook intelligence, and the terminal and Markdown skills needed to build one.">
+      
+        <meta property="og:image" content="https://dmccreary.github.io/ibook-skills/assets/images/social/chapters/01-foundations-ai-language-models/index.png">
+      
+        <meta property="og:image:type" content="image/png">
+      
+        <meta property="og:image:width" content="1200">
+      
+        <meta property="og:image:height" content="630">
+      
+        <meta property="og:url" content="https://dmccreary.github.io/ibook-skills/chapters/01-foundations-ai-language-models/">
+      
+        <meta name="twitter:card" content="summary_large_image">
+      
+        <meta name="twitter:title" content="Foundations of AI, Language Models, and Prompting - Agent Skills for Intelligent Textbooks">
+      
+        <meta name="twitter:description" content="Introduces artificial intelligence, large language models, tokens, and prompting, the five levels of textbook intelligence, and the terminal and Markdown skills needed to build one.">
+      
+        <meta name="twitter:image" content="https://dmccreary.github.io/ibook-skills/assets/images/social/chapters/01-foundations-ai-language-models/index.png">
+      
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#foundations-of-ai-language-models-and-prompting" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Agent Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Agent Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agent Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Foundations of AI, Language Models, and Prompting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/ibook-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Agent Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Agent Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Agent Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/ibook-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    1. Foundations of AI, Language Models, and Prompting
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    1. Foundations of AI, Language Models, and Prompting
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-artificial-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Artificial Intelligence?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inside-a-large-language-model-tokens-and-the-context-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inside a Large Language Model: Tokens and the Context Window
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inside a Large Language Model: Tokens and the Context Window">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-tokenization-visualizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Tokenization Visualizer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-context-window-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Context Window Budget
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#talking-to-a-model-prompts-system-prompts-and-prompt-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Talking to a Model: Prompts, System Prompts, and Prompt Engineering
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-two-identical-prompts-can-give-different-answers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Two Identical Prompts Can Give Different Answers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Two Identical Prompts Can Give Different Answers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-prompt-and-response-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Prompt and Response Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-five-levels-of-textbook-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Five Levels of Textbook Intelligence
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Five Levels of Textbook Intelligence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-five-levels-of-textbook-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Five Levels of Textbook Intelligence
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openly-licensed-learning-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Openly Licensed Learning Materials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-builders-toolkit-markdown-the-terminal-and-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Your Builder's Toolkit: Markdown, the Terminal, and Directories
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automating-repeated-steps-with-shell-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automating Repeated Steps with Shell Scripts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-ai-agents-textbook-intelligence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. AI Coding Agents and the Five Levels of Textbook Intelligence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-fundamentals-automation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Python Fundamentals for Skill Automation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-dev-tools-editor-git-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Development Tools: Editor, Terminal, and Git Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-mkdocs-deployment-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. MkDocs Site Features, Deployment, and Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-agent-skill-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Agent Skill Fundamentals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-progressive-disclosure-meta-skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Progressive Disclosure and Meta-Skill Routing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-token-budgets-usage-limits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Token Budgets and Usage Limits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-measuring-optimizing-tokens/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Measuring and Optimizing Token Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-building-testing-portable-skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Building and Testing Portable Skills
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-distributing-skills-commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Distributing Skills and Building Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-writing-course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Writing a Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-blooms-taxonomy-instructional-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Bloom's Taxonomy and Instructional Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-learning-graphs-concept-enumeration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Learning Graphs and Concept Enumeration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-learning-graph-formats-taxonomy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Learning Graph Data Formats and Taxonomy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-learning-graph-quality-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Learning Graph Quality Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-chapter-structure-content-elements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Chapter Structure and Content Elements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-chapter-content-quality-review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Chapter Content Quality and Review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-faqs-curated-references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. FAQs and Curated References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-glossaries-and-quizzes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Glossaries and Quizzes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-microsim-anatomy-p5js-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    21. MicroSim Anatomy and p5.js Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-p5js-controls-microsim-quality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    22. p5.js Controls and MicroSim Quality
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-microsim-generator-metadata-schema/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    23. The MicroSim Generator and Metadata Schema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-visualization-libraries-systems-diagrams/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    24. Visualization Libraries and Systems Diagrams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-verified-infographic-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    25. Text-to-Image Models and the Verified Infographic Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-interactive-infographic-overlays/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    26. Interactive Infographic Overlays
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-slide-decks-stories-audio-media/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    27. Slide Decks, Stories, and Audio Media
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-domain-specific-skill-extension/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    28. Domain-Specific Skill Extension: Electronics Case Study
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29-book-installer-features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    29. Book Installer Features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30-session-logs-book-metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    30. Session Logs and Book Metrics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-publishing-announcing-book/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    31. Publishing and Announcing a Finished Book
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-a-claude-on-pi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix A - Claude on Raspberry Pi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-b-claude-on-wsl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix B - Claude on WSL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-c-user-global-claude/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix C - User Global Claude
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-d-parallel-execution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix D - Parallel Execution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Skill Descriptions
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../slides/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Slides
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../workshops/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Workshops
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../consolidation-plan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Consolidation Plan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../appendices/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Appendices
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-artificial-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Artificial Intelligence?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inside-a-large-language-model-tokens-and-the-context-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inside a Large Language Model: Tokens and the Context Window
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inside a Large Language Model: Tokens and the Context Window">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-tokenization-visualizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Tokenization Visualizer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-context-window-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Context Window Budget
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#talking-to-a-model-prompts-system-prompts-and-prompt-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Talking to a Model: Prompts, System Prompts, and Prompt Engineering
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-two-identical-prompts-can-give-different-answers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Two Identical Prompts Can Give Different Answers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Two Identical Prompts Can Give Different Answers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-prompt-and-response-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Prompt and Response Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-five-levels-of-textbook-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Five Levels of Textbook Intelligence
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Five Levels of Textbook Intelligence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-five-levels-of-textbook-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Five Levels of Textbook Intelligence
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openly-licensed-learning-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Openly Licensed Learning Materials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-builders-toolkit-markdown-the-terminal-and-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Your Builder's Toolkit: Markdown, the Terminal, and Directories
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automating-repeated-steps-with-shell-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automating Repeated Steps with Shell Scripts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/ibook-skills/blob/main/docs/chapters/01-foundations-ai-language-models/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="foundations-of-ai-language-models-and-prompting">Foundations of AI, Language Models, and Prompting</h1>
+<h2 id="summary">Summary</h2>
+<p>This chapter introduces artificial intelligence, large language models, tokens, and context windows, then covers prompting and prompt engineering as the interface between a person and a model. It also sets up the basic terminal, directory, and Markdown conventions used throughout the rest of the book. After completing this chapter, students will be able to explain what a large language model is and why its output is nondeterministic.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 18 concepts from the learning graph:</p>
+<ol>
+<li>Artificial Intelligence</li>
+<li>Markdown Formatting</li>
+<li>Terminal Commands</li>
+<li>Large Language Model</li>
+<li>Directory Navigation</li>
+<li>Intelligent Textbook</li>
+<li>Token</li>
+<li>Prompt</li>
+<li>Shell Scripting</li>
+<li>Level 1 Static Content</li>
+<li>Open Educational Resources</li>
+<li>Tokenization</li>
+<li>Context Window</li>
+<li>Prompt Engineering</li>
+<li>Nondeterminism in LLM Output</li>
+<li>Level 2 Interactive Content</li>
+<li>Creative Commons Licensing</li>
+<li>System Prompt</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter assumes only the prerequisites listed in the <a href="../../course-description/">course description</a>.</p>
+<hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Hi! I'm Kit.</p>
+<p><img alt="Kit waves hello with their tool satchel" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+Welcome to <em>Using Agent Skills to Create Intelligent Textbooks</em>! I'm <strong>Kit</strong>, a sea otter who keeps a favorite stone tucked in a canvas satchel and reaches for it the moment a task calls for it — that's what a skill is, and it's what this whole book is about. I'll be popping up in the margins of every chapter from here on, but I don't show up randomly. I have exactly <strong>six jobs</strong>, and you'll learn to recognize me by which one I'm doing:</p>
+<ol>
+<li><strong>Welcome you</strong> at the start of every chapter — that's what I'm doing right now.</li>
+<li><strong>Help you think things through</strong> when an idea asks you to restructure how you see something, not just memorize a fact.</li>
+<li><strong>Give you tips</strong> — the shortcuts a working builder uses that nobody bothers to write down.</li>
+<li><strong>Warn you gently</strong> about the specific spots where careful builders still get tripped up.</li>
+<li><strong>Encourage you</strong> when a topic looks harder than it actually is.</li>
+<li><strong>Celebrate with you</strong> at the end of a chapter, once you've actually earned it.</li>
+</ol>
+<p>That's it. If I'm not doing one of those six things, I'm not in the chapter. Right tool, right task — let's build something.</p>
+</div>
+<h2 id="what-is-artificial-intelligence">What Is Artificial Intelligence?</h2>
+<p><strong>Artificial intelligence</strong> (AI) is the field of building computer systems that perform tasks normally requiring human cognition — recognizing language, generating text, or making a decision under uncertainty. AI is not one program or one technique; it is a broad label covering everything from a spam filter to the system that will write most of the sentences in your finished textbook.</p>
+<p>This book is built with, and built around, one specific kind of AI system: the <strong>large language model</strong>, or LLM. An LLM is a statistical model trained on enormous collections of text that learns to predict the next unit of text given everything that came before it. Predicting "the next unit of text, over and over" sounds too simple to produce a coherent paragraph, let alone a chapter — but at the scale modern LLMs operate, that simple prediction task is enough to draft a course description, design a learning graph, or write the very words you are reading now. Every skill described in this book — the course-description analyzer, the learning-graph generator, the chapter-content generator — is really a carefully structured set of instructions that steers an LLM toward one specific, repeatable kind of output.</p>
+<h2 id="inside-a-large-language-model-tokens-and-the-context-window">Inside a Large Language Model: Tokens and the Context Window</h2>
+<p>Before an LLM can predict anything, it has to break your text into pieces it can actually work with. That process is called <strong>tokenization</strong> — splitting raw text into the discrete units, called <strong>tokens</strong>, that the model consumes one at a time. A token is usually smaller than a whole word: common words are often a single token, while rarer or longer words split into two or three token fragments. This matters because everything about running an LLM — how much you can ask it to read, how much it costs to run, how fast it responds — is measured in tokens, not in words or characters.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Models don't read words. They read tokens.</p>
+<p><img alt="Kit thinking with a paw on their chin" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+Here's the mental shift: when you type a sentence, you see words. The model never sees words at all — it sees a list of token IDs. "Tokenization" might become four separate tokens: <code>Token</code>, <code>iz</code>, <code>ation</code>, and a trailing space marker. Once you start thinking in tokens instead of words, a lot of this book's advice about token budgets and costs stops feeling arbitrary.</p>
+</div>
+<h4 id="diagram-tokenization-visualizer">Diagram: Tokenization Visualizer</h4>
+<iframe src="../../sims/tokenization-visualizer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+
+<details>
+<summary>Tokenization Visualizer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> tokenization-visualizer<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Help a reader see that a language model processes tokens, not words or characters.</p>
+<p>Bloom Level: Understand (L2)
+Bloom Verb: Explain</p>
+<p>Learning objective: Explain why a language model's cost and capacity are measured in tokens rather than words.</p>
+<p>Canvas layout:
+- Top (100px): A text input box pre-filled with the example sentence "Tokenization splits text into pieces."
+- Middle (300px): The same sentence re-rendered as a row of colored token chips, one chip per token.
+- Bottom (100px): A running count showing "Words: 5  Tokens: 9" (numbers update live).</p>
+<p>Data Visibility Requirements:
+  Stage 1: Show the raw input sentence as plain text.
+  Stage 2: Show the sentence split at word boundaries (5 word-shaped boxes), labeled "How you see it."
+  Stage 3: Show the sentence split at token boundaries (9 smaller, uneven chips), labeled "How the model sees it," with sub-word tokens like "Token" + "iz" + "ation" visibly distinct colors.
+  Final: Show the word count and token count side by side so the reader can compare.</p>
+<p>Interactive controls:
+- Text input: reader can type or paste their own short sentence (max 120 characters)
+- Button: "Tokenize" to re-run the split on the current input
+- Button: "Reset" to restore the example sentence</p>
+<p>Default parameters:
+- Default text: "Tokenization splits text into pieces."
+- Token colors cycle through a 6-color accessible palette so adjacent tokens are always distinguishable</p>
+<p>Behavior:
+- On "Tokenize," animate the word-boxes morphing into the smaller token-chips (a single quick transition, not continuous animation)
+- Clicking any token chip opens a small infobox above it showing: the token's text, its position index, and one sentence explaining why it split where it did (e.g., "iz and ation split off because they are common word-ending fragments seen often in training text")
+- Long or unusual words (typed by the reader) should visibly split into more chips than short common words, so the reader can discover the pattern themselves</p>
+<p>Instructional Rationale: A step-through, click-to-reveal design is appropriate because the Understand-level objective requires the reader to compare concrete data (their own sentence, word-split vs. token-split) rather than watch a passive animation. Letting the reader type their own text turns an abstract definition into a discoverable pattern.</p>
+<p>Implementation notes:
+- Use p5.js for rendering; use a simple rule-based approximate tokenizer (not a real model's exact vocabulary) since the goal is conceptual, not byte-exact
+- Responsive: recompute chip layout and font size on window resize</p>
+</details>
+<p>Every model also has a hard limit on how much text it can consider at once, called the <strong>context window</strong>: the maximum amount of text, measured in tokens, that a model can hold in its working memory for a single request. Anything beyond that limit simply isn't there — the model cannot refer back to it, no matter how important it was. A course description, a 570-concept learning graph, and the instructions for a skill can together add up to a meaningful fraction of a context window, which is why later chapters spend real effort on keeping files small and loading them only when needed.</p>
+<h4 id="diagram-context-window-budget">Diagram: Context Window Budget</h4>
+<iframe src="../../sims/context-window-budget/main.html" width="100%" height="480px" scrolling="no"></iframe>
+
+<details>
+<summary>Context Window Budget</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> context-window-budget<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let a reader experiment with how different files "spend" a fixed context-window budget.</p>
+<p>Bloom Level: Apply (L3)
+Bloom Verb: Demonstrate</p>
+<p>Learning objective: Demonstrate why content beyond a model's context-window limit becomes unavailable to it.</p>
+<p>Canvas layout:
+- Left (350px): A single vertical bar representing the context window, filling from the bottom up as items are added, capped at a labeled maximum (default 50,000 tokens)
+- Right (250px): A checklist of five sample items with token-cost sliders: "System prompt (2,000)", "Course description (3,500)", "Learning graph JSON (18,000)", "One chapter draft (4,500)", "Conversation history (variable, slider 0-30,000)"</p>
+<p>Interactive controls:
+- Checkbox next to each of the five items to add/remove it from the bar
+- Slider for "Conversation history" (0 to 30,000 tokens)
+- Display: total tokens used vs. the window maximum, in a large readable number</p>
+<p>Default parameters:
+- Window maximum: 50,000 tokens (labeled "example window size — real windows vary by model")
+- All checkboxes start unchecked except "System prompt"</p>
+<p>Behavior:
+- As items are checked, the bar fills proportionally and shows a stacked-color segment per item
+- If the total would exceed the maximum, the bar turns red past the limit and a message reads "These items no longer fit — the model cannot see them"
+- Hovering any bar segment shows an infobox with that item's exact token count and one sentence about what it contains</p>
+<p>Instructional Rationale: A parameter-exploration pattern fits the Apply-level objective because the reader must actively combine values and observe the consequence (overflow) rather than watch a fixed demonstration. This also reinforces the token-tokenization pairing from the diagram above it.</p>
+<p>Implementation notes:
+- Use p5.js; store items as an array of {name, tokens, checked} objects
+- Responsive: bar height and control panel width recalculate on window resize</p>
+</details>
+<h2 id="talking-to-a-model-prompts-system-prompts-and-prompt-engineering">Talking to a Model: Prompts, System Prompts, and Prompt Engineering</h2>
+<p>A <strong>prompt</strong> is the text supplied to a language model to elicit a response — it carries the request itself, any supporting material, and constraints on the output you want back. Every skill in this book's library is, underneath its folder structure, a very carefully written prompt. A <strong>system prompt</strong> is a special kind of prompt: instructions supplied separately from the user's own request, establishing a persistent role, constraints, and available tools for the whole session rather than for one message. When Claude Code loads a skill, much of what that skill defines behaves like a system prompt — it shapes how every later request in that session gets handled.</p>
+<p>Writing prompts well enough that a model produces accurate, well-formed output <em>reliably</em> — rather than by chance — is its own discipline, called <strong>prompt engineering</strong>. A vague prompt ("write about learning graphs") invites a vague answer; a prompt that specifies the audience, the format, the length, and what to exclude gives the model far less room to guess wrong.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Specificity is the whole tip.</p>
+<p><img alt="Kit holding up a tool with a knowing look" class="mascot-admonition-img" src="../../img/mascot/tip.png">
+If a generated result disappoints you, the fastest fix is almost never a longer explanation — it's a more specific constraint. "Keep concept labels under 32 characters" beats "keep concept labels short." Every skill in this library front-loads exactly this kind of constraint so you don't have to re-discover it by trial and error.</p>
+</div>
+<h2 id="why-two-identical-prompts-can-give-different-answers">Why Two Identical Prompts Can Give Different Answers</h2>
+<p>Send the exact same prompt to a model twice and you can get two different answers. This is <strong>nondeterminism in LLM output</strong>: the property that a model may produce different responses to identical input across separate runs, because the output is <em>sampled</em> — drawn from a probability distribution over likely next tokens — rather than computed by a fixed formula.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Same prompt, different answer — that's not a bug.</p>
+<p><img alt="Kit holding up a caution paw" class="mascot-admonition-img" src="../../img/mascot/warning.png">
+A common trap: you run a skill, don't love the result, run the exact same command again expecting the same output, and get something noticeably different. That's expected behavior, not a broken skill. The fix isn't to keep re-running and hoping — it's to tighten the prompt (more specific constraints, an example of the format you want) so the <em>range</em> of likely outputs narrows, even though it never shrinks to exactly one.</p>
+</div>
+<h4 id="diagram-prompt-and-response-flow">Diagram: Prompt and Response Flow</h4>
+<iframe src="../../sims/prompt-response-flow/main.html" width="100%" height="420px" scrolling="no"></iframe>
+
+<details>
+<summary>Prompt and Response Flow</summary>
+<p>Type: workflow
+<strong>sim-id:</strong> prompt-response-flow<br>
+<strong>Library:</strong> Mermaid<br>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Show how a system prompt and a user prompt combine at request time, and why the same inputs don't guarantee the same output.</p>
+<p>Bloom Level: Analyze (L4)
+Bloom Verb: Differentiate</p>
+<p>Learning objective: Differentiate the role of a system prompt from a user prompt in a single model request, and explain why the response can vary.</p>
+<p>Visual style: Left-to-right Mermaid flowchart</p>
+<p>Nodes:
+1. "System Prompt" (rounded rectangle) — persistent role and constraints for the session
+2. "User Prompt" (rounded rectangle) — the specific request for this turn
+3. "Tokenization" (rectangle) — both inputs are split into tokens
+4. "Language Model" (rounded rectangle, larger) — predicts the next tokens, sampling from a probability distribution
+5. "Response" (rounded rectangle) — the generated text returned to the user
+6. "Same inputs, next run" (dashed rectangle, off to the side, connecting back into the Language Model node) — represents nondeterminism</p>
+<p>Edges:
+- System Prompt --&gt; Tokenization
+- User Prompt --&gt; Tokenization
+- Tokenization --&gt; Language Model
+- Language Model --&gt; Response
+- "Same inputs, next run" -.-&gt; Language Model (dashed edge, styled differently, with label "may produce a different Response")</p>
+<p>Interactivity requirement: every node MUST have a <code>click</code> directive wired to an infobox callback showing that node's glossary-style definition. For example: <code>click LanguageModel call showInfo("language-model")</code> where the infobox pulls the matching term from the chapter glossary.</p>
+<p>Color scheme: System Prompt and User Prompt in two distinguishable blues; Language Model in the book's accent color; Response in green; the dashed nondeterminism branch in amber to signal "this varies."</p>
+<p>Implementation: Mermaid flowchart with per-node click handlers rendered inside the MicroSim's main.html, each opening a shared infobox panel below the diagram.</p>
+</details>
+<h2 id="the-five-levels-of-textbook-intelligence">The Five Levels of Textbook Intelligence</h2>
+<p>An <strong>intelligent textbook</strong> is an educational resource that combines written content with structured knowledge and interactive elements so it can adapt to and respond to a reader — rather than sitting on the page unchanged no matter who opens it. "Intelligent" is not all-or-nothing; the field measures it on a five-level scale, from a plain static page up to a fully autonomous tutor. This scale is the single most important mental model in this book, because every skill you'll learn exists to move a textbook up one of these levels.</p>
+<p><strong>Level 1 — Static Content</strong> is the lowest tier: fixed text and images with no navigation aids or interactivity, the traditional printed-page experience reproduced digitally. Over 90% of college textbooks in use today sit at this level.</p>
+<p><strong>Level 2 — Interactive Content</strong> is where a reader can engage beyond passively reading: hyperlinks that jump between related pages, embedded videos, searchable glossaries, short quizzes, and the AI-generated MicroSims you're interacting with right now in this very chapter. This is the level the skill library in this book targets by default.</p>
+<p><strong>Level 3 — Adaptive Content</strong> goes further: the material itself changes based on what a reader has already done, using personalized learning pathways and traversal of a concept graph like the one this book's chapters are built from. <strong>Level 4 — Chatbot Integration</strong> adds a conversational tutor, typically an LLM-powered assistant built on a technique called GraphRAG, that can answer a reader's specific question in real time rather than making them search for it. <strong>Level 5 — Autonomous AI</strong> is the current horizon: a system with a deep enough model of an individual reader's knowledge to generate entirely customized lessons on the fly. It remains mostly aspirational — Chapter 2 picks these three levels back up in depth, once you've met the AI coding agents that make them possible.</p>
+<p>Before that, take a moment with the interactive model of all five levels below — hover any step to see what distinguishes it from the ones on either side.</p>
+<h4 id="diagram-five-levels-of-textbook-intelligence">Diagram: Five Levels of Textbook Intelligence</h4>
+<iframe src="../../sims/book-levels/main.html" width="100%" height="502px" scrolling="no"></iframe>
+
+<p><a class="md-button" href="../../sims/book-levels/main.html">Run the Five Levels of Textbook Intelligence MicroSim fullscreen</a></p>
+<details>
+<summary>Five Levels of Textbook Intelligence (reused MicroSim)</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> book-levels<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Reused<br>
+<strong>Source:</strong> docs/sims/book-levels</p>
+<p>Reused from this book's own MicroSim catalog. Learning objective: Compare all five levels of textbook intelligence and identify which capabilities each level adds over the one before it.</p>
+</details>
+<p>Once you've explored the staircase above, this table reinforces the same five levels side by side:</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Name</th>
+<th>What It Adds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Static Content</td>
+<td>Fixed text and images, no interactivity</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Interactive Content</td>
+<td>Hyperlinks, videos, quizzes, MicroSims, glossary</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Adaptive Content</td>
+<td>Personalized pathways via concept-graph traversal</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Chatbot Integration</td>
+<td>An LLM-powered tutoring assistant (often GraphRAG)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Autonomous AI</td>
+<td>Fully autonomous, real-time customized lessons</td>
+</tr>
+</tbody>
+</table>
+<h2 id="openly-licensed-learning-materials">Openly Licensed Learning Materials</h2>
+<p>Textbooks — intelligent or otherwise — are usually built partly from material someone else created. <strong>Open Educational Resources (OER)</strong> are teaching materials released under terms that permit free use, adaptation, and redistribution, which is what makes it possible to build on prior work instead of starting every diagram and example from nothing. Most OER material carries a <strong>Creative Commons license</strong>: one of a family of standardized licenses that grant specified reuse rights while the original creator retains copyright. This book itself is released under CC BY-NC-SA 4.0, one such license — you'll see that same family of licenses again whenever a later chapter sources a chapter image from Wikimedia or a government archive.</p>
+<h2 id="your-builders-toolkit-markdown-the-terminal-and-directories">Your Builder's Toolkit: Markdown, the Terminal, and Directories</h2>
+<p>Everything in this book — chapters, glossary entries, the learning graph's supporting docs — is written in <strong>Markdown formatting</strong>: a lightweight, plain-text syntax for headings, lists, links, and emphasis that converts cleanly into the styled web pages you're reading. You've already seen it at work in the numbered concept list above and the table just before this paragraph.</p>
+<p>To run the skills that generate that Markdown, you need two more basic tools. <strong>Terminal commands</strong> are text instructions typed at a command-line shell to run programs, inspect files, and manage a project — the interface an AI coding agent like Claude Code uses to actually do the work you ask for. <strong>Directory navigation</strong> is moving between folders in a filesystem and referring to files by an absolute path (starting from the filesystem's root) or a relative path (starting from wherever you currently are).</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">The terminal looks scarier than it is.</p>
+<p><img alt="Kit giving an encouraging nod" class="mascot-admonition-img" src="../../img/mascot/encouraging.png">
+If a blinking cursor on a black screen makes you nervous, that's completely normal — most builders felt exactly the same way the first time. You only need a handful of commands to get productive, and you'll use the same small set over and over.</p>
+</div>
+<p>A short list is enough to get you moving around a project:</p>
+<ul>
+<li><code>pwd</code> — print the current directory (where am I?)</li>
+<li><code>ls</code> — list the files and folders in the current directory</li>
+<li><code>cd project-name</code> — move into the <code>project-name</code> folder (relative path)</li>
+<li><code>cd ..</code> — move up one level to the parent folder</li>
+<li><code>cd ~/Documents/ws</code> — jump straight to an absolute path</li>
+</ul>
+<h2 id="automating-repeated-steps-with-shell-scripts">Automating Repeated Steps with Shell Scripts</h2>
+<p>Once you find yourself typing the same sequence of terminal commands more than once, it's time for <strong>shell scripting</strong>: writing that sequence of shell commands into an executable file so a multi-step task can be repeated identically, without retyping it or risking a step out of order. Several of the <code>bk-*</code> command-line tools you'll meet later in this book are exactly that — a short shell script wrapped around a Python program, saved once and reused for the life of the project.</p>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li>An <strong>AI coding agent</strong> is powered by a <strong>large language model</strong>, which reads and writes <strong>tokens</strong>, not words, within a fixed <strong>context window</strong>.</li>
+<li>You steer a model with a <strong>prompt</strong>, sometimes paired with a persistent <strong>system prompt</strong>; because output is sampled, <strong>prompt engineering</strong> narrows the range of results rather than fixing it to exactly one.</li>
+<li><strong>Intelligent textbooks</strong> are measured on five levels, from <strong>Static Content</strong> through <strong>Autonomous AI</strong> — this book's skill library targets <strong>Level 2, Interactive Content</strong>, by default.</li>
+<li>Course material is often released as <strong>Open Educational Resources</strong> under a <strong>Creative Commons license</strong> so it can be reused and adapted.</li>
+<li><strong>Markdown</strong>, the <strong>terminal</strong>, <strong>directory navigation</strong>, and <strong>shell scripting</strong> are the four everyday tools you'll use to run every skill in the chapters ahead.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You just built your first mental model of how this book gets made.</p>
+<p><img alt="Kit celebrating with arms raised" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+You can now explain what a large language model actually does with your text, why it doesn't always give the same answer twice, and where this book's own skill library sits on the five-level intelligence scale. Every later chapter builds directly on those ideas — nicely done. Right tool, right task!</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02-ai-agents-textbook-intelligence/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. AI Coding Agents and the Five Levels of Textbook Intelligence">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2. AI Coding Agents and the Five Levels of Textbook Intelligence
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025, 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

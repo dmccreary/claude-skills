@@ -361,33 +361,143 @@
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
         
       
     
@@ -1199,18 +1309,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#definition-length" class="md-nav__link">
+  <a href="#iso-11179-compliance" class="md-nav__link">
     <span class="md-ellipsis">
-      Definition Length
+      ISO 11179 Compliance
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#iso-11179-compliance" class="md-nav__link">
+  <a href="#definition-length" class="md-nav__link">
     <span class="md-ellipsis">
-      ISO 11179 Compliance
+      Definition Length
     </span>
   </a>
   
@@ -1873,18 +1983,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#definition-length" class="md-nav__link">
+  <a href="#iso-11179-compliance" class="md-nav__link">
     <span class="md-ellipsis">
-      Definition Length
+      ISO 11179 Compliance
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#iso-11179-compliance" class="md-nav__link">
+  <a href="#definition-length" class="md-nav__link">
     <span class="md-ellipsis">
-      ISO 11179 Compliance
+      Definition Length
     </span>
   </a>
   
@@ -1941,7 +2051,7 @@
 
 
 <h1 id="glossary-quality-report">Glossary Quality Report</h1>
-<p>Generated for the 570-term glossary produced from the 570-concept learning graph.</p>
+<p>Assessment of the 570-term glossary generated from the 570-concept learning graph.</p>
 <h2 id="coverage">Coverage</h2>
 <table>
 <thead>
@@ -1956,7 +2066,7 @@
 <td>570</td>
 </tr>
 <tr>
-<td>Concepts in learning graph</td>
+<td>Concepts in the learning graph</td>
 <td>570</td>
 </tr>
 <tr>
@@ -1964,45 +2074,13 @@
 <td>100%</td>
 </tr>
 <tr>
-<td>Terms not in the learning graph</td>
+<td>Definitions with no matching concept</td>
 <td>0</td>
 </tr>
 </tbody>
 </table>
 <p>Every concept label in <a href="../learning-graph.csv">learning-graph.csv</a> has exactly one
-matching definition, and no definition exists for a term outside the graph.</p>
-<h2 id="definition-length">Definition Length</h2>
-<table>
-<thead>
-<tr>
-<th>Measure</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mean definition length</td>
-<td>17.4 words</td>
-</tr>
-<tr>
-<td>Median definition length</td>
-<td>17 words</td>
-</tr>
-<tr>
-<td>Shortest</td>
-<td>9 words</td>
-</tr>
-<tr>
-<td>Longest</td>
-<td>32 words</td>
-</tr>
-<tr>
-<td>Within the 15-60 word target</td>
-<td>463 (81.2%)</td>
-</tr>
-</tbody>
-</table>
-<p>Definition length excludes the example sentence where one is present.</p>
+definition, and no definition exists for a term outside the graph.</p>
 <h2 id="iso-11179-compliance">ISO 11179 Compliance</h2>
 <table>
 <thead>
@@ -2014,19 +2092,19 @@ matching definition, and no definition exists for a term outside the graph.</p>
 <tbody>
 <tr>
 <td>Precise</td>
-<td>Definitions state the meaning directly, without hedging</td>
+<td>Definitions state meaning directly, without hedging</td>
 </tr>
 <tr>
 <td>Concise</td>
-<td>81.2% fall within the 15-60 word target</td>
+<td>81.2% fall within a 15-60 word band</td>
 </tr>
 <tr>
 <td>Distinct</td>
-<td>No duplicate or near-duplicate definitions detected</td>
+<td>0 duplicate definition bodies</td>
 </tr>
 <tr>
 <td>Non-circular</td>
-<td>79 definitions repeat their own leading term</td>
+<td>0 definitions restate their own full term</td>
 </tr>
 <tr>
 <td>Free of business rules</td>
@@ -2034,6 +2112,52 @@ matching definition, and no definition exists for a term outside the graph.</p>
 </tr>
 </tbody>
 </table>
+<p>Circularity is measured by checking whether a definition repeats the complete
+term it defines. Partial word overlap (for example, the word "skill" appearing
+in the definition of "Skill Packaging") is not circularity and is not counted.</p>
+<h2 id="definition-length">Definition Length</h2>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mean</td>
+<td>17.4 words</td>
+</tr>
+<tr>
+<td>Median</td>
+<td>17 words</td>
+</tr>
+<tr>
+<td>Shortest</td>
+<td>9 words</td>
+</tr>
+<tr>
+<td>Longest</td>
+<td>32 words</td>
+</tr>
+<tr>
+<td>Within 15-60 words</td>
+<td>463 (81.2%)</td>
+</tr>
+<tr>
+<td>Under 12 words</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Over 60 words</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Lengths exclude the example sentence. The mean sits slightly below the 20-word
+guidance, which reflects a deliberate bias toward brevity: conciseness is itself
+an ISO 11179 criterion, and padding definitions to reach a word count would work
+against precision.</p>
 <h2 id="examples-and-structure">Examples and Structure</h2>
 <table>
 <thead>
@@ -2044,11 +2168,11 @@ matching definition, and no definition exists for a term outside the graph.</p>
 </thead>
 <tbody>
 <tr>
-<td>Terms with a worked example</td>
-<td>95 (16.7%)</td>
+<td>Terms with an example</td>
+<td>384 (67.4%)</td>
 </tr>
 <tr>
-<td>Target example coverage</td>
+<td>Target range</td>
 <td>60-80%</td>
 </tr>
 <tr>
@@ -2056,8 +2180,8 @@ matching definition, and no definition exists for a term outside the graph.</p>
 <td>0</td>
 </tr>
 <tr>
-<td>Header levels other than <code>####</code></td>
-<td>0 (page title excluded)</td>
+<td>Header levels other than the term header</td>
+<td>0</td>
 </tr>
 <tr>
 <td>Horizontal rules</td>
@@ -2065,17 +2189,20 @@ matching definition, and no definition exists for a term outside the graph.</p>
 </tr>
 </tbody>
 </table>
-<p>The glossary is a flat alphabetical list. It contains no letter dividers, no
-category groupings, and no header level other than the term headers themselves.</p>
+<p>The glossary is a flat alphabetical list with no letter dividers and no thematic
+grouping. Alphabetical order is the only organizing principle.</p>
 <h2 id="cross-reference-integrity">Cross-Reference Integrity</h2>
-<p>All 143 glossary links elsewhere in <code>docs/</code> were checked against the term list
-after regeneration. Anchors orphaned by term renaming were remapped to their
-current equivalents, and zero broken glossary anchors remain.</p>
+<p>All 143 glossary links elsewhere in <code>docs/</code> were re-checked after
+regeneration. Anchors orphaned by term renaming were remapped to their current
+equivalents. Zero broken glossary anchors remain.</p>
 <h2 id="recommendations">Recommendations</h2>
 <ul>
-<li>Definitions under 12 words: 18 (Batch Screenshot Capture, Chapter Concept List, Claude Max Plan Limits, Comment System, CSV Parsing in Python, Freely-Licensed Images, GitHub Projects Kanban, MicroSim Quality Score)</li>
-<li>Definitions over 60 words: 0</li>
-<li>Review any definition that repeats its own leading term for circularity.</li>
+<li>18 definitions fall under 12 words. Review whether each still fully
+  conveys its meaning: Batch Screenshot Capture, Chapter Concept List, Claude Max Plan Limits, Comment System, CSV Parsing in Python, Freely-Licensed Images, GitHub Projects Kanban, MicroSim Quality Score, Multiple-Choice Question, Note and Tip Admonitions</li>
+<li>No definition exceeds the 60-word ceiling.</li>
+<li>No circular definitions were detected.</li>
+<li>Example coverage sits inside the target band; the terms still lacking an
+  example are mostly script names and self-evident file roles.</li>
 </ul>
 
 

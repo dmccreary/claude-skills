@@ -1,0 +1,2796 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Explains the three progressive-disclosure loading budgets, trigger matching, and how meta-skills and routing tables keep a large skill library under the thirty-skill limit.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/ibook-skills/chapters/07-progressive-disclosure-meta-skills/">
+      
+      
+        <link rel="prev" href="../06-agent-skill-fundamentals/">
+      
+      
+        <link rel="next" href="../08-token-budgets-usage-limits/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Progressive Disclosure and Meta-Skill Routing - Agent Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HPLDD3D3K2"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HPLDD3D3K2",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HPLDD3D3K2",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta property="og:type" content="website">
+      
+        <meta property="og:title" content="Progressive Disclosure and Meta-Skill Routing - Agent Skills for Intelligent Textbooks">
+      
+        <meta property="og:description" content="Explains the three progressive-disclosure loading budgets, trigger matching, and how meta-skills and routing tables keep a large skill library under the thirty-skill limit.">
+      
+        <meta property="og:image" content="https://dmccreary.github.io/ibook-skills/assets/images/social/chapters/07-progressive-disclosure-meta-skills/index.png">
+      
+        <meta property="og:image:type" content="image/png">
+      
+        <meta property="og:image:width" content="1200">
+      
+        <meta property="og:image:height" content="630">
+      
+        <meta property="og:url" content="https://dmccreary.github.io/ibook-skills/chapters/07-progressive-disclosure-meta-skills/">
+      
+        <meta name="twitter:card" content="summary_large_image">
+      
+        <meta name="twitter:title" content="Progressive Disclosure and Meta-Skill Routing - Agent Skills for Intelligent Textbooks">
+      
+        <meta name="twitter:description" content="Explains the three progressive-disclosure loading budgets, trigger matching, and how meta-skills and routing tables keep a large skill library under the thirty-skill limit.">
+      
+        <meta name="twitter:image" content="https://dmccreary.github.io/ibook-skills/assets/images/social/chapters/07-progressive-disclosure-meta-skills/index.png">
+      
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#progressive-disclosure-and-meta-skill-routing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Agent Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Agent Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agent Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Progressive Disclosure and Meta-Skill Routing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/ibook-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Agent Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Agent Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Agent Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/ibook-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-foundations-ai-language-models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Foundations of AI, Language Models, and Prompting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-ai-agents-textbook-intelligence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. AI Coding Agents and the Five Levels of Textbook Intelligence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-fundamentals-automation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Python Fundamentals for Skill Automation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-dev-tools-editor-git-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Development Tools: Editor, Terminal, and Git Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-mkdocs-deployment-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. MkDocs Site Features, Deployment, and Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-agent-skill-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Agent Skill Fundamentals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    7. Progressive Disclosure and Meta-Skill Routing
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    7. Progressive Disclosure and Meta-Skill Routing
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-budgets-of-progressive-disclosure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three Budgets of Progressive Disclosure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-an-agent-picks-a-skill-trigger-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      How an Agent Picks a Skill: Trigger Matching
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-thirty-skill-loading-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Thirty-Skill Loading Limit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meta-skills-one-router-many-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Meta-Skills: One Router, Many Guides
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Meta-Skills: One Router, Many Guides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-meta-skill-routing-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Meta-Skill Routing Table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-assets-and-templates-inside-a-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming, Assets, and Templates Inside a Skill
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-a-model-opus-versus-sonnet-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choosing a Model: Opus Versus Sonnet Routing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-skill-library-and-keeping-it-healthy" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Skill Library and Keeping It Healthy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-token-budgets-usage-limits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Token Budgets and Usage Limits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-measuring-optimizing-tokens/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Measuring and Optimizing Token Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-building-testing-portable-skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Building and Testing Portable Skills
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-distributing-skills-commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Distributing Skills and Building Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-writing-course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Writing a Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-blooms-taxonomy-instructional-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Bloom's Taxonomy and Instructional Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-learning-graphs-concept-enumeration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Learning Graphs and Concept Enumeration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-learning-graph-formats-taxonomy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Learning Graph Data Formats and Taxonomy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-learning-graph-quality-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Learning Graph Quality Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-chapter-structure-content-elements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Chapter Structure and Content Elements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-chapter-content-quality-review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Chapter Content Quality and Review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-faqs-curated-references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. FAQs and Curated References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-glossaries-and-quizzes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Glossaries and Quizzes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-microsim-anatomy-p5js-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    21. MicroSim Anatomy and p5.js Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-p5js-controls-microsim-quality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    22. p5.js Controls and MicroSim Quality
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-microsim-generator-metadata-schema/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    23. The MicroSim Generator and Metadata Schema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-visualization-libraries-systems-diagrams/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    24. Visualization Libraries and Systems Diagrams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-verified-infographic-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    25. Text-to-Image Models and the Verified Infographic Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-interactive-infographic-overlays/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    26. Interactive Infographic Overlays
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-slide-decks-stories-audio-media/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    27. Slide Decks, Stories, and Audio Media
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-domain-specific-skill-extension/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    28. Domain-Specific Skill Extension: Electronics Case Study
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29-book-installer-features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    29. Book Installer Features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30-session-logs-book-metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    30. Session Logs and Book Metrics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-publishing-announcing-book/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    31. Publishing and Announcing a Finished Book
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-a-claude-on-pi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix A - Claude on Raspberry Pi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-b-claude-on-wsl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix B - Claude on WSL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-c-user-global-claude/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix C - User Global Claude
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-d-parallel-execution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix D - Parallel Execution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Skill Descriptions
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../slides/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Slides
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../workshops/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Workshops
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../consolidation-plan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Consolidation Plan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../appendices/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Appendices
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-budgets-of-progressive-disclosure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three Budgets of Progressive Disclosure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-an-agent-picks-a-skill-trigger-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      How an Agent Picks a Skill: Trigger Matching
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-thirty-skill-loading-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Thirty-Skill Loading Limit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meta-skills-one-router-many-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Meta-Skills: One Router, Many Guides
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Meta-Skills: One Router, Many Guides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-meta-skill-routing-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Meta-Skill Routing Table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-assets-and-templates-inside-a-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming, Assets, and Templates Inside a Skill
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-a-model-opus-versus-sonnet-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choosing a Model: Opus Versus Sonnet Routing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-skill-library-and-keeping-it-healthy" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Skill Library and Keeping It Healthy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/ibook-skills/blob/main/docs/chapters/07-progressive-disclosure-meta-skills/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="progressive-disclosure-and-meta-skill-routing">Progressive Disclosure and Meta-Skill Routing</h1>
+<h2 id="summary">Summary</h2>
+<p>This chapter explains progressive disclosure and its three loading budgets -- metadata, body, and reference -- along with how trigger matching selects which skill to load. It introduces meta-skills, routing tables, and skill consolidation as the pattern that keeps a large library under the thirty-skill loading limit. Students will be able to design a meta-skill's routing table for a set of related sub-skills after this chapter.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 22 concepts from the learning graph:</p>
+<ol>
+<li>Skill Trigger Matching</li>
+<li>Opus Versus Sonnet Routing</li>
+<li>Skill Naming Conventions</li>
+<li>Supporting Assets in Skills</li>
+<li>Template Files in Skills</li>
+<li>Python Scripts in Skills</li>
+<li>Metadata Loading Budget</li>
+<li>Body Loading Budget</li>
+<li>Reference Loading Budget</li>
+<li>Trigger Keyword Table</li>
+<li>False Trigger Misfire</li>
+<li>Skill Discoverability</li>
+<li>Meta-Skill</li>
+<li>Thirty Skill Loading Limit</li>
+<li>Skill Routing Table</li>
+<li>On-Demand Guide Loading</li>
+<li>Skill Consolidation</li>
+<li>Archived Skill</li>
+<li>Reference Docs in Skills</li>
+<li>Skill Library</li>
+<li>Skill Alias Map</li>
+<li>Skill Library Maintenance</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-foundations-ai-language-models/">1. Foundations of AI, Language Models, and Prompting</a></li>
+<li><a href="../03-python-fundamentals-automation/">3. Python Fundamentals for Skill Automation</a></li>
+<li><a href="../06-agent-skill-fundamentals/">6. Agent Skill Fundamentals</a></li>
+</ul>
+<hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Time to scale up the toolbox.</p>
+<p><img alt="Kit waves hello with their tool satchel" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+One skill is easy to manage — a library of dozens is not, unless you organize it deliberately. This chapter is how you keep a huge toolbox usable instead of overwhelming. Right tool, right task!</p>
+</div>
+<h2 id="three-budgets-of-progressive-disclosure">Three Budgets of Progressive Disclosure</h2>
+<p>Chapter 6 introduced progressive disclosure as three nested layers. Each layer actually costs tokens at a different point in a session, which is why they're better understood as three separate budgets. The <strong>metadata loading budget</strong> is the cost of the always-resident summary for every installed skill — paid on every single request, which is exactly why a skill's description has to stay short. The <strong>body loading budget</strong> is the cost of reading a skill's full instruction file, paid once that specific skill is triggered. The <strong>reference loading budget</strong> is the cost of opening one specific detailed guide, paid only for the one guide a task actually needs — not the other 98 guides sitting untouched in the library.</p>
+<table>
+<thead>
+<tr>
+<th>Budget</th>
+<th>Paid When</th>
+<th>Cost Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Metadata</td>
+<td>Every request, for every installed skill</td>
+<td>Must stay small — multiplies by skill count</td>
+</tr>
+<tr>
+<td>Body</td>
+<td>Once, when a skill is triggered</td>
+<td>Paid only by requests that use that skill</td>
+</tr>
+<tr>
+<td>Reference</td>
+<td>Once, when a specific guide is opened</td>
+<td>Paid only by the one guide a task needs</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-an-agent-picks-a-skill-trigger-matching">How an Agent Picks a Skill: Trigger Matching</h2>
+<p><strong>Skill trigger matching</strong> is the process by which an agent compares an incoming request against every installed skill's description to decide which skill to load. This is entirely a metadata-budget operation — it happens before any skill's body is ever read. That makes <strong>skill discoverability</strong> almost entirely a function of description quality: the degree to which an agent can determine that a relevant skill exists, governed by how well its description anticipates the phrases a real request would use.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">A description that's too broad backfires.</p>
+<p><img alt="Kit holding up a caution paw" class="mascot-admonition-img" src="../../img/mascot/warning.png">
+A <strong>false trigger misfire</strong> is a routing error in which a skill activates for a request it doesn't actually handle, usually caused by an overly broad description. Writing "handles all documentation tasks" sounds helpful but will misfire on requests that belong to a completely different skill. Be specific about what a skill does and, just as importantly, what it doesn't.</p>
+</div>
+<p>For a meta-skill routing among several guides internally, that matching gets formalized as a <strong>trigger keyword table</strong>: an explicit mapping from request phrases to the action or guide that should handle them, making routing decisions predictable rather than left to guesswork.</p>
+<h2 id="the-thirty-skill-loading-limit">The Thirty-Skill Loading Limit</h2>
+<p>There's a practical ceiling on how much metadata budget a session can spend before it becomes wasteful: the <strong>thirty skill loading limit</strong>, the practical ceiling on how many skills an agent can keep available at once, which forces related skills to be consolidated rather than installed one by one forever. This book's own library would need dozens of standalone skills without a strategy for staying under that number — which is exactly the problem meta-skills solve.</p>
+<h2 id="meta-skills-one-router-many-guides">Meta-Skills: One Router, Many Guides</h2>
+<p>A <strong>meta-skill</strong> is a skill whose primary job is to route a request to one of several detailed guides rather than to perform the task itself. Inside it lives a <strong>skill routing table</strong>: the decision table that maps trigger keywords to the guide file responsible for each variant of a task. Once a match is found, the meta-skill performs <strong>on-demand guide loading</strong>: reading that one detailed instruction file only at the moment the matching task begins, rather than keeping every guide resident the whole session.</p>
+<h4 id="diagram-meta-skill-routing-table">Diagram: Meta-Skill Routing Table</h4>
+<iframe src="../../sims/meta-skill-routing-table/main.html" width="100%" height="480px" scrolling="no"></iframe>
+
+<details>
+<summary>Meta-Skill Routing Table</summary>
+<p>Type: workflow
+<strong>sim-id:</strong> meta-skill-routing-table<br>
+<strong>Library:</strong> Mermaid<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Level: Apply (L3)
+Bloom Verb: Demonstrate</p>
+<p>Learning objective: Demonstrate how a meta-skill's routing table matches a request's trigger keywords to exactly one on-demand guide.</p>
+<p>Visual style: Left-to-right Mermaid flowchart</p>
+<p>Nodes:
+1. "Incoming Request" (rounded rectangle)
+2. "microsim-generator (Meta-Skill)" (rounded rectangle, book's accent color)
+3. "Trigger Keyword Table" (rectangle, styled as a small table)
+4. Five guide nodes fanning out: "p5.js Guide", "Chart.js Guide", "vis-network Guide", "Mermaid Guide", "Timeline Guide" (rounded rectangles)</p>
+<p>Edges:
+- Incoming Request --&gt; microsim-generator (Meta-Skill)
+- microsim-generator (Meta-Skill) --&gt; Trigger Keyword Table
+- Trigger Keyword Table --&gt; each of the five guide nodes, each edge labeled with the keyword that routes there (e.g., "p5, simulation, interactive canvas" -&gt; p5.js Guide)</p>
+<p>Interactivity requirement: every node MUST have a <code>click</code> directive opening an infobox — the request node shows an example request string, the meta-skill node shows its one-sentence job description, each guide node shows what kind of MicroSim it produces.</p>
+<p>Color scheme: the meta-skill node in the book's teal accent; the five guide nodes in a consistent lighter shade so they read as siblings; matched-edge highlighting on click.</p>
+<p>Implementation: Mermaid flowchart with per-node click handlers rendered inside the MicroSim's main.html, opening a shared infobox panel below the diagram.</p>
+</details>
+<p>Building a meta-skill usually means <strong>skill consolidation</strong>: merging several related skills into one router plus a set of guides, reducing the number of installed skills without losing any capability. The original standalone skill doesn't vanish — it becomes an <strong>archived skill</strong>: retained for reference after its content was folded into the meta-skill, but no longer loaded by the agent. So that old references still resolve, a <strong>skill alias map</strong> records which former skill names now correspond to which route inside the consolidated skill.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Consolidation trades skill count for guide count.</p>
+<p><img alt="Kit thinking with a paw on their chin" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+Here's the shift in mental model: consolidating doesn't shrink your capability, it just moves most of it from "always resident" to "loaded on demand." Forty standalone skills at 40 metadata-budget entries becomes 5 meta-skills at 5 metadata-budget entries — same 40 capabilities, one-eighth the always-on cost.</p>
+</div>
+<h2 id="naming-assets-and-templates-inside-a-skill">Naming, Assets, and Templates Inside a Skill</h2>
+<p>A few more conventions round out what lives inside a well-formed skill. <strong>Skill naming conventions</strong> are the rules governing skill identifiers: lowercase, hyphen-separated, descriptive, and identical to the containing folder name — a rule that keeps a skill discoverable and unambiguous. <strong>Supporting assets in skills</strong> are non-instruction files bundled with a skill, such as schemas, stylesheets, or starter templates, that its workflow copies or reads. Among those, <strong>template files in skills</strong> are prewritten starter files a skill copies into a project and then customizes, avoiding regeneration of boilerplate the model would otherwise have to write from scratch every time. <strong>Python scripts in skills</strong> are programs bundled with a skill that perform its deterministic steps, keeping that work out of the model's output — exactly the division of labor from Chapter 3. <strong>Reference docs in skills</strong> are detailed instructional documents stored alongside a skill and read selectively, allowing real depth without a permanent loading cost.</p>
+<h2 id="choosing-a-model-opus-versus-sonnet-routing">Choosing a Model: Opus Versus Sonnet Routing</h2>
+<p>Progressive disclosure controls how much a skill costs to load; <strong>Opus versus Sonnet routing</strong> controls how much it costs to <em>run</em> — the specific choice between a high-capability model and a faster, cheaper one, traded off against task difficulty and cost. A skill that designs an entire book's chapter structure benefits from a stronger model's reasoning; a skill that reformats a CSV file doesn't need it.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Match the model to the judgment required, not the file size.</p>
+<p><img alt="Kit holding up a tool with a knowing look" class="mascot-admonition-img" src="../../img/mascot/tip.png">
+A long but mechanical task (renaming 300 files) doesn't need a stronger model just because it touches a lot of files. A short but ambiguous task (designing a chapter order that respects 1,137 dependency edges) does. Route on judgment required, not on task length.</p>
+</div>
+<h2 id="the-skill-library-and-keeping-it-healthy">The Skill Library and Keeping It Healthy</h2>
+<p>All of this — skills, meta-skills, guides, archives — together makes up a <strong>skill library</strong>: the complete collection of skills available to an agent, together with the conventions that keep them consistent. A library isn't a one-time deliverable; it needs <strong>skill library maintenance</strong>: the ongoing work of updating, testing, and pruning a collection of skills so they remain accurate as tools and standards change.</p>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li>Progressive disclosure has three separate costs: the <strong>metadata</strong>, <strong>body</strong>, and <strong>reference loading budgets</strong>, each paid at a different point in a session.</li>
+<li><strong>Trigger matching</strong> and <strong>skill discoverability</strong> depend entirely on description quality; an overly broad one causes a <strong>false trigger misfire</strong>.</li>
+<li>The <strong>thirty skill loading limit</strong> forces <strong>skill consolidation</strong> into <strong>meta-skills</strong>, each with its own <strong>routing table</strong> and <strong>on-demand guide loading</strong>.</li>
+<li>Consolidated skills become <strong>archived</strong>, tracked by a <strong>skill alias map</strong> so old references still resolve.</li>
+<li><strong>Naming conventions</strong>, <strong>supporting assets</strong>, <strong>templates</strong>, <strong>Python scripts</strong>, and <strong>reference docs</strong> round out a skill's contents; <strong>model routing</strong> and ongoing <strong>library maintenance</strong> keep the whole thing efficient and accurate.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You could design this library's next meta-skill.</p>
+<p><img alt="Kit celebrating with arms raised" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+You now understand exactly why this book has 14 skills instead of 40 — and you could sketch the routing table for the next one yourself. Right tool, right task!</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../06-agent-skill-fundamentals/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 6. Agent Skill Fundamentals">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                6. Agent Skill Fundamentals
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../08-token-budgets-usage-limits/" class="md-footer__link md-footer__link--next" aria-label="Next: 8. Token Budgets and Usage Limits">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                8. Token Budgets and Usage Limits
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025, 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

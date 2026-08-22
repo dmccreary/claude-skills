@@ -1,0 +1,2779 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Covers the CSV and vis-network JSON formats that encode a learning graph, directed acyclic graph structure, cycle detection, and taxonomy categorization.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/ibook-skills/chapters/15-learning-graph-formats-taxonomy/">
+      
+      
+        <link rel="prev" href="../14-learning-graphs-concept-enumeration/">
+      
+      
+        <link rel="next" href="../16-learning-graph-quality-validation/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Learning Graph Data Formats and Taxonomy - Agent Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HPLDD3D3K2"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HPLDD3D3K2",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HPLDD3D3K2",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta property="og:type" content="website">
+      
+        <meta property="og:title" content="Learning Graph Data Formats and Taxonomy - Agent Skills for Intelligent Textbooks">
+      
+        <meta property="og:description" content="Covers the CSV and vis-network JSON formats that encode a learning graph, directed acyclic graph structure, cycle detection, and taxonomy categorization.">
+      
+        <meta property="og:image" content="https://dmccreary.github.io/ibook-skills/assets/images/social/chapters/15-learning-graph-formats-taxonomy/index.png">
+      
+        <meta property="og:image:type" content="image/png">
+      
+        <meta property="og:image:width" content="1200">
+      
+        <meta property="og:image:height" content="630">
+      
+        <meta property="og:url" content="https://dmccreary.github.io/ibook-skills/chapters/15-learning-graph-formats-taxonomy/">
+      
+        <meta name="twitter:card" content="summary_large_image">
+      
+        <meta name="twitter:title" content="Learning Graph Data Formats and Taxonomy - Agent Skills for Intelligent Textbooks">
+      
+        <meta name="twitter:description" content="Covers the CSV and vis-network JSON formats that encode a learning graph, directed acyclic graph structure, cycle detection, and taxonomy categorization.">
+      
+        <meta name="twitter:image" content="https://dmccreary.github.io/ibook-skills/assets/images/social/chapters/15-learning-graph-formats-taxonomy/index.png">
+      
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#learning-graph-data-formats-and-taxonomy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Agent Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Agent Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agent Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Learning Graph Data Formats and Taxonomy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/ibook-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Agent Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Agent Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Agent Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/ibook-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-foundations-ai-language-models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Foundations of AI, Language Models, and Prompting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-ai-agents-textbook-intelligence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. AI Coding Agents and the Five Levels of Textbook Intelligence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-fundamentals-automation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Python Fundamentals for Skill Automation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-dev-tools-editor-git-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Development Tools: Editor, Terminal, and Git Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-mkdocs-deployment-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. MkDocs Site Features, Deployment, and Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-agent-skill-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Agent Skill Fundamentals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-progressive-disclosure-meta-skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Progressive Disclosure and Meta-Skill Routing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-token-budgets-usage-limits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Token Budgets and Usage Limits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-measuring-optimizing-tokens/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Measuring and Optimizing Token Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-building-testing-portable-skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Building and Testing Portable Skills
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-distributing-skills-commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Distributing Skills and Building Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-writing-course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Writing a Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-blooms-taxonomy-instructional-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Bloom's Taxonomy and Instructional Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-learning-graphs-concept-enumeration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Learning Graphs and Concept Enumeration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    15. Learning Graph Data Formats and Taxonomy
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    15. Learning Graph Data Formats and Taxonomy
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-formats-one-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two Formats, One Graph
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directed-acyclic-graphs-and-cycle-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directed Acyclic Graphs and Cycle Detection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Directed Acyclic Graphs and Cycle Detection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-three-color-dfs-cycle-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Three-Color DFS Cycle Detection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-a-graph-begins-and-ends" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where a Graph Begins and Ends
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-structure-indegree-and-outdegree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measuring Structure: Indegree and Outdegree
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validating-the-shape-json-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validating the Shape: JSON Schema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taxonomy-taxonomyid-naming-and-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxonomy: TaxonomyID, Naming, and Distribution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Taxonomy: TaxonomyID, Naming, and Distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-taxonomy-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Taxonomy Distribution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-learning-graph-quality-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Learning Graph Quality Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-chapter-structure-content-elements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Chapter Structure and Content Elements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-chapter-content-quality-review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Chapter Content Quality and Review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-faqs-curated-references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. FAQs and Curated References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-glossaries-and-quizzes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Glossaries and Quizzes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-microsim-anatomy-p5js-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    21. MicroSim Anatomy and p5.js Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-p5js-controls-microsim-quality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    22. p5.js Controls and MicroSim Quality
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-microsim-generator-metadata-schema/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    23. The MicroSim Generator and Metadata Schema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-visualization-libraries-systems-diagrams/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    24. Visualization Libraries and Systems Diagrams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-verified-infographic-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    25. Text-to-Image Models and the Verified Infographic Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-interactive-infographic-overlays/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    26. Interactive Infographic Overlays
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-slide-decks-stories-audio-media/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    27. Slide Decks, Stories, and Audio Media
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-domain-specific-skill-extension/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    28. Domain-Specific Skill Extension: Electronics Case Study
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29-book-installer-features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    29. Book Installer Features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30-session-logs-book-metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    30. Session Logs and Book Metrics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-publishing-announcing-book/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    31. Publishing and Announcing a Finished Book
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-a-claude-on-pi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix A - Claude on Raspberry Pi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-b-claude-on-wsl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix B - Claude on WSL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-c-user-global-claude/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix C - User Global Claude
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-d-parallel-execution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix D - Parallel Execution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Skill Descriptions
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../slides/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Slides
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../workshops/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Workshops
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../consolidation-plan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Consolidation Plan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../appendices/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Appendices
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-formats-one-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two Formats, One Graph
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directed-acyclic-graphs-and-cycle-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directed Acyclic Graphs and Cycle Detection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Directed Acyclic Graphs and Cycle Detection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-three-color-dfs-cycle-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Three-Color DFS Cycle Detection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-a-graph-begins-and-ends" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where a Graph Begins and Ends
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-structure-indegree-and-outdegree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measuring Structure: Indegree and Outdegree
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validating-the-shape-json-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validating the Shape: JSON Schema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taxonomy-taxonomyid-naming-and-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxonomy: TaxonomyID, Naming, and Distribution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Taxonomy: TaxonomyID, Naming, and Distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-taxonomy-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Taxonomy Distribution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/ibook-skills/blob/main/docs/chapters/15-learning-graph-formats-taxonomy/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="learning-graph-data-formats-and-taxonomy">Learning Graph Data Formats and Taxonomy</h1>
+<h2 id="summary">Summary</h2>
+<p>This chapter covers the pipe-delimited CSV format and the vis-network JSON format -- nodes, edges, groups, and metadata sections -- that together encode a learning graph. It explains TaxonomyID assignment, taxonomy category naming, and the <code>taxonomy-names.json</code> and <code>color-config.json</code> files that drive the graph viewer's legend. Students will be able to convert a CSV learning graph into vis-network JSON after this chapter.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 20 concepts from the learning graph:</p>
+<ol>
+<li>Dublin Core Metadata</li>
+<li>JSON Schema Validation</li>
+<li>Pipe-Delimited Dependencies</li>
+<li>Directed Acyclic Graph</li>
+<li>TaxonomyID</li>
+<li>Taxonomy Category Naming</li>
+<li>Nodes Section</li>
+<li>Edges Section</li>
+<li>Learning Graph CSV Format</li>
+<li>Cycle Detection</li>
+<li>Foundational Concept</li>
+<li>Terminal Node</li>
+<li>Orphaned Node</li>
+<li>Linear Chain Detection</li>
+<li>Indegree Analysis</li>
+<li>Outdegree Analysis</li>
+<li>Taxonomy Distribution</li>
+<li>taxonomy-names.json File</li>
+<li>color-config.json File</li>
+<li>Groups Section</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../03-python-fundamentals-automation/">3. Python Fundamentals for Skill Automation</a></li>
+<li><a href="../14-learning-graphs-concept-enumeration/">14. Learning Graphs and Concept Enumeration</a></li>
+</ul>
+<hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Same graph, two file formats.</p>
+<p><img alt="Kit waves hello with their tool satchel" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+A learning graph starts life as a spreadsheet a human can review, then becomes a JSON file a browser can render. This chapter shows you both, and how they're checked for correctness. Right tool, right task!</p>
+</div>
+<h2 id="two-formats-one-graph">Two Formats, One Graph</h2>
+<p>Authors review a learning graph as the <strong>learning graph CSV format</strong>: a tabular file holding one row per teachable idea with its identifier, label, prerequisite list, and category — easy to skim, sort, and edit in a spreadsheet. Because a single concept can have several prerequisites, that prerequisite list uses <strong>pipe-delimited dependencies</strong>: a storage convention listing several prerequisite identifiers in one spreadsheet cell separated by vertical bars, like <code>13|31</code> meaning "depends on concepts 13 and 31."</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>ConceptID,ConceptLabel,Dependencies,TaxonomyID
+33,Level 2 Interactive Content,13|32,FOUND
+</code></pre></div></td></tr></tbody></table></div>
+<p>That single CSV row expands into three separate places once converted to JSON. The <strong>nodes section</strong> lists every teachable idea with its identifier, label, and category assignment; the <strong>edges section</strong> lists every ordering relationship as a pair of identifiers; the <strong>groups section</strong> defines each category's display name, color, and font, which together form the legend you saw in Chapter 14's graph viewer.</p>
+<h2 id="directed-acyclic-graphs-and-cycle-detection">Directed Acyclic Graphs and Cycle Detection</h2>
+<p>For a dependency structure to produce a valid teaching order at all, it must be a <strong>directed acyclic graph</strong>: a structure of nodes and one-way arrows containing no path that returns to its starting node, guaranteeing a valid ordering exists. Checking that property is <strong>cycle detection</strong>: checking a directed structure for any closed loop, which would make a consistent teaching order impossible — if concept A depends on B, B depends on C, and C depends back on A, there's no valid place to start.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">A cycle means the graph is asking for something impossible.</p>
+<p><img alt="Kit thinking with a paw on their chin" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+Picture a cycle as three people who each refuse to speak until the person before them has spoken — the conversation can never start. That's exactly why cycle detection isn't optional polish; a graph with even one cycle simply cannot be taught in any order.</p>
+</div>
+<h4 id="diagram-three-color-dfs-cycle-detection">Diagram: Three-Color DFS Cycle Detection</h4>
+<iframe src="../../sims/three-color-dfs/main.html" width="100%" height="520px" scrolling="no"></iframe>
+
+<details>
+<summary>Three-Color DFS Cycle Detection (reused MicroSim)</summary>
+<p>Type: graph-model
+<strong>sim-id:</strong> three-color-dfs<br>
+<strong>Library:</strong> vis-network<br>
+<strong>Status:</strong> Reused<br>
+<strong>Source:</strong> docs/sims/three-color-dfs</p>
+<p>Reused from this book's own MicroSim catalog. Learning objective: Analyze how the three-color depth-first-search algorithm marks nodes to detect a cycle in a learning graph.</p>
+</details>
+<h2 id="where-a-graph-begins-and-ends">Where a Graph Begins and Ends</h2>
+<p>Some structural roles matter enough to have their own names. A <strong>foundational concept</strong> is a teachable idea with no prerequisites, serving as an entry point where a learner can begin — this book's own graph has six of them, including "Artificial Intelligence" and "Git." A <strong>terminal node</strong> is a teachable idea that has prerequisites but that nothing else depends on, representing a natural endpoint of a route. An <strong>orphaned node</strong> is a teachable idea with no incoming and no outgoing arrows, disconnected from the rest of the structure — and unlike a foundational or terminal node, it always indicates a defect rather than a valid structural role.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">An orphaned node is invisible to every learning pathway.</p>
+<p><img alt="Kit holding up a caution paw" class="mascot-admonition-img" src="../../img/mascot/warning.png">
+A concept with zero connections in either direction can never be reached by any learning pathway and never leads anywhere either — it's dead weight in the graph. Always check for orphaned nodes before treating a graph as finished; they're easy to miss by eye in a graph with hundreds of concepts.</p>
+</div>
+<p>One more pattern worth flagging is <strong>linear chain detection</strong>: identifying long runs where each idea depends only on the one immediately before it, which suggests missing relationships and a single rigid route rather than the richer, more connected structure a real subject usually has.</p>
+<h2 id="measuring-structure-indegree-and-outdegree">Measuring Structure: Indegree and Outdegree</h2>
+<p>Two simple counts reveal a lot about a graph's shape. <strong>Indegree analysis</strong> counts how many ideas depend on each idea, revealing which are most heavily relied upon and therefore most important to explain well. <strong>Outdegree analysis</strong> counts how many prerequisites each idea declares, revealing ideas that may be too demanding to introduce at one point if that count runs unusually high.</p>
+<h2 id="validating-the-shape-json-schema">Validating the Shape: JSON Schema</h2>
+<p>Before any of these checks run, the file itself has to be well-formed. <strong>JSON schema validation</strong> is checking a structured data file against a formal description of its required shape, catching missing or malformed fields automatically — before cycle detection or indegree analysis can even run meaningfully. Every valid graph file also carries <strong>Dublin Core metadata</strong>: a standard set of descriptive fields such as title, creator, date, and rights, used to make the resource identifiable and citable, living inside the metadata section you met in Chapter 14.</p>
+<h2 id="taxonomy-taxonomyid-naming-and-distribution">Taxonomy: TaxonomyID, Naming, and Distribution</h2>
+<p>Every concept also belongs to a category. A <strong>TaxonomyID</strong> is a short uppercase abbreviation identifying that category, used in the data files and as the group key in a rendered diagram — <code>FOUND</code>, <code>LGRAPH</code>, <code>MSIM</code>, and the other codes you've seen in every chapter's concept list so far. Choosing those codes well is <strong>taxonomy category naming</strong>: choosing descriptive category names that communicate their contents to a reader rather than only to the system.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">A good category name explains itself before you open it.</p>
+<p><img alt="Kit holding up a tool with a knowing look" class="mascot-admonition-img" src="../../img/mascot/tip.png">
+"Learning Graphs" tells a reader what's inside; "Category 7" doesn't. Spend the extra thirty seconds naming a taxonomy category something a stranger could guess correctly.</p>
+</div>
+<h4 id="diagram-taxonomy-distribution">Diagram: Taxonomy Distribution</h4>
+<iframe src="../../sims/taxonomy-distribution-pie/main.html" width="100%" height="460px" scrolling="no"></iframe>
+
+<details>
+<summary>Taxonomy Distribution (reused MicroSim)</summary>
+<p>Type: chart
+<strong>sim-id:</strong> taxonomy-distribution-pie<br>
+<strong>Library:</strong> Chart.js<br>
+<strong>Status:</strong> Reused<br>
+<strong>Source:</strong> docs/sims/taxonomy-distribution-pie</p>
+<p>Reused from this book's own MicroSim catalog. Learning objective: Evaluate whether any single taxonomy category dominates this book's 570-concept graph, using its actual <strong>taxonomy distribution</strong> — the count and percentage of ideas falling into each category, used to detect imbalance.</p>
+</details>
+<p>Two small files keep that whole system consistent across regenerations. The <strong>taxonomy-names.json file</strong> maps short category abbreviations to human-readable names, required so reports and diagram legends display meaningful labels instead of raw codes. The <strong>color-config.json file</strong> stores the assignment of a display color to each category, ensuring the same category keeps the same color every time the graph is regenerated — without it, "FOUND" might render blue one week and orange the next.</p>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li>The <strong>CSV format</strong>, using <strong>pipe-delimited dependencies</strong>, is what an author edits; it converts into a JSON file's <strong>nodes</strong>, <strong>edges</strong>, and <strong>groups sections</strong>.</li>
+<li>A valid graph must be a <strong>directed acyclic graph</strong>, confirmed by <strong>cycle detection</strong>; <strong>JSON schema validation</strong> and <strong>Dublin Core metadata</strong> check the file's shape and provenance.</li>
+<li><strong>Foundational concepts</strong>, <strong>terminal nodes</strong>, and (as a defect) <strong>orphaned nodes</strong> are structural roles; <strong>linear chain detection</strong>, <strong>indegree</strong>, and <strong>outdegree analysis</strong> reveal shape problems.</li>
+<li>A <strong>TaxonomyID</strong> and thoughtful <strong>taxonomy category naming</strong> organize concepts; <strong>taxonomy distribution</strong> checks for imbalance, kept consistent via <strong>taxonomy-names.json</strong> and <strong>color-config.json</strong>.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You can now read a raw learning graph file cover to cover.</p>
+<p><img alt="Kit celebrating with arms raised" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+CSV or JSON, nodes or edges, TaxonomyID or full category name — none of it is a mystery anymore. Right tool, right task!</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../14-learning-graphs-concept-enumeration/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 14. Learning Graphs and Concept Enumeration">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                14. Learning Graphs and Concept Enumeration
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../16-learning-graph-quality-validation/" class="md-footer__link md-footer__link--next" aria-label="Next: 16. Learning Graph Quality Validation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                16. Learning Graph Quality Validation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025, 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

@@ -65,131 +65,147 @@
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/00-getting-started/raspberry-pi-setup/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/01-foundations-ai-language-models/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/01-intro-ai-intelligent-textbooks/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/02-ai-agents-textbook-intelligence/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/01-intro-ai-intelligent-textbooks/quiz/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/03-python-fundamentals-automation/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/02-getting-started-ibook-skills/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/04-dev-tools-editor-git-basics/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/02-getting-started-ibook-skills/quiz/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/05-mkdocs-deployment-analytics/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/03-course-design-educational-theory/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/06-agent-skill-fundamentals/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/03-course-design-educational-theory/quiz/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/07-progressive-disclosure-meta-skills/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/04-intro-learning-graphs/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/08-token-budgets-usage-limits/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/04-intro-learning-graphs/quiz/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/09-measuring-optimizing-tokens/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/05-concept-enumeration-dependencies/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/10-building-testing-portable-skills/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/05-concept-enumeration-dependencies/quiz/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/11-distributing-skills-commands/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/06-learning-graph-quality-validation/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/12-writing-course-description/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/06-learning-graph-quality-validation/quiz/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/13-blooms-taxonomy-instructional-design/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/07-taxonomy-data-formats/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/14-learning-graphs-concept-enumeration/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/07-taxonomy-data-formats/quiz/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/15-learning-graph-formats-taxonomy/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/08-mkdocs-platform-documentation/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/16-learning-graph-quality-validation/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/08-mkdocs-platform-documentation/quiz/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/17-chapter-structure-content-elements/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/09-ibook-skills-architecture-development/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/18-chapter-content-quality-review/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/09-ibook-skills-architecture-development/quiz/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/19-faqs-curated-references/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/10-content-creation-workflows/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/20-glossaries-and-quizzes/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/10-content-creation-workflows/quiz/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/21-microsim-anatomy-p5js-basics/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/11-educational-resources-assessment/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/22-p5js-controls-microsim-quality/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/11-educational-resources-assessment/quiz/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/23-microsim-generator-metadata-schema/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/12-interactive-elements-microsims/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/24-visualization-libraries-systems-diagrams/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/12-interactive-elements-microsims/quiz/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/25-verified-infographic-pipeline/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/13-dev-tools-version-control-deployment/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/26-interactive-infographic-overlays/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/13-dev-tools-version-control-deployment/quiz/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/27-slide-decks-stories-audio-media/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/14-claude-on-pi/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/28-domain-specific-skill-extension/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/15-claude-on-wsl/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/29-book-installer-features/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/16-user-global-claude/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/30-session-logs-book-metrics/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/17-parallel-execution/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/31-publishing-announcing-book/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/ibook-skills/chapters/17-parallel-execution/quiz/</loc>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/appendix-a-claude-on-pi/</loc>
+         <lastmod>2026-08-22</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/appendix-b-claude-on-wsl/</loc>
+         <lastmod>2026-08-22</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/appendix-c-user-global-claude/</loc>
+         <lastmod>2026-08-22</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/appendix-d-parallel-execution/</loc>
+         <lastmod>2026-08-22</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/ibook-skills/chapters/appendix-d-parallel-execution/quiz/</loc>
          <lastmod>2026-08-22</lastmod>
     </url>
     <url>

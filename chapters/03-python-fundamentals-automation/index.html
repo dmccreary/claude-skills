@@ -1,0 +1,2841 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Covers the Python building blocks behind every automation script in the skill library, from the standard library and virtual environments to idempotent script design.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/ibook-skills/chapters/03-python-fundamentals-automation/">
+      
+      
+        <link rel="prev" href="../02-ai-agents-textbook-intelligence/">
+      
+      
+        <link rel="next" href="../04-dev-tools-editor-git-basics/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Python Fundamentals for Skill Automation - Agent Skills for Intelligent Textbooks</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HPLDD3D3K2"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HPLDD3D3K2",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HPLDD3D3K2",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta property="og:type" content="website">
+      
+        <meta property="og:title" content="Python Fundamentals for Skill Automation - Agent Skills for Intelligent Textbooks">
+      
+        <meta property="og:description" content="Covers the Python building blocks behind every automation script in the skill library, from the standard library and virtual environments to idempotent script design.">
+      
+        <meta property="og:image" content="https://dmccreary.github.io/ibook-skills/assets/images/social/chapters/03-python-fundamentals-automation/index.png">
+      
+        <meta property="og:image:type" content="image/png">
+      
+        <meta property="og:image:width" content="1200">
+      
+        <meta property="og:image:height" content="630">
+      
+        <meta property="og:url" content="https://dmccreary.github.io/ibook-skills/chapters/03-python-fundamentals-automation/">
+      
+        <meta name="twitter:card" content="summary_large_image">
+      
+        <meta name="twitter:title" content="Python Fundamentals for Skill Automation - Agent Skills for Intelligent Textbooks">
+      
+        <meta name="twitter:description" content="Covers the Python building blocks behind every automation script in the skill library, from the standard library and virtual environments to idempotent script design.">
+      
+        <meta name="twitter:image" content="https://dmccreary.github.io/ibook-skills/assets/images/social/chapters/03-python-fundamentals-automation/index.png">
+      
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-fundamentals-for-skill-automation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Agent Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Agent Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agent Skills for Intelligent Textbooks
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python Fundamentals for Skill Automation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/ibook-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Agent Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Agent Skills for Intelligent Textbooks" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Agent Skills for Intelligent Textbooks
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/ibook-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-foundations-ai-language-models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Foundations of AI, Language Models, and Prompting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-ai-agents-textbook-intelligence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. AI Coding Agents and the Five Levels of Textbook Intelligence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    3. Python Fundamentals for Skill Automation
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    3. Python Fundamentals for Skill Automation
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-and-its-standard-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python and Its Standard Library
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-dependencies-pip-and-virtual-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Dependencies: pip and Virtual Environments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-and-writing-structured-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading and Writing Structured Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-files-globbing-and-path-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working With Files: Globbing and Path Handling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-a-script-runnable-shebang-lines-and-command-line-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Making a Script Runnable: Shebang Lines and Command-Line Arguments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-scripts-you-can-trust-exit-codes-verbose-mode-and-dry-runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing Scripts You Can Trust: Exit Codes, Verbose Mode, and Dry Runs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determinism-and-idempotency-why-these-scripts-are-safe-to-rerun" class="md-nav__link">
+    <span class="md-ellipsis">
+      Determinism and Idempotency: Why These Scripts Are Safe to Rerun
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Determinism and Idempotency: Why These Scripts Are Safe to Rerun">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-idempotent-script-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Idempotent Script Simulator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-script-wrappers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell Script Wrappers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-dev-tools-editor-git-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Development Tools: Editor, Terminal, and Git Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-mkdocs-deployment-analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. MkDocs Site Features, Deployment, and Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-agent-skill-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Agent Skill Fundamentals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-progressive-disclosure-meta-skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Progressive Disclosure and Meta-Skill Routing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-token-budgets-usage-limits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Token Budgets and Usage Limits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-measuring-optimizing-tokens/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Measuring and Optimizing Token Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-building-testing-portable-skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Building and Testing Portable Skills
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-distributing-skills-commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Distributing Skills and Building Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-writing-course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Writing a Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-blooms-taxonomy-instructional-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Bloom's Taxonomy and Instructional Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-learning-graphs-concept-enumeration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Learning Graphs and Concept Enumeration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-learning-graph-formats-taxonomy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Learning Graph Data Formats and Taxonomy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-learning-graph-quality-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Learning Graph Quality Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-chapter-structure-content-elements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Chapter Structure and Content Elements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-chapter-content-quality-review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Chapter Content Quality and Review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-faqs-curated-references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. FAQs and Curated References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-glossaries-and-quizzes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Glossaries and Quizzes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-microsim-anatomy-p5js-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    21. MicroSim Anatomy and p5.js Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-p5js-controls-microsim-quality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    22. p5.js Controls and MicroSim Quality
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-microsim-generator-metadata-schema/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    23. The MicroSim Generator and Metadata Schema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-visualization-libraries-systems-diagrams/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    24. Visualization Libraries and Systems Diagrams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-verified-infographic-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    25. Text-to-Image Models and the Verified Infographic Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-interactive-infographic-overlays/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    26. Interactive Infographic Overlays
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-slide-decks-stories-audio-media/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    27. Slide Decks, Stories, and Audio Media
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-domain-specific-skill-extension/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    28. Domain-Specific Skill Extension: Electronics Case Study
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29-book-installer-features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    29. Book Installer Features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30-session-logs-book-metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    30. Session Logs and Book Metrics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-publishing-announcing-book/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    31. Publishing and Announcing a Finished Book
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-a-claude-on-pi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix A - Claude on Raspberry Pi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-b-claude-on-wsl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix B - Claude on WSL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-c-user-global-claude/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix C - User Global Claude
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-d-parallel-execution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix D - Parallel Execution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../skill-descriptions/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Skill Descriptions
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../slides/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Slides
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../workshops/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Workshops
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../consolidation-plan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Consolidation Plan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../appendices/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Appendices
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-and-its-standard-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python and Its Standard Library
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-dependencies-pip-and-virtual-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Dependencies: pip and Virtual Environments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-and-writing-structured-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading and Writing Structured Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-files-globbing-and-path-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working With Files: Globbing and Path Handling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-a-script-runnable-shebang-lines-and-command-line-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Making a Script Runnable: Shebang Lines and Command-Line Arguments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-scripts-you-can-trust-exit-codes-verbose-mode-and-dry-runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing Scripts You Can Trust: Exit Codes, Verbose Mode, and Dry Runs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determinism-and-idempotency-why-these-scripts-are-safe-to-rerun" class="md-nav__link">
+    <span class="md-ellipsis">
+      Determinism and Idempotency: Why These Scripts Are Safe to Rerun
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Determinism and Idempotency: Why These Scripts Are Safe to Rerun">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-idempotent-script-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Idempotent Script Simulator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-script-wrappers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell Script Wrappers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/ibook-skills/blob/main/docs/chapters/03-python-fundamentals-automation/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="python-fundamentals-for-skill-automation">Python Fundamentals for Skill Automation</h1>
+<h2 id="summary">Summary</h2>
+<p>This chapter introduces the Python building blocks used across the skill library: the standard library, pip and virtual environments, JSON and CSV parsing, regular expressions, and command-line arguments. It also covers the conventions -- shebang lines, exit codes, verbose and dry-run modes -- that make a script safe to run repeatedly. Students will be able to read and modify a short automation script after finishing this chapter.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 18 concepts from the learning graph:</p>
+<ol>
+<li>Python</li>
+<li>Python Standard Library</li>
+<li>pip Package Management</li>
+<li>Virtual Environment</li>
+<li>JSON Serialization</li>
+<li>CSV Parsing in Python</li>
+<li>Markdown Parsing in Python</li>
+<li>File Globbing</li>
+<li>Path Handling</li>
+<li>Shebang Line</li>
+<li>Regular Expressions</li>
+<li>Command-Line Arguments</li>
+<li>Script Exit Codes</li>
+<li>Verbose Output Mode</li>
+<li>Shell Script Wrapper</li>
+<li>Deterministic Computation</li>
+<li>Idempotent Script Design</li>
+<li>Dry Run Mode</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-foundations-ai-language-models/">1. Foundations of AI, Language Models, and Prompting</a></li>
+</ul>
+<hr>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Time to meet my favorite tool.</p>
+<p><img alt="Kit waves hello with their tool satchel" class="mascot-admonition-img" src="../../img/mascot/welcome.png">
+Everything countable in this book's pipeline — parsing, validating, scaffolding — runs on Python, not on the model. This chapter is your tour of that toolbox. Right tool, right task!</p>
+</div>
+<h2 id="python-and-its-standard-library">Python and Its Standard Library</h2>
+<p><strong>Python</strong> is the general-purpose programming language this book's skills use for every deterministic step in the pipeline — the parts where an exact, repeatable answer matters more than a fluent one. Python ships with a <strong>Python standard library</strong>: the modules distributed with Python that handle common tasks such as file access, structured data, and pattern matching without installing anything extra. When a skill's script imports <code>json</code> or <code>re</code>, it's reaching into the standard library rather than a separate download.</p>
+<h2 id="managing-dependencies-pip-and-virtual-environments">Managing Dependencies: pip and Virtual Environments</h2>
+<p>Not everything a script needs lives in the standard library. <strong>pip package management</strong> is the tool that installs and updates third-party Python packages — the ones written by someone else and published for reuse. Installing packages globally on your machine risks one project's version requirement colliding with another's, so most Python projects use a <strong>virtual environment</strong>: an isolated Python installation for a single project that prevents its dependencies from conflicting with those of other projects.</p>
+<h2 id="reading-and-writing-structured-data">Reading and Writing Structured Data</h2>
+<p>Most of this book's scripts spend their time converting one structured format into another. <strong>JSON serialization</strong> converts structured data to and from a text format that both programs and web pages can read — it's how <code>learning-graph.json</code> becomes something a browser-based graph viewer can render. <strong>CSV parsing in Python</strong> reads delimited tabular text into structured records for processing, which is how <code>learning-graph.csv</code>'s pipe-delimited dependency lists become Python lists your script can loop over. <strong>Markdown parsing in Python</strong> extracts structure such as headings and fenced code blocks from markdown source so content can be counted or transformed, the technique behind scripts that pull a MicroSim specification out of a chapter's <code>index.md</code>.</p>
+<p>When the structure you need isn't a whole file format but a fragment buried inside text, reach for <strong>regular expressions</strong>: a pattern language for matching and extracting text, used to locate structured fragments inside documents. Before the example below, note what each part of the pattern means: <code>\d+</code> matches one or more digits, and parentheses <code>()</code> capture the matched text so your script can retrieve it afterward.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">"CANVAS_HEIGHT:\s*(\d+)"</span><span class="p">,</span> <span class="n">script_text</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+    <span class="n">canvas_height</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>This is the actual technique <code>sync-iframe-heights.py</code> uses to read the <code>// CANVAS_HEIGHT: 500</code> comment convention from a MicroSim's JavaScript file and apply that height to its embedding iframe.</p>
+<h2 id="working-with-files-globbing-and-path-handling">Working With Files: Globbing and Path Handling</h2>
+<p>A script rarely operates on one file at a time. <strong>File globbing</strong> selects files by wildcard pattern rather than naming each one, used to process every chapter or every simulation at once — <code>docs/chapters/*/index.md</code> matches all 31 chapter files in a single expression. Because a script might be run from any directory, it also needs <strong>path handling</strong>: constructing and resolving file locations reliably so the script works regardless of the directory it's run from, rather than breaking the moment someone runs it from somewhere other than the project root.</p>
+<h2 id="making-a-script-runnable-shebang-lines-and-command-line-arguments">Making a Script Runnable: Shebang Lines and Command-Line Arguments</h2>
+<p>A Python file becomes a program you can run directly, rather than something you always have to invoke with <code>python script.py</code>, when it starts with a <strong>shebang line</strong>: the first line of a script that names the interpreter to run it, allowing the file to be executed directly.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>That line tells the operating system which interpreter to hand the rest of the file to. Once a script is runnable on its own, it typically needs input that changes each time — that's what <strong>command-line arguments</strong> are: values supplied to a program when it is invoked, allowing one script to operate on different inputs instead of being rewritten for each one.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">csv_path</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># the first argument after the script name</span>
+</code></pre></div></td></tr></tbody></table></div>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Name your arguments, don't just count them.</p>
+<p><img alt="Kit holding up a tool with a knowing look" class="mascot-admonition-img" src="../../img/mascot/tip.png">
+<code>sys.argv[1]</code> works for a quick script, but the moment you have more than one or two arguments, switch to Python's <code>argparse</code> module. It gives each argument a name and a <code>--help</code> message for free — future you will not remember what argument three was supposed to be.</p>
+</div>
+<h2 id="writing-scripts-you-can-trust-exit-codes-verbose-mode-and-dry-runs">Writing Scripts You Can Trust: Exit Codes, Verbose Mode, and Dry Runs</h2>
+<p>A script that another script calls needs a way to report whether it worked. <strong>Script exit codes</strong> are numeric values a program returns to indicate success or the kind of failure, allowing other scripts to react — by convention, <code>0</code> means success and any nonzero value signals a specific kind of failure. For a person watching a script run, <strong>verbose output mode</strong> is an option that makes a program report its intermediate steps, used for diagnosis when something doesn't look right. Before a script changes anything on disk, especially something that deletes or overwrites files, it should support <strong>dry run mode</strong>: an option that reports what a program would change without changing anything, used to preview a destructive operation before committing to it.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Never run an untested destructive script without --dry-run first.</p>
+<p><img alt="Kit holding up a caution paw" class="mascot-admonition-img" src="../../img/mascot/warning.png">
+A script that renames or deletes files can't be un-run. If it supports a dry-run flag, use it the first time, every time — read the preview output carefully before you drop the flag and let it actually touch your files.</p>
+</div>
+<p>The three options work together as layers of safety, not substitutes for each other:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>What It Tells You</th>
+<th>When To Use It</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exit code</td>
+<td>Did the script succeed or fail?</td>
+<td>Every run, especially in a pipeline</td>
+</tr>
+<tr>
+<td>Verbose mode</td>
+<td>What steps did the script take?</td>
+<td>When output looks wrong and you need to trace why</td>
+</tr>
+<tr>
+<td>Dry-run mode</td>
+<td>What <em>would</em> change, without changing it</td>
+<td>Before any destructive operation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="determinism-and-idempotency-why-these-scripts-are-safe-to-rerun">Determinism and Idempotency: Why These Scripts Are Safe to Rerun</h2>
+<p>Two properties make a script trustworthy enough to fold into an automated pipeline. <strong>Deterministic computation</strong> is an operation that returns the same result for the same input every time, making it suitable for automated validation — the opposite of the nondeterminism you met in Chapter 1's language model output. <strong>Idempotent script design</strong> goes a step further: writing a program so that running it repeatedly produces the same end state as running it once, rather than duplicating work or corrupting state on a second run.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Idempotent means you can always just run it again.</p>
+<p><img alt="Kit thinking with a paw on their chin" class="mascot-admonition-img" src="../../img/mascot/thinking.png">
+This is the mental shift: a non-idempotent script that appends a row to a file will produce a duplicate row if you accidentally run it twice. An idempotent version checks whether the row already exists before adding it. Once a script is idempotent, "did I already run this?" stops being a question you have to track by hand.</p>
+</div>
+<h4 id="diagram-idempotent-script-simulator">Diagram: Idempotent Script Simulator</h4>
+<iframe src="../../sims/idempotent-script-simulator/main.html" width="100%" height="420px" scrolling="no"></iframe>
+
+<details>
+<summary>Idempotent Script Simulator</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> idempotent-script-simulator<br>
+<strong>Library:</strong> p5.js<br>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Level: Analyze (L4)
+Bloom Verb: Differentiate</p>
+<p>Learning objective: Differentiate the end state produced by an idempotent script from a non-idempotent one after running each multiple times.</p>
+<p>Canvas layout:
+- Left half: "Non-Idempotent Script" panel showing a growing list of "Added row: taxonomy-names.json" entries
+- Right half: "Idempotent Script" panel showing the same target list, capped at one entry no matter how many times it runs</p>
+<p>Interactive controls:
+- Button: "Run Non-Idempotent Script" (appends a new duplicate entry every click)
+- Button: "Run Idempotent Script" (checks for an existing entry first; only adds once)
+- Button: "Reset Both"
+- Counter showing how many times each button has been clicked</p>
+<p>Behavior:
+- Clicking "Run Non-Idempotent Script" repeatedly grows the left list with visibly duplicated entries, and after 3+ clicks a warning label appears: "State has diverged from a single clean run"
+- Clicking "Run Idempotent Script" repeatedly keeps the right list at exactly one entry, with a label: "Same end state, no matter how many times you run it"
+- Hovering either panel shows an infobox explaining what real script behavior it represents</p>
+<p>Instructional Rationale: An Analyze-level side-by-side comparison lets the reader directly observe divergent end states from the same repeated action, which is the core insight idempotency prose alone cannot make concrete.</p>
+<p>Implementation notes: Use p5.js; both panels share the same click count so the contrast is visible at every step.</p>
+</details>
+<h2 id="shell-script-wrappers">Shell Script Wrappers</h2>
+<p>Not every script needs to be invoked with a long, exact Python command. A <strong>shell script wrapper</strong> is a short shell program that supplies standard arguments and paths to a longer program, giving it a simple name users can remember. The <code>bk-*</code> command family you'll meet in a later chapter is built this way — a one-line shell wrapper around a Python program that would otherwise need a much longer command to invoke correctly every time.</p>
+<p>A quick reference for the standard library modules this book's scripts lean on most:</p>
+<ul>
+<li><code>json</code> — read and write JSON files (learning graphs, metadata)</li>
+<li><code>csv</code> — read and write CSV files (the learning graph's dependency table)</li>
+<li><code>re</code> — regular expressions (extracting <code>CANVAS_HEIGHT</code> and MicroSim specs)</li>
+<li><code>glob</code> — file globbing (finding every chapter or every simulation)</li>
+<li><code>pathlib</code> — path handling (building file locations that work from any directory)</li>
+<li><code>argparse</code> — naming and parsing command-line arguments</li>
+<li><code>sys</code> — reading raw command-line arguments and setting exit codes</li>
+</ul>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>Python</strong> and its <strong>standard library</strong> handle the deterministic work; <strong>pip</strong> and <strong>virtual environments</strong> manage anything beyond it.</li>
+<li><strong>JSON</strong>, <strong>CSV</strong>, and <strong>Markdown parsing</strong>, plus <strong>regular expressions</strong>, convert between the structured formats this book's pipeline depends on.</li>
+<li><strong>File globbing</strong> and <strong>path handling</strong> let a script operate on many files reliably, from any directory.</li>
+<li>A trustworthy script names its interpreter with a <strong>shebang line</strong>, accepts <strong>command-line arguments</strong>, reports a clear <strong>exit code</strong>, offers <strong>verbose</strong> and <strong>dry-run</strong> modes, and is both <strong>deterministic</strong> and <strong>idempotent</strong>.</li>
+<li>A <strong>shell script wrapper</strong> gives a long, exact command a short name a human will actually remember.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You can now read one of this book's actual scripts.</p>
+<p><img alt="Kit celebrating with arms raised" class="mascot-admonition-img" src="../../img/mascot/celebration.png">
+Open any file in <code>docs/learning-graph/*.py</code> and you'll recognize every piece now — the shebang line, the argument parsing, the exit code at the end. That's the whole toolbox. Right tool, right task!</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../02-ai-agents-textbook-intelligence/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 2. AI Coding Agents and the Five Levels of Textbook Intelligence">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                2. AI Coding Agents and the Five Levels of Textbook Intelligence
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../04-dev-tools-editor-git-basics/" class="md-footer__link md-footer__link--next" aria-label="Next: 4. Development Tools: Editor, Terminal, and Git Basics">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                4. Development Tools: Editor, Terminal, and Git Basics
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025, 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

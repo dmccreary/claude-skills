@@ -361,33 +361,143 @@
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
         
       
     
@@ -2845,14 +2955,14 @@
 <li><strong>Terminal/command-line access</strong>: For running shell scripts and commands</li>
 <li><strong>Web browser</strong>: For testing MkDocs sites locally and accessing documentation</li>
 </ul>
-<p>All tools are free except the Claude Pro subscription. Installation instructions are provided in <a href="../chapters/02-getting-started-ibook-skills/">Chapter 2</a> and the <a href="../getting-started/">getting started guide</a>.</p>
+<p>All tools are free except the Claude Pro subscription. Installation instructions are provided in <a href="chapters/02-getting-started-ibook-skills/index.md">Chapter 2</a> and the <a href="../getting-started/">getting started guide</a>.</p>
 <h3 id="do-i-need-to-know-python-or-javascript">Do I need to know Python or JavaScript?</h3>
 <p>Not extensively! While the course uses Python scripts for processing learning graphs and JavaScript for creating MicroSims, you don't need to be an expert programmer:</p>
 <ul>
 <li><strong>Python</strong>: The course provides pre-built scripts (<code>analyze-graph.py</code>, <code>csv-to-json.py</code>, etc.) that you run as-is. Basic understanding of running Python commands is helpful.</li>
 <li><strong>JavaScript/p5.js</strong>: The microsim-p5 skill generates simulation code for you. Understanding basic JavaScript helps customize simulations, but isn't required for core functionality.</li>
 </ul>
-<p>The focus is on <strong>using</strong> these tools through Claude Skills rather than writing code from scratch. See <a href="../chapters/09-ibook-skills-architecture-development/">Chapter 9</a> for more on skill architecture.</p>
+<p>The focus is on <strong>using</strong> these tools through Claude Skills rather than writing code from scratch. See <a href="chapters/09-ibook-skills-architecture-development/index.md">Chapter 9</a> for more on skill architecture.</p>
 <h3 id="how-do-i-list-the-skills-i-have-installed">How do I list the skills I have installed?</h3>
 <p>There are two ways to list your installed skills:</p>
 <ol>
@@ -2874,7 +2984,7 @@
 <p><strong>Claude Skills</strong> are autonomous agents with full workflow instructions defined in SKILL.md files. They can use multiple tools, make decisions, and execute complex multi-step processes. Skills are invoked with <code>/skill [name]</code> and run specialized workflows like generating learning graphs or creating glossaries.</p>
 <p><strong>Claude Commands</strong> are simpler prompt expansions defined in markdown files. They expand text instructions that Claude then interprets, similar to custom shortcuts. Commands are invoked with <code>/[name]</code> and are useful for repetitive prompts.</p>
 <p><strong>Example</strong>: The <code>learning-graph-generator</code> is a skill that autonomously generates 300-600 concepts, validates dependencies, and creates visualizations. A command might simply instruct Claude to "analyze this learning graph quality."</p>
-<p>See <a href="../chapters/09-ibook-skills-architecture-development/">Chapter 9</a> for detailed architecture information.</p>
+<p>See <a href="chapters/09-ibook-skills-architecture-development/index.md">Chapter 9</a> for detailed architecture information.</p>
 <h3 id="how-do-i-update-my-skills-to-the-latest-version">How do I update my skills to the latest version?</h3>
 <p>Since the skills are installed via symbolic links to a Git repository, updating is simple:</p>
 <ol>
@@ -2889,13 +2999,13 @@
 <h3 id="what-is-an-intelligent-textbook">What is an intelligent textbook?</h3>
 <p>An intelligent textbook is an educational resource that goes beyond static text and images to provide interactive, adaptive, and AI-enhanced learning experiences. The course framework defines five levels of intelligence:</p>
 <ul>
-<li><strong>Level 1</strong>: Static content (traditional PDFs)</li>
-<li><strong>Level 2</strong>: Hyperlinked navigation with table of contents and cross-references</li>
-<li><strong>Level 3</strong>: Interactive elements like quizzes, simulations, and dynamic visualizations</li>
-<li><strong>Level 4</strong>: Adaptive content that responds to learner progress</li>
-<li><strong>Level 5</strong>: AI-powered personalization with intelligent tutoring</li>
+<li><strong>Level 1</strong>: Static content (traditional PDFs), no interactivity</li>
+<li><strong>Level 2</strong>: Interactive content — hyperlinks, embedded videos, quizzes, and MicroSims</li>
+<li><strong>Level 3</strong>: Adaptive content that responds to learner progress via concept-graph traversal</li>
+<li><strong>Level 4</strong>: Chatbot integration — an LLM-powered tutoring assistant</li>
+<li><strong>Level 5</strong>: Autonomous AI — fully autonomous, real-time customized lesson generation</li>
 </ul>
-<p>This course primarily targets <strong>Level 2-3</strong> textbooks using MkDocs Material theme, with support for Level 3 features through MicroSims, quizzes, and interactive elements. See <a href="../chapters/01-intro-ai-intelligent-textbooks/">Chapter 1</a> for the complete intelligence framework.</p>
+<p>This course primarily targets <strong>Level 2</strong> textbooks using MkDocs Material theme, with MicroSims, quizzes, and interactive elements. See <a href="../chapters/01-foundations-ai-language-models/">Chapter 1</a> for the complete intelligence framework.</p>
 <h3 id="what-is-a-learning-graph">What is a learning graph?</h3>
 <p>A learning graph is a structured representation of knowledge that maps concepts and their prerequisite relationships in a course or subject domain. Each concept is a node, and directed edges represent dependencies (concept A must be learned before concept B).</p>
 <p><strong>Key characteristics</strong>:</p>
@@ -2906,7 +3016,7 @@
 <li><strong>Prerequisite tracking</strong>: Ensures proper learning sequence</li>
 </ul>
 <p><strong>Example</strong>: The concept "Git Commit Command" depends on "Git Add Command" and "Git Repository Structure," ensuring learners understand prerequisites before advancing.</p>
-<p>Learning graphs serve as roadmaps guiding students through optimal learning pathways. See <a href="../chapters/04-intro-learning-graphs/">Chapter 4</a> for comprehensive coverage.</p>
+<p>Learning graphs serve as roadmaps guiding students through optimal learning pathways. See <a href="chapters/04-intro-learning-graphs/index.md">Chapter 4</a> for comprehensive coverage.</p>
 <h3 id="what-is-a-claude-skill">What is a Claude Skill?</h3>
 <p>A Claude Skill is an autonomous agent defined by a SKILL.md file that automates specific aspects of intelligent textbook creation. Skills contain:</p>
 <ul>
@@ -2920,7 +3030,7 @@
 <li><code>glossary-generator</code>: Produces ISO 11179-compliant term definitions</li>
 <li><code>microsim-p5</code>: Builds interactive p5.js educational simulations</li>
 </ul>
-<p>Skills are installed in <code>~/.claude/skills/</code> and invoked with the Skill tool or <code>/skill [name]</code> command. See <a href="../chapters/02-getting-started-ibook-skills/">Chapter 2</a> and <a href="../chapters/09-ibook-skills-architecture-development/">Chapter 9</a> for details.</p>
+<p>Skills are installed in <code>~/.claude/skills/</code> and invoked with the Skill tool or <code>/skill [name]</code> command. See <a href="chapters/02-getting-started-ibook-skills/index.md">Chapter 2</a> and <a href="chapters/09-ibook-skills-architecture-development/index.md">Chapter 9</a> for details.</p>
 <h3 id="what-is-blooms-taxonomy-and-why-is-it-important">What is Bloom's Taxonomy and why is it important?</h3>
 <p>Bloom's Taxonomy is an educational framework that classifies learning objectives into six cognitive levels, from basic recall to creative synthesis. The 2001 revision uses these levels:</p>
 <ol>
@@ -2932,7 +3042,7 @@
 <li><strong>Create</strong> (Purple): Produce original work, design solutions</li>
 </ol>
 <p><strong>Importance</strong>: Well-designed educational content addresses all cognitive levels, ensuring students develop both foundational knowledge and higher-order thinking skills. This course uses Bloom's Taxonomy to structure learning outcomes, quiz questions, and content generation.</p>
-<p>See <a href="../chapters/03-course-design-educational-theory/">Chapter 3</a> for complete coverage of educational theory.</p>
+<p>See <a href="chapters/03-course-design-educational-theory/index.md">Chapter 3</a> for complete coverage of educational theory.</p>
 <h3 id="how-does-a-learning-graph-guide-student-learning">How does a learning graph guide student learning?</h3>
 <p>A learning graph provides a visual and structural roadmap that shows learners:</p>
 <ul>
@@ -2942,7 +3052,7 @@
 <li><strong>Alternative pathways</strong>: Multiple routes may exist through the material</li>
 </ul>
 <p><strong>Example</strong>: A student wanting to learn "MicroSim Creation" can trace backwards through the graph to see they need "p5.js Library," "JavaScript Basics," and "HTML Structure" first.</p>
-<p>The graph also helps instructors identify knowledge gaps, optimize chapter sequencing, and ensure comprehensive topic coverage. Interactive graph viewers let students explore the concept network visually. See <a href="../chapters/04-intro-learning-graphs/">Chapter 4</a> for more on learning pathways.</p>
+<p>The graph also helps instructors identify knowledge gaps, optimize chapter sequencing, and ensure comprehensive topic coverage. Interactive graph viewers let students explore the concept network visually. See <a href="chapters/04-intro-learning-graphs/index.md">Chapter 4</a> for more on learning pathways.</p>
 <h3 id="what-is-mkdocs-and-why-use-it-for-textbooks">What is MkDocs and why use it for textbooks?</h3>
 <p>MkDocs is a fast, simple static site generator designed for building project documentation from markdown files. With the <strong>Material for MkDocs</strong> theme, it becomes an excellent platform for intelligent textbooks because it provides:</p>
 <ul>
@@ -2953,7 +3063,7 @@
 <li><strong>GitHub Pages integration</strong>: Free hosting and automatic deployment</li>
 </ul>
 <p><strong>Example</strong>: This very course website is built with MkDocs Material, demonstrating the platform's capabilities for educational content.</p>
-<p>MkDocs targets Level 2 intelligent textbooks (hyperlinked navigation) with support for Level 3 features through embedded MicroSims and interactive elements. See <a href="../chapters/08-mkdocs-platform-documentation/">Chapter 8</a>.</p>
+<p>MkDocs targets Level 2 intelligent textbooks (hyperlinked navigation) with support for Level 3 features through embedded MicroSims and interactive elements. See <a href="chapters/08-mkdocs-platform-documentation/index.md">Chapter 8</a>.</p>
 <h3 id="what-is-a-microsim">What is a MicroSim?</h3>
 <p>A MicroSim is a focused, interactive educational simulation built with p5.js that helps students visualize and explore a single concept or relationship. Each MicroSim:</p>
 <ul>
@@ -2963,7 +3073,7 @@
 <li><strong>Embeds in textbooks</strong>: iframe integration with documentation</li>
 </ul>
 <p><strong>Example</strong>: A "Concept Length Histogram" MicroSim visualizes the distribution of concept label lengths in a learning graph, helping students understand data visualization and statistical distributions.</p>
-<p>MicroSims are stored in <code>docs/sims/[name]/</code> directories with <code>main.html</code> (the simulation) and <code>index.md</code> (documentation). The microsim-p5 skill automates MicroSim creation. See <a href="../chapters/12-interactive-elements-microsims/">Chapter 12</a> for detailed coverage.</p>
+<p>MicroSims are stored in <code>docs/sims/[name]/</code> directories with <code>main.html</code> (the simulation) and <code>index.md</code> (documentation). The microsim-p5 skill automates MicroSim creation. See <a href="chapters/12-interactive-elements-microsims/index.md">Chapter 12</a> for detailed coverage.</p>
 <h3 id="what-is-iso-11179-and-why-does-it-matter-for-glossaries">What is ISO 11179 and why does it matter for glossaries?</h3>
 <p>ISO 11179 is an international standard for metadata registries that defines principles for creating precise, unambiguous term definitions. Glossary definitions following ISO 11179 must be:</p>
 <ul>
@@ -2979,11 +3089,11 @@
 <h3 id="what-are-the-five-levels-of-textbook-intelligence">What are the five levels of textbook intelligence?</h3>
 <p>The five-level intelligence framework classifies textbooks by their interactive and adaptive capabilities:</p>
 <p><strong>Level 1 - Static Content</strong>: Traditional PDFs with fixed text and images, no interactivity</p>
-<p><strong>Level 2 - Hyperlinked Navigation</strong>: HTML/web-based with table of contents, cross-references, and search (MkDocs default)</p>
-<p><strong>Level 3 - Interactive Elements</strong>: Embedded quizzes, simulations, visualizations, and dynamic content</p>
-<p><strong>Level 4 - Adaptive Content</strong>: Personalization based on learner progress, performance, and preferences</p>
-<p><strong>Level 5 - AI Personalization</strong>: Intelligent tutoring systems that generate custom content, provide real-time help, and adapt to individual learning styles</p>
-<p>This course primarily targets <strong>Level 2</strong> with tools for advancing to <strong>Level 3</strong> through MicroSims, quizzes, and interactive visualizations. See <a href="../chapters/01-intro-ai-intelligent-textbooks/">Chapter 1</a> for the complete framework.</p>
+<p><strong>Level 2 - Interactive Content</strong>: Hyperlinks, embedded videos, quizzes, MicroSims, and a searchable glossary</p>
+<p><strong>Level 3 - Adaptive Content</strong>: Personalization based on learner progress via concept-graph traversal</p>
+<p><strong>Level 4 - Chatbot Integration</strong>: An LLM-powered tutoring assistant, often built on GraphRAG, that answers questions in real time</p>
+<p><strong>Level 5 - Autonomous AI</strong>: A largely aspirational level where a system deeply understands each reader's knowledge state and generates fully customized lessons in real time</p>
+<p>This course primarily targets <strong>Level 2</strong> through MicroSims, quizzes, and interactive visualizations. See <a href="../chapters/01-foundations-ai-language-models/">Chapter 1</a> for the complete framework.</p>
 <h3 id="what-is-the-difference-between-concepts-and-topics">What is the difference between concepts and topics?</h3>
 <p><strong>Concepts</strong> are atomic, indivisible ideas that represent single learning units in a learning graph. Each concept should be granular enough to be taught and assessed independently.</p>
 <p><strong>Topics</strong> are broader themes or subject areas that encompass multiple concepts. Topics often become chapters or sections in textbooks.</p>
@@ -2992,7 +3102,7 @@
 <li><strong>Topic</strong>: "Version Control with Git"</li>
 <li><strong>Concepts</strong>: "Git Repository Structure," "Git Status Command," "Git Add Command," "Git Commit Command," "Git Push Command"</li>
 </ul>
-<p>A single topic might contain 10-20 concepts in the learning graph. When generating learning graphs, focus on identifying atomic concepts rather than broad topics—the learning-graph-generator skill helps with this granularity. See <a href="../chapters/05-concept-enumeration-dependencies/">Chapter 5</a>.</p>
+<p>A single topic might contain 10-20 concepts in the learning graph. When generating learning graphs, focus on identifying atomic concepts rather than broad topics—the learning-graph-generator skill helps with this granularity. See <a href="chapters/05-concept-enumeration-dependencies/index.md">Chapter 5</a>.</p>
 <h3 id="what-is-a-directed-acyclic-graph-dag">What is a Directed Acyclic Graph (DAG)?</h3>
 <p>A Directed Acyclic Graph (DAG) is a graph structure where:</p>
 <ul>
@@ -3001,7 +3111,7 @@
 </ul>
 <p><strong>Why DAGs matter for learning graphs</strong>: Prerequisites must follow a logical sequence. If Concept A requires Concept B, and Concept B requires Concept C, then Concept C cannot require Concept A (that would create a cycle).</p>
 <p><strong>Example violation</strong>: "Git Basics" → "Git Branching" → "Git Basics" creates a cycle where neither can be learned first.</p>
-<p>The <code>analyze-graph.py</code> script validates DAG structure and detects circular dependencies. See <a href="../chapters/06-learning-graph-quality-validation/">Chapter 6</a> for quality validation details.</p>
+<p>The <code>analyze-graph.py</code> script validates DAG structure and detects circular dependencies. See <a href="chapters/06-learning-graph-quality-validation/index.md">Chapter 6</a> for quality validation details.</p>
 <h3 id="what-is-concept-dependency-mapping">What is concept dependency mapping?</h3>
 <p>Concept dependency mapping is the process of identifying prerequisite relationships between concepts in a learning graph. For each concept, you specify which other concepts must be learned first.</p>
 <p>Dependencies are encoded in CSV format with pipe-delimited ConceptIDs:</p>
@@ -3014,7 +3124,7 @@
 3,Git Commit Command,1|2,TOOLS
 </code></pre></div></td></tr></tbody></table></div>
 <p>Concept 3 depends on both concepts 1 and 2, meaning students should understand "Git Basics" and "Git Repository Structure" before learning "Git Commit Command."</p>
-<p>Proper dependency mapping ensures logical learning sequences and prevents students from encountering concepts before they have necessary background knowledge. See <a href="../chapters/05-concept-enumeration-dependencies/">Chapter 5</a>.</p>
+<p>Proper dependency mapping ensures logical learning sequences and prevents students from encountering concepts before they have necessary background knowledge. See <a href="chapters/05-concept-enumeration-dependencies/index.md">Chapter 5</a>.</p>
 <h3 id="how-many-concepts-should-a-learning-graph-have">How many concepts should a learning graph have?</h3>
 <p>The learning-graph-generator skill supports <strong>300-600 concepts</strong> for comprehensive courses, based on educational research suggesting this range provides optimal granularity for:</p>
 <ul>
@@ -3028,7 +3138,7 @@
 <li><strong>Comprehensive courses</strong>: 300-400 concepts</li>
 <li><strong>Advanced/graduate courses</strong>: 400-600 concepts</li>
 </ul>
-<p>More concepts provide finer granularity but increase complexity. The key is ensuring each concept is atomic (indivisible) and meaningful as a learning unit. See <a href="../chapters/05-concept-enumeration-dependencies/">Chapter 5</a>.</p>
+<p>More concepts provide finer granularity but increase complexity. The key is ensuring each concept is atomic (indivisible) and meaningful as a learning unit. See <a href="chapters/05-concept-enumeration-dependencies/index.md">Chapter 5</a>.</p>
 <h3 id="what-is-taxonomy-categorization-in-learning-graphs">What is taxonomy categorization in learning graphs?</h3>
 <p>Taxonomy categorization groups related concepts into thematic categories, helping organize and visualize the learning graph. Common categories include:</p>
 <ul>
@@ -3045,7 +3155,7 @@
 <li><strong>Balance content</strong>: Ensuring no category is over-represented (avoid &gt;30% in one category)</li>
 <li><strong>Guide organization</strong>: Informing chapter structure and content progression</li>
 </ul>
-<p>See <a href="../chapters/07-taxonomy-data-formats/">Chapter 7</a> for complete taxonomy information.</p>
+<p>See <a href="chapters/07-taxonomy-data-formats/index.md">Chapter 7</a> for complete taxonomy information.</p>
 <h3 id="what-makes-a-high-quality-learning-graph">What makes a high-quality learning graph?</h3>
 <p>A high-quality learning graph scores <strong>70+/100</strong> on the quality metrics generated by <code>analyze-graph.py</code>. Key indicators include:</p>
 <p><strong>Structure (30 points)</strong>:</p>
@@ -3070,7 +3180,7 @@
 <li>200 concepts generated: 10 points</li>
 <li>All concepts have labels &lt;32 characters: 10 points</li>
 </ul>
-<p>The quality report identifies specific issues and recommendations for improvement. See <a href="../chapters/06-learning-graph-quality-validation/">Chapter 6</a>.</p>
+<p>The quality report identifies specific issues and recommendations for improvement. See <a href="chapters/06-learning-graph-quality-validation/index.md">Chapter 6</a>.</p>
 <h2 id="technical-detail-questions">Technical Detail Questions</h2>
 <h3 id="what-file-format-is-used-for-learning-graphs">What file format is used for learning graphs?</h3>
 <p>Learning graphs use <strong>CSV (Comma-Separated Values)</strong> format with four columns:</p>
@@ -3089,14 +3199,14 @@
 <li><strong>Dependencies</strong>: Pipe-delimited list of ConceptIDs (empty for foundational concepts)</li>
 <li><strong>TaxonomyID</strong>: 3-5 letter category abbreviation</li>
 </ul>
-<p>This format is human-readable, easy to edit in spreadsheet software, and processable by Python scripts. The <code>csv-to-json.py</code> script converts CSV to vis-network JSON for interactive visualization. See <a href="../chapters/07-taxonomy-data-formats/">Chapter 7</a>.</p>
+<p>This format is human-readable, easy to edit in spreadsheet software, and processable by Python scripts. The <code>csv-to-json.py</code> script converts CSV to vis-network JSON for interactive visualization. See <a href="chapters/07-taxonomy-data-formats/index.md">Chapter 7</a>.</p>
 <h3 id="what-python-scripts-are-used-for-learning-graph-processing">What Python scripts are used for learning graph processing?</h3>
 <p>The learning-graph-generator skill includes four main Python scripts in <code>docs/learning-graph/</code>:</p>
 <p><strong>analyze-graph.py</strong>: Validates DAG structure, detects circular dependencies, calculates quality metrics, generates quality report markdown</p>
 <p><strong>csv-to-json.py</strong>: Converts learning graph CSV to vis-network JSON format for interactive visualization</p>
 <p><strong>add-taxonomy.py</strong>: Adds TaxonomyID column to learning graph CSV if missing</p>
 <p><strong>taxonomy-distribution.py</strong>: Generates taxonomy distribution report showing concept counts by category</p>
-<p>All scripts are run from the <code>docs/learning-graph/</code> directory after the learning graph CSV is generated. They require Python 3.x and standard libraries (no pip packages needed for basic functionality). See <a href="../chapters/06-learning-graph-quality-validation/">Chapter 6</a> for usage examples.</p>
+<p>All scripts are run from the <code>docs/learning-graph/</code> directory after the learning graph CSV is generated. They require Python 3.x and standard libraries (no pip packages needed for basic functionality). See <a href="chapters/06-learning-graph-quality-validation/index.md">Chapter 6</a> for usage examples.</p>
 <h3 id="how-do-i-run-the-learning-graph-validation-scripts">How do I run the learning graph validation scripts?</h3>
 <p>After generating a learning graph, navigate to the <code>docs/learning-graph/</code> directory and run:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3113,7 +3223,7 @@ python<span class="w"> </span>taxonomy-distribution.py<span class="w"> </span>le
 <li><code>learning-graph.json</code>: vis-network format for interactive graph viewer</li>
 <li><code>taxonomy-distribution.md</code>: Concept count by category with distribution chart</li>
 </ul>
-<p>These reports help assess graph quality and identify improvements needed. Always verify <code>learning-graph.json</code> is valid JSON before using in visualizations. See <a href="../chapters/06-learning-graph-quality-validation/">Chapter 6</a>.</p>
+<p>These reports help assess graph quality and identify improvements needed. Always verify <code>learning-graph.json</code> is valid JSON before using in visualizations. See <a href="chapters/06-learning-graph-quality-validation/index.md">Chapter 6</a>.</p>
 <h3 id="what-is-vis-network-json-format">What is vis-network JSON format?</h3>
 <p>vis-network is a JavaScript library for interactive graph visualization. The format required by vis-network includes:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3137,7 +3247,7 @@ python<span class="w"> </span>taxonomy-distribution.py<span class="w"> </span>le
 <li><strong>nodes</strong>: Array of concepts with id, label, and group (taxonomy category)</li>
 <li><strong>edges</strong>: Array of dependency relationships with from (prerequisite) and to (dependent concept)</li>
 </ul>
-<p>The <code>csv-to-json.py</code> script automatically converts learning graph CSV to this format. The vis-network library then renders an interactive, draggable graph with color-coded nodes by taxonomy category. See <a href="../chapters/07-taxonomy-data-formats/">Chapter 7</a>.</p>
+<p>The <code>csv-to-json.py</code> script automatically converts learning graph CSV to this format. The vis-network library then renders an interactive, draggable graph with color-coded nodes by taxonomy category. See <a href="chapters/07-taxonomy-data-formats/index.md">Chapter 7</a>.</p>
 <h3 id="what-is-yaml-frontmatter-in-skill-definitions">What is YAML frontmatter in skill definitions?</h3>
 <p>YAML frontmatter is metadata at the beginning of SKILL.md files, enclosed in <code>---</code> delimiters, that defines skill properties:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3165,7 +3275,7 @@ python<span class="w"> </span>taxonomy-distribution.py<span class="w"> </span>le
 <li><strong>license</strong>: Software license (typically Apache-2.0 or MIT)</li>
 <li><strong>allowed-tools</strong>: Optional list of Claude Code tools the skill can use</li>
 </ul>
-<p>YAML frontmatter is a standard way to add metadata to markdown files, widely used in static site generators and documentation tools. See <a href="../chapters/09-ibook-skills-architecture-development/">Chapter 9</a>.</p>
+<p>YAML frontmatter is a standard way to add metadata to markdown files, widely used in static site generators and documentation tools. See <a href="chapters/09-ibook-skills-architecture-development/index.md">Chapter 9</a>.</p>
 <h3 id="how-do-i-customize-mkdocs-theme-colors">How do I customize MkDocs theme colors?</h3>
 <p>MkDocs Material theme allows color customization through CSS and configuration:</p>
 <p><strong>Method 1 - Configuration (mkdocs.yml)</strong>:</p>
@@ -3192,7 +3302,7 @@ python<span class="w"> </span>taxonomy-distribution.py<span class="w"> </span>le
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">extra_css</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">css/extra.css</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>This course website uses custom CSS to apply Anthropic brand colors (RGB: 218, 120, 87). See <a href="../chapters/08-mkdocs-platform-documentation/">Chapter 8</a> for complete styling information.</p>
+<p>This course website uses custom CSS to apply Anthropic brand colors (RGB: 218, 120, 87). See <a href="chapters/08-mkdocs-platform-documentation/index.md">Chapter 8</a> for complete styling information.</p>
 <h3 id="what-markdown-extensions-does-mkdocs-material-support">What markdown extensions does MkDocs Material support?</h3>
 <p>MkDocs Material supports many useful markdown extensions for educational content:</p>
 <p><strong>admonition</strong>: Callout boxes for notes, warnings, tips
@@ -3217,7 +3327,7 @@ python<span class="w"> </span>taxonomy-distribution.py<span class="w"> </span>le
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>!!! note "Important Concept"
     This creates a blue callout box highlighting key information.
 </code></pre></div></td></tr></tbody></table></div><p></p>
-<p>See the <a href="https://squidfunk.github.io/mkdocs-material/reference/">MkDocs Material documentation</a> and <a href="../chapters/08-mkdocs-platform-documentation/">Chapter 8</a>.</p>
+<p>See the <a href="https://squidfunk.github.io/mkdocs-material/reference/">MkDocs Material documentation</a> and <a href="chapters/08-mkdocs-platform-documentation/index.md">Chapter 8</a>.</p>
 <h3 id="how-do-i-embed-a-microsim-in-a-textbook-page">How do I embed a MicroSim in a textbook page?</h3>
 <p>MicroSims are embedded using HTML iframes in markdown files. Each MicroSim has:</p>
 <ol>
@@ -3235,7 +3345,7 @@ python<span class="w"> </span>taxonomy-distribution.py<span class="w"> </span>le
         <span class="na">frameborder</span><span class="o">=</span><span class="s">"0"</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>The iframe loads the simulation while the surrounding markdown provides context, instructions, and learning objectives. The microsim-p5 skill automatically generates both files with proper structure. See <a href="../chapters/12-interactive-elements-microsims/">Chapter 12</a> for MicroSim creation details.</p>
+<p>The iframe loads the simulation while the surrounding markdown provides context, instructions, and learning objectives. The microsim-p5 skill automatically generates both files with proper structure. See <a href="chapters/12-interactive-elements-microsims/index.md">Chapter 12</a> for MicroSim creation details.</p>
 <h3 id="what-is-dublin-core-metadata">What is Dublin Core metadata?</h3>
 <p>Dublin Core is a standardized set of metadata elements for describing digital resources, widely used in libraries and archives. The 15 core elements include:</p>
 <p><strong>Key fields for learning graphs</strong>:</p>
@@ -3247,7 +3357,7 @@ python<span class="w"> </span>taxonomy-distribution.py<span class="w"> </span>le
 <li><strong>Format</strong>: File format (e.g., "text/csv", "application/json")</li>
 <li><strong>License</strong>: Usage rights (e.g., "CC BY 4.0")</li>
 </ul>
-<p>Dublin Core metadata appears in the vis-network JSON format for learning graphs, providing standardized documentation. This helps with content discovery, reusability, and academic citation. See <a href="../chapters/07-taxonomy-data-formats/">Chapter 7</a>.</p>
+<p>Dublin Core metadata appears in the vis-network JSON format for learning graphs, providing standardized documentation. This helps with content discovery, reusability, and academic citation. See <a href="chapters/07-taxonomy-data-formats/index.md">Chapter 7</a>.</p>
 <h3 id="how-do-i-configure-navigation-in-mkdocs">How do I configure navigation in MkDocs?</h3>
 <p>Navigation structure is defined in the <code>nav:</code> section of <code>mkdocs.yml</code>:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3273,7 +3383,7 @@ python<span class="w"> </span>taxonomy-distribution.py<span class="w"> </span>le
 <li>Section names (before colons) appear in navigation</li>
 <li>File paths are relative to <code>docs/</code></li>
 </ul>
-<p>After adding any new markdown file to <code>docs/</code>, update the <code>nav:</code> section so it appears in site navigation. MkDocs Material provides breadcrumbs and previous/next navigation automatically. See <a href="../chapters/08-mkdocs-platform-documentation/">Chapter 8</a>.</p>
+<p>After adding any new markdown file to <code>docs/</code>, update the <code>nav:</code> section so it appears in site navigation. MkDocs Material provides breadcrumbs and previous/next navigation automatically. See <a href="chapters/08-mkdocs-platform-documentation/index.md">Chapter 8</a>.</p>
 <h3 id="what-permissions-does-claude-code-need-for-skills">What permissions does Claude Code need for skills?</h3>
 <p>Claude Code has strict default permissions that prompt for approval on every file read/write. For skill-based textbook development, recommended permissions in <code>.claude/config.json</code>:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -3317,7 +3427,7 @@ python<span class="w"> </span>taxonomy-distribution.py<span class="w"> </span>le
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdocs<span class="w"> </span>gh-deploy
 </code></pre></div></td></tr></tbody></table></div>
 <p>This builds the site and pushes to the <code>gh-pages</code> branch automatically. GitHub Pages serves the content at <code>https://[username].github.io/[repo-name]/</code>.</p>
-<p><strong>Continuous deployment</strong>: Set up GitHub Actions to automatically deploy on push to main branch. See <a href="../chapters/13-dev-tools-version-control-deployment/">Chapter 13</a> for complete deployment workflows.</p>
+<p><strong>Continuous deployment</strong>: Set up GitHub Actions to automatically deploy on push to main branch. See <a href="chapters/13-dev-tools-version-control-deployment/index.md">Chapter 13</a> for complete deployment workflows.</p>
 <h3 id="what-is-seeded-randomness-in-microsims">What is seeded randomness in MicroSims?</h3>
 <p>Seeded randomness means using a fixed random seed so that "random" behaviors are reproducible. In p5.js:</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3336,7 +3446,7 @@ python<span class="w"> </span>taxonomy-distribution.py<span class="w"> </span>le
 <li><strong>Consistency</strong>: Discussion and documentation reference specific outputs</li>
 <li><strong>Debugging</strong>: Easier to identify and fix issues</li>
 </ul>
-<p>MicroSims use seeded randomness by default, with optional controls to change the seed for exploration. See <a href="../chapters/12-interactive-elements-microsims/">Chapter 12</a> for MicroSim design patterns.</p>
+<p>MicroSims use seeded randomness by default, with optional controls to change the seed for exploration. See <a href="chapters/12-interactive-elements-microsims/index.md">Chapter 12</a> for MicroSim design patterns.</p>
 <h2 id="common-challenges">Common Challenges</h2>
 <h3 id="why-am-i-getting-circular-dependency-errors-in-my-learning-graph">Why am I getting circular dependency errors in my learning graph?</h3>
 <p>Circular dependencies occur when concept prerequisites form a cycle, making it impossible to determine learning order. Common causes:</p>
@@ -3350,7 +3460,7 @@ python<span class="w"> </span>taxonomy-distribution.py<span class="w"> </span>le
 <li>Break the cycle by removing or reordering one dependency</li>
 <li>Consider splitting overly broad concepts into smaller atomic units</li>
 </ol>
-<p><strong>Example</strong>: If "Git Basics" and "Git Repository Structure" depend on each other, split into "Git Introduction" → "Git Repository Structure" → "Git Basic Commands". See <a href="../chapters/06-learning-graph-quality-validation/">Chapter 6</a>.</p>
+<p><strong>Example</strong>: If "Git Basics" and "Git Repository Structure" depend on each other, split into "Git Introduction" → "Git Repository Structure" → "Git Basic Commands". See <a href="chapters/06-learning-graph-quality-validation/index.md">Chapter 6</a>.</p>
 <h3 id="my-learning-graph-has-terminal-nodes-what-does-this-mean">My learning graph has terminal nodes. What does this mean?</h3>
 <p>Terminal nodes are concepts that nothing depends on—they have no outgoing edges (outdegree of zero). While not errors, many terminal nodes suggest:</p>
 <p><strong>Missing dependencies</strong>: Later concepts should build on these but don't
@@ -3364,7 +3474,7 @@ python<span class="w"> </span>taxonomy-distribution.py<span class="w"> </span>le
 <li>Add dependency relationships to integrate terminal nodes into the graph</li>
 <li>Consider whether very specific concepts should be merged into broader ones</li>
 </ol>
-<p><strong>Acceptable terminal nodes</strong>: Advanced capstone topics, specialized optional topics, or leaf concepts like specific tool configurations. Target: &lt;10% terminal nodes. See <a href="../chapters/06-learning-graph-quality-validation/">Chapter 6</a>.</p>
+<p><strong>Acceptable terminal nodes</strong>: Advanced capstone topics, specialized optional topics, or leaf concepts like specific tool configurations. Target: &lt;10% terminal nodes. See <a href="chapters/06-learning-graph-quality-validation/index.md">Chapter 6</a>.</p>
 <h3 id="claude-code-keeps-asking-for-permissions-how-do-i-fix-this">Claude Code keeps asking for permissions. How do I fix this?</h3>
 <p>The default permission model requires approval for every file operation. To allow skills to work autonomously:</p>
 <p><strong>Create <code>.claude/config.json</code> in your project</strong>:</p>
@@ -3405,7 +3515,7 @@ python<span class="w"> </span>taxonomy-distribution.py<span class="w"> </span>le
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>docs/learning-graph
 python<span class="w"> </span>analyze-graph.py<span class="w"> </span>learning-graph.csv<span class="w"> </span>quality-metrics.md
 </code></pre></div></td></tr></tbody></table></div><p></p>
-<p>Most basic scripts use only Python standard library. If you encounter import errors, check the script's requirements or install packages individually. See <a href="../chapters/06-learning-graph-quality-validation/">Chapter 6</a>.</p>
+<p>Most basic scripts use only Python standard library. If you encounter import errors, check the script's requirements or install packages individually. See <a href="chapters/06-learning-graph-quality-validation/index.md">Chapter 6</a>.</p>
 <h3 id="why-isnt-my-new-page-showing-up-in-the-mkdocs-navigation">Why isn't my new page showing up in the MkDocs navigation?</h3>
 <p>MkDocs only displays pages explicitly listed in the <code>nav:</code> section of <code>mkdocs.yml</code>. After creating any new markdown file:</p>
 <ol>
@@ -3424,7 +3534,7 @@ python<span class="w"> </span>analyze-graph.py<span class="w"> </span>learning-g
 <ol>
 <li>Save and rebuild: <code>mkdocs serve</code> to test locally</li>
 </ol>
-<p><strong>Note</strong>: Files not in <code>nav:</code> are still built and accessible by direct URL, but won't appear in menus or navigation. See <a href="../chapters/08-mkdocs-platform-documentation/">Chapter 8</a>.</p>
+<p><strong>Note</strong>: Files not in <code>nav:</code> are still built and accessible by direct URL, but won't appear in menus or navigation. See <a href="chapters/08-mkdocs-platform-documentation/index.md">Chapter 8</a>.</p>
 <h3 id="my-learning-graph-quality-score-is-low-how-do-i-improve-it">My learning graph quality score is low. How do I improve it?</h3>
 <p>Low quality scores (&lt;70/100) indicate structural or balance issues. Check the quality metrics report for specific problems:</p>
 <p><strong>Circular dependencies (mandatory fix)</strong>:</p>
@@ -3447,7 +3557,7 @@ python<span class="w"> </span>analyze-graph.py<span class="w"> </span>learning-g
 <li>Add dependencies for terminal concepts</li>
 <li>Merge overly specific concepts</li>
 </ul>
-<p><strong>Example improvement path</strong>: A graph scoring 55/100 with 40% terminal nodes and taxonomy imbalance should first connect terminal concepts to reduce that to &lt;10%, then rebalance taxonomy distribution. See <a href="../chapters/06-learning-graph-quality-validation/">Chapter 6</a>.</p>
+<p><strong>Example improvement path</strong>: A graph scoring 55/100 with 40% terminal nodes and taxonomy imbalance should first connect terminal concepts to reduce that to &lt;10%, then rebalance taxonomy distribution. See <a href="chapters/06-learning-graph-quality-validation/index.md">Chapter 6</a>.</p>
 <h3 id="how-do-i-handle-claude-token-limits-during-content-generation">How do I handle Claude token limits during content generation?</h3>
 <p>Claude Pro accounts have token limits within 4-hour usage windows. For long textbook generation sessions:</p>
 <p><strong>Strategies to optimize usage</strong>:</p>
@@ -3458,7 +3568,7 @@ python<span class="w"> </span>analyze-graph.py<span class="w"> </span>learning-g
 <li><strong>Monitor usage</strong>: Track how many skills you've run in the current window</li>
 <li><strong>Plan generation sessions</strong>: Space intensive tasks across multiple days</li>
 </ol>
-<p><strong>If you hit limits</strong>: Wait for the 4-hour window to reset, then continue. The course content discusses token management strategies and optimization techniques. See <a href="../chapters/02-getting-started-ibook-skills/">Chapter 2</a> and the <a href="../claude-usage-limits/">usage limits guide</a>.</p>
+<p><strong>If you hit limits</strong>: Wait for the 4-hour window to reset, then continue. The course content discusses token management strategies and optimization techniques. See <a href="chapters/02-getting-started-ibook-skills/index.md">Chapter 2</a> and the <a href="../claude-usage-limits/">usage limits guide</a>.</p>
 <h3 id="why-is-my-microsim-not-displaying-correctly">Why is my MicroSim not displaying correctly?</h3>
 <p>Common MicroSim display issues and solutions:</p>
 <p><strong>Blank iframe</strong>:</p>
@@ -3484,7 +3594,7 @@ python<span class="w"> </span>analyze-graph.py<span class="w"> </span>learning-g
 <li>Verify slider/button event handlers are properly attached</li>
 <li>Check browser console for JavaScript errors</li>
 </ul>
-<p>See <a href="../chapters/12-interactive-elements-microsims/">Chapter 12</a> for MicroSim debugging and best practices.</p>
+<p>See <a href="chapters/12-interactive-elements-microsims/index.md">Chapter 12</a> for MicroSim debugging and best practices.</p>
 <h3 id="how-do-i-fix-git-merge-conflicts-in-markdown-files">How do I fix Git merge conflicts in markdown files?</h3>
 <p>Git merge conflicts occur when the same lines are modified in different branches. For markdown content:</p>
 <p><strong>Identify conflicts</strong>:
@@ -3512,7 +3622,7 @@ Incoming content
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>resolved-file.md
 git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Resolved merge conflict in chapter 3"</span>
 </code></pre></div></td></tr></tbody></table></div><p></p>
-<p><strong>Prevention</strong>: Coordinate with collaborators on which files to edit, or work on different chapters/sections simultaneously. See <a href="../chapters/13-dev-tools-version-control-deployment/">Chapter 13</a>.</p>
+<p><strong>Prevention</strong>: Coordinate with collaborators on which files to edit, or work on different chapters/sections simultaneously. See <a href="chapters/13-dev-tools-version-control-deployment/index.md">Chapter 13</a>.</p>
 <h2 id="best-practice-questions">Best Practice Questions</h2>
 <h3 id="whats-the-recommended-workflow-for-creating-a-new-intelligent-textbook">What's the recommended workflow for creating a new intelligent textbook?</h3>
 <p>The optimal workflow follows the intelligent-textbook skill's 12-step process:</p>
@@ -3543,7 +3653,7 @@ git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </sp
 <ol>
 <li>Deploy to GitHub Pages with <code>mkdocs gh-deploy</code></li>
 </ol>
-<p>This sequence ensures each step builds on previous work. See <a href="../chapters/10-content-creation-workflows/">Chapter 10</a> for detailed workflow guidance.</p>
+<p>This sequence ensures each step builds on previous work. See <a href="chapters/10-content-creation-workflows/index.md">Chapter 10</a> for detailed workflow guidance.</p>
 <h3 id="how-should-i-structure-chapters-in-my-textbook">How should I structure chapters in my textbook?</h3>
 <p>Effective chapter structure follows pedagogical best practices and learning graph dependencies:</p>
 <p><strong>Chapter components</strong>:</p>
@@ -3558,7 +3668,7 @@ git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </sp
 </ul>
 <p><strong>Concept coverage</strong>: Each chapter should address 10-20 related concepts from the learning graph, respecting dependency order.</p>
 <p><strong>Length</strong>: Target 2,000-5,000 words per chapter for comprehensive coverage without overwhelming readers.</p>
-<p>The book-chapter-generator skill automatically creates chapter structure based on learning graph dependencies. See <a href="../chapters/10-content-creation-workflows/">Chapter 10</a>.</p>
+<p>The book-chapter-generator skill automatically creates chapter structure based on learning graph dependencies. See <a href="chapters/10-content-creation-workflows/index.md">Chapter 10</a>.</p>
 <h3 id="when-should-i-use-skills-vs-manual-content-creation">When should I use skills vs. manual content creation?</h3>
 <p><strong>Use skills for</strong>:</p>
 <ul>
@@ -3576,7 +3686,7 @@ git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </sp
 <li><strong>Refinement</strong>: Editing AI-generated content for tone, accuracy, and clarity</li>
 <li><strong>Domain expertise</strong>: Subject matter that requires specialized knowledge</li>
 </ul>
-<p><strong>Best approach</strong>: Use skills for 70% of structural work, then manually refine and customize the remaining 30% to add personality, domain expertise, and polish. See <a href="../chapters/10-content-creation-workflows/">Chapter 10</a>.</p>
+<p><strong>Best approach</strong>: Use skills for 70% of structural work, then manually refine and customize the remaining 30% to add personality, domain expertise, and polish. See <a href="chapters/10-content-creation-workflows/index.md">Chapter 10</a>.</p>
 <h3 id="how-do-i-maintain-consistent-terminology-across-chapters">How do I maintain consistent terminology across chapters?</h3>
 <p>Consistent terminology improves readability and comprehension. Best practices:</p>
 <p><strong>Use the glossary as single source of truth</strong>:</p>
@@ -3595,7 +3705,7 @@ git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </sp
 <li>Technical terms (e.g., "MkDocs Material theme" consistently)</li>
 </ul>
 <p><strong>Use search and replace</strong>: Before finalizing, search for variant terms and standardize.</p>
-<p>The add-glossary-links skill can automatically link terms to glossary definitions throughout your textbook. See <a href="../chapters/11-educational-resources-assessment/">Chapter 11</a>.</p>
+<p>The add-glossary-links skill can automatically link terms to glossary definitions throughout your textbook. See <a href="chapters/11-educational-resources-assessment/index.md">Chapter 11</a>.</p>
 <h3 id="how-do-i-ensure-my-content-addresses-all-blooms-taxonomy-levels">How do I ensure my content addresses all Bloom's Taxonomy levels?</h3>
 <p>Well-designed educational content distributes learning activities across all six cognitive levels:</p>
 <p><strong>Remember (20%)</strong>: Define terms, list components, recall facts</p>
@@ -3628,7 +3738,7 @@ git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </sp
 <li>"Design a MicroSim for a new concept"</li>
 <li>"Create a custom skill for your workflow"</li>
 </ul>
-<p>The quiz-generator skill automatically distributes questions across Bloom's levels. See <a href="../chapters/03-course-design-educational-theory/">Chapter 3</a>.</p>
+<p>The quiz-generator skill automatically distributes questions across Bloom's levels. See <a href="chapters/03-course-design-educational-theory/index.md">Chapter 3</a>.</p>
 <h3 id="whats-the-best-way-to-organize-microsims-in-my-textbook">What's the best way to organize MicroSims in my textbook?</h3>
 <p>Effective MicroSim organization enhances learning without overwhelming students:</p>
 <p><strong>Location strategy</strong>:</p>
@@ -3651,7 +3761,7 @@ git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </sp
 <li>Questions to guide exploration</li>
 <li>Connection to chapter concepts</li>
 </ul>
-<p><strong>Naming</strong>: Use descriptive, kebab-case names like <code>concept-dependency-graph</code>, <code>bloom-taxonomy-levels</code>, or <code>random-walk-simulation</code>. See <a href="../chapters/12-interactive-elements-microsims/">Chapter 12</a>.</p>
+<p><strong>Naming</strong>: Use descriptive, kebab-case names like <code>concept-dependency-graph</code>, <code>bloom-taxonomy-levels</code>, or <code>random-walk-simulation</code>. See <a href="chapters/12-interactive-elements-microsims/index.md">Chapter 12</a>.</p>
 <h3 id="how-often-should-i-update-my-learning-graph">How often should I update my learning graph?</h3>
 <p>Learning graphs should evolve with your course content:</p>
 <p><strong>Initial development</strong>: Generate comprehensive 200-concept graph before content creation</p>
@@ -3674,7 +3784,7 @@ git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </sp
 v1.1: Added 15 advanced ML concepts, merged 3 overly specific nodes
 v2.0: Major restructuring for new curriculum
 </code></pre></div></td></tr></tbody></table></div>
-<p>Update the quality metrics report and JSON visualization after each revision. See <a href="../chapters/05-concept-enumeration-dependencies/">Chapter 5</a>.</p>
+<p>Update the quality metrics report and JSON visualization after each revision. See <a href="chapters/05-concept-enumeration-dependencies/index.md">Chapter 5</a>.</p>
 <h3 id="should-i-generate-all-content-at-once-or-incrementally">Should I generate all content at once or incrementally?</h3>
 <p><strong>Incremental generation is strongly recommended</strong>:</p>
 <p><strong>Advantages</strong>:</p>
@@ -3693,7 +3803,7 @@ v2.0: Major restructuring for new curriculum
 <li><strong>Week 6-7</strong>: Chapters 9-12 (advanced topics)</li>
 <li><strong>Week 8</strong>: Resources (glossary, FAQ, quizzes), MicroSims, final review</li>
 </ul>
-<p><strong>Exception</strong>: Generate glossary early (after learning graph) so you can reference consistent terminology throughout content creation. See <a href="../chapters/10-content-creation-workflows/">Chapter 10</a>.</p>
+<p><strong>Exception</strong>: Generate glossary early (after learning graph) so you can reference consistent terminology throughout content creation. See <a href="chapters/10-content-creation-workflows/index.md">Chapter 10</a>.</p>
 <h3 id="how-do-i-credit-ai-generated-content-appropriately">How do I credit AI-generated content appropriately?</h3>
 <p>Transparency about AI-assisted content is both ethical and increasingly expected:</p>
 <p><strong>In textbook front matter</strong> (preface or about page):</p>
@@ -3710,7 +3820,7 @@ v2.0: Major restructuring for new curriculum
 <li>Document the generation workflow in README</li>
 </ul>
 <p><strong>Licensing</strong>: Choose appropriate licenses (CC BY, MIT, Apache 2.0) that allow derivative works. This course uses Apache 2.0 for skills, allowing commercial and academic use with attribution.</p>
-<p>See <a href="../chapters/10-content-creation-workflows/">Chapter 10</a> for ethical AI use guidelines.</p>
+<p>See <a href="chapters/10-content-creation-workflows/index.md">Chapter 10</a> for ethical AI use guidelines.</p>
 <h3 id="what-are-best-practices-for-version-control-with-textbook-content">What are best practices for version control with textbook content?</h3>
 <p>Git best practices for educational content:</p>
 <p><strong>Branching strategy</strong>:</p>
@@ -3738,7 +3848,7 @@ v2.0: Major restructuring for new curriculum
 <li><code>.DS_Store</code> (Mac system files)</li>
 <li><code>__pycache__/</code> (Python cache)</li>
 </ul>
-<p><strong>Collaboration</strong>: Use pull requests for major content changes, allowing review before merging. See <a href="../chapters/13-dev-tools-version-control-deployment/">Chapter 13</a>.</p>
+<p><strong>Collaboration</strong>: Use pull requests for major content changes, allowing review before merging. See <a href="chapters/13-dev-tools-version-control-deployment/index.md">Chapter 13</a>.</p>
 <h2 id="advanced-topics">Advanced Topics</h2>
 <h3 id="how-can-i-customize-the-intelligent-textbook-skill-workflow">How can I customize the intelligent-textbook skill workflow?</h3>
 <p>The intelligent-textbook skill follows a 12-step workflow defined in its SKILL.md file. To customize:</p>
@@ -3763,7 +3873,7 @@ v2.0: Major restructuring for new curriculum
 /skill learning-graph-generator
 /skill chapter-content-generator
 </code></pre></div></td></tr></tbody></table></div>
-<p>This gives maximum control over the process. See <a href="../chapters/09-ibook-skills-architecture-development/">Chapter 9</a> for skill development patterns.</p>
+<p>This gives maximum control over the process. See <a href="chapters/09-ibook-skills-architecture-development/index.md">Chapter 9</a> for skill development patterns.</p>
 <h3 id="how-do-i-create-a-custom-skill-for-my-specific-domain">How do I create a custom skill for my specific domain?</h3>
 <p>Creating domain-specific skills extends the intelligent textbook framework:</p>
 <p><strong>Step 1 - Plan the skill</strong>:</p>
@@ -3822,7 +3932,7 @@ v2.0: Major restructuring for new curriculum
 </code></pre></div></td></tr></tbody></table></div>
 <p><strong>Step 4 - Test and refine</strong>:</p>
 <p>Invoke with <code>/skill my-custom-skill</code> and iterate based on results.</p>
-<p>See <a href="../chapters/09-ibook-skills-architecture-development/">Chapter 9</a> for complete skill development guide.</p>
+<p>See <a href="chapters/09-ibook-skills-architecture-development/index.md">Chapter 9</a> for complete skill development guide.</p>
 <h3 id="can-i-integrate-claude-skills-with-learning-management-systems">Can I integrate Claude Skills with Learning Management Systems?</h3>
 <p>While Claude Skills primarily generate static content, LMS integration is possible through several approaches:</p>
 <p><strong>SCORM export</strong>: Convert MkDocs content to SCORM packages for LMS import (requires additional tooling)</p>
@@ -3830,7 +3940,7 @@ v2.0: Major restructuring for new curriculum
 <p><strong>Direct embedding</strong>: Host MkDocs site and embed pages as iframes in LMS</p>
 <p><strong>Content export</strong>: Use generated markdown as source content, then manually import to LMS</p>
 <p><strong>API integration</strong>: Advanced users can develop custom skills that directly interface with LMS APIs (Canvas, Moodle, etc.)</p>
-<p>The course mentions xAPI support in Level 3-4 intelligent textbooks for tracking learner interactions. Full LMS integration requires additional development beyond the core skills. See <a href="../chapters/12-interactive-elements-microsims/">Chapter 12</a>.</p>
+<p>The course mentions xAPI support in Level 3-4 intelligent textbooks for tracking learner interactions. Full LMS integration requires additional development beyond the core skills. See <a href="chapters/12-interactive-elements-microsims/index.md">Chapter 12</a>.</p>
 <h3 id="how-do-i-optimize-claude-usage-for-large-textbook-projects">How do I optimize Claude usage for large textbook projects?</h3>
 <p>Strategies to minimize token usage while maintaining quality:</p>
 <p><strong>Content generation</strong>:</p>
@@ -3857,16 +3967,16 @@ v2.0: Major restructuring for new curriculum
 <li>Space intensive generation sessions across days to stay within limits</li>
 <li>Prioritize core chapters, defer optional content</li>
 </ul>
-<p>See the <a href="../claude-usage-limits/">usage limits guide</a> and <a href="../chapters/02-getting-started-ibook-skills/">Chapter 2</a>.</p>
+<p>See the <a href="../claude-usage-limits/">usage limits guide</a> and <a href="chapters/02-getting-started-ibook-skills/index.md">Chapter 2</a>.</p>
 <h3 id="whats-the-future-roadmap-for-intelligent-textbook-skills">What's the future roadmap for intelligent textbook skills?</h3>
 <p>While the course focuses on current Level 2-3 capabilities, future developments include:</p>
-<p><strong>Level 4 - Adaptive Content</strong>:</p>
+<p><strong>Level 3 - Adaptive Content</strong>:</p>
 <ul>
 <li>Skills that generate multiple content versions for different learning styles</li>
 <li>Personalized learning pathways based on assessment performance</li>
 <li>Adaptive difficulty adjustment in exercises and MicroSims</li>
 </ul>
-<p><strong>Level 5 - AI Personalization</strong>:</p>
+<p><strong>Level 4/5 - Chatbot Integration and Autonomous AI</strong>:</p>
 <ul>
 <li>Integration with conversational AI tutors for real-time help</li>
 <li>Intelligent question answering using RAG over textbook content</li>

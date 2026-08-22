@@ -602,33 +602,143 @@
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
         
-      
+          
         
       
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
         
       
     
@@ -1874,15 +1984,15 @@
 <li>Curiosity about using AI to build textbooks</li>
 </ul>
 <h2 id="course-overview">Course Overview</h2>
-<p>This course provides comprehensive training on leveraging <a href="../glossary/#agent-skill">Agent Skills</a> to create intelligent, interactive textbooks that enhance learning through AI-assisted content generation. Participants learn the complete workflow from writing a high-quality <a href="../glossary/#course-description">Course Description</a>, through generating a <a href="../glossary/#learning-graph">Learning Graph</a> of 300–600 concepts, designing chapter structure, generating <a href="../glossary/#chapter-content-generator">Chapter Content</a>, building interactive simulations, producing <a href="../glossary/#glossary">Glossaries</a>, quizzes, FAQs and references, and finally publishing, measuring, and announcing a finished book.</p>
+<p>This course provides comprehensive training on leveraging <a href="../glossary/#agent-skill">Agent Skill</a> to create intelligent, interactive textbooks that enhance learning through AI-assisted content generation. Participants learn the complete workflow from writing a high-quality <a href="../glossary/#course-description">Course Description</a>, through generating a <a href="../glossary/#learning-graph">Learning Graph</a> of 300–600 concepts, designing chapter structure, generating <a href="../glossary/#chapter-content-generator">Chapter Content Generator</a>, building interactive simulations, producing <a href="../glossary/#glossary">Glossary</a>, quizzes, FAQs and references, and finally publishing, measuring, and announcing a finished book.</p>
 <p>The reference library that accompanies this course is no longer a handful of prompts. It is <strong>14 production Agent Skills</strong>, backed by <strong>99 on-demand reference guides</strong>, <strong>80 Python programs</strong>, and <strong>19 <code>bk-*</code> command-line tools</strong>. Five of those skills are <strong>meta-skills</strong> — routers that read a request, match it against a keyword table, and load only the one guide needed for that job. This architecture exists for two reasons: an agent may only load about 30 skills at once, and every byte loaded costs money. Students learn to design skills the same way: a small always-resident description, a compact router, and heavyweight detail that loads only when earned.</p>
 <p>A central theme of the course is <strong>token frugality</strong>. Most teachers cannot justify a $100/month AI subscription and want to build their books on a $20/month plan. The course therefore treats tokens as a first-class engineering budget. Students learn measured techniques rather than folklore: that each additional parallel sub-agent costs roughly 12,000 tokens of startup overhead, so a 350-term glossary is cheaper to write with <strong>one</strong> serial agent (~31,000 tokens total, ~54 tokens per marginal term) than with many parallel ones; that storing chapter references in separate <code>references.md</code> files drops the cost of a full 15-chapter reference update from ~90,000 tokens to ~3,000; that a batch of MicroSims scaffolded by Python utilities instead of by the model saves roughly 430,000 tokens per chapter run; and that a quality gate which already scores above 85 should be skipped rather than re-run. Students install usage-tracking hooks, analyze the resulting JSONL logs with Python, and build dashboards showing elapsed time and token consumption per skill.</p>
-<p>The second theme is <strong>Python as the agent's hands</strong>. Anything deterministic — parsing, counting, validating, scaffolding, renaming, resizing, measuring — belongs in a script, not in the model's output stream. Students read and extend the actual programs used by the skills: <code>analyze-graph.py</code> for graph quality metrics, <code>csv-to-json.py</code> for vis-network conversion, <code>validate-learning-graph.py</code> for <a href="../glossary/#directed-acyclic-graph">DAG</a> and schema checks, <code>extract-sim-specs.py</code> for parsing simulation specifications out of chapter markdown, <code>sync-iframe-heights.py</code> for keeping every embedded simulation the right height, <code>calculate-quality-score.py</code> for MicroSim scoring, <code>book-metrics.py</code> for the canonical statistics hub every publishing route reads, <code>analyze-reading-levels.py</code> for Flesch-Kincaid consistency across chapters, and image utilities that trim, compress, and generate favicons and social cards. The rule students internalize is simple: the model writes the creative artifact; Python does everything countable.</p>
+<p>The second theme is <strong>Python as the agent's hands</strong>. Anything deterministic — parsing, counting, validating, scaffolding, renaming, resizing, measuring — belongs in a script, not in the model's output stream. Students read and extend the actual programs used by the skills: <code>analyze-graph.py</code> for graph quality metrics, <code>csv-to-json.py</code> for vis-network conversion, <code>validate-learning-graph.py</code> for <a href="../glossary/#directed-acyclic-graph">Directed Acyclic Graph</a> and schema checks, <code>extract-sim-specs.py</code> for parsing simulation specifications out of chapter markdown, <code>sync-iframe-heights.py</code> for keeping every embedded simulation the right height, <code>calculate-quality-score.py</code> for MicroSim scoring, <code>book-metrics.py</code> for the canonical statistics hub every publishing route reads, <code>analyze-reading-levels.py</code> for Flesch-Kincaid consistency across chapters, and image utilities that trim, compress, and generate favicons and social cards. The rule students internalize is simple: the model writes the creative artifact; Python does everything countable.</p>
 <p>The third theme is <strong>breadth of generated media</strong>. The MicroSim generator now routes across sixteen visualization families — p5.js simulations, Chart.js and Plotly charts, vis-network concept maps, Mermaid diagrams, vis-timeline chronologies, Leaflet maps, Venn and bubble diagrams, comparison and clickable matrix tables, causal-loop diagrams for systems thinking, concept-classifier sorting quizzes, celebration animations, Docker-backed runnable Python labs, interactive infographic overlays, and fact-verified statistics posters. The media generator adds MARP web decks, downloadable PowerPoint lectures with speaker notes, illustrated stories, freely-licensed chapter images sourced from Wikimedia and government archives, and ElevenLabs text-to-speech narration and glossary pronunciation buttons.</p>
 <p>The quality of text-to-image models has changed what is possible here, and the course treats that change carefully. Modern image models can place long, exact text precisely inside a large, complex composition — which makes beautiful infographic posters achievable and factual errors permanent. In one measured session, eight of ten numeric claims in a one-shot generated poster were unsupported by their cited sources and two of five citations were fictional. The library's answer is an eight-phase pipeline that <strong>separates facts from pixels</strong>: claims are planned, sourced, verified against quoted passages, and locked in a YAML layout specification before a single image call is made, and every rendered number remains traceable to a source URL in a sidecar audit file. The complementary technique is the <strong>interactive infographic overlay</strong>, where the image model produces a deliberately annotation-free illustration and a JavaScript layer draws the numbered callouts, leader lines, hover explanations, and quiz modes on top — so labels stay editable, translatable, and accessible instead of being baked into pixels.</p>
 <p>Finally, the course covers <strong>domain extension</strong>. The core library is subject-neutral, but real books need vocabulary the core does not have. Students study a worked example from a beginning-electronics textbook, where three project-local skills extend the library: a breadboard simulation generator that places components in real tie-point holes and animates current along jumper wires, a Schemdraw skill that turns a plain-language circuit description into a maintainable Python program and a verified schematic image, and a hands-on lab evaluator that scores a lab against a 103-point rubric for reader age and parts-kit buildability, then writes the score into frontmatter and files each gap as a work item. Students learn when to route to a general skill, when a domain deserves its own, and how a project skill inherits the same standards as the shared library.</p>
 <p>Because these skills follow the open <strong>Agent Skills</strong> standard — a folder with a <code>SKILL.md</code>, a two-field frontmatter contract, and progressive disclosure — they also run in OpenAI Codex, Gemini, Cursor, and GitHub Copilot. Students learn which frontmatter fields are portable, which are vendor extensions, and how to degrade gracefully when a platform lacks a capability such as image understanding.</p>
-<p>Through this professional development opportunity, learners gain expertise in both the technical craft of building and maintaining an Agent Skill library and the educational design principles — <a href="../glossary/#blooms-taxonomy">Bloom's Taxonomy</a>, <a href="../glossary/#iso-11179-standards">ISO 11179</a> definitions, dependency-ordered concept sequencing — that make an <a href="../glossary/#intelligent-textbook">intelligent textbook</a> an effective learning tool rather than merely a generated one.</p>
+<p>Through this professional development opportunity, learners gain expertise in both the technical craft of building and maintaining an Agent Skill library and the educational design principles — <a href="../glossary/#blooms-taxonomy">Bloom's Taxonomy</a>, <a href="../glossary/#iso-11179-standards">ISO 11179 Standards</a> definitions, dependency-ordered concept sequencing — that make an <a href="../glossary/#intelligent-textbook">intelligent textbook</a> an effective learning tool rather than merely a generated one.</p>
 <h2 id="main-topics-covered">Main Topics Covered</h2>
 <h3 id="foundations">Foundations</h3>
 <ul>
