@@ -1,3 +1,11 @@
+---
+title: Book Installer Features
+description: Covers the book-installer meta-skill's scaffolding and feature-installation routing, auto-detection, installable extras, strict build mode, and the auto-commit hook.
+generated_by: claude skill chapter-content-generator
+date: 2026-08-22 19:05:00
+version: 0.09
+---
+
 # Book Installer Features
 
 ## Summary
@@ -38,4 +46,54 @@ This chapter builds on concepts from:
 
 ---
 
-TODO: Generate Chapter Content
+!!! mascot-welcome "The skill that built the ground you're standing on."
+    ![Kit waves hello with their tool satchel](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    This entire book started as an empty folder. This chapter is the meta-skill that turned it into a working project, and everything you can bolt onto it afterward. Right tool, right task!
+
+## The Book Installer Meta-Skill
+
+The **Book Installer Skill** is the meta-skill that scaffolds a new book and installs individual site features on request — a meta-skill in exactly Chapter 7's sense, routing between many possible jobs instead of doing one fixed task. Its very first job on any new project is producing a **textbook scaffold**: the initial project structure created for a new book, including configuration, directory layout, and starter pages — the `mkdocs.yml`, `docs/` folder, and starter `index.md` that every other skill in this library then builds on top of.
+
+## Routing a Feature Request
+
+Once a book exists, adding a capability to it is **feature installation routing**: matching a request for a site capability to the specific guide describing how to install it — "add a Kanban board" or "add Google Analytics" each route to a different installation guide inside the same meta-skill, the same routing-table pattern from Chapter 7 applied to site features instead of MicroSim libraries.
+
+## Knowing What's Already There
+
+Before installing anything, it helps to know what's already present. **Feature auto-detection** examines a project to determine which capabilities are already installed, so a report reflects reality rather than assumption, performed by **detect_features.py**: the program that inspects a project and reports which site capabilities are installed. The result is a **feature checklist**: a generated document listing available site capabilities and marking which are present in a given book.
+
+!!! mascot-thinking "Detecting reality beats trusting memory."
+    ![Kit thinking with a paw on their chin](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    It would be easy to just remember which features you've already installed — until a project has been worked on across a dozen sessions and that memory gets unreliable. Auto-detection reads the actual files on disk every time, so the checklist is never wrong about what's really there.
+
+## A Few Installable Features
+
+Among the roughly 40 features this skill can install, a few show up in nearly every book. The **home page template** is the starting page presenting a book's cover, summary, and entry points into its material — the first thing a reader sees. **GitHub Projects Kanban** is a board tracking outstanding work in columns representing stages of progress, useful for coordinating a book's remaining chapters or open issues. A **custom 404 page** replaces the default missing-page message with one offering navigation back into the book, rather than a dead end.
+
+## Keeping a Site Honest: Strict Build Mode and Deployment Verification
+
+Two features protect a book from silently shipping a broken site. **Strict build mode** is a build setting that treats warnings such as broken links as failures, preventing a defective site from being published — this book's own `mkdocs build --strict` runs exactly this check before any chapter regeneration gets treated as finished. **Deployment verification** confirms that a published site renders correctly and that its links and assets resolve after release, catching anything strict mode's local check couldn't see until the site was actually live.
+
+!!! mascot-warning "A clean local build doesn't guarantee a clean deployment."
+    ![Kit holding up a caution paw](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    `mkdocs build --strict` catches broken internal links, but it can't catch everything that might go wrong once a site is actually hosted — a missing environment variable, a misconfigured base path. Always follow a deployment with a quick manual check of the live site, not just a clean local build.
+
+## Automating the Commit: Auto-Commit Hook and Project Instruction Files
+
+The last feature closes a loop you've been watching all book long. An **auto-commit hook** is a configured callback that records a turn's file changes automatically using a message left for it, so work is never left uncommitted — exactly the mechanism that has been quietly committing every chapter in this book as it was generated, using a marker message written for it each time. That hook, and every other standing convention in this project, lives in **project instruction files**: documents carrying persistent guidance for agents working in a repository, sometimes duplicated under a second filename for platform compatibility — the same `CLAUDE.md` from Chapter 5, and its `AGENTS.md` counterpart from Chapter 10, working together.
+
+!!! mascot-tip "The marker file is the whole trick."
+    ![Kit holding up a tool with a knowing look](../../img/mascot/tip.png){ class="mascot-admonition-img" }
+    An auto-commit hook only works if there's a message ready for it when the turn ends. Writing that marker message is a small, deliberate habit — skip it, and the hook has nothing to commit with, no matter how much work actually happened.
+
+## Key Takeaways
+
+- The **Book Installer Skill** produces a **textbook scaffold** for a new book and performs **feature installation routing** for everything added afterward.
+- **Feature auto-detection**, via **detect_features.py**, produces an accurate **feature checklist** instead of relying on memory.
+- A **home page template**, a **GitHub Projects Kanban** board, and a **custom 404 page** are common installable extras.
+- **Strict build mode** catches broken links locally; **deployment verification** checks the site after it's actually live.
+- An **auto-commit hook**, configured through **project instruction files**, keeps work from ever being left uncommitted.
+
+!!! mascot-celebration "You now understand the skill that scaffolded this very book."
+    ![Kit celebrating with arms raised](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    Scaffold, features, detection, strict builds, auto-commit — that's the entire infrastructure layer underneath every chapter you've read. Right tool, right task!

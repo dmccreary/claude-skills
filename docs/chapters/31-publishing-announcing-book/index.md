@@ -1,3 +1,11 @@
+---
+title: Publishing and Announcing a Finished Book
+description: Covers README generation, LinkedIn posts and carousels, AP-style press releases, the book launch checklist, continuous improvement, and the capstone textbook project.
+generated_by: claude skill chapter-content-generator
+date: 2026-08-22 19:40:00
+version: 0.09
+---
+
 # Publishing and Announcing a Finished Book
 
 ## Summary
@@ -42,4 +50,60 @@ This chapter builds on concepts from:
 
 ---
 
-TODO: Generate Chapter Content
+!!! mascot-welcome "Last chapter. Let's send your book out into the world."
+    ![Kit waves hello with their tool satchel](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    Thirty chapters of building, and now the part where someone else actually finds your book. Right tool, right task — one last time, together.
+
+## Measuring the Finished Book
+
+Publishing starts by regenerating the numbers one final time. **book-metrics.py** is the program that measures a book's content and writes the structured measurement file — the same `book-metrics.json` hub from Chapter 30, refreshed against the book's truly final state. **collect-site-metrics.py** gathers statistics from the built site itself for use in summaries and announcements, counting what actually deployed rather than what was merely written.
+
+## The README: A Repository's Front Page
+
+**README generation** produces a repository's front page, including a summary, badges, statistics, and setup instructions — usually the very first thing anyone new to a project reads. **Repository badges** are small status images displayed on a repository page showing license, build state, or site link, giving a visitor a fast visual sense of a project's health before reading a word of prose. A **getting started section** tells a newcomer how to install dependencies and run the site locally, turning curiosity into an actual working copy on someone else's machine.
+
+## Announcing on LinkedIn
+
+A **LinkedIn announcement post** is a short professional-network message announcing a book milestone, drawing its figures directly from the recorded measurements — never hand-typed, per Chapter 30's canonical metrics principle. For a richer format, a **LinkedIn carousel document** is a multi-page slideshow posted to a professional network, in which readers swipe through successive panels, following recognizable **carousel slide patterns**: recurring panel layouts such as a title panel, a statistics panel, and a closing call to action.
+
+!!! mascot-tip "Don't invent a new slide pattern for every book."
+    ![Kit holding up a tool with a knowing look](../../img/mascot/tip.png){ class="mascot-admonition-img" }
+    A reader swiping through a carousel benefits from a familiar rhythm — title, then a stat, then a highlight, then a call to action. Reuse the same pattern across announcements rather than reinventing the structure each time; the content changes, the shape doesn't need to.
+
+Whatever format the announcement takes, it needs an **announcement preview image**: the picture accompanying a shared announcement, cropped to the proportions a platform displays — the same Open Graph and social-card mechanics from Chapter 25, aimed at one specific post instead of the site as a whole.
+
+## The Press Release
+
+For reaching an audience beyond a single social network, a **press release** is a formal announcement written for journalists, stating what was released, why it matters, and where to find it, following **AP style writing**: a journalistic convention governing capitalization, numbers, titles, and attribution in press material.
+
+!!! mascot-thinking "A style guide is just a shared set of choices, made once."
+    ![Kit thinking with a paw on their chin](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    AP style spells out numbers under ten, capitalizes specific titles but not general ones, and follows dozens of similar small rules. None of them matter individually — what matters is that every press release in the world follows the *same* small rules, so a journalist can read one without being distracted by inconsistency. That's the same instinct behind this book's own title-case concept labels and consistent mascot voice.
+
+## Before You Announce: The Launch Checklist
+
+None of this should happen before the book is actually ready. The **book completion workflow** is the coordinated final pass that generates all remaining supporting material and reports before a book is released, verified against a **book launch checklist**: the list of confirmations completed before announcing a book, covering build, deployment, metrics, and links.
+
+!!! mascot-warning "Announcing before the checklist is done invites a broken first impression."
+    ![Kit holding up a caution paw](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    A LinkedIn post that goes out before deployment verification (Chapter 29) has actually confirmed the live site works risks sending your very first readers to a broken link. Run the launch checklist all the way through, in order, before a single announcement goes out.
+
+## After Launch: Continuous Improvement
+
+Publishing isn't the end of a book's story. **Continuous book improvement** means using measurements, reader feedback, and usage data to revise a book and the skills that produced it after release — the quiz analytics from Chapter 20, the FAQ coverage gaps from Chapter 19, and the reading-level audits from Chapter 30 all exist to feed exactly this ongoing loop.
+
+## The Capstone: Your Own Intelligent Textbook
+
+Every concept in this book, across all 31 chapters, exists in service of one culminating exercise: the **capstone textbook project**, in which a learner produces a complete intelligent textbook, applying the entire pipeline end to end. You've now met every piece of it — a course description scored against a rubric, a validated 300-to-600-concept learning graph, dependency-ordered chapters, generated content with a consistent voice, MicroSims chosen from a real reuse catalog before any new one gets specified, a glossary and quizzes that meet a real standard, and a publishing package that never says two different things about the same number. The only thing left is a subject of your own.
+
+## Key Takeaways
+
+- **book-metrics.py** and **collect-site-metrics.py** produce the final numbers a launch is built on.
+- **README generation**, with **badges** and a **getting started section**, is a project's front door.
+- A **LinkedIn announcement post**, a **carousel document** with recognizable **slide patterns**, and an **announcement preview image** reach a professional audience; a **press release** in **AP style** reaches journalists.
+- The **book completion workflow** and a **launch checklist** should finish, in full, before anything is announced.
+- **Continuous book improvement** keeps a book alive after launch — and the **capstone textbook project** is where every concept in this book comes together in a project of your own.
+
+!!! mascot-celebration "You just finished the whole book. Really finished it."
+    ![Kit celebrating with arms raised](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    Thirty-one chapters ago, I told you I had exactly six jobs, and that if I wasn't doing one of them, I wasn't in the chapter. This is the sixth one, for the last time in this book: you built a real mental model of how an entire intelligent textbook gets made, end to end. Now go build one. Right tool, right task!

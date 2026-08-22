@@ -1,3 +1,11 @@
+---
+title: Interactive Infographic Overlays
+description: Covers overlay engines, marker positioning and leader lines, source discovery and passage-level verification, layout specification locking, and the audit trail behind a published claim.
+generated_by: claude skill chapter-content-generator
+date: 2026-08-22 18:20:00
+version: 0.09
+---
+
 # Interactive Infographic Overlays
 
 ## Summary
@@ -39,4 +47,60 @@ This chapter builds on concepts from:
 
 ---
 
-TODO: Generate Chapter Content
+!!! mascot-welcome "Finishing the overlay, then proving it's true."
+    ![Kit waves hello with their tool satchel](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    Chapter 25 introduced the callout overlay engine. This chapter finishes the overlay toolkit and shows the paper trail that lets every number in it survive a fact-check. Right tool, right task!
+
+## Two Overlay Engines
+
+Chapter 25's callout overlay engine handles point markers on specific features. A **grid overlay engine** handles a different layout entirely: the code layer that draws rectangular interactive regions over columns or sections of a poster-style image, better suited to a comparison table baked into an illustration than to labeled points on a diagram.
+
+## Positioning and Connecting Markers
+
+Wherever a marker sits, its position is data, not a hardcoded pixel value. **Callout marker coordinates** are the stored positions identifying where each marker sits on an illustration, kept in data so they can be adjusted without editing code — which is what makes **editable marker positions** possible: the ability to reposition annotation markers through stored data, allowing correction without regenerating anything.
+
+!!! mascot-tip "Move the number, not the picture."
+    ![Kit holding up a tool with a knowing look](../../img/mascot/tip.png){ class="mascot-admonition-img" }
+    If a marker sits slightly off from the feature it's labeling, fix its stored coordinate — never regenerate the underlying illustration just to nudge a label. That's the entire point of keeping markers in data instead of pixels.
+
+When a label needs to sit outside the illustration itself, **leader line rendering** draws a connecting line from a marker to its label so the association is unambiguous, rather than leaving a reader to guess which label belongs to which point.
+
+## Exploring an Overlay
+
+Put those markers together into an interaction and you get **overlay explore mode**: an interaction style in which hovering or selecting a marker reveals explanatory information about that feature — the same minimum interactivity bar every diagram in this book has followed since Chapter 1.
+
+## Finding and Verifying Sources
+
+Back in the verified infographic pipeline's claim planning phase, once every assertion is listed, someone has to find evidence for it. The **source discovery phase** is the stage locating authoritative material that could support each planned assertion. Finding a source isn't enough on its own — **passage-level verification** confirms an assertion by quoting the specific text in a source that supports it, rather than citing a document as a whole and hoping it holds up. The result of that work is recorded in a **claim verification report**: showing each planned assertion, its supporting quotation, and whether it passed, was softened, or was removed.
+
+!!! mascot-thinking "Citing a whole document proves nothing specific."
+    ![Kit thinking with a paw on their chin](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    A citation to an entire 40-page report doesn't tell you whether the report actually supports your specific number. Passage-level verification forces the question all the way down to one quoted sentence — either that sentence says what you claimed, or it doesn't.
+
+## Locking the Layout Before Rendering
+
+Once claims are verified, nothing about them should change during rendering. **Layout specification lock** means fixing the exact wording and arrangement of a planned poster before generation, so nothing can drift during rendering. That lock is enforced at the prompt level with a **verbatim text prompt**: an image instruction requiring that supplied wording be reproduced exactly, with no paraphrase or substitution, backed by an explicit **substitution prohibition**: forbidding an image generator from altering figures, names, or labels, or inventing additional ones to fill a gap.
+
+!!! mascot-warning "A model will invent a number to fill empty space if you let it."
+    ![Kit holding up a caution paw](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    Left unconstrained, an image generator asked to fill a comparison layout with mismatched amounts of real evidence on each side will often invent something to balance it visually. **Asymmetric content handling** — allowing a comparison layout to show unequal amounts of material on each side, so missing evidence is displayed honestly rather than filled with invention — is the deliberate alternative. An honest gap beats a fabricated fact every time.
+
+## Auditing the Result
+
+Even a locked, verbatim-prompted image needs a final check. A **rendered image audit** checks a finished picture against its locked specification to confirm every element was reproduced correctly — the model can still misplace or slightly alter something, even under a substitution prohibition. Every claim behind that audited image is preserved in a **source sidecar file**: a companion file stored beside the finished image recording every claim, its source address, and its supporting quotation, which is what makes **audit trail preservation** possible: retaining the evidence chain behind published material so any figure can be traced back to where it came from, long after the original generation session is over.
+
+## Two More Image Scripts
+
+Two small Python programs handle the last mile of image production. **generate-favicon.py** produces browser tab icons at required sizes from a source picture. **crop-screenshot.py** trims a captured image to a required aspect ratio for use in posts and previews — the same batch-script-substitution philosophy from Chapter 9, applied to image cropping instead of text generation.
+
+## Key Takeaways
+
+- A **grid overlay engine** complements Chapter 25's callout overlay engine for column- or section-based layouts.
+- **Callout marker coordinates** stored as data enable **editable marker positions**; **leader line rendering** connects a marker to its label unambiguously.
+- **Overlay explore mode** is the interaction pattern that makes any of this actually usable by a reader.
+- **Source discovery** and **passage-level verification** produce a **claim verification report**; a **layout specification lock**, **verbatim text prompt**, **substitution prohibition**, and **asymmetric content handling** keep rendering honest.
+- A **rendered image audit**, backed by a **source sidecar file**, gives every published figure **audit trail preservation** — with **generate-favicon.py** and **crop-screenshot.py** handling the smaller image tasks around it.
+
+!!! mascot-celebration "You could trace any number in a poster back to its source."
+    ![Kit celebrating with arms raised](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    Overlay, verification, lock, audit — that's a complete chain of custody from a raw claim to a published picture. Right tool, right task!

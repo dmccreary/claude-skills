@@ -1,3 +1,11 @@
+---
+title: "Domain-Specific Skill Extension: Electronics Case Study"
+description: Covers deciding when a subject needs its own skill, an electronics case study generating circuit schematics and breadboard simulations, and rubric-driven hands-on lab evaluation.
+generated_by: claude skill chapter-content-generator
+date: 2026-08-22 18:50:00
+version: 0.09
+---
+
 # Domain-Specific Skill Extension: Electronics Case Study
 
 ## Summary
@@ -49,4 +57,58 @@ This chapter builds on concepts from:
 
 ---
 
-TODO: Generate Chapter Content
+!!! mascot-welcome "Time to leave the core library behind — on purpose."
+    ![Kit waves hello with their tool satchel](../../img/mascot/welcome.png){ class="mascot-admonition-img" }
+    Everything so far has been subject-neutral. This chapter is a worked example of what happens when a subject needs vocabulary the core library simply doesn't have. Right tool, right task!
+
+## When a Subject Needs Its Own Skill
+
+Most of this library works for any subject; some subjects need more. A **domain-specific skill** is a skill encoding knowledge particular to one subject area, used where general-purpose skills lack the necessary vocabulary or conventions. That's **core versus domain skills**: the distinction between subject-neutral skills usable by any book and specialized skills meaningful only within one field.
+
+!!! mascot-thinking "The gap tells you when it's time."
+    ![Kit thinking with a paw on their chin](../../img/mascot/thinking.png){ class="mascot-admonition-img" }
+    A **domain vocabulary gap** is the shortfall that appears when a general skill lacks the terms, conventions, and correctness rules a specific subject requires — no general MicroSim generator skill knows what a breadboard tie point is. That specific gap is the signal that a domain deserves its own skill, not a vague sense that "electronics feels different."
+
+## Keeping Domain Skills to the Same Standard
+
+A domain skill isn't exempt from the rules the rest of this library follows. **Domain skill standards** require that a specialized skill follow the same structure, description quality, and validation practices as the shared library — everything from Chapter 6's frontmatter contract onward still applies. It lives in a **project-local skill directory**: a folder inside a single book holding skills that apply only to that book, the same project-specific installation scope from Chapter 11.
+
+## Case Study: Circuit Schematics from Prose
+
+This book's own **domain skill case study** — a worked example showing how a general library was extended for one subject, used as a pattern for other fields — is a beginning-electronics textbook. Its first extension is **circuit schematic generation**: producing a standard electrical diagram from a description, as a maintainable program plus a rendered picture, built on the **Schemdraw library**: a Python library that draws electrical schematics from code, so a diagram remains editable and version-controlled rather than a static image nobody can safely modify. Producing one starts with **prose to circuit translation**: interpreting a plain-language description of a circuit and expressing it as an explicit component and connection list, and finishes with **schematic verification**: confirming that the rendered diagram actually matches the circuit that was described.
+
+## Simulating a Breadboard
+
+The second extension simulates hands-on assembly. A **solderless breadboard** is a reusable board with gridded holes that hold components and wires, allowing circuits to be assembled without permanent joins. Those holes are **breadboard tie points**: individual holes internally connected in rows and columns that determine which parts share a connection — get the tie points wrong and two components that look adjacent on the board are actually electrically unrelated. Simulating one requires accurate **component placement**: positioning parts into specific holes so their connections match the intended circuit, and **jumper wire routing**: choosing paths for connecting wires so a circuit is both correct and readable to someone rebuilding it by hand.
+
+!!! mascot-tip "Adjacent on the board doesn't mean connected."
+    ![Kit holding up a tool with a knowing look](../../img/mascot/tip.png){ class="mascot-admonition-img" }
+    This is the single most common beginner mistake with a real breadboard, and it's exactly what a tie-point-accurate simulation teaches safely before a learner ever touches actual hardware: two holes that look close together can be on entirely different internal rows.
+
+Once components are placed correctly, **animated current flow** makes the circuit's behavior visible: a moving visual indication of charge traveling through a circuit, making an otherwise invisible process observable. For circuits whose signals switch between discrete states rather than varying continuously, **digital circuit simulation** models that switching behavior so a reader can observe it without building hardware, often alongside a **voltage and current scope**: a display panel plotting electrical quantities over time alongside the simulated circuit.
+
+## Designing and Scoring a Hands-On Lab
+
+A domain extension isn't complete without an activity a learner can actually do. **Hands-on lab design** means constructing a practical activity a learner can complete independently with a defined set of parts.
+
+!!! mascot-warning "A lab that needs parts nobody can afford isn't hands-on."
+    ![Kit holding up a caution paw](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    **Parts kit buildability** is the requirement that a practical activity be completable with an affordable, specified set of components. A beautifully designed lab that secretly requires a $200 specialty part isn't a hands-on activity — it's a demonstration only the instructor can run.
+
+Assessing the result against explicit criteria, rather than general impression, is **lab rubric scoring**: this project's own electronics extension uses a 103-point rubric covering reader age appropriateness and parts-kit buildability together.
+
+## Closing the Loop: Quality Scores and Work Items
+
+A lab's rubric score doesn't just sit in a report — it gets written directly into the page it describes. A **frontmatter quality score** is an assessment value written into a page's metadata block so its standing is visible to both tooling and authors, the same YAML frontmatter mechanism from Chapter 6 carrying a number instead of a name or license. When that score reveals a gap, **automated work item filing** records each identified shortfall as a tracked task at the moment it's found, rather than relying on memory to come back to it later. Across a whole project, that adds up to **TODO backlog generation**: producing a consolidated list of outstanding work items across a project from automated assessments — a domain skill's own quality gate, generating its own punch list.
+
+## Key Takeaways
+
+- A **domain-specific skill** fills a **domain vocabulary gap** that **core skills** can't; it still follows the same **domain skill standards** and lives in a **project-local skill directory**.
+- This book's own **domain skill case study**: **circuit schematic generation** via the **Schemdraw library**, through **prose to circuit translation** and **schematic verification**.
+- A simulated **solderless breadboard**, with accurate **tie points**, **component placement**, and **jumper wire routing**, supports **animated current flow**, **digital circuit simulation**, and a **voltage and current scope**.
+- **Hands-on lab design** requires **parts kit buildability** and **lab rubric scoring** against explicit criteria.
+- A **frontmatter quality score**, backed by **automated work item filing**, feeds a project-wide **TODO backlog**.
+
+!!! mascot-celebration "You now know exactly when to build a new domain skill of your own."
+    ![Kit celebrating with arms raised](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
+    Vocabulary gap identified, standards respected, a rubric-scored lab that's actually buildable — that's the complete pattern for extending this library into any subject it doesn't already know. Right tool, right task!
