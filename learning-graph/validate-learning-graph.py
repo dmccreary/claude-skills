@@ -68,7 +68,7 @@ def validate_learning_graph(data_path, schema_path):
         print(f"  Nodes: {len(data.get('nodes', []))}")
         print(f"  Edges: {len(data.get('edges', []))}")
 
-        # Check for orphaned nodes (completely disconnected — no inbound or outbound edges)
+        # Check for orphan nodes
         if 'nodes' in data and 'edges' in data:
             node_ids = {node['id'] for node in data['nodes']}
             connected_ids = set()

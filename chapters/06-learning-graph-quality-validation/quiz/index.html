@@ -141,7 +141,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="Agent Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Agent Skills for Intelligent Textbooks" data-md-component="logo">
       
-  <img src="../../../img/logo.png" alt="logo">
+  <img src="../../../img/mascot/welcome.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -247,7 +247,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Agent Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Agent Skills for Intelligent Textbooks" data-md-component="logo">
       
-  <img src="../../../img/logo.png" alt="logo">
+  <img src="../../../img/mascot/welcome.png" alt="logo">
 
     </a>
     Agent Skills for Intelligent Textbooks
@@ -2140,6 +2140,10 @@
         
       
         
+          
+        
+      
+        
       
         
       
@@ -2439,7 +2443,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. The depth-first search (DFS) algorithm with cycle detection runs in O(V + E) time complexity, where it must visit each vertex once and traverse each edge once. This linear-time algorithm is efficient for validating learning graphs. Option A ignores edge traversal, option C suggests an unnecessarily expensive approach, and option D describes a sorting algorithm complexity.</p>
 <p><strong>Concept Tested:</strong> DAG Validation</p>
-<p><strong>See:</strong> <a href="../../../glossary/#dag-validation">DAG Validation</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#cycle-detection">DAG Validation</a></p>
 </details>
 <hr>
 <h4 id="2-during-dfs-based-cycle-detection-what-does-encountering-a-gray-node-indicate">2. During DFS-based cycle detection, what does encountering a gray node indicate?</h4>
@@ -2455,7 +2459,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. In the three-color DFS algorithm, gray nodes are currently being explored (on the recursion stack). Encountering a gray node during traversal means you've found a back edge pointing to an ancestor, which indicates a cycle. White nodes (option A) are unvisited, black nodes (option B) are completed, and option D describes a tree edge, not a back edge.</p>
 <p><strong>Concept Tested:</strong> Circular Dependency Detection</p>
-<p><strong>See:</strong> <a href="../../../glossary/#circular-dependency-detection">Circular Dependency Detection</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#cycle-detection">Circular Dependency Detection</a></p>
 </details>
 <hr>
 <h4 id="3-what-does-a-terminal-node-in-a-learning-graph-represent">3. What does a terminal node in a learning graph represent?</h4>
@@ -2471,7 +2475,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. A terminal node has an outdegree of zero, meaning no other concepts depend on it, but it still has inbound edges (prerequisites). These are culminating concepts that represent the end of a learning path. Option A describes foundational concepts (indegree = 0), option C describes an orphaned node (completely disconnected from the graph, which is invalid), and option D is arbitrary and doesn't define terminal status.</p>
 <p><strong>Concept Tested:</strong> Terminal Nodes</p>
-<p><strong>See:</strong> <a href="../../../glossary/#terminal-nodes">Terminal Nodes</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#terminal-node">Terminal Nodes</a></p>
 </details>
 <hr>
 <h4 id="4-in-a-healthy-learning-graph-what-percentage-of-concepts-should-typically-be-terminal-nodes">4. In a healthy learning graph, what percentage of concepts should typically be terminal nodes?</h4>
@@ -2487,7 +2491,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. A well-designed learning graph typically has 5-15% terminal nodes representing culminating concepts and specialized topics. Too few terminal nodes (option A) suggests incomplete culminating concepts, while too many (options C and D) indicates concepts that may be missing dependent concepts or are too specialized for the course scope.</p>
 <p><strong>Concept Tested:</strong> Quality Metrics for Graphs</p>
-<p><strong>See:</strong> <a href="../../../glossary/#terminal-nodes">Terminal Nodes</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#terminal-node">Terminal Nodes</a></p>
 </details>
 <hr>
 <h4 id="5-you-run-analyze-graphpy-and-discover-your-learning-graph-contains-a-cycle-a-b-c-d-a-what-is-the-recommended-approach-to-resolve-this">5. You run analyze-graph.py and discover your learning graph contains a cycle: A → B → C → D → A. What is the recommended approach to resolve this?</h4>
@@ -2503,7 +2507,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. To break a cycle, examine the concepts involved to determine which dependency is weakest or least pedagogically justified, then remove that edge. This preserves the important prerequisite relationships while eliminating the cycle. Option A discards valuable concepts unnecessarily, option B would worsen the problem, and option D would create more cycles, violating the DAG requirement.</p>
 <p><strong>Concept Tested:</strong> Circular Dependency Detection</p>
-<p><strong>See:</strong> <a href="../../../glossary/#circular-dependency-detection">Circular Dependency Detection</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#cycle-detection">Circular Dependency Detection</a></p>
 </details>
 <hr>
 <h4 id="6-what-is-the-optimal-range-for-average-dependencies-per-concept-in-a-learning-graph">6. What is the optimal range for average dependencies per concept in a learning graph?</h4>
@@ -2519,7 +2523,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. The optimal average dependencies per concept is 2.0-4.5, balancing prerequisite completeness with learner accessibility. Below 2.0 (option A) suggests overly linear graphs, while above 5.0 (options C and D) may indicate over-specification of prerequisites or unrealistic prerequisite burdens on learners.</p>
 <p><strong>Concept Tested:</strong> Average Dependencies Per Concept</p>
-<p><strong>See:</strong> <a href="../../../glossary/#average-dependencies-per-concept">Average Dependencies Per Concept</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#average-dependencies">Average Dependencies Per Concept</a></p>
 </details>
 <hr>
 <h4 id="7-a-learning-graph-has-200-concepts-and-620-total-dependency-edges-what-is-the-average-dependencies-per-concept-and-how-should-this-be-interpreted">7. A learning graph has 200 concepts and 620 total dependency edges. What is the average dependencies per concept, and how should this be interpreted?</h4>
@@ -2535,7 +2539,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>A</strong>. Average dependencies = Total Edges / Total Nodes = 620 / 200 = 3.1 dependencies per concept. This falls within the ideal 2.0-4.5 range for intermediate courses with moderate integration. Option B incorrectly inverts the calculation, option C misplaces the decimal, and option D confuses the total edges with average.</p>
 <p><strong>Concept Tested:</strong> Average Dependencies Per Concept</p>
-<p><strong>See:</strong> <a href="../../../glossary/#average-dependencies-per-concept">Average Dependencies Per Concept</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#average-dependencies">Average Dependencies Per Concept</a></p>
 </details>
 <hr>
 <h4 id="8-your-learning-graph-quality-report-shows-a-score-of-68-what-action-should-you-take">8. Your learning graph quality report shows a score of 68. What action should you take?</h4>
@@ -2567,7 +2571,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. Over-representation occurs when a single taxonomy category exceeds 30% of total concepts, indicating imbalanced coverage that may result from scope creep, expert bias, or incomplete mapping in other categories. Options A and B set the threshold too low for natural emphasis areas, while option D sets it too high, allowing excessive concentration.</p>
 <p><strong>Concept Tested:</strong> Avoiding Over-Representation</p>
-<p><strong>See:</strong> <a href="../../../glossary/#avoiding-over-representation">Avoiding Over-Representation</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#category-over-representation">Avoiding Over-Representation</a></p>
 </details>
 <hr>
 <h4 id="10-which-python-script-converts-learning-graph-csv-format-to-vis-network-json-format-for-visualization">10. Which Python script converts learning graph CSV format to vis-network JSON format for visualization?</h4>

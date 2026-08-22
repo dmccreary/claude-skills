@@ -141,7 +141,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="Agent Skills for Intelligent Textbooks" class="md-header__button md-logo" aria-label="Agent Skills for Intelligent Textbooks" data-md-component="logo">
       
-  <img src="../../../img/logo.png" alt="logo">
+  <img src="../../../img/mascot/welcome.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -247,7 +247,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Agent Skills for Intelligent Textbooks" class="md-nav__button md-logo" aria-label="Agent Skills for Intelligent Textbooks" data-md-component="logo">
       
-  <img src="../../../img/logo.png" alt="logo">
+  <img src="../../../img/mascot/welcome.png" alt="logo">
 
     </a>
     Agent Skills for Intelligent Textbooks
@@ -2131,6 +2131,10 @@
         
       
         
+          
+        
+      
+        
       
         
       
@@ -2437,7 +2441,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. A typical content development session follows this pattern: open the project folder, start the development server with <code>mkdocs serve</code>, navigate to target chapter, edit in split view with markdown preview, save frequently, and preview in browser. This workflow enables rapid iteration where changes are immediately reflected in the browser within 1-2 seconds. Options A and D don't leverage the live preview capability, while option C misunderstands where editing occurs.</p>
 <p><strong>Concept Tested:</strong> VS Code for Content Development</p>
-<p><strong>See:</strong> <a href="../../../glossary/#vs-code-for-content-development">VS Code for Content Development</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#visual-studio-code">VS Code for Content Development</a></p>
 </details>
 <hr>
 <h4 id="3-what-is-a-key-advantage-of-using-the-integrated-terminal-in-vs-code-instead-of-a-separate-terminal-application">3. What is a key advantage of using the integrated terminal in VS Code instead of a separate terminal application?</h4>
@@ -2453,7 +2457,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. The integrated terminal eliminates context switching, automatically opens in the project root directory, and provides output linking where clicking file paths in error messages jumps to that file. It also supports split terminals for running multiple commands simultaneously. Option A confuses integration with performance, option C is factually incorrect, and option D misrepresents terminal capabilities.</p>
 <p><strong>Concept Tested:</strong> Terminal in VS Code</p>
-<p><strong>See:</strong> <a href="../../../glossary/#terminal-in-vs-code">Terminal in VS Code</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#vs-code-terminal">Terminal in VS Code</a></p>
 </details>
 <hr>
 <h4 id="4-what-is-the-distinction-between-a-terminal-a-shell-and-bash">4. What is the distinction between a terminal, a shell, and Bash?</h4>
@@ -2469,7 +2473,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. Terminal is the application that provides a text interface (e.g., Terminal.app), shell is the program that interprets commands (e.g., Bash, Zsh, Fish), and Bash is a specific shell implementation currently most widely used on Unix-like systems. These are distinct components with different roles. Options A and C incorrectly conflate the terms, while option D mischaracterizes platform associations.</p>
 <p><strong>Concept Tested:</strong> Bash</p>
-<p><strong>See:</strong> <a href="../../../glossary/#bash">Bash</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#shell-scripting">Bash</a></p>
 </details>
 <hr>
 <h4 id="5-you-need-to-execute-a-python-script-located-at-docslearning-graphanalyze-graphpy-with-two-arguments-learning-graphcsv-and-quality-metricsmd-what-is-the-correct-command-structure">5. You need to execute a Python script located at <code>docs/learning-graph/analyze-graph.py</code> with two arguments: <code>learning-graph.csv</code> and <code>quality-metrics.md</code>. What is the correct command structure?</h4>
@@ -2485,7 +2489,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. Bash commands follow the structure <code>command [options] [arguments]</code>. Here, <code>python</code> is the command, <code>docs/learning-graph/analyze-graph.py</code> is the first argument (script to execute), and the CSV and MD files are additional arguments. Option A reverses command and script, option C uses non-existent syntax, and option D uses invalid parenthetical argument notation.</p>
 <p><strong>Concept Tested:</strong> Bash</p>
-<p><strong>See:</strong> <a href="../../../glossary/#bash">Bash Command Structure</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#shell-scripting">Bash Command Structure</a></p>
 </details>
 <hr>
 <h4 id="6-what-does-the-command-cd-do">6. What does the command <code>cd ../..</code> do?</h4>
@@ -2517,7 +2521,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. The <code>mkdir -p</code> command creates the directory and all necessary parent directories in a single operation. The <code>-p</code> flag means "create parents as needed." Option A is unnecessarily verbose and would fail if docs already exists, option C creates a file not a directory, and option D attempts to navigate to a non-existent directory without creating it.</p>
 <p><strong>Concept Tested:</strong> File Creation and Editing</p>
-<p><strong>See:</strong> <a href="../../../glossary/#file-creation-and-editing">File Creation and Editing</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#path-handling">File Creation and Editing</a></p>
 </details>
 <hr>
 <h4 id="8-your-shell-script-install-ibook-skillssh-gives-a-permission-denied-error-when-you-try-to-run-it-with-install-ibook-skillssh-what-is-the-most-likely-cause-and-solution">8. Your shell script <code>install-ibook-skills.sh</code> gives a "Permission denied" error when you try to run it with <code>./install-ibook-skills.sh</code>. What is the most likely cause and solution?</h4>
@@ -2549,7 +2553,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. Symlinks create a reference in <code>~/.claude/skills/</code> that points to original skill files in the project repository. When original files are updated, changes are immediately reflected in all projects using that symlink, eliminating manual re-copying and synchronization. While option A is technically true, it's not the primary advantage. Options C and D are incorrect regarding symlink characteristics.</p>
 <p><strong>Concept Tested:</strong> Symlink Creation</p>
-<p><strong>See:</strong> <a href="../../../glossary/#symlink-creation">Symlink Creation</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#symbolic-link-installation">Symlink Creation</a></p>
 </details>
 <hr>
 <h4 id="10-in-the-capstone-project-workflow-what-is-the-correct-sequence-of-major-phases">10. In the capstone project workflow, what is the correct sequence of major phases?</h4>
@@ -2565,7 +2569,7 @@
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>C</strong>. The capstone project follows a logical progression: Phase 1 Course Design (course description, learning graph, chapter structure), Phase 2 Content Creation (chapter content, interactive elements, supporting resources), Phase 3 Integration and Quality Assurance (MkDocs configuration, testing, validation), and Phase 4 Deployment (GitHub repository setup, GitHub Pages deployment). This sequence ensures each phase builds on previous work. All other options present illogical orderings that would create workflow problems.</p>
 <p><strong>Concept Tested:</strong> Capstone: Complete Textbook Project</p>
-<p><strong>See:</strong> <a href="../../../glossary/#capstone-complete-textbook-project">Capstone: Complete Textbook Project</a></p>
+<p><strong>See:</strong> <a href="../../../glossary/#capstone-textbook-project">Capstone: Complete Textbook Project</a></p>
 </details>
 <hr>
 

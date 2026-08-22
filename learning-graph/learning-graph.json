@@ -1,97 +1,111 @@
 {
   "metadata": {
-    "title": "Learning Graph",
-    "description": "Learning graph with 200 concepts generated from CSV",
-    "creator": "CSV to JSON Converter",
-    "date": "2025-11-15",
-    "version": "1.0",
+    "title": "Using Agent Skills to Create Intelligent Textbooks",
+    "description": "A professional-development course on building intelligent, interactive textbooks with a portable, token-efficient library of Agent Skills, Python automation, and AI-generated interactive media.",
+    "creator": "Dan McCreary",
+    "date": "2026-08-22",
+    "version": "2.0",
     "format": "Learning Graph JSON v1.0",
     "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
     "license": "CC BY-NC-SA 4.0 DEED"
   },
   "groups": {
-    "AIFND": {
-      "classifierName": "AI Foundations",
-      "color": "salmon",
-      "font": {
-        "color": "black"
-      }
-    },
-    "SKILL": {
-      "classifierName": "Claude Skills System",
-      "color": "mediumturquoise",
-      "font": {
-        "color": "black"
-      }
-    },
-    "IBOOK": {
-      "classifierName": "Intelligent Textbooks",
-      "color": "steelblue",
+    "FOUND": {
+      "classifierName": "Foundations of AI and Intelligent Books",
+      "color": "SteelBlue",
       "font": {
         "color": "white"
       }
     },
-    "MKDOC": {
-      "classifierName": "MkDocs Platform",
-      "color": "darkseagreen",
+    "SKARCH": {
+      "classifierName": "Agent Skill Architecture",
+      "color": "DarkSlateBlue",
+      "font": {
+        "color": "white"
+      }
+    },
+    "SKDEV": {
+      "classifierName": "Skill Development and Portability",
+      "color": "DarkGreen",
+      "font": {
+        "color": "white"
+      }
+    },
+    "PYTOOL": {
+      "classifierName": "Python Tooling and Automation",
+      "color": "LimeGreen",
       "font": {
         "color": "black"
       }
     },
-    "GRAPH": {
+    "TOKEN": {
+      "classifierName": "Token Optimization and Measurement",
+      "color": "Gold",
+      "font": {
+        "color": "black"
+      }
+    },
+    "CDESIGN": {
+      "classifierName": "Course Design and Pedagogy",
+      "color": "DarkGoldenrod",
+      "font": {
+        "color": "white"
+      }
+    },
+    "LGRAPH": {
       "classifierName": "Learning Graphs",
-      "color": "khaki",
-      "font": {
-        "color": "black"
-      }
-    },
-    "EDTHY": {
-      "classifierName": "Educational Theory",
-      "color": "sandybrown",
-      "font": {
-        "color": "black"
-      }
-    },
-    "CONTE": {
-      "classifierName": "Content Creation",
-      "color": "chocolate",
+      "color": "DeepPink",
       "font": {
         "color": "white"
       }
     },
-    "RSRCE": {
-      "classifierName": "Educational Resources",
-      "color": "mediumpurple",
+    "CONTENT": {
+      "classifierName": "Chapter and Content Generation",
+      "color": "Teal",
       "font": {
         "color": "white"
       }
     },
-    "INTER": {
-      "classifierName": "Interactive Elements",
-      "color": "coral",
+    "SUPPORT": {
+      "classifierName": "Supporting Content",
+      "color": "LightSkyBlue",
       "font": {
         "color": "black"
       }
     },
-    "VERCT": {
-      "classifierName": "Version Control",
-      "color": "cornflowerblue",
+    "MSIM": {
+      "classifierName": "Interactive Simulations",
+      "color": "Crimson",
+      "font": {
+        "color": "white"
+      }
+    },
+    "MEDIA": {
+      "classifierName": "Images, Infographics, and Media",
+      "color": "Orange",
       "font": {
         "color": "black"
       }
     },
-    "TOOLS": {
-      "classifierName": "Development Tools",
-      "color": "plum",
+    "DOMAIN": {
+      "classifierName": "Domain-Specific Skill Extension",
+      "color": "SaddleBrown",
       "font": {
-        "color": "black"
+        "color": "white"
       }
     },
-    "DATAS": {
-      "classifierName": "Data & Scripting",
-      "color": "hotpink",
+    "PLATFORM": {
+      "classifierName": "Platform, Tooling, and Deployment",
+      "color": "MediumPurple",
       "font": {
-        "color": "black"
+        "color": "white"
+      }
+    },
+    "PUBLISH": {
+      "classifierName": "Publishing, Metrics, and Promotion",
+      "color": "OliveDrab",
+      "font": {
+        "color": "white"
       }
     }
   },
@@ -99,1010 +113,2858 @@
     {
       "id": 1,
       "label": "Artificial Intelligence",
-      "group": "AIFND",
+      "group": "FOUND",
       "shape": "box"
     },
     {
       "id": 2,
-      "label": "Claude AI",
-      "group": "AIFND"
+      "label": "Large Language Model",
+      "group": "FOUND"
     },
     {
       "id": 3,
-      "label": "Large Language Models Overview",
-      "group": "AIFND"
+      "label": "Token",
+      "group": "FOUND"
     },
     {
       "id": 4,
-      "label": "Anthropic Claude Pro Account",
-      "group": "AIFND"
+      "label": "Tokenization",
+      "group": "FOUND"
     },
     {
       "id": 5,
-      "label": "Claude Code Interface",
-      "group": "AIFND"
+      "label": "Context Window",
+      "group": "FOUND"
     },
     {
       "id": 6,
-      "label": "Claude Skill",
-      "group": "SKILL"
+      "label": "Prompt",
+      "group": "FOUND"
     },
     {
       "id": 7,
-      "label": "Skill Definition File Structure",
-      "group": "SKILL"
+      "label": "Prompt Engineering",
+      "group": "FOUND"
     },
     {
       "id": 8,
-      "label": "YAML Frontmatter in Skills",
-      "group": "SKILL"
+      "label": "System Prompt",
+      "group": "FOUND"
     },
     {
       "id": 9,
-      "label": "Skill Name and Description",
-      "group": "SKILL"
+      "label": "Nondeterminism in LLM Output",
+      "group": "FOUND"
     },
     {
       "id": 10,
-      "label": "Skill License Information",
-      "group": "SKILL"
+      "label": "Hallucination",
+      "group": "FOUND"
     },
     {
       "id": 11,
-      "label": "Allowed Tools in Skills",
-      "group": "SKILL"
+      "label": "Grounding and Verification",
+      "group": "FOUND"
     },
     {
       "id": 12,
-      "label": "Skill Workflow Instructions",
-      "group": "SKILL"
+      "label": "Python",
+      "group": "PYTOOL",
+      "shape": "box"
     },
     {
       "id": 13,
-      "label": "Installing a Claude Skill",
-      "group": "SKILL"
+      "label": "Markdown Formatting",
+      "group": "PLATFORM",
+      "shape": "box"
     },
     {
       "id": 14,
-      "label": "Listing Available Skills",
-      "group": "SKILL"
+      "label": "Terminal Commands",
+      "group": "PLATFORM",
+      "shape": "box"
     },
     {
       "id": 15,
-      "label": "Invoking Skills with Slash Commands",
-      "group": "SKILL"
+      "label": "Directory Navigation",
+      "group": "PLATFORM"
     },
     {
       "id": 16,
-      "label": "Skill Execution Context",
-      "group": "SKILL"
+      "label": "Shell Scripting",
+      "group": "PLATFORM"
     },
     {
       "id": 17,
-      "label": "Claude Command",
-      "group": "SKILL"
+      "label": "Git",
+      "group": "PLATFORM",
+      "shape": "box"
     },
     {
       "id": 18,
-      "label": "Command Definition Files",
-      "group": "SKILL"
+      "label": "Git Repository Structure",
+      "group": "PLATFORM"
     },
     {
       "id": 19,
-      "label": "Installing Claude Commands",
-      "group": "SKILL"
+      "label": "Version Control Basics",
+      "group": "PLATFORM"
     },
     {
       "id": 20,
-      "label": "Difference Between Skills & Commands",
-      "group": "SKILL"
+      "label": "GitHub Integration",
+      "group": "PLATFORM"
     },
     {
       "id": 21,
-      "label": "Skill Directory Structure",
-      "group": "SKILL"
+      "label": "Visual Studio Code",
+      "group": "PLATFORM",
+      "shape": "box"
     },
     {
       "id": 22,
-      "label": "Supporting Assets in Skills",
-      "group": "SKILL"
+      "label": "VS Code Terminal",
+      "group": "PLATFORM"
     },
     {
       "id": 23,
-      "label": "Python Scripts in Skills",
-      "group": "SKILL"
+      "label": "AI Coding Agent",
+      "group": "FOUND"
     },
     {
       "id": 24,
-      "label": "Template Files in Skills",
-      "group": "SKILL"
+      "label": "Tool Use by Agents",
+      "group": "FOUND"
     },
     {
       "id": 25,
-      "label": "Reference Documentation in Skills",
-      "group": "SKILL"
+      "label": "Agentic Workflow",
+      "group": "FOUND"
     },
     {
       "id": 26,
-      "label": "Intelligent Textbook",
-      "group": "IBOOK",
-      "shape": "box"
+      "label": "Human in the Loop",
+      "group": "FOUND"
     },
     {
       "id": 27,
-      "label": "Five Levels of Textbook Intelligence",
-      "group": "IBOOK"
+      "label": "Claude Code Interface",
+      "group": "FOUND"
     },
     {
       "id": 28,
-      "label": "Level 1: Static Content",
-      "group": "IBOOK"
+      "label": "IDE Agent Integration",
+      "group": "PLATFORM"
     },
     {
       "id": 29,
-      "label": "Level 2: Hyperlinked Navigation",
-      "group": "IBOOK"
+      "label": "Chat Versus Agent Interfaces",
+      "group": "FOUND"
     },
     {
       "id": 30,
-      "label": "Level 3: Interactive Elements",
-      "group": "IBOOK"
+      "label": "Iterative Refinement",
+      "group": "FOUND"
     },
     {
       "id": 31,
-      "label": "Level 4: Adaptive Content",
-      "group": "IBOOK"
+      "label": "Intelligent Textbook",
+      "group": "FOUND"
     },
     {
       "id": 32,
-      "label": "Level 5: AI Personalization",
-      "group": "IBOOK"
+      "label": "Level 1 Static Content",
+      "group": "FOUND"
     },
     {
       "id": 33,
-      "label": "MkDocs",
-      "group": "MKDOC"
+      "label": "Level 2 Hyperlinked Content",
+      "group": "FOUND"
     },
     {
       "id": 34,
-      "label": "MkDocs Material Theme",
-      "group": "MKDOC"
+      "label": "Level 3 Interactive Content",
+      "group": "FOUND"
     },
     {
       "id": 35,
-      "label": "MkDocs Configuration File",
-      "group": "MKDOC"
+      "label": "Level 4 Adaptive Content",
+      "group": "FOUND"
     },
     {
       "id": 36,
-      "label": "Navigation Structure in MkDocs",
-      "group": "MKDOC"
+      "label": "Level 5 AI Personalization",
+      "group": "FOUND"
     },
     {
       "id": 37,
-      "label": "Markdown Formatting Basics",
-      "group": "MKDOC",
-      "shape": "box"
+      "label": "Five Levels of Intelligence",
+      "group": "FOUND"
     },
     {
       "id": 38,
-      "label": "Admonitions in MkDocs",
-      "group": "MKDOC"
+      "label": "Experience API",
+      "group": "FOUND"
     },
     {
       "id": 39,
-      "label": "Learning Graph",
-      "group": "GRAPH"
+      "label": "Learning Record Store",
+      "group": "FOUND"
     },
     {
       "id": 40,
-      "label": "Concept Nodes in Learning Graphs",
-      "group": "GRAPH"
+      "label": "Open Educational Resources",
+      "group": "FOUND"
     },
     {
       "id": 41,
-      "label": "Dependency Edges in Learning Graphs",
-      "group": "GRAPH"
+      "label": "Creative Commons Licensing",
+      "group": "FOUND"
     },
     {
       "id": 42,
-      "label": "Directed Acyclic Graph (DAG)",
-      "group": "GRAPH"
+      "label": "Textbook Generation Pipeline",
+      "group": "FOUND"
     },
     {
       "id": 43,
-      "label": "Prerequisite Relationships",
-      "group": "GRAPH"
+      "label": "Quality Gate",
+      "group": "FOUND"
     },
     {
       "id": 44,
-      "label": "Concept Dependencies",
-      "group": "GRAPH"
+      "label": "MkDocs",
+      "group": "PLATFORM"
     },
     {
       "id": 45,
-      "label": "Learning Pathways",
-      "group": "GRAPH"
+      "label": "MkDocs Material Theme",
+      "group": "PLATFORM"
     },
     {
       "id": 46,
-      "label": "Course Description",
-      "group": "EDTHY"
+      "label": "mkdocs.yml Configuration",
+      "group": "PLATFORM"
     },
     {
       "id": 47,
-      "label": "Target Audience Definition",
-      "group": "EDTHY"
+      "label": "Navigation Structure",
+      "group": "PLATFORM"
     },
     {
       "id": 48,
-      "label": "Course Prerequisites",
-      "group": "EDTHY"
+      "label": "Blank Line Before Lists",
+      "group": "PLATFORM"
     },
     {
       "id": 49,
-      "label": "Main Topics Covered",
-      "group": "EDTHY"
+      "label": "Agent Skill",
+      "group": "SKARCH"
     },
     {
       "id": 50,
-      "label": "Topics Excluded from Course",
-      "group": "EDTHY"
+      "label": "Agent Skills Open Standard",
+      "group": "SKARCH"
     },
     {
       "id": 51,
-      "label": "Learning Outcomes",
-      "group": "EDTHY"
+      "label": "SKILL.md File",
+      "group": "SKARCH"
     },
     {
       "id": 52,
-      "label": "Bloom's Taxonomy",
-      "group": "EDTHY"
+      "label": "YAML Frontmatter",
+      "group": "SKARCH"
     },
     {
       "id": 53,
-      "label": "Bloom's 2001 Revision",
-      "group": "EDTHY"
+      "label": "Skill Name Field",
+      "group": "SKARCH"
     },
     {
       "id": 54,
-      "label": "Remember (Cognitive Level 1)",
-      "group": "EDTHY"
+      "label": "Skill Description Field",
+      "group": "SKARCH"
     },
     {
       "id": 55,
-      "label": "Understand (Cognitive Level 2)",
-      "group": "EDTHY"
+      "label": "Skill License Field",
+      "group": "SKARCH"
     },
     {
       "id": 56,
-      "label": "Apply (Cognitive Level 3)",
-      "group": "EDTHY"
+      "label": "Compatibility Field",
+      "group": "SKARCH"
     },
     {
       "id": 57,
-      "label": "Analyze (Cognitive Level 4)",
-      "group": "EDTHY"
+      "label": "Skill Metadata Field",
+      "group": "SKARCH"
     },
     {
       "id": 58,
-      "label": "Evaluate (Cognitive Level 5)",
-      "group": "EDTHY"
+      "label": "Allowed Tools Field",
+      "group": "SKARCH"
     },
     {
       "id": 59,
-      "label": "Create (Cognitive Level 6)",
-      "group": "EDTHY"
+      "label": "Vendor Extension Fields",
+      "group": "SKARCH"
     },
     {
       "id": 60,
-      "label": "Action Verbs for Learning Outcomes",
-      "group": "EDTHY"
+      "label": "Frontmatter Contract",
+      "group": "SKARCH"
     },
     {
       "id": 61,
-      "label": "Course Description Quality Score",
-      "group": "EDTHY"
+      "label": "Skill Directory Structure",
+      "group": "SKARCH"
     },
     {
       "id": 62,
-      "label": "Assessing Course Descriptions",
-      "group": "EDTHY"
+      "label": "References Directory",
+      "group": "SKARCH"
     },
     {
       "id": 63,
-      "label": "Concept Enumeration Process",
-      "group": "GRAPH"
+      "label": "Scripts Directory",
+      "group": "SKARCH"
     },
     {
       "id": 64,
-      "label": "Generating 200 Concepts",
-      "group": "GRAPH"
+      "label": "Assets Directory",
+      "group": "SKARCH"
     },
     {
       "id": 65,
-      "label": "Concept Label Requirements",
-      "group": "GRAPH"
+      "label": "Progressive Disclosure",
+      "group": "SKARCH"
     },
     {
       "id": 66,
-      "label": "Title Case Convention",
-      "group": "GRAPH"
+      "label": "Metadata Loading Budget",
+      "group": "SKARCH"
     },
     {
       "id": 67,
-      "label": "Maximum Character Length",
-      "group": "GRAPH"
+      "label": "Body Loading Budget",
+      "group": "SKARCH"
     },
     {
       "id": 68,
-      "label": "Concept Granularity",
-      "group": "GRAPH"
+      "label": "Reference Loading Budget",
+      "group": "SKARCH"
     },
     {
       "id": 69,
-      "label": "Atomic Concepts",
-      "group": "GRAPH"
+      "label": "Skill Trigger Matching",
+      "group": "SKARCH"
     },
     {
       "id": 70,
-      "label": "Dependency Mapping Process",
-      "group": "GRAPH"
+      "label": "Trigger Keyword Table",
+      "group": "SKARCH"
     },
     {
       "id": 71,
-      "label": "CSV File Format for Graphs",
-      "group": "DATAS"
+      "label": "False Trigger Misfire",
+      "group": "SKARCH"
     },
     {
       "id": 72,
-      "label": "Pipe-Delimited Dependencies",
-      "group": "DATAS"
+      "label": "Meta-Skill",
+      "group": "SKARCH"
     },
     {
       "id": 73,
-      "label": "ConceptID Field",
-      "group": "DATAS"
+      "label": "Skill Routing Table",
+      "group": "SKARCH"
     },
     {
       "id": 74,
-      "label": "ConceptLabel Field",
-      "group": "DATAS"
+      "label": "On-Demand Guide Loading",
+      "group": "SKARCH"
     },
     {
       "id": 75,
-      "label": "Dependencies Field",
-      "group": "DATAS"
+      "label": "Thirty Skill Loading Limit",
+      "group": "SKARCH"
     },
     {
       "id": 76,
-      "label": "Foundational Concepts",
-      "group": "GRAPH"
+      "label": "Skill Consolidation",
+      "group": "SKARCH"
     },
     {
       "id": 77,
-      "label": "Prerequisite Concepts",
-      "group": "GRAPH"
+      "label": "Archived Skill",
+      "group": "SKARCH"
     },
     {
       "id": 78,
-      "label": "Advanced Concepts",
-      "group": "GRAPH"
+      "label": "Skill Alias Map",
+      "group": "SKARCH"
     },
     {
       "id": 79,
-      "label": "Circular Dependency Detection",
-      "group": "GRAPH"
+      "label": "Model Selection Per Skill",
+      "group": "SKARCH"
     },
     {
       "id": 80,
-      "label": "DAG Validation",
-      "group": "GRAPH"
+      "label": "Opus Versus Sonnet Routing",
+      "group": "SKARCH"
     },
     {
       "id": 81,
-      "label": "Self-Dependency Checking",
-      "group": "GRAPH"
+      "label": "Skill Versioning",
+      "group": "SKARCH"
     },
     {
       "id": 82,
-      "label": "Quality Metrics for Graphs",
-      "group": "GRAPH"
+      "label": "Skill Workflow Instructions",
+      "group": "SKARCH"
     },
     {
       "id": 83,
-      "label": "Terminal Nodes",
-      "group": "GRAPH"
+      "label": "Skill Execution Context",
+      "group": "SKARCH"
     },
     {
       "id": 84,
-      "label": "Disconnected Subgraphs",
-      "group": "GRAPH"
+      "label": "Skill Composition",
+      "group": "SKARCH"
     },
     {
       "id": 85,
-      "label": "Linear Chain Detection",
-      "group": "GRAPH"
+      "label": "Skill Naming Conventions",
+      "group": "SKARCH"
     },
     {
       "id": 86,
-      "label": "Indegree Analysis",
-      "group": "GRAPH"
+      "label": "Supporting Assets in Skills",
+      "group": "SKARCH"
     },
     {
       "id": 87,
-      "label": "Outdegree Analysis",
-      "group": "GRAPH"
+      "label": "Reference Docs in Skills",
+      "group": "SKARCH"
     },
     {
       "id": 88,
-      "label": "Average Dependencies Per Concept",
-      "group": "GRAPH"
+      "label": "Template Files in Skills",
+      "group": "SKARCH"
     },
     {
       "id": 89,
-      "label": "Maximum Dependency Chain Length",
-      "group": "GRAPH"
+      "label": "Skill Library",
+      "group": "SKARCH"
     },
     {
       "id": 90,
-      "label": "Learning Graph Quality Score",
-      "group": "GRAPH"
+      "label": "Skill Library Maintenance",
+      "group": "SKARCH"
     },
     {
       "id": 91,
-      "label": "Taxonomy",
-      "group": "DATAS",
-      "shape": "box"
+      "label": "Skills Versus Prompts",
+      "group": "SKARCH"
     },
     {
       "id": 92,
-      "label": "Concept Categorization",
-      "group": "DATAS"
+      "label": "Skill Discoverability",
+      "group": "SKARCH"
     },
     {
       "id": 93,
-      "label": "Taxonomy Categories",
-      "group": "DATAS"
+      "label": "Skill Creator Skill",
+      "group": "SKDEV"
     },
     {
       "id": 94,
-      "label": "TaxonomyID Abbreviations",
-      "group": "DATAS"
+      "label": "Writing a Skill Description",
+      "group": "SKDEV"
     },
     {
       "id": 95,
-      "label": "Category Distribution",
-      "group": "DATAS"
+      "label": "Description Trigger Testing",
+      "group": "SKDEV"
     },
     {
       "id": 96,
-      "label": "Avoiding Over-Representation",
-      "group": "DATAS"
+      "label": "Skill Evaluation Harness",
+      "group": "SKDEV"
     },
     {
       "id": 97,
-      "label": "TaxonomyID Field in CSV",
-      "group": "DATAS"
+      "label": "Skill Benchmarking",
+      "group": "SKDEV"
     },
     {
       "id": 98,
-      "label": "Adding Taxonomy to Graph",
-      "group": "DATAS"
+      "label": "Skill Variance Analysis",
+      "group": "SKDEV"
     },
     {
       "id": 99,
-      "label": "vis-network JSON Format",
-      "group": "DATAS"
+      "label": "Skill Testing and Debugging",
+      "group": "SKDEV"
     },
     {
       "id": 100,
-      "label": "JSON Schema for Learning Graphs",
-      "group": "DATAS"
+      "label": "Skill Failure Modes",
+      "group": "SKDEV"
     },
     {
       "id": 101,
-      "label": "Metadata Section in JSON",
-      "group": "DATAS"
+      "label": "Error Analysis in Skills",
+      "group": "SKDEV"
     },
     {
       "id": 102,
-      "label": "Groups Section in JSON",
-      "group": "DATAS"
+      "label": "Improving Skill Quality",
+      "group": "SKDEV"
     },
     {
       "id": 103,
-      "label": "Nodes Section in JSON",
-      "group": "DATAS"
+      "label": "Skill Packaging",
+      "group": "SKDEV"
     },
     {
       "id": 104,
-      "label": "Edges Section in JSON",
-      "group": "DATAS"
+      "label": "Skill Distribution Methods",
+      "group": "SKDEV"
     },
     {
       "id": 105,
-      "label": "Dublin Core Metadata",
-      "group": "DATAS"
+      "label": "Symbolic Link Installation",
+      "group": "SKDEV"
     },
     {
       "id": 106,
-      "label": "Title Metadata Field",
-      "group": "DATAS"
+      "label": "Global Skill Installation",
+      "group": "SKDEV"
     },
     {
       "id": 107,
-      "label": "Description Metadata Field",
-      "group": "DATAS"
+      "label": "Project-Specific Skills",
+      "group": "SKDEV"
     },
     {
       "id": 108,
-      "label": "Creator Metadata Field",
-      "group": "DATAS"
+      "label": "bk-install-skills Script",
+      "group": "SKDEV"
     },
     {
       "id": 109,
-      "label": "Date Metadata Field",
-      "group": "DATAS"
+      "label": "Stale Symlink Cleanup",
+      "group": "SKDEV"
     },
     {
       "id": 110,
-      "label": "Version Metadata Field",
-      "group": "DATAS"
+      "label": "Listing Available Skills",
+      "group": "SKDEV"
     },
     {
       "id": 111,
-      "label": "Format Metadata Field",
-      "group": "DATAS"
+      "label": "Invoking a Skill",
+      "group": "SKDEV"
     },
     {
       "id": 112,
-      "label": "License Metadata Field",
-      "group": "DATAS"
+      "label": "Slash Command Invocation",
+      "group": "SKDEV"
     },
     {
       "id": 113,
-      "label": "Color Coding in Visualizations",
-      "group": "DATAS"
+      "label": "Claude Command",
+      "group": "SKDEV"
     },
     {
       "id": 114,
-      "label": "Font Colors for Readability",
-      "group": "DATAS"
+      "label": "Command Definition File",
+      "group": "SKDEV"
     },
     {
       "id": 115,
-      "label": "Glossary",
-      "group": "RSRCE"
+      "label": "Skills Versus Commands",
+      "group": "SKDEV"
     },
     {
       "id": 116,
-      "label": "ISO 11179 Standards",
-      "group": "RSRCE"
+      "label": "Runbook Command",
+      "group": "SKDEV"
     },
     {
       "id": 117,
-      "label": "Precise Definitions",
-      "group": "RSRCE"
+      "label": "ibook Runbook",
+      "group": "SKDEV"
     },
     {
       "id": 118,
-      "label": "Concise Definitions",
-      "group": "RSRCE"
+      "label": "Read-Only State Detection",
+      "group": "SKDEV"
     },
     {
       "id": 119,
-      "label": "Distinct Definitions",
-      "group": "RSRCE"
+      "label": "Skill Portability",
+      "group": "SKDEV"
     },
     {
       "id": 120,
-      "label": "Non-Circular Definitions",
-      "group": "RSRCE"
+      "label": "AGENTS.md Convention",
+      "group": "SKDEV"
     },
     {
       "id": 121,
-      "label": "Definitions Without Business Rules",
-      "group": "RSRCE"
+      "label": "OpenAI Codex",
+      "group": "SKDEV"
     },
     {
       "id": 122,
-      "label": "Glossary Generation Process",
-      "group": "RSRCE"
+      "label": "Google Antigravity",
+      "group": "SKDEV"
     },
     {
       "id": 123,
-      "label": "FAQ",
-      "group": "RSRCE"
+      "label": "Cursor IDE",
+      "group": "SKDEV"
     },
     {
       "id": 124,
-      "label": "FAQ Generation Process",
-      "group": "RSRCE"
+      "label": "GitHub Copilot",
+      "group": "SKDEV"
     },
     {
       "id": 125,
-      "label": "Common Student Questions",
-      "group": "RSRCE"
+      "label": "Cross-Platform Skill Testing",
+      "group": "SKDEV"
     },
     {
       "id": 126,
-      "label": "FAQ from Course Content",
-      "group": "RSRCE"
+      "label": "Graceful Capability Degradation",
+      "group": "SKDEV"
     },
     {
       "id": 127,
-      "label": "MicroSim",
-      "group": "INTER"
+      "label": "Image Understanding Dependency",
+      "group": "SKDEV"
     },
     {
       "id": 128,
-      "label": "p5.js JavaScript Library",
-      "group": "INTER"
+      "label": "Permission Management",
+      "group": "SKDEV"
     },
     {
       "id": 129,
-      "label": "Interactive Simulations",
-      "group": "INTER"
+      "label": "Script Execution Permissions",
+      "group": "SKDEV"
     },
     {
       "id": 130,
-      "label": "MicroSim Directory Structure",
-      "group": "INTER"
+      "label": "Security in Skill Execution",
+      "group": "SKDEV"
     },
     {
       "id": 131,
-      "label": "main.html in MicroSims",
-      "group": "INTER"
+      "label": "File Access Permissions",
+      "group": "SKDEV"
     },
     {
       "id": 132,
-      "label": "index.md for MicroSim Docs",
-      "group": "INTER"
+      "label": "Token Budget",
+      "group": "TOKEN"
     },
     {
       "id": 133,
-      "label": "Iframe Embedding",
-      "group": "INTER"
+      "label": "Token Cost Model",
+      "group": "TOKEN"
     },
     {
       "id": 134,
-      "label": "Seeded Randomness",
-      "group": "INTER"
+      "label": "Input Versus Output Tokens",
+      "group": "TOKEN"
     },
     {
       "id": 135,
-      "label": "Interactive Controls (Sliders)",
-      "group": "INTER"
+      "label": "Token Frugality Principle",
+      "group": "TOKEN"
     },
     {
       "id": 136,
-      "label": "Interactive Controls (Buttons)",
-      "group": "INTER"
+      "label": "Claude Pro Plan Limits",
+      "group": "TOKEN"
     },
     {
       "id": 137,
-      "label": "MicroSim Metadata",
-      "group": "INTER"
+      "label": "Claude Max Plan Limits",
+      "group": "TOKEN"
     },
     {
       "id": 138,
-      "label": "Educational Simulation Design",
-      "group": "INTER"
+      "label": "Four-Hour Usage Window",
+      "group": "TOKEN"
     },
     {
       "id": 139,
-      "label": "Quiz",
-      "group": "RSRCE"
+      "label": "Five-Hour Usage Window",
+      "group": "TOKEN"
     },
     {
       "id": 140,
-      "label": "Multiple-Choice Questions",
-      "group": "RSRCE"
+      "label": "Tokens Per Minute Limit",
+      "group": "TOKEN"
     },
     {
       "id": 141,
-      "label": "Quiz Alignment with Concepts",
-      "group": "RSRCE"
+      "label": "Rate Limit Handling",
+      "group": "TOKEN"
     },
     {
       "id": 142,
-      "label": "Bloom's Taxonomy in Quizzes",
-      "group": "RSRCE"
+      "label": "Context Window Management",
+      "group": "TOKEN"
     },
     {
       "id": 143,
-      "label": "Quiz Distribution Across Levels",
-      "group": "RSRCE"
+      "label": "Context Compaction",
+      "group": "TOKEN"
     },
     {
       "id": 144,
-      "label": "Assessing Student Understanding",
-      "group": "RSRCE"
+      "label": "Sub-Agent Startup Overhead",
+      "group": "TOKEN"
     },
     {
       "id": 145,
-      "label": "Chapter Structure",
-      "group": "CONTE"
+      "label": "Serial Agent Execution",
+      "group": "TOKEN"
     },
     {
       "id": 146,
-      "label": "Section Organization",
-      "group": "CONTE"
+      "label": "Parallel Agent Execution",
+      "group": "TOKEN"
     },
     {
       "id": 147,
-      "label": "Content Generation Process",
-      "group": "CONTE"
+      "label": "Serial Versus Parallel Tradeoff",
+      "group": "TOKEN"
     },
     {
       "id": 148,
-      "label": "Chapter Index Files",
-      "group": "CONTE"
+      "label": "Marginal Token Cost",
+      "group": "TOKEN"
     },
     {
       "id": 149,
-      "label": "Chapter Concept Lists",
-      "group": "CONTE"
+      "label": "Glossary Token Benchmark",
+      "group": "TOKEN"
     },
     {
       "id": 150,
-      "label": "Reading Level Appropriateness",
-      "group": "CONTE"
+      "label": "Token Cost Per Term",
+      "group": "TOKEN"
     },
     {
       "id": 151,
-      "label": "Worked Examples in Content",
-      "group": "CONTE"
+      "label": "File Layout as Token Strategy",
+      "group": "TOKEN"
     },
     {
       "id": 152,
-      "label": "Practice Exercises",
-      "group": "CONTE"
+      "label": "Separate References Files",
+      "group": "TOKEN"
     },
     {
       "id": 153,
-      "label": "Git",
-      "group": "VERCT",
-      "shape": "box"
+      "label": "Separate Quiz Files",
+      "group": "TOKEN"
     },
     {
       "id": 154,
-      "label": "Version Control Basics",
-      "group": "VERCT"
+      "label": "Batch Script Substitution",
+      "group": "TOKEN"
     },
     {
       "id": 155,
-      "label": "Git Repository Structure",
-      "group": "VERCT"
+      "label": "Deterministic Work Offloading",
+      "group": "TOKEN"
     },
     {
       "id": 156,
-      "label": "Git Status Command",
-      "group": "VERCT"
+      "label": "Quality Gate Short-Circuit",
+      "group": "TOKEN"
     },
     {
       "id": 157,
-      "label": "Git Add Command",
-      "group": "VERCT"
+      "label": "Cached Quality Score",
+      "group": "TOKEN"
     },
     {
       "id": 158,
-      "label": "Git Commit Command",
-      "group": "VERCT"
+      "label": "Selective File Reading",
+      "group": "TOKEN"
     },
     {
       "id": 159,
-      "label": "Git Push Command",
-      "group": "VERCT"
+      "label": "Grep Before Read",
+      "group": "TOKEN"
     },
     {
       "id": 160,
-      "label": "GitHub Integration",
-      "group": "VERCT"
+      "label": "Token Cost Estimation",
+      "group": "TOKEN"
     },
     {
       "id": 161,
-      "label": "GitHub Pages Deployment",
-      "group": "VERCT"
+      "label": "Skill Usage Hook",
+      "group": "TOKEN"
     },
     {
       "id": 162,
-      "label": "Visual Studio Code",
-      "group": "TOOLS",
-      "shape": "box"
+      "label": "Stop Hook",
+      "group": "TOKEN"
     },
     {
       "id": 163,
-      "label": "VS Code for Content Development",
-      "group": "TOOLS"
+      "label": "JSONL Usage Log",
+      "group": "TOKEN"
     },
     {
       "id": 164,
-      "label": "Terminal in VS Code",
-      "group": "TOOLS"
+      "label": "Skill Usage Analytics",
+      "group": "TOKEN"
     },
     {
       "id": 165,
-      "label": "Bash",
-      "group": "TOOLS"
+      "label": "Elapsed Time Measurement",
+      "group": "TOKEN"
     },
     {
       "id": 166,
-      "label": "Shell Scripts",
-      "group": "TOOLS"
+      "label": "Token Usage Dashboard",
+      "group": "TOKEN"
     },
     {
       "id": 167,
-      "label": "Script Execution Permissions",
-      "group": "TOOLS"
+      "label": "Cost Per Book Estimate",
+      "group": "TOKEN"
     },
     {
       "id": 168,
-      "label": "Python",
-      "group": "DATAS",
-      "shape": "box"
+      "label": "Budget-Constrained Authoring",
+      "group": "TOKEN"
     },
     {
       "id": 169,
-      "label": "Python Scripts for Processing",
-      "group": "DATAS"
+      "label": "Token Waste Antipatterns",
+      "group": "TOKEN"
     },
     {
       "id": 170,
-      "label": "pip Package Management",
-      "group": "DATAS"
+      "label": "Optimizing Claude Usage",
+      "group": "TOKEN"
     },
     {
       "id": 171,
-      "label": "Installing Python Packages",
-      "group": "DATAS"
+      "label": "Token Management Strategies",
+      "group": "TOKEN"
     },
     {
       "id": 172,
-      "label": "analyze-graph.py Script",
-      "group": "DATAS"
+      "label": "Chapter Token Budgeting",
+      "group": "TOKEN"
     },
     {
       "id": 173,
-      "label": "csv-to-json.py Script",
-      "group": "DATAS"
+      "label": "Python Standard Library",
+      "group": "PYTOOL"
     },
     {
       "id": 174,
-      "label": "add-taxonomy.py Script",
-      "group": "DATAS"
+      "label": "pip Package Management",
+      "group": "PYTOOL"
     },
     {
       "id": 175,
-      "label": "taxonomy-distribution.py Script",
-      "group": "DATAS"
+      "label": "Virtual Environment",
+      "group": "PYTOOL"
     },
     {
       "id": 176,
-      "label": "Prompt Engineering",
-      "group": "AIFND"
+      "label": "Shebang Line",
+      "group": "PYTOOL"
     },
     {
       "id": 177,
-      "label": "Prompt Design Principles",
-      "group": "AIFND"
+      "label": "Command-Line Arguments",
+      "group": "PYTOOL"
     },
     {
       "id": 178,
-      "label": "Educational Content Prompts",
-      "group": "AIFND"
+      "label": "Python Scripts in Skills",
+      "group": "PYTOOL"
     },
     {
       "id": 179,
-      "label": "Iterative Prompt Refinement",
-      "group": "AIFND"
+      "label": "Model Versus Script Division",
+      "group": "PYTOOL"
     },
     {
       "id": 180,
-      "label": "Claude Token Limits",
-      "group": "AIFND"
+      "label": "Deterministic Computation",
+      "group": "PYTOOL"
     },
     {
       "id": 181,
-      "label": "Token Management Strategies",
-      "group": "AIFND"
+      "label": "Idempotent Script Design",
+      "group": "PYTOOL"
     },
     {
       "id": 182,
-      "label": "4-Hour Usage Windows",
-      "group": "AIFND"
+      "label": "Script Exit Codes",
+      "group": "PYTOOL"
     },
     {
       "id": 183,
-      "label": "Claude Pro Limitations",
-      "group": "AIFND"
+      "label": "Dry Run Mode",
+      "group": "PYTOOL"
     },
     {
       "id": 184,
-      "label": "Optimizing Claude Usage",
-      "group": "AIFND"
+      "label": "Verbose Output Mode",
+      "group": "PYTOOL"
     },
     {
       "id": 185,
-      "label": "Skill Testing and Debugging",
-      "group": "SKILL"
+      "label": "JSON Serialization",
+      "group": "PYTOOL"
     },
     {
       "id": 186,
-      "label": "Error Analysis in Skills",
-      "group": "SKILL"
+      "label": "CSV Parsing in Python",
+      "group": "PYTOOL"
     },
     {
       "id": 187,
-      "label": "Improving Skill Quality",
-      "group": "SKILL"
+      "label": "Markdown Parsing in Python",
+      "group": "PYTOOL"
     },
     {
       "id": 188,
-      "label": "Security in Skill Execution",
-      "group": "SKILL"
+      "label": "Regular Expressions",
+      "group": "PYTOOL"
     },
     {
       "id": 189,
-      "label": "Permission Management",
-      "group": "SKILL"
+      "label": "File Globbing",
+      "group": "PYTOOL"
     },
     {
       "id": 190,
-      "label": "File Access Permissions",
-      "group": "SKILL"
+      "label": "Path Handling",
+      "group": "PYTOOL"
     },
     {
       "id": 191,
-      "label": "Command-Line Interface Basics",
-      "group": "TOOLS",
-      "shape": "box"
+      "label": "Shell Script Wrapper",
+      "group": "PYTOOL"
     },
     {
       "id": 192,
-      "label": "Terminal Commands",
-      "group": "TOOLS"
+      "label": "bk Command Family",
+      "group": "PYTOOL"
     },
     {
       "id": 193,
-      "label": "Directory Navigation",
-      "group": "TOOLS"
+      "label": "Course Description",
+      "group": "CDESIGN"
     },
     {
       "id": 194,
-      "label": "File Creation and Editing",
-      "group": "TOOLS"
+      "label": "Course Title",
+      "group": "CDESIGN"
     },
     {
       "id": 195,
-      "label": "Symlink Creation",
-      "group": "TOOLS"
+      "label": "Target Audience Definition",
+      "group": "CDESIGN"
     },
     {
       "id": 196,
-      "label": "Installing Skills Globally",
-      "group": "SKILL"
+      "label": "Reading Level Specification",
+      "group": "CDESIGN"
     },
     {
       "id": 197,
-      "label": "Project-Specific Skills",
-      "group": "SKILL"
+      "label": "Course Prerequisites",
+      "group": "CDESIGN"
     },
     {
       "id": 198,
-      "label": "Skill Distribution Methods",
-      "group": "SKILL"
+      "label": "Main Topics Covered",
+      "group": "CDESIGN"
     },
     {
       "id": 199,
-      "label": "Skill Packaging Best Practices",
-      "group": "SKILL"
+      "label": "Topics Excluded From Scope",
+      "group": "CDESIGN"
     },
     {
       "id": 200,
-      "label": "Capstone: Complete Textbook Project",
-      "group": "IBOOK"
+      "label": "Descriptive Context",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 201,
+      "label": "Learning Outcomes",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 202,
+      "label": "Bloom's Taxonomy",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 203,
+      "label": "Bloom's 1956 Original",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 204,
+      "label": "Bloom's 2001 Revision",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 205,
+      "label": "Remember Level",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 206,
+      "label": "Understand Level",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 207,
+      "label": "Apply Level",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 208,
+      "label": "Analyze Level",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 209,
+      "label": "Evaluate Level",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 210,
+      "label": "Create Level",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 211,
+      "label": "Action Verbs for Outcomes",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 212,
+      "label": "Cognitive Level Distribution",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 213,
+      "label": "Capstone Project",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 214,
+      "label": "Course Description Rubric",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 215,
+      "label": "Course Description Score",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 216,
+      "label": "Course Description Analyzer",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 217,
+      "label": "Instructional Scaffolding",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 218,
+      "label": "Define Before Display Rule",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 219,
+      "label": "Worked Examples",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 220,
+      "label": "Practice Exercises",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 221,
+      "label": "Reading Level Consistency",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 222,
+      "label": "Flesch-Kincaid Grade Level",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 223,
+      "label": "Pedagogical Mascot",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 224,
+      "label": "Mascot Voice and Placement",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 225,
+      "label": "Mascot Admonition Types",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 226,
+      "label": "Mascot Self-Introduction",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 227,
+      "label": "Learning Pathway",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 228,
+      "label": "Assessing Student Understanding",
+      "group": "CDESIGN"
+    },
+    {
+      "id": 229,
+      "label": "Learning Graph",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 230,
+      "label": "Concept",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 231,
+      "label": "Concept Label",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 232,
+      "label": "Title Case Convention",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 233,
+      "label": "Label Length Limit",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 234,
+      "label": "Atomic Concept",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 235,
+      "label": "Concept Granularity",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 236,
+      "label": "Concept Enumeration",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 237,
+      "label": "Concept List File",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 238,
+      "label": "ConceptID Field",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 239,
+      "label": "Learning Dependency",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 240,
+      "label": "Dependency Edge",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 241,
+      "label": "Prerequisite Relationship",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 242,
+      "label": "Pipe-Delimited Dependencies",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 243,
+      "label": "Learning Graph CSV Format",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 244,
+      "label": "Directed Acyclic Graph",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 245,
+      "label": "Cycle Detection",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 246,
+      "label": "Self-Dependency Check",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 247,
+      "label": "Foundational Concept",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 248,
+      "label": "Terminal Node",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 249,
+      "label": "Orphaned Node",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 250,
+      "label": "Disconnected Subgraph",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 251,
+      "label": "Linear Chain Detection",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 252,
+      "label": "Indegree Analysis",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 253,
+      "label": "Outdegree Analysis",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 254,
+      "label": "Dependency Chain Length",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 255,
+      "label": "Average Dependencies",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 256,
+      "label": "Learning Graph Quality Score",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 257,
+      "label": "Quality Metrics Report",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 258,
+      "label": "Graph Remediation",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 259,
+      "label": "Concept Taxonomy",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 260,
+      "label": "TaxonomyID",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 261,
+      "label": "Taxonomy Category Naming",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 262,
+      "label": "Taxonomy Distribution",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 263,
+      "label": "Category Over-Representation",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 264,
+      "label": "taxonomy-names.json File",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 265,
+      "label": "color-config.json File",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 266,
+      "label": "Learning Graph JSON Schema",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 267,
+      "label": "Metadata Section",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 268,
+      "label": "Groups Section",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 269,
+      "label": "Nodes Section",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 270,
+      "label": "Edges Section",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 271,
+      "label": "vis-network JSON Format",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 272,
+      "label": "Dublin Core Metadata",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 273,
+      "label": "Learning Graph Viewer",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 274,
+      "label": "Graph Legend and Colors",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 275,
+      "label": "Concept Search in Viewer",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 276,
+      "label": "Learning Graph Generator",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 277,
+      "label": "Graph Review Workflow",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 278,
+      "label": "Concept List Review",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 279,
+      "label": "Learning Graph as Roadmap",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 280,
+      "label": "Multiple Learning Pathways",
+      "group": "LGRAPH"
+    },
+    {
+      "id": 281,
+      "label": "analyze-graph.py Script",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 282,
+      "label": "csv-to-json.py Script",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 283,
+      "label": "add-taxonomy.py Script",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 284,
+      "label": "validate-learning-graph.py",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 285,
+      "label": "taxonomy-distribution.py",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 286,
+      "label": "check-loops.py Script",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 287,
+      "label": "JSON Schema Validation",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 288,
+      "label": "Book Chapter Generator",
+      "group": "CONTENT"
+    },
+    {
+      "id": 289,
+      "label": "Chapter Structure Design",
+      "group": "CONTENT"
+    },
+    {
+      "id": 290,
+      "label": "Chapter Concept Assignment",
+      "group": "CONTENT"
+    },
+    {
+      "id": 291,
+      "label": "Concept Coverage Exactly Once",
+      "group": "CONTENT"
+    },
+    {
+      "id": 292,
+      "label": "Dependency-Ordered Chapters",
+      "group": "CONTENT"
+    },
+    {
+      "id": 293,
+      "label": "Chapter Index File",
+      "group": "CONTENT"
+    },
+    {
+      "id": 294,
+      "label": "Chapter Summary",
+      "group": "CONTENT"
+    },
+    {
+      "id": 295,
+      "label": "Chapter Concept List",
+      "group": "CONTENT"
+    },
+    {
+      "id": 296,
+      "label": "Chapter Content Generator",
+      "group": "CONTENT"
+    },
+    {
+      "id": 297,
+      "label": "Section Organization",
+      "group": "CONTENT"
+    },
+    {
+      "id": 298,
+      "label": "Prerequisite Ordering in Text",
+      "group": "CONTENT"
+    },
+    {
+      "id": 299,
+      "label": "Admonition Blocks",
+      "group": "CONTENT"
+    },
+    {
+      "id": 300,
+      "label": "Note and Tip Admonitions",
+      "group": "CONTENT"
+    },
+    {
+      "id": 301,
+      "label": "Question Admonition",
+      "group": "CONTENT"
+    },
+    {
+      "id": 302,
+      "label": "Details Disclosure Block",
+      "group": "CONTENT"
+    },
+    {
+      "id": 303,
+      "label": "Math Equation Support",
+      "group": "CONTENT"
+    },
+    {
+      "id": 304,
+      "label": "MathJax Configuration",
+      "group": "CONTENT"
+    },
+    {
+      "id": 305,
+      "label": "LaTeX Equation Syntax",
+      "group": "CONTENT"
+    },
+    {
+      "id": 306,
+      "label": "Equation Numbering",
+      "group": "CONTENT"
+    },
+    {
+      "id": 307,
+      "label": "Content Element Types",
+      "group": "CONTENT"
+    },
+    {
+      "id": 308,
+      "label": "Diagram Specification Block",
+      "group": "CONTENT"
+    },
+    {
+      "id": 309,
+      "label": "Drawing Specification Block",
+      "group": "CONTENT"
+    },
+    {
+      "id": 310,
+      "label": "Chapter Review Workflow",
+      "group": "CONTENT"
+    },
+    {
+      "id": 311,
+      "label": "Document Status Indicator",
+      "group": "CONTENT"
+    },
+    {
+      "id": 312,
+      "label": "Content Generation Guide",
+      "group": "CONTENT"
+    },
+    {
+      "id": 313,
+      "label": "Instructor Guide",
+      "group": "CONTENT"
+    },
+    {
+      "id": 314,
+      "label": "Lesson Plan",
+      "group": "CONTENT"
+    },
+    {
+      "id": 315,
+      "label": "Supplementary Content",
+      "group": "CONTENT"
+    },
+    {
+      "id": 316,
+      "label": "Chapter Image Placement",
+      "group": "CONTENT"
+    },
+    {
+      "id": 317,
+      "label": "Chapter Reading Level Audit",
+      "group": "CONTENT"
+    },
+    {
+      "id": 318,
+      "label": "Content Quality Standards",
+      "group": "CONTENT"
+    },
+    {
+      "id": 319,
+      "label": "Encouraging Tone",
+      "group": "CONTENT"
+    },
+    {
+      "id": 320,
+      "label": "Chapter Navigation Entry",
+      "group": "CONTENT"
+    },
+    {
+      "id": 321,
+      "label": "Chapter Metrics",
+      "group": "CONTENT"
+    },
+    {
+      "id": 322,
+      "label": "Glossary",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 323,
+      "label": "Glossary Generator",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 324,
+      "label": "ISO 11179 Standards",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 325,
+      "label": "Precise Definition",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 326,
+      "label": "Concise Definition",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 327,
+      "label": "Distinct Definition",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 328,
+      "label": "Non-Circular Definition",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 329,
+      "label": "Definitions Without Rules",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 330,
+      "label": "Term Extraction",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 331,
+      "label": "Glossary Term Ordering",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 332,
+      "label": "Glossary Anchor Links",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 333,
+      "label": "Glossary Quality Report",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 334,
+      "label": "FAQ",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 335,
+      "label": "FAQ Generator",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 336,
+      "label": "FAQ Categorization",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 337,
+      "label": "FAQ Coverage Gaps",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 338,
+      "label": "Chatbot Training JSON",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 339,
+      "label": "Retrieval Augmented Generation",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 340,
+      "label": "Quiz",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 341,
+      "label": "Quiz Generator",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 342,
+      "label": "Multiple-Choice Question",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 343,
+      "label": "Distractor Design",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 344,
+      "label": "Distractor Plausibility",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 345,
+      "label": "Answer Distribution Balance",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 346,
+      "label": "Quiz Bloom Distribution",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 347,
+      "label": "Quiz Explanation Text",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 348,
+      "label": "Quiz Bank JSON",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 349,
+      "label": "Quiz Analytics",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 350,
+      "label": "Reference Generator",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 351,
+      "label": "Curated Reference List",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 352,
+      "label": "Crediting Pedagogical Authors",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 353,
+      "label": "URL Verification",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 354,
+      "label": "Wikipedia as a Source",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 355,
+      "label": "Reference File Separation",
+      "group": "SUPPORT"
+    },
+    {
+      "id": 356,
+      "label": "MicroSim",
+      "group": "MSIM"
+    },
+    {
+      "id": 357,
+      "label": "MicroSim Directory Structure",
+      "group": "MSIM"
+    },
+    {
+      "id": 358,
+      "label": "main.html File",
+      "group": "MSIM"
+    },
+    {
+      "id": 359,
+      "label": "style.css File",
+      "group": "MSIM"
+    },
+    {
+      "id": 360,
+      "label": "script.js File",
+      "group": "MSIM"
+    },
+    {
+      "id": 361,
+      "label": "data.json File",
+      "group": "MSIM"
+    },
+    {
+      "id": 362,
+      "label": "MicroSim metadata.json",
+      "group": "MSIM"
+    },
+    {
+      "id": 363,
+      "label": "MicroSim index.md File",
+      "group": "MSIM"
+    },
+    {
+      "id": 364,
+      "label": "File Separation Principle",
+      "group": "MSIM"
+    },
+    {
+      "id": 365,
+      "label": "Inline Code Antipattern",
+      "group": "MSIM"
+    },
+    {
+      "id": 366,
+      "label": "MicroSim Metadata Schema",
+      "group": "MSIM"
+    },
+    {
+      "id": 367,
+      "label": "Search Metadata Section",
+      "group": "MSIM"
+    },
+    {
+      "id": 368,
+      "label": "Educational Metadata Section",
+      "group": "MSIM"
+    },
+    {
+      "id": 369,
+      "label": "Technical Metadata Section",
+      "group": "MSIM"
+    },
+    {
+      "id": 370,
+      "label": "MicroSim Generator",
+      "group": "MSIM"
+    },
+    {
+      "id": 371,
+      "label": "Visualization Library Routing",
+      "group": "MSIM"
+    },
+    {
+      "id": 372,
+      "label": "Ambiguous Term Clarification",
+      "group": "MSIM"
+    },
+    {
+      "id": 373,
+      "label": "p5.js Library",
+      "group": "MSIM"
+    },
+    {
+      "id": 374,
+      "label": "p5.js Setup Function",
+      "group": "MSIM"
+    },
+    {
+      "id": 375,
+      "label": "p5.js Draw Loop",
+      "group": "MSIM"
+    },
+    {
+      "id": 376,
+      "label": "Canvas Container Sizing",
+      "group": "MSIM"
+    },
+    {
+      "id": 377,
+      "label": "p5.js Built-In Controls",
+      "group": "MSIM"
+    },
+    {
+      "id": 378,
+      "label": "Slider Control",
+      "group": "MSIM"
+    },
+    {
+      "id": 379,
+      "label": "Button Control",
+      "group": "MSIM"
+    },
+    {
+      "id": 380,
+      "label": "Checkbox Control",
+      "group": "MSIM"
+    },
+    {
+      "id": 381,
+      "label": "Dropdown Select Control",
+      "group": "MSIM"
+    },
+    {
+      "id": 382,
+      "label": "Text Input Control",
+      "group": "MSIM"
+    },
+    {
+      "id": 383,
+      "label": "Seeded Randomness",
+      "group": "MSIM"
+    },
+    {
+      "id": 384,
+      "label": "Chart.js Library",
+      "group": "MSIM"
+    },
+    {
+      "id": 385,
+      "label": "Plotly Library",
+      "group": "MSIM"
+    },
+    {
+      "id": 386,
+      "label": "vis-network Library",
+      "group": "MSIM"
+    },
+    {
+      "id": 387,
+      "label": "vis-timeline Library",
+      "group": "MSIM"
+    },
+    {
+      "id": 388,
+      "label": "Leaflet Map Library",
+      "group": "MSIM"
+    },
+    {
+      "id": 389,
+      "label": "Mermaid Diagram Syntax",
+      "group": "MSIM"
+    },
+    {
+      "id": 390,
+      "label": "Venn Diagram Generator",
+      "group": "MSIM"
+    },
+    {
+      "id": 391,
+      "label": "Bubble Chart Matrix",
+      "group": "MSIM"
+    },
+    {
+      "id": 392,
+      "label": "Comparison Table Sim",
+      "group": "MSIM"
+    },
+    {
+      "id": 393,
+      "label": "Clickable Matrix Table",
+      "group": "MSIM"
+    },
+    {
+      "id": 394,
+      "label": "Causal Loop Diagram",
+      "group": "MSIM"
+    },
+    {
+      "id": 395,
+      "label": "Reinforcing Loop",
+      "group": "MSIM"
+    },
+    {
+      "id": 396,
+      "label": "Balancing Loop",
+      "group": "MSIM"
+    },
+    {
+      "id": 397,
+      "label": "Systems Archetype",
+      "group": "MSIM"
+    },
+    {
+      "id": 398,
+      "label": "Concept Classifier Sim",
+      "group": "MSIM"
+    },
+    {
+      "id": 399,
+      "label": "Celebration Animation",
+      "group": "MSIM"
+    },
+    {
+      "id": 400,
+      "label": "Docker Python Lab",
+      "group": "MSIM"
+    },
+    {
+      "id": 401,
+      "label": "Runnable Code Block",
+      "group": "MSIM"
+    },
+    {
+      "id": 402,
+      "label": "Bloom Level to Interaction",
+      "group": "MSIM"
+    },
+    {
+      "id": 403,
+      "label": "Iframe Embedding",
+      "group": "MSIM"
+    },
+    {
+      "id": 404,
+      "label": "CANVAS_HEIGHT Directive",
+      "group": "MSIM"
+    },
+    {
+      "id": 405,
+      "label": "Iframe Height Synchronization",
+      "group": "MSIM"
+    },
+    {
+      "id": 406,
+      "label": "Responsive Sim Layout",
+      "group": "MSIM"
+    },
+    {
+      "id": 407,
+      "label": "Fullscreen Sim Button",
+      "group": "MSIM"
+    },
+    {
+      "id": 408,
+      "label": "Accessible Color Schemes",
+      "group": "MSIM"
+    },
+    {
+      "id": 409,
+      "label": "Font Size for Readability",
+      "group": "MSIM"
+    },
+    {
+      "id": 410,
+      "label": "MicroSim Screen Capture",
+      "group": "MSIM"
+    },
+    {
+      "id": 411,
+      "label": "Batch Screenshot Capture",
+      "group": "MSIM"
+    },
+    {
+      "id": 412,
+      "label": "MicroSim Index Catalog",
+      "group": "MSIM"
+    },
+    {
+      "id": 413,
+      "label": "MicroSim Quality Score",
+      "group": "MSIM"
+    },
+    {
+      "id": 414,
+      "label": "MicroSim Standardization",
+      "group": "MSIM"
+    },
+    {
+      "id": 415,
+      "label": "Visual Layout Review",
+      "group": "MSIM"
+    },
+    {
+      "id": 416,
+      "label": "Iframe Control Visibility",
+      "group": "MSIM"
+    },
+    {
+      "id": 417,
+      "label": "Diagram Coverage Report",
+      "group": "MSIM"
+    },
+    {
+      "id": 418,
+      "label": "Sim Lifecycle Status",
+      "group": "MSIM"
+    },
+    {
+      "id": 419,
+      "label": "Sim Scaffolding Workflow",
+      "group": "MSIM"
+    },
+    {
+      "id": 420,
+      "label": "Batch Sim Generation",
+      "group": "MSIM"
+    },
+    {
+      "id": 421,
+      "label": "Sequential Sim Execution",
+      "group": "MSIM"
+    },
+    {
+      "id": 422,
+      "label": "extract-sim-specs.py Script",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 423,
+      "label": "generate-sim-scaffold.py",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 424,
+      "label": "add-iframes-to-chapter.py",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 425,
+      "label": "sync-iframe-heights.py",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 426,
+      "label": "validate-sims.py Script",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 427,
+      "label": "calculate-quality-score.py",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 428,
+      "label": "generate-sims-index.py",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 429,
+      "label": "update-mkdocs-nav.py Script",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 430,
+      "label": "diagram-report.py Script",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 431,
+      "label": "Batch Utility Token Savings",
+      "group": "TOKEN"
+    },
+    {
+      "id": 432,
+      "label": "Text-to-Image Model",
+      "group": "MEDIA"
+    },
+    {
+      "id": 433,
+      "label": "Text Rendering in Images",
+      "group": "MEDIA"
+    },
+    {
+      "id": 434,
+      "label": "Image Prompt Engineering",
+      "group": "MEDIA"
+    },
+    {
+      "id": 435,
+      "label": "One-Shot Generation Risk",
+      "group": "MEDIA"
+    },
+    {
+      "id": 436,
+      "label": "Fact Fabrication Rate",
+      "group": "MEDIA"
+    },
+    {
+      "id": 437,
+      "label": "Baked-In Text Problem",
+      "group": "MEDIA"
+    },
+    {
+      "id": 438,
+      "label": "Separating Facts From Pixels",
+      "group": "MEDIA"
+    },
+    {
+      "id": 439,
+      "label": "Verified Infographic Pipeline",
+      "group": "MEDIA"
+    },
+    {
+      "id": 440,
+      "label": "Claim Planning Phase",
+      "group": "MEDIA"
+    },
+    {
+      "id": 441,
+      "label": "Source Discovery Phase",
+      "group": "MEDIA"
+    },
+    {
+      "id": 442,
+      "label": "Passage-Level Verification",
+      "group": "MEDIA"
+    },
+    {
+      "id": 443,
+      "label": "Claim Verification Report",
+      "group": "MEDIA"
+    },
+    {
+      "id": 444,
+      "label": "Layout Specification Lock",
+      "group": "MEDIA"
+    },
+    {
+      "id": 445,
+      "label": "Verbatim Text Prompt",
+      "group": "MEDIA"
+    },
+    {
+      "id": 446,
+      "label": "Substitution Prohibition",
+      "group": "MEDIA"
+    },
+    {
+      "id": 447,
+      "label": "Asymmetric Content Handling",
+      "group": "MEDIA"
+    },
+    {
+      "id": 448,
+      "label": "Rendered Image Audit",
+      "group": "MEDIA"
+    },
+    {
+      "id": 449,
+      "label": "Source Sidecar File",
+      "group": "MEDIA"
+    },
+    {
+      "id": 450,
+      "label": "Audit Trail Preservation",
+      "group": "MEDIA"
+    },
+    {
+      "id": 451,
+      "label": "Interactive Infographic Overlay",
+      "group": "MEDIA"
+    },
+    {
+      "id": 452,
+      "label": "Annotation-Free Illustration",
+      "group": "MEDIA"
+    },
+    {
+      "id": 453,
+      "label": "Callout Overlay Engine",
+      "group": "MEDIA"
+    },
+    {
+      "id": 454,
+      "label": "Grid Overlay Engine",
+      "group": "MEDIA"
+    },
+    {
+      "id": 455,
+      "label": "Callout Marker Coordinates",
+      "group": "MEDIA"
+    },
+    {
+      "id": 456,
+      "label": "Leader Line Rendering",
+      "group": "MEDIA"
+    },
+    {
+      "id": 457,
+      "label": "Overlay Explore Mode",
+      "group": "MEDIA"
+    },
+    {
+      "id": 458,
+      "label": "Overlay Quiz Mode",
+      "group": "MEDIA"
+    },
+    {
+      "id": 459,
+      "label": "Editable Marker Positions",
+      "group": "MEDIA"
+    },
+    {
+      "id": 460,
+      "label": "Freely-Licensed Images",
+      "group": "MEDIA"
+    },
+    {
+      "id": 461,
+      "label": "Wikimedia Commons Sourcing",
+      "group": "MEDIA"
+    },
+    {
+      "id": 462,
+      "label": "Government Archive Images",
+      "group": "MEDIA"
+    },
+    {
+      "id": 463,
+      "label": "Image Attribution",
+      "group": "MEDIA"
+    },
+    {
+      "id": 464,
+      "label": "Cover Image Generation",
+      "group": "MEDIA"
+    },
+    {
+      "id": 465,
+      "label": "Site Logo and Favicon",
+      "group": "MEDIA"
+    },
+    {
+      "id": 466,
+      "label": "Social Media Preview Card",
+      "group": "MEDIA"
+    },
+    {
+      "id": 467,
+      "label": "Open Graph Meta Tags",
+      "group": "MEDIA"
+    },
+    {
+      "id": 468,
+      "label": "Image Compression",
+      "group": "MEDIA"
+    },
+    {
+      "id": 469,
+      "label": "MARP Slide Deck",
+      "group": "MEDIA"
+    },
+    {
+      "id": 470,
+      "label": "Slide Deck Publishing",
+      "group": "MEDIA"
+    },
+    {
+      "id": 471,
+      "label": "PowerPoint Lecture Deck",
+      "group": "MEDIA"
+    },
+    {
+      "id": 472,
+      "label": "Speaker Notes",
+      "group": "MEDIA"
+    },
+    {
+      "id": 473,
+      "label": "Illustrated Story Format",
+      "group": "MEDIA"
+    },
+    {
+      "id": 474,
+      "label": "Graphic Novel Format",
+      "group": "MEDIA"
+    },
+    {
+      "id": 475,
+      "label": "Text-to-Speech Narration",
+      "group": "MEDIA"
+    },
+    {
+      "id": 476,
+      "label": "ElevenLabs Voice Settings",
+      "group": "MEDIA"
+    },
+    {
+      "id": 477,
+      "label": "Audio Streaming Playback",
+      "group": "MEDIA"
+    },
+    {
+      "id": 478,
+      "label": "Pronounce Button",
+      "group": "MEDIA"
+    },
+    {
+      "id": 479,
+      "label": "generate-favicon.py Script",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 480,
+      "label": "trim-padding-from-image.py",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 481,
+      "label": "compress-images.py Script",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 482,
+      "label": "crop-screenshot.py Script",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 483,
+      "label": "generate-images.py Script",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 484,
+      "label": "Domain-Specific Skill",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 485,
+      "label": "Core Versus Domain Skills",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 486,
+      "label": "Domain Vocabulary Gap",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 487,
+      "label": "Project-Local Skill Directory",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 488,
+      "label": "Domain Skill Standards",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 489,
+      "label": "Circuit Schematic Generation",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 490,
+      "label": "Schemdraw Library",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 491,
+      "label": "Prose to Circuit Translation",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 492,
+      "label": "Schematic Verification",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 493,
+      "label": "Solderless Breadboard",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 494,
+      "label": "Breadboard Tie Points",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 495,
+      "label": "Component Placement",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 496,
+      "label": "Jumper Wire Routing",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 497,
+      "label": "Animated Current Flow",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 498,
+      "label": "Digital Circuit Simulation",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 499,
+      "label": "Voltage and Current Scope",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 500,
+      "label": "Hands-On Lab Design",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 501,
+      "label": "Lab Rubric Scoring",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 502,
+      "label": "Parts Kit Buildability",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 503,
+      "label": "Frontmatter Quality Score",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 504,
+      "label": "Automated Work Item Filing",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 505,
+      "label": "TODO Backlog Generation",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 506,
+      "label": "Domain Skill Case Study",
+      "group": "DOMAIN"
+    },
+    {
+      "id": 507,
+      "label": "MkDocs Plugins",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 508,
+      "label": "Search Configuration",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 509,
+      "label": "Code Syntax Highlighting",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 510,
+      "label": "Image Zoom Lightbox",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 511,
+      "label": "Comment System",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 512,
+      "label": "Page Feedback Widget",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 513,
+      "label": "Custom 404 Page",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 514,
+      "label": "About Page",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 515,
+      "label": "Home Page Template",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 516,
+      "label": "Site Build Command",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 517,
+      "label": "Local Development Server",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 518,
+      "label": "Strict Build Mode",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 519,
+      "label": "Book Installer Skill",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 520,
+      "label": "Textbook Scaffold",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 521,
+      "label": "Feature Installation Routing",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 522,
+      "label": "Feature Auto-Detection",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 523,
+      "label": "Feature Checklist",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 524,
+      "label": "Git Add Command",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 525,
+      "label": "Git Commit",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 526,
+      "label": "Git Push",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 527,
+      "label": "Git Status",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 528,
+      "label": "Git Branching",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 529,
+      "label": "Never Use Master Branch",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 530,
+      "label": "GitHub Pages Deployment",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 531,
+      "label": "gh-deploy Command",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 532,
+      "label": "Deployment Verification",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 533,
+      "label": "Google Analytics GA4",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 534,
+      "label": "Measurement ID",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 535,
+      "label": "GitHub Projects Kanban",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 536,
+      "label": "Auto-Commit Hook",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 537,
+      "label": "CLAUDE.md Project Memory",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 538,
+      "label": "Project Instruction Files",
+      "group": "PLATFORM"
+    },
+    {
+      "id": 539,
+      "label": "detect_features.py Script",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 540,
+      "label": "analyze-reading-levels.py",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 541,
+      "label": "Book Metrics",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 542,
+      "label": "book-metrics.json Hub",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 543,
+      "label": "Canonical Metrics Principle",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 544,
+      "label": "Word Count Metric",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 545,
+      "label": "Equivalent Page Count",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 546,
+      "label": "Equation Count",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 547,
+      "label": "Chapter Metrics Report",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 548,
+      "label": "Site Metrics Collection",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 549,
+      "label": "book-metrics.py Script",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 550,
+      "label": "collect-site-metrics.py",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 551,
+      "label": "Book Status Report",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 552,
+      "label": "Book Publisher Skill",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 553,
+      "label": "README Generation",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 554,
+      "label": "Repository Badges",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 555,
+      "label": "Getting Started Section",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 556,
+      "label": "LinkedIn Announcement Post",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 557,
+      "label": "LinkedIn Carousel Document",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 558,
+      "label": "Carousel Slide Patterns",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 559,
+      "label": "Press Release",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 560,
+      "label": "AP Style Writing",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 561,
+      "label": "Announcement Preview Image",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 562,
+      "label": "Book Completion Workflow",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 563,
+      "label": "Book Launch Checklist",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 564,
+      "label": "Session Logging",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 565,
+      "label": "Session Log Format",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 566,
+      "label": "Design Decision Record",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 567,
+      "label": "analyze-skills.py Script",
+      "group": "PYTOOL"
+    },
+    {
+      "id": 568,
+      "label": "Skill Usage Report",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 569,
+      "label": "Continuous Book Improvement",
+      "group": "PUBLISH"
+    },
+    {
+      "id": 570,
+      "label": "Capstone Textbook Project",
+      "group": "PUBLISH"
     }
   ],
   "edges": [
@@ -1112,22 +2974,38 @@
     },
     {
       "from": 3,
-      "to": 1
+      "to": 2
     },
     {
       "from": 4,
       "to": 2
     },
     {
+      "from": 4,
+      "to": 3
+    },
+    {
       "from": 5,
-      "to": 4
+      "to": 2
+    },
+    {
+      "from": 5,
+      "to": 3
     },
     {
       "from": 6,
-      "to": 5
+      "to": 2
     },
     {
       "from": 7,
+      "to": 2
+    },
+    {
+      "from": 7,
+      "to": 6
+    },
+    {
+      "from": 8,
       "to": 6
     },
     {
@@ -1136,39 +3014,43 @@
     },
     {
       "from": 9,
-      "to": 8
+      "to": 2
+    },
+    {
+      "from": 9,
+      "to": 3
     },
     {
       "from": 10,
-      "to": 8
+      "to": 2
+    },
+    {
+      "from": 10,
+      "to": 9
     },
     {
       "from": 11,
-      "to": 8
+      "to": 2
     },
     {
-      "from": 12,
-      "to": 7
-    },
-    {
-      "from": 13,
-      "to": 6
-    },
-    {
-      "from": 14,
-      "to": 13
+      "from": 11,
+      "to": 10
     },
     {
       "from": 15,
-      "to": 13
+      "to": 14
+    },
+    {
+      "from": 16,
+      "to": 14
     },
     {
       "from": 16,
       "to": 15
     },
     {
-      "from": 17,
-      "to": 6
+      "from": 18,
+      "to": 15
     },
     {
       "from": 18,
@@ -1179,16 +3061,20 @@
       "to": 17
     },
     {
-      "from": 20,
-      "to": 6
+      "from": 19,
+      "to": 18
     },
     {
       "from": 20,
       "to": 17
     },
     {
-      "from": 21,
-      "to": 7
+      "from": 20,
+      "to": 18
+    },
+    {
+      "from": 22,
+      "to": 14
     },
     {
       "from": 22,
@@ -1196,19 +3082,47 @@
     },
     {
       "from": 23,
-      "to": 22
+      "to": 2
+    },
+    {
+      "from": 23,
+      "to": 7
     },
     {
       "from": 24,
-      "to": 22
+      "to": 8
+    },
+    {
+      "from": 24,
+      "to": 23
     },
     {
       "from": 25,
-      "to": 22
+      "to": 23
+    },
+    {
+      "from": 25,
+      "to": 24
+    },
+    {
+      "from": 26,
+      "to": 9
+    },
+    {
+      "from": 26,
+      "to": 25
     },
     {
       "from": 27,
-      "to": 26
+      "to": 14
+    },
+    {
+      "from": 27,
+      "to": 23
+    },
+    {
+      "from": 28,
+      "to": 21
     },
     {
       "from": 28,
@@ -1216,15 +3130,31 @@
     },
     {
       "from": 29,
-      "to": 28
+      "to": 23
+    },
+    {
+      "from": 29,
+      "to": 27
     },
     {
       "from": 30,
-      "to": 29
+      "to": 7
+    },
+    {
+      "from": 30,
+      "to": 26
     },
     {
       "from": 31,
-      "to": 30
+      "to": 1
+    },
+    {
+      "from": 31,
+      "to": 13
+    },
+    {
+      "from": 32,
+      "to": 13
     },
     {
       "from": 32,
@@ -1232,7 +3162,15 @@
     },
     {
       "from": 33,
-      "to": 26
+      "to": 13
+    },
+    {
+      "from": 33,
+      "to": 32
+    },
+    {
+      "from": 34,
+      "to": 31
     },
     {
       "from": 34,
@@ -1240,51 +3178,99 @@
     },
     {
       "from": 35,
-      "to": 33
+      "to": 2
+    },
+    {
+      "from": 35,
+      "to": 34
+    },
+    {
+      "from": 36,
+      "to": 2
     },
     {
       "from": 36,
       "to": 35
     },
     {
+      "from": 37,
+      "to": 32
+    },
+    {
+      "from": 37,
+      "to": 33
+    },
+    {
+      "from": 37,
+      "to": 34
+    },
+    {
+      "from": 37,
+      "to": 35
+    },
+    {
+      "from": 37,
+      "to": 36
+    },
+    {
+      "from": 38,
+      "to": 31
+    },
+    {
       "from": 38,
       "to": 34
     },
     {
-      "from": 38,
-      "to": 37
+      "from": 39,
+      "to": 34
     },
     {
       "from": 39,
-      "to": 26
+      "to": 38
     },
     {
       "from": 40,
-      "to": 39
+      "to": 13
+    },
+    {
+      "from": 40,
+      "to": 31
     },
     {
       "from": 41,
-      "to": 39
+      "to": 31
     },
     {
-      "from": 42,
-      "to": 39
-    },
-    {
-      "from": 43,
-      "to": 39
-    },
-    {
-      "from": 44,
+      "from": 41,
       "to": 40
     },
     {
+      "from": 42,
+      "to": 25
+    },
+    {
+      "from": 42,
+      "to": 31
+    },
+    {
+      "from": 43,
+      "to": 30
+    },
+    {
+      "from": 43,
+      "to": 42
+    },
+    {
       "from": 44,
-      "to": 41
+      "to": 13
+    },
+    {
+      "from": 44,
+      "to": 14
     },
     {
       "from": 45,
-      "to": 42
+      "to": 13
     },
     {
       "from": 45,
@@ -1292,7 +3278,15 @@
     },
     {
       "from": 46,
-      "to": 26
+      "to": 13
+    },
+    {
+      "from": 46,
+      "to": 44
+    },
+    {
+      "from": 47,
+      "to": 44
     },
     {
       "from": 47,
@@ -1300,22 +3294,46 @@
     },
     {
       "from": 48,
-      "to": 46
+      "to": 13
+    },
+    {
+      "from": 48,
+      "to": 44
     },
     {
       "from": 49,
-      "to": 46
+      "to": 24
+    },
+    {
+      "from": 49,
+      "to": 25
     },
     {
       "from": 50,
-      "to": 46
+      "to": 25
+    },
+    {
+      "from": 50,
+      "to": 49
     },
     {
       "from": 51,
-      "to": 46
+      "to": 13
+    },
+    {
+      "from": 51,
+      "to": 49
     },
     {
       "from": 52,
+      "to": 13
+    },
+    {
+      "from": 52,
+      "to": 51
+    },
+    {
+      "from": 53,
       "to": 51
     },
     {
@@ -1324,35 +3342,75 @@
     },
     {
       "from": 54,
-      "to": 53
+      "to": 49
+    },
+    {
+      "from": 54,
+      "to": 52
     },
     {
       "from": 55,
-      "to": 53
+      "to": 41
+    },
+    {
+      "from": 55,
+      "to": 52
     },
     {
       "from": 56,
-      "to": 53
+      "to": 50
+    },
+    {
+      "from": 56,
+      "to": 52
     },
     {
       "from": 57,
-      "to": 53
+      "to": 50
+    },
+    {
+      "from": 57,
+      "to": 52
     },
     {
       "from": 58,
-      "to": 53
+      "to": 52
+    },
+    {
+      "from": 58,
+      "to": 24
     },
     {
       "from": 59,
-      "to": 53
+      "to": 52
+    },
+    {
+      "from": 59,
+      "to": 50
+    },
+    {
+      "from": 60,
+      "to": 50
     },
     {
       "from": 60,
       "to": 53
     },
     {
+      "from": 60,
+      "to": 54
+    },
+    {
       "from": 61,
-      "to": 46
+      "to": 15
+    },
+    {
+      "from": 61,
+      "to": 51
+    },
+    {
+      "from": 62,
+      "to": 13
     },
     {
       "from": 62,
@@ -1360,59 +3418,123 @@
     },
     {
       "from": 63,
-      "to": 39
+      "to": 61
+    },
+    {
+      "from": 63,
+      "to": 12
     },
     {
       "from": 64,
-      "to": 63
+      "to": 15
+    },
+    {
+      "from": 64,
+      "to": 61
     },
     {
       "from": 65,
-      "to": 64
+      "to": 51
+    },
+    {
+      "from": 65,
+      "to": 62
     },
     {
       "from": 66,
       "to": 65
     },
     {
+      "from": 66,
+      "to": 54
+    },
+    {
       "from": 67,
       "to": 65
     },
     {
+      "from": 67,
+      "to": 51
+    },
+    {
       "from": 68,
-      "to": 64
+      "to": 65
+    },
+    {
+      "from": 68,
+      "to": 62
     },
     {
       "from": 69,
-      "to": 68
+      "to": 49
+    },
+    {
+      "from": 69,
+      "to": 54
     },
     {
       "from": 70,
-      "to": 44
+      "to": 54
+    },
+    {
+      "from": 70,
+      "to": 69
     },
     {
       "from": 71,
-      "to": 70
+      "to": 54
+    },
+    {
+      "from": 71,
+      "to": 69
     },
     {
       "from": 72,
-      "to": 71
+      "to": 65
+    },
+    {
+      "from": 72,
+      "to": 70
     },
     {
       "from": 73,
-      "to": 71
+      "to": 72
+    },
+    {
+      "from": 73,
+      "to": 70
     },
     {
       "from": 74,
-      "to": 71
+      "to": 72
+    },
+    {
+      "from": 74,
+      "to": 62
+    },
+    {
+      "from": 74,
+      "to": 68
     },
     {
       "from": 75,
-      "to": 71
+      "to": 49
+    },
+    {
+      "from": 75,
+      "to": 66
     },
     {
       "from": 76,
-      "to": 70
+      "to": 72
+    },
+    {
+      "from": 76,
+      "to": 75
+    },
+    {
+      "from": 77,
+      "to": 62
     },
     {
       "from": 77,
@@ -1423,12 +3545,20 @@
       "to": 77
     },
     {
+      "from": 78,
+      "to": 73
+    },
+    {
       "from": 79,
-      "to": 42
+      "to": 52
+    },
+    {
+      "from": 79,
+      "to": 2
     },
     {
       "from": 80,
-      "to": 42
+      "to": 2
     },
     {
       "from": 80,
@@ -1436,15 +3566,31 @@
     },
     {
       "from": 81,
-      "to": 80
+      "to": 51
+    },
+    {
+      "from": 81,
+      "to": 19
     },
     {
       "from": 82,
-      "to": 80
+      "to": 25
+    },
+    {
+      "from": 82,
+      "to": 51
     },
     {
       "from": 83,
-      "to": 82
+      "to": 49
+    },
+    {
+      "from": 83,
+      "to": 24
+    },
+    {
+      "from": 84,
+      "to": 49
     },
     {
       "from": 84,
@@ -1452,43 +3598,95 @@
     },
     {
       "from": 85,
-      "to": 82
+      "to": 53
+    },
+    {
+      "from": 85,
+      "to": 61
     },
     {
       "from": 86,
-      "to": 82
+      "to": 61
+    },
+    {
+      "from": 86,
+      "to": 64
     },
     {
       "from": 87,
-      "to": 82
+      "to": 62
+    },
+    {
+      "from": 87,
+      "to": 74
     },
     {
       "from": 88,
-      "to": 82
+      "to": 13
+    },
+    {
+      "from": 88,
+      "to": 64
     },
     {
       "from": 89,
-      "to": 82
+      "to": 49
+    },
+    {
+      "from": 89,
+      "to": 76
     },
     {
       "from": 90,
-      "to": 82
+      "to": 89
+    },
+    {
+      "from": 90,
+      "to": 81
+    },
+    {
+      "from": 91,
+      "to": 49
+    },
+    {
+      "from": 91,
+      "to": 6
     },
     {
       "from": 92,
-      "to": 91
+      "to": 54
+    },
+    {
+      "from": 92,
+      "to": 69
     },
     {
       "from": 93,
-      "to": 92
+      "to": 49
+    },
+    {
+      "from": 93,
+      "to": 82
     },
     {
       "from": 94,
-      "to": 93
+      "to": 54
+    },
+    {
+      "from": 94,
+      "to": 92
     },
     {
       "from": 95,
-      "to": 92
+      "to": 94
+    },
+    {
+      "from": 95,
+      "to": 69
+    },
+    {
+      "from": 96,
+      "to": 9
     },
     {
       "from": 96,
@@ -1496,22 +3694,38 @@
     },
     {
       "from": 97,
-      "to": 71
+      "to": 95
     },
     {
       "from": 97,
-      "to": 94
+      "to": 96
     },
     {
       "from": 98,
       "to": 97
     },
     {
+      "from": 98,
+      "to": 9
+    },
+    {
       "from": 99,
-      "to": 71
+      "to": 96
+    },
+    {
+      "from": 99,
+      "to": 83
     },
     {
       "from": 100,
+      "to": 99
+    },
+    {
+      "from": 100,
+      "to": 71
+    },
+    {
+      "from": 101,
       "to": 99
     },
     {
@@ -1520,19 +3734,39 @@
     },
     {
       "from": 102,
-      "to": 100
+      "to": 101
+    },
+    {
+      "from": 102,
+      "to": 98
     },
     {
       "from": 103,
-      "to": 100
+      "to": 61
+    },
+    {
+      "from": 103,
+      "to": 89
     },
     {
       "from": 104,
-      "to": 100
+      "to": 103
+    },
+    {
+      "from": 104,
+      "to": 20
     },
     {
       "from": 105,
-      "to": 101
+      "to": 103
+    },
+    {
+      "from": 105,
+      "to": 16
+    },
+    {
+      "from": 106,
+      "to": 15
     },
     {
       "from": 106,
@@ -1540,171 +3774,295 @@
     },
     {
       "from": 107,
-      "to": 105
+      "to": 106
+    },
+    {
+      "from": 107,
+      "to": 18
     },
     {
       "from": 108,
       "to": 105
     },
     {
+      "from": 108,
+      "to": 16
+    },
+    {
       "from": 109,
       "to": 105
     },
     {
+      "from": 109,
+      "to": 108
+    },
+    {
       "from": 110,
-      "to": 105
+      "to": 92
+    },
+    {
+      "from": 110,
+      "to": 106
     },
     {
       "from": 111,
-      "to": 105
+      "to": 110
+    },
+    {
+      "from": 111,
+      "to": 83
     },
     {
       "from": 112,
-      "to": 105
+      "to": 27
+    },
+    {
+      "from": 112,
+      "to": 111
     },
     {
       "from": 113,
-      "to": 102
+      "to": 112
+    },
+    {
+      "from": 113,
+      "to": 27
     },
     {
       "from": 114,
       "to": 113
     },
     {
+      "from": 114,
+      "to": 52
+    },
+    {
       "from": 115,
-      "to": 26
+      "to": 113
+    },
+    {
+      "from": 115,
+      "to": 49
     },
     {
       "from": 116,
-      "to": 115
+      "to": 113
+    },
+    {
+      "from": 116,
+      "to": 42
     },
     {
       "from": 117,
       "to": 116
     },
     {
+      "from": 117,
+      "to": 43
+    },
+    {
       "from": 118,
-      "to": 116
+      "to": 117
+    },
+    {
+      "from": 118,
+      "to": 16
     },
     {
       "from": 119,
-      "to": 116
+      "to": 50
+    },
+    {
+      "from": 119,
+      "to": 49
     },
     {
       "from": 120,
-      "to": 116
+      "to": 13
+    },
+    {
+      "from": 120,
+      "to": 119
     },
     {
       "from": 121,
-      "to": 116
+      "to": 23
+    },
+    {
+      "from": 121,
+      "to": 119
     },
     {
       "from": 122,
-      "to": 115
+      "to": 23
     },
     {
       "from": 122,
-      "to": 116
+      "to": 119
     },
     {
       "from": 123,
-      "to": 26
+      "to": 23
+    },
+    {
+      "from": 123,
+      "to": 119
     },
     {
       "from": 124,
-      "to": 123
+      "to": 23
+    },
+    {
+      "from": 124,
+      "to": 119
     },
     {
       "from": 125,
-      "to": 124
+      "to": 119
+    },
+    {
+      "from": 125,
+      "to": 99
     },
     {
       "from": 126,
-      "to": 124
+      "to": 125
+    },
+    {
+      "from": 126,
+      "to": 119
     },
     {
       "from": 127,
-      "to": 26
+      "to": 126
     },
     {
       "from": 127,
-      "to": 30
+      "to": 2
     },
     {
       "from": 128,
-      "to": 127
+      "to": 58
+    },
+    {
+      "from": 128,
+      "to": 83
     },
     {
       "from": 129,
-      "to": 127
+      "to": 128
+    },
+    {
+      "from": 129,
+      "to": 63
     },
     {
       "from": 130,
       "to": 128
     },
     {
+      "from": 130,
+      "to": 129
+    },
+    {
       "from": 131,
-      "to": 130
+      "to": 15
+    },
+    {
+      "from": 131,
+      "to": 128
     },
     {
       "from": 132,
-      "to": 130
+      "to": 3
     },
     {
       "from": 132,
-      "to": 37
-    },
-    {
-      "from": 133,
-      "to": 131
+      "to": 5
     },
     {
       "from": 133,
       "to": 132
     },
     {
+      "from": 133,
+      "to": 2
+    },
+    {
       "from": 134,
-      "to": 128
+      "to": 3
+    },
+    {
+      "from": 134,
+      "to": 133
     },
     {
       "from": 135,
-      "to": 128
+      "to": 132
+    },
+    {
+      "from": 135,
+      "to": 133
     },
     {
       "from": 136,
-      "to": 128
+      "to": 132
+    },
+    {
+      "from": 136,
+      "to": 133
     },
     {
       "from": 137,
-      "to": 130
+      "to": 133
+    },
+    {
+      "from": 137,
+      "to": 136
     },
     {
       "from": 138,
-      "to": 129
+      "to": 132
+    },
+    {
+      "from": 138,
+      "to": 136
     },
     {
       "from": 139,
-      "to": 26
+      "to": 136
+    },
+    {
+      "from": 139,
+      "to": 138
     },
     {
       "from": 140,
-      "to": 139
+      "to": 132
+    },
+    {
+      "from": 140,
+      "to": 136
     },
     {
       "from": 141,
-      "to": 139
+      "to": 140
     },
     {
       "from": 141,
-      "to": 40
+      "to": 138
     },
     {
       "from": 142,
-      "to": 139
+      "to": 5
     },
     {
       "from": 142,
-      "to": 52
+      "to": 132
+    },
+    {
+      "from": 143,
+      "to": 5
     },
     {
       "from": 143,
@@ -1712,27 +4070,43 @@
     },
     {
       "from": 144,
-      "to": 139
+      "to": 8
+    },
+    {
+      "from": 144,
+      "to": 132
     },
     {
       "from": 145,
-      "to": 26
+      "to": 25
+    },
+    {
+      "from": 145,
+      "to": 144
     },
     {
       "from": 146,
+      "to": 25
+    },
+    {
+      "from": 146,
+      "to": 144
+    },
+    {
+      "from": 147,
       "to": 145
     },
     {
       "from": 147,
-      "to": 26
-    },
-    {
-      "from": 147,
-      "to": 6
+      "to": 146
     },
     {
       "from": 148,
-      "to": 145
+      "to": 144
+    },
+    {
+      "from": 148,
+      "to": 147
     },
     {
       "from": 149,
@@ -1740,39 +4114,83 @@
     },
     {
       "from": 149,
-      "to": 40
+      "to": 145
     },
     {
       "from": 150,
-      "to": 147
+      "to": 149
+    },
+    {
+      "from": 150,
+      "to": 148
     },
     {
       "from": 151,
-      "to": 147
+      "to": 135
+    },
+    {
+      "from": 151,
+      "to": 142
     },
     {
       "from": 152,
-      "to": 147
+      "to": 135
+    },
+    {
+      "from": 152,
+      "to": 151
+    },
+    {
+      "from": 153,
+      "to": 135
+    },
+    {
+      "from": 153,
+      "to": 151
     },
     {
       "from": 154,
-      "to": 153
+      "to": 135
+    },
+    {
+      "from": 154,
+      "to": 12
     },
     {
       "from": 155,
       "to": 154
     },
     {
+      "from": 155,
+      "to": 12
+    },
+    {
       "from": 156,
-      "to": 155
+      "to": 43
+    },
+    {
+      "from": 156,
+      "to": 135
     },
     {
       "from": 157,
-      "to": 155
+      "to": 43
+    },
+    {
+      "from": 157,
+      "to": 156
     },
     {
       "from": 158,
-      "to": 157
+      "to": 142
+    },
+    {
+      "from": 158,
+      "to": 135
+    },
+    {
+      "from": 159,
+      "to": 14
     },
     {
       "from": 159,
@@ -1780,23 +4198,35 @@
     },
     {
       "from": 160,
-      "to": 153
+      "to": 133
+    },
+    {
+      "from": 160,
+      "to": 135
     },
     {
       "from": 161,
-      "to": 160
+      "to": 83
     },
     {
       "from": 161,
-      "to": 34
+      "to": 16
+    },
+    {
+      "from": 162,
+      "to": 16
+    },
+    {
+      "from": 162,
+      "to": 161
     },
     {
       "from": 163,
-      "to": 162
+      "to": 16
     },
     {
       "from": 163,
-      "to": 26
+      "to": 161
     },
     {
       "from": 164,
@@ -1804,11 +4234,19 @@
     },
     {
       "from": 164,
-      "to": 191
+      "to": 12
     },
     {
       "from": 165,
-      "to": 191
+      "to": 161
+    },
+    {
+      "from": 165,
+      "to": 164
+    },
+    {
+      "from": 166,
+      "to": 164
     },
     {
       "from": 166,
@@ -1816,87 +4254,119 @@
     },
     {
       "from": 167,
+      "to": 160
+    },
+    {
+      "from": 167,
       "to": 166
     },
     {
+      "from": 168,
+      "to": 167
+    },
+    {
+      "from": 168,
+      "to": 135
+    },
+    {
       "from": 169,
-      "to": 168
+      "to": 135
+    },
+    {
+      "from": 169,
+      "to": 147
     },
     {
       "from": 170,
       "to": 168
     },
     {
+      "from": 170,
+      "to": 141
+    },
+    {
       "from": 171,
-      "to": 170
+      "to": 151
+    },
+    {
+      "from": 171,
+      "to": 155
+    },
+    {
+      "from": 171,
+      "to": 156
     },
     {
       "from": 172,
-      "to": 169
+      "to": 132
     },
     {
       "from": 172,
-      "to": 71
+      "to": 171
     },
     {
       "from": 173,
-      "to": 169
-    },
-    {
-      "from": 173,
-      "to": 71
-    },
-    {
-      "from": 173,
-      "to": 99
+      "to": 12
     },
     {
       "from": 174,
-      "to": 169
+      "to": 12
     },
     {
       "from": 174,
-      "to": 71
-    },
-    {
-      "from": 174,
-      "to": 97
+      "to": 14
     },
     {
       "from": 175,
-      "to": 169
+      "to": 12
     },
     {
       "from": 175,
-      "to": 71
-    },
-    {
-      "from": 175,
-      "to": 95
+      "to": 174
     },
     {
       "from": 176,
-      "to": 1
+      "to": 12
+    },
+    {
+      "from": 176,
+      "to": 16
     },
     {
       "from": 177,
       "to": 176
     },
     {
-      "from": 178,
-      "to": 177
+      "from": 177,
+      "to": 14
     },
     {
       "from": 178,
-      "to": 26
+      "to": 63
+    },
+    {
+      "from": 178,
+      "to": 12
     },
     {
       "from": 179,
-      "to": 177
+      "to": 178
+    },
+    {
+      "from": 179,
+      "to": 155
     },
     {
       "from": 180,
-      "to": 2
+      "to": 179
+    },
+    {
+      "from": 180,
+      "to": 9
+    },
+    {
+      "from": 181,
+      "to": 178
     },
     {
       "from": 181,
@@ -1904,63 +4374,119 @@
     },
     {
       "from": 182,
-      "to": 4
+      "to": 177
+    },
+    {
+      "from": 182,
+      "to": 16
     },
     {
       "from": 183,
-      "to": 4
-    },
-    {
-      "from": 184,
       "to": 181
     },
     {
+      "from": 183,
+      "to": 177
+    },
+    {
+      "from": 184,
+      "to": 177
+    },
+    {
+      "from": 184,
+      "to": 182
+    },
+    {
       "from": 185,
-      "to": 13
+      "to": 12
+    },
+    {
+      "from": 185,
+      "to": 173
     },
     {
       "from": 186,
-      "to": 185
+      "to": 12
+    },
+    {
+      "from": 186,
+      "to": 173
     },
     {
       "from": 187,
-      "to": 185
+      "to": 173
     },
     {
       "from": 187,
-      "to": 186
+      "to": 13
     },
     {
       "from": 188,
-      "to": 11
+      "to": 173
+    },
+    {
+      "from": 188,
+      "to": 187
     },
     {
       "from": 189,
-      "to": 188
+      "to": 173
+    },
+    {
+      "from": 189,
+      "to": 15
     },
     {
       "from": 190,
-      "to": 189
+      "to": 173
+    },
+    {
+      "from": 190,
+      "to": 15
+    },
+    {
+      "from": 191,
+      "to": 16
+    },
+    {
+      "from": 191,
+      "to": 178
     },
     {
       "from": 192,
       "to": 191
     },
     {
+      "from": 192,
+      "to": 108
+    },
+    {
       "from": 193,
-      "to": 192
+      "to": 31
+    },
+    {
+      "from": 193,
+      "to": 42
     },
     {
       "from": 194,
-      "to": 192
+      "to": 31
+    },
+    {
+      "from": 194,
+      "to": 193
     },
     {
       "from": 195,
-      "to": 192
+      "to": 31
+    },
+    {
+      "from": 195,
+      "to": 193
     },
     {
       "from": 196,
-      "to": 13
+      "to": 193
     },
     {
       "from": 196,
@@ -1968,15 +4494,23 @@
     },
     {
       "from": 197,
-      "to": 13
+      "to": 193
+    },
+    {
+      "from": 197,
+      "to": 195
     },
     {
       "from": 198,
-      "to": 13
+      "to": 193
+    },
+    {
+      "from": 198,
+      "to": 194
     },
     {
       "from": 199,
-      "to": 21
+      "to": 193
     },
     {
       "from": 199,
@@ -1984,35 +4518,3003 @@
     },
     {
       "from": 200,
-      "to": 26
+      "to": 193
     },
     {
       "from": 200,
-      "to": 6
+      "to": 198
     },
     {
-      "from": 200,
-      "to": 39
+      "from": 201,
+      "to": 31
     },
     {
-      "from": 200,
-      "to": 115
+      "from": 201,
+      "to": 193
     },
     {
-      "from": 200,
-      "to": 123
+      "from": 202,
+      "to": 31
     },
     {
-      "from": 200,
-      "to": 127
+      "from": 202,
+      "to": 201
     },
     {
-      "from": 200,
-      "to": 139
+      "from": 203,
+      "to": 201
     },
     {
-      "from": 200,
-      "to": 145
+      "from": 203,
+      "to": 202
+    },
+    {
+      "from": 204,
+      "to": 202
+    },
+    {
+      "from": 204,
+      "to": 203
+    },
+    {
+      "from": 205,
+      "to": 202
+    },
+    {
+      "from": 205,
+      "to": 204
+    },
+    {
+      "from": 206,
+      "to": 204
+    },
+    {
+      "from": 206,
+      "to": 205
+    },
+    {
+      "from": 207,
+      "to": 204
+    },
+    {
+      "from": 207,
+      "to": 206
+    },
+    {
+      "from": 208,
+      "to": 204
+    },
+    {
+      "from": 208,
+      "to": 207
+    },
+    {
+      "from": 209,
+      "to": 204
+    },
+    {
+      "from": 209,
+      "to": 208
+    },
+    {
+      "from": 210,
+      "to": 204
+    },
+    {
+      "from": 210,
+      "to": 209
+    },
+    {
+      "from": 211,
+      "to": 201
+    },
+    {
+      "from": 211,
+      "to": 204
+    },
+    {
+      "from": 212,
+      "to": 205
+    },
+    {
+      "from": 212,
+      "to": 206
+    },
+    {
+      "from": 212,
+      "to": 207
+    },
+    {
+      "from": 212,
+      "to": 208
+    },
+    {
+      "from": 212,
+      "to": 209
+    },
+    {
+      "from": 212,
+      "to": 210
+    },
+    {
+      "from": 213,
+      "to": 210
+    },
+    {
+      "from": 213,
+      "to": 42
+    },
+    {
+      "from": 214,
+      "to": 193
+    },
+    {
+      "from": 214,
+      "to": 212
+    },
+    {
+      "from": 215,
+      "to": 214
+    },
+    {
+      "from": 215,
+      "to": 43
+    },
+    {
+      "from": 216,
+      "to": 215
+    },
+    {
+      "from": 216,
+      "to": 49
+    },
+    {
+      "from": 217,
+      "to": 201
+    },
+    {
+      "from": 217,
+      "to": 196
+    },
+    {
+      "from": 218,
+      "to": 196
+    },
+    {
+      "from": 218,
+      "to": 217
+    },
+    {
+      "from": 219,
+      "to": 217
+    },
+    {
+      "from": 219,
+      "to": 207
+    },
+    {
+      "from": 220,
+      "to": 219
+    },
+    {
+      "from": 220,
+      "to": 207
+    },
+    {
+      "from": 221,
+      "to": 196
+    },
+    {
+      "from": 221,
+      "to": 217
+    },
+    {
+      "from": 222,
+      "to": 196
+    },
+    {
+      "from": 222,
+      "to": 221
+    },
+    {
+      "from": 223,
+      "to": 31
+    },
+    {
+      "from": 223,
+      "to": 217
+    },
+    {
+      "from": 224,
+      "to": 217
+    },
+    {
+      "from": 224,
+      "to": 223
+    },
+    {
+      "from": 225,
+      "to": 223
+    },
+    {
+      "from": 225,
+      "to": 224
+    },
+    {
+      "from": 226,
+      "to": 224
+    },
+    {
+      "from": 226,
+      "to": 225
+    },
+    {
+      "from": 227,
+      "to": 201
+    },
+    {
+      "from": 227,
+      "to": 31
+    },
+    {
+      "from": 228,
+      "to": 201
+    },
+    {
+      "from": 228,
+      "to": 212
+    },
+    {
+      "from": 229,
+      "to": 227
+    },
+    {
+      "from": 229,
+      "to": 31
+    },
+    {
+      "from": 230,
+      "to": 31
+    },
+    {
+      "from": 230,
+      "to": 229
+    },
+    {
+      "from": 231,
+      "to": 229
+    },
+    {
+      "from": 231,
+      "to": 230
+    },
+    {
+      "from": 232,
+      "to": 13
+    },
+    {
+      "from": 232,
+      "to": 231
+    },
+    {
+      "from": 233,
+      "to": 229
+    },
+    {
+      "from": 233,
+      "to": 231
+    },
+    {
+      "from": 234,
+      "to": 229
+    },
+    {
+      "from": 234,
+      "to": 230
+    },
+    {
+      "from": 235,
+      "to": 230
+    },
+    {
+      "from": 235,
+      "to": 234
+    },
+    {
+      "from": 236,
+      "to": 230
+    },
+    {
+      "from": 236,
+      "to": 198
+    },
+    {
+      "from": 237,
+      "to": 236
+    },
+    {
+      "from": 237,
+      "to": 13
+    },
+    {
+      "from": 238,
+      "to": 230
+    },
+    {
+      "from": 238,
+      "to": 236
+    },
+    {
+      "from": 239,
+      "to": 230
+    },
+    {
+      "from": 239,
+      "to": 229
+    },
+    {
+      "from": 240,
+      "to": 229
+    },
+    {
+      "from": 240,
+      "to": 239
+    },
+    {
+      "from": 241,
+      "to": 239
+    },
+    {
+      "from": 241,
+      "to": 197
+    },
+    {
+      "from": 242,
+      "to": 240
+    },
+    {
+      "from": 242,
+      "to": 238
+    },
+    {
+      "from": 243,
+      "to": 242
+    },
+    {
+      "from": 243,
+      "to": 186
+    },
+    {
+      "from": 244,
+      "to": 229
+    },
+    {
+      "from": 244,
+      "to": 240
+    },
+    {
+      "from": 245,
+      "to": 240
+    },
+    {
+      "from": 245,
+      "to": 244
+    },
+    {
+      "from": 246,
+      "to": 240
+    },
+    {
+      "from": 246,
+      "to": 245
+    },
+    {
+      "from": 247,
+      "to": 244
+    },
+    {
+      "from": 247,
+      "to": 241
+    },
+    {
+      "from": 248,
+      "to": 240
+    },
+    {
+      "from": 248,
+      "to": 244
+    },
+    {
+      "from": 249,
+      "to": 240
+    },
+    {
+      "from": 249,
+      "to": 244
+    },
+    {
+      "from": 250,
+      "to": 249
+    },
+    {
+      "from": 250,
+      "to": 244
+    },
+    {
+      "from": 251,
+      "to": 244
+    },
+    {
+      "from": 251,
+      "to": 240
+    },
+    {
+      "from": 252,
+      "to": 240
+    },
+    {
+      "from": 252,
+      "to": 244
+    },
+    {
+      "from": 253,
+      "to": 240
+    },
+    {
+      "from": 253,
+      "to": 244
+    },
+    {
+      "from": 254,
+      "to": 244
+    },
+    {
+      "from": 254,
+      "to": 252
+    },
+    {
+      "from": 255,
+      "to": 240
+    },
+    {
+      "from": 255,
+      "to": 252
+    },
+    {
+      "from": 256,
+      "to": 245
+    },
+    {
+      "from": 256,
+      "to": 250
+    },
+    {
+      "from": 256,
+      "to": 255
+    },
+    {
+      "from": 257,
+      "to": 256
+    },
+    {
+      "from": 257,
+      "to": 13
+    },
+    {
+      "from": 258,
+      "to": 257
+    },
+    {
+      "from": 258,
+      "to": 256
+    },
+    {
+      "from": 259,
+      "to": 230
+    },
+    {
+      "from": 259,
+      "to": 236
+    },
+    {
+      "from": 260,
+      "to": 232
+    },
+    {
+      "from": 260,
+      "to": 259
+    },
+    {
+      "from": 261,
+      "to": 259
+    },
+    {
+      "from": 261,
+      "to": 232
+    },
+    {
+      "from": 262,
+      "to": 259
+    },
+    {
+      "from": 262,
+      "to": 260
+    },
+    {
+      "from": 263,
+      "to": 259
+    },
+    {
+      "from": 263,
+      "to": 262
+    },
+    {
+      "from": 264,
+      "to": 260
+    },
+    {
+      "from": 264,
+      "to": 185
+    },
+    {
+      "from": 265,
+      "to": 260
+    },
+    {
+      "from": 265,
+      "to": 185
+    },
+    {
+      "from": 266,
+      "to": 185
+    },
+    {
+      "from": 266,
+      "to": 229
+    },
+    {
+      "from": 267,
+      "to": 185
+    },
+    {
+      "from": 267,
+      "to": 266
+    },
+    {
+      "from": 268,
+      "to": 266
+    },
+    {
+      "from": 268,
+      "to": 260
+    },
+    {
+      "from": 269,
+      "to": 266
+    },
+    {
+      "from": 269,
+      "to": 238
+    },
+    {
+      "from": 270,
+      "to": 266
+    },
+    {
+      "from": 270,
+      "to": 240
+    },
+    {
+      "from": 271,
+      "to": 266
+    },
+    {
+      "from": 271,
+      "to": 269
+    },
+    {
+      "from": 271,
+      "to": 270
+    },
+    {
+      "from": 272,
+      "to": 185
+    },
+    {
+      "from": 272,
+      "to": 267
+    },
+    {
+      "from": 273,
+      "to": 229
+    },
+    {
+      "from": 273,
+      "to": 271
+    },
+    {
+      "from": 274,
+      "to": 268
+    },
+    {
+      "from": 274,
+      "to": 273
+    },
+    {
+      "from": 275,
+      "to": 231
+    },
+    {
+      "from": 275,
+      "to": 273
+    },
+    {
+      "from": 276,
+      "to": 229
+    },
+    {
+      "from": 276,
+      "to": 49
+    },
+    {
+      "from": 277,
+      "to": 276
+    },
+    {
+      "from": 277,
+      "to": 258
+    },
+    {
+      "from": 278,
+      "to": 237
+    },
+    {
+      "from": 278,
+      "to": 277
+    },
+    {
+      "from": 279,
+      "to": 229
+    },
+    {
+      "from": 279,
+      "to": 227
+    },
+    {
+      "from": 280,
+      "to": 279
+    },
+    {
+      "from": 280,
+      "to": 227
+    },
+    {
+      "from": 281,
+      "to": 178
+    },
+    {
+      "from": 281,
+      "to": 256
+    },
+    {
+      "from": 282,
+      "to": 178
+    },
+    {
+      "from": 282,
+      "to": 271
+    },
+    {
+      "from": 283,
+      "to": 178
+    },
+    {
+      "from": 283,
+      "to": 260
+    },
+    {
+      "from": 284,
+      "to": 178
+    },
+    {
+      "from": 284,
+      "to": 266
+    },
+    {
+      "from": 285,
+      "to": 178
+    },
+    {
+      "from": 285,
+      "to": 262
+    },
+    {
+      "from": 286,
+      "to": 178
+    },
+    {
+      "from": 286,
+      "to": 245
+    },
+    {
+      "from": 287,
+      "to": 284
+    },
+    {
+      "from": 287,
+      "to": 266
+    },
+    {
+      "from": 288,
+      "to": 229
+    },
+    {
+      "from": 288,
+      "to": 49
+    },
+    {
+      "from": 289,
+      "to": 288
+    },
+    {
+      "from": 289,
+      "to": 229
+    },
+    {
+      "from": 290,
+      "to": 289
+    },
+    {
+      "from": 290,
+      "to": 230
+    },
+    {
+      "from": 291,
+      "to": 290
+    },
+    {
+      "from": 291,
+      "to": 236
+    },
+    {
+      "from": 292,
+      "to": 289
+    },
+    {
+      "from": 292,
+      "to": 241
+    },
+    {
+      "from": 293,
+      "to": 289
+    },
+    {
+      "from": 293,
+      "to": 13
+    },
+    {
+      "from": 294,
+      "to": 289
+    },
+    {
+      "from": 294,
+      "to": 293
+    },
+    {
+      "from": 295,
+      "to": 293
+    },
+    {
+      "from": 295,
+      "to": 290
+    },
+    {
+      "from": 296,
+      "to": 293
+    },
+    {
+      "from": 296,
+      "to": 49
+    },
+    {
+      "from": 297,
+      "to": 296
+    },
+    {
+      "from": 297,
+      "to": 294
+    },
+    {
+      "from": 298,
+      "to": 297
+    },
+    {
+      "from": 298,
+      "to": 292
+    },
+    {
+      "from": 299,
+      "to": 45
+    },
+    {
+      "from": 299,
+      "to": 13
+    },
+    {
+      "from": 300,
+      "to": 13
+    },
+    {
+      "from": 300,
+      "to": 299
+    },
+    {
+      "from": 301,
+      "to": 13
+    },
+    {
+      "from": 301,
+      "to": 299
+    },
+    {
+      "from": 302,
+      "to": 13
+    },
+    {
+      "from": 302,
+      "to": 299
+    },
+    {
+      "from": 303,
+      "to": 45
+    },
+    {
+      "from": 303,
+      "to": 13
+    },
+    {
+      "from": 304,
+      "to": 303
+    },
+    {
+      "from": 304,
+      "to": 46
+    },
+    {
+      "from": 305,
+      "to": 13
+    },
+    {
+      "from": 305,
+      "to": 303
+    },
+    {
+      "from": 306,
+      "to": 303
+    },
+    {
+      "from": 306,
+      "to": 305
+    },
+    {
+      "from": 307,
+      "to": 296
+    },
+    {
+      "from": 307,
+      "to": 297
+    },
+    {
+      "from": 308,
+      "to": 302
+    },
+    {
+      "from": 308,
+      "to": 307
+    },
+    {
+      "from": 309,
+      "to": 302
+    },
+    {
+      "from": 309,
+      "to": 307
+    },
+    {
+      "from": 310,
+      "to": 296
+    },
+    {
+      "from": 310,
+      "to": 43
+    },
+    {
+      "from": 311,
+      "to": 310
+    },
+    {
+      "from": 311,
+      "to": 47
+    },
+    {
+      "from": 312,
+      "to": 296
+    },
+    {
+      "from": 312,
+      "to": 224
+    },
+    {
+      "from": 313,
+      "to": 296
+    },
+    {
+      "from": 313,
+      "to": 228
+    },
+    {
+      "from": 314,
+      "to": 313
+    },
+    {
+      "from": 314,
+      "to": 201
+    },
+    {
+      "from": 315,
+      "to": 296
+    },
+    {
+      "from": 315,
+      "to": 313
+    },
+    {
+      "from": 316,
+      "to": 13
+    },
+    {
+      "from": 316,
+      "to": 296
+    },
+    {
+      "from": 317,
+      "to": 221
+    },
+    {
+      "from": 317,
+      "to": 296
+    },
+    {
+      "from": 318,
+      "to": 296
+    },
+    {
+      "from": 318,
+      "to": 43
+    },
+    {
+      "from": 319,
+      "to": 318
+    },
+    {
+      "from": 319,
+      "to": 196
+    },
+    {
+      "from": 320,
+      "to": 293
+    },
+    {
+      "from": 320,
+      "to": 47
+    },
+    {
+      "from": 321,
+      "to": 293
+    },
+    {
+      "from": 321,
+      "to": 296
+    },
+    {
+      "from": 322,
+      "to": 230
+    },
+    {
+      "from": 322,
+      "to": 13
+    },
+    {
+      "from": 323,
+      "to": 322
+    },
+    {
+      "from": 323,
+      "to": 49
+    },
+    {
+      "from": 324,
+      "to": 230
+    },
+    {
+      "from": 324,
+      "to": 322
+    },
+    {
+      "from": 325,
+      "to": 322
+    },
+    {
+      "from": 325,
+      "to": 324
+    },
+    {
+      "from": 326,
+      "to": 322
+    },
+    {
+      "from": 326,
+      "to": 324
+    },
+    {
+      "from": 327,
+      "to": 322
+    },
+    {
+      "from": 327,
+      "to": 324
+    },
+    {
+      "from": 328,
+      "to": 322
+    },
+    {
+      "from": 328,
+      "to": 324
+    },
+    {
+      "from": 329,
+      "to": 322
+    },
+    {
+      "from": 329,
+      "to": 324
+    },
+    {
+      "from": 330,
+      "to": 322
+    },
+    {
+      "from": 330,
+      "to": 237
+    },
+    {
+      "from": 331,
+      "to": 322
+    },
+    {
+      "from": 331,
+      "to": 330
+    },
+    {
+      "from": 332,
+      "to": 322
+    },
+    {
+      "from": 332,
+      "to": 33
+    },
+    {
+      "from": 333,
+      "to": 323
+    },
+    {
+      "from": 333,
+      "to": 43
+    },
+    {
+      "from": 334,
+      "to": 31
+    },
+    {
+      "from": 334,
+      "to": 13
+    },
+    {
+      "from": 335,
+      "to": 334
+    },
+    {
+      "from": 335,
+      "to": 49
+    },
+    {
+      "from": 336,
+      "to": 334
+    },
+    {
+      "from": 336,
+      "to": 335
+    },
+    {
+      "from": 337,
+      "to": 335
+    },
+    {
+      "from": 337,
+      "to": 43
+    },
+    {
+      "from": 338,
+      "to": 334
+    },
+    {
+      "from": 338,
+      "to": 185
+    },
+    {
+      "from": 339,
+      "to": 338
+    },
+    {
+      "from": 339,
+      "to": 2
+    },
+    {
+      "from": 340,
+      "to": 34
+    },
+    {
+      "from": 340,
+      "to": 228
+    },
+    {
+      "from": 341,
+      "to": 340
+    },
+    {
+      "from": 341,
+      "to": 49
+    },
+    {
+      "from": 342,
+      "to": 228
+    },
+    {
+      "from": 342,
+      "to": 340
+    },
+    {
+      "from": 343,
+      "to": 340
+    },
+    {
+      "from": 343,
+      "to": 342
+    },
+    {
+      "from": 344,
+      "to": 342
+    },
+    {
+      "from": 344,
+      "to": 343
+    },
+    {
+      "from": 345,
+      "to": 341
+    },
+    {
+      "from": 345,
+      "to": 342
+    },
+    {
+      "from": 346,
+      "to": 340
+    },
+    {
+      "from": 346,
+      "to": 212
+    },
+    {
+      "from": 347,
+      "to": 342
+    },
+    {
+      "from": 347,
+      "to": 344
+    },
+    {
+      "from": 348,
+      "to": 341
+    },
+    {
+      "from": 348,
+      "to": 185
+    },
+    {
+      "from": 349,
+      "to": 340
+    },
+    {
+      "from": 349,
+      "to": 228
+    },
+    {
+      "from": 350,
+      "to": 49
+    },
+    {
+      "from": 350,
+      "to": 13
+    },
+    {
+      "from": 351,
+      "to": 13
+    },
+    {
+      "from": 351,
+      "to": 350
+    },
+    {
+      "from": 352,
+      "to": 350
+    },
+    {
+      "from": 352,
+      "to": 351
+    },
+    {
+      "from": 353,
+      "to": 351
+    },
+    {
+      "from": 353,
+      "to": 11
+    },
+    {
+      "from": 354,
+      "to": 351
+    },
+    {
+      "from": 354,
+      "to": 353
+    },
+    {
+      "from": 355,
+      "to": 351
+    },
+    {
+      "from": 355,
+      "to": 152
+    },
+    {
+      "from": 356,
+      "to": 34
+    },
+    {
+      "from": 356,
+      "to": 31
+    },
+    {
+      "from": 357,
+      "to": 356
+    },
+    {
+      "from": 357,
+      "to": 15
+    },
+    {
+      "from": 358,
+      "to": 356
+    },
+    {
+      "from": 358,
+      "to": 357
+    },
+    {
+      "from": 359,
+      "to": 356
+    },
+    {
+      "from": 359,
+      "to": 357
+    },
+    {
+      "from": 360,
+      "to": 356
+    },
+    {
+      "from": 360,
+      "to": 357
+    },
+    {
+      "from": 361,
+      "to": 357
+    },
+    {
+      "from": 361,
+      "to": 185
+    },
+    {
+      "from": 362,
+      "to": 357
+    },
+    {
+      "from": 362,
+      "to": 185
+    },
+    {
+      "from": 363,
+      "to": 357
+    },
+    {
+      "from": 363,
+      "to": 13
+    },
+    {
+      "from": 364,
+      "to": 358
+    },
+    {
+      "from": 364,
+      "to": 359
+    },
+    {
+      "from": 364,
+      "to": 360
+    },
+    {
+      "from": 365,
+      "to": 357
+    },
+    {
+      "from": 365,
+      "to": 364
+    },
+    {
+      "from": 366,
+      "to": 362
+    },
+    {
+      "from": 366,
+      "to": 287
+    },
+    {
+      "from": 367,
+      "to": 362
+    },
+    {
+      "from": 367,
+      "to": 366
+    },
+    {
+      "from": 368,
+      "to": 366
+    },
+    {
+      "from": 368,
+      "to": 212
+    },
+    {
+      "from": 369,
+      "to": 362
+    },
+    {
+      "from": 369,
+      "to": 366
+    },
+    {
+      "from": 370,
+      "to": 356
+    },
+    {
+      "from": 370,
+      "to": 72
+    },
+    {
+      "from": 371,
+      "to": 370
+    },
+    {
+      "from": 371,
+      "to": 73
+    },
+    {
+      "from": 372,
+      "to": 370
+    },
+    {
+      "from": 372,
+      "to": 371
+    },
+    {
+      "from": 373,
+      "to": 356
+    },
+    {
+      "from": 373,
+      "to": 360
+    },
+    {
+      "from": 374,
+      "to": 360
+    },
+    {
+      "from": 374,
+      "to": 373
+    },
+    {
+      "from": 375,
+      "to": 373
+    },
+    {
+      "from": 375,
+      "to": 374
+    },
+    {
+      "from": 376,
+      "to": 374
+    },
+    {
+      "from": 376,
+      "to": 359
+    },
+    {
+      "from": 377,
+      "to": 34
+    },
+    {
+      "from": 377,
+      "to": 373
+    },
+    {
+      "from": 378,
+      "to": 373
+    },
+    {
+      "from": 378,
+      "to": 377
+    },
+    {
+      "from": 379,
+      "to": 373
+    },
+    {
+      "from": 379,
+      "to": 377
+    },
+    {
+      "from": 380,
+      "to": 373
+    },
+    {
+      "from": 380,
+      "to": 377
+    },
+    {
+      "from": 381,
+      "to": 373
+    },
+    {
+      "from": 381,
+      "to": 377
+    },
+    {
+      "from": 382,
+      "to": 373
+    },
+    {
+      "from": 382,
+      "to": 377
+    },
+    {
+      "from": 383,
+      "to": 373
+    },
+    {
+      "from": 383,
+      "to": 180
+    },
+    {
+      "from": 384,
+      "to": 360
+    },
+    {
+      "from": 384,
+      "to": 371
+    },
+    {
+      "from": 385,
+      "to": 360
+    },
+    {
+      "from": 385,
+      "to": 371
+    },
+    {
+      "from": 386,
+      "to": 360
+    },
+    {
+      "from": 386,
+      "to": 271
+    },
+    {
+      "from": 387,
+      "to": 360
+    },
+    {
+      "from": 387,
+      "to": 371
+    },
+    {
+      "from": 388,
+      "to": 360
+    },
+    {
+      "from": 388,
+      "to": 371
+    },
+    {
+      "from": 389,
+      "to": 371
+    },
+    {
+      "from": 389,
+      "to": 13
+    },
+    {
+      "from": 390,
+      "to": 371
+    },
+    {
+      "from": 390,
+      "to": 360
+    },
+    {
+      "from": 391,
+      "to": 384
+    },
+    {
+      "from": 391,
+      "to": 371
+    },
+    {
+      "from": 392,
+      "to": 371
+    },
+    {
+      "from": 392,
+      "to": 360
+    },
+    {
+      "from": 393,
+      "to": 360
+    },
+    {
+      "from": 393,
+      "to": 392
+    },
+    {
+      "from": 394,
+      "to": 386
+    },
+    {
+      "from": 394,
+      "to": 371
+    },
+    {
+      "from": 395,
+      "to": 386
+    },
+    {
+      "from": 395,
+      "to": 394
+    },
+    {
+      "from": 396,
+      "to": 386
+    },
+    {
+      "from": 396,
+      "to": 394
+    },
+    {
+      "from": 397,
+      "to": 395
+    },
+    {
+      "from": 397,
+      "to": 396
+    },
+    {
+      "from": 398,
+      "to": 373
+    },
+    {
+      "from": 398,
+      "to": 230
+    },
+    {
+      "from": 399,
+      "to": 373
+    },
+    {
+      "from": 399,
+      "to": 375
+    },
+    {
+      "from": 400,
+      "to": 12
+    },
+    {
+      "from": 400,
+      "to": 371
+    },
+    {
+      "from": 401,
+      "to": 12
+    },
+    {
+      "from": 401,
+      "to": 400
+    },
+    {
+      "from": 402,
+      "to": 356
+    },
+    {
+      "from": 402,
+      "to": 212
+    },
+    {
+      "from": 403,
+      "to": 358
+    },
+    {
+      "from": 403,
+      "to": 363
+    },
+    {
+      "from": 404,
+      "to": 403
+    },
+    {
+      "from": 404,
+      "to": 376
+    },
+    {
+      "from": 405,
+      "to": 404
+    },
+    {
+      "from": 405,
+      "to": 403
+    },
+    {
+      "from": 406,
+      "to": 376
+    },
+    {
+      "from": 406,
+      "to": 359
+    },
+    {
+      "from": 407,
+      "to": 403
+    },
+    {
+      "from": 407,
+      "to": 363
+    },
+    {
+      "from": 408,
+      "to": 359
+    },
+    {
+      "from": 408,
+      "to": 406
+    },
+    {
+      "from": 409,
+      "to": 359
+    },
+    {
+      "from": 409,
+      "to": 406
+    },
+    {
+      "from": 410,
+      "to": 356
+    },
+    {
+      "from": 410,
+      "to": 16
+    },
+    {
+      "from": 411,
+      "to": 410
+    },
+    {
+      "from": 411,
+      "to": 191
+    },
+    {
+      "from": 412,
+      "to": 363
+    },
+    {
+      "from": 412,
+      "to": 410
+    },
+    {
+      "from": 413,
+      "to": 356
+    },
+    {
+      "from": 413,
+      "to": 43
+    },
+    {
+      "from": 414,
+      "to": 413
+    },
+    {
+      "from": 414,
+      "to": 364
+    },
+    {
+      "from": 415,
+      "to": 413
+    },
+    {
+      "from": 415,
+      "to": 410
+    },
+    {
+      "from": 416,
+      "to": 403
+    },
+    {
+      "from": 416,
+      "to": 415
+    },
+    {
+      "from": 417,
+      "to": 308
+    },
+    {
+      "from": 417,
+      "to": 413
+    },
+    {
+      "from": 418,
+      "to": 370
+    },
+    {
+      "from": 418,
+      "to": 413
+    },
+    {
+      "from": 419,
+      "to": 370
+    },
+    {
+      "from": 419,
+      "to": 418
+    },
+    {
+      "from": 420,
+      "to": 419
+    },
+    {
+      "from": 420,
+      "to": 308
+    },
+    {
+      "from": 421,
+      "to": 420
+    },
+    {
+      "from": 421,
+      "to": 147
+    },
+    {
+      "from": 422,
+      "to": 178
+    },
+    {
+      "from": 422,
+      "to": 308
+    },
+    {
+      "from": 423,
+      "to": 178
+    },
+    {
+      "from": 423,
+      "to": 419
+    },
+    {
+      "from": 424,
+      "to": 178
+    },
+    {
+      "from": 424,
+      "to": 403
+    },
+    {
+      "from": 425,
+      "to": 178
+    },
+    {
+      "from": 425,
+      "to": 405
+    },
+    {
+      "from": 426,
+      "to": 178
+    },
+    {
+      "from": 426,
+      "to": 413
+    },
+    {
+      "from": 427,
+      "to": 178
+    },
+    {
+      "from": 427,
+      "to": 413
+    },
+    {
+      "from": 428,
+      "to": 178
+    },
+    {
+      "from": 428,
+      "to": 412
+    },
+    {
+      "from": 429,
+      "to": 178
+    },
+    {
+      "from": 429,
+      "to": 47
+    },
+    {
+      "from": 430,
+      "to": 178
+    },
+    {
+      "from": 430,
+      "to": 417
+    },
+    {
+      "from": 431,
+      "to": 422
+    },
+    {
+      "from": 431,
+      "to": 154
+    },
+    {
+      "from": 431,
+      "to": 169
+    },
+    {
+      "from": 432,
+      "to": 2
+    },
+    {
+      "from": 432,
+      "to": 1
+    },
+    {
+      "from": 433,
+      "to": 2
+    },
+    {
+      "from": 433,
+      "to": 432
+    },
+    {
+      "from": 434,
+      "to": 432
+    },
+    {
+      "from": 434,
+      "to": 7
+    },
+    {
+      "from": 435,
+      "to": 432
+    },
+    {
+      "from": 435,
+      "to": 10
+    },
+    {
+      "from": 436,
+      "to": 435
+    },
+    {
+      "from": 436,
+      "to": 10
+    },
+    {
+      "from": 437,
+      "to": 433
+    },
+    {
+      "from": 437,
+      "to": 435
+    },
+    {
+      "from": 438,
+      "to": 437
+    },
+    {
+      "from": 438,
+      "to": 11
+    },
+    {
+      "from": 439,
+      "to": 438
+    },
+    {
+      "from": 439,
+      "to": 436
+    },
+    {
+      "from": 440,
+      "to": 11
+    },
+    {
+      "from": 440,
+      "to": 439
+    },
+    {
+      "from": 441,
+      "to": 440
+    },
+    {
+      "from": 441,
+      "to": 11
+    },
+    {
+      "from": 442,
+      "to": 441
+    },
+    {
+      "from": 442,
+      "to": 11
+    },
+    {
+      "from": 443,
+      "to": 13
+    },
+    {
+      "from": 443,
+      "to": 442
+    },
+    {
+      "from": 444,
+      "to": 443
+    },
+    {
+      "from": 444,
+      "to": 439
+    },
+    {
+      "from": 445,
+      "to": 444
+    },
+    {
+      "from": 445,
+      "to": 434
+    },
+    {
+      "from": 446,
+      "to": 436
+    },
+    {
+      "from": 446,
+      "to": 445
+    },
+    {
+      "from": 447,
+      "to": 444
+    },
+    {
+      "from": 447,
+      "to": 436
+    },
+    {
+      "from": 448,
+      "to": 445
+    },
+    {
+      "from": 448,
+      "to": 443
+    },
+    {
+      "from": 449,
+      "to": 443
+    },
+    {
+      "from": 449,
+      "to": 185
+    },
+    {
+      "from": 450,
+      "to": 449
+    },
+    {
+      "from": 450,
+      "to": 448
+    },
+    {
+      "from": 451,
+      "to": 437
+    },
+    {
+      "from": 451,
+      "to": 360
+    },
+    {
+      "from": 452,
+      "to": 451
+    },
+    {
+      "from": 452,
+      "to": 434
+    },
+    {
+      "from": 453,
+      "to": 360
+    },
+    {
+      "from": 453,
+      "to": 451
+    },
+    {
+      "from": 454,
+      "to": 360
+    },
+    {
+      "from": 454,
+      "to": 451
+    },
+    {
+      "from": 455,
+      "to": 453
+    },
+    {
+      "from": 455,
+      "to": 185
+    },
+    {
+      "from": 456,
+      "to": 453
+    },
+    {
+      "from": 456,
+      "to": 455
+    },
+    {
+      "from": 457,
+      "to": 453
+    },
+    {
+      "from": 457,
+      "to": 451
+    },
+    {
+      "from": 458,
+      "to": 457
+    },
+    {
+      "from": 458,
+      "to": 340
+    },
+    {
+      "from": 459,
+      "to": 455
+    },
+    {
+      "from": 459,
+      "to": 457
+    },
+    {
+      "from": 460,
+      "to": 41
+    },
+    {
+      "from": 460,
+      "to": 316
+    },
+    {
+      "from": 461,
+      "to": 41
+    },
+    {
+      "from": 461,
+      "to": 460
+    },
+    {
+      "from": 462,
+      "to": 41
+    },
+    {
+      "from": 462,
+      "to": 460
+    },
+    {
+      "from": 463,
+      "to": 460
+    },
+    {
+      "from": 463,
+      "to": 41
+    },
+    {
+      "from": 464,
+      "to": 432
+    },
+    {
+      "from": 464,
+      "to": 434
+    },
+    {
+      "from": 465,
+      "to": 464
+    },
+    {
+      "from": 465,
+      "to": 45
+    },
+    {
+      "from": 466,
+      "to": 464
+    },
+    {
+      "from": 466,
+      "to": 46
+    },
+    {
+      "from": 467,
+      "to": 46
+    },
+    {
+      "from": 467,
+      "to": 466
+    },
+    {
+      "from": 468,
+      "to": 460
+    },
+    {
+      "from": 468,
+      "to": 12
+    },
+    {
+      "from": 469,
+      "to": 13
+    },
+    {
+      "from": 469,
+      "to": 45
+    },
+    {
+      "from": 470,
+      "to": 469
+    },
+    {
+      "from": 470,
+      "to": 47
+    },
+    {
+      "from": 471,
+      "to": 314
+    },
+    {
+      "from": 471,
+      "to": 469
+    },
+    {
+      "from": 472,
+      "to": 471
+    },
+    {
+      "from": 472,
+      "to": 314
+    },
+    {
+      "from": 473,
+      "to": 432
+    },
+    {
+      "from": 473,
+      "to": 296
+    },
+    {
+      "from": 474,
+      "to": 432
+    },
+    {
+      "from": 474,
+      "to": 473
+    },
+    {
+      "from": 475,
+      "to": 296
+    },
+    {
+      "from": 475,
+      "to": 2
+    },
+    {
+      "from": 476,
+      "to": 2
+    },
+    {
+      "from": 476,
+      "to": 475
+    },
+    {
+      "from": 477,
+      "to": 475
+    },
+    {
+      "from": 477,
+      "to": 358
+    },
+    {
+      "from": 478,
+      "to": 475
+    },
+    {
+      "from": 478,
+      "to": 322
+    },
+    {
+      "from": 479,
+      "to": 178
+    },
+    {
+      "from": 479,
+      "to": 465
+    },
+    {
+      "from": 480,
+      "to": 178
+    },
+    {
+      "from": 480,
+      "to": 468
+    },
+    {
+      "from": 481,
+      "to": 178
+    },
+    {
+      "from": 481,
+      "to": 468
+    },
+    {
+      "from": 482,
+      "to": 178
+    },
+    {
+      "from": 482,
+      "to": 410
+    },
+    {
+      "from": 483,
+      "to": 178
+    },
+    {
+      "from": 483,
+      "to": 473
+    },
+    {
+      "from": 484,
+      "to": 49
+    },
+    {
+      "from": 484,
+      "to": 89
+    },
+    {
+      "from": 485,
+      "to": 484
+    },
+    {
+      "from": 485,
+      "to": 89
+    },
+    {
+      "from": 486,
+      "to": 484
+    },
+    {
+      "from": 486,
+      "to": 485
+    },
+    {
+      "from": 487,
+      "to": 484
+    },
+    {
+      "from": 487,
+      "to": 107
+    },
+    {
+      "from": 488,
+      "to": 484
+    },
+    {
+      "from": 488,
+      "to": 90
+    },
+    {
+      "from": 489,
+      "to": 484
+    },
+    {
+      "from": 489,
+      "to": 432
+    },
+    {
+      "from": 490,
+      "to": 489
+    },
+    {
+      "from": 490,
+      "to": 12
+    },
+    {
+      "from": 491,
+      "to": 490
+    },
+    {
+      "from": 491,
+      "to": 7
+    },
+    {
+      "from": 492,
+      "to": 491
+    },
+    {
+      "from": 492,
+      "to": 11
+    },
+    {
+      "from": 493,
+      "to": 484
+    },
+    {
+      "from": 493,
+      "to": 356
+    },
+    {
+      "from": 494,
+      "to": 484
+    },
+    {
+      "from": 494,
+      "to": 493
+    },
+    {
+      "from": 495,
+      "to": 493
+    },
+    {
+      "from": 495,
+      "to": 494
+    },
+    {
+      "from": 496,
+      "to": 494
+    },
+    {
+      "from": 496,
+      "to": 495
+    },
+    {
+      "from": 497,
+      "to": 496
+    },
+    {
+      "from": 497,
+      "to": 375
+    },
+    {
+      "from": 498,
+      "to": 497
+    },
+    {
+      "from": 498,
+      "to": 373
+    },
+    {
+      "from": 499,
+      "to": 373
+    },
+    {
+      "from": 499,
+      "to": 498
+    },
+    {
+      "from": 500,
+      "to": 484
+    },
+    {
+      "from": 500,
+      "to": 220
+    },
+    {
+      "from": 501,
+      "to": 500
+    },
+    {
+      "from": 501,
+      "to": 43
+    },
+    {
+      "from": 502,
+      "to": 500
+    },
+    {
+      "from": 502,
+      "to": 196
+    },
+    {
+      "from": 503,
+      "to": 501
+    },
+    {
+      "from": 503,
+      "to": 52
+    },
+    {
+      "from": 504,
+      "to": 501
+    },
+    {
+      "from": 504,
+      "to": 13
+    },
+    {
+      "from": 505,
+      "to": 501
+    },
+    {
+      "from": 505,
+      "to": 504
+    },
+    {
+      "from": 506,
+      "to": 485
+    },
+    {
+      "from": 506,
+      "to": 500
+    },
+    {
+      "from": 507,
+      "to": 44
+    },
+    {
+      "from": 507,
+      "to": 174
+    },
+    {
+      "from": 508,
+      "to": 45
+    },
+    {
+      "from": 508,
+      "to": 507
+    },
+    {
+      "from": 509,
+      "to": 45
+    },
+    {
+      "from": 509,
+      "to": 46
+    },
+    {
+      "from": 510,
+      "to": 45
+    },
+    {
+      "from": 510,
+      "to": 507
+    },
+    {
+      "from": 511,
+      "to": 45
+    },
+    {
+      "from": 511,
+      "to": 507
+    },
+    {
+      "from": 512,
+      "to": 45
+    },
+    {
+      "from": 512,
+      "to": 46
+    },
+    {
+      "from": 513,
+      "to": 45
+    },
+    {
+      "from": 513,
+      "to": 223
+    },
+    {
+      "from": 514,
+      "to": 45
+    },
+    {
+      "from": 514,
+      "to": 13
+    },
+    {
+      "from": 515,
+      "to": 45
+    },
+    {
+      "from": 515,
+      "to": 464
+    },
+    {
+      "from": 516,
+      "to": 44
+    },
+    {
+      "from": 516,
+      "to": 14
+    },
+    {
+      "from": 517,
+      "to": 14
+    },
+    {
+      "from": 517,
+      "to": 516
+    },
+    {
+      "from": 518,
+      "to": 516
+    },
+    {
+      "from": 518,
+      "to": 43
+    },
+    {
+      "from": 519,
+      "to": 44
+    },
+    {
+      "from": 519,
+      "to": 72
+    },
+    {
+      "from": 520,
+      "to": 519
+    },
+    {
+      "from": 520,
+      "to": 46
+    },
+    {
+      "from": 521,
+      "to": 519
+    },
+    {
+      "from": 521,
+      "to": 73
+    },
+    {
+      "from": 522,
+      "to": 521
+    },
+    {
+      "from": 522,
+      "to": 12
+    },
+    {
+      "from": 523,
+      "to": 522
+    },
+    {
+      "from": 523,
+      "to": 43
+    },
+    {
+      "from": 524,
+      "to": 17
+    },
+    {
+      "from": 524,
+      "to": 14
+    },
+    {
+      "from": 525,
+      "to": 524
+    },
+    {
+      "from": 525,
+      "to": 19
+    },
+    {
+      "from": 526,
+      "to": 525
+    },
+    {
+      "from": 526,
+      "to": 20
+    },
+    {
+      "from": 527,
+      "to": 17
+    },
+    {
+      "from": 527,
+      "to": 14
+    },
+    {
+      "from": 528,
+      "to": 17
+    },
+    {
+      "from": 528,
+      "to": 19
+    },
+    {
+      "from": 529,
+      "to": 17
+    },
+    {
+      "from": 529,
+      "to": 528
+    },
+    {
+      "from": 530,
+      "to": 20
+    },
+    {
+      "from": 530,
+      "to": 516
+    },
+    {
+      "from": 531,
+      "to": 530
+    },
+    {
+      "from": 531,
+      "to": 14
+    },
+    {
+      "from": 532,
+      "to": 531
+    },
+    {
+      "from": 532,
+      "to": 518
+    },
+    {
+      "from": 533,
+      "to": 530
+    },
+    {
+      "from": 533,
+      "to": 46
+    },
+    {
+      "from": 534,
+      "to": 46
+    },
+    {
+      "from": 534,
+      "to": 533
+    },
+    {
+      "from": 535,
+      "to": 20
+    },
+    {
+      "from": 535,
+      "to": 42
+    },
+    {
+      "from": 536,
+      "to": 161
+    },
+    {
+      "from": 536,
+      "to": 525
+    },
+    {
+      "from": 537,
+      "to": 27
+    },
+    {
+      "from": 537,
+      "to": 13
+    },
+    {
+      "from": 538,
+      "to": 537
+    },
+    {
+      "from": 538,
+      "to": 120
+    },
+    {
+      "from": 539,
+      "to": 178
+    },
+    {
+      "from": 539,
+      "to": 522
+    },
+    {
+      "from": 540,
+      "to": 178
+    },
+    {
+      "from": 540,
+      "to": 222
+    },
+    {
+      "from": 541,
+      "to": 42
+    },
+    {
+      "from": 541,
+      "to": 321
+    },
+    {
+      "from": 542,
+      "to": 541
+    },
+    {
+      "from": 542,
+      "to": 185
+    },
+    {
+      "from": 543,
+      "to": 541
+    },
+    {
+      "from": 543,
+      "to": 542
+    },
+    {
+      "from": 544,
+      "to": 296
+    },
+    {
+      "from": 544,
+      "to": 541
+    },
+    {
+      "from": 545,
+      "to": 541
+    },
+    {
+      "from": 545,
+      "to": 544
+    },
+    {
+      "from": 546,
+      "to": 541
+    },
+    {
+      "from": 546,
+      "to": 303
+    },
+    {
+      "from": 547,
+      "to": 541
+    },
+    {
+      "from": 547,
+      "to": 321
+    },
+    {
+      "from": 548,
+      "to": 541
+    },
+    {
+      "from": 548,
+      "to": 530
+    },
+    {
+      "from": 549,
+      "to": 178
+    },
+    {
+      "from": 549,
+      "to": 542
+    },
+    {
+      "from": 550,
+      "to": 178
+    },
+    {
+      "from": 550,
+      "to": 548
+    },
+    {
+      "from": 551,
+      "to": 541
+    },
+    {
+      "from": 551,
+      "to": 43
+    },
+    {
+      "from": 552,
+      "to": 72
+    },
+    {
+      "from": 552,
+      "to": 541
+    },
+    {
+      "from": 553,
+      "to": 552
+    },
+    {
+      "from": 553,
+      "to": 20
+    },
+    {
+      "from": 554,
+      "to": 20
+    },
+    {
+      "from": 554,
+      "to": 553
+    },
+    {
+      "from": 555,
+      "to": 13
+    },
+    {
+      "from": 555,
+      "to": 553
+    },
+    {
+      "from": 556,
+      "to": 552
+    },
+    {
+      "from": 556,
+      "to": 543
+    },
+    {
+      "from": 557,
+      "to": 556
+    },
+    {
+      "from": 557,
+      "to": 471
+    },
+    {
+      "from": 558,
+      "to": 471
+    },
+    {
+      "from": 558,
+      "to": 557
+    },
+    {
+      "from": 559,
+      "to": 552
+    },
+    {
+      "from": 559,
+      "to": 543
+    },
+    {
+      "from": 560,
+      "to": 13
+    },
+    {
+      "from": 560,
+      "to": 559
+    },
+    {
+      "from": 561,
+      "to": 556
+    },
+    {
+      "from": 561,
+      "to": 466
+    },
+    {
+      "from": 562,
+      "to": 42
+    },
+    {
+      "from": 562,
+      "to": 315
+    },
+    {
+      "from": 563,
+      "to": 562
+    },
+    {
+      "from": 563,
+      "to": 532
+    },
+    {
+      "from": 564,
+      "to": 163
+    },
+    {
+      "from": 564,
+      "to": 13
+    },
+    {
+      "from": 565,
+      "to": 13
+    },
+    {
+      "from": 565,
+      "to": 564
+    },
+    {
+      "from": 566,
+      "to": 564
+    },
+    {
+      "from": 566,
+      "to": 565
+    },
+    {
+      "from": 567,
+      "to": 178
+    },
+    {
+      "from": 567,
+      "to": 164
+    },
+    {
+      "from": 568,
+      "to": 567
+    },
+    {
+      "from": 568,
+      "to": 166
+    },
+    {
+      "from": 569,
+      "to": 568
+    },
+    {
+      "from": 569,
+      "to": 102
+    },
+    {
+      "from": 570,
+      "to": 213
+    },
+    {
+      "from": 570,
+      "to": 563
     }
   ]
 }
